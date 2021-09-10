@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzProjectAndEmployeeMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzProjectAndEmployee" >
+    <id column="project_and_employee_id" property="projectAndEmployeeId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="employee_info_id" property="employeeInfoId" jdbcType="CHAR" />
+    <result column="project_employee_id" property="projectEmployeeId" jdbcType="CHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    project_and_employee_id, project_id, employee_info_id, project_employee_id, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_project_and_employee
+    where project_and_employee_id = #{projectAndEmployeeId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_project_and_employee
+    where project_and_employee_id = #{projectAndEmployeeId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzProjectAndEmployee" >
+    insert into zj_tz_project_and_employee (project_and_employee_id, project_id, employee_info_id, 
+      project_employee_id, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{projectAndEmployeeId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{employeeInfoId,jdbcType=CHAR}, 
+      #{projectEmployeeId,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzProjectAndEmployee" >
+    insert into zj_tz_project_and_employee
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="projectAndEmployeeId != null" >
+        project_and_employee_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="employeeInfoId != null" >
+        employee_info_id,
+      </if>
+      <if test="projectEmployeeId != null" >
+        project_employee_id,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="projectAndEmployeeId != null" >
+        #{projectAndEmployeeId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="employeeInfoId != null" >
+        #{employeeInfoId,jdbcType=CHAR},
+      </if>
+      <if test="projectEmployeeId != null" >
+        #{projectEmployeeId,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzProjectAndEmployee" >
+    update zj_tz_project_and_employee
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="employeeInfoId != null" >
+        employee_info_id = #{employeeInfoId,jdbcType=CHAR},
+      </if>
+      <if test="projectEmployeeId != null" >
+        project_employee_id = #{projectEmployeeId,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where project_and_employee_id = #{projectAndEmployeeId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzProjectAndEmployee" >
+    update zj_tz_project_and_employee
+    set       project_id = #{projectId,jdbcType=CHAR},
+      employee_info_id = #{employeeInfoId,jdbcType=CHAR},
+      project_employee_id = #{projectEmployeeId,jdbcType=CHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where project_and_employee_id = #{projectAndEmployeeId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzProjectAndEmployeeList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzProjectAndEmployee" >
+    select
+      zj_tz_employee_info.employee_name as employeeName,
+      zj_tz_employee_info.id_card as idCard,
+      zj_tz_employee_info.employee_info_id,
+      zj_tz_project_and_employee.project_and_employee_id
+    from zj_tz_project_and_employee
+      left join zj_tz_employee_info
+        on zj_tz_project_and_employee.employee_info_id = zj_tz_employee_info.employee_info_id
+    where zj_tz_project_and_employee.del_flag = '0'
+    <if test="projectId != null and projectId != ''" >
+     and zj_tz_project_and_employee.project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="employeeName != null and employeeName != ''">
+     and zj_tz_employee_info.employee_name like CONCAT('%',CONCAT(#{employeeName,jdbcType=CHAR},'%'))
+    </if>
+    <if test="idCard != null and idCard != ''">
+      and zj_tz_employee_info.id_card like CONCAT('%',CONCAT(#{idCard,jdbcType=CHAR},'%'))
+    </if>
+    <if test="employeeInfoId != null and employeeInfoId != ''" >
+     and zj_tz_project_and_employee.employee_info_id = #{employeeInfoId,jdbcType=CHAR}
+    </if>
+    <if test="projectEmployeeId != null and projectEmployeeId != ''" >
+     and zj_tz_project_and_employee.project_employee_id = #{projectEmployeeId,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and zj_tz_project_and_employee.create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and zj_tz_project_and_employee.modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY zj_tz_employee_info.employee_name DESC
+  </select>
+  <delete id="batchDeleteUpdateZjTzProjectAndEmployee" parameterType="com.apih5.mybatis.pojo.ZjTzProjectAndEmployee" >
+    <![CDATA[ 
+        update zj_tz_project_and_employee
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and project_and_employee_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.projectAndEmployeeId} 
+     </foreach>
+  </delete>
+
+
+  <delete id="DeleteUpdateZjTzProjectAndEmployee" parameterType="com.apih5.mybatis.pojo.ZjTzProjectAndEmployee" >
+    <![CDATA[
+    update zj_tz_project_and_employee
+        set del_flag = '1',
+        modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+        modify_user=#{param2.modifyUser},
+        modify_user_name=#{param2.modifyUserName}
+    where del_flag = '0' and project_employee_id = #{param1.projectEmployeeId}
+   ]]>
+  </delete>
+
+  <select id="selectByProjectIdAndEmployeeInfoId" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzProjectAndEmployee">
+    select
+    <include refid="Base_Column_List" />
+      from zj_tz_project_and_employee
+    where project_id = #{projectId,jdbcType=CHAR} and employee_info_id = #{employeeInfoId,jdbcType=CHAR} and del_flag = '0'
+  </select>
+</mapper>

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqEmployeeNumMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqEmployeeNum" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="org_name" property="orgName" jdbcType="VARCHAR" />
+    <result column="periodDate" property="periodDate" jdbcType="DATE" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="employeenum" property="employeenum" jdbcType="DECIMAL" />
+    <result column="labournum" property="labournum" jdbcType="DECIMAL" />
+    <result column="company_id" property="companyId" jdbcType="VARCHAR" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, orgID, org_name, periodDate, period, 
+    employeenum, labournum, company_id, company_name, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_EmployeeNum
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_EmployeeNum
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqEmployeeNum" >
+    insert into zx_eq_EmployeeNum (id, orgID, org_name, 
+      periodDate, period, employeenum, 
+      labournum, company_id, company_name, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, 
+      #{periodDate,jdbcType=DATE}, #{period,jdbcType=VARCHAR}, #{employeenum,jdbcType=DECIMAL}, 
+      #{labournum,jdbcType=DECIMAL}, #{companyId,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqEmployeeNum" >
+    insert into zx_eq_EmployeeNum
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="orgName != null" >
+        org_name,
+      </if>
+      <if test="periodDate != null" >
+        periodDate,
+      </if>
+      <if test="period != null" >
+        period,
+      </if>
+      <if test="employeenum != null" >
+        employeenum,
+      </if>
+      <if test="labournum != null" >
+        labournum,
+      </if>
+      <if test="companyId != null" >
+        company_id,
+      </if>
+      <if test="companyName != null" >
+        company_name,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="periodDate != null" >
+        #{periodDate,jdbcType=DATE},
+      </if>
+      <if test="period != null" >
+        #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="employeenum != null" >
+        #{employeenum,jdbcType=DECIMAL},
+      </if>
+      <if test="labournum != null" >
+        #{labournum,jdbcType=DECIMAL},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqEmployeeNum" >
+    update zx_eq_EmployeeNum
+    <set >
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        org_name = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="periodDate != null" >
+        periodDate = #{periodDate,jdbcType=DATE},
+      </if>
+      <if test="period != null" >
+        period = #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="employeenum != null" >
+        employeenum = #{employeenum,jdbcType=DECIMAL},
+      </if>
+      <if test="labournum != null" >
+        labournum = #{labournum,jdbcType=DECIMAL},
+      </if>
+      <if test="companyId != null" >
+        company_id = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqEmployeeNum" >
+    update zx_eq_EmployeeNum
+    set       orgID = #{orgID,jdbcType=VARCHAR},
+      org_name = #{orgName,jdbcType=VARCHAR},
+      periodDate = #{periodDate,jdbcType=DATE},
+      period = #{period,jdbcType=VARCHAR},
+      employeenum = #{employeenum,jdbcType=DECIMAL},
+      labournum = #{labournum,jdbcType=DECIMAL},
+      company_id = #{companyId,jdbcType=VARCHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxEqEmployeeNumList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEmployeeNum" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_EmployeeNum
+    where del_flag = '0'
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and org_name = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="periodDate != null" >
+     and periodDate = #{periodDate,jdbcType=DATE}
+    </if>
+    <if test="period != null and period != ''" >
+     and period = #{period,jdbcType=VARCHAR}
+    </if>
+    <if test="employeenum != null and employeenum != ''" >
+     and employeenum = #{employeenum,jdbcType=DECIMAL}
+    </if>
+    <if test="labournum != null and labournum != ''" >
+     and labournum = #{labournum,jdbcType=DECIMAL}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and company_id = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and company_name = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqEmployeeNum" parameterType="com.apih5.mybatis.pojo.ZxEqEmployeeNum" >
+    <![CDATA[ 
+        update zx_eq_EmployeeNum
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

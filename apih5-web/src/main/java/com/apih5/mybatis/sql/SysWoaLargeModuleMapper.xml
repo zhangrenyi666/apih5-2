@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.SysWoaLargeModuleMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.SysWoaLargeModule" >
+    <id column="large_module_id" property="largeModuleId" jdbcType="CHAR" />
+    <result column="role_id" property="roleId" jdbcType="CHAR" />
+    <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+    <result column="large_module_type" property="largeModuleType" jdbcType="CHAR" />
+    <result column="large_module_title" property="largeModuleTitle" jdbcType="VARCHAR" />
+    <result column="large_module_sort" property="largeModuleSort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    large_module_id, role_id, role_name, large_module_type, large_module_title, 
+    large_module_sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_woa_large_module
+    where large_module_id = #{largeModuleId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_woa_large_module
+    where large_module_id = #{largeModuleId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.SysWoaLargeModule" >
+    insert into sys_woa_large_module (large_module_id, role_id, role_name, 
+      large_module_type, large_module_title, large_module_sort, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{largeModuleId,jdbcType=CHAR}, #{roleId,jdbcType=CHAR}, #{roleName,jdbcType=VARCHAR}, 
+      #{largeModuleType,jdbcType=CHAR}, #{largeModuleTitle,jdbcType=VARCHAR}, #{largeModuleSort,jdbcType=INTEGER}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.SysWoaLargeModule" >
+    insert into sys_woa_large_module
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="largeModuleId != null" >
+        large_module_id,
+      </if>
+      <if test="roleId != null" >
+        role_id,
+      </if>
+      <if test="roleName != null" >
+        role_name,
+      </if>
+      <if test="largeModuleType != null" >
+        large_module_type,
+      </if>
+      <if test="largeModuleTitle != null" >
+        large_module_title,
+      </if>
+      <if test="largeModuleSort != null" >
+        large_module_sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="largeModuleId != null" >
+        #{largeModuleId,jdbcType=CHAR},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=CHAR},
+      </if>
+      <if test="roleName != null" >
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="largeModuleType != null" >
+        #{largeModuleType,jdbcType=CHAR},
+      </if>
+      <if test="largeModuleTitle != null" >
+        #{largeModuleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="largeModuleSort != null" >
+        #{largeModuleSort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.SysWoaLargeModule" >
+    update sys_woa_large_module
+    <set >
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=CHAR},
+      </if>
+      <if test="roleName != null" >
+        role_name = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="largeModuleType != null" >
+        large_module_type = #{largeModuleType,jdbcType=CHAR},
+      </if>
+      <if test="largeModuleTitle != null" >
+        large_module_title = #{largeModuleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="largeModuleSort != null" >
+        large_module_sort = #{largeModuleSort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where large_module_id = #{largeModuleId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.SysWoaLargeModule" >
+    update sys_woa_large_module
+    set       role_id = #{roleId,jdbcType=CHAR},
+      role_name = #{roleName,jdbcType=VARCHAR},
+      large_module_type = #{largeModuleType,jdbcType=CHAR},
+      large_module_title = #{largeModuleTitle,jdbcType=VARCHAR},
+      large_module_sort = #{largeModuleSort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where large_module_id = #{largeModuleId,jdbcType=CHAR}
+  </update>
+  <select id="selectBySysWoaLargeModuleList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysWoaLargeModule" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_woa_large_module
+    where del_flag = '0'
+    <if test="roleId != null and roleId != ''" >
+     and role_id = #{roleId,jdbcType=CHAR}
+    </if>
+    <if test="roleName != null and roleName != ''" >
+     and role_name = #{roleName,jdbcType=VARCHAR}
+    </if>
+    <if test="largeModuleType != null and largeModuleType != ''" >
+     and large_module_type = #{largeModuleType,jdbcType=CHAR}
+    </if>
+    <if test="largeModuleTitle != null and largeModuleTitle != ''" >
+     and large_module_title = #{largeModuleTitle,jdbcType=VARCHAR}
+    </if>
+    <if test="largeModuleSort != null and largeModuleSort != ''" >
+     and large_module_sort = #{largeModuleSort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY large_module_sort 
+  </select>
+  <delete id="batchDeleteUpdateSysWoaLargeModule" parameterType="com.apih5.mybatis.pojo.SysWoaLargeModule" >
+    <![CDATA[ 
+        update sys_woa_large_module
+        set del_flag = '1'
+        where del_flag = '0' and large_module_id in 
+     ]]> 
+     <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.largeModuleId} 
+     </foreach>
+  </delete>
+</mapper>

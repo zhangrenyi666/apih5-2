@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzRunFileMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzRunFile" >
+    <id column="run_file_id" property="runFileId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="file_type" property="fileType" jdbcType="CHAR" />
+    <result column="file_form" property="fileForm" jdbcType="CHAR" />
+    <result column="reference_number" property="referenceNumber" jdbcType="VARCHAR" />
+    <result column="file_name" property="fileName" jdbcType="VARCHAR" />
+    <result column="release_date" property="releaseDate" jdbcType="TIMESTAMP" />
+    <result column="effect_flag" property="effectFlag" jdbcType="CHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    run_file_id, project_id, project_name, file_type, file_form, 
+    reference_number, file_name, release_date, effect_flag, content, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_run_file
+    where run_file_id = #{runFileId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_run_file
+    where run_file_id = #{runFileId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzRunFile" >
+    insert into zj_tz_run_file (run_file_id, project_id, project_name, 
+      file_type, file_form, reference_number, 
+      file_name, release_date, effect_flag, 
+      content, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{runFileId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, 
+      #{fileType,jdbcType=CHAR}, #{fileForm,jdbcType=CHAR}, #{referenceNumber,jdbcType=VARCHAR}, 
+      #{fileName,jdbcType=VARCHAR}, #{releaseDate,jdbcType=TIMESTAMP}, #{effectFlag,jdbcType=CHAR}, 
+      #{content,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzRunFile" >
+    insert into zj_tz_run_file
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="runFileId != null" >
+        run_file_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="fileType != null" >
+        file_type,
+      </if>
+      <if test="fileForm != null" >
+        file_form,
+      </if>
+      <if test="referenceNumber != null" >
+        reference_number,
+      </if>
+      <if test="fileName != null" >
+        file_name,
+      </if>
+      <if test="releaseDate != null" >
+        release_date,
+      </if>
+      <if test="effectFlag != null" >
+        effect_flag,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="runFileId != null" >
+        #{runFileId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="fileType != null" >
+        #{fileType,jdbcType=CHAR},
+      </if>
+      <if test="fileForm != null" >
+        #{fileForm,jdbcType=CHAR},
+      </if>
+      <if test="referenceNumber != null" >
+        #{referenceNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null" >
+        #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseDate != null" >
+        #{releaseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectFlag != null" >
+        #{effectFlag,jdbcType=CHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzRunFile" >
+    update zj_tz_run_file
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="fileType != null" >
+        file_type = #{fileType,jdbcType=CHAR},
+      </if>
+      <if test="fileForm != null" >
+        file_form = #{fileForm,jdbcType=CHAR},
+      </if>
+      <if test="referenceNumber != null" >
+        reference_number = #{referenceNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null" >
+        file_name = #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseDate != null" >
+        release_date = #{releaseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectFlag != null" >
+        effect_flag = #{effectFlag,jdbcType=CHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where run_file_id = #{runFileId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzRunFile" >
+    update zj_tz_run_file
+    set       project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      file_type = #{fileType,jdbcType=CHAR},
+      file_form = #{fileForm,jdbcType=CHAR},
+      reference_number = #{referenceNumber,jdbcType=VARCHAR},
+      file_name = #{fileName,jdbcType=VARCHAR},
+      release_date = #{releaseDate,jdbcType=TIMESTAMP},
+      effect_flag = #{effectFlag,jdbcType=CHAR},
+      content = #{content,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where run_file_id = #{runFileId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzRunFileList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzRunFile" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_run_file
+    where del_flag = '0'
+    <if test="runFileId != null and runFileId != ''" >
+     and run_file_id = #{runFileId,jdbcType=}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     and project_id in (${projectIdSql})
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name LIKE CONCAT('%', #{projectName},'%')
+    </if>
+    <if test="fileType != null and fileType != ''" >
+     and file_type = #{fileType,jdbcType=CHAR}
+    </if>
+    <if test="fileForm != null and fileForm != ''" >
+     and file_form LIKE CONCAT('%', #{fileForm},'%')
+    </if>
+    <if test="referenceNumber != null and referenceNumber != ''" >
+     and reference_number LIKE CONCAT('%', #{referenceNumber},'%')
+    </if>
+    <if test="fileName != null and fileName != ''" >
+     and file_name LIKE CONCAT('%', #{fileName},'%')
+    </if>
+    <if test="releaseDate != null" >
+     and release_date = #{releaseDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="effectFlag != null and effectFlag != ''" >
+     and effect_flag = #{effectFlag,jdbcType=CHAR}
+    </if>
+    <if test="content != null and content != ''" >
+     and content = #{content,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzRunFile" parameterType="com.apih5.mybatis.pojo.ZjTzRunFile" >
+    <![CDATA[ 
+        update zj_tz_run_file
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and run_file_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.runFileId} 
+     </foreach>
+  </delete>
+  
+   <update id="updateZjTzRunFileProjectShortName" parameterType="com.apih5.mybatis.pojo.ZjTzRunFile">
+		update zj_tz_run_file
+		set project_name = #{projectName,jdbcType=VARCHAR}
+		where del_flag = '0'
+		and project_id = #{projectId,jdbcType=CHAR}
+	</update>
+</mapper>

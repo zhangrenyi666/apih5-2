@@ -1,0 +1,21 @@
+package com.apih5.service;
+
+import java.util.List;
+
+import com.apih5.framework.entity.ResponseEntity;
+import com.apih5.mybatis.pojo.ZjXmCqjxProjectDisciplineAssessmentDetailed;
+
+public interface ZjXmCqjxProjectDisciplineAssessmentDetailedService {
+
+    public ResponseEntity getZjXmCqjxProjectDisciplineAssessmentDetailedListByCondition(ZjXmCqjxProjectDisciplineAssessmentDetailed zjXmCqjxProjectDisciplineAssessmentDetailed);
+
+    public ResponseEntity getZjXmCqjxProjectDisciplineAssessmentDetailedDetails(ZjXmCqjxProjectDisciplineAssessmentDetailed zjXmCqjxProjectDisciplineAssessmentDetailed);
+
+    public ResponseEntity saveZjXmCqjxProjectDisciplineAssessmentDetailed(ZjXmCqjxProjectDisciplineAssessmentDetailed zjXmCqjxProjectDisciplineAssessmentDetailed);
+
+    public ResponseEntity updateZjXmCqjxProjectDisciplineAssessmentDetailed(ZjXmCqjxProjectDisciplineAssessmentDetailed zjXmCqjxProjectDisciplineAssessmentDetailed);
+
+    public ResponseEntity batchDeleteUpdateZjXmCqjxProjectDisciplineAssessmentDetailed(List<ZjXmCqjxProjectDisciplineAssessmentDetailed> zjXmCqjxProjectDisciplineAssessmentDetailedList);
+    
+}
+

@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqVehicleUsageCompanyMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqVehicleUsageCompany" >
+    <id column="zxEqVehicleUsageCompanyId" property="zxEqVehicleUsageCompanyId" jdbcType="CHAR" />
+    <result column="catName" property="catName" jdbcType="VARCHAR" />
+    <result column="equipNo" property="equipNo" jdbcType="VARCHAR" />
+    <result column="equipName" property="equipName" jdbcType="VARCHAR" />
+    <result column="techrequire" property="techrequire" jdbcType="VARCHAR" />
+    <result column="calendarNumDay" property="calendarNumDay" jdbcType="DECIMAL" />
+    <result column="wellDays" property="wellDays" jdbcType="DECIMAL" />
+    <result column="wellPercen" property="wellPercen" jdbcType="DECIMAL" />
+    <result column="workDays" property="workDays" jdbcType="DECIMAL" />
+    <result column="actualQty" property="actualQty" jdbcType="DECIMAL" />
+    <result column="runDayPercen" property="runDayPercen" jdbcType="DECIMAL" />
+    <result column="usefulMileage" property="usefulMileage" jdbcType="DECIMAL" />
+    <result column="oilamount" property="oilamount" jdbcType="DECIMAL" />
+    <result column="caioidamout" property="caioidamout" jdbcType="DECIMAL" />
+    <result column="consumption" property="consumption" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="beginDate" property="beginDate" jdbcType="TIMESTAMP" />
+    <result column="endDate" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxEqVehicleUsageCompanyId, catName, equipNo, equipName, techrequire, 
+    calendarNumDay, wellDays, wellPercen, workDays, actualQty, 
+    runDayPercen, usefulMileage, oilamount, caioidamout, consumption, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_vehicleUsageCompany
+    where del_flag = '0' and zxEqVehicleUsageCompanyId = #{zxEqVehicleUsageCompanyId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_vehicleUsageCompany
+    where zxEqVehicleUsageCompanyId = #{zxEqVehicleUsageCompanyId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqVehicleUsageCompany" >
+    insert into zx_eq_vehicleUsageCompany (
+    zxEqVehicleUsageCompanyId, catName, equipNo, equipName, techrequire, 
+    calendarNumDay, wellDays, wellPercen, workDays, actualQty, 
+    runDayPercen, usefulMileage, oilamount, caioidamout, consumption, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxEqVehicleUsageCompanyId,jdbcType=CHAR}, #{catName,jdbcType=VARCHAR}, #{equipNo,jdbcType=VARCHAR}, #{equipName,jdbcType=VARCHAR}, #{techrequire,jdbcType=VARCHAR}, 
+    #{calendarNumDay,jdbcType=DECIMAL}, #{wellDays,jdbcType=DECIMAL}, #{wellPercen,jdbcType=DECIMAL}, #{workDays,jdbcType=DECIMAL}, #{actualQty,jdbcType=DECIMAL}, 
+    #{runDayPercen,jdbcType=DECIMAL}, #{usefulMileage,jdbcType=DECIMAL}, #{oilamount,jdbcType=DECIMAL}, #{caioidamout,jdbcType=DECIMAL}, #{consumption,jdbcType=DECIMAL}, 
+    #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+    #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqVehicleUsageCompany" >
+    insert into zx_eq_vehicleUsageCompany
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxEqVehicleUsageCompanyId != null" >
+        zxEqVehicleUsageCompanyId,
+      </if>
+      <if test="catName != null" >
+        catName,
+      </if>
+      <if test="equipNo != null" >
+        equipNo,
+      </if>
+      <if test="equipName != null" >
+        equipName,
+      </if>
+      <if test="techrequire != null" >
+        techrequire,
+      </if>
+      <if test="calendarNumDay != null" >
+        calendarNumDay,
+      </if>
+      <if test="wellDays != null" >
+        wellDays,
+      </if>
+      <if test="wellPercen != null" >
+        wellPercen,
+      </if>
+      <if test="workDays != null" >
+        workDays,
+      </if>
+      <if test="actualQty != null" >
+        actualQty,
+      </if>
+      <if test="runDayPercen != null" >
+        runDayPercen,
+      </if>
+      <if test="usefulMileage != null" >
+        usefulMileage,
+      </if>
+      <if test="oilamount != null" >
+        oilamount,
+      </if>
+      <if test="caioidamout != null" >
+        caioidamout,
+      </if>
+      <if test="consumption != null" >
+        consumption,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxEqVehicleUsageCompanyId != null" >
+        #{zxEqVehicleUsageCompanyId,jdbcType=CHAR},
+      </if>
+      <if test="catName != null" >
+        #{catName,jdbcType=VARCHAR},
+      </if>
+      <if test="equipNo != null" >
+        #{equipNo,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="techrequire != null" >
+        #{techrequire,jdbcType=VARCHAR},
+      </if>
+      <if test="calendarNumDay != null" >
+        #{calendarNumDay,jdbcType=DECIMAL},
+      </if>
+      <if test="wellDays != null" >
+        #{wellDays,jdbcType=DECIMAL},
+      </if>
+      <if test="wellPercen != null" >
+        #{wellPercen,jdbcType=DECIMAL},
+      </if>
+      <if test="workDays != null" >
+        #{workDays,jdbcType=DECIMAL},
+      </if>
+      <if test="actualQty != null" >
+        #{actualQty,jdbcType=DECIMAL},
+      </if>
+      <if test="runDayPercen != null" >
+        #{runDayPercen,jdbcType=DECIMAL},
+      </if>
+      <if test="usefulMileage != null" >
+        #{usefulMileage,jdbcType=DECIMAL},
+      </if>
+      <if test="oilamount != null" >
+        #{oilamount,jdbcType=DECIMAL},
+      </if>
+      <if test="caioidamout != null" >
+        #{caioidamout,jdbcType=DECIMAL},
+      </if>
+      <if test="consumption != null" >
+        #{consumption,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqVehicleUsageCompany" >
+    update zx_eq_vehicleUsageCompany
+    <set >
+      <if test="catName != null" >
+        catName = #{catName,jdbcType=VARCHAR},
+      </if>
+      <if test="equipNo != null" >
+        equipNo = #{equipNo,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        equipName = #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="techrequire != null" >
+        techrequire = #{techrequire,jdbcType=VARCHAR},
+      </if>
+      <if test="calendarNumDay != null" >
+        calendarNumDay = #{calendarNumDay,jdbcType=DECIMAL},
+      </if>
+      <if test="wellDays != null" >
+        wellDays = #{wellDays,jdbcType=DECIMAL},
+      </if>
+      <if test="wellPercen != null" >
+        wellPercen = #{wellPercen,jdbcType=DECIMAL},
+      </if>
+      <if test="workDays != null" >
+        workDays = #{workDays,jdbcType=DECIMAL},
+      </if>
+      <if test="actualQty != null" >
+        actualQty = #{actualQty,jdbcType=DECIMAL},
+      </if>
+      <if test="runDayPercen != null" >
+        runDayPercen = #{runDayPercen,jdbcType=DECIMAL},
+      </if>
+      <if test="usefulMileage != null" >
+        usefulMileage = #{usefulMileage,jdbcType=DECIMAL},
+      </if>
+      <if test="oilamount != null" >
+        oilamount = #{oilamount,jdbcType=DECIMAL},
+      </if>
+      <if test="caioidamout != null" >
+        caioidamout = #{caioidamout,jdbcType=DECIMAL},
+      </if>
+      <if test="consumption != null" >
+        consumption = #{consumption,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxEqVehicleUsageCompanyId = #{zxEqVehicleUsageCompanyId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqVehicleUsageCompany" >
+    update zx_eq_vehicleUsageCompany set 
+      catName = #{catName,jdbcType=VARCHAR},
+      equipNo = #{equipNo,jdbcType=VARCHAR},
+      equipName = #{equipName,jdbcType=VARCHAR},
+      techrequire = #{techrequire,jdbcType=VARCHAR},
+      calendarNumDay = #{calendarNumDay,jdbcType=DECIMAL},
+      wellDays = #{wellDays,jdbcType=DECIMAL},
+      wellPercen = #{wellPercen,jdbcType=DECIMAL},
+      workDays = #{workDays,jdbcType=DECIMAL},
+      actualQty = #{actualQty,jdbcType=DECIMAL},
+      runDayPercen = #{runDayPercen,jdbcType=DECIMAL},
+      usefulMileage = #{usefulMileage,jdbcType=DECIMAL},
+      oilamount = #{oilamount,jdbcType=DECIMAL},
+      caioidamout = #{caioidamout,jdbcType=DECIMAL},
+      consumption = #{consumption,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxEqVehicleUsageCompanyId = #{zxEqVehicleUsageCompanyId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxEqVehicleUsageCompanyList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqVehicleUsageCompany" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_vehicleUsageCompany
+    where del_flag = '0'
+    <if test="zxEqVehicleUsageCompanyId != null and zxEqVehicleUsageCompanyId != ''" >
+     and zxEqVehicleUsageCompanyId = #{zxEqVehicleUsageCompanyId,jdbcType=CHAR}
+    </if>
+    <if test="catName != null and catName != ''" >
+     and catName = #{catName,jdbcType=VARCHAR}
+    </if>
+    <if test="equipNo != null and equipNo != ''" >
+     and equipNo = #{equipNo,jdbcType=VARCHAR}
+    </if>
+    <if test="equipName != null and equipName != ''" >
+     and equipName = #{equipName,jdbcType=VARCHAR}
+    </if>
+    <if test="techrequire != null and techrequire != ''" >
+     and techrequire = #{techrequire,jdbcType=VARCHAR}
+    </if>
+    <if test="calendarNumDay != null and calendarNumDay != ''" >
+     and calendarNumDay = #{calendarNumDay,jdbcType=DECIMAL}
+    </if>
+    <if test="wellDays != null and wellDays != ''" >
+     and wellDays = #{wellDays,jdbcType=DECIMAL}
+    </if>
+    <if test="wellPercen != null and wellPercen != ''" >
+     and wellPercen = #{wellPercen,jdbcType=DECIMAL}
+    </if>
+    <if test="workDays != null and workDays != ''" >
+     and workDays = #{workDays,jdbcType=DECIMAL}
+    </if>
+    <if test="actualQty != null and actualQty != ''" >
+     and actualQty = #{actualQty,jdbcType=DECIMAL}
+    </if>
+    <if test="runDayPercen != null and runDayPercen != ''" >
+     and runDayPercen = #{runDayPercen,jdbcType=DECIMAL}
+    </if>
+    <if test="usefulMileage != null and usefulMileage != ''" >
+     and usefulMileage = #{usefulMileage,jdbcType=DECIMAL}
+    </if>
+    <if test="oilamount != null and oilamount != ''" >
+     and oilamount = #{oilamount,jdbcType=DECIMAL}
+    </if>
+    <if test="caioidamout != null and caioidamout != ''" >
+     and caioidamout = #{caioidamout,jdbcType=DECIMAL}
+    </if>
+    <if test="consumption != null and consumption != ''" >
+     and consumption = #{consumption,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqVehicleUsageCompany" parameterType="com.apih5.mybatis.pojo.ZxEqVehicleUsageCompany" >
+    <![CDATA[ 
+        update zx_eq_vehicleUsageCompany
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxEqVehicleUsageCompanyId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxEqVehicleUsageCompanyId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+  <select id="selectZxEqVehicleUsageCompany" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqVehicleUsageCompany" >
+  	    select 
+				irc.catName,iue.equipNo,iue.equipName,iue.spec as techrequire
+				,ifnull(sum(iewi.calendarNumDay),0) as calendarNumDay
+				,ifnull(sum(iewi.wellDays),0) as wellDays
+				,case when ifnull(sum(iewi.calendarNumDay),0) = 0 then 0 else ifnull(sum(iewi.wellDays),0)/ifnull(sum(iewi.calendarNumDay),0) end as wellPercen
+				,ifnull(sum(iewi.runDay),0) as workDays,ifnull(sum(iewi.runHour),0) as actualQty
+				,case when ifnull(sum(iewi.calendarNumDay),0) = 0 then 0 else ifnull(sum(iewi.runDay),0)/ifnull(sum(iewi.calendarNumDay),0) end as runDayPercen
+				,ifnull(sum(iewi.loadMiles),0) as usefulMileage
+				,ifnull(sum(iewi.gasoline),0) as oilamount,ifnull(sum(iewi.diesel),0) as caioidamout
+				,ifnull(sum(iewi.consumption),0) as consumption
+				,'' as remarks
+			  from zx_eq_EWork iew  
+              inner join zx_eq_EWorkItem iewi on iew.ID = iewi.mainID
+			  inner join zx_eq_UseEquip iue on iew.equipID = iue.ID
+			  inner join zx_eq_rescategory irc on irc.ID = iue.resCatalogID
+			  inner join sys_project sp on sp.project_id = iew.orgID and (sp.project_id = #{orgID,jdbcType=VARCHAR} or sp.company_id = #{orgID,jdbcType=VARCHAR})
+			  where iewi.workDate BETWEEN #{beginDate,jdbcType=TIMESTAMP} AND #{endDate,jdbcType=TIMESTAMP} and iue.equipName like '%'||#{equipName,jdbcType=VARCHAR}||'%'
+			  and irc.catName like #{catName,jdbcType=VARCHAR}
+			  GROUP BY irc.catName,irc.catName,iue.equipNo,iue.equipName,iue.spec
+  </select>
+</mapper>

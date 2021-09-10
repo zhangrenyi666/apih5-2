@@ -1,0 +1,18 @@
+UPDATE zx_ct_contrdetail zccd
+SET zccd.projQuality = ( 
+	SELECT bc.item_id FROM base_code bc WHERE bc.del_flag = '0' AND bc.item_name = zccd.projQuality AND bc.code_pid = '1ELMFI2MO04K0C0012AC0000BB9FA5D0'
+)
+WHERE zccd.del_flag = '0'
+AND (zccd.projQuality != ''
+OR NOT ISNULL(zccd.projQuality));
+
+UPDATE zx_ct_contrdetailattr zccda
+SET zccda.type = (
+	IF(zccda.pledgeMoney = '合同履约保证金',
+		(IF(zccda.type = '现金','10001',IF(zccda.type = '银行保函','10003',IF(zccda.type = '现金加保函','10002',IF(zccda.type = '资产抵押','10004',zccda.type))))),
+		(IF(zccda.type = '中期扣付计量款','10001',IF(zccda.type = '银行保函','10002',IF(zccda.type = '资产抵押','10003',zccda.type))))
+	)
+)
+WHERE zccda.del_flag = '0'
+AND (zccda.type != ''
+OR NOT ISNULL(zccda.type));

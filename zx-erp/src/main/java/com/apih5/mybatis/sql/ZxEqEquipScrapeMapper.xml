@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqEquipScrapeMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqEquipScrape" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="periodDate" property="periodDate" jdbcType="DATE" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="equipID" property="equipID" jdbcType="VARCHAR" />
+    <result column="equipName" property="equipName" jdbcType="VARCHAR" />
+    <result column="financeNo" property="financeNo" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="factory" property="factory" jdbcType="VARCHAR" />
+    <result column="enginerno" property="enginerno" jdbcType="VARCHAR" />
+    <result column="downserial" property="downserial" jdbcType="VARCHAR" />
+    <result column="outFactoryDate" property="outFactoryDate" jdbcType="TIMESTAMP" />
+    <result column="requireYear" property="requireYear" jdbcType="VARCHAR" />
+    <result column="actualYear" property="actualYear" jdbcType="VARCHAR" />
+    <result column="orginalValue" property="orginalValue" jdbcType="DECIMAL" />
+    <result column="deprevalue" property="deprevalue" jdbcType="DECIMAL" />
+    <result column="leftvalue" property="leftvalue" jdbcType="DECIMAL" />
+    <result column="place" property="place" jdbcType="VARCHAR" />
+    <result column="passNo" property="passNo" jdbcType="VARCHAR" />
+    <result column="scrapeReason" property="scrapeReason" jdbcType="VARCHAR" />
+    <result column="option1" property="option1" jdbcType="VARCHAR" />
+    <result column="handleway" property="handleway" jdbcType="VARCHAR" />
+    <result column="option2" property="option2" jdbcType="VARCHAR" />
+    <result column="auditStatus" property="auditStatus" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="approvalNo" property="approvalNo" jdbcType="VARCHAR" />
+    <result column="scrapeDate" property="scrapeDate" jdbcType="TIMESTAMP" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, orgID, periodDate, period, equipID, 
+    equipName, financeNo, spec, factory, enginerno, 
+    downserial, outFactoryDate, requireYear, actualYear, orginalValue, 
+    deprevalue, leftvalue, place, passNo, scrapeReason, 
+    option1, handleway, option2, auditStatus, remark, 
+    editTime, approvalNo, scrapeDate, comID, comName, 
+    orgName, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />,
+    DATE_FORMAT(outFactoryDate,'%Y-%m-%d') AS outFactoryDateStr
+    from zx_eq_EquipScrape
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_EquipScrape
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqEquipScrape" >
+    insert into zx_eq_EquipScrape (id, orgID, periodDate, 
+      period, equipID, equipName, 
+      financeNo, spec, factory, 
+      enginerno, downserial, outFactoryDate, 
+      requireYear, actualYear, orginalValue, 
+      deprevalue, leftvalue, place, 
+      passNo, scrapeReason, option1, 
+      handleway, option2, auditStatus, 
+      remark, editTime, approvalNo, 
+      scrapeDate, comID, comName, 
+      orgName, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, #{periodDate,jdbcType=DATE}, 
+      #{period,jdbcType=VARCHAR}, #{equipID,jdbcType=VARCHAR}, #{equipName,jdbcType=VARCHAR}, 
+      #{financeNo,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, #{factory,jdbcType=VARCHAR}, 
+      #{enginerno,jdbcType=VARCHAR}, #{downserial,jdbcType=VARCHAR}, #{outFactoryDate,jdbcType=TIMESTAMP}, 
+      #{requireYear,jdbcType=VARCHAR}, #{actualYear,jdbcType=VARCHAR}, #{orginalValue,jdbcType=DECIMAL}, 
+      #{deprevalue,jdbcType=DECIMAL}, #{leftvalue,jdbcType=DECIMAL}, #{place,jdbcType=VARCHAR}, 
+      #{passNo,jdbcType=VARCHAR}, #{scrapeReason,jdbcType=VARCHAR}, #{option1,jdbcType=VARCHAR}, 
+      #{handleway,jdbcType=VARCHAR}, #{option2,jdbcType=VARCHAR}, #{auditStatus,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, #{approvalNo,jdbcType=VARCHAR}, 
+      #{scrapeDate,jdbcType=TIMESTAMP}, #{comID,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, 
+      #{orgName,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqEquipScrape" >
+    insert into zx_eq_EquipScrape
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="periodDate != null" >
+        periodDate,
+      </if>
+      <if test="period != null" >
+        period,
+      </if>
+      <if test="equipID != null" >
+        equipID,
+      </if>
+      <if test="equipName != null" >
+        equipName,
+      </if>
+      <if test="financeNo != null" >
+        financeNo,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="factory != null" >
+        factory,
+      </if>
+      <if test="enginerno != null" >
+        enginerno,
+      </if>
+      <if test="downserial != null" >
+        downserial,
+      </if>
+      <if test="outFactoryDate != null" >
+        outFactoryDate,
+      </if>
+      <if test="requireYear != null" >
+        requireYear,
+      </if>
+      <if test="actualYear != null" >
+        actualYear,
+      </if>
+      <if test="orginalValue != null" >
+        orginalValue,
+      </if>
+      <if test="deprevalue != null" >
+        deprevalue,
+      </if>
+      <if test="leftvalue != null" >
+        leftvalue,
+      </if>
+      <if test="place != null" >
+        place,
+      </if>
+      <if test="passNo != null" >
+        passNo,
+      </if>
+      <if test="scrapeReason != null" >
+        scrapeReason,
+      </if>
+      <if test="option1 != null" >
+        option1,
+      </if>
+      <if test="handleway != null" >
+        handleway,
+      </if>
+      <if test="option2 != null" >
+        option2,
+      </if>
+      <if test="auditStatus != null" >
+        auditStatus,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="approvalNo != null" >
+        approvalNo,
+      </if>
+      <if test="scrapeDate != null" >
+        scrapeDate,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="periodDate != null" >
+        #{periodDate,jdbcType=DATE},
+      </if>
+      <if test="period != null" >
+        #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="equipID != null" >
+        #{equipID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="financeNo != null" >
+        #{financeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="factory != null" >
+        #{factory,jdbcType=VARCHAR},
+      </if>
+      <if test="enginerno != null" >
+        #{enginerno,jdbcType=VARCHAR},
+      </if>
+      <if test="downserial != null" >
+        #{downserial,jdbcType=VARCHAR},
+      </if>
+      <if test="outFactoryDate != null" >
+        #{outFactoryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="requireYear != null" >
+        #{requireYear,jdbcType=VARCHAR},
+      </if>
+      <if test="actualYear != null" >
+        #{actualYear,jdbcType=VARCHAR},
+      </if>
+      <if test="orginalValue != null" >
+        #{orginalValue,jdbcType=DECIMAL},
+      </if>
+      <if test="deprevalue != null" >
+        #{deprevalue,jdbcType=DECIMAL},
+      </if>
+      <if test="leftvalue != null" >
+        #{leftvalue,jdbcType=DECIMAL},
+      </if>
+      <if test="place != null" >
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="passNo != null" >
+        #{passNo,jdbcType=VARCHAR},
+      </if>
+      <if test="scrapeReason != null" >
+        #{scrapeReason,jdbcType=VARCHAR},
+      </if>
+      <if test="option1 != null" >
+        #{option1,jdbcType=VARCHAR},
+      </if>
+      <if test="handleway != null" >
+        #{handleway,jdbcType=VARCHAR},
+      </if>
+      <if test="option2 != null" >
+        #{option2,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approvalNo != null" >
+        #{approvalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="scrapeDate != null" >
+        #{scrapeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqEquipScrape" >
+    update zx_eq_EquipScrape
+    <set >
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="periodDate != null" >
+        periodDate = #{periodDate,jdbcType=DATE},
+      </if>
+      <if test="period != null" >
+        period = #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="equipID != null" >
+        equipID = #{equipID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        equipName = #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="financeNo != null" >
+        financeNo = #{financeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="factory != null" >
+        factory = #{factory,jdbcType=VARCHAR},
+      </if>
+      <if test="enginerno != null" >
+        enginerno = #{enginerno,jdbcType=VARCHAR},
+      </if>
+      <if test="downserial != null" >
+        downserial = #{downserial,jdbcType=VARCHAR},
+      </if>
+      <if test="outFactoryDate != null" >
+        outFactoryDate = #{outFactoryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="requireYear != null" >
+        requireYear = #{requireYear,jdbcType=VARCHAR},
+      </if>
+      <if test="actualYear != null" >
+        actualYear = #{actualYear,jdbcType=VARCHAR},
+      </if>
+      <if test="orginalValue != null" >
+        orginalValue = #{orginalValue,jdbcType=DECIMAL},
+      </if>
+      <if test="deprevalue != null" >
+        deprevalue = #{deprevalue,jdbcType=DECIMAL},
+      </if>
+      <if test="leftvalue != null" >
+        leftvalue = #{leftvalue,jdbcType=DECIMAL},
+      </if>
+      <if test="place != null" >
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="passNo != null" >
+        passNo = #{passNo,jdbcType=VARCHAR},
+      </if>
+      <if test="scrapeReason != null" >
+        scrapeReason = #{scrapeReason,jdbcType=VARCHAR},
+      </if>
+      <if test="option1 != null" >
+        option1 = #{option1,jdbcType=VARCHAR},
+      </if>
+      <if test="handleway != null" >
+        handleway = #{handleway,jdbcType=VARCHAR},
+      </if>
+      <if test="option2 != null" >
+        option2 = #{option2,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        auditStatus = #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approvalNo != null" >
+        approvalNo = #{approvalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="scrapeDate != null" >
+        scrapeDate = #{scrapeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqEquipScrape" >
+    update zx_eq_EquipScrape
+    set       orgID = #{orgID,jdbcType=VARCHAR},
+      periodDate = #{periodDate,jdbcType=DATE},
+      period = #{period,jdbcType=VARCHAR},
+      equipID = #{equipID,jdbcType=VARCHAR},
+      equipName = #{equipName,jdbcType=VARCHAR},
+      financeNo = #{financeNo,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      factory = #{factory,jdbcType=VARCHAR},
+      enginerno = #{enginerno,jdbcType=VARCHAR},
+      downserial = #{downserial,jdbcType=VARCHAR},
+      outFactoryDate = #{outFactoryDate,jdbcType=TIMESTAMP},
+      requireYear = #{requireYear,jdbcType=VARCHAR},
+      actualYear = #{actualYear,jdbcType=VARCHAR},
+      orginalValue = #{orginalValue,jdbcType=DECIMAL},
+      deprevalue = #{deprevalue,jdbcType=DECIMAL},
+      leftvalue = #{leftvalue,jdbcType=DECIMAL},
+      place = #{place,jdbcType=VARCHAR},
+      passNo = #{passNo,jdbcType=VARCHAR},
+      scrapeReason = #{scrapeReason,jdbcType=VARCHAR},
+      option1 = #{option1,jdbcType=VARCHAR},
+      handleway = #{handleway,jdbcType=VARCHAR},
+      option2 = #{option2,jdbcType=VARCHAR},
+      auditStatus = #{auditStatus,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      approvalNo = #{approvalNo,jdbcType=VARCHAR},
+      scrapeDate = #{scrapeDate,jdbcType=TIMESTAMP},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxEqEquipScrapeList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEquipScrape" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_EquipScrape
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="periodDate != null" >
+     and periodDate = #{periodDate,jdbcType=DATE}
+    </if>
+    <if test="period != null and period != ''" >
+     and period = #{period,jdbcType=VARCHAR}
+    </if>
+    <if test="equipID != null and equipID != ''" >
+     and equipID = #{equipID,jdbcType=VARCHAR}
+    </if>
+    <if test="equipName != null and equipName != ''" >
+     and equipName = #{equipName,jdbcType=VARCHAR}
+    </if>
+    <if test="financeNo != null and financeNo != ''" >
+     and financeNo = #{financeNo,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="factory != null and factory != ''" >
+     and factory = #{factory,jdbcType=VARCHAR}
+    </if>
+    <if test="enginerno != null and enginerno != ''" >
+     and enginerno = #{enginerno,jdbcType=VARCHAR}
+    </if>
+    <if test="downserial != null and downserial != ''" >
+     and downserial = #{downserial,jdbcType=VARCHAR}
+    </if>
+    <if test="outFactoryDate != null and outFactoryDate != ''" >
+     and outFactoryDate = #{outFactoryDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="requireYear != null and requireYear != ''" >
+     and requireYear = #{requireYear,jdbcType=VARCHAR}
+    </if>
+    <if test="actualYear != null and actualYear != ''" >
+     and actualYear = #{actualYear,jdbcType=VARCHAR}
+    </if>
+    <if test="orginalValue != null and orginalValue != ''" >
+     and orginalValue = #{orginalValue,jdbcType=DECIMAL}
+    </if>
+    <if test="deprevalue != null and deprevalue != ''" >
+     and deprevalue = #{deprevalue,jdbcType=DECIMAL}
+    </if>
+    <if test="leftvalue != null and leftvalue != ''" >
+     and leftvalue = #{leftvalue,jdbcType=DECIMAL}
+    </if>
+    <if test="place != null and place != ''" >
+     and place = #{place,jdbcType=VARCHAR}
+    </if>
+    <if test="passNo != null and passNo != ''" >
+     and passNo = #{passNo,jdbcType=VARCHAR}
+    </if>
+    <if test="scrapeReason != null and scrapeReason != ''" >
+     and scrapeReason = #{scrapeReason,jdbcType=VARCHAR}
+    </if>
+    <if test="option1 != null and option1 != ''" >
+     and option1 = #{option1,jdbcType=VARCHAR}
+    </if>
+    <if test="handleway != null and handleway != ''" >
+     and handleway = #{handleway,jdbcType=VARCHAR}
+    </if>
+    <if test="option2 != null and option2 != ''" >
+     and option2 = #{option2,jdbcType=VARCHAR}
+    </if>
+    <if test="auditStatus != null and auditStatus != ''" >
+     and auditStatus = #{auditStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="approvalNo != null and approvalNo != ''" >
+     and approvalNo = #{approvalNo,jdbcType=VARCHAR}
+    </if>
+    <if test="scrapeDate != null and scrapeDate != ''" >
+     and scrapeDate = #{scrapeDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="seeFlagForJu != null and seeFlagForJu != ''" >
+     and auditStatus != '0'
+    </if>
+    
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqEquipScrape" parameterType="com.apih5.mybatis.pojo.ZxEqEquipScrape" >
+    <![CDATA[ 
+        update zx_eq_EquipScrape
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+
+</mapper>

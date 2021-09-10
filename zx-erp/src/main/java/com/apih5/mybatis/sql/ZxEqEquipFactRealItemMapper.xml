@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqEquipFactRealItemMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqEquipFactRealItem" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="mainID" property="mainID" jdbcType="VARCHAR" />
+    <result column="equipID" property="equipID" jdbcType="VARCHAR" />
+    <result column="equipNo" property="equipNo" jdbcType="VARCHAR" />
+    <result column="equipName" property="equipName" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="factory" property="factory" jdbcType="VARCHAR" />
+    <result column="inDate" property="inDate" jdbcType="TIMESTAMP" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="isOut" property="isOut" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="carNo" property="carNo" jdbcType="VARCHAR" />
+    <result column="supplier" property="supplier" jdbcType="VARCHAR" />
+    <result column="realEquipID" property="realEquipID" jdbcType="VARCHAR" />
+    <result column="realEquipNo" property="realEquipNo" jdbcType="VARCHAR" />
+    <result column="realEquipName" property="realEquipName" jdbcType="VARCHAR" />
+    <result column="realUnit" property="realUnit" jdbcType="VARCHAR" />
+    <result column="realSpec" property="realSpec" jdbcType="VARCHAR" />
+    <result column="factItemID" property="factItemID" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, mainID, equipID, equipNo, equipName, 
+    spec, factory, inDate, source, isOut, 
+    editTime, carNo, supplier, realEquipID, realEquipNo, 
+    realEquipName, realUnit, realSpec, factItemID, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_EquipFactRealItem
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_EquipFactRealItem
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqEquipFactRealItem" >
+    insert into zx_eq_EquipFactRealItem (id, mainID, equipID, 
+      equipNo, equipName, spec, 
+      factory, inDate, source, 
+      isOut, editTime, carNo, 
+      supplier, realEquipID, realEquipNo, 
+      realEquipName, realUnit, realSpec, 
+      factItemID, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{mainID,jdbcType=VARCHAR}, #{equipID,jdbcType=VARCHAR}, 
+      #{equipNo,jdbcType=VARCHAR}, #{equipName,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, 
+      #{factory,jdbcType=VARCHAR}, #{inDate,jdbcType=TIMESTAMP}, #{source,jdbcType=VARCHAR}, 
+      #{isOut,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, #{carNo,jdbcType=VARCHAR}, 
+      #{supplier,jdbcType=VARCHAR}, #{realEquipID,jdbcType=VARCHAR}, #{realEquipNo,jdbcType=VARCHAR}, 
+      #{realEquipName,jdbcType=VARCHAR}, #{realUnit,jdbcType=VARCHAR}, #{realSpec,jdbcType=VARCHAR}, 
+      #{factItemID,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqEquipFactRealItem" >
+    insert into zx_eq_EquipFactRealItem
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mainID != null" >
+        mainID,
+      </if>
+      <if test="equipID != null" >
+        equipID,
+      </if>
+      <if test="equipNo != null" >
+        equipNo,
+      </if>
+      <if test="equipName != null" >
+        equipName,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="factory != null" >
+        factory,
+      </if>
+      <if test="inDate != null" >
+        inDate,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="isOut != null" >
+        isOut,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="carNo != null" >
+        carNo,
+      </if>
+      <if test="supplier != null" >
+        supplier,
+      </if>
+      <if test="realEquipID != null" >
+        realEquipID,
+      </if>
+      <if test="realEquipNo != null" >
+        realEquipNo,
+      </if>
+      <if test="realEquipName != null" >
+        realEquipName,
+      </if>
+      <if test="realUnit != null" >
+        realUnit,
+      </if>
+      <if test="realSpec != null" >
+        realSpec,
+      </if>
+      <if test="factItemID != null" >
+        factItemID,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="mainID != null" >
+        #{mainID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipID != null" >
+        #{equipID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipNo != null" >
+        #{equipNo,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="factory != null" >
+        #{factory,jdbcType=VARCHAR},
+      </if>
+      <if test="inDate != null" >
+        #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="isOut != null" >
+        #{isOut,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carNo != null" >
+        #{carNo,jdbcType=VARCHAR},
+      </if>
+      <if test="supplier != null" >
+        #{supplier,jdbcType=VARCHAR},
+      </if>
+      <if test="realEquipID != null" >
+        #{realEquipID,jdbcType=VARCHAR},
+      </if>
+      <if test="realEquipNo != null" >
+        #{realEquipNo,jdbcType=VARCHAR},
+      </if>
+      <if test="realEquipName != null" >
+        #{realEquipName,jdbcType=VARCHAR},
+      </if>
+      <if test="realUnit != null" >
+        #{realUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="realSpec != null" >
+        #{realSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="factItemID != null" >
+        #{factItemID,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqEquipFactRealItem" >
+    update zx_eq_EquipFactRealItem
+    <set >
+      <if test="mainID != null" >
+        mainID = #{mainID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipID != null" >
+        equipID = #{equipID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipNo != null" >
+        equipNo = #{equipNo,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        equipName = #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="factory != null" >
+        factory = #{factory,jdbcType=VARCHAR},
+      </if>
+      <if test="inDate != null" >
+        inDate = #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="isOut != null" >
+        isOut = #{isOut,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carNo != null" >
+        carNo = #{carNo,jdbcType=VARCHAR},
+      </if>
+      <if test="supplier != null" >
+        supplier = #{supplier,jdbcType=VARCHAR},
+      </if>
+      <if test="realEquipID != null" >
+        realEquipID = #{realEquipID,jdbcType=VARCHAR},
+      </if>
+      <if test="realEquipNo != null" >
+        realEquipNo = #{realEquipNo,jdbcType=VARCHAR},
+      </if>
+      <if test="realEquipName != null" >
+        realEquipName = #{realEquipName,jdbcType=VARCHAR},
+      </if>
+      <if test="realUnit != null" >
+        realUnit = #{realUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="realSpec != null" >
+        realSpec = #{realSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="factItemID != null" >
+        factItemID = #{factItemID,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqEquipFactRealItem" >
+    update zx_eq_EquipFactRealItem
+    set       mainID = #{mainID,jdbcType=VARCHAR},
+      equipID = #{equipID,jdbcType=VARCHAR},
+      equipNo = #{equipNo,jdbcType=VARCHAR},
+      equipName = #{equipName,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      factory = #{factory,jdbcType=VARCHAR},
+      inDate = #{inDate,jdbcType=TIMESTAMP},
+      source = #{source,jdbcType=VARCHAR},
+      isOut = #{isOut,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      carNo = #{carNo,jdbcType=VARCHAR},
+      supplier = #{supplier,jdbcType=VARCHAR},
+      realEquipID = #{realEquipID,jdbcType=VARCHAR},
+      realEquipNo = #{realEquipNo,jdbcType=VARCHAR},
+      realEquipName = #{realEquipName,jdbcType=VARCHAR},
+      realUnit = #{realUnit,jdbcType=VARCHAR},
+      realSpec = #{realSpec,jdbcType=VARCHAR},
+      factItemID = #{factItemID,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxEqEquipFactRealItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEquipFactRealItem" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_EquipFactRealItem
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="mainID != null and mainID != ''" >
+     and mainID = #{mainID,jdbcType=VARCHAR}
+    </if>
+    <if test="equipID != null and equipID != ''" >
+     and equipID = #{equipID,jdbcType=VARCHAR}
+    </if>
+    <if test="equipNo != null and equipNo != ''" >
+     and equipNo = #{equipNo,jdbcType=VARCHAR}
+    </if>
+    <if test="equipName != null and equipName != ''" >
+     and equipName = #{equipName,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="factory != null and factory != ''" >
+     and factory = #{factory,jdbcType=VARCHAR}
+    </if>
+    <if test="inDate != null and inDate != ''" >
+     and inDate = #{inDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="source != null and source != ''" >
+     and source = #{source,jdbcType=VARCHAR}
+    </if>
+    <if test="isOut != null and isOut != ''" >
+     and isOut = #{isOut,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="carNo != null and carNo != ''" >
+     and carNo = #{carNo,jdbcType=VARCHAR}
+    </if>
+    <if test="supplier != null and supplier != ''" >
+     and supplier = #{supplier,jdbcType=VARCHAR}
+    </if>
+    <if test="realEquipID != null and realEquipID != ''" >
+     and realEquipID = #{realEquipID,jdbcType=VARCHAR}
+    </if>
+    <if test="realEquipNo != null and realEquipNo != ''" >
+     and realEquipNo = #{realEquipNo,jdbcType=VARCHAR}
+    </if>
+    <if test="realEquipName != null and realEquipName != ''" >
+     and realEquipName = #{realEquipName,jdbcType=VARCHAR}
+    </if>
+    <if test="realUnit != null and realUnit != ''" >
+     and realUnit = #{realUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="realSpec != null and realSpec != ''" >
+     and realSpec = #{realSpec,jdbcType=VARCHAR}
+    </if>
+    <if test="factItemID != null and factItemID != ''" >
+     and factItemID = #{factItemID,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqEquipFactRealItem" parameterType="com.apih5.mybatis.pojo.ZxEqEquipFactRealItem" >
+    <![CDATA[ 
+        update zx_eq_EquipFactRealItem
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

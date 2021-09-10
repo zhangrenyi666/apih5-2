@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzSupervisorMonthlyMeetingMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzSupervisorMonthlyMeeting" >
+    <id column="monthly_meeting_id" property="monthlyMeetingId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="subprojects_id" property="subprojectsId" jdbcType="VARCHAR" />
+    <result column="subprojects_name" property="subprojectsName" jdbcType="VARCHAR" />
+    <result column="monthly_meeting_month" property="monthlyMeetingMonth" jdbcType="VARCHAR" />
+    <result column="monthly_meeting_content" property="monthlyMeetingContent" jdbcType="VARCHAR" />
+    <result column="monthly_meeting_date" property="monthlyMeetingDate" jdbcType="TIMESTAMP" />
+    <result column="monthly_meeting_user" property="monthlyMeetingUser" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    monthly_meeting_id, project_id, project_name, subprojects_id, subprojects_name, 
+    monthly_meeting_month, monthly_meeting_content, monthly_meeting_date, monthly_meeting_user, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_qhse_supervisor_monthly_meeting
+    where monthly_meeting_id = #{monthlyMeetingId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_qhse_supervisor_monthly_meeting
+    where monthly_meeting_id = #{monthlyMeetingId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzSupervisorMonthlyMeeting" >
+    insert into zj_tz_qhse_supervisor_monthly_meeting (monthly_meeting_id, project_id, project_name, 
+      subprojects_id, subprojects_name, monthly_meeting_month, 
+      monthly_meeting_content, monthly_meeting_date, monthly_meeting_user, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{monthlyMeetingId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, 
+      #{subprojectsId,jdbcType=VARCHAR}, #{subprojectsName,jdbcType=VARCHAR}, #{monthlyMeetingMonth,jdbcType=VARCHAR}, 
+      #{monthlyMeetingContent,jdbcType=VARCHAR}, #{monthlyMeetingDate,jdbcType=TIMESTAMP}, #{monthlyMeetingUser,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzSupervisorMonthlyMeeting" >
+    insert into zj_tz_qhse_supervisor_monthly_meeting
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="monthlyMeetingId != null" >
+        monthly_meeting_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="subprojectsId != null" >
+        subprojects_id,
+      </if>
+      <if test="subprojectsName != null" >
+        subprojects_name,
+      </if>
+      <if test="monthlyMeetingMonth != null" >
+        monthly_meeting_month,
+      </if>
+      <if test="monthlyMeetingContent != null" >
+        monthly_meeting_content,
+      </if>
+      <if test="monthlyMeetingDate != null" >
+        monthly_meeting_date,
+      </if>
+      <if test="monthlyMeetingUser != null" >
+        monthly_meeting_user,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="monthlyMeetingId != null" >
+        #{monthlyMeetingId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectsId != null" >
+        #{subprojectsId,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectsName != null" >
+        #{subprojectsName,jdbcType=VARCHAR},
+      </if>
+      <if test="monthlyMeetingMonth != null" >
+        #{monthlyMeetingMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="monthlyMeetingContent != null" >
+        #{monthlyMeetingContent,jdbcType=VARCHAR},
+      </if>
+      <if test="monthlyMeetingDate != null" >
+        #{monthlyMeetingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="monthlyMeetingUser != null" >
+        #{monthlyMeetingUser,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzSupervisorMonthlyMeeting" >
+    update zj_tz_qhse_supervisor_monthly_meeting
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectsId != null" >
+        subprojects_id = #{subprojectsId,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectsName != null" >
+        subprojects_name = #{subprojectsName,jdbcType=VARCHAR},
+      </if>
+      <if test="monthlyMeetingMonth != null" >
+        monthly_meeting_month = #{monthlyMeetingMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="monthlyMeetingContent != null" >
+        monthly_meeting_content = #{monthlyMeetingContent,jdbcType=VARCHAR},
+      </if>
+      <if test="monthlyMeetingDate != null" >
+        monthly_meeting_date = #{monthlyMeetingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="monthlyMeetingUser != null" >
+        monthly_meeting_user = #{monthlyMeetingUser,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where monthly_meeting_id = #{monthlyMeetingId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzSupervisorMonthlyMeeting" >
+    update zj_tz_qhse_supervisor_monthly_meeting
+    set       project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      subprojects_id = #{subprojectsId,jdbcType=VARCHAR},
+      subprojects_name = #{subprojectsName,jdbcType=VARCHAR},
+      monthly_meeting_month = #{monthlyMeetingMonth,jdbcType=VARCHAR},
+      monthly_meeting_content = #{monthlyMeetingContent,jdbcType=VARCHAR},
+      monthly_meeting_date = #{monthlyMeetingDate,jdbcType=TIMESTAMP},
+      monthly_meeting_user = #{monthlyMeetingUser,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where monthly_meeting_id = #{monthlyMeetingId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzSupervisorMonthlyMeetingList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzSupervisorMonthlyMeeting" >
+    select 
+    zj_tz_qhse_supervisor_monthly_meeting.monthly_meeting_id, zj_tz_qhse_supervisor_monthly_meeting.project_id, zj_tz_pro_manage.project_name, 
+    zj_tz_qhse_supervisor_monthly_meeting.subprojects_id, zj_tz_qhse_supervisor_monthly_meeting.subprojects_name, zj_tz_qhse_supervisor_monthly_meeting.monthly_meeting_month, 
+    zj_tz_qhse_supervisor_monthly_meeting.monthly_meeting_content, zj_tz_qhse_supervisor_monthly_meeting.monthly_meeting_date, zj_tz_qhse_supervisor_monthly_meeting.monthly_meeting_user, 
+    zj_tz_qhse_supervisor_monthly_meeting.del_flag, zj_tz_qhse_supervisor_monthly_meeting.create_time, zj_tz_qhse_supervisor_monthly_meeting.create_user, 
+    zj_tz_qhse_supervisor_monthly_meeting.create_user_name, zj_tz_qhse_supervisor_monthly_meeting.modify_time, zj_tz_qhse_supervisor_monthly_meeting.modify_user, 
+    zj_tz_qhse_supervisor_monthly_meeting.modify_user_name
+    from zj_tz_qhse_supervisor_monthly_meeting left join zj_tz_pro_manage on zj_tz_pro_manage.project_id = zj_tz_qhse_supervisor_monthly_meeting.project_id and zj_tz_pro_manage.del_flag = '0'
+    where zj_tz_qhse_supervisor_monthly_meeting.del_flag = '0'
+    <if test="projectId != null and projectId != ''" >
+     and zj_tz_qhse_supervisor_monthly_meeting.project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     and zj_tz_qhse_supervisor_monthly_meeting.project_id in (${projectIdSql})
+    </if>     
+    <if test="projectName != null and projectName != ''" >
+     and zj_tz_pro_manage.project_name like CONCAT('%', #{projectName,jdbcType=VARCHAR}, '%') 
+    </if>
+    <if test="subprojectsId != null and subprojectsId != ''" >
+     and zj_tz_qhse_supervisor_monthly_meeting.subprojects_id = #{subprojectsId,jdbcType=VARCHAR}
+    </if>
+    <if test="subprojectsName != null and subprojectsName != ''" >
+     and zj_tz_qhse_supervisor_monthly_meeting.subprojects_name = #{subprojectsName,jdbcType=VARCHAR}
+    </if>
+    <if test="monthlyMeetingMonth != null and monthlyMeetingMonth != ''" >
+     and zj_tz_qhse_supervisor_monthly_meeting.monthly_meeting_month = #{monthlyMeetingMonth,jdbcType=VARCHAR}
+    </if>
+    <if test="monthlyMeetingContent != null and monthlyMeetingContent != ''" >
+     and zj_tz_qhse_supervisor_monthly_meeting.monthly_meeting_content = #{monthlyMeetingContent,jdbcType=VARCHAR}
+    </if>
+    <if test="monthlyMeetingDate != null" >
+     and zj_tz_qhse_supervisor_monthly_meeting.monthly_meeting_date = #{monthlyMeetingDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="monthlyMeetingUser != null and monthlyMeetingUser != ''" >
+     and zj_tz_qhse_supervisor_monthly_meeting.monthly_meeting_user = #{monthlyMeetingUser,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and zj_tz_qhse_supervisor_monthly_meeting.create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and zj_tz_qhse_supervisor_monthly_meeting.modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY zj_tz_qhse_supervisor_monthly_meeting.modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzSupervisorMonthlyMeeting" parameterType="com.apih5.mybatis.pojo.ZjTzSupervisorMonthlyMeeting" >
+    <![CDATA[ 
+        update zj_tz_qhse_supervisor_monthly_meeting
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and monthly_meeting_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.monthlyMeetingId} 
+     </foreach>
+  </delete>
+</mapper>

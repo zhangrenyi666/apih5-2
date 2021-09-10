@@ -1,0 +1,16 @@
+-- 迁移前执行
+alter table zx_eq_purrecord change column power power varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL comment '总功率（KW）';
+alter table zx_eq_purrecord change column vicepower vicepower varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL comment '副机功率（kW)';
+alter table zx_eq_purrecord change column mainpower mainpower varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL comment '主机功率（KW）';
+alter table zx_eq_equip change column power power varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL comment '总功率（KW）';
+alter table zx_eq_equip change column vicepower vicepower varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL comment '副机功率（kW)';
+alter table zx_eq_equip change column mainpower mainpower varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL comment '主机功率（KW）';
+
+
+-- 迁移后执行
+alter table zx_eq_purrecord change column power power decimal(19,6) DEFAULT NULL comment '总功率（KW）';
+alter table zx_eq_purrecord change column vicepower vicepower decimal(19,6) DEFAULT NULL comment '副机功率（kW)';
+alter table zx_eq_purrecord change column mainpower mainpower decimal(19,6) DEFAULT NULL comment '主机功率（KW）';
+alter table zx_eq_equip change column power power decimal(19,6) DEFAULT NULL comment '总功率（KW）';
+alter table zx_eq_equip change column vicepower vicepower decimal(19,6) DEFAULT NULL comment '副机功率（kW)';
+alter table zx_eq_equip change column mainpower mainpower decimal(19,6) DEFAULT NULL comment '主机功率（KW）';

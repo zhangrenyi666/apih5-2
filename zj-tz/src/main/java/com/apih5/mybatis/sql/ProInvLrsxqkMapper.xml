@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ProInvLrsxqkMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ProInvLrsxqk" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="xmmc" property="xmmc" jdbcType="CHAR" />
+    <result column="jaze" property="jaze" jdbcType="DECIMAL" />
+    <result column="lrmb_pgjdmb_jcsyl" property="lrmbPgjdmbJcsyl" jdbcType="DECIMAL" />
+    <result column="lrmb_pgjdmb_zbjjrzsyl" property="lrmbPgjdmbZbjjrzsyl" jdbcType="DECIMAL" />
+    <result column="lrmb_pgjdmb_jcsy" property="lrmbPgjdmbJcsy" jdbcType="DECIMAL" />
+    <result column="lrmb_pgjdmb_zbjjrzsy" property="lrmbPgjdmbZbjjrzsy" jdbcType="DECIMAL" />
+    <result column="lrmb_cnmb_jcsy" property="lrmbCnmbJcsy" jdbcType="DECIMAL" />
+    <result column="lrmb_cnmb_zjjrzsy" property="lrmbCnmbZjjrzsy" jdbcType="DECIMAL" />
+    <result column="cnlrsx_bq_jcsy" property="cnlrsxBqJcsy" jdbcType="DECIMAL" />
+    <result column="cnlrsx_bq_zjjrzsy" property="cnlrsxBqZjjrzsy" jdbcType="DECIMAL" />
+    <result column="cnlrsx_bn_jcsy" property="cnlrsxBnJcsy" jdbcType="DECIMAL" />
+    <result column="cnlrsx_bn_zjjrzsy" property="cnlrsxBnZjjrzsy" jdbcType="DECIMAL" />
+    <result column="cnlrsx_kl_jcsy" property="cnlrsxKlJcsy" jdbcType="DECIMAL" />
+    <result column="cnlrsx_kl_zjjrzsy" property="cnlrsxKlZjjrzsy" jdbcType="DECIMAL" />
+    <result column="cnlrsj_bq_jcsy" property="cnlrsjBqJcsy" jdbcType="DECIMAL" />
+    <result column="cnlrsj_bq_zjjrzsy" property="cnlrsjBqZjjrzsy" jdbcType="DECIMAL" />
+    <result column="cnlrsj_bn_jcsy" property="cnlrsjBnJcsy" jdbcType="DECIMAL" />
+    <result column="cnlrsj_bn_zjjrzsy" property="cnlrsjBnZjjrzsy" jdbcType="DECIMAL" />
+    <result column="cnlrsj_kl_jcsy" property="cnlrsjKlJcsy" jdbcType="DECIMAL" />
+    <result column="cnlrsj_kl_zjjrzsy" property="cnlrsjKlZjjrzsy" jdbcType="DECIMAL" />
+    <result column="zxsxlrze_bq_xmgs" property="zxsxlrzeBqXmgs" jdbcType="DECIMAL" />
+    <result column="zxsxlrze_bq_zcbb" property="zxsxlrzeBqZcbb" jdbcType="DECIMAL" />
+    <result column="zxsxlrze_bq_gfb" property="zxsxlrzeBqGfb" jdbcType="DECIMAL" />
+    <result column="zxsxlrze_bn_xmgs" property="zxsxlrzeBnXmgs" jdbcType="DECIMAL" />
+    <result column="zxsxlrze_bn_zcbb" property="zxsxlrzeBnZcbb" jdbcType="DECIMAL" />
+    <result column="zxsxlrze_bn_gfb" property="zxsxlrzeBnGfb" jdbcType="DECIMAL" />
+    <result column="zxsxlrze_kl_xmgs" property="zxsxlrzeKlXmgs" jdbcType="DECIMAL" />
+    <result column="zxsxlrze_kl_zcbb" property="zxsxlrzeKlZcbb" jdbcType="DECIMAL" />
+    <result column="zxsxlrze_kl_gfb" property="zxsxlrzeKlGfb" jdbcType="DECIMAL" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+    <result column="period_type" property="periodType" jdbcType="VARCHAR" />
+    <result column="period_value" property="periodValue" jdbcType="VARCHAR" />
+    <result column="create_by" property="createBy" jdbcType="CHAR" />
+    <result column="create_org" property="createOrg" jdbcType="CHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="CHAR" />
+    <result column="update_org" property="updateOrg" jdbcType="CHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="currency" property="currency" jdbcType="VARCHAR" />
+    <result column="pglrmbsx_bq_jcsy" property="pglrmbsxBqJcsy" jdbcType="DECIMAL" />
+    <result column="pglrmbsx_bn_jcsy" property="pglrmbsxBnJcsy" jdbcType="DECIMAL" />
+    <result column="pglrmbsx_kl_jcsy" property="pglrmbsxKlJcsy" jdbcType="DECIMAL" />
+    <result column="pglrmbsx_bq_trzsy" property="pglrmbsxBqTrzsy" jdbcType="DECIMAL" />
+    <result column="pglrmbsx_bn_trzsy" property="pglrmbsxBnTrzsy" jdbcType="DECIMAL" />
+    <result column="pglrmbsx_kl_trzsy" property="pglrmbsxKlTrzsy" jdbcType="DECIMAL" />
+    <result column="cnlrysj_bq_jcsy" property="cnlrysjBqJcsy" jdbcType="DECIMAL" />
+    <result column="cnlrysj_bn_jcsy" property="cnlrysjBnJcsy" jdbcType="DECIMAL" />
+    <result column="cnlrysj_kl_jcsy" property="cnlrysjKlJcsy" jdbcType="DECIMAL" />
+    <result column="cnlrysj_bq_trzsy" property="cnlrysjBqTrzsy" jdbcType="DECIMAL" />
+    <result column="cnlrysj_bn_trzsy" property="cnlrysjBnTrzsy" jdbcType="DECIMAL" />
+    <result column="cnlrysj_kl_trzsy" property="cnlrysjKlTrzsy" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, xmmc, jaze, lrmb_pgjdmb_jcsyl, lrmb_pgjdmb_zbjjrzsyl, 
+    lrmb_pgjdmb_jcsy, lrmb_pgjdmb_zbjjrzsy, lrmb_cnmb_jcsy, lrmb_cnmb_zjjrzsy, cnlrsx_bq_jcsy, 
+    cnlrsx_bq_zjjrzsy, cnlrsx_bn_jcsy, cnlrsx_bn_zjjrzsy, cnlrsx_kl_jcsy, cnlrsx_kl_zjjrzsy, 
+    cnlrsj_bq_jcsy, cnlrsj_bq_zjjrzsy, cnlrsj_bn_jcsy, cnlrsj_bn_zjjrzsy, cnlrsj_kl_jcsy, 
+    cnlrsj_kl_zjjrzsy, zxsxlrze_bq_xmgs, zxsxlrze_bq_zcbb, zxsxlrze_bq_gfb, zxsxlrze_bn_xmgs, 
+    zxsxlrze_bn_zcbb, zxsxlrze_bn_gfb, zxsxlrze_kl_xmgs, zxsxlrze_kl_zcbb, zxsxlrze_kl_gfb, 
+    bz, period_type, period_value, create_by, create_org, 
+    create_date, update_by, update_org, update_date, remarks, 
+    del_flag, currency, pglrmbsx_bq_jcsy, pglrmbsx_bn_jcsy, pglrmbsx_kl_jcsy, 
+    pglrmbsx_bq_trzsy, pglrmbsx_bn_trzsy, pglrmbsx_kl_trzsy, cnlrysj_bq_jcsy, cnlrysj_bn_jcsy, 
+    cnlrysj_kl_jcsy, cnlrysj_bq_trzsy, cnlrysj_bn_trzsy, cnlrysj_kl_trzsy
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from del_flag = '0' and pro_inv_lrsxqk
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from pro_inv_lrsxqk
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ProInvLrsxqk" >
+    insert into pro_inv_lrsxqk (id, xmmc, jaze, 
+      lrmb_pgjdmb_jcsyl, lrmb_pgjdmb_zbjjrzsyl, lrmb_pgjdmb_jcsy, 
+      lrmb_pgjdmb_zbjjrzsy, lrmb_cnmb_jcsy, lrmb_cnmb_zjjrzsy, 
+      cnlrsx_bq_jcsy, cnlrsx_bq_zjjrzsy, cnlrsx_bn_jcsy, 
+      cnlrsx_bn_zjjrzsy, cnlrsx_kl_jcsy, cnlrsx_kl_zjjrzsy, 
+      cnlrsj_bq_jcsy, cnlrsj_bq_zjjrzsy, cnlrsj_bn_jcsy, 
+      cnlrsj_bn_zjjrzsy, cnlrsj_kl_jcsy, cnlrsj_kl_zjjrzsy, 
+      zxsxlrze_bq_xmgs, zxsxlrze_bq_zcbb, zxsxlrze_bq_gfb, 
+      zxsxlrze_bn_xmgs, zxsxlrze_bn_zcbb, zxsxlrze_bn_gfb, 
+      zxsxlrze_kl_xmgs, zxsxlrze_kl_zcbb, zxsxlrze_kl_gfb, 
+      bz, period_type, period_value, 
+      create_by, create_org, create_date, 
+      update_by, update_org, update_date, 
+      remarks, del_flag, currency, 
+      pglrmbsx_bq_jcsy, pglrmbsx_bn_jcsy, pglrmbsx_kl_jcsy, 
+      pglrmbsx_bq_trzsy, pglrmbsx_bn_trzsy, pglrmbsx_kl_trzsy, 
+      cnlrysj_bq_jcsy, cnlrysj_bn_jcsy, cnlrysj_kl_jcsy, 
+      cnlrysj_bq_trzsy, cnlrysj_bn_trzsy, cnlrysj_kl_trzsy
+      )
+    values (#{id,jdbcType=CHAR}, #{xmmc,jdbcType=CHAR}, #{jaze,jdbcType=DECIMAL}, 
+      #{lrmbPgjdmbJcsyl,jdbcType=DECIMAL}, #{lrmbPgjdmbZbjjrzsyl,jdbcType=DECIMAL}, #{lrmbPgjdmbJcsy,jdbcType=DECIMAL}, 
+      #{lrmbPgjdmbZbjjrzsy,jdbcType=DECIMAL}, #{lrmbCnmbJcsy,jdbcType=DECIMAL}, #{lrmbCnmbZjjrzsy,jdbcType=DECIMAL}, 
+      #{cnlrsxBqJcsy,jdbcType=DECIMAL}, #{cnlrsxBqZjjrzsy,jdbcType=DECIMAL}, #{cnlrsxBnJcsy,jdbcType=DECIMAL}, 
+      #{cnlrsxBnZjjrzsy,jdbcType=DECIMAL}, #{cnlrsxKlJcsy,jdbcType=DECIMAL}, #{cnlrsxKlZjjrzsy,jdbcType=DECIMAL}, 
+      #{cnlrsjBqJcsy,jdbcType=DECIMAL}, #{cnlrsjBqZjjrzsy,jdbcType=DECIMAL}, #{cnlrsjBnJcsy,jdbcType=DECIMAL}, 
+      #{cnlrsjBnZjjrzsy,jdbcType=DECIMAL}, #{cnlrsjKlJcsy,jdbcType=DECIMAL}, #{cnlrsjKlZjjrzsy,jdbcType=DECIMAL}, 
+      #{zxsxlrzeBqXmgs,jdbcType=DECIMAL}, #{zxsxlrzeBqZcbb,jdbcType=DECIMAL}, #{zxsxlrzeBqGfb,jdbcType=DECIMAL}, 
+      #{zxsxlrzeBnXmgs,jdbcType=DECIMAL}, #{zxsxlrzeBnZcbb,jdbcType=DECIMAL}, #{zxsxlrzeBnGfb,jdbcType=DECIMAL}, 
+      #{zxsxlrzeKlXmgs,jdbcType=DECIMAL}, #{zxsxlrzeKlZcbb,jdbcType=DECIMAL}, #{zxsxlrzeKlGfb,jdbcType=DECIMAL}, 
+      #{bz,jdbcType=VARCHAR}, #{periodType,jdbcType=VARCHAR}, #{periodValue,jdbcType=VARCHAR}, 
+      #{createBy,jdbcType=CHAR}, #{createOrg,jdbcType=CHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateBy,jdbcType=CHAR}, #{updateOrg,jdbcType=CHAR}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{currency,jdbcType=VARCHAR}, 
+      #{pglrmbsxBqJcsy,jdbcType=DECIMAL}, #{pglrmbsxBnJcsy,jdbcType=DECIMAL}, #{pglrmbsxKlJcsy,jdbcType=DECIMAL}, 
+      #{pglrmbsxBqTrzsy,jdbcType=DECIMAL}, #{pglrmbsxBnTrzsy,jdbcType=DECIMAL}, #{pglrmbsxKlTrzsy,jdbcType=DECIMAL}, 
+      #{cnlrysjBqJcsy,jdbcType=DECIMAL}, #{cnlrysjBnJcsy,jdbcType=DECIMAL}, #{cnlrysjKlJcsy,jdbcType=DECIMAL}, 
+      #{cnlrysjBqTrzsy,jdbcType=DECIMAL}, #{cnlrysjBnTrzsy,jdbcType=DECIMAL}, #{cnlrysjKlTrzsy,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ProInvLrsxqk" >
+    insert into pro_inv_lrsxqk
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="xmmc != null" >
+        xmmc,
+      </if>
+      <if test="jaze != null" >
+        jaze,
+      </if>
+      <if test="lrmbPgjdmbJcsyl != null" >
+        lrmb_pgjdmb_jcsyl,
+      </if>
+      <if test="lrmbPgjdmbZbjjrzsyl != null" >
+        lrmb_pgjdmb_zbjjrzsyl,
+      </if>
+      <if test="lrmbPgjdmbJcsy != null" >
+        lrmb_pgjdmb_jcsy,
+      </if>
+      <if test="lrmbPgjdmbZbjjrzsy != null" >
+        lrmb_pgjdmb_zbjjrzsy,
+      </if>
+      <if test="lrmbCnmbJcsy != null" >
+        lrmb_cnmb_jcsy,
+      </if>
+      <if test="lrmbCnmbZjjrzsy != null" >
+        lrmb_cnmb_zjjrzsy,
+      </if>
+      <if test="cnlrsxBqJcsy != null" >
+        cnlrsx_bq_jcsy,
+      </if>
+      <if test="cnlrsxBqZjjrzsy != null" >
+        cnlrsx_bq_zjjrzsy,
+      </if>
+      <if test="cnlrsxBnJcsy != null" >
+        cnlrsx_bn_jcsy,
+      </if>
+      <if test="cnlrsxBnZjjrzsy != null" >
+        cnlrsx_bn_zjjrzsy,
+      </if>
+      <if test="cnlrsxKlJcsy != null" >
+        cnlrsx_kl_jcsy,
+      </if>
+      <if test="cnlrsxKlZjjrzsy != null" >
+        cnlrsx_kl_zjjrzsy,
+      </if>
+      <if test="cnlrsjBqJcsy != null" >
+        cnlrsj_bq_jcsy,
+      </if>
+      <if test="cnlrsjBqZjjrzsy != null" >
+        cnlrsj_bq_zjjrzsy,
+      </if>
+      <if test="cnlrsjBnJcsy != null" >
+        cnlrsj_bn_jcsy,
+      </if>
+      <if test="cnlrsjBnZjjrzsy != null" >
+        cnlrsj_bn_zjjrzsy,
+      </if>
+      <if test="cnlrsjKlJcsy != null" >
+        cnlrsj_kl_jcsy,
+      </if>
+      <if test="cnlrsjKlZjjrzsy != null" >
+        cnlrsj_kl_zjjrzsy,
+      </if>
+      <if test="zxsxlrzeBqXmgs != null" >
+        zxsxlrze_bq_xmgs,
+      </if>
+      <if test="zxsxlrzeBqZcbb != null" >
+        zxsxlrze_bq_zcbb,
+      </if>
+      <if test="zxsxlrzeBqGfb != null" >
+        zxsxlrze_bq_gfb,
+      </if>
+      <if test="zxsxlrzeBnXmgs != null" >
+        zxsxlrze_bn_xmgs,
+      </if>
+      <if test="zxsxlrzeBnZcbb != null" >
+        zxsxlrze_bn_zcbb,
+      </if>
+      <if test="zxsxlrzeBnGfb != null" >
+        zxsxlrze_bn_gfb,
+      </if>
+      <if test="zxsxlrzeKlXmgs != null" >
+        zxsxlrze_kl_xmgs,
+      </if>
+      <if test="zxsxlrzeKlZcbb != null" >
+        zxsxlrze_kl_zcbb,
+      </if>
+      <if test="zxsxlrzeKlGfb != null" >
+        zxsxlrze_kl_gfb,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+      <if test="periodType != null" >
+        period_type,
+      </if>
+      <if test="periodValue != null" >
+        period_value,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createOrg != null" >
+        create_org,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateOrg != null" >
+        update_org,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+      <if test="pglrmbsxBqJcsy != null" >
+        pglrmbsx_bq_jcsy,
+      </if>
+      <if test="pglrmbsxBnJcsy != null" >
+        pglrmbsx_bn_jcsy,
+      </if>
+      <if test="pglrmbsxKlJcsy != null" >
+        pglrmbsx_kl_jcsy,
+      </if>
+      <if test="pglrmbsxBqTrzsy != null" >
+        pglrmbsx_bq_trzsy,
+      </if>
+      <if test="pglrmbsxBnTrzsy != null" >
+        pglrmbsx_bn_trzsy,
+      </if>
+      <if test="pglrmbsxKlTrzsy != null" >
+        pglrmbsx_kl_trzsy,
+      </if>
+      <if test="cnlrysjBqJcsy != null" >
+        cnlrysj_bq_jcsy,
+      </if>
+      <if test="cnlrysjBnJcsy != null" >
+        cnlrysj_bn_jcsy,
+      </if>
+      <if test="cnlrysjKlJcsy != null" >
+        cnlrysj_kl_jcsy,
+      </if>
+      <if test="cnlrysjBqTrzsy != null" >
+        cnlrysj_bq_trzsy,
+      </if>
+      <if test="cnlrysjBnTrzsy != null" >
+        cnlrysj_bn_trzsy,
+      </if>
+      <if test="cnlrysjKlTrzsy != null" >
+        cnlrysj_kl_trzsy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="xmmc != null" >
+        #{xmmc,jdbcType=CHAR},
+      </if>
+      <if test="jaze != null" >
+        #{jaze,jdbcType=DECIMAL},
+      </if>
+      <if test="lrmbPgjdmbJcsyl != null" >
+        #{lrmbPgjdmbJcsyl,jdbcType=DECIMAL},
+      </if>
+      <if test="lrmbPgjdmbZbjjrzsyl != null" >
+        #{lrmbPgjdmbZbjjrzsyl,jdbcType=DECIMAL},
+      </if>
+      <if test="lrmbPgjdmbJcsy != null" >
+        #{lrmbPgjdmbJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="lrmbPgjdmbZbjjrzsy != null" >
+        #{lrmbPgjdmbZbjjrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="lrmbCnmbJcsy != null" >
+        #{lrmbCnmbJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="lrmbCnmbZjjrzsy != null" >
+        #{lrmbCnmbZjjrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsxBqJcsy != null" >
+        #{cnlrsxBqJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsxBqZjjrzsy != null" >
+        #{cnlrsxBqZjjrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsxBnJcsy != null" >
+        #{cnlrsxBnJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsxBnZjjrzsy != null" >
+        #{cnlrsxBnZjjrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsxKlJcsy != null" >
+        #{cnlrsxKlJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsxKlZjjrzsy != null" >
+        #{cnlrsxKlZjjrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsjBqJcsy != null" >
+        #{cnlrsjBqJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsjBqZjjrzsy != null" >
+        #{cnlrsjBqZjjrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsjBnJcsy != null" >
+        #{cnlrsjBnJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsjBnZjjrzsy != null" >
+        #{cnlrsjBnZjjrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsjKlJcsy != null" >
+        #{cnlrsjKlJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsjKlZjjrzsy != null" >
+        #{cnlrsjKlZjjrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeBqXmgs != null" >
+        #{zxsxlrzeBqXmgs,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeBqZcbb != null" >
+        #{zxsxlrzeBqZcbb,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeBqGfb != null" >
+        #{zxsxlrzeBqGfb,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeBnXmgs != null" >
+        #{zxsxlrzeBnXmgs,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeBnZcbb != null" >
+        #{zxsxlrzeBnZcbb,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeBnGfb != null" >
+        #{zxsxlrzeBnGfb,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeKlXmgs != null" >
+        #{zxsxlrzeKlXmgs,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeKlZcbb != null" >
+        #{zxsxlrzeKlZcbb,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeKlGfb != null" >
+        #{zxsxlrzeKlGfb,jdbcType=DECIMAL},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="periodType != null" >
+        #{periodType,jdbcType=VARCHAR},
+      </if>
+      <if test="periodValue != null" >
+        #{periodValue,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=CHAR},
+      </if>
+      <if test="createOrg != null" >
+        #{createOrg,jdbcType=CHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=CHAR},
+      </if>
+      <if test="updateOrg != null" >
+        #{updateOrg,jdbcType=CHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="pglrmbsxBqJcsy != null" >
+        #{pglrmbsxBqJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="pglrmbsxBnJcsy != null" >
+        #{pglrmbsxBnJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="pglrmbsxKlJcsy != null" >
+        #{pglrmbsxKlJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="pglrmbsxBqTrzsy != null" >
+        #{pglrmbsxBqTrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="pglrmbsxBnTrzsy != null" >
+        #{pglrmbsxBnTrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="pglrmbsxKlTrzsy != null" >
+        #{pglrmbsxKlTrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrysjBqJcsy != null" >
+        #{cnlrysjBqJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrysjBnJcsy != null" >
+        #{cnlrysjBnJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrysjKlJcsy != null" >
+        #{cnlrysjKlJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrysjBqTrzsy != null" >
+        #{cnlrysjBqTrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrysjBnTrzsy != null" >
+        #{cnlrysjBnTrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrysjKlTrzsy != null" >
+        #{cnlrysjKlTrzsy,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ProInvLrsxqk" >
+    update pro_inv_lrsxqk
+    <set >
+      <if test="xmmc != null" >
+        xmmc = #{xmmc,jdbcType=CHAR},
+      </if>
+      <if test="jaze != null" >
+        jaze = #{jaze,jdbcType=DECIMAL},
+      </if>
+      <if test="lrmbPgjdmbJcsyl != null" >
+        lrmb_pgjdmb_jcsyl = #{lrmbPgjdmbJcsyl,jdbcType=DECIMAL},
+      </if>
+      <if test="lrmbPgjdmbZbjjrzsyl != null" >
+        lrmb_pgjdmb_zbjjrzsyl = #{lrmbPgjdmbZbjjrzsyl,jdbcType=DECIMAL},
+      </if>
+      <if test="lrmbPgjdmbJcsy != null" >
+        lrmb_pgjdmb_jcsy = #{lrmbPgjdmbJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="lrmbPgjdmbZbjjrzsy != null" >
+        lrmb_pgjdmb_zbjjrzsy = #{lrmbPgjdmbZbjjrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="lrmbCnmbJcsy != null" >
+        lrmb_cnmb_jcsy = #{lrmbCnmbJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="lrmbCnmbZjjrzsy != null" >
+        lrmb_cnmb_zjjrzsy = #{lrmbCnmbZjjrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsxBqJcsy != null" >
+        cnlrsx_bq_jcsy = #{cnlrsxBqJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsxBqZjjrzsy != null" >
+        cnlrsx_bq_zjjrzsy = #{cnlrsxBqZjjrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsxBnJcsy != null" >
+        cnlrsx_bn_jcsy = #{cnlrsxBnJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsxBnZjjrzsy != null" >
+        cnlrsx_bn_zjjrzsy = #{cnlrsxBnZjjrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsxKlJcsy != null" >
+        cnlrsx_kl_jcsy = #{cnlrsxKlJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsxKlZjjrzsy != null" >
+        cnlrsx_kl_zjjrzsy = #{cnlrsxKlZjjrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsjBqJcsy != null" >
+        cnlrsj_bq_jcsy = #{cnlrsjBqJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsjBqZjjrzsy != null" >
+        cnlrsj_bq_zjjrzsy = #{cnlrsjBqZjjrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsjBnJcsy != null" >
+        cnlrsj_bn_jcsy = #{cnlrsjBnJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsjBnZjjrzsy != null" >
+        cnlrsj_bn_zjjrzsy = #{cnlrsjBnZjjrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsjKlJcsy != null" >
+        cnlrsj_kl_jcsy = #{cnlrsjKlJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrsjKlZjjrzsy != null" >
+        cnlrsj_kl_zjjrzsy = #{cnlrsjKlZjjrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeBqXmgs != null" >
+        zxsxlrze_bq_xmgs = #{zxsxlrzeBqXmgs,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeBqZcbb != null" >
+        zxsxlrze_bq_zcbb = #{zxsxlrzeBqZcbb,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeBqGfb != null" >
+        zxsxlrze_bq_gfb = #{zxsxlrzeBqGfb,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeBnXmgs != null" >
+        zxsxlrze_bn_xmgs = #{zxsxlrzeBnXmgs,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeBnZcbb != null" >
+        zxsxlrze_bn_zcbb = #{zxsxlrzeBnZcbb,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeBnGfb != null" >
+        zxsxlrze_bn_gfb = #{zxsxlrzeBnGfb,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeKlXmgs != null" >
+        zxsxlrze_kl_xmgs = #{zxsxlrzeKlXmgs,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeKlZcbb != null" >
+        zxsxlrze_kl_zcbb = #{zxsxlrzeKlZcbb,jdbcType=DECIMAL},
+      </if>
+      <if test="zxsxlrzeKlGfb != null" >
+        zxsxlrze_kl_gfb = #{zxsxlrzeKlGfb,jdbcType=DECIMAL},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="periodType != null" >
+        period_type = #{periodType,jdbcType=VARCHAR},
+      </if>
+      <if test="periodValue != null" >
+        period_value = #{periodValue,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=CHAR},
+      </if>
+      <if test="createOrg != null" >
+        create_org = #{createOrg,jdbcType=CHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=CHAR},
+      </if>
+      <if test="updateOrg != null" >
+        update_org = #{updateOrg,jdbcType=CHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="currency != null" >
+        currency = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="pglrmbsxBqJcsy != null" >
+        pglrmbsx_bq_jcsy = #{pglrmbsxBqJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="pglrmbsxBnJcsy != null" >
+        pglrmbsx_bn_jcsy = #{pglrmbsxBnJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="pglrmbsxKlJcsy != null" >
+        pglrmbsx_kl_jcsy = #{pglrmbsxKlJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="pglrmbsxBqTrzsy != null" >
+        pglrmbsx_bq_trzsy = #{pglrmbsxBqTrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="pglrmbsxBnTrzsy != null" >
+        pglrmbsx_bn_trzsy = #{pglrmbsxBnTrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="pglrmbsxKlTrzsy != null" >
+        pglrmbsx_kl_trzsy = #{pglrmbsxKlTrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrysjBqJcsy != null" >
+        cnlrysj_bq_jcsy = #{cnlrysjBqJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrysjBnJcsy != null" >
+        cnlrysj_bn_jcsy = #{cnlrysjBnJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrysjKlJcsy != null" >
+        cnlrysj_kl_jcsy = #{cnlrysjKlJcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrysjBqTrzsy != null" >
+        cnlrysj_bq_trzsy = #{cnlrysjBqTrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrysjBnTrzsy != null" >
+        cnlrysj_bn_trzsy = #{cnlrysjBnTrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnlrysjKlTrzsy != null" >
+        cnlrysj_kl_trzsy = #{cnlrysjKlTrzsy,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ProInvLrsxqk" >
+    update pro_inv_lrsxqk
+    set       xmmc = #{xmmc,jdbcType=CHAR},
+      jaze = #{jaze,jdbcType=DECIMAL},
+      lrmb_pgjdmb_jcsyl = #{lrmbPgjdmbJcsyl,jdbcType=DECIMAL},
+      lrmb_pgjdmb_zbjjrzsyl = #{lrmbPgjdmbZbjjrzsyl,jdbcType=DECIMAL},
+      lrmb_pgjdmb_jcsy = #{lrmbPgjdmbJcsy,jdbcType=DECIMAL},
+      lrmb_pgjdmb_zbjjrzsy = #{lrmbPgjdmbZbjjrzsy,jdbcType=DECIMAL},
+      lrmb_cnmb_jcsy = #{lrmbCnmbJcsy,jdbcType=DECIMAL},
+      lrmb_cnmb_zjjrzsy = #{lrmbCnmbZjjrzsy,jdbcType=DECIMAL},
+      cnlrsx_bq_jcsy = #{cnlrsxBqJcsy,jdbcType=DECIMAL},
+      cnlrsx_bq_zjjrzsy = #{cnlrsxBqZjjrzsy,jdbcType=DECIMAL},
+      cnlrsx_bn_jcsy = #{cnlrsxBnJcsy,jdbcType=DECIMAL},
+      cnlrsx_bn_zjjrzsy = #{cnlrsxBnZjjrzsy,jdbcType=DECIMAL},
+      cnlrsx_kl_jcsy = #{cnlrsxKlJcsy,jdbcType=DECIMAL},
+      cnlrsx_kl_zjjrzsy = #{cnlrsxKlZjjrzsy,jdbcType=DECIMAL},
+      cnlrsj_bq_jcsy = #{cnlrsjBqJcsy,jdbcType=DECIMAL},
+      cnlrsj_bq_zjjrzsy = #{cnlrsjBqZjjrzsy,jdbcType=DECIMAL},
+      cnlrsj_bn_jcsy = #{cnlrsjBnJcsy,jdbcType=DECIMAL},
+      cnlrsj_bn_zjjrzsy = #{cnlrsjBnZjjrzsy,jdbcType=DECIMAL},
+      cnlrsj_kl_jcsy = #{cnlrsjKlJcsy,jdbcType=DECIMAL},
+      cnlrsj_kl_zjjrzsy = #{cnlrsjKlZjjrzsy,jdbcType=DECIMAL},
+      zxsxlrze_bq_xmgs = #{zxsxlrzeBqXmgs,jdbcType=DECIMAL},
+      zxsxlrze_bq_zcbb = #{zxsxlrzeBqZcbb,jdbcType=DECIMAL},
+      zxsxlrze_bq_gfb = #{zxsxlrzeBqGfb,jdbcType=DECIMAL},
+      zxsxlrze_bn_xmgs = #{zxsxlrzeBnXmgs,jdbcType=DECIMAL},
+      zxsxlrze_bn_zcbb = #{zxsxlrzeBnZcbb,jdbcType=DECIMAL},
+      zxsxlrze_bn_gfb = #{zxsxlrzeBnGfb,jdbcType=DECIMAL},
+      zxsxlrze_kl_xmgs = #{zxsxlrzeKlXmgs,jdbcType=DECIMAL},
+      zxsxlrze_kl_zcbb = #{zxsxlrzeKlZcbb,jdbcType=DECIMAL},
+      zxsxlrze_kl_gfb = #{zxsxlrzeKlGfb,jdbcType=DECIMAL},
+      bz = #{bz,jdbcType=VARCHAR},
+      period_type = #{periodType,jdbcType=VARCHAR},
+      period_value = #{periodValue,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=CHAR},
+      create_org = #{createOrg,jdbcType=CHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=CHAR},
+      update_org = #{updateOrg,jdbcType=CHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      currency = #{currency,jdbcType=VARCHAR},
+      pglrmbsx_bq_jcsy = #{pglrmbsxBqJcsy,jdbcType=DECIMAL},
+      pglrmbsx_bn_jcsy = #{pglrmbsxBnJcsy,jdbcType=DECIMAL},
+      pglrmbsx_kl_jcsy = #{pglrmbsxKlJcsy,jdbcType=DECIMAL},
+      pglrmbsx_bq_trzsy = #{pglrmbsxBqTrzsy,jdbcType=DECIMAL},
+      pglrmbsx_bn_trzsy = #{pglrmbsxBnTrzsy,jdbcType=DECIMAL},
+      pglrmbsx_kl_trzsy = #{pglrmbsxKlTrzsy,jdbcType=DECIMAL},
+      cnlrysj_bq_jcsy = #{cnlrysjBqJcsy,jdbcType=DECIMAL},
+      cnlrysj_bn_jcsy = #{cnlrysjBnJcsy,jdbcType=DECIMAL},
+      cnlrysj_kl_jcsy = #{cnlrysjKlJcsy,jdbcType=DECIMAL},
+      cnlrysj_bq_trzsy = #{cnlrysjBqTrzsy,jdbcType=DECIMAL},
+      cnlrysj_bn_trzsy = #{cnlrysjBnTrzsy,jdbcType=DECIMAL},
+      cnlrysj_kl_trzsy = #{cnlrysjKlTrzsy,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByProInvLrsxqkList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ProInvLrsxqk" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_inv_lrsxqk
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=}
+    </if>
+    <if test="xmmc != null and xmmc != ''" >
+     and xmmc = #{xmmc,jdbcType=CHAR}
+    </if>
+    <if test="jaze != null and jaze != ''" >
+     and jaze = #{jaze,jdbcType=DECIMAL}
+    </if>
+    <if test="lrmbPgjdmbJcsyl != null and lrmbPgjdmbJcsyl != ''" >
+     and lrmb_pgjdmb_jcsyl = #{lrmbPgjdmbJcsyl,jdbcType=DECIMAL}
+    </if>
+    <if test="lrmbPgjdmbZbjjrzsyl != null and lrmbPgjdmbZbjjrzsyl != ''" >
+     and lrmb_pgjdmb_zbjjrzsyl = #{lrmbPgjdmbZbjjrzsyl,jdbcType=DECIMAL}
+    </if>
+    <if test="lrmbPgjdmbJcsy != null and lrmbPgjdmbJcsy != ''" >
+     and lrmb_pgjdmb_jcsy = #{lrmbPgjdmbJcsy,jdbcType=DECIMAL}
+    </if>
+    <if test="lrmbPgjdmbZbjjrzsy != null and lrmbPgjdmbZbjjrzsy != ''" >
+     and lrmb_pgjdmb_zbjjrzsy = #{lrmbPgjdmbZbjjrzsy,jdbcType=DECIMAL}
+    </if>
+    <if test="lrmbCnmbJcsy != null and lrmbCnmbJcsy != ''" >
+     and lrmb_cnmb_jcsy = #{lrmbCnmbJcsy,jdbcType=DECIMAL}
+    </if>
+    <if test="lrmbCnmbZjjrzsy != null and lrmbCnmbZjjrzsy != ''" >
+     and lrmb_cnmb_zjjrzsy = #{lrmbCnmbZjjrzsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrsxBqJcsy != null and cnlrsxBqJcsy != ''" >
+     and cnlrsx_bq_jcsy = #{cnlrsxBqJcsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrsxBqZjjrzsy != null and cnlrsxBqZjjrzsy != ''" >
+     and cnlrsx_bq_zjjrzsy = #{cnlrsxBqZjjrzsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrsxBnJcsy != null and cnlrsxBnJcsy != ''" >
+     and cnlrsx_bn_jcsy = #{cnlrsxBnJcsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrsxBnZjjrzsy != null and cnlrsxBnZjjrzsy != ''" >
+     and cnlrsx_bn_zjjrzsy = #{cnlrsxBnZjjrzsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrsxKlJcsy != null and cnlrsxKlJcsy != ''" >
+     and cnlrsx_kl_jcsy = #{cnlrsxKlJcsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrsxKlZjjrzsy != null and cnlrsxKlZjjrzsy != ''" >
+     and cnlrsx_kl_zjjrzsy = #{cnlrsxKlZjjrzsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrsjBqJcsy != null and cnlrsjBqJcsy != ''" >
+     and cnlrsj_bq_jcsy = #{cnlrsjBqJcsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrsjBqZjjrzsy != null and cnlrsjBqZjjrzsy != ''" >
+     and cnlrsj_bq_zjjrzsy = #{cnlrsjBqZjjrzsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrsjBnJcsy != null and cnlrsjBnJcsy != ''" >
+     and cnlrsj_bn_jcsy = #{cnlrsjBnJcsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrsjBnZjjrzsy != null and cnlrsjBnZjjrzsy != ''" >
+     and cnlrsj_bn_zjjrzsy = #{cnlrsjBnZjjrzsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrsjKlJcsy != null and cnlrsjKlJcsy != ''" >
+     and cnlrsj_kl_jcsy = #{cnlrsjKlJcsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrsjKlZjjrzsy != null and cnlrsjKlZjjrzsy != ''" >
+     and cnlrsj_kl_zjjrzsy = #{cnlrsjKlZjjrzsy,jdbcType=DECIMAL}
+    </if>
+    <if test="zxsxlrzeBqXmgs != null and zxsxlrzeBqXmgs != ''" >
+     and zxsxlrze_bq_xmgs = #{zxsxlrzeBqXmgs,jdbcType=DECIMAL}
+    </if>
+    <if test="zxsxlrzeBqZcbb != null and zxsxlrzeBqZcbb != ''" >
+     and zxsxlrze_bq_zcbb = #{zxsxlrzeBqZcbb,jdbcType=DECIMAL}
+    </if>
+    <if test="zxsxlrzeBqGfb != null and zxsxlrzeBqGfb != ''" >
+     and zxsxlrze_bq_gfb = #{zxsxlrzeBqGfb,jdbcType=DECIMAL}
+    </if>
+    <if test="zxsxlrzeBnXmgs != null and zxsxlrzeBnXmgs != ''" >
+     and zxsxlrze_bn_xmgs = #{zxsxlrzeBnXmgs,jdbcType=DECIMAL}
+    </if>
+    <if test="zxsxlrzeBnZcbb != null and zxsxlrzeBnZcbb != ''" >
+     and zxsxlrze_bn_zcbb = #{zxsxlrzeBnZcbb,jdbcType=DECIMAL}
+    </if>
+    <if test="zxsxlrzeBnGfb != null and zxsxlrzeBnGfb != ''" >
+     and zxsxlrze_bn_gfb = #{zxsxlrzeBnGfb,jdbcType=DECIMAL}
+    </if>
+    <if test="zxsxlrzeKlXmgs != null and zxsxlrzeKlXmgs != ''" >
+     and zxsxlrze_kl_xmgs = #{zxsxlrzeKlXmgs,jdbcType=DECIMAL}
+    </if>
+    <if test="zxsxlrzeKlZcbb != null and zxsxlrzeKlZcbb != ''" >
+     and zxsxlrze_kl_zcbb = #{zxsxlrzeKlZcbb,jdbcType=DECIMAL}
+    </if>
+    <if test="zxsxlrzeKlGfb != null and zxsxlrzeKlGfb != ''" >
+     and zxsxlrze_kl_gfb = #{zxsxlrzeKlGfb,jdbcType=DECIMAL}
+    </if>
+    <if test="bz != null and bz != ''" >
+     and bz = #{bz,jdbcType=VARCHAR}
+    </if>
+    <if test="periodType != null and periodType != ''" >
+     and period_type = #{periodType,jdbcType=VARCHAR}
+    </if>
+    <if test="periodValue != null and periodValue != ''" >
+     and period_value = #{periodValue,jdbcType=VARCHAR}
+    </if>
+    <if test="createBy != null and createBy != ''" >
+     and create_by = #{createBy,jdbcType=CHAR}
+    </if>
+    <if test="createOrg != null and createOrg != ''" >
+     and create_org = #{createOrg,jdbcType=CHAR}
+    </if>
+    <if test="createDate != null and createDate != ''" >
+     and create_date = #{createDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updateBy != null and updateBy != ''" >
+     and update_by = #{updateBy,jdbcType=CHAR}
+    </if>
+    <if test="updateOrg != null and updateOrg != ''" >
+     and update_org = #{updateOrg,jdbcType=CHAR}
+    </if>
+    <if test="updateDate != null and updateDate != ''" >
+     and update_date = #{updateDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="currency != null and currency != ''" >
+     and currency = #{currency,jdbcType=VARCHAR}
+    </if>
+    <if test="pglrmbsxBqJcsy != null and pglrmbsxBqJcsy != ''" >
+     and pglrmbsx_bq_jcsy = #{pglrmbsxBqJcsy,jdbcType=DECIMAL}
+    </if>
+    <if test="pglrmbsxBnJcsy != null and pglrmbsxBnJcsy != ''" >
+     and pglrmbsx_bn_jcsy = #{pglrmbsxBnJcsy,jdbcType=DECIMAL}
+    </if>
+    <if test="pglrmbsxKlJcsy != null and pglrmbsxKlJcsy != ''" >
+     and pglrmbsx_kl_jcsy = #{pglrmbsxKlJcsy,jdbcType=DECIMAL}
+    </if>
+    <if test="pglrmbsxBqTrzsy != null and pglrmbsxBqTrzsy != ''" >
+     and pglrmbsx_bq_trzsy = #{pglrmbsxBqTrzsy,jdbcType=DECIMAL}
+    </if>
+    <if test="pglrmbsxBnTrzsy != null and pglrmbsxBnTrzsy != ''" >
+     and pglrmbsx_bn_trzsy = #{pglrmbsxBnTrzsy,jdbcType=DECIMAL}
+    </if>
+    <if test="pglrmbsxKlTrzsy != null and pglrmbsxKlTrzsy != ''" >
+     and pglrmbsx_kl_trzsy = #{pglrmbsxKlTrzsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrysjBqJcsy != null and cnlrysjBqJcsy != ''" >
+     and cnlrysj_bq_jcsy = #{cnlrysjBqJcsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrysjBnJcsy != null and cnlrysjBnJcsy != ''" >
+     and cnlrysj_bn_jcsy = #{cnlrysjBnJcsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrysjKlJcsy != null and cnlrysjKlJcsy != ''" >
+     and cnlrysj_kl_jcsy = #{cnlrysjKlJcsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrysjBqTrzsy != null and cnlrysjBqTrzsy != ''" >
+     and cnlrysj_bq_trzsy = #{cnlrysjBqTrzsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrysjBnTrzsy != null and cnlrysjBnTrzsy != ''" >
+     and cnlrysj_bn_trzsy = #{cnlrysjBnTrzsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnlrysjKlTrzsy != null and cnlrysjKlTrzsy != ''" >
+     and cnlrysj_kl_trzsy = #{cnlrysjKlTrzsy,jdbcType=DECIMAL}
+    </if>
+  </select>
+  <delete id="batchDeleteUpdateProInvLrsxqk" parameterType="com.apih5.mybatis.pojo.ProInvLrsxqk" >
+    <![CDATA[ 
+        update pro_inv_lrsxqk
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./workflow/plugins/bootstrap/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="./workflow/plugins/bootstrap/bootstrap/css/font-awesome.css" />
+    <link rel="stylesheet" href="./workflow/plugins/bootstrap/ace/css/ace-fonts.css" />
+    <link rel="stylesheet" href="./workflow/plugins/bootstrap/ace/css/ace.css" class="ace-main-stylesheet main-stylesheet" id="main-ace-style" />
+    <!-- 低版本IE样式 -->
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="./workflow/plugins/bootstrap/ace/css/ace-part2.css" class="ace-main-stylesheet" />
+    <link rel="stylesheet" href="./workflow/plugins/bootstrap/ace/css/ace-ie.css" />
+    <![endif]-->
+    <!--[if lte IE 8]>
+    <script src="./workflow/plugins/old-browser/html5shiv.js"></script>
+    <script src="./workflow/plugins/old-browser/respond.js"></script>
+    <![endif]-->
+    <style>
+        .logo {
+            border-radius: 100%;
+            width: 36px;
+            height: 36px;
+            line-height: 30px;
+            margin: -8px 1px 0;
+            background-color: #428BCA;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .error-message {
+            color: #d16e6c;
+        }
+    </style>
+</head>
+<body class="login-layout light-login">
+<div class="main-container">
+    <div class="main-content">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <div class="login-container">
+                    <div class="center">
+                        <h2>
+                            <span>
+                                <span class="logo">
+                                    <img src="./workflow/assets/common/img/logo.png" width="23px"/>
+                                </span>
+                            </span>
+                            <span class="red">Workflow</span>
+                            <span class="grey">Suites</span>
+                        </h2>
+                    </div>
+                    <div class="space-6"></div>
+                    <div class="position-relative">
+                        <div id="login-box" class="login-box visible widget-box no-border">
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <h6 class="header blue lighter bigger">
+                                        <i class="ace-icon fa fa-users green"></i>
+                                        <path:i18n group="login" key="title" />
+                                    </h6>
+                                    <div class="space-6"></div>
+                                    <div class="loginInner">
+                                        <form id="LoginForm" class="form-horizontal" action="/login/tenant">
+                                            <input class="inputlogin" name="loginSource" type="hidden" value="tenant"/>
+                                            <fieldset>
+                                                <label class="form-group block clearfix">
+	                                                <span class="block input-icon input-icon-right">
+	                                                    <input type="text" name="loginName" class="form-control"/>
+	                                                    <i class="ace-icon fa fa-user"></i>
+	                                                </span>
+                                                </label>
+                                                <label class="form-group block clearfix">
+	                                                <span class="block input-icon input-icon-right">
+	                                                    <input type="password" class="form-control" name="password"/>
+	                                                    <i class="ace-icon fa fa-lock"></i>
+	                                                </span>
+                                                </label>
+                                                <label id="tenant-info" class="form-group clearfix hidden">
+                                                    <span class="block">
+                                                        <select name="tenantCode" class="form-control"></select>
+                                                    </span>
+                                                </label>
+                                                <div class="space"></div>
+                                                <div class="clearfix">
+                                                    <label class="inline error-message"></label>
+                                                    <button id="login-btn" class="width-35 btn btn-sm btn-primary pull-right">
+                                                        <i class="ace-icon fa fa-key"></i>
+                                                        <span class="bigger-110">
+                                                            <path:i18n group="login" key="submit" />
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <div class="space-4"></div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                    <div class="social-or-login center">
+                                        <span class="bigger-110"></span>
+                                    </div>
+                                    <div class="space-6"></div>
+                                    <div class="center">
+                                        <h6 class="grey">
+                                            &copy; APIH5
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hidden" id="login-dialog"></div>
+<script src="./workflow/assets/common/js/horizon.base.js"></script>
+<script src="./workflow/plugins/require/require.js"></script>
+<script>
+    horizon.vars.requirePaths.login = horizon.paths.assetspath + '/login/js/login';
+    require.config({
+        baseUrl: horizon.paths.pluginpath,
+        paths: horizon.vars.requirePaths,
+        shim: horizon.vars.requireShim
+    });
+    require([
+        'login'
+    ], function(login) {
+        login.init();
+    });
+</script>
+</body>
+</html>

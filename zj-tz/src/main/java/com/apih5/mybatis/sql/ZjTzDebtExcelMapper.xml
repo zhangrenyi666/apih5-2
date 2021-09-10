@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzDebtExcelMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzDebtExcel" >
+    <id column="debt_excel_id" property="debtExcelId" jdbcType="CHAR" />
+    <result column="debt_id" property="debtId" jdbcType="CHAR" />
+    <result column="ext11" property="ext11" jdbcType="VARCHAR" />
+    <result column="ext12" property="ext12" jdbcType="VARCHAR" />
+    <result column="ext13" property="ext13" jdbcType="VARCHAR" />
+    <result column="ext21" property="ext21" jdbcType="VARCHAR" />
+    <result column="ext22" property="ext22" jdbcType="VARCHAR" />
+    <result column="ext23" property="ext23" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    debt_excel_id, debt_id, ext11, ext12, ext13, 
+    ext21, ext22, ext23, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_debt_excel
+    where debt_excel_id = #{debtExcelId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_debt_excel
+    where debt_excel_id = #{debtExcelId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzDebtExcel" >
+    insert into zj_tz_debt_excel (debt_excel_id, debt_id, ext11, 
+      ext12, ext13, ext21, 
+      ext22, ext23, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{debtExcelId,jdbcType=CHAR}, #{debtId,jdbcType=CHAR}, #{ext11,jdbcType=VARCHAR}, 
+      #{ext12,jdbcType=VARCHAR}, #{ext13,jdbcType=VARCHAR}, #{ext21,jdbcType=VARCHAR}, 
+      #{ext22,jdbcType=VARCHAR}, #{ext23,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzDebtExcel" >
+    insert into zj_tz_debt_excel
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="debtExcelId != null" >
+        debt_excel_id,
+      </if>
+      <if test="debtId != null" >
+        debt_id,
+      </if>
+      <if test="ext11 != null" >
+        ext11,
+      </if>
+      <if test="ext12 != null" >
+        ext12,
+      </if>
+      <if test="ext13 != null" >
+        ext13,
+      </if>
+      <if test="ext21 != null" >
+        ext21,
+      </if>
+      <if test="ext22 != null" >
+        ext22,
+      </if>
+      <if test="ext23 != null" >
+        ext23,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="debtExcelId != null" >
+        #{debtExcelId,jdbcType=CHAR},
+      </if>
+      <if test="debtId != null" >
+        #{debtId,jdbcType=CHAR},
+      </if>
+      <if test="ext11 != null" >
+        #{ext11,jdbcType=VARCHAR},
+      </if>
+      <if test="ext12 != null" >
+        #{ext12,jdbcType=VARCHAR},
+      </if>
+      <if test="ext13 != null" >
+        #{ext13,jdbcType=VARCHAR},
+      </if>
+      <if test="ext21 != null" >
+        #{ext21,jdbcType=VARCHAR},
+      </if>
+      <if test="ext22 != null" >
+        #{ext22,jdbcType=VARCHAR},
+      </if>
+      <if test="ext23 != null" >
+        #{ext23,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzDebtExcel" >
+    update zj_tz_debt_excel
+    <set >
+      <if test="debtId != null" >
+        debt_id = #{debtId,jdbcType=CHAR},
+      </if>
+      <if test="ext11 != null" >
+        ext11 = #{ext11,jdbcType=VARCHAR},
+      </if>
+      <if test="ext12 != null" >
+        ext12 = #{ext12,jdbcType=VARCHAR},
+      </if>
+      <if test="ext13 != null" >
+        ext13 = #{ext13,jdbcType=VARCHAR},
+      </if>
+      <if test="ext21 != null" >
+        ext21 = #{ext21,jdbcType=VARCHAR},
+      </if>
+      <if test="ext22 != null" >
+        ext22 = #{ext22,jdbcType=VARCHAR},
+      </if>
+      <if test="ext23 != null" >
+        ext23 = #{ext23,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where debt_excel_id = #{debtExcelId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzDebtExcel" >
+    update zj_tz_debt_excel
+    set       debt_id = #{debtId,jdbcType=CHAR},
+      ext11 = #{ext11,jdbcType=VARCHAR},
+      ext12 = #{ext12,jdbcType=VARCHAR},
+      ext13 = #{ext13,jdbcType=VARCHAR},
+      ext21 = #{ext21,jdbcType=VARCHAR},
+      ext22 = #{ext22,jdbcType=VARCHAR},
+      ext23 = #{ext23,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where debt_excel_id = #{debtExcelId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzDebtExcelList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzDebtExcel" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_debt_excel
+    where del_flag = '0'
+    <if test="debtId != null and debtId != ''" >
+     and debt_id = #{debtId,jdbcType=CHAR}
+    </if>
+    <if test="ext11 != null and ext11 != ''" >
+     and ext11 = #{ext11,jdbcType=VARCHAR}
+    </if>
+    <if test="ext12 != null and ext12 != ''" >
+     and ext12 = #{ext12,jdbcType=VARCHAR}
+    </if>
+    <if test="ext13 != null and ext13 != ''" >
+     and ext13 = #{ext13,jdbcType=VARCHAR}
+    </if>
+    <if test="ext21 != null and ext21 != ''" >
+     and ext21 = #{ext21,jdbcType=VARCHAR}
+    </if>
+    <if test="ext22 != null and ext22 != ''" >
+     and ext22 = #{ext22,jdbcType=VARCHAR}
+    </if>
+    <if test="ext23 != null and ext23 != ''" >
+     and ext23 = #{ext23,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzDebtExcel" parameterType="com.apih5.mybatis.pojo.ZjTzDebtExcel" >
+    <![CDATA[ 
+        update zj_tz_debt_excel
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and debt_excel_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.debtExcelId} 
+     </foreach>
+  </delete>
+</mapper>

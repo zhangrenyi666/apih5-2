@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzVideoHistoryMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzVideoHistory" >
+    <id column="history_id" property="historyId" jdbcType="CHAR" />
+    <result column="video_id" property="videoId" jdbcType="CHAR" />
+    <result column="suggest" property="suggest" jdbcType="VARCHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    history_id, video_id, suggest, project_id, project_name, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />,
+    (select title from zj_tz_video as t where t.video_id = t1.video_id) AS title
+    from zj_tz_video_history as t1
+    where history_id = #{historyId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_video_history
+    where history_id = #{historyId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzVideoHistory" >
+    insert into zj_tz_video_history (history_id, video_id, suggest, 
+      project_id, project_name, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{historyId,jdbcType=CHAR}, #{videoId,jdbcType=CHAR}, #{suggest,jdbcType=VARCHAR}, 
+      #{projectId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzVideoHistory" >
+    insert into zj_tz_video_history
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="historyId != null" >
+        history_id,
+      </if>
+      <if test="videoId != null" >
+        video_id,
+      </if>
+      <if test="suggest != null" >
+        suggest,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="historyId != null" >
+        #{historyId,jdbcType=CHAR},
+      </if>
+      <if test="videoId != null" >
+        #{videoId,jdbcType=CHAR},
+      </if>
+      <if test="suggest != null" >
+        #{suggest,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzVideoHistory" >
+    update zj_tz_video_history
+    <set >
+      <if test="videoId != null" >
+        video_id = #{videoId,jdbcType=CHAR},
+      </if>
+      <if test="suggest != null" >
+        suggest = #{suggest,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where history_id = #{historyId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzVideoHistory" >
+    update zj_tz_video_history
+    set       video_id = #{videoId,jdbcType=CHAR},
+      suggest = #{suggest,jdbcType=VARCHAR},
+      project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where history_id = #{historyId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzVideoHistoryList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzVideoHistory" >
+    select 
+    t1.history_id,
+    t1.video_id,
+    t1.suggest,
+    t1.project_id,
+    t1.project_name,
+    t1.del_flag,
+    t1.create_time,
+    t1.create_user,
+    t1.create_user_name,
+    t1.modify_time,
+    t1.modify_user,
+    t1.modify_user_name,
+    (select title from zj_tz_video as t where t.video_id = t1.video_id) AS title,
+    t2.department_id AS departmentId
+    from zj_tz_video_history as t1
+    LEFT JOIN sys_user_department t2 ON t2.user_key = t1.create_user AND t2.del_flag = '0'
+    where t1.del_flag = '0'
+    <if test="videoId != null and videoId != ''" >
+     and video_id = #{videoId,jdbcType=CHAR}
+    </if>
+    <if test="suggest != null and suggest != ''" >
+     and suggest = #{suggest,jdbcType=VARCHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and t1.create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and t1.modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY t1.modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzVideoHistory" parameterType="com.apih5.mybatis.pojo.ZjTzVideoHistory" >
+    <![CDATA[ 
+        update zj_tz_video_history
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and history_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.historyId} 
+     </foreach>
+  </delete>
+  <select id="selectByDepartmentId" resultMap="BaseResultMap" parameterType="java.lang.String">
+    SELECT
+	    department_name AS departmentName
+	FROM
+	    sys_department 
+	WHERE
+	    del_flag = '0' 
+	    AND department_id = #{departmentId}
+  </select>
+</mapper>

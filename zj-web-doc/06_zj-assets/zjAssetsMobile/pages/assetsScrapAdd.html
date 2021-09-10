@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>资产报废新增</title>
+    <link rel="stylesheet" type="text/css" href="../css/assetsScrapAdd.css">
+    <link rel="stylesheet" type="text/css" href="../lib/layer_mobile/need/layer.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <script src="../lib/jquery/1.9.1/jquery.min.js"></script>
+    <script src="../lib/layer_mobile/layer.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../lib/ajaxfileupload/ajaxfileupload.js"></script>
+    <!-- <script src="../../../../weblib/lib/layer/2.4/layer.js" type="text/javascript"></script> -->
+    <script src="../js/common.js"></script>
+    <script src="../js/main.js"></script>
+    <!-- <script src="http://weixin.fheb.cn:90/cdn/public/lny.js" type="text/javascript"></script> -->
+    <style>
+        .layui-m-layerbtn span {
+            font-size: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="assetsScrapAdd">
+        <div class="part2">
+            <div class="title">
+                <img src="">
+                <span id="checkResult2" class="text">-</span>
+            </div>
+            <ul>
+                <li>
+                    <div class="left">
+                        <span class="text">所属大类</span>
+                    </div>
+                    <div class="right">
+                        <input id="sszclx1Name" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">所属小类</span>
+                    </div>
+                    <div class="right">
+                        <input id="sszclx2Name" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">资产名称</span>
+                    </div>
+                    <div class="right">
+                        <input id="zcmc" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">资产原值(元)</span>
+                    </div>
+                    <div class="right">
+                        <input id="zcyz" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">残值(元)</span>
+                    </div>
+                    <div class="right">
+                        <input id="zccz" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">规定使用年限(年)</span>
+                    </div>
+                    <div class="right">
+                        <input id="synx" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">已使用年限(年)</span>
+                    </div>
+                    <div class="right">
+                        <input id="ysynx" class="input b" placeholder="请输入已使用年限（年）" />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">报废方式</span>
+                        <span class="star">*</span>
+                    </div>
+                    <div class="right" id="assets_Select">
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">报废原因</span>
+                        <span class="star">*</span>
+                    </div>
+                    <div class="right">
+                        <textarea id="zcxzbfyy" class="textarea b-b" placeholder="必填项"></textarea>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">上传图片</span>
+                    </div>
+                    <div class="right">
+                        <div class="uploadFile">
+                            <label for="uploadBtn" name="imageList" class="upload-btn">
+                                <span style="padding-left: 10px;">添加图片</span>
+                                <input id="uploadBtn" class="inputFile" data-filetype="['jpg','jpeg','png','gif']" name="filesName" size="2" type="file"
+                                />
+                            </label>
+                            <span class="require">上传格式要求：["jpg","jpeg","png","gif"]</span>
+                            <ul class="uploadList" style="margin-top: 20px">
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <a class="btn" id="save" onclick="save()">保存</a>
+            <a class="btn" id="updatesave" onclick="updateSave()">保存</a>
+        </div>
+    </div>
+    <!-- <script src="../js/common.js"></script> -->
+    <script src="../js/main.js"></script>
+    <script type="text/javascript">
+
+
+        var recordId;// 记录ID
+        var sszclx1Name;// 所属大类
+        var sszclx2Name;// 所属小类
+        var zcmc;// 资产名称
+        var zcyz;// 资产原值
+        var zxjz;// 资产净值
+        var zccz;// 残值
+        var synx;//规定使用年限
+        var businessState;// 业务逻辑为update时，更新报废，否则为新增能报废
+        var selectStr = '';//下拉菜单
+        var idzo;//返回id
+
+
+
+        function clearItem(dom) {
+            dom.parent().remove();//删除可见范围中选中项
+        }
+
+        window.login(function () {
+ 
+
+            //设置cookie  
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + "; " + expires;
+            }
+            //获取cookie  
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1);
+                    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+                }
+                return "";
+            }
+            function getUrl(k) {//获取地址栏参数，k为键名
+                var m = new RegExp("(^|&)" + k + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(m);
+                if (r != null) return decodeURI(r[2]); return null;
+            };
+
+
+
+
+            // //下拉菜单
+            l.ajax('getScrapTypeSelectAllList', { selectFlag: '1' }, function (res) {
+                selectStr += '<select class="select" class="assetsstate" size="1" name="bffsdm" id="bffsdm">'
+                $.each(res, function (i, v) {
+                    selectStr += '<option value="' + v.dmbh + '">';
+                    selectStr += v.dmnr;
+                    selectStr += '</option>';
+                })
+                selectStr += '</select>'
+                $('#assets_Select').append(selectStr)
+            })
+
+
+
+
+
+            // 页面刷新加载方法
+            window.onload = function () {
+                request();
+                localData();// 报废详情数据 临时储存
+                if (businessState == "update") {// 更新报废
+                    // console.log('这是编辑页')
+                    $('#checkResult2').text('资产报废编辑');
+                    $('.title img').attr('src', '../img/svg/edit.svg');
+                    $('#save').hide();
+                    scarpData();//获取详情
+                } else {
+                    // console.log('这是新增页')
+                    $('#checkResult2').text('资产报废新增');
+                    $('.title img').attr('src', '../img/svg/add.svg');
+                    $('#updatesave').hide();
+                }
+            }
+
+            //获取报废列表传递的参数
+            function request() {
+                var url = location.href;
+                var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+                var paraObj = {};
+                for (i = 0; j = paraString[i]; i++) {
+                    paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+                }
+                recordId = noNull(paraObj.id);
+                id = noNull(paraObj.id);
+                idzo = noNull(paraObj.idzo)
+                businessState = noNull(paraObj.state);
+            }
+
+            // 报废详情数据 临时储存
+            function localData() {
+                // 临时储存
+                var assetsDetailData = localStorage.getItem("assetsDetailData");// 报废详情数据 临时储存
+                var paraString = assetsDetailData.split("&");
+                var paraObj = {};
+                for (i = 0; j = paraString[i]; i++) {
+                    paraObj[j.substring(0, j.indexOf("="))] = j.substring(j.indexOf("=") + 1, j.length);
+                }
+                $("#sszclx1Name").val(noNull(paraObj.sszclx1Name));// 所属大类
+                $("#sszclx2Name").val(noNull(paraObj.sszclx2Name));// 所属小类
+                $("#zcmc").val(noNull(paraObj.zcmc));// 资产名称
+                $("#zcyz").val(noNull(paraObj.zcyz));
+                $("#zxjz").val(noNull(paraObj.zxjz));
+                $("#zccz").val(noNull(paraObj.zccz));
+                $("#synx").val(noNull(paraObj.synx));
+                synx = paraObj.synx
+            }
+
+            //获取详情
+            function scarpData() {
+                var param = {
+                    recordid: id,
+                }
+
+                l.ajax('getAssetsScrapDetails', param, function (data, message, success) {
+                    if (success == true) {
+                        var data = noNull(data);// 详情数据
+                        if (data != "") {
+                            $("#sszclx1Name").val(noNull(data.sszclx1Name));// 所属大类
+                            $("#sszclx2Name").val(noNull(data.sszclx2Name));// 所属小类
+                            $("#zcmc").val(noNull(data.zcmc));// 资产名称
+                            $("#zcyz").val(noNull(data.zcyz));// 资产原值
+                            $("#zxjz").val(noNull(data.zxjz));// 资产净值
+                            $("#zccz").val(noNull(data.zccz));// 残值
+                            $("#synx").val(noNull(data.synx));// 规定使用年限
+                            $("#ysynx").val(noNull(data.ysynx));// 已使用年限
+                            $("#ytzj").val(noNull(data.ytzj));// 已提折旧
+                            $("#bffsdm").val(noNull(data.bffsdm));// 报废方式
+                            $("#clxs").val(noNull(data.clxs));// 处理形式
+                            $("#zcxzbfyy").text(noNull(data.zcxzbfyy));// 报废原因
+                            updateUploadList(noNull(data.imageList));// 图片列表
+                        }
+                    }
+                })
+
+
+            }
+
+
+
+            //图片上传
+            $("body").off('change', '#uploadBtn').on('change', '#uploadBtn', function () {
+                var accessoryList = [];
+                if (layer.load) {
+                    var index = layer.load(1, {
+                        shade: [0.4, '#ccc'] //0.1透明度的白色背景
+                    });
+                } else {
+                    var index = layer.open({ type: 2, content: '上传中' });
+                }
+
+                $.ajaxFileUpload({
+                    url: API + 'uploadFiles.do', //用于文件上传的服务器端请求地址
+                    secureuri: false, //是否需要安全协议，一般设置为false
+                    fileElementId: 'uploadBtn', //文件上传域的ID
+                    dataType: 'text', //返回值类型 一般设置为json
+                    data: {
+                        projectName: 'zj-assets-haiwei'
+                    },
+                    complete: function (result) {
+                        layer.closeAll('loading');
+                    },
+                    success: function (data, status) { //服务器成功响应处理函数
+                        data = JSON.parse(data);
+                        if (data.success == "true") {
+                            accessoryList.push({
+                                fileName: data.fileName,
+                                fileUrl: window.api + data.fileUrl
+                            })
+                            updateUploadList(accessoryList)
+                        } else {
+                            console.log(data.message)
+                        }
+                    },
+                    error: function (data, status, e) {//服务器响应失败处理函数
+                        console.log(e)
+                        // alert('失败：data:'+data+'\n----status:'+status+'\n-------e:'+e)
+                    }
+                })
+            })
+
+
+
+
+            // 遍历图片列表
+            $('.uploadList').on('click', 'li', function () {
+                imgLayer($(this).attr('data-href'))
+            })
+
+            function updateUploadList(uploadList) {
+                var $str = "";
+                $.each(uploadList, function (i, item) {
+                    $str += '<li data-href="' + item.fileUrl + '" data-name="' + item.fileName + '">';
+                    $str += '<div style="width: 70%; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"  class="text">' + item.fileName + '</div>';
+                    $str += '<img class="img" onclick="clearItem($(this))" src="../img/close.png" />';
+                    $str += '</li>';
+
+                    // $str += 	'<a href="' + item.fileUrl + '" class="text">' + item.fileName + '</a>',                     
+                    // $str += 	'<img class="img" onclick="clearItem($(this))" src="../img/close.png" />',
+                    // $str += '</li>'
+                });
+                $(".uploadList").append($str)
+            }
+
+
+
+        })
+
+        // 报废记录详情查询 新增
+        function save() {
+            var imageList = [];
+            $(".uploadList li").each(function (i, item) {
+                imageList[i] = {
+                    fileName: noNull(item.getAttribute("data-name")),
+                    fileUrl: noNull(item.getAttribute("data-href"))
+                };
+            });
+            var param = {
+                sszcid: recordId,
+                ysynx: noNull($("#ysynx").val()),
+                bffsdm: noNull($("#bffsdm").val()),
+                ytzj: noNull($("#ytzj").val()),
+                clxs: noNull($("#clxs").val()),
+                zcxzbfyy: noNull($("#zcxzbfyy").val()),
+                imageList: imageList
+            };
+            var ysynx = noNull($("#ysynx").val());
+            var ytzj = noNull($("#ytzj").val());
+            var ysynxGs = /^[0-9]{0,10}$/.test(ysynx);//已使用年限格式限制
+            var ytzjGs = /^[0-9]{0,10}$/.test(ytzj);//已提折旧限格式限制
+            if (ysynxGs == false) {
+                layer.open({
+                    content: '已使用年限只能填数字！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (ytzjGs == false) {
+                layer.open({
+                    content: '已提折旧只能填数字！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (param.bffsdm == "") {
+                layer.open({
+                    content: '请填写报废方式！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (param.zcxzbfyy == "") {
+                layer.open({
+                    content: '请填写报废原因！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else {
+                //    console.log('addAssetsScrap发送参数是：',param)
+
+                l.ajax('addAssetsScrap', param, function (data, message, success) {
+                    if (success) {
+                        successMsg('新增成功', -1, 1500);
+                    } else {
+                        layer.open({
+                            content: noNull(message)
+                            , btn: '确定'
+                            , style: 'font-size: 28px'
+                            , yes: function (index) {
+                                layer.close(index);
+                            }
+                        });
+                    }
+                })
+
+ 
+
+            }
+        }
+
+
+        // 报废记录详情查询 编辑
+        function updateSave() {
+            var imageList = [];
+            $(".uploadList li").each(function (i, item) {
+                imageList[i] = {
+                    fileName: noNull(item.getAttribute("data-name")),
+                    fileUrl: noNull(item.getAttribute("data-href"))
+                };
+            });
+            var param = {
+                recordid: id,
+                sszclx1Name: noNull($("#sszclx1Name").val()),
+                sszclx2Name: noNull($("#sszclx2Name").val()),
+                bffsdm: noNull($("#bffsdm").val()),
+                clxs: noNull($("#clxs").val()),
+                synx: noNull($("#synx").val()),
+                zccz: noNull($("#zccz").val()),
+                ysynx: noNull($("#ysynx").val()),
+                ytzj: noNull($("#ytzj").val()),
+                zcmc: noNull($("#zcmc").val()),
+                zcxzbfyy: noNull($("#zcxzbfyy").val()),
+                zcyz: noNull($("#zcyz").val()),
+                zxjz: noNull($("#zxjz").val()),
+                imageList: imageList
+            };
+            var ysynx = noNull($("#ysynx").val());
+            var ytzj = noNull($("#ytzj").val());
+            var ysynxGs = /^[0-9]{0,10}$/.test(ysynx);//已使用年限格式限制
+            var ytzjGs = /^[0-9]{0,10}$/.test(ytzj);//已提折旧限格式限制
+            if (ysynxGs == false) {
+                layer.open({
+                    content: '已使用年限只能填数字！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (ytzjGs == false) {
+                layer.open({
+                    content: '已提折旧只能填数字！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (param.bffsdm == "") {
+                layer.open({
+                    content: '请填写报废方式！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (param.zcxzbfyy == "") {
+                layer.open({
+                    content: '请填写报废原因！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else { 
+
+
+                l.ajax('updateAssetsScrap', param, function (data, message, success) {
+                    if (success) {
+                        successMsg('编辑成功', -2, 1500);
+                    } else {
+                        layer.open({
+                            content: noNull(message)
+                            , btn: '确定'
+                            , style: 'font-size: 28px'
+                            , yes: function (index) {
+                                layer.close(index);
+                            }
+                        });
+                    }
+                })
+
+
+             
+
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

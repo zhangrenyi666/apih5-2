@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqEquipDepreciationItemMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqEquipDepreciationItem" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="masID" property="masID" jdbcType="VARCHAR" />
+    <result column="equipID" property="equipID" jdbcType="VARCHAR" />
+    <result column="useOrgID" property="useOrgID" jdbcType="VARCHAR" />
+    <result column="depreamout" property="depreamout" jdbcType="DECIMAL" />
+    <result column="financeOrginalValue" property="financeOrginalValue" jdbcType="DECIMAL" />
+    <result column="orginalValue" property="orginalValue" jdbcType="DECIMAL" />
+    <result column="leftValue" property="leftValue" jdbcType="DECIMAL" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="auditStatus" property="auditStatus" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, masID, equipID, useOrgID, depreamout, 
+    financeOrginalValue, orginalValue, leftValue, remark, orgID, 
+    auditStatus, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_EquipDepreciationItem
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_EquipDepreciationItem
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqEquipDepreciationItem" >
+    insert into zx_eq_EquipDepreciationItem (id, masID, equipID, 
+      useOrgID, depreamout, financeOrginalValue, 
+      orginalValue, leftValue, remark, 
+      orgID, auditStatus, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{masID,jdbcType=VARCHAR}, #{equipID,jdbcType=VARCHAR}, 
+      #{useOrgID,jdbcType=VARCHAR}, #{depreamout,jdbcType=DECIMAL}, #{financeOrginalValue,jdbcType=DECIMAL}, 
+      #{orginalValue,jdbcType=DECIMAL}, #{leftValue,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, 
+      #{orgID,jdbcType=VARCHAR}, #{auditStatus,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqEquipDepreciationItem" >
+    insert into zx_eq_EquipDepreciationItem
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="masID != null" >
+        masID,
+      </if>
+      <if test="equipID != null" >
+        equipID,
+      </if>
+      <if test="useOrgID != null" >
+        useOrgID,
+      </if>
+      <if test="depreamout != null" >
+        depreamout,
+      </if>
+      <if test="financeOrginalValue != null" >
+        financeOrginalValue,
+      </if>
+      <if test="orginalValue != null" >
+        orginalValue,
+      </if>
+      <if test="leftValue != null" >
+        leftValue,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="auditStatus != null" >
+        auditStatus,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="masID != null" >
+        #{masID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipID != null" >
+        #{equipID,jdbcType=VARCHAR},
+      </if>
+      <if test="useOrgID != null" >
+        #{useOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="depreamout != null" >
+        #{depreamout,jdbcType=DECIMAL},
+      </if>
+      <if test="financeOrginalValue != null" >
+        #{financeOrginalValue,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue != null" >
+        #{orginalValue,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue != null" >
+        #{leftValue,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqEquipDepreciationItem" >
+    update zx_eq_EquipDepreciationItem
+    <set >
+      <if test="masID != null" >
+        masID = #{masID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipID != null" >
+        equipID = #{equipID,jdbcType=VARCHAR},
+      </if>
+      <if test="useOrgID != null" >
+        useOrgID = #{useOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="depreamout != null" >
+        depreamout = #{depreamout,jdbcType=DECIMAL},
+      </if>
+      <if test="financeOrginalValue != null" >
+        financeOrginalValue = #{financeOrginalValue,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue != null" >
+        orginalValue = #{orginalValue,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue != null" >
+        leftValue = #{leftValue,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        auditStatus = #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqEquipDepreciationItem" >
+    update zx_eq_EquipDepreciationItem
+    set       masID = #{masID,jdbcType=VARCHAR},
+      equipID = #{equipID,jdbcType=VARCHAR},
+      useOrgID = #{useOrgID,jdbcType=VARCHAR},
+      depreamout = #{depreamout,jdbcType=DECIMAL},
+      financeOrginalValue = #{financeOrginalValue,jdbcType=DECIMAL},
+      orginalValue = #{orginalValue,jdbcType=DECIMAL},
+      leftValue = #{leftValue,jdbcType=DECIMAL},
+      remark = #{remark,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      auditStatus = #{auditStatus,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxEqEquipDepreciationItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEquipDepreciationItem" >
+    select 
+     t1.*,
+     t.equipNo,
+     t.equipName,
+     t.financeNo,
+     t.spec,
+     t.model,
+     t.factory,
+     t.outFactoryDate
+    from zx_eq_EquipDepreciationItem AS t1
+    LEFT JOIN zx_eq_equip AS t ON t1.equipID = t.id 
+    where t1.del_flag = '0'
+    <if test="masID != null and masID != ''" >
+     and masID = #{masID,jdbcType=VARCHAR}
+    </if>
+    <if test="equipID != null and equipID != ''" >
+     and equipID = #{equipID,jdbcType=VARCHAR}
+    </if>
+    <if test="useOrgID != null and useOrgID != ''" >
+     and useOrgID = #{useOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="depreamout != null and depreamout != ''" >
+     and depreamout = #{depreamout,jdbcType=DECIMAL}
+    </if>
+    <if test="financeOrginalValue != null and financeOrginalValue != ''" >
+     and financeOrginalValue = #{financeOrginalValue,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue != null and orginalValue != ''" >
+     and orginalValue = #{orginalValue,jdbcType=DECIMAL}
+    </if>
+    <if test="leftValue != null and leftValue != ''" >
+     and leftValue = #{leftValue,jdbcType=DECIMAL}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="auditStatus != null and auditStatus != ''" >
+     and auditStatus = #{auditStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY create_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqEquipDepreciationItem" parameterType="com.apih5.mybatis.pojo.ZxEqEquipDepreciationItem" >
+    <![CDATA[ 
+        update zx_eq_EquipDepreciationItem
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+  
+  <select id="getZxEqEquipDepreciationItemListForTab" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEquipDepreciationItem" >
+    select 
+     t1.*,
+     t.depreDate,
+     t.depreperiodDate,
+     e.equipNo,
+     e.equipName,
+     e.financeNo,
+     e.spec,
+     e.model,
+     e.factory,
+     e.outFactoryDate
+    from zx_eq_EquipDepreciationItem AS t1
+    LEFT JOIN zx_eq_equip AS e ON t1.equipID = e.id 
+    LEFT JOIN zx_eq_equipdepreciation AS t ON t1.masID = t.id AND e.del_flag = '0'
+    where t1.del_flag = '0'
+    <if test="equipID != null and equipID != ''" >
+     and equipID = #{equipID,jdbcType=VARCHAR}
+    </if>
+    GROUP BY masID
+    ORDER BY modify_time DESC 
+  </select>
+</mapper>

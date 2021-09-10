@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmSalaryWageBasicLibraryMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmSalaryWageBasicLibrary" >
+    <id column="library_id" property="libraryId" jdbcType="CHAR" />
+    <result column="user_key" property="userKey" jdbcType="CHAR" />
+    <result column="extension_id" property="extensionId" jdbcType="CHAR" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="id_type" property="idType" jdbcType="CHAR" />
+    <result column="id_number" property="idNumber" jdbcType="VARCHAR" />
+    <result column="user_type" property="userType" jdbcType="CHAR" />
+    <result column="salary_base" property="salaryBase" jdbcType="DECIMAL" />
+    <result column="position_salary" property="positionSalary" jdbcType="DECIMAL" />
+    <result column="level_id" property="levelId" jdbcType="CHAR" />
+    <result column="salary_id" property="salaryId" jdbcType="CHAR" />
+    <result column="level_salary_id" property="levelSalaryId" jdbcType="VARCHAR" />
+    <result column="education_allowance" property="educationAllowance" jdbcType="DECIMAL" />
+    <result column="year_allowance" property="yearAllowance" jdbcType="DECIMAL" />
+    <result column="title_allowance" property="titleAllowance" jdbcType="DECIMAL" />
+    <result column="child_allowance" property="childAllowance" jdbcType="DECIMAL" />
+    <result column="plateau_allowance" property="plateauAllowance" jdbcType="DECIMAL" />
+    <result column="high_temp_allowance" property="highTempAllowance" jdbcType="DECIMAL" />
+    <result column="certificate_allowance" property="certificateAllowance" jdbcType="DECIMAL" />
+    <result column="communication_allowance" property="communicationAllowance" jdbcType="DECIMAL" />
+    <result column="personal_threshold" property="personalThreshold" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    library_id, user_key, extension_id, real_name, id_type, 
+    id_number, user_type, salary_base, position_salary, level_id, 
+    salary_id, level_salary_id, education_allowance, year_allowance, title_allowance, 
+    child_allowance, plateau_allowance, high_temp_allowance, certificate_allowance, communication_allowance, 
+    personal_threshold, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_wage_basic_library
+    where library_id = #{libraryId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_salary_wage_basic_library
+    where library_id = #{libraryId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryWageBasicLibrary" >
+    insert into zj_xm_salary_wage_basic_library (library_id, user_key, extension_id, 
+      real_name, id_type, id_number, 
+      user_type, salary_base, position_salary, 
+      level_id, salary_id, level_salary_id, 
+      education_allowance, year_allowance, title_allowance, 
+      child_allowance, plateau_allowance, high_temp_allowance, 
+      certificate_allowance, communication_allowance, personal_threshold, 
+      remarks, sort, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{libraryId,jdbcType=CHAR}, #{userKey,jdbcType=CHAR}, #{extensionId,jdbcType=CHAR}, 
+      #{realName,jdbcType=VARCHAR}, #{idType,jdbcType=CHAR}, #{idNumber,jdbcType=VARCHAR}, 
+      #{userType,jdbcType=CHAR}, #{salaryBase,jdbcType=DECIMAL}, #{positionSalary,jdbcType=DECIMAL}, 
+      #{levelId,jdbcType=CHAR}, #{salaryId,jdbcType=CHAR}, #{levelSalaryId,jdbcType=VARCHAR}, 
+      #{educationAllowance,jdbcType=DECIMAL}, #{yearAllowance,jdbcType=DECIMAL}, #{titleAllowance,jdbcType=DECIMAL}, 
+      #{childAllowance,jdbcType=DECIMAL}, #{plateauAllowance,jdbcType=DECIMAL}, #{highTempAllowance,jdbcType=DECIMAL}, 
+      #{certificateAllowance,jdbcType=DECIMAL}, #{communicationAllowance,jdbcType=DECIMAL}, #{personalThreshold,jdbcType=DECIMAL}, 
+      #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryWageBasicLibrary" >
+    insert into zj_xm_salary_wage_basic_library
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="libraryId != null" >
+        library_id,
+      </if>
+      <if test="userKey != null" >
+        user_key,
+      </if>
+      <if test="extensionId != null" >
+        extension_id,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="idType != null" >
+        id_type,
+      </if>
+      <if test="idNumber != null" >
+        id_number,
+      </if>
+      <if test="userType != null" >
+        user_type,
+      </if>
+      <if test="salaryBase != null" >
+        salary_base,
+      </if>
+      <if test="positionSalary != null" >
+        position_salary,
+      </if>
+      <if test="levelId != null" >
+        level_id,
+      </if>
+      <if test="salaryId != null" >
+        salary_id,
+      </if>
+      <if test="levelSalaryId != null" >
+        level_salary_id,
+      </if>
+      <if test="educationAllowance != null" >
+        education_allowance,
+      </if>
+      <if test="yearAllowance != null" >
+        year_allowance,
+      </if>
+      <if test="titleAllowance != null" >
+        title_allowance,
+      </if>
+      <if test="childAllowance != null" >
+        child_allowance,
+      </if>
+      <if test="plateauAllowance != null" >
+        plateau_allowance,
+      </if>
+      <if test="highTempAllowance != null" >
+        high_temp_allowance,
+      </if>
+      <if test="certificateAllowance != null" >
+        certificate_allowance,
+      </if>
+      <if test="communicationAllowance != null" >
+        communication_allowance,
+      </if>
+      <if test="personalThreshold != null" >
+        personal_threshold,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="libraryId != null" >
+        #{libraryId,jdbcType=CHAR},
+      </if>
+      <if test="userKey != null" >
+        #{userKey,jdbcType=CHAR},
+      </if>
+      <if test="extensionId != null" >
+        #{extensionId,jdbcType=CHAR},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null" >
+        #{idType,jdbcType=CHAR},
+      </if>
+      <if test="idNumber != null" >
+        #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null" >
+        #{userType,jdbcType=CHAR},
+      </if>
+      <if test="salaryBase != null" >
+        #{salaryBase,jdbcType=DECIMAL},
+      </if>
+      <if test="positionSalary != null" >
+        #{positionSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="levelId != null" >
+        #{levelId,jdbcType=CHAR},
+      </if>
+      <if test="salaryId != null" >
+        #{salaryId,jdbcType=CHAR},
+      </if>
+      <if test="levelSalaryId != null" >
+        #{levelSalaryId,jdbcType=VARCHAR},
+      </if>
+      <if test="educationAllowance != null" >
+        #{educationAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="yearAllowance != null" >
+        #{yearAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="titleAllowance != null" >
+        #{titleAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="childAllowance != null" >
+        #{childAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="plateauAllowance != null" >
+        #{plateauAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="highTempAllowance != null" >
+        #{highTempAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="certificateAllowance != null" >
+        #{certificateAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="communicationAllowance != null" >
+        #{communicationAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="personalThreshold != null" >
+        #{personalThreshold,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryWageBasicLibrary" >
+    update zj_xm_salary_wage_basic_library
+    <set >
+      <if test="userKey != null" >
+        user_key = #{userKey,jdbcType=CHAR},
+      </if>
+      <if test="extensionId != null" >
+        extension_id = #{extensionId,jdbcType=CHAR},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null" >
+        id_type = #{idType,jdbcType=CHAR},
+      </if>
+      <if test="idNumber != null" >
+        id_number = #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null" >
+        user_type = #{userType,jdbcType=CHAR},
+      </if>
+      <if test="salaryBase != null" >
+        salary_base = #{salaryBase,jdbcType=DECIMAL},
+      </if>
+      <if test="positionSalary != null" >
+        position_salary = #{positionSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="levelId != null" >
+        level_id = #{levelId,jdbcType=CHAR},
+      </if>
+      <if test="salaryId != null" >
+        salary_id = #{salaryId,jdbcType=CHAR},
+      </if>
+      <if test="levelSalaryId != null" >
+        level_salary_id = #{levelSalaryId,jdbcType=VARCHAR},
+      </if>
+      <if test="educationAllowance != null" >
+        education_allowance = #{educationAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="yearAllowance != null" >
+        year_allowance = #{yearAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="titleAllowance != null" >
+        title_allowance = #{titleAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="childAllowance != null" >
+        child_allowance = #{childAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="plateauAllowance != null" >
+        plateau_allowance = #{plateauAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="highTempAllowance != null" >
+        high_temp_allowance = #{highTempAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="certificateAllowance != null" >
+        certificate_allowance = #{certificateAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="communicationAllowance != null" >
+        communication_allowance = #{communicationAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="personalThreshold != null" >
+        personal_threshold = #{personalThreshold,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where library_id = #{libraryId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryWageBasicLibrary" >
+    update zj_xm_salary_wage_basic_library
+    set       user_key = #{userKey,jdbcType=CHAR},
+      extension_id = #{extensionId,jdbcType=CHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      id_type = #{idType,jdbcType=CHAR},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      user_type = #{userType,jdbcType=CHAR},
+      salary_base = #{salaryBase,jdbcType=DECIMAL},
+      position_salary = #{positionSalary,jdbcType=DECIMAL},
+      level_id = #{levelId,jdbcType=CHAR},
+      salary_id = #{salaryId,jdbcType=CHAR},
+      level_salary_id = #{levelSalaryId,jdbcType=VARCHAR},
+      education_allowance = #{educationAllowance,jdbcType=DECIMAL},
+      year_allowance = #{yearAllowance,jdbcType=DECIMAL},
+      title_allowance = #{titleAllowance,jdbcType=DECIMAL},
+      child_allowance = #{childAllowance,jdbcType=DECIMAL},
+      plateau_allowance = #{plateauAllowance,jdbcType=DECIMAL},
+      high_temp_allowance = #{highTempAllowance,jdbcType=DECIMAL},
+      certificate_allowance = #{certificateAllowance,jdbcType=DECIMAL},
+      communication_allowance = #{communicationAllowance,jdbcType=DECIMAL},
+      personal_threshold = #{personalThreshold,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where library_id = #{libraryId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmSalaryWageBasicLibraryList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryWageBasicLibrary" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_wage_basic_library
+    where del_flag = '0'
+    <if test="userKey != null and userKey != ''" >
+     and user_key = #{userKey,jdbcType=CHAR}
+    </if>
+    <if test="extensionId != null and extensionId != ''" >
+     and extension_id = #{extensionId,jdbcType=CHAR}
+    </if>
+    <if test="realName != null and realName != ''" >
+     and real_name = #{realName,jdbcType=VARCHAR}
+    </if>
+    <if test="idType != null and idType != ''" >
+     and id_type = #{idType,jdbcType=CHAR}
+    </if>
+    <if test="idNumber != null and idNumber != ''" >
+     and id_number = #{idNumber,jdbcType=VARCHAR}
+    </if>
+    <if test="userType != null and userType != ''" >
+     and user_type = #{userType,jdbcType=CHAR}
+    </if>
+    <if test="salaryBase != null and salaryBase != ''" >
+     and salary_base = #{salaryBase,jdbcType=DECIMAL}
+    </if>
+    <if test="positionSalary != null and positionSalary != ''" >
+     and position_salary = #{positionSalary,jdbcType=DECIMAL}
+    </if>
+    <if test="levelId != null and levelId != ''" >
+     and level_id = #{levelId,jdbcType=CHAR}
+    </if>
+    <if test="salaryId != null and salaryId != ''" >
+     and salary_id = #{salaryId,jdbcType=CHAR}
+    </if>
+    <if test="levelSalaryId != null and levelSalaryId != ''" >
+     and level_salary_id = #{levelSalaryId,jdbcType=VARCHAR}
+    </if>
+    <if test="educationAllowance != null and educationAllowance != ''" >
+     and education_allowance = #{educationAllowance,jdbcType=DECIMAL}
+    </if>
+    <if test="yearAllowance != null and yearAllowance != ''" >
+     and year_allowance = #{yearAllowance,jdbcType=DECIMAL}
+    </if>
+    <if test="titleAllowance != null and titleAllowance != ''" >
+     and title_allowance = #{titleAllowance,jdbcType=DECIMAL}
+    </if>
+    <if test="childAllowance != null and childAllowance != ''" >
+     and child_allowance = #{childAllowance,jdbcType=DECIMAL}
+    </if>
+    <if test="plateauAllowance != null and plateauAllowance != ''" >
+     and plateau_allowance = #{plateauAllowance,jdbcType=DECIMAL}
+    </if>
+    <if test="highTempAllowance != null and highTempAllowance != ''" >
+     and high_temp_allowance = #{highTempAllowance,jdbcType=DECIMAL}
+    </if>
+    <if test="certificateAllowance != null and certificateAllowance != ''" >
+     and certificate_allowance = #{certificateAllowance,jdbcType=DECIMAL}
+    </if>
+    <if test="communicationAllowance != null and communicationAllowance != ''" >
+     and communication_allowance = #{communicationAllowance,jdbcType=DECIMAL}
+    </if>
+    <if test="personalThreshold != null and personalThreshold != ''" >
+     and personal_threshold = #{personalThreshold,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmSalaryWageBasicLibrary" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryWageBasicLibrary" >
+    <![CDATA[ 
+        update zj_xm_salary_wage_basic_library
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and library_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.libraryId} 
+     </foreach>
+  </delete>
+</mapper>

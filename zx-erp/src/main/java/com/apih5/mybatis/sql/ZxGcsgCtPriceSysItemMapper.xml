@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxGcsgCtPriceSysItemMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxGcsgCtPriceSysItem" >
+    <id column="ct_price_sys_item_id" property="ctPriceSysItemId" jdbcType="CHAR" />
+    <result column="ct_price_sys_id" property="ctPriceSysId" jdbcType="VARCHAR" />
+    <result column="processID" property="processID" jdbcType="VARCHAR" />
+    <result column="processNo" property="processNo" jdbcType="VARCHAR" />
+    <result column="processName" property="processName" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="rgf" property="rgf" jdbcType="DECIMAL" />
+    <result column="jxsb" property="jxsb" jdbcType="DECIMAL" />
+    <result column="zzcl" property="zzcl" jdbcType="DECIMAL" />
+    <result column="opinion_field1" property="opinionField1" jdbcType="VARCHAR" />
+    <result column="opinion_field2" property="opinionField2" jdbcType="VARCHAR" />
+    <result column="opinion_field3" property="opinionField3" jdbcType="VARCHAR" />
+    <result column="opinion_field4" property="opinionField4" jdbcType="VARCHAR" />
+    <result column="opinion_field5" property="opinionField5" jdbcType="VARCHAR" />
+    <result column="opinion_field6" property="opinionField6" jdbcType="VARCHAR" />
+    <result column="opinion_field7" property="opinionField7" jdbcType="VARCHAR" />
+    <result column="opinion_field8" property="opinionField8" jdbcType="VARCHAR" />
+    <result column="opinion_field9" property="opinionField9" jdbcType="VARCHAR" />
+    <result column="opinion_field10" property="opinionField10" jdbcType="VARCHAR" />
+    <result column="apih5_flow_id" property="apih5FlowId" jdbcType="CHAR" />
+    <result column="work_id" property="workId" jdbcType="CHAR" />
+    <result column="apih5_flow_status" property="apih5FlowStatus" jdbcType="CHAR" />
+    <result column="apih5_flow_node_status" property="apih5FlowNodeStatus" jdbcType="CHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ct_price_sys_item_id, ct_price_sys_id, processID, processNo, processName, 
+    editTime, rgf, jxsb, zzcl, opinion_field1, 
+    opinion_field2, opinion_field3, opinion_field4, opinion_field5, opinion_field6, 
+    opinion_field7, opinion_field8, opinion_field9, opinion_field10, apih5_flow_id, 
+    work_id, apih5_flow_status, apih5_flow_node_status, price, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_gcsg_ct_price_sys_item
+    where del_flag = '0' and ct_price_sys_item_id = #{ctPriceSysItemId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_gcsg_ct_price_sys_item
+    where ct_price_sys_item_id = #{ctPriceSysItemId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxGcsgCtPriceSysItem" >
+    insert into zx_gcsg_ct_price_sys_item (
+    ct_price_sys_item_id, ct_price_sys_id, processID, processNo, processName, 
+    editTime, rgf, jxsb, zzcl, opinion_field1, 
+    opinion_field2, opinion_field3, opinion_field4, opinion_field5, opinion_field6, 
+    opinion_field7, opinion_field8, opinion_field9, opinion_field10, apih5_flow_id, 
+    work_id, apih5_flow_status, apih5_flow_node_status, price, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{ctPriceSysItemId,jdbcType=CHAR}, #{ctPriceSysId,jdbcType=VARCHAR}, #{processID,jdbcType=VARCHAR}, #{processNo,jdbcType=VARCHAR}, #{processName,jdbcType=VARCHAR}, 
+    #{editTime,jdbcType=TIMESTAMP}, #{rgf,jdbcType=DECIMAL}, #{jxsb,jdbcType=DECIMAL}, #{zzcl,jdbcType=DECIMAL}, #{opinionField1,jdbcType=VARCHAR}, 
+    #{opinionField2,jdbcType=VARCHAR}, #{opinionField3,jdbcType=VARCHAR}, #{opinionField4,jdbcType=VARCHAR}, #{opinionField5,jdbcType=VARCHAR}, #{opinionField6,jdbcType=VARCHAR}, 
+    #{opinionField7,jdbcType=VARCHAR}, #{opinionField8,jdbcType=VARCHAR}, #{opinionField9,jdbcType=VARCHAR}, #{opinionField10,jdbcType=VARCHAR}, #{apih5FlowId,jdbcType=CHAR}, 
+    #{workId,jdbcType=CHAR}, #{apih5FlowStatus,jdbcType=CHAR}, #{apih5FlowNodeStatus,jdbcType=CHAR}, #{price,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, 
+    #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+    #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxGcsgCtPriceSysItem" >
+    insert into zx_gcsg_ct_price_sys_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ctPriceSysItemId != null" >
+        ct_price_sys_item_id,
+      </if>
+      <if test="ctPriceSysId != null" >
+        ct_price_sys_id,
+      </if>
+      <if test="processID != null" >
+        processID,
+      </if>
+      <if test="processNo != null" >
+        processNo,
+      </if>
+      <if test="processName != null" >
+        processName,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="rgf != null" >
+        rgf,
+      </if>
+      <if test="jxsb != null" >
+        jxsb,
+      </if>
+      <if test="zzcl != null" >
+        zzcl,
+      </if>
+      <if test="opinionField1 != null" >
+        opinion_field1,
+      </if>
+      <if test="opinionField2 != null" >
+        opinion_field2,
+      </if>
+      <if test="opinionField3 != null" >
+        opinion_field3,
+      </if>
+      <if test="opinionField4 != null" >
+        opinion_field4,
+      </if>
+      <if test="opinionField5 != null" >
+        opinion_field5,
+      </if>
+      <if test="opinionField6 != null" >
+        opinion_field6,
+      </if>
+      <if test="opinionField7 != null" >
+        opinion_field7,
+      </if>
+      <if test="opinionField8 != null" >
+        opinion_field8,
+      </if>
+      <if test="opinionField9 != null" >
+        opinion_field9,
+      </if>
+      <if test="opinionField10 != null" >
+        opinion_field10,
+      </if>
+      <if test="apih5FlowId != null" >
+        apih5_flow_id,
+      </if>
+      <if test="workId != null" >
+        work_id,
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status,
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        apih5_flow_node_status,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ctPriceSysItemId != null" >
+        #{ctPriceSysItemId,jdbcType=CHAR},
+      </if>
+      <if test="ctPriceSysId != null" >
+        #{ctPriceSysId,jdbcType=VARCHAR},
+      </if>
+      <if test="processID != null" >
+        #{processID,jdbcType=VARCHAR},
+      </if>
+      <if test="processNo != null" >
+        #{processNo,jdbcType=VARCHAR},
+      </if>
+      <if test="processName != null" >
+        #{processName,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rgf != null" >
+        #{rgf,jdbcType=DECIMAL},
+      </if>
+      <if test="jxsb != null" >
+        #{jxsb,jdbcType=DECIMAL},
+      </if>
+      <if test="zzcl != null" >
+        #{zzcl,jdbcType=DECIMAL},
+      </if>
+      <if test="opinionField1 != null" >
+        #{opinionField1,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField2 != null" >
+        #{opinionField2,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField3 != null" >
+        #{opinionField3,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField4 != null" >
+        #{opinionField4,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField5 != null" >
+        #{opinionField5,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField6 != null" >
+        #{opinionField6,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField7 != null" >
+        #{opinionField7,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField8 != null" >
+        #{opinionField8,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField9 != null" >
+        #{opinionField9,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField10 != null" >
+        #{opinionField10,jdbcType=VARCHAR},
+      </if>
+      <if test="apih5FlowId != null" >
+        #{apih5FlowId,jdbcType=CHAR},
+      </if>
+      <if test="workId != null" >
+        #{workId,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        #{apih5FlowStatus,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        #{apih5FlowNodeStatus,jdbcType=CHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxGcsgCtPriceSysItem" >
+    update zx_gcsg_ct_price_sys_item
+    <set >
+      <if test="ctPriceSysId != null" >
+        ct_price_sys_id = #{ctPriceSysId,jdbcType=VARCHAR},
+      </if>
+      <if test="processID != null" >
+        processID = #{processID,jdbcType=VARCHAR},
+      </if>
+      <if test="processNo != null" >
+        processNo = #{processNo,jdbcType=VARCHAR},
+      </if>
+      <if test="processName != null" >
+        processName = #{processName,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rgf != null" >
+        rgf = #{rgf,jdbcType=DECIMAL},
+      </if>
+      <if test="jxsb != null" >
+        jxsb = #{jxsb,jdbcType=DECIMAL},
+      </if>
+      <if test="zzcl != null" >
+        zzcl = #{zzcl,jdbcType=DECIMAL},
+      </if>
+      <if test="opinionField1 != null" >
+        opinion_field1 = #{opinionField1,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField2 != null" >
+        opinion_field2 = #{opinionField2,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField3 != null" >
+        opinion_field3 = #{opinionField3,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField4 != null" >
+        opinion_field4 = #{opinionField4,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField5 != null" >
+        opinion_field5 = #{opinionField5,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField6 != null" >
+        opinion_field6 = #{opinionField6,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField7 != null" >
+        opinion_field7 = #{opinionField7,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField8 != null" >
+        opinion_field8 = #{opinionField8,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField9 != null" >
+        opinion_field9 = #{opinionField9,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField10 != null" >
+        opinion_field10 = #{opinionField10,jdbcType=VARCHAR},
+      </if>
+      <if test="apih5FlowId != null" >
+        apih5_flow_id = #{apih5FlowId,jdbcType=CHAR},
+      </if>
+      <if test="workId != null" >
+        work_id = #{workId,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ct_price_sys_item_id = #{ctPriceSysItemId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxGcsgCtPriceSysItem" >
+    update zx_gcsg_ct_price_sys_item set 
+      ct_price_sys_id = #{ctPriceSysId,jdbcType=VARCHAR},
+      processID = #{processID,jdbcType=VARCHAR},
+      processNo = #{processNo,jdbcType=VARCHAR},
+      processName = #{processName,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      rgf = #{rgf,jdbcType=DECIMAL},
+      jxsb = #{jxsb,jdbcType=DECIMAL},
+      zzcl = #{zzcl,jdbcType=DECIMAL},
+      opinion_field1 = #{opinionField1,jdbcType=VARCHAR},
+      opinion_field2 = #{opinionField2,jdbcType=VARCHAR},
+      opinion_field3 = #{opinionField3,jdbcType=VARCHAR},
+      opinion_field4 = #{opinionField4,jdbcType=VARCHAR},
+      opinion_field5 = #{opinionField5,jdbcType=VARCHAR},
+      opinion_field6 = #{opinionField6,jdbcType=VARCHAR},
+      opinion_field7 = #{opinionField7,jdbcType=VARCHAR},
+      opinion_field8 = #{opinionField8,jdbcType=VARCHAR},
+      opinion_field9 = #{opinionField9,jdbcType=VARCHAR},
+      opinion_field10 = #{opinionField10,jdbcType=VARCHAR},
+      apih5_flow_id = #{apih5FlowId,jdbcType=CHAR},
+      work_id = #{workId,jdbcType=CHAR},
+      apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR},
+      apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR},
+      price = #{price,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where ct_price_sys_item_id = #{ctPriceSysItemId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxGcsgCtPriceSysItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxGcsgCtPriceSysItem" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_gcsg_ct_price_sys_item
+    where del_flag = '0'
+    <if test="ctPriceSysItemId != null and ctPriceSysItemId != ''" >
+     and ct_price_sys_item_id = #{ctPriceSysItemId,jdbcType=CHAR}
+    </if>
+    <if test="ctPriceSysId != null and ctPriceSysId != ''" >
+     and ct_price_sys_id = #{ctPriceSysId,jdbcType=VARCHAR}
+    </if>
+    <if test="processID != null and processID != ''" >
+     and processID = #{processID,jdbcType=VARCHAR}
+    </if>
+    <if test="processNo != null and processNo != ''" >
+     and processNo = #{processNo,jdbcType=VARCHAR}
+    </if>
+    <if test="processName != null and processName != ''" >
+     and processName = #{processName,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="rgf != null and rgf != ''" >
+     and rgf = #{rgf,jdbcType=DECIMAL}
+    </if>
+    <if test="jxsb != null and jxsb != ''" >
+     and jxsb = #{jxsb,jdbcType=DECIMAL}
+    </if>
+    <if test="zzcl != null and zzcl != ''" >
+     and zzcl = #{zzcl,jdbcType=DECIMAL}
+    </if>
+    <if test="opinionField1 != null and opinionField1 != ''" >
+     and opinion_field1 = #{opinionField1,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField2 != null and opinionField2 != ''" >
+     and opinion_field2 = #{opinionField2,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField3 != null and opinionField3 != ''" >
+     and opinion_field3 = #{opinionField3,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField4 != null and opinionField4 != ''" >
+     and opinion_field4 = #{opinionField4,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField5 != null and opinionField5 != ''" >
+     and opinion_field5 = #{opinionField5,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField6 != null and opinionField6 != ''" >
+     and opinion_field6 = #{opinionField6,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField7 != null and opinionField7 != ''" >
+     and opinion_field7 = #{opinionField7,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField8 != null and opinionField8 != ''" >
+     and opinion_field8 = #{opinionField8,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField9 != null and opinionField9 != ''" >
+     and opinion_field9 = #{opinionField9,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField10 != null and opinionField10 != ''" >
+     and opinion_field10 = #{opinionField10,jdbcType=VARCHAR}
+    </if>
+    <if test="apih5FlowId != null and apih5FlowId != ''" >
+     and apih5_flow_id = #{apih5FlowId,jdbcType=CHAR}
+    </if>
+    <if test="workId != null and workId != ''" >
+     and work_id = #{workId,jdbcType=CHAR}
+    </if>
+    <if test="apih5FlowStatus != null and apih5FlowStatus != ''" >
+     and apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR}
+    </if>
+    <if test="apih5FlowNodeStatus != null and apih5FlowNodeStatus != ''" >
+     and apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR}
+    </if>
+    <if test="price != null and price != ''" >
+     and price = #{price,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxGcsgCtPriceSysItem" parameterType="com.apih5.mybatis.pojo.ZxGcsgCtPriceSysItem" >
+    <![CDATA[ 
+        update zx_gcsg_ct_price_sys_item
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and ct_price_sys_item_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.ctPriceSysItemId} 
+     </foreach>
+  </delete>
+  
+  <insert id ="batchInsertZxGcsgCtPriceSysItem" parameterType="java.util.List" >
+   insert into zx_gcsg_ct_price_sys_item (
+    ct_price_sys_item_id, ct_price_sys_id, processID, processNo, processName, 
+    editTime, rgf, jxsb, zzcl, opinion_field1, 
+    opinion_field2, opinion_field3, opinion_field4, opinion_field5, opinion_field6, 
+    opinion_field7, opinion_field8, opinion_field9, opinion_field10, apih5_flow_id, 
+    work_id, apih5_flow_status, apih5_flow_node_status, price, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values 
+      <foreach collection ="list" item="item" index= "index" separator=",">
+     (
+      #{item.ctPriceSysItemId,jdbcType=CHAR}, #{item.ctPriceSysId,jdbcType=VARCHAR}, 
+      #{item.processID,jdbcType=VARCHAR}, #{item.processNo,jdbcType=VARCHAR}, 
+      #{item.processName,jdbcType=VARCHAR}, #{item.editTime,jdbcType=TIMESTAMP}, 
+      #{item.rgf,jdbcType=DECIMAL}, #{item.jxsb,jdbcType=DECIMAL}, #{item.zzcl,jdbcType=DECIMAL}, 
+      #{item.opinionField1,jdbcType=VARCHAR}, #{item.opinionField2,jdbcType=VARCHAR}, 
+      #{item.opinionField3,jdbcType=VARCHAR}, #{item.opinionField4,jdbcType=VARCHAR}, 
+      #{item.opinionField5,jdbcType=VARCHAR}, #{item.opinionField6,jdbcType=VARCHAR}, 
+      #{item.opinionField7,jdbcType=VARCHAR}, #{item.opinionField8,jdbcType=VARCHAR}, 
+      #{item.opinionField9,jdbcType=VARCHAR}, #{item.opinionField10,jdbcType=VARCHAR}, 
+      #{item.apih5FlowId,jdbcType=CHAR}, #{item.workId,jdbcType=CHAR}, #{item.apih5FlowStatus,jdbcType=CHAR}, 
+      #{item.apih5FlowNodeStatus,jdbcType=CHAR}, #{item.price,jdbcType=DECIMAL}, 
+      #{item.remarks,jdbcType=VARCHAR}, #{item.sort,jdbcType=INTEGER}, #{item.delFlag,jdbcType=CHAR}, 
+      #{item.createTime,jdbcType=TIMESTAMP}, #{item.createUser,jdbcType=CHAR}, 
+      #{item.createUserName,jdbcType=VARCHAR}, #{item.modifyTime,jdbcType=TIMESTAMP}, 
+      #{item.modifyUser,jdbcType=CHAR}, #{item.modifyUserName,jdbcType=VARCHAR}
+      )
+   </foreach >
+  </insert>
+
+  <delete id="batchDeleteZxGcsgCtPriceSysItem" parameterType="com.apih5.mybatis.pojo.ZxGcsgCtPriceSysItem" >
+        delete from 
+                   zx_gcsg_ct_price_sys_item
+        where del_flag = '0' 
+          and ct_price_sys_item_id in  
+     <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.ctPriceSysItemId} 
+     </foreach>
+   </delete>
+  
+  <update id="batchUpdateZxGcsgCtPriceSysItem" parameterType="java.util.List">
+     <foreach collection="list" item="item" index="index" open="" close="" separator=";" >
+        update zx_gcsg_ct_price_sys_item
+          <set> 
+            ct_price_sys_id = #{item.ctPriceSysId,jdbcType=VARCHAR},
+            processID = #{item.processID,jdbcType=VARCHAR},
+            processNo = #{item.processNo,jdbcType=VARCHAR},
+            processName = #{item.processName,jdbcType=VARCHAR},
+            editTime = #{item.editTime,jdbcType=TIMESTAMP},
+            rgf = #{item.rgf,jdbcType=DECIMAL},
+            jxsb = #{item.jxsb,jdbcType=DECIMAL},
+            zzcl = #{item.zzcl,jdbcType=DECIMAL},
+            opinion_field1 = #{item.opinionField1,jdbcType=VARCHAR},
+            opinion_field2 = #{item.opinionField2,jdbcType=VARCHAR},
+            opinion_field3 = #{item.opinionField3,jdbcType=VARCHAR},
+            opinion_field4 = #{item.opinionField4,jdbcType=VARCHAR},
+            opinion_field5 = #{item.opinionField5,jdbcType=VARCHAR},
+            opinion_field6 = #{item.opinionField6,jdbcType=VARCHAR},
+            opinion_field7 = #{item.opinionField7,jdbcType=VARCHAR},
+            opinion_field8 = #{item.opinionField8,jdbcType=VARCHAR},
+            opinion_field9 = #{item.opinionField9,jdbcType=VARCHAR},
+            opinion_field10 = #{item.opinionField10,jdbcType=VARCHAR},
+            apih5_flow_id = #{item.apih5FlowId,jdbcType=CHAR},
+            work_id = #{item.workId,jdbcType=CHAR},
+            apih5_flow_status = #{item.apih5FlowStatus,jdbcType=CHAR},
+            apih5_flow_node_status = #{item.apih5FlowNodeStatus,jdbcType=CHAR},
+            price = #{item.price,jdbcType=DECIMAL},
+            remarks = #{item.remarks,jdbcType=VARCHAR},
+            sort = #{item.sort,jdbcType=INTEGER},
+            del_flag = #{item.delFlag,jdbcType=CHAR},
+            create_time = #{item.createTime,jdbcType=TIMESTAMP},
+            create_user = #{item.createUser,jdbcType=CHAR},
+            create_user_name = #{item.createUserName,jdbcType=VARCHAR},
+            modify_time = #{item.modifyTime,jdbcType=TIMESTAMP},
+            modify_user = #{item.modifyUser,jdbcType=CHAR},
+            modify_user_name = #{item.modifyUserName,jdbcType=VARCHAR}
+          </set>  
+          where ct_price_sys_item_id = #{item.ctPriceSysItemId,jdbcType=CHAR}
+      </foreach>  
+  </update>
+
+</mapper>

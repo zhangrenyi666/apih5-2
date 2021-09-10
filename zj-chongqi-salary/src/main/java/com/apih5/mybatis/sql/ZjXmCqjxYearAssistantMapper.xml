@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.apih5.mybatis.dao.ZjXmCqjxYearAssistantMapper">
+	<resultMap id="BaseResultMap"
+		type="com.apih5.mybatis.pojo.ZjXmCqjxYearAssistant">
+		<id column="year_assistant_id" property="yearAssistantId"
+			jdbcType="CHAR" />
+		<result column="assessment_type" property="assessmentType"
+			jdbcType="CHAR" />
+		<result column="manager_id" property="managerId"
+			jdbcType="CHAR" />
+		<result column="assessment_years" property="assessmentYears"
+			jdbcType="TIMESTAMP" />
+		<result column="assessment_title" property="assessmentTitle"
+			jdbcType="VARCHAR" />
+		<result column="assessment_quarter"
+			property="assessmentQuarter" jdbcType="VARCHAR" />
+		<result column="assessment_state" property="assessmentState"
+			jdbcType="CHAR" />
+		<result column="position" property="position"
+			jdbcType="VARCHAR" />
+		<result column="department_id" property="departmentId"
+			jdbcType="CHAR" />
+		<result column="assistant_lock" property="assistantLock"
+			jdbcType="CHAR" />
+		<result column="leader_see" property="leaderSee"
+			jdbcType="CHAR" />
+		<result column="quarter_average_score"
+			property="quarterAverageScore" jdbcType="DOUBLE" />
+		<result column="comprehensive_score"
+			property="comprehensiveScore" jdbcType="DOUBLE" />
+		<result column="year_final_score" property="yearFinalScore"
+			jdbcType="DOUBLE" />
+		<result column="item_one" property="itemOne" jdbcType="CHAR" />
+		<result column="item_two" property="itemTwo" jdbcType="CHAR" />
+		<result column="item_three" property="itemThree"
+			jdbcType="CHAR" />
+		<result column="item_four" property="itemFour" jdbcType="CHAR" />
+		<result column="item_five" property="itemFive" jdbcType="CHAR" />
+		<result column="del_flag" property="delFlag" jdbcType="CHAR" />
+		<result column="create_time" property="createTime"
+			jdbcType="TIMESTAMP" />
+		<result column="create_user" property="createUser"
+			jdbcType="CHAR" />
+		<result column="create_user_name" property="createUserName"
+			jdbcType="VARCHAR" />
+		<result column="modify_time" property="modifyTime"
+			jdbcType="TIMESTAMP" />
+		<result column="modify_user" property="modifyUser"
+			jdbcType="CHAR" />
+		<result column="modify_user_name" property="modifyUserName"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		year_assistant_id, assessment_type, manager_id, assessment_years, assessment_title,
+		assessment_quarter, assessment_state, position, department_id,
+		assistant_lock,
+		leader_see, quarter_average_score, comprehensive_score, year_final_score,
+		item_one,
+		item_two, item_three, item_four, item_five, del_flag,
+		create_time, create_user, create_user_name, modify_time, modify_user,
+		modify_user_name
+
+	</sql>
+	<select id="selectZjXmCqjxYearAssessmentManageListByDeptHeader"
+		resultMap="BaseResultMap"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxYearAssistant">
+		select
+		<include refid="Base_Column_List" />
+		,
+		(select oa_org_name from zj_xm_cqjx_oa_dept_member
+		where del_flag = '0' and oa_user_id =
+		zj_xm_cqjx_year_assistant.create_user
+		and other_id = zj_xm_cqjx_year_assistant.manager_id) AS
+		departmentName,
+		(SELECT mobile from zj_xm_cqjx_oa_dept_member
+		WHERE del_flag = '0' AND other_id =
+		zj_xm_cqjx_year_assistant.manager_id
+		AND oa_user_id = zj_xm_cqjx_year_assistant.create_user) AS mobile
+		from zj_xm_cqjx_year_assistant
+		where del_flag = '0'
+		<if test="managerId != null and managerId != ''">
+			and manager_id = #{managerId,jdbcType=CHAR}
+		</if>
+		<if test="departmentId != null and departmentId != ''">
+			and department_id = #{departmentId,jdbcType=CHAR}
+		</if>
+		ORDER BY modify_time DESC
+	</select>	
+	<select id="selectZjXmCqjxYearAssistantScoreDetail"
+		resultMap="BaseResultMap"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxYearAssistant">
+		SELECT * FROM(
+		SELECT "1" AS detailText, "1" AS detailTarget, item_one AS detailScore,assessment_type FROM zj_xm_cqjx_year_assistant WHERE del_flag = '0'
+		<if test="yearAssistantId != null and yearAssistantId != ''">
+			and year_assistant_id = #{yearAssistantId,jdbcType=CHAR}
+		</if>
+		union all
+		SELECT "2" AS detailText, "2" AS detailTarget, item_two AS detailScore,assessment_type FROM zj_xm_cqjx_year_assistant WHERE del_flag = '0'
+		<if test="yearAssistantId != null and yearAssistantId != ''">
+			and year_assistant_id = #{yearAssistantId,jdbcType=CHAR}
+		</if>
+		union all
+		SELECT "3" AS detailText, "3" AS detailTarget, item_three AS detailScore,assessment_type FROM zj_xm_cqjx_year_assistant WHERE del_flag = '0'
+		<if test="yearAssistantId != null and yearAssistantId != ''">
+			and year_assistant_id = #{yearAssistantId,jdbcType=CHAR}
+		</if>
+		union all
+		SELECT "4" AS detailText, "4" AS detailTarget, item_four AS detailScore,assessment_type FROM zj_xm_cqjx_year_assistant WHERE del_flag = '0'
+		<if test="yearAssistantId != null and yearAssistantId != ''">
+			and year_assistant_id = #{yearAssistantId,jdbcType=CHAR}
+		</if>
+		union all
+		SELECT "5" AS detailText, "5" AS detailTarget, item_five AS detailScore,assessment_type FROM zj_xm_cqjx_year_assistant WHERE del_flag = '0'
+		<if test="yearAssistantId != null and yearAssistantId != ''">
+			and year_assistant_id = #{yearAssistantId,jdbcType=CHAR}
+		</if>
+		)t
+	</select>
+	<select id="selectZjXmCqjxYearLeaderTodoCount"
+		resultType="java.lang.Integer"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxYearAssistant">
+		select
+		count(*)
+		from zj_xm_cqjx_year_assistant zt left join zj_xm_cqjx_year_score_approval
+		zl on zt.year_assistant_id = zl.executive_id
+		where zl.del_flag = '0'
+		and zt.del_flag = "0"
+		and approval_flag = "1"
+		<if test="createUser != null and createUser != ''">
+			and leader_id = #{createUser,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<select id="selectZjXmCqjxYearLeaderHasTodoCount"
+		resultType="java.lang.Integer"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxYearAssistant">
+		select
+		count(*)
+		FROM zj_xm_cqjx_year_assistant t1 
+		LEFT JOIN zj_xm_cqjx_year_score_approval t2 ON t2.executive_id = t1.year_assistant_id and t2.del_flag = '0'
+		WHERE t1.del_flag = '0' 
+		and t2.approval_flag IN ('2','3','4','5')
+		and approval_flag = "1"
+		<if test="createUser != null and createUser != ''">
+			and leader_id = #{createUser,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<select id="selectEvaluationLeaderTodoListByUserKey"
+		resultMap="BaseResultMap"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxYearAssistant">
+		select
+		zt.manager_id,
+		zt.assessment_type,
+		zt.assessment_years,
+		zt.assessment_title,
+		zt.assessment_quarter,
+		zt.assessment_state,
+		zt.position,
+		zt.create_user_name,
+		zt.year_assistant_id,
+		(select oa_org_name from zj_xm_cqjx_project_oa_dept_member where del_flag =
+		'0' and oa_user_id = zt.create_user and other_id = zt.manager_id) AS
+		departmentName,
+		zl.year_score_approval_id AS yearScoreApprovalId,
+		zl.item_type AS itemType,
+		zl.leader_score AS
+		leaderScore
+		from zj_xm_cqjx_year_assistant zt left join zj_xm_cqjx_year_score_approval
+		zl on zt.year_assistant_id = zl.executive_id
+		where zl.del_flag = '0'
+		and zt.del_flag = "0"
+		and approval_flag = "1"
+		<if test="createUser != null and createUser != ''">
+			and leader_id = #{createUser,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from zj_xm_cqjx_year_assistant
+		where year_assistant_id = #{yearAssistantId,jdbcType=CHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from zj_xm_cqjx_year_assistant
+		where year_assistant_id = #{yearAssistantId,jdbcType=CHAR}
+	</delete>
+	<insert id="insert"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxYearAssistant">
+		insert into zj_xm_cqjx_year_assistant (year_assistant_id, assessment_type,
+		manager_id,
+		assessment_years, assessment_title, assessment_quarter,
+		assessment_state, position, department_id,
+		assistant_lock, leader_see, quarter_average_score,
+		comprehensive_score, year_final_score, item_one,
+		item_two, item_three, item_four,
+		item_five, del_flag, create_time,
+		create_user, create_user_name, modify_time,
+		modify_user, modify_user_name
+		)
+		values (#{yearAssistantId,jdbcType=CHAR}, #{assessmentType,jdbcType=CHAR},
+		#{managerId,jdbcType=CHAR},
+		#{assessmentYears,jdbcType=TIMESTAMP}, #{assessmentTitle,jdbcType=VARCHAR},
+		#{assessmentQuarter,jdbcType=VARCHAR},
+		#{assessmentState,jdbcType=CHAR}, #{position,jdbcType=VARCHAR},
+		#{departmentId,jdbcType=CHAR},
+		#{assistantLock,jdbcType=CHAR}, #{leaderSee,jdbcType=CHAR}, #{quarterAverageScore,jdbcType=DOUBLE},
+		#{comprehensiveScore,jdbcType=DOUBLE},
+		#{yearFinalScore,jdbcType=DOUBLE}, #{itemOne,jdbcType=CHAR},
+		#{itemTwo,jdbcType=CHAR}, #{itemThree,jdbcType=CHAR},
+		#{itemFour,jdbcType=CHAR},
+		#{itemFive,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP},
+		#{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR},
+		#{modifyTime,jdbcType=TIMESTAMP},
+		#{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxYearAssistant">
+		insert into zj_xm_cqjx_year_assistant
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="yearAssistantId != null">
+				year_assistant_id,
+			</if>
+			<if test="assessmentType != null">
+				assessment_type,
+			</if>
+			<if test="managerId != null">
+				manager_id,
+			</if>
+			<if test="assessmentYears != null">
+				assessment_years,
+			</if>
+			<if test="assessmentTitle != null">
+				assessment_title,
+			</if>
+			<if test="assessmentQuarter != null">
+				assessment_quarter,
+			</if>
+			<if test="assessmentState != null">
+				assessment_state,
+			</if>
+			<if test="position != null">
+				position,
+			</if>
+			<if test="departmentId != null">
+				department_id,
+			</if>
+			<if test="assistantLock != null">
+				assistant_lock,
+			</if>
+			<if test="leaderSee != null">
+				leader_see,
+			</if>
+			<if test="quarterAverageScore != null">
+				quarter_average_score,
+			</if>
+			<if test="comprehensiveScore != null">
+				comprehensive_score,
+			</if>
+			<if test="yearFinalScore != null">
+				year_final_score,
+			</if>
+			<if test="itemOne != null">
+				item_one,
+			</if>
+			<if test="itemTwo != null">
+				item_two,
+			</if>
+			<if test="itemThree != null">
+				item_three,
+			</if>
+			<if test="itemFour != null">
+				item_four,
+			</if>
+			<if test="itemFive != null">
+				item_five,
+			</if>
+			<if test="delFlag != null">
+				del_flag,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="createUser != null">
+				create_user,
+			</if>
+			<if test="createUserName != null">
+				create_user_name,
+			</if>
+			<if test="modifyTime != null">
+				modify_time,
+			</if>
+			<if test="modifyUser != null">
+				modify_user,
+			</if>
+			<if test="modifyUserName != null">
+				modify_user_name,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="yearAssistantId != null">
+				#{yearAssistantId,jdbcType=CHAR},
+			</if>
+			<if test="assessmentType != null">
+				#{assessmentType,jdbcType=CHAR},
+			</if>
+			<if test="managerId != null">
+				#{managerId,jdbcType=CHAR},
+			</if>
+			<if test="assessmentYears != null">
+				#{assessmentYears,jdbcType=TIMESTAMP},
+			</if>
+			<if test="assessmentTitle != null">
+				#{assessmentTitle,jdbcType=VARCHAR},
+			</if>
+			<if test="assessmentQuarter != null">
+				#{assessmentQuarter,jdbcType=VARCHAR},
+			</if>
+			<if test="assessmentState != null">
+				#{assessmentState,jdbcType=CHAR},
+			</if>
+			<if test="position != null">
+				#{position,jdbcType=VARCHAR},
+			</if>
+			<if test="departmentId != null">
+				#{departmentId,jdbcType=CHAR},
+			</if>
+			<if test="assistantLock != null">
+				#{assistantLock,jdbcType=CHAR},
+			</if>
+			<if test="leaderSee != null">
+				#{leaderSee,jdbcType=CHAR},
+			</if>
+			<if test="quarterAverageScore != null">
+				#{quarterAverageScore,jdbcType=DOUBLE},
+			</if>
+			<if test="comprehensiveScore != null">
+				#{comprehensiveScore,jdbcType=DOUBLE},
+			</if>
+			<if test="yearFinalScore != null">
+				#{yearFinalScore,jdbcType=DOUBLE},
+			</if>
+			<if test="itemOne != null">
+				#{itemOne,jdbcType=CHAR},
+			</if>
+			<if test="itemTwo != null">
+				#{itemTwo,jdbcType=CHAR},
+			</if>
+			<if test="itemThree != null">
+				#{itemThree,jdbcType=CHAR},
+			</if>
+			<if test="itemFour != null">
+				#{itemFour,jdbcType=CHAR},
+			</if>
+			<if test="itemFive != null">
+				#{itemFive,jdbcType=CHAR},
+			</if>
+			<if test="delFlag != null">
+				#{delFlag,jdbcType=CHAR},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createUser != null">
+				#{createUser,jdbcType=CHAR},
+			</if>
+			<if test="createUserName != null">
+				#{createUserName,jdbcType=VARCHAR},
+			</if>
+			<if test="modifyTime != null">
+				#{modifyTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifyUser != null">
+				#{modifyUser,jdbcType=CHAR},
+			</if>
+			<if test="modifyUserName != null">
+				#{modifyUserName,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxYearAssistant">
+		update zj_xm_cqjx_year_assistant
+		<set>
+			<if test="assessmentType != null">
+				assessment_type = #{assessmentType,jdbcType=CHAR},
+			</if>
+			<if test="managerId != null">
+				manager_id = #{managerId,jdbcType=CHAR},
+			</if>
+			<if test="assessmentYears != null">
+				assessment_years = #{assessmentYears,jdbcType=TIMESTAMP},
+			</if>
+			<if test="assessmentTitle != null">
+				assessment_title = #{assessmentTitle,jdbcType=VARCHAR},
+			</if>
+			<if test="assessmentQuarter != null">
+				assessment_quarter = #{assessmentQuarter,jdbcType=VARCHAR},
+			</if>
+			<if test="assessmentState != null">
+				assessment_state = #{assessmentState,jdbcType=CHAR},
+			</if>
+			<if test="position != null">
+				position = #{position,jdbcType=VARCHAR},
+			</if>
+			<if test="departmentId != null">
+				department_id = #{departmentId,jdbcType=CHAR},
+			</if>
+			<if test="assistantLock != null">
+				assistant_lock = #{assistantLock,jdbcType=CHAR},
+			</if>
+			<if test="leaderSee != null">
+				leader_see = #{leaderSee,jdbcType=CHAR},
+			</if>
+			<if test="quarterAverageScore != null">
+				quarter_average_score = #{quarterAverageScore,jdbcType=DOUBLE},
+			</if>
+			<if test="comprehensiveScore != null">
+				comprehensive_score = #{comprehensiveScore,jdbcType=DOUBLE},
+			</if>
+			<if test="yearFinalScore != null">
+				year_final_score = #{yearFinalScore,jdbcType=DOUBLE},
+			</if>
+			<if test="itemOne != null">
+				item_one = #{itemOne,jdbcType=CHAR},
+			</if>
+			<if test="itemTwo != null">
+				item_two = #{itemTwo,jdbcType=CHAR},
+			</if>
+			<if test="itemThree != null">
+				item_three = #{itemThree,jdbcType=CHAR},
+			</if>
+			<if test="itemFour != null">
+				item_four = #{itemFour,jdbcType=CHAR},
+			</if>
+			<if test="itemFive != null">
+				item_five = #{itemFive,jdbcType=CHAR},
+			</if>
+			<if test="delFlag != null">
+				del_flag = #{delFlag,jdbcType=CHAR},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createUser != null">
+				create_user = #{createUser,jdbcType=CHAR},
+			</if>
+			<if test="createUserName != null">
+				create_user_name = #{createUserName,jdbcType=VARCHAR},
+			</if>
+			<if test="modifyTime != null">
+				modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifyUser != null">
+				modify_user = #{modifyUser,jdbcType=CHAR},
+			</if>
+			<if test="modifyUserName != null">
+				modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where year_assistant_id = #{yearAssistantId,jdbcType=CHAR}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxYearAssistant">
+		update zj_xm_cqjx_year_assistant
+		set assessment_type = #{assessmentType,jdbcType=CHAR},
+		manager_id = #{managerId,jdbcType=CHAR},
+		assessment_years = #{assessmentYears,jdbcType=TIMESTAMP},
+		assessment_title = #{assessmentTitle,jdbcType=VARCHAR},
+		assessment_quarter = #{assessmentQuarter,jdbcType=VARCHAR},
+		assessment_state = #{assessmentState,jdbcType=CHAR},
+		position = #{position,jdbcType=VARCHAR},
+		department_id = #{departmentId,jdbcType=CHAR},
+		assistant_lock = #{assistantLock,jdbcType=CHAR},
+		leader_see = #{leaderSee,jdbcType=CHAR},
+		quarter_average_score = #{quarterAverageScore,jdbcType=DOUBLE},
+		comprehensive_score = #{comprehensiveScore,jdbcType=DOUBLE},
+		year_final_score = #{yearFinalScore,jdbcType=DOUBLE},
+		item_one = #{itemOne,jdbcType=CHAR},
+		item_two = #{itemTwo,jdbcType=CHAR},
+		item_three = #{itemThree,jdbcType=CHAR},
+		item_four = #{itemFour,jdbcType=CHAR},
+		item_five = #{itemFive,jdbcType=CHAR},
+		del_flag = #{delFlag,jdbcType=CHAR},
+		create_time = #{createTime,jdbcType=TIMESTAMP},
+		create_user = #{createUser,jdbcType=CHAR},
+		create_user_name = #{createUserName,jdbcType=VARCHAR},
+		modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+		modify_user = #{modifyUser,jdbcType=CHAR},
+		modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+		where year_assistant_id = #{yearAssistantId,jdbcType=CHAR}
+	</update>
+	<select id="selectByZjXmCqjxYearAssistantList"
+		resultMap="BaseResultMap"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxYearAssistant">
+		select
+		<include refid="Base_Column_List" />
+		,
+		( SELECT oa_org_name FROM zj_xm_cqjx_oa_dept_member WHERE del_flag =
+		'0' AND oa_user_id = zj_xm_cqjx_year_assistant.create_user AND
+		other_id = zj_xm_cqjx_year_assistant.manager_id ) AS departmentName,
+		( SELECT mobile FROM zj_xm_cqjx_oa_dept_member WHERE del_flag = '0' AND
+		other_id = zj_xm_cqjx_year_assistant.manager_id AND oa_user_id =
+		zj_xm_cqjx_year_assistant.create_user ) AS mobile
+		from zj_xm_cqjx_year_assistant
+		where del_flag = '0'
+		<if test="assessmentType != null and assessmentType != ''">
+			and assessment_type = #{assessmentType,jdbcType=CHAR}
+		</if>
+		<if test="managerId != null and managerId != ''">
+			and manager_id = #{managerId,jdbcType=CHAR}
+		</if>
+		<if test="assessmentYears != null">
+			<!-- and assessment_years = #{assessmentYears,jdbcType=TIMESTAMP} -->
+		   and DATE_FORMAT(assessment_years,"%Y") =
+			DATE_FORMAT(#{assessmentYears,jdbcType=TIMESTAMP},"%Y")
+		</if>
+		<if test="assessmentTitle != null and assessmentTitle != ''">
+			and assessment_title = #{assessmentTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="assessmentQuarter != null and assessmentQuarter != ''">
+			and assessment_quarter = #{assessmentQuarter,jdbcType=VARCHAR}
+		</if>
+		<if test="assessmentState != null and assessmentState != ''">
+			and assessment_state = #{assessmentState,jdbcType=CHAR}
+		</if>
+		<if test="position != null and position != ''">
+			and position = #{position,jdbcType=VARCHAR}
+		</if>
+		<if test="departmentId != null and departmentId != ''">
+			and department_id = #{departmentId,jdbcType=CHAR}
+		</if>
+		<if test="assistantLock != null and assistantLock != ''">
+			and assistant_lock = #{assistantLock,jdbcType=CHAR}
+		</if>
+		<if test="leaderSee != null and leaderSee != ''">
+			and leader_see = #{leaderSee,jdbcType=CHAR}
+		</if>
+		<if
+			test="quarterAverageScore != null and quarterAverageScore != ''">
+			and quarter_average_score = #{quarterAverageScore,jdbcType=DOUBLE}
+		</if>
+		<if test="comprehensiveScore != null and comprehensiveScore != ''">
+			and comprehensive_score = #{comprehensiveScore,jdbcType=DOUBLE}
+		</if>
+		<if test="yearFinalScore != null and yearFinalScore != ''">
+			and year_final_score = #{yearFinalScore,jdbcType=DOUBLE}
+		</if>
+		<if test="itemOne != null and itemOne != ''">
+			and item_one = #{itemOne,jdbcType=CHAR}
+		</if>
+		<if test="itemTwo != null and itemTwo != ''">
+			and item_two = #{itemTwo,jdbcType=CHAR}
+		</if>
+		<if test="itemThree != null and itemThree != ''">
+			and item_three = #{itemThree,jdbcType=CHAR}
+		</if>
+		<if test="itemFour != null and itemFour != ''">
+			and item_four = #{itemFour,jdbcType=CHAR}
+		</if>
+		<if test="itemFive != null and itemFive != ''">
+			and item_five = #{itemFive,jdbcType=CHAR}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and create_user = #{createUser,jdbcType=VARCHAR}
+		</if>
+		<if test="createUserName != null and createUserName != ''">
+			and create_user_name = #{createUserName,jdbcType=VARCHAR}
+		</if>
+		<if test="modifyUserName != null and modifyUserName != ''">
+			and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+		</if>
+		ORDER BY modify_time DESC
+	</select>
+	<delete id="batchDeleteUpdateZjXmCqjxYearAssistant"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxYearAssistant">
+    <![CDATA[ 
+        update zj_xm_cqjx_year_assistant
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and year_assistant_id in 
+     ]]>
+		<foreach collection="param1" item="model" open="("
+			separator="," close=")">#{model.yearAssistantId}
+		</foreach>
+	</delete>
+	<select id="selectEvaluationLeaderDoneListByUserKey" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxYearAssistant">
+		SELECT
+			(select oa_org_name from zj_xm_cqjx_project_oa_dept_member t3 where t3.del_flag ='0' and t3.oa_user_id = t1.create_user and t3.other_id = t1.manager_id) AS departmentName,
+			t2.year_score_approval_id AS yearScoreApprovalId,
+			t2.item_type AS itemType,
+			t2.leader_score AS leaderScore,
+			t1.*
+		FROM zj_xm_cqjx_year_assistant t1 
+		LEFT JOIN zj_xm_cqjx_year_score_approval t2 ON t2.executive_id = t1.year_assistant_id and t2.del_flag = '0'
+		WHERE t1.del_flag = '0' 
+		and t2.approval_flag IN ('2','3','4','5')
+		<if test="createUser != null and createUser != ''">
+			and t2.leader_id = #{createUser,jdbcType=VARCHAR}
+		</if>
+	</select>
+</mapper>

@@ -1,0 +1,933 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkStockTransferRptMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkStockTransferRpt" >
+    <id column="zxSkStockTransferRptId" property="zxSkStockTransferRptId" jdbcType="CHAR" />
+    <result column="Num" property="Num" jdbcType="VARCHAR" />
+    <result column="resName" property="resName" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="qcinQty" property="qcinQty" jdbcType="DECIMAL" />
+    <result column="qcinAmt" property="qcinAmt" jdbcType="DECIMAL" />
+    <result column="c1Qty" property="c1Qty" jdbcType="DECIMAL" />
+    <result column="c1Amt" property="c1Amt" jdbcType="DECIMAL" />
+    <result column="c1Price" property="c1Price" jdbcType="DECIMAL" />
+    <result column="c2Qty" property="c2Qty" jdbcType="DECIMAL" />
+    <result column="c2Amt" property="c2Amt" jdbcType="DECIMAL" />
+    <result column="c2Price" property="c2Price" jdbcType="DECIMAL" />
+    <result column="c3Qty" property="c3Qty" jdbcType="DECIMAL" />
+    <result column="c3Amt" property="c3Amt" jdbcType="DECIMAL" />
+    <result column="c3Price" property="c3Price" jdbcType="DECIMAL" />
+    <result column="hQty" property="hQty" jdbcType="DECIMAL" />
+    <result column="hAmt" property="hAmt" jdbcType="DECIMAL" />
+    <result column="totalQtyS" property="totalQtyS" jdbcType="DECIMAL" />
+    <result column="totalAmtS" property="totalAmtS" jdbcType="DECIMAL" />
+    <result column="f1outQty" property="f1outQty" jdbcType="DECIMAL" />
+    <result column="f1outAmt" property="f1outAmt" jdbcType="DECIMAL" />
+    <result column="f1outQtyQ" property="f1outQtyQ" jdbcType="DECIMAL" />
+    <result column="f1outAmtQ" property="f1outAmtQ" jdbcType="DECIMAL" />
+    <result column="qtyT" property="qtyT" jdbcType="DECIMAL" />
+    <result column="AmtT" property="AmtT" jdbcType="DECIMAL" />
+    <result column="f1outQtyN" property="f1outQtyN" jdbcType="DECIMAL" />
+    <result column="f1outAmtN" property="f1outAmtN" jdbcType="DECIMAL" />
+    <result column="tQty" property="tQty" jdbcType="DECIMAL" />
+    <result column="tAmt" property="tAmt" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="beginDate" property="beginDate" jdbcType="TIMESTAMP" />
+    <result column="endDate" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="firstDate" property="firstDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxSkStockTransferRptId, Num, resName, spec, unit, 
+    qcinQty, qcinAmt, c1Qty, c1Amt, c1Price, 
+    c2Qty, c2Amt, c2Price, c3Qty, c3Amt, 
+    c3Price, hQty, hAmt, totalQtyS, totalAmtS, 
+    f1outQty, f1outAmt, f1outQtyQ, f1outAmtQ, qtyT, 
+    AmtT, f1outQtyN, f1outAmtN, tQty, tAmt, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_stockTransferRpt
+    where del_flag = '0' and zxSkStockTransferRptId = #{zxSkStockTransferRptId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_stockTransferRpt
+    where zxSkStockTransferRptId = #{zxSkStockTransferRptId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferRpt" >
+    insert into zx_sk_stockTransferRpt (
+    zxSkStockTransferRptId, Num, resName, spec, unit, 
+    qcinQty, qcinAmt, c1Qty, c1Amt, c1Price, 
+    c2Qty, c2Amt, c2Price, c3Qty, c3Amt, 
+    c3Price, hQty, hAmt, totalQtyS, totalAmtS, 
+    f1outQty, f1outAmt, f1outQtyQ, f1outAmtQ, qtyT, 
+    AmtT, f1outQtyN, f1outAmtN, tQty, tAmt, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxSkStockTransferRptId,jdbcType=CHAR}, #{Num,jdbcType=VARCHAR}, #{resName,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, 
+    #{qcinQty,jdbcType=DECIMAL}, #{qcinAmt,jdbcType=DECIMAL}, #{c1Qty,jdbcType=DECIMAL}, #{c1Amt,jdbcType=DECIMAL}, #{c1Price,jdbcType=DECIMAL}, 
+    #{c2Qty,jdbcType=DECIMAL}, #{c2Amt,jdbcType=DECIMAL}, #{c2Price,jdbcType=DECIMAL}, #{c3Qty,jdbcType=DECIMAL}, #{c3Amt,jdbcType=DECIMAL}, 
+    #{c3Price,jdbcType=DECIMAL}, #{hQty,jdbcType=DECIMAL}, #{hAmt,jdbcType=DECIMAL}, #{totalQtyS,jdbcType=DECIMAL}, #{totalAmtS,jdbcType=DECIMAL}, 
+    #{f1outQty,jdbcType=DECIMAL}, #{f1outAmt,jdbcType=DECIMAL}, #{f1outQtyQ,jdbcType=DECIMAL}, #{f1outAmtQ,jdbcType=DECIMAL}, #{qtyT,jdbcType=DECIMAL}, 
+    #{AmtT,jdbcType=DECIMAL}, #{f1outQtyN,jdbcType=DECIMAL}, #{f1outAmtN,jdbcType=DECIMAL}, #{tQty,jdbcType=DECIMAL}, #{tAmt,jdbcType=DECIMAL}, 
+    #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+    #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferRpt" >
+    insert into zx_sk_stockTransferRpt
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSkStockTransferRptId != null" >
+        zxSkStockTransferRptId,
+      </if>
+      <if test="Num != null" >
+        Num,
+      </if>
+      <if test="resName != null" >
+        resName,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="qcinQty != null" >
+        qcinQty,
+      </if>
+      <if test="qcinAmt != null" >
+        qcinAmt,
+      </if>
+      <if test="c1Qty != null" >
+        c1Qty,
+      </if>
+      <if test="c1Amt != null" >
+        c1Amt,
+      </if>
+      <if test="c1Price != null" >
+        c1Price,
+      </if>
+      <if test="c2Qty != null" >
+        c2Qty,
+      </if>
+      <if test="c2Amt != null" >
+        c2Amt,
+      </if>
+      <if test="c2Price != null" >
+        c2Price,
+      </if>
+      <if test="c3Qty != null" >
+        c3Qty,
+      </if>
+      <if test="c3Amt != null" >
+        c3Amt,
+      </if>
+      <if test="c3Price != null" >
+        c3Price,
+      </if>
+      <if test="hQty != null" >
+        hQty,
+      </if>
+      <if test="hAmt != null" >
+        hAmt,
+      </if>
+      <if test="totalQtyS != null" >
+        totalQtyS,
+      </if>
+      <if test="totalAmtS != null" >
+        totalAmtS,
+      </if>
+      <if test="f1outQty != null" >
+        f1outQty,
+      </if>
+      <if test="f1outAmt != null" >
+        f1outAmt,
+      </if>
+      <if test="f1outQtyQ != null" >
+        f1outQtyQ,
+      </if>
+      <if test="f1outAmtQ != null" >
+        f1outAmtQ,
+      </if>
+      <if test="qtyT != null" >
+        qtyT,
+      </if>
+      <if test="AmtT != null" >
+        AmtT,
+      </if>
+      <if test="f1outQtyN != null" >
+        f1outQtyN,
+      </if>
+      <if test="f1outAmtN != null" >
+        f1outAmtN,
+      </if>
+      <if test="tQty != null" >
+        tQty,
+      </if>
+      <if test="tAmt != null" >
+        tAmt,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSkStockTransferRptId != null" >
+        #{zxSkStockTransferRptId,jdbcType=CHAR},
+      </if>
+      <if test="Num != null" >
+        #{Num,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="qcinQty != null" >
+        #{qcinQty,jdbcType=DECIMAL},
+      </if>
+      <if test="qcinAmt != null" >
+        #{qcinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="c1Qty != null" >
+        #{c1Qty,jdbcType=DECIMAL},
+      </if>
+      <if test="c1Amt != null" >
+        #{c1Amt,jdbcType=DECIMAL},
+      </if>
+      <if test="c1Price != null" >
+        #{c1Price,jdbcType=DECIMAL},
+      </if>
+      <if test="c2Qty != null" >
+        #{c2Qty,jdbcType=DECIMAL},
+      </if>
+      <if test="c2Amt != null" >
+        #{c2Amt,jdbcType=DECIMAL},
+      </if>
+      <if test="c2Price != null" >
+        #{c2Price,jdbcType=DECIMAL},
+      </if>
+      <if test="c3Qty != null" >
+        #{c3Qty,jdbcType=DECIMAL},
+      </if>
+      <if test="c3Amt != null" >
+        #{c3Amt,jdbcType=DECIMAL},
+      </if>
+      <if test="c3Price != null" >
+        #{c3Price,jdbcType=DECIMAL},
+      </if>
+      <if test="hQty != null" >
+        #{hQty,jdbcType=DECIMAL},
+      </if>
+      <if test="hAmt != null" >
+        #{hAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalQtyS != null" >
+        #{totalQtyS,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmtS != null" >
+        #{totalAmtS,jdbcType=DECIMAL},
+      </if>
+      <if test="f1outQty != null" >
+        #{f1outQty,jdbcType=DECIMAL},
+      </if>
+      <if test="f1outAmt != null" >
+        #{f1outAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="f1outQtyQ != null" >
+        #{f1outQtyQ,jdbcType=DECIMAL},
+      </if>
+      <if test="f1outAmtQ != null" >
+        #{f1outAmtQ,jdbcType=DECIMAL},
+      </if>
+      <if test="qtyT != null" >
+        #{qtyT,jdbcType=DECIMAL},
+      </if>
+      <if test="AmtT != null" >
+        #{AmtT,jdbcType=DECIMAL},
+      </if>
+      <if test="f1outQtyN != null" >
+        #{f1outQtyN,jdbcType=DECIMAL},
+      </if>
+      <if test="f1outAmtN != null" >
+        #{f1outAmtN,jdbcType=DECIMAL},
+      </if>
+      <if test="tQty != null" >
+        #{tQty,jdbcType=DECIMAL},
+      </if>
+      <if test="tAmt != null" >
+        #{tAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferRpt" >
+    update zx_sk_stockTransferRpt
+    <set >
+      <if test="Num != null" >
+        Num = #{Num,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        resName = #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="qcinQty != null" >
+        qcinQty = #{qcinQty,jdbcType=DECIMAL},
+      </if>
+      <if test="qcinAmt != null" >
+        qcinAmt = #{qcinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="c1Qty != null" >
+        c1Qty = #{c1Qty,jdbcType=DECIMAL},
+      </if>
+      <if test="c1Amt != null" >
+        c1Amt = #{c1Amt,jdbcType=DECIMAL},
+      </if>
+      <if test="c1Price != null" >
+        c1Price = #{c1Price,jdbcType=DECIMAL},
+      </if>
+      <if test="c2Qty != null" >
+        c2Qty = #{c2Qty,jdbcType=DECIMAL},
+      </if>
+      <if test="c2Amt != null" >
+        c2Amt = #{c2Amt,jdbcType=DECIMAL},
+      </if>
+      <if test="c2Price != null" >
+        c2Price = #{c2Price,jdbcType=DECIMAL},
+      </if>
+      <if test="c3Qty != null" >
+        c3Qty = #{c3Qty,jdbcType=DECIMAL},
+      </if>
+      <if test="c3Amt != null" >
+        c3Amt = #{c3Amt,jdbcType=DECIMAL},
+      </if>
+      <if test="c3Price != null" >
+        c3Price = #{c3Price,jdbcType=DECIMAL},
+      </if>
+      <if test="hQty != null" >
+        hQty = #{hQty,jdbcType=DECIMAL},
+      </if>
+      <if test="hAmt != null" >
+        hAmt = #{hAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalQtyS != null" >
+        totalQtyS = #{totalQtyS,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmtS != null" >
+        totalAmtS = #{totalAmtS,jdbcType=DECIMAL},
+      </if>
+      <if test="f1outQty != null" >
+        f1outQty = #{f1outQty,jdbcType=DECIMAL},
+      </if>
+      <if test="f1outAmt != null" >
+        f1outAmt = #{f1outAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="f1outQtyQ != null" >
+        f1outQtyQ = #{f1outQtyQ,jdbcType=DECIMAL},
+      </if>
+      <if test="f1outAmtQ != null" >
+        f1outAmtQ = #{f1outAmtQ,jdbcType=DECIMAL},
+      </if>
+      <if test="qtyT != null" >
+        qtyT = #{qtyT,jdbcType=DECIMAL},
+      </if>
+      <if test="AmtT != null" >
+        AmtT = #{AmtT,jdbcType=DECIMAL},
+      </if>
+      <if test="f1outQtyN != null" >
+        f1outQtyN = #{f1outQtyN,jdbcType=DECIMAL},
+      </if>
+      <if test="f1outAmtN != null" >
+        f1outAmtN = #{f1outAmtN,jdbcType=DECIMAL},
+      </if>
+      <if test="tQty != null" >
+        tQty = #{tQty,jdbcType=DECIMAL},
+      </if>
+      <if test="tAmt != null" >
+        tAmt = #{tAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxSkStockTransferRptId = #{zxSkStockTransferRptId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferRpt" >
+    update zx_sk_stockTransferRpt set 
+      Num = #{Num,jdbcType=VARCHAR},
+      resName = #{resName,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      qcinQty = #{qcinQty,jdbcType=DECIMAL},
+      qcinAmt = #{qcinAmt,jdbcType=DECIMAL},
+      c1Qty = #{c1Qty,jdbcType=DECIMAL},
+      c1Amt = #{c1Amt,jdbcType=DECIMAL},
+      c1Price = #{c1Price,jdbcType=DECIMAL},
+      c2Qty = #{c2Qty,jdbcType=DECIMAL},
+      c2Amt = #{c2Amt,jdbcType=DECIMAL},
+      c2Price = #{c2Price,jdbcType=DECIMAL},
+      c3Qty = #{c3Qty,jdbcType=DECIMAL},
+      c3Amt = #{c3Amt,jdbcType=DECIMAL},
+      c3Price = #{c3Price,jdbcType=DECIMAL},
+      hQty = #{hQty,jdbcType=DECIMAL},
+      hAmt = #{hAmt,jdbcType=DECIMAL},
+      totalQtyS = #{totalQtyS,jdbcType=DECIMAL},
+      totalAmtS = #{totalAmtS,jdbcType=DECIMAL},
+      f1outQty = #{f1outQty,jdbcType=DECIMAL},
+      f1outAmt = #{f1outAmt,jdbcType=DECIMAL},
+      f1outQtyQ = #{f1outQtyQ,jdbcType=DECIMAL},
+      f1outAmtQ = #{f1outAmtQ,jdbcType=DECIMAL},
+      qtyT = #{qtyT,jdbcType=DECIMAL},
+      AmtT = #{AmtT,jdbcType=DECIMAL},
+      f1outQtyN = #{f1outQtyN,jdbcType=DECIMAL},
+      f1outAmtN = #{f1outAmtN,jdbcType=DECIMAL},
+      tQty = #{tQty,jdbcType=DECIMAL},
+      tAmt = #{tAmt,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSkStockTransferRptId = #{zxSkStockTransferRptId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSkStockTransferRptList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferRpt" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_stockTransferRpt
+    where del_flag = '0'
+    <if test="zxSkStockTransferRptId != null and zxSkStockTransferRptId != ''" >
+     and zxSkStockTransferRptId = #{zxSkStockTransferRptId,jdbcType=CHAR}
+    </if>
+    <if test="Num != null and Num != ''" >
+     and Num = #{Num,jdbcType=VARCHAR}
+    </if>
+    <if test="resName != null and resName != ''" >
+     and resName = #{resName,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="unit != null and unit != ''" >
+     and unit = #{unit,jdbcType=VARCHAR}
+    </if>
+    <if test="qcinQty != null and qcinQty != ''" >
+     and qcinQty = #{qcinQty,jdbcType=DECIMAL}
+    </if>
+    <if test="qcinAmt != null and qcinAmt != ''" >
+     and qcinAmt = #{qcinAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="c1Qty != null and c1Qty != ''" >
+     and c1Qty = #{c1Qty,jdbcType=DECIMAL}
+    </if>
+    <if test="c1Amt != null and c1Amt != ''" >
+     and c1Amt = #{c1Amt,jdbcType=DECIMAL}
+    </if>
+    <if test="c1Price != null and c1Price != ''" >
+     and c1Price = #{c1Price,jdbcType=DECIMAL}
+    </if>
+    <if test="c2Qty != null and c2Qty != ''" >
+     and c2Qty = #{c2Qty,jdbcType=DECIMAL}
+    </if>
+    <if test="c2Amt != null and c2Amt != ''" >
+     and c2Amt = #{c2Amt,jdbcType=DECIMAL}
+    </if>
+    <if test="c2Price != null and c2Price != ''" >
+     and c2Price = #{c2Price,jdbcType=DECIMAL}
+    </if>
+    <if test="c3Qty != null and c3Qty != ''" >
+     and c3Qty = #{c3Qty,jdbcType=DECIMAL}
+    </if>
+    <if test="c3Amt != null and c3Amt != ''" >
+     and c3Amt = #{c3Amt,jdbcType=DECIMAL}
+    </if>
+    <if test="c3Price != null and c3Price != ''" >
+     and c3Price = #{c3Price,jdbcType=DECIMAL}
+    </if>
+    <if test="hQty != null and hQty != ''" >
+     and hQty = #{hQty,jdbcType=DECIMAL}
+    </if>
+    <if test="hAmt != null and hAmt != ''" >
+     and hAmt = #{hAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="totalQtyS != null and totalQtyS != ''" >
+     and totalQtyS = #{totalQtyS,jdbcType=DECIMAL}
+    </if>
+    <if test="totalAmtS != null and totalAmtS != ''" >
+     and totalAmtS = #{totalAmtS,jdbcType=DECIMAL}
+    </if>
+    <if test="f1outQty != null and f1outQty != ''" >
+     and f1outQty = #{f1outQty,jdbcType=DECIMAL}
+    </if>
+    <if test="f1outAmt != null and f1outAmt != ''" >
+     and f1outAmt = #{f1outAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="f1outQtyQ != null and f1outQtyQ != ''" >
+     and f1outQtyQ = #{f1outQtyQ,jdbcType=DECIMAL}
+    </if>
+    <if test="f1outAmtQ != null and f1outAmtQ != ''" >
+     and f1outAmtQ = #{f1outAmtQ,jdbcType=DECIMAL}
+    </if>
+    <if test="qtyT != null and qtyT != ''" >
+     and qtyT = #{qtyT,jdbcType=DECIMAL}
+    </if>
+    <if test="AmtT != null and AmtT != ''" >
+     and AmtT = #{AmtT,jdbcType=DECIMAL}
+    </if>
+    <if test="f1outQtyN != null and f1outQtyN != ''" >
+     and f1outQtyN = #{f1outQtyN,jdbcType=DECIMAL}
+    </if>
+    <if test="f1outAmtN != null and f1outAmtN != ''" >
+     and f1outAmtN = #{f1outAmtN,jdbcType=DECIMAL}
+    </if>
+    <if test="tQty != null and tQty != ''" >
+     and tQty = #{tQty,jdbcType=DECIMAL}
+    </if>
+    <if test="tAmt != null and tAmt != ''" >
+     and tAmt = #{tAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkStockTransferRpt" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferRpt" >
+    <![CDATA[ 
+        update zx_sk_stockTransferRpt
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSkStockTransferRptId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSkStockTransferRptId} 
+     </foreach>
+  </delete>
+  <select id="selectZxSkStockTransferRpt" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferRpt" >
+DROP TABLE IF EXISTS temp_SeasonStockBase;
+create table temp_SeasonStockBase
+select tab.ID,tab.resName,tab.resCode,tab.categoryID,res.bsid,res.catCode
+       -- -- 期初
+       ,ifnull(st.qcinQty,0) as qcinQty,ifnull(st.qcinAmt,0) as qcinAmt
+       -- -- 本季收入                                       
+       ,ifnull(st.c1Qty,0) as c1Qty,ifnull(st.c1Amt,0) as c1Amt
+       ,ifnull(st.c2Qty,0) as c2Qty,ifnull(st.c2Amt,0) as c2Amt
+       ,ifnull(st.c3Qty,0) as c3Qty,ifnull(st.c3Amt,0) as c3Amt
+       -- -- 自年初收入合计和平均单价报表公式计算
+       ,ifnull(st.yqty,0) as totalQtyS,ifnull(st.yAmt,0) as totalAmtS
+       -- -- 本季发出(消耗)
+       ,ifnull(st.f1outQty,0) as f1outQty,ifnull(st.f1outAmt,0) as f1outAmt
+       -- -- -其他
+       ,ifnull(st.f2outQty,0) as f1outQtyQ ,ifnull(st.f2outAmt,0) as f1outAmtQ
+       -- -- 自年初发出合计 ps 发出合计和本季度结存用报表公式计算
+       ,ifnull(st.youtQty,0) as f1outQtyN,ifnull(st.youtAmt,0) as f1outAmtN
+from Zx_Sk_Resource_Materials tab 
+left join zx_sk_rescategory_materials res on tab.categoryID = res.ID and res.resStyle='mt'
+-- 物资收发存汇总
+left join (
+  select sti.resID,
+         -- 期初
+         sum(case when st.busDate &lt; #{beginDate,jdbcType=TIMESTAMP} then (ifnull(sti.inQty,0) - ifnull(sti.outQty,0)) else 0 end) as qcinQty,
+         sum(case when st.busDate &lt; #{beginDate,jdbcType=TIMESTAMP} then (ifnull(sti.inAmt,0) - ifnull(sti.outAmt,0)) else 0 end) as qcinAmt,
+         -- -收入 本季甲供 本季自采 本季其他 自年初自本季末
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType=11 and st.materialSource='0002' then sti.inQty else 0 end) as c1Qty,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType=11 and st.materialSource='0002' then sti.inAmt else 0 end) as c1Amt,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and ((st.billType=11 and st.materialSource='0001') or st.billType=12) then sti.inQty else 0 end) as c2Qty,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and ((st.billType=11 and st.materialSource='0001') or st.billType=12) then sti.inAmt else 0 end) as c2Amt,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and ((st.billType=11 and st.materialSource in ('0003','0004')) or st.billType=18) then sti.inQty else 0 end) as c3Qty,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and ((st.billType=11 and st.materialSource in ('0003','0004')) or st.billType=18) then sti.inAmt else 0 end) as c3Amt,
+         sum(case when st.busDate between #{firstDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and ((st.billType=11 and st.materialSource in ('0002','0001','0004','0003')) or st.billType in ('12','18')) then sti.inQty else 0 end) as yQty,
+         sum(case when st.busDate between #{firstDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and ((st.billType=11 and st.materialSource in ('0002','0001','0004','0003')) or st.billType in ('12','18')) then sti.inAmt else 0 end) as yAmt,
+         -- 发出 本季消耗 其他 自年初合计
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType in ('21','22') then ifnull(sti.outQty,0) else 0 end) as f1outQty,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType in ('21','22') then ifnull(sti.outAmt,0) else 0 end) as f1outAmt,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType in ('16','17','24','30','33','45') then ifnull(sti.outQty,0) else 0 end) as f2outQty,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType in ('16','17','24','30','33','45') then ifnull(sti.outAmt,0) else 0 end) as f2outAmt,
+         sum(case when st.busDate between #{firstDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType in ('21','22','16','17','24','30','33','45') then ifnull(sti.outQty,0) else 0 end) as youtQty,
+         sum(case when st.busDate between #{firstDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType in ('21','22','16','17','24','30','33','45') then ifnull(sti.outAmt,0) else 0 end) as youtAmt
+  from zx_sk_StockTransItem sti
+  inner join zx_sk_StockTransfer st on st.id = sti.billID
+  -- 出库要查outOrgID
+  inner join sys_project sp on (sp.project_id = st.inOrgID or sp.project_id = st.outOrgID)
+  where st.billStatus='已审核' and st.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} 
+    and st.billType in ('11','12','18','16','17','21','22','24','30','33','45')
+  group by sti.resid 
+) st on tab.id = st.resid
+;
+-- 生成结果集
+select tt.Num,tt.resName,tt.spec,tt.unit
+       ,round(ifnull(tt.qcinQty,0),3) as qcinQty,round(ifnull(tt.qcinAmt,0)/10000,4) as qcinAmt -- 期初
+       ,round(ifnull(tt.c1Qty,0),3) as c1Qty,round(ifnull(tt.c1Price,0)/10000,2) as c1Price,round(ifnull(tt.c1Amt,0)/10000,4) as c1Amt-- 甲供
+       ,round(ifnull(tt.c2Qty,0),3) as c2Qty,round(ifnull(tt.c2Price,0)/10000,2) as c2Price,round(ifnull(tt.c2Amt,0)/10000,4) as c2Amt-- 自采
+       ,round(ifnull(tt.c3Qty,0),3) as c3Qty,round(ifnull(tt.c3Price,0)/10000,2) as c3Price,round(ifnull(tt.c3Amt,0)/10000,4) as c3Amt-- 其他
+       ,round(ifnull(tt.hQty,0),3) as hQty,round(ifnull(tt.hAmt,0)/10000,4) as hAmt-- 合计
+       ,round(ifnull(tt.totalQtyS,0),3) as totalQtyS,round(ifnull(tt.totalAmtS,0)/10000,4) as totalAmtS-- 自年初收入合计
+       ,round(ifnull(tt.f1outQty,0),3) as f1outQty,round(ifnull(tt.f1outAmt,0)/10000,4) as f1outAmt-- 消耗
+       ,round(ifnull(tt.f1outQtyQ,0),3) as f1outQtyQ,round(ifnull(tt.f1outAmtQ,0)/10000,4) as f1outAmtQ-- 其他
+       ,round(ifnull(tt.qtyT,0),3) as qtyT,round(ifnull(tt.AmtT,0)/10000,4) as AmtT-- 合计
+       ,round(ifnull(tt.f1outQtyN,0),3) as f1outQtyN,round(ifnull(tt.f1outAmtN,0)/10000,4) as f1outAmtN-- 自年初发出合计
+       ,round(ifnull(tt.tQty,0),3) as tQty,round(ifnull(tt.tAmt,0)/10000,4) as tAmt-- 本季结存
+from (
+  -- -- 钢材汇总
+  select '1' as Num,'钢材' as resName,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c1Qty) as c1Qty,case when SUM(t.c1Qty) =0 then 0 else SUM(t.c1Amt)/SUM(t.c1Qty) end as c1Price,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.c2Qty) as c2Qty,case when SUM(t.c2Qty) =0 then 0 else SUM(t.c2Amt)/SUM(t.c2Qty) end as c2Price,SUM(t.c2Amt) as c2Amt
+         ,SUM(t.c3Qty) as c3Qty,case when SUM(t.c3Qty) =0 then 0 else SUM(t.c3Amt)/SUM(t.c3Qty) end as c3Price,SUM(t.c3Amt) as c3Amt
+         ,SUM(t.c1Qty + t.c2Qty + t.c3Qty) as hQty,SUM(t.c1Amt + t.c2Amt + t.c3Amt) as hAmt
+         ,SUM(t.totalQtyS) as totalQtyS,SUM(t.totalAmtS) as totalAmtS
+         ,SUM(t.f1outQty) as f1outQty,SUM(t.f1outAmt) as f1outAmt
+         ,sum(t.f1outQtyQ) as f1outQtyQ,SUM(t.f1outAmtQ) as f1outAmtQ
+         ,SUM(t.f1outQty + t.f1outQtyQ) as qtyT,SUM(t.f1outAmt + t.f1outAmtQ) as AmtT
+         ,SUM(t.f1outQtyN) as f1outQtyN,SUM(t.f1outAmtN) as f1outAmtN
+         ,sum(t.qcinQty + t.c1Qty + t.c2Qty + t.c3Qty - t.f1outQty - t.f1outQtyQ) as tQty
+         ,SUM(t.qcinAmt + t.c1Amt + t.c2Amt + t.c3Amt - t.f1outAmt - t.f1outAmtQ) as tAmt
+  from temp_SeasonStockBase t 
+  where t.bsid like '00020001%'
+  union all 
+  -- -- 钢筋指01钢材中特征字母为e的材料
+  select '2' as Num,'其中:(1)钢筋' as resName,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c1Qty) as c1Qty,case when SUM(t.c1Qty) =0 then 0 else SUM(t.c1Amt)/SUM(t.c1Qty) end as c1Price,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.c2Qty) as c2Qty,case when SUM(t.c2Qty) =0 then 0 else SUM(t.c2Amt)/SUM(t.c2Qty) end as c2Price,SUM(t.c2Amt) as c2Amt
+         ,SUM(t.c3Qty) as c3Qty,case when SUM(t.c3Qty) =0 then 0 else SUM(t.c3Amt)/SUM(t.c3Qty) end as c3Price,SUM(t.c3Amt) as c3Amt
+         ,SUM(t.c1Qty + t.c2Qty + t.c3Qty) as hQty,SUM(t.c1Amt + t.c2Amt + t.c3Amt) as hAmt
+         ,SUM(t.totalQtyS) as totalQtyS,SUM(t.totalAmtS) as totalAmtS
+         ,SUM(t.f1outQty) as f1outQty,SUM(t.f1outAmt) as f1outAmt
+         ,sum(t.f1outQtyQ) as f1outQtyQ,SUM(t.f1outAmtQ) as f1outAmtQ
+         ,SUM(t.f1outQty + t.f1outQtyQ) as qtyT,SUM(t.f1outAmt + t.f1outAmtQ) AmtT
+         ,SUM(t.f1outQtyN) as f1outQtyN,SUM(t.f1outAmtN) as f1outAmtN
+         ,sum(t.qcinQty + t.c1Qty + t.c2Qty + t.c3Qty - t.f1outQty - t.f1outQtyQ) as tQty
+         ,SUM(t.qcinAmt + t.c1Amt + t.c2Amt + t.c3Amt - t.f1outAmt - t.f1outAmtQ) as tAmt
+  from temp_SeasonStockBase t 
+  where t.bsid like '00020001%' and right(t.resCode,1) = 'e'
+  union all 
+  -- -- 型材指01钢材中特征字母为a、b、c、q、n的材料
+  select '3' as Num,'     (2)型材' as resName,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c1Qty) as c1Qty,case when SUM(t.c1Qty) =0 then 0 else SUM(t.c1Amt)/SUM(t.c1Qty) end as c1Price,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.c2Qty) as c2Qty,case when SUM(t.c2Qty) =0 then 0 else SUM(t.c2Amt)/SUM(t.c2Qty) end as c2Price,SUM(t.c2Amt) as c2Amt
+         ,SUM(t.c3Qty) as c3Qty,case when SUM(t.c3Qty) =0 then 0 else SUM(t.c3Amt)/SUM(t.c3Qty) end as c3Price,SUM(t.c3Amt) as c3Amt
+         ,SUM(t.c1Qty + t.c2Qty + t.c3Qty) as hQty,SUM(t.c1Amt + t.c2Amt + t.c3Amt) as hAmt
+         ,SUM(t.totalQtyS) as totalQtyS,SUM(t.totalAmtS) as totalAmtS
+         ,SUM(t.f1outQty) as f1outQty,SUM(t.f1outAmt) as f1outAmt
+         ,sum(t.f1outQtyQ) as f1outQtyQ,SUM(t.f1outAmtQ) as f1outAmtQ
+         ,SUM(t.f1outQty + t.f1outQtyQ) as qtyT,SUM(t.f1outAmt + t.f1outAmtQ) AmtT
+         ,SUM(t.f1outQtyN) as f1outQtyN,SUM(t.f1outAmtN) as f1outAmtN
+         ,sum(t.qcinQty + t.c1Qty + t.c2Qty + t.c3Qty - t.f1outQty - t.f1outQtyQ) as tQty
+         ,SUM(t.qcinAmt + t.c1Amt + t.c2Amt + t.c3Amt - t.f1outAmt - t.f1outAmtQ) as tAmt
+  from temp_SeasonStockBase t 
+  where t.bsid like '00020001%' and right(t.resCode,1) in ('a','b','c','q','n')
+  union all 
+  -- -- 板材指01钢材中特征字母为p、h、f的材料
+  select '4' as Num,'     (3)板材' as resName,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c1Qty) as c1Qty,case when SUM(t.c1Qty) =0 then 0 else SUM(t.c1Amt)/SUM(t.c1Qty) end as c1Price,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.c2Qty) as c2Qty,case when SUM(t.c2Qty) =0 then 0 else SUM(t.c2Amt)/SUM(t.c2Qty) end as c2Price,SUM(t.c2Amt) as c2Amt
+         ,SUM(t.c3Qty) as c3Qty,case when SUM(t.c3Qty) =0 then 0 else SUM(t.c3Amt)/SUM(t.c3Qty) end as c3Price,SUM(t.c3Amt) as c3Amt
+         ,SUM(t.c1Qty + t.c2Qty + t.c3Qty) as hQty,SUM(t.c1Amt + t.c2Amt + t.c3Amt) as hAmt
+         ,SUM(t.totalQtyS) as totalQtyS,SUM(t.totalAmtS) as totalAmtS
+         ,SUM(t.f1outQty) as f1outQty,SUM(t.f1outAmt) as f1outAmt
+         ,sum(t.f1outQtyQ) as f1outQtyQ,SUM(t.f1outAmtQ) as f1outAmtQ
+         ,SUM(t.f1outQty + t.f1outQtyQ) as qtyT,SUM(t.f1outAmt + t.f1outAmtQ) AmtT
+         ,SUM(t.f1outQtyN) as f1outQtyN,SUM(t.f1outAmtN) as f1outAmtN
+         ,sum(t.qcinQty + t.c1Qty + t.c2Qty + t.c3Qty - t.f1outQty - t.f1outQtyQ) as tQty
+         ,SUM(t.qcinAmt + t.c1Amt + t.c2Amt + t.c3Amt - t.f1outAmt - t.f1outAmtQ) as tAmt
+  from temp_SeasonStockBase t 
+  where t.bsid like '00020001%' and right(t.resCode,1) in ('p','h','f')
+  union all 
+  -- -- 管材指01钢材中特征字母为m的材料
+  select '5' as Num,'     (4)管材' as resName,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c1Qty) as c1Qty,case when SUM(t.c1Qty) =0 then 0 else SUM(t.c1Amt)/SUM(t.c1Qty) end as c1Price,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.c2Qty) as c2Qty,case when SUM(t.c2Qty) =0 then 0 else SUM(t.c2Amt)/SUM(t.c2Qty) end as c2Price,SUM(t.c2Amt) as c2Amt
+         ,SUM(t.c3Qty) as c3Qty,case when SUM(t.c3Qty) =0 then 0 else SUM(t.c3Amt)/SUM(t.c3Qty) end as c3Price,SUM(t.c3Amt) as c3Amt
+         ,SUM(t.c1Qty + t.c2Qty + t.c3Qty) as hQty,SUM(t.c1Amt + t.c2Amt + t.c3Amt) as hAmt
+         ,SUM(t.totalQtyS) as totalQtyS,SUM(t.totalAmtS) as totalAmtS
+         ,SUM(t.f1outQty) as f1outQty,SUM(t.f1outAmt) as f1outAmt
+         ,sum(t.f1outQtyQ) as f1outQtyQ,SUM(t.f1outAmtQ) as f1outAmtQ
+         ,SUM(t.f1outQty + t.f1outQtyQ) as qtyT,SUM(t.f1outAmt + t.f1outAmtQ) AmtT
+         ,SUM(t.f1outQtyN) as f1outQtyN,SUM(t.f1outAmtN) as f1outAmtN
+         ,sum(t.qcinQty + t.c1Qty + t.c2Qty + t.c3Qty - t.f1outQty - t.f1outQtyQ) as tQty
+         ,SUM(t.qcinAmt + t.c1Amt + t.c2Amt + t.c3Amt - t.f1outAmt - t.f1outAmtQ) as tAmt
+  from temp_SeasonStockBase t 
+  where t.bsid like '00020001%' and right(t.resCode,1) in ('m')   
+  union all 
+  -- -- 钢轨指01钢材中特征字母为d的材料
+  select '6' as Num,'     (5)钢轨' as resName,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c1Qty) as c1Qty,case when SUM(t.c1Qty) =0 then 0 else SUM(t.c1Amt)/SUM(t.c1Qty) end as c1Price,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.c2Qty) as c2Qty,case when SUM(t.c2Qty) =0 then 0 else SUM(t.c2Amt)/SUM(t.c2Qty) end as c2Price,SUM(t.c2Amt) as c2Amt
+         ,SUM(t.c3Qty) as c3Qty,case when SUM(t.c3Qty) =0 then 0 else SUM(t.c3Amt)/SUM(t.c3Qty) end as c3Price,SUM(t.c3Amt) as c3Amt
+         ,SUM(t.c1Qty + t.c2Qty + t.c3Qty) as hQty,SUM(t.c1Amt + t.c2Amt + t.c3Amt) as hAmt
+         ,SUM(t.totalQtyS) as totalQtyS,SUM(t.totalAmtS) as totalAmtS
+         ,SUM(t.f1outQty) as f1outQty,SUM(t.f1outAmt) as f1outAmt
+         ,sum(t.f1outQtyQ) as f1outQtyQ,SUM(t.f1outAmtQ) as f1outAmtQ
+         ,SUM(t.f1outQty + t.f1outQtyQ) as qtyT,SUM(t.f1outAmt + t.f1outAmtQ) AmtT
+         ,SUM(t.f1outQtyN) as f1outQtyN,SUM(t.f1outAmtN) as f1outAmtN
+         ,sum(t.qcinQty + t.c1Qty + t.c2Qty + t.c3Qty - t.f1outQty - t.f1outQtyQ) as tQty
+         ,SUM(t.qcinAmt + t.c1Amt + t.c2Amt + t.c3Amt - t.f1outAmt - t.f1outAmtQ) as tAmt
+  from temp_SeasonStockBase t 
+  where t.bsid like '00020001%' and right(t.resCode,1) in ('d')
+  union all 
+  -- -- 钢材类金属制品指01钢材中特征字母为s、e的材料
+  select  '7' as Num,'     (6)钢材类金属制品' as resName,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c1Qty) as c1Qty,case when SUM(t.c1Qty) =0 then 0 else SUM(t.c1Amt)/SUM(t.c1Qty) end as c1Price,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.c2Qty) as c2Qty,case when SUM(t.c2Qty) =0 then 0 else SUM(t.c2Amt)/SUM(t.c2Qty) end as c2Price,SUM(t.c2Amt) as c2Amt
+         ,SUM(t.c3Qty) as c3Qty,case when SUM(t.c3Qty) =0 then 0 else SUM(t.c3Amt)/SUM(t.c3Qty) end as c3Price,SUM(t.c3Amt) as c3Amt
+         ,SUM(t.c1Qty + t.c2Qty + t.c3Qty) as hQty,SUM(t.c1Amt + t.c2Amt + t.c3Amt) as hAmt
+         ,SUM(t.totalQtyS) as totalQtyS,SUM(t.totalAmtS) as totalAmtS
+         ,SUM(t.f1outQty) as f1outQty,SUM(t.f1outAmt) as f1outAmt
+         ,sum(t.f1outQtyQ) as f1outQtyQ,SUM(t.f1outAmtQ) as f1outAmtQ
+         ,SUM(t.f1outQty + t.f1outQtyQ) as qtyT,SUM(t.f1outAmt + t.f1outAmtQ) AmtT
+         ,SUM(t.f1outQtyN) as f1outQtyN,SUM(t.f1outAmtN) as f1outAmtN
+         ,sum(t.qcinQty + t.c1Qty + t.c2Qty + t.c3Qty - t.f1outQty - t.f1outQtyQ) as tQty
+         ,SUM(t.qcinAmt + t.c1Amt + t.c2Amt + t.c3Amt - t.f1outAmt - t.f1outAmtQ) as tAmt
+  from temp_SeasonStockBase t 
+  where t.bsid like '00020001%' and right(t.resCode,1) in ('s')
+  union all 
+  -- -其他钢材指01钢材中除了以上六类的材料
+  select '8' as Num,'     (7)其他钢材' as resName,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c1Qty) as c1Qty,case when SUM(t.c1Qty) =0 then 0 else SUM(t.c1Amt)/SUM(t.c1Qty) end as c1Price,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.c2Qty) as c2Qty,case when SUM(t.c2Qty) =0 then 0 else SUM(t.c2Amt)/SUM(t.c2Qty) end as c2Price,SUM(t.c2Amt) as c2Amt
+         ,SUM(t.c3Qty) as c3Qty,case when SUM(t.c3Qty) =0 then 0 else SUM(t.c3Amt)/SUM(t.c3Qty) end as c3Price,SUM(t.c3Amt) as c3Amt
+         ,SUM(t.c1Qty + t.c2Qty + t.c3Qty) as hQty,SUM(t.c1Amt + t.c2Amt + t.c3Amt) as hAmt
+         ,SUM(t.totalQtyS) as totalQtyS,SUM(t.totalAmtS) as totalAmtS
+         ,SUM(t.f1outQty) as f1outQty,SUM(t.f1outAmt) as f1outAmt
+         ,sum(t.f1outQtyQ) as f1outQtyQ,SUM(t.f1outAmtQ) as f1outAmtQ
+         ,SUM(t.f1outQty + t.f1outQtyQ) as qtyT,SUM(t.f1outAmt + t.f1outAmtQ) AmtT
+         ,SUM(t.f1outQtyN) as f1outQtyN,SUM(t.f1outAmtN) as f1outAmtN
+         ,sum(t.qcinQty + t.c1Qty + t.c2Qty + t.c3Qty - t.f1outQty - t.f1outQtyQ) as tQty
+         ,SUM(t.qcinAmt + t.c1Amt + t.c2Amt + t.c3Amt - t.f1outAmt - t.f1outAmtQ) as tAmt
+  from temp_SeasonStockBase t 
+  where t.bsid like '00020001%' and right(t.resCode,1) not in ('e','a','b','c','q','n','p','h','f','m','d','s')
+  union all 
+  -- -- 水泥及其制品指材料编码中02水泥及其制品
+  select '9' as Num,'水泥及其制品' as resName,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c1Qty) as c1Qty,case when SUM(t.c1Qty) =0 then 0 else SUM(t.c1Amt)/SUM(t.c1Qty) end as c1Price,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.c2Qty) as c2Qty,case when SUM(t.c2Qty) =0 then 0 else SUM(t.c2Amt)/SUM(t.c2Qty) end as c2Price,SUM(t.c2Amt) as c2Amt
+         ,SUM(t.c3Qty) as c3Qty,case when SUM(t.c3Qty) =0 then 0 else SUM(t.c3Amt)/SUM(t.c3Qty) end as c3Price,SUM(t.c3Amt) as c3Amt
+         ,SUM(t.c1Qty + t.c2Qty + t.c3Qty) as hQty,SUM(t.c1Amt + t.c2Amt + t.c3Amt) as hAmt
+         ,SUM(t.totalQtyS) as totalQtyS,SUM(t.totalAmtS) as totalAmtS
+         ,SUM(t.f1outQty) as f1outQty,SUM(t.f1outAmt) as f1outAmt
+         ,sum(t.f1outQtyQ) as f1outQtyQ,SUM(t.f1outAmtQ) as f1outAmtQ
+         ,SUM(t.f1outQty + t.f1outQtyQ) as qtyT,SUM(t.f1outAmt + t.f1outAmtQ) AmtT
+         ,SUM(t.f1outQtyN) as f1outQtyN,SUM(t.f1outAmtN) as f1outAmtN
+         ,sum(t.qcinQty + t.c1Qty + t.c2Qty + t.c3Qty - t.f1outQty - t.f1outQtyQ) as tQty
+         ,SUM(t.qcinAmt + t.c1Amt + t.c2Amt + t.c3Amt - t.f1outAmt - t.f1outAmtQ) as tAmt
+  from temp_SeasonStockBase t 
+  where t.bsid like '00020002%'
+  union all 
+  -- -- 沥青及其制品指材料编码中03沥青及其制品
+  select '10' as Num,'沥青及其制品' as resName,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c1Qty) as c1Qty,case when SUM(t.c1Qty) =0 then 0 else SUM(t.c1Amt)/SUM(t.c1Qty) end as c1Price,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.c2Qty) as c2Qty,case when SUM(t.c2Qty) =0 then 0 else SUM(t.c2Amt)/SUM(t.c2Qty) end as c2Price,SUM(t.c2Amt) as c2Amt
+         ,SUM(t.c3Qty) as c3Qty,case when SUM(t.c3Qty) =0 then 0 else SUM(t.c3Amt)/SUM(t.c3Qty) end as c3Price,SUM(t.c3Amt) as c3Amt
+         ,SUM(t.c1Qty + t.c2Qty + t.c3Qty) as hQty,SUM(t.c1Amt + t.c2Amt + t.c3Amt) as hAmt
+         ,SUM(t.totalQtyS) as totalQtyS,SUM(t.totalAmtS) as totalAmtS
+         ,SUM(t.f1outQty) as f1outQty,SUM(t.f1outAmt) as f1outAmt
+         ,sum(t.f1outQtyQ) as f1outQtyQ,SUM(t.f1outAmtQ) as f1outAmtQ
+         ,SUM(t.f1outQty + t.f1outQtyQ) as qtyT,SUM(t.f1outAmt + t.f1outAmtQ) as AmtT
+         ,SUM(t.f1outQtyN) as f1outQtyN,SUM(t.f1outAmtN) as f1outAmtN
+         ,sum(t.qcinQty + t.c1Qty + t.c2Qty + t.c3Qty - t.f1outQty - t.f1outQtyQ) as tQty
+         ,SUM(t.qcinAmt + t.c1Amt + t.c2Amt + t.c3Amt - t.f1outAmt - t.f1outAmtQ) as tAmt
+  from temp_SeasonStockBase t 
+  where t.bsid like '00020003%'
+  union all 
+  -- -- 燃润料指材料编码中04燃润料
+  select '11','燃润料' as resName,'-' as spec,'万元' as unit
+         ,0 as qcinQty,SUM(t.qcinAmt) as qcinAmt,0 as c1Qty,0 as c1Price,SUM(t.c1Amt) as c1Amt
+         ,0 as c2Qty,0 as c2Price,sum(t.c2Amt) as c2Amt,0 as c3Qty,0 as c3Price,SUM(t.c3Amt) as c3Amt
+         ,0 as hQty,SUM(t.c1Amt + t.c2Amt + t.c3Amt) as hAmt
+         ,0 as totalQtyS,SUM(t.totalAmtS) as totalAmtS
+         ,0 as f1outQty,SUM(t.f1outAmt) as f1outAmt,0 as f1outQtyQ,SUM(t.f1outAmtQ) as f1outAmtQ
+         ,0 as qtyT,SUM(t.f1outAmt + t.f1outAmtQ) as AmtT,0 as f1outQtyN,SUM(t.f1outAmtN) as f1outAmtN
+         ,0 as tQty,SUM(t.qcinAmt + t.c1Amt + t.c2Amt + t.c3Amt - t.f1outAmt - t.f1outAmtQ) as tAmt
+  from temp_SeasonStockBase t 
+  where t.bsid like '00020004%'
+  union all 
+  -- -- 建筑装饰材料编码中00020011
+  -- 旧编码是08地材及房建用材中除了0807装饰材料的材料
+  select '12','建筑装饰材料' as resName,'-' as spec,'万元' as unit
+         ,0 as qcinQty,SUM(t.qcinAmt) as qcinAmt,0 as c1Qty,0 as c1Price,SUM(t.c1Amt) as c1Amt
+         ,0 as c2Qty,0 as c2Price,sum(t.c2Amt) as c2Amt,0 as c3Qty,0 as c3Price,SUM(t.c3Amt) as c3Amt
+         ,0 as hQty,SUM(t.c1Amt + t.c2Amt + t.c3Amt) as hAmt
+         ,0 as totalQtyS,SUM(t.totalAmtS) as totalAmtS
+         ,0 as f1outQty,SUM(t.f1outAmt) as f1outAmt,0 as f1outQtyQ,SUM(t.f1outAmtQ) as f1outAmtQ
+         ,0 as qtyT,SUM(t.f1outAmt + t.f1outAmtQ) as AmtT,0 as f1outQtyN,SUM(t.f1outAmtN) as f1outAmtN
+         ,0 as tQty,SUM(t.qcinAmt + t.c1Amt + t.c2Amt + t.c3Amt - t.f1outAmt - t.f1outAmtQ) as tAmt
+  from temp_SeasonStockBase t 
+  where t.bsid like '00020011%'
+  --  and t.bsid not like '000200080007%'
+  union all 
+  -- -- 地材00020009
+  -- -建筑装饰材料指材料编码中08大类中编码为0807的材料
+  select '13','地材' as resName,'-' as spec,'万元' as unit
+         ,0 as qcinQty,SUM(t.qcinAmt) as qcinAmt,0 as c1Qty,0 as c1Price,SUM(t.c1Amt) as c1Amt
+         ,0 as c2Qty,0 as c2Price,sum(t.c2Amt) as c2Amt,0 as c3Qty,0 as c3Price,SUM(t.c3Amt) as c3Amt
+         ,0 as hQty,SUM(t.c1Amt + t.c2Amt + t.c3Amt) as hAmt
+         ,0 as totalQtyS,SUM(t.totalAmtS) as totalAmtS
+         ,0 as f1outQty,SUM(t.f1outAmt) as f1outAmt,0 as f1outQtyQ,SUM(t.f1outAmtQ) as f1outAmtQ
+         ,0 as qtyT,SUM(t.f1outAmt + t.f1outAmtQ) as AmtT,0 as f1outQtyN,SUM(t.f1outAmtN) as f1outAmtN
+         ,0 as tQty,SUM(t.qcinAmt + t.c1Amt + t.c2Amt + t.c3Amt - t.f1outAmt - t.f1outAmtQ) as tAmt
+  from temp_SeasonStockBase t 
+  where t.bsid like '00020009%'
+  union all 
+  -- -- 木材及竹木制品指材料编码中00020008木材及竹木制品
+  select '14','木材及竹木制品' as resName,'-' as spec,'万元' as unit
+         ,0 as qcinQty,SUM(t.qcinAmt) as qcinAmt,0 as c1Qty,0 as c1Price,SUM(t.c1Amt) as c1Amt
+         ,0 as c2Qty,0 as c2Price,sum(t.c2Amt) as c2Amt,0 as c3Qty,0 as c3Price,SUM(t.c3Amt) as c3Amt
+         ,0 as hQty,SUM(t.c1Amt + t.c2Amt + t.c3Amt) as hAmt
+         ,0 as totalQtyS,SUM(t.totalAmtS) as totalAmtS
+         ,0 as f1outQty,SUM(t.f1outAmt) as f1outAmt,0 as f1outQtyQ,SUM(t.f1outAmtQ) as f1outAmtQ
+         ,0 as qtyT,SUM(t.f1outAmt + t.f1outAmtQ) as AmtT,0 as f1outQtyN,SUM(t.f1outAmtN) as f1outAmtN
+         ,0 as tQty,SUM(t.qcinAmt + t.c1Amt + t.c2Amt + t.c3Amt - t.f1outAmt - t.f1outAmtQ) as tAmt
+  from temp_SeasonStockBase t 
+  where t.bsid like '00020008%'
+  union all 
+  -- -- 其他指收发存数据中除了以上14项的其它材料
+  select '15','其他' as resName,'-' as spec,'万元' as unit
+         ,0 as qcinQty,SUM(t.qcinAmt) as qcinAmt,0 as c1Qty,0 as c1Price,SUM(t.c1Amt) as c1Amt
+         ,0 as c2Qty,0 as c2Price,sum(t.c2Amt) as c2Amt,0 as c3Qty,0 as c3Price,SUM(t.c3Amt) as c3Amt
+         ,0 as hQty,SUM(t.c1Amt + t.c2Amt + t.c3Amt) as hAmt
+         ,0 as totalQtyS,SUM(t.totalAmtS) as totalAmtS
+         ,0 as f1outQty,SUM(t.f1outAmt) as f1outAmt,0 as f1outQtyQ,SUM(t.f1outAmtQ) as f1outAmtQ
+         ,0 as qtyT,SUM(t.f1outAmt + t.f1outAmtQ) as AmtT,0 as f1outQtyN,SUM(t.f1outAmtN) as f1outAmtN
+         ,0 as tQty,SUM(t.qcinAmt + t.c1Amt + t.c2Amt + t.c3Amt - t.f1outAmt - t.f1outAmtQ) as tAmt
+  from temp_SeasonStockBase t 
+  where t.bsid not like '00020001%'
+    and t.bsid not like '00020002%'
+    and t.bsid not like '00020003%'
+    and t.bsid not like '00020004%'
+    and t.bsid not like '00020011%'
+    and t.bsid not like '00020009%'
+    and t.bsid not like '00020008%'
+) tt
+  </select>
+</mapper>

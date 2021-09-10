@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkTurnoverStatTotalRptMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkTurnoverStatTotalRpt" >
+    <id column="zxSkTurnoverStatTotalRptId" property="zxSkTurnoverStatTotalRptId" jdbcType="CHAR" />
+    <result column="resCode" property="resCode" jdbcType="VARCHAR" />
+    <result column="resName" property="resName" jdbcType="VARCHAR" />
+    <result column="lastInAmt" property="lastInAmt" jdbcType="DECIMAL" />
+    <result column="lastremainAmt" property="lastremainAmt" jdbcType="DECIMAL" />
+    <result column="inAmt" property="inAmt" jdbcType="DECIMAL" />
+    <result column="shareAmts" property="shareAmts" jdbcType="DECIMAL" />
+    <result column="shareAmtTotal" property="shareAmtTotal" jdbcType="DECIMAL" />
+    <result column="allBuyAmt" property="allBuyAmt" jdbcType="DECIMAL" />
+    <result column="allCurrentAmt" property="allCurrentAmt" jdbcType="DECIMAL" />
+    <result column="allOrigAmt" property="allOrigAmt" jdbcType="DECIMAL" />
+    <result column="allRemainAmt" property="allRemainAmt" jdbcType="DECIMAL" />
+    <result column="thisInAmt" property="thisInAmt" jdbcType="DECIMAL" />
+    <result column="thisBadAmt" property="thisBadAmt" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="resID" property="resID" jdbcType="VARCHAR" />
+    <result column="beginMonth" property="beginMonth" jdbcType="VARCHAR" />
+    <result column="endMonth" property="endMonth" jdbcType="VARCHAR" />
+    <result column="beginDate" property="beginDate" jdbcType="TIMESTAMP" />
+    <result column="endDate" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="yearBeginDate" property="yearBeginDate" jdbcType="VARCHAR" />
+    <result column="isFinish" property="isFinish" jdbcType="VARCHAR" />
+    
+    
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxSkTurnoverStatTotalRptId, resCode, resName, lastInAmt, lastremainAmt, 
+    inAmt, shareAmts, shareAmtTotal, allBuyAmt, allCurrentAmt, 
+    allOrigAmt, allRemainAmt, thisInAmt, thisBadAmt, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_turnoverStatTotalRpt
+    where del_flag = '0' and zxSkTurnoverStatTotalRptId = #{zxSkTurnoverStatTotalRptId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_turnoverStatTotalRpt
+    where zxSkTurnoverStatTotalRptId = #{zxSkTurnoverStatTotalRptId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverStatTotalRpt" >
+    insert into zx_sk_turnoverStatTotalRpt (
+    zxSkTurnoverStatTotalRptId, resCode, resName, lastInAmt, lastremainAmt, 
+    inAmt, shareAmts, shareAmtTotal, allBuyAmt, allCurrentAmt, 
+    allOrigAmt, allRemainAmt, thisInAmt, thisBadAmt, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxSkTurnoverStatTotalRptId,jdbcType=CHAR}, #{resCode,jdbcType=VARCHAR}, #{resName,jdbcType=VARCHAR}, #{lastInAmt,jdbcType=DECIMAL}, #{lastremainAmt,jdbcType=DECIMAL}, 
+    #{inAmt,jdbcType=DECIMAL}, #{shareAmts,jdbcType=DECIMAL}, #{shareAmtTotal,jdbcType=DECIMAL}, #{allBuyAmt,jdbcType=DECIMAL}, #{allCurrentAmt,jdbcType=DECIMAL}, 
+    #{allOrigAmt,jdbcType=DECIMAL}, #{allRemainAmt,jdbcType=DECIMAL}, #{thisInAmt,jdbcType=DECIMAL}, #{thisBadAmt,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, 
+    #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+    #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverStatTotalRpt" >
+    insert into zx_sk_turnoverStatTotalRpt
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSkTurnoverStatTotalRptId != null" >
+        zxSkTurnoverStatTotalRptId,
+      </if>
+      <if test="resCode != null" >
+        resCode,
+      </if>
+      <if test="resName != null" >
+        resName,
+      </if>
+      <if test="lastInAmt != null" >
+        lastInAmt,
+      </if>
+      <if test="lastremainAmt != null" >
+        lastremainAmt,
+      </if>
+      <if test="inAmt != null" >
+        inAmt,
+      </if>
+      <if test="shareAmts != null" >
+        shareAmts,
+      </if>
+      <if test="shareAmtTotal != null" >
+        shareAmtTotal,
+      </if>
+      <if test="allBuyAmt != null" >
+        allBuyAmt,
+      </if>
+      <if test="allCurrentAmt != null" >
+        allCurrentAmt,
+      </if>
+      <if test="allOrigAmt != null" >
+        allOrigAmt,
+      </if>
+      <if test="allRemainAmt != null" >
+        allRemainAmt,
+      </if>
+      <if test="thisInAmt != null" >
+        thisInAmt,
+      </if>
+      <if test="thisBadAmt != null" >
+        thisBadAmt,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSkTurnoverStatTotalRptId != null" >
+        #{zxSkTurnoverStatTotalRptId,jdbcType=CHAR},
+      </if>
+      <if test="resCode != null" >
+        #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInAmt != null" >
+        #{lastInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="lastremainAmt != null" >
+        #{lastremainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inAmt != null" >
+        #{inAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="shareAmts != null" >
+        #{shareAmts,jdbcType=DECIMAL},
+      </if>
+      <if test="shareAmtTotal != null" >
+        #{shareAmtTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="allBuyAmt != null" >
+        #{allBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="allCurrentAmt != null" >
+        #{allCurrentAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="allOrigAmt != null" >
+        #{allOrigAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="allRemainAmt != null" >
+        #{allRemainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisInAmt != null" >
+        #{thisInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisBadAmt != null" >
+        #{thisBadAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverStatTotalRpt" >
+    update zx_sk_turnoverStatTotalRpt
+    <set >
+      <if test="resCode != null" >
+        resCode = #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        resName = #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInAmt != null" >
+        lastInAmt = #{lastInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="lastremainAmt != null" >
+        lastremainAmt = #{lastremainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inAmt != null" >
+        inAmt = #{inAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="shareAmts != null" >
+        shareAmts = #{shareAmts,jdbcType=DECIMAL},
+      </if>
+      <if test="shareAmtTotal != null" >
+        shareAmtTotal = #{shareAmtTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="allBuyAmt != null" >
+        allBuyAmt = #{allBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="allCurrentAmt != null" >
+        allCurrentAmt = #{allCurrentAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="allOrigAmt != null" >
+        allOrigAmt = #{allOrigAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="allRemainAmt != null" >
+        allRemainAmt = #{allRemainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisInAmt != null" >
+        thisInAmt = #{thisInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisBadAmt != null" >
+        thisBadAmt = #{thisBadAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxSkTurnoverStatTotalRptId = #{zxSkTurnoverStatTotalRptId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverStatTotalRpt" >
+    update zx_sk_turnoverStatTotalRpt set 
+      resCode = #{resCode,jdbcType=VARCHAR},
+      resName = #{resName,jdbcType=VARCHAR},
+      lastInAmt = #{lastInAmt,jdbcType=DECIMAL},
+      lastremainAmt = #{lastremainAmt,jdbcType=DECIMAL},
+      inAmt = #{inAmt,jdbcType=DECIMAL},
+      shareAmts = #{shareAmts,jdbcType=DECIMAL},
+      shareAmtTotal = #{shareAmtTotal,jdbcType=DECIMAL},
+      allBuyAmt = #{allBuyAmt,jdbcType=DECIMAL},
+      allCurrentAmt = #{allCurrentAmt,jdbcType=DECIMAL},
+      allOrigAmt = #{allOrigAmt,jdbcType=DECIMAL},
+      allRemainAmt = #{allRemainAmt,jdbcType=DECIMAL},
+      thisInAmt = #{thisInAmt,jdbcType=DECIMAL},
+      thisBadAmt = #{thisBadAmt,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSkTurnoverStatTotalRptId = #{zxSkTurnoverStatTotalRptId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSkTurnoverStatTotalRptList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverStatTotalRpt" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_turnoverStatTotalRpt
+    where del_flag = '0'
+    <if test="zxSkTurnoverStatTotalRptId != null and zxSkTurnoverStatTotalRptId != ''" >
+     and zxSkTurnoverStatTotalRptId = #{zxSkTurnoverStatTotalRptId,jdbcType=CHAR}
+    </if>
+    <if test="resCode != null and resCode != ''" >
+     and resCode = #{resCode,jdbcType=VARCHAR}
+    </if>
+    <if test="resName != null and resName != ''" >
+     and resName = #{resName,jdbcType=VARCHAR}
+    </if>
+    <if test="lastInAmt != null and lastInAmt != ''" >
+     and lastInAmt = #{lastInAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="lastremainAmt != null and lastremainAmt != ''" >
+     and lastremainAmt = #{lastremainAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="inAmt != null and inAmt != ''" >
+     and inAmt = #{inAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="shareAmts != null and shareAmts != ''" >
+     and shareAmts = #{shareAmts,jdbcType=DECIMAL}
+    </if>
+    <if test="shareAmtTotal != null and shareAmtTotal != ''" >
+     and shareAmtTotal = #{shareAmtTotal,jdbcType=DECIMAL}
+    </if>
+    <if test="allBuyAmt != null and allBuyAmt != ''" >
+     and allBuyAmt = #{allBuyAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="allCurrentAmt != null and allCurrentAmt != ''" >
+     and allCurrentAmt = #{allCurrentAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="allOrigAmt != null and allOrigAmt != ''" >
+     and allOrigAmt = #{allOrigAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="allRemainAmt != null and allRemainAmt != ''" >
+     and allRemainAmt = #{allRemainAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="thisInAmt != null and thisInAmt != ''" >
+     and thisInAmt = #{thisInAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="thisBadAmt != null and thisBadAmt != ''" >
+     and thisBadAmt = #{thisBadAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkTurnoverStatTotalRpt" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverStatTotalRpt" >
+    <![CDATA[ 
+        update zx_sk_turnoverStatTotalRpt
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSkTurnoverStatTotalRptId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSkTurnoverStatTotalRptId} 
+     </foreach>
+  </delete>
+  <select id="selectZxSkTurnoverStatTotalRpt" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverStatTotalRpt" >
+  select  
+       -- 物资编号、物资名称
+       res.resCode,res.resName,
+       -- 年初库存原值、 年初库存净值
+       round(sum(sy.lastInAmt),2) as lastInAmt,round(sum(sy.lastremainAmt),2) as lastremainAmt,
+       -- 本年累计收入金额
+       round(sum(sy.inAmt),2) as inAmt,
+       -- 本年累计摊销、 开工累计摊销
+       round(sum(sy.shareAmts),2) as shareAmts, round(sum(sy.shareAmtTotal),2) as shareAmtTotal,
+       -- 开累本年调出原值、 开累本年调出净值
+       round(sum(sy.allBuyAmt),2) as allBuyAmt, round(sum(sy.allCurrentAmt),2) as allCurrentAmt,
+       -- 开累本年报废原值、 开累本年报废净值
+       round(sum(sy.allOrigAmt),2) as allOrigAmt, round(sum(sy.allRemainAmt),2) as allRemainAmt,
+       -- 期末库存原值、期末库存净值
+       round(sum(sy.thisInAmt),2) as thisInAmt, round(sum(sy.thisBadAmt),2) as thisBadAmt
+from (
+	select irc.catCode as resCode, irc.catName as resName, ir.ID as resID 
+	from zx_sk_rescategory_materials  irc
+		inner join zx_Sk_Resource_Materials ir 
+	on ir.categoryID in 
+		(select ID from zx_sk_rescategory_materials where bsid like CONCAT((select bsid from zx_sk_rescategory_materials where ID=irc.ID),'%'))
+	where irc.resStyle='mt' and irc.bizType='bst01' 
+ 	  and irc.parentID=(select ID from zx_sk_rescategory_materials where catName='周转材料')
+) res
+inner join (
+    select 
+           -- 物资编号、物资名称、 规格、 单位、 单价
+           isti.resID, isti.resCode,isti.resName,isti.inPrice,
+           -- 年初库存：数量、 原值、 净值
+           ifnull(t.lastQty,0) as lastQty, ifnull(t.lastInAmt,0) as lastInAmt,ifnull(t.lastremainAmt,0) as lastremainAmt,
+           -- 收入：本年累计收入数量、 本年累计收入金额
+           ifnull(t.inQty,0) as inQty,ifnull(t.inAmt,0) as inAmt, 
+           -- 摊销：本期摊销、 本年累计摊销、 开工累计摊销
+           ifnull(t.shareAmt,0) shareAmt, ifnull(t.shareAmts,0) as shareAmts, ifnull(t.shareAmtTotal,0) as shareAmtTotal,
+           -- 调出：本期调出数量、 本年开累调出数量
+           ifnull(t.thisDiscQty,0) as thisDiscQty, ifnull(t.allOutQty,0) as allOutQty,
+           -- 调出：本期调出原值、 本期调出净值
+           ifnull(t.thisBuyAmt,0) as thisBuyAmt, ifnull(t.thisCurrentAmt,0) as thisCurrentAmt,
+           -- 调出：开累本年调出原值、 开累本年调出净值
+           ifnull(t.allBuyAmt,0) as allBuyAmt, ifnull(t.allCurrentAmt,0) as allCurrentAmt,
+           -- 报废：本期报废数量、 本年开累报废数量
+           ifnull(t.thisBadQty,0) as thisBadQty, ifnull(t.allDiscQty,0) as allDiscQty,
+           -- 报废：本期报废原值、 本期报废净值
+           ifnull(t.thisOrigAmt,0) as thisOrigAmt, ifnull(t.thisRemainAmt,0) as thisRemainAmt,
+           -- 报废：开累本年报废原值、 开累本年报废净值
+           ifnull(t.allOrigAmt,0) as allOrigAmt, ifnull(t.allRemainAmt,0) as allRemainAmt,
+           -- 期末库存：期末库存数量、期末库存原值、期末库存净值
+           ifnull(t.thisQty,0) as thisQty, ifnull(t.thisInAmt,0) as thisInAmt,ifnull(t.thisBadAmt,0) as thisBadAmt
+    from zx_sk_TurnoverInItem isti
+    inner join zx_sk_TurnoverIn ist on isti.billID=ist.ID
+    left join (
+        select c.batchNo,
+               -- 年初库存(数量、 原值、 净值)
+               sum(case when DATE_FORMAT(c.busDate,"%Y") &lt; #{yearBeginDate,jdbcType=VARCHAR} then c.originalQty else 0 end) as lastQty,
+               sum(case when DATE_FORMAT(c.busDate,"%Y") &lt; #{yearBeginDate,jdbcType=VARCHAR} then c.originalAmt else 0 end) as lastInAmt,
+               sum(case when DATE_FORMAT(c.busDate,"%Y") &lt; #{yearBeginDate,jdbcType=VARCHAR} then c.remainAmt else 0 end) as lastremainAmt,
+               -- 本年收入(数量、原值、净值)
+               sum(case when (c.billType='入库' or c.billType='退货') and DATE_FORMAT(c.busDate,"%Y") between #{yearBeginDate,jdbcType=VARCHAR} and #{endDate,jdbcType=TIMESTAMP} then c.originalQty else 0 end) as inQty,
+               sum(case when (c.billType='入库' or c.billType='退货') and DATE_FORMAT(c.busDate,"%Y") between #{yearBeginDate,jdbcType=VARCHAR} and #{endDate,jdbcType=TIMESTAMP} then c.originalAmt else 0 end) as inAmt,
+               sum(case when (c.billType='入库' or c.billType='退货') and DATE_FORMAT(c.busDate,"%Y") between #{yearBeginDate,jdbcType=VARCHAR} and #{endDate,jdbcType=TIMESTAMP} then c.remainAmt else 0 end) as remainAmt,
+               -- 摊销(本期、 本年、 累计)
+               sum(case when (c.billType='摊销' or c.billType='入库') and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then c.shareAmt else 0 end) as shareAmt,
+               sum(case when (c.billType='摊销' or c.billType='入库') and DATE_FORMAT(c.busDate,"%Y") between #{yearBeginDate,jdbcType=VARCHAR} and #{endDate,jdbcType=TIMESTAMP} then c.shareAmt else 0 end) as shareAmts,
+               -- 入库的摊销也算进去edit by wenjw 2017.6.17
+               sum(case when (c.billType='摊销' or c.billType='入库') and c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} then c.shareAmt else 0 end) as shareAmtTotal,
+               -- 本期调出(数量、原值、净值 )
+               sum(case when c.billType='调拨' and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.originalQty else 0 end) as thisDiscQty,
+               sum(case when c.billType='调拨' and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.originalAmt else 0 end) as thisBuyAmt,
+               sum(case when c.billType='调拨' and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.remainAmt else 0 end) as thisCurrentAmt,
+               -- 本年开累调出(数量、原值、净值 )
+               sum(case when c.billType='调拨' and DATE_FORMAT(c.busDate,"%Y") between #{yearBeginDate,jdbcType=VARCHAR} and #{endDate,jdbcType=TIMESTAMP} then -c.originalQty else 0 end) as allOutQty,
+               sum(case when c.billType='调拨' and DATE_FORMAT(c.busDate,"%Y") between #{yearBeginDate,jdbcType=VARCHAR} and #{endDate,jdbcType=TIMESTAMP} then -c.originalAmt else 0 end) as allBuyAmt,
+               sum(case when c.billType='调拨' and DATE_FORMAT(c.busDate,"%Y") between #{yearBeginDate,jdbcType=VARCHAR} and #{endDate,jdbcType=TIMESTAMP} then -c.remainAmt else 0 end) as allCurrentAmt,
+               -- 本期报废(数量、原值、净值 )
+               sum(case when c.billType='报废' and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.originalQty else 0 end) as thisBadQty,
+               sum(case when c.billType='报废' and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.originalAmt else 0 end) as thisOrigAmt,
+               sum(case when c.billType='报废' and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.remainAmt else 0 end) as thisRemainAmt,
+               -- 本年开累报废(数量、原值、净值 )
+               sum(case when c.billType='报废' and DATE_FORMAT(c.busDate,"%Y") between #{yearBeginDate,jdbcType=VARCHAR} and #{endDate,jdbcType=TIMESTAMP} then -c.originalQty else 0 end) as allDiscQty,
+               sum(case when c.billType='报废' and DATE_FORMAT(c.busDate,"%Y") between #{yearBeginDate,jdbcType=VARCHAR} and #{endDate,jdbcType=TIMESTAMP} then -c.originalAmt else 0 end) as allOrigAmt,
+               sum(case when c.billType='报废' and DATE_FORMAT(c.busDate,"%Y") between #{yearBeginDate,jdbcType=VARCHAR} and #{endDate,jdbcType=TIMESTAMP} then -c.remainAmt else 0 end) as allRemainAmt,
+               -- 本年退货(数量、原值、净值 )
+               sum(case when c.billType='退货' and DATE_FORMAT(c.busDate,"%Y") between #{yearBeginDate,jdbcType=VARCHAR} and #{endDate,jdbcType=TIMESTAMP} then -c.originalQty else 0 end) as allReturnQty,
+               sum(case when c.billType='退货' and DATE_FORMAT(c.busDate,"%Y") between #{yearBeginDate,jdbcType=VARCHAR} and #{endDate,jdbcType=TIMESTAMP} then -c.originalAmt else 0 end) as allReturnOrigAmt,
+               sum(case when c.billType='退货' and DATE_FORMAT(c.busDate,"%Y") between #{yearBeginDate,jdbcType=VARCHAR} and #{endDate,jdbcType=TIMESTAMP} then -c.remainAmt else 0 end) as allReturnRemaAmt,
+               -- 期末库存(数量、 原值、 净值)
+               sum(case when c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} then c.originalQty else 0 end) as thisQty,
+               sum(case when c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} then c.originalAmt else 0 end) as thisInAmt,
+               sum(case when c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} then c.remainAmt else 0 end) as thisBadAmt
+        from view_zx_sk_turnoverstock c
+		inner join sys_project sp on sp.project_id = c.orgID and (sp.project_id = #{orgID,jdbcType=VARCHAR} or sp.company_id = #{orgID,jdbcType=VARCHAR})
+        left join zx_ct_Contract ic on ic.orgID=c.orgID
+        where 
+         <if test="isFinish != null and isFinish != ''" >
+        (#{isFinish,jdbcType=VARCHAR}=0 or (#{isFinish,jdbcType=VARCHAR}=1 and ic.contractStatus =3) or (#{isFinish,jdbcType=VARCHAR}=2 and ic.contractStatus in ('1','2'))) and
+         </if>
+        c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP}
+        group by c.batchNo
+    ) t on isti.ID=t.batchNo
+    where ist.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} 
+    <if test="resID != null and resID != ''" >
+    and (isti.resID=#{resID,jdbcType=VARCHAR} or #{resID,jdbcType=VARCHAR}='')
+    </if>
+) sy on sy.resID = res.resID
+group by res.resCode,res.resName
+order by res.resCode
+  </select>
+</mapper>

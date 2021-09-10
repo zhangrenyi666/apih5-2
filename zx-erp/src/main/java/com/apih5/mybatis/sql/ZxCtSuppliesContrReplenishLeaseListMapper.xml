@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCtSuppliesContrReplenishLeaseListMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCtSuppliesContrReplenishLeaseList" >
+    <id column="zx_ct_supplies_contr_replenish_lease_list_id" property="zxCtSuppliesContrReplenishLeaseListId" jdbcType="CHAR" />
+    <result column="auditStatus" property="auditStatus" jdbcType="VARCHAR" />
+    <result column="companyHelp" property="companyHelp" jdbcType="VARCHAR" />
+    <result column="proposer" property="proposer" jdbcType="VARCHAR" />
+    <result column="takeEffectDate" property="takeEffectDate" jdbcType="TIMESTAMP" />
+    <result column="takeEffectMan" property="takeEffectMan" jdbcType="VARCHAR" />
+    <result column="applyDelay" property="applyDelay" jdbcType="VARCHAR" />
+    <result column="applyNo" property="applyNo" jdbcType="VARCHAR" />
+    <result column="applyDate" property="applyDate" jdbcType="TIMESTAMP" />
+    <result column="upAlterContractSumTax" property="upAlterContractSumTax" jdbcType="DECIMAL" />
+    <result column="upAlterContractSumNoTax" property="upAlterContractSumNoTax" jdbcType="DECIMAL" />
+    <result column="upAlterContractSum" property="upAlterContractSum" jdbcType="DECIMAL" />
+    <result column="replyStatus" property="replyStatus" jdbcType="VARCHAR" />
+    <result column="replyDelay" property="replyDelay" jdbcType="VARCHAR" />
+    <result column="replyDate" property="replyDate" jdbcType="TIMESTAMP" />
+    <result column="pp1" property="pp1" jdbcType="VARCHAR" />
+    <result column="recordDate" property="recordDate" jdbcType="TIMESTAMP" />
+    <result column="recorder" property="recorder" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="pp2Tax" property="pp2Tax" jdbcType="DECIMAL" />
+    <result column="contractID" property="contractID" jdbcType="VARCHAR" />
+    <result column="pp2" property="pp2" jdbcType="VARCHAR" />
+    <result column="happenDate" property="happenDate" jdbcType="TIMESTAMP" />
+    <result column="pp2NoTax" property="pp2NoTax" jdbcType="DECIMAL" />
+    <result column="replyNo" property="replyNo" jdbcType="VARCHAR" />
+    <result column="pp3" property="pp3" jdbcType="VARCHAR" />
+    <result column="alterReason" property="alterReason" jdbcType="VARCHAR" />
+    <result column="alterContent" property="alterContent" jdbcType="VARCHAR" />
+    <result column="replyAmountTax" property="replyAmountTax" jdbcType="DECIMAL" />
+    <result column="replyAmount" property="replyAmount" jdbcType="DECIMAL" />
+    <result column="replyAmountNoTax" property="replyAmountNoTax" jdbcType="DECIMAL" />
+    <result column="alterLevel" property="alterLevel" jdbcType="VARCHAR" />
+    <result column="applyAmountTax" property="applyAmountTax" jdbcType="DECIMAL" />
+    <result column="applyAmount" property="applyAmount" jdbcType="DECIMAL" />
+    <result column="applyAmountNoTax" property="applyAmountNoTax" jdbcType="DECIMAL" />
+    <result column="pp6" property="pp6" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zx_ct_supplies_contr_replenish_lease_list_id, auditStatus, companyHelp, proposer, takeEffectDate, 
+    takeEffectMan, applyDelay, applyNo, applyDate, upAlterContractSumTax, 
+    upAlterContractSumNoTax, upAlterContractSum, replyStatus, replyDelay, replyDate, 
+    pp1, recordDate, recorder, orgID, pp2Tax, 
+    contractID, pp2, happenDate, pp2NoTax, replyNo, 
+    pp3, alterReason, alterContent, replyAmountTax, replyAmount, 
+    replyAmountNoTax, alterLevel, applyAmountTax, applyAmount, applyAmountNoTax, 
+    pp6, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_supplies_contr_replenish_lease_list
+    where del_flag = '0' and zx_ct_supplies_contr_replenish_lease_list_id = #{zxCtSuppliesContrReplenishLeaseListId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_ct_supplies_contr_replenish_lease_list
+    where zx_ct_supplies_contr_replenish_lease_list_id = #{zxCtSuppliesContrReplenishLeaseListId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesContrReplenishLeaseList" >
+    insert into zx_ct_supplies_contr_replenish_lease_list (
+    zx_ct_supplies_contr_replenish_lease_list_id, auditStatus, companyHelp, proposer, takeEffectDate, 
+    takeEffectMan, applyDelay, applyNo, applyDate, upAlterContractSumTax, 
+    upAlterContractSumNoTax, upAlterContractSum, replyStatus, replyDelay, replyDate, 
+    pp1, recordDate, recorder, orgID, pp2Tax, 
+    contractID, pp2, happenDate, pp2NoTax, replyNo, 
+    pp3, alterReason, alterContent, replyAmountTax, replyAmount, 
+    replyAmountNoTax, alterLevel, applyAmountTax, applyAmount, applyAmountNoTax, 
+    pp6, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxCtSuppliesContrReplenishLeaseListId,jdbcType=CHAR}, #{auditStatus,jdbcType=VARCHAR}, #{companyHelp,jdbcType=VARCHAR}, #{proposer,jdbcType=VARCHAR}, #{takeEffectDate,jdbcType=TIMESTAMP}, 
+    #{takeEffectMan,jdbcType=VARCHAR}, #{applyDelay,jdbcType=VARCHAR}, #{applyNo,jdbcType=VARCHAR}, #{applyDate,jdbcType=TIMESTAMP}, #{upAlterContractSumTax,jdbcType=DECIMAL}, 
+    #{upAlterContractSumNoTax,jdbcType=DECIMAL}, #{upAlterContractSum,jdbcType=DECIMAL}, #{replyStatus,jdbcType=VARCHAR}, #{replyDelay,jdbcType=VARCHAR}, #{replyDate,jdbcType=TIMESTAMP}, 
+    #{pp1,jdbcType=VARCHAR}, #{recordDate,jdbcType=TIMESTAMP}, #{recorder,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, #{pp2Tax,jdbcType=DECIMAL}, 
+    #{contractID,jdbcType=VARCHAR}, #{pp2,jdbcType=VARCHAR}, #{happenDate,jdbcType=TIMESTAMP}, #{pp2NoTax,jdbcType=DECIMAL}, #{replyNo,jdbcType=VARCHAR}, 
+    #{pp3,jdbcType=VARCHAR}, #{alterReason,jdbcType=VARCHAR}, #{alterContent,jdbcType=VARCHAR}, #{replyAmountTax,jdbcType=DECIMAL}, #{replyAmount,jdbcType=DECIMAL}, 
+    #{replyAmountNoTax,jdbcType=DECIMAL}, #{alterLevel,jdbcType=VARCHAR}, #{applyAmountTax,jdbcType=DECIMAL}, #{applyAmount,jdbcType=DECIMAL}, #{applyAmountNoTax,jdbcType=DECIMAL}, 
+    #{pp6,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+    #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesContrReplenishLeaseList" >
+    insert into zx_ct_supplies_contr_replenish_lease_list
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxCtSuppliesContrReplenishLeaseListId != null" >
+        zx_ct_supplies_contr_replenish_lease_list_id,
+      </if>
+      <if test="auditStatus != null" >
+        auditStatus,
+      </if>
+      <if test="companyHelp != null" >
+        companyHelp,
+      </if>
+      <if test="proposer != null" >
+        proposer,
+      </if>
+      <if test="takeEffectDate != null" >
+        takeEffectDate,
+      </if>
+      <if test="takeEffectMan != null" >
+        takeEffectMan,
+      </if>
+      <if test="applyDelay != null" >
+        applyDelay,
+      </if>
+      <if test="applyNo != null" >
+        applyNo,
+      </if>
+      <if test="applyDate != null" >
+        applyDate,
+      </if>
+      <if test="upAlterContractSumTax != null" >
+        upAlterContractSumTax,
+      </if>
+      <if test="upAlterContractSumNoTax != null" >
+        upAlterContractSumNoTax,
+      </if>
+      <if test="upAlterContractSum != null" >
+        upAlterContractSum,
+      </if>
+      <if test="replyStatus != null" >
+        replyStatus,
+      </if>
+      <if test="replyDelay != null" >
+        replyDelay,
+      </if>
+      <if test="replyDate != null" >
+        replyDate,
+      </if>
+      <if test="pp1 != null" >
+        pp1,
+      </if>
+      <if test="recordDate != null" >
+        recordDate,
+      </if>
+      <if test="recorder != null" >
+        recorder,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="pp2Tax != null" >
+        pp2Tax,
+      </if>
+      <if test="contractID != null" >
+        contractID,
+      </if>
+      <if test="pp2 != null" >
+        pp2,
+      </if>
+      <if test="happenDate != null" >
+        happenDate,
+      </if>
+      <if test="pp2NoTax != null" >
+        pp2NoTax,
+      </if>
+      <if test="replyNo != null" >
+        replyNo,
+      </if>
+      <if test="pp3 != null" >
+        pp3,
+      </if>
+      <if test="alterReason != null" >
+        alterReason,
+      </if>
+      <if test="alterContent != null" >
+        alterContent,
+      </if>
+      <if test="replyAmountTax != null" >
+        replyAmountTax,
+      </if>
+      <if test="replyAmount != null" >
+        replyAmount,
+      </if>
+      <if test="replyAmountNoTax != null" >
+        replyAmountNoTax,
+      </if>
+      <if test="alterLevel != null" >
+        alterLevel,
+      </if>
+      <if test="applyAmountTax != null" >
+        applyAmountTax,
+      </if>
+      <if test="applyAmount != null" >
+        applyAmount,
+      </if>
+      <if test="applyAmountNoTax != null" >
+        applyAmountNoTax,
+      </if>
+      <if test="pp6 != null" >
+        pp6,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxCtSuppliesContrReplenishLeaseListId != null" >
+        #{zxCtSuppliesContrReplenishLeaseListId,jdbcType=CHAR},
+      </if>
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="companyHelp != null" >
+        #{companyHelp,jdbcType=VARCHAR},
+      </if>
+      <if test="proposer != null" >
+        #{proposer,jdbcType=VARCHAR},
+      </if>
+      <if test="takeEffectDate != null" >
+        #{takeEffectDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="takeEffectMan != null" >
+        #{takeEffectMan,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDelay != null" >
+        #{applyDelay,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null" >
+        #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDate != null" >
+        #{applyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="upAlterContractSumTax != null" >
+        #{upAlterContractSumTax,jdbcType=DECIMAL},
+      </if>
+      <if test="upAlterContractSumNoTax != null" >
+        #{upAlterContractSumNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="upAlterContractSum != null" >
+        #{upAlterContractSum,jdbcType=DECIMAL},
+      </if>
+      <if test="replyStatus != null" >
+        #{replyStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="replyDelay != null" >
+        #{replyDelay,jdbcType=VARCHAR},
+      </if>
+      <if test="replyDate != null" >
+        #{replyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pp1 != null" >
+        #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="recordDate != null" >
+        #{recordDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recorder != null" >
+        #{recorder,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2Tax != null" >
+        #{pp2Tax,jdbcType=DECIMAL},
+      </if>
+      <if test="contractID != null" >
+        #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2 != null" >
+        #{pp2,jdbcType=VARCHAR},
+      </if>
+      <if test="happenDate != null" >
+        #{happenDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pp2NoTax != null" >
+        #{pp2NoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="replyNo != null" >
+        #{replyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pp3 != null" >
+        #{pp3,jdbcType=VARCHAR},
+      </if>
+      <if test="alterReason != null" >
+        #{alterReason,jdbcType=VARCHAR},
+      </if>
+      <if test="alterContent != null" >
+        #{alterContent,jdbcType=VARCHAR},
+      </if>
+      <if test="replyAmountTax != null" >
+        #{replyAmountTax,jdbcType=DECIMAL},
+      </if>
+      <if test="replyAmount != null" >
+        #{replyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="replyAmountNoTax != null" >
+        #{replyAmountNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="alterLevel != null" >
+        #{alterLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmountTax != null" >
+        #{applyAmountTax,jdbcType=DECIMAL},
+      </if>
+      <if test="applyAmount != null" >
+        #{applyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="applyAmountNoTax != null" >
+        #{applyAmountNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="pp6 != null" >
+        #{pp6,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesContrReplenishLeaseList" >
+    update zx_ct_supplies_contr_replenish_lease_list
+    <set >
+      <if test="auditStatus != null" >
+        auditStatus = #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="companyHelp != null" >
+        companyHelp = #{companyHelp,jdbcType=VARCHAR},
+      </if>
+      <if test="proposer != null" >
+        proposer = #{proposer,jdbcType=VARCHAR},
+      </if>
+      <if test="takeEffectDate != null" >
+        takeEffectDate = #{takeEffectDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="takeEffectMan != null" >
+        takeEffectMan = #{takeEffectMan,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDelay != null" >
+        applyDelay = #{applyDelay,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null" >
+        applyNo = #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDate != null" >
+        applyDate = #{applyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="upAlterContractSumTax != null" >
+        upAlterContractSumTax = #{upAlterContractSumTax,jdbcType=DECIMAL},
+      </if>
+      <if test="upAlterContractSumNoTax != null" >
+        upAlterContractSumNoTax = #{upAlterContractSumNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="upAlterContractSum != null" >
+        upAlterContractSum = #{upAlterContractSum,jdbcType=DECIMAL},
+      </if>
+      <if test="replyStatus != null" >
+        replyStatus = #{replyStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="replyDelay != null" >
+        replyDelay = #{replyDelay,jdbcType=VARCHAR},
+      </if>
+      <if test="replyDate != null" >
+        replyDate = #{replyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pp1 != null" >
+        pp1 = #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="recordDate != null" >
+        recordDate = #{recordDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recorder != null" >
+        recorder = #{recorder,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2Tax != null" >
+        pp2Tax = #{pp2Tax,jdbcType=DECIMAL},
+      </if>
+      <if test="contractID != null" >
+        contractID = #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2 != null" >
+        pp2 = #{pp2,jdbcType=VARCHAR},
+      </if>
+      <if test="happenDate != null" >
+        happenDate = #{happenDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pp2NoTax != null" >
+        pp2NoTax = #{pp2NoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="replyNo != null" >
+        replyNo = #{replyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pp3 != null" >
+        pp3 = #{pp3,jdbcType=VARCHAR},
+      </if>
+      <if test="alterReason != null" >
+        alterReason = #{alterReason,jdbcType=VARCHAR},
+      </if>
+      <if test="alterContent != null" >
+        alterContent = #{alterContent,jdbcType=VARCHAR},
+      </if>
+      <if test="replyAmountTax != null" >
+        replyAmountTax = #{replyAmountTax,jdbcType=DECIMAL},
+      </if>
+      <if test="replyAmount != null" >
+        replyAmount = #{replyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="replyAmountNoTax != null" >
+        replyAmountNoTax = #{replyAmountNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="alterLevel != null" >
+        alterLevel = #{alterLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmountTax != null" >
+        applyAmountTax = #{applyAmountTax,jdbcType=DECIMAL},
+      </if>
+      <if test="applyAmount != null" >
+        applyAmount = #{applyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="applyAmountNoTax != null" >
+        applyAmountNoTax = #{applyAmountNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="pp6 != null" >
+        pp6 = #{pp6,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zx_ct_supplies_contr_replenish_lease_list_id = #{zxCtSuppliesContrReplenishLeaseListId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesContrReplenishLeaseList" >
+    update zx_ct_supplies_contr_replenish_lease_list set 
+      auditStatus = #{auditStatus,jdbcType=VARCHAR},
+      companyHelp = #{companyHelp,jdbcType=VARCHAR},
+      proposer = #{proposer,jdbcType=VARCHAR},
+      takeEffectDate = #{takeEffectDate,jdbcType=TIMESTAMP},
+      takeEffectMan = #{takeEffectMan,jdbcType=VARCHAR},
+      applyDelay = #{applyDelay,jdbcType=VARCHAR},
+      applyNo = #{applyNo,jdbcType=VARCHAR},
+      applyDate = #{applyDate,jdbcType=TIMESTAMP},
+      upAlterContractSumTax = #{upAlterContractSumTax,jdbcType=DECIMAL},
+      upAlterContractSumNoTax = #{upAlterContractSumNoTax,jdbcType=DECIMAL},
+      upAlterContractSum = #{upAlterContractSum,jdbcType=DECIMAL},
+      replyStatus = #{replyStatus,jdbcType=VARCHAR},
+      replyDelay = #{replyDelay,jdbcType=VARCHAR},
+      replyDate = #{replyDate,jdbcType=TIMESTAMP},
+      pp1 = #{pp1,jdbcType=VARCHAR},
+      recordDate = #{recordDate,jdbcType=TIMESTAMP},
+      recorder = #{recorder,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      pp2Tax = #{pp2Tax,jdbcType=DECIMAL},
+      contractID = #{contractID,jdbcType=VARCHAR},
+      pp2 = #{pp2,jdbcType=VARCHAR},
+      happenDate = #{happenDate,jdbcType=TIMESTAMP},
+      pp2NoTax = #{pp2NoTax,jdbcType=DECIMAL},
+      replyNo = #{replyNo,jdbcType=VARCHAR},
+      pp3 = #{pp3,jdbcType=VARCHAR},
+      alterReason = #{alterReason,jdbcType=VARCHAR},
+      alterContent = #{alterContent,jdbcType=VARCHAR},
+      replyAmountTax = #{replyAmountTax,jdbcType=DECIMAL},
+      replyAmount = #{replyAmount,jdbcType=DECIMAL},
+      replyAmountNoTax = #{replyAmountNoTax,jdbcType=DECIMAL},
+      alterLevel = #{alterLevel,jdbcType=VARCHAR},
+      applyAmountTax = #{applyAmountTax,jdbcType=DECIMAL},
+      applyAmount = #{applyAmount,jdbcType=DECIMAL},
+      applyAmountNoTax = #{applyAmountNoTax,jdbcType=DECIMAL},
+      pp6 = #{pp6,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zx_ct_supplies_contr_replenish_lease_list_id = #{zxCtSuppliesContrReplenishLeaseListId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxCtSuppliesContrReplenishLeaseListList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesContrReplenishLeaseList" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_supplies_contr_replenish_lease_list
+    where del_flag = '0'
+    <if test="zxCtSuppliesContrReplenishLeaseListId != null and zxCtSuppliesContrReplenishLeaseListId != ''" >
+     and zx_ct_supplies_contr_replenish_lease_list_id = #{zxCtSuppliesContrReplenishLeaseListId,jdbcType=CHAR}
+    </if>
+    <if test="auditStatus != null and auditStatus != ''" >
+     and auditStatus = #{auditStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="companyHelp != null and companyHelp != ''" >
+     and companyHelp = #{companyHelp,jdbcType=VARCHAR}
+    </if>
+    <if test="proposer != null and proposer != ''" >
+     and proposer = #{proposer,jdbcType=VARCHAR}
+    </if>
+    <if test="takeEffectDate != null and takeEffectDate != ''" >
+     and takeEffectDate = #{takeEffectDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="takeEffectMan != null and takeEffectMan != ''" >
+     and takeEffectMan = #{takeEffectMan,jdbcType=VARCHAR}
+    </if>
+    <if test="applyDelay != null and applyDelay != ''" >
+     and applyDelay = #{applyDelay,jdbcType=VARCHAR}
+    </if>
+    <if test="applyNo != null and applyNo != ''" >
+     and applyNo = #{applyNo,jdbcType=VARCHAR}
+    </if>
+    <if test="applyDate != null and applyDate != ''" >
+     and applyDate = #{applyDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="upAlterContractSumTax != null and upAlterContractSumTax != ''" >
+     and upAlterContractSumTax = #{upAlterContractSumTax,jdbcType=DECIMAL}
+    </if>
+    <if test="upAlterContractSumNoTax != null and upAlterContractSumNoTax != ''" >
+     and upAlterContractSumNoTax = #{upAlterContractSumNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="upAlterContractSum != null and upAlterContractSum != ''" >
+     and upAlterContractSum = #{upAlterContractSum,jdbcType=DECIMAL}
+    </if>
+    <if test="replyStatus != null and replyStatus != ''" >
+     and replyStatus = #{replyStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="replyDelay != null and replyDelay != ''" >
+     and replyDelay = #{replyDelay,jdbcType=VARCHAR}
+    </if>
+    <if test="replyDate != null and replyDate != ''" >
+     and replyDate = #{replyDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="pp1 != null and pp1 != ''" >
+     and pp1 = #{pp1,jdbcType=VARCHAR}
+    </if>
+    <if test="recordDate != null and recordDate != ''" >
+     and recordDate = #{recordDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="recorder != null and recorder != ''" >
+     and recorder = #{recorder,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="pp2Tax != null and pp2Tax != ''" >
+     and pp2Tax = #{pp2Tax,jdbcType=DECIMAL}
+    </if>
+    <if test="contractID != null and contractID != ''" >
+     and contractID = #{contractID,jdbcType=VARCHAR}
+    </if>
+    <if test="pp2 != null and pp2 != ''" >
+     and pp2 = #{pp2,jdbcType=VARCHAR}
+    </if>
+    <if test="happenDate != null and happenDate != ''" >
+     and happenDate = #{happenDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="pp2NoTax != null and pp2NoTax != ''" >
+     and pp2NoTax = #{pp2NoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="replyNo != null and replyNo != ''" >
+     and replyNo = #{replyNo,jdbcType=VARCHAR}
+    </if>
+    <if test="pp3 != null and pp3 != ''" >
+     and pp3 = #{pp3,jdbcType=VARCHAR}
+    </if>
+    <if test="alterReason != null and alterReason != ''" >
+     and alterReason = #{alterReason,jdbcType=VARCHAR}
+    </if>
+    <if test="alterContent != null and alterContent != ''" >
+     and alterContent = #{alterContent,jdbcType=VARCHAR}
+    </if>
+    <if test="replyAmountTax != null and replyAmountTax != ''" >
+     and replyAmountTax = #{replyAmountTax,jdbcType=DECIMAL}
+    </if>
+    <if test="replyAmount != null and replyAmount != ''" >
+     and replyAmount = #{replyAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="replyAmountNoTax != null and replyAmountNoTax != ''" >
+     and replyAmountNoTax = #{replyAmountNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="alterLevel != null and alterLevel != ''" >
+     and alterLevel = #{alterLevel,jdbcType=VARCHAR}
+    </if>
+    <if test="applyAmountTax != null and applyAmountTax != ''" >
+     and applyAmountTax = #{applyAmountTax,jdbcType=DECIMAL}
+    </if>
+    <if test="applyAmount != null and applyAmount != ''" >
+     and applyAmount = #{applyAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="applyAmountNoTax != null and applyAmountNoTax != ''" >
+     and applyAmountNoTax = #{applyAmountNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="pp6 != null and pp6 != ''" >
+     and pp6 = #{pp6,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxCtSuppliesContrReplenishLeaseList" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesContrReplenishLeaseList" >
+    <![CDATA[ 
+        update zx_ct_supplies_contr_replenish_lease_list
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zx_ct_supplies_contr_replenish_lease_list_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxCtSuppliesContrReplenishLeaseListId} 
+     </foreach>
+  </delete>
+</mapper>

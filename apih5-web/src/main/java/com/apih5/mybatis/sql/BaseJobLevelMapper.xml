@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.BaseJobLevelMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.BaseJobLevel" >
+    <id column="base_job_level_id" property="baseJobLevelId" jdbcType="CHAR" />
+    <result column="company_id" property="companyId" jdbcType="CHAR" />
+    <result column="pay_level_type" property="payLevelType" jdbcType="CHAR" />
+    <result column="job_level_name" property="jobLevelName" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    base_job_level_id, company_id, pay_level_type, job_level_name, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_job_level
+    where del_flag = '0' and base_job_level_id = #{baseJobLevelId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from base_job_level
+    where base_job_level_id = #{baseJobLevelId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.BaseJobLevel" >
+    insert into base_job_level (
+    base_job_level_id, company_id, pay_level_type, job_level_name, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{baseJobLevelId,jdbcType=CHAR}, #{companyId,jdbcType=CHAR}, #{payLevelType,jdbcType=CHAR}, #{jobLevelName,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+    #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+    #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.BaseJobLevel" >
+    insert into base_job_level
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="baseJobLevelId != null" >
+        base_job_level_id,
+      </if>
+      <if test="companyId != null" >
+        company_id,
+      </if>
+      <if test="payLevelType != null" >
+        pay_level_type,
+      </if>
+      <if test="jobLevelName != null" >
+        job_level_name,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="baseJobLevelId != null" >
+        #{baseJobLevelId,jdbcType=CHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="payLevelType != null" >
+        #{payLevelType,jdbcType=CHAR},
+      </if>
+      <if test="jobLevelName != null" >
+        #{jobLevelName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.BaseJobLevel" >
+    update base_job_level
+    <set >
+      <if test="companyId != null" >
+        company_id = #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="payLevelType != null" >
+        pay_level_type = #{payLevelType,jdbcType=CHAR},
+      </if>
+      <if test="jobLevelName != null" >
+        job_level_name = #{jobLevelName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where base_job_level_id = #{baseJobLevelId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.BaseJobLevel" >
+    update base_job_level set 
+      company_id = #{companyId,jdbcType=CHAR},
+      pay_level_type = #{payLevelType,jdbcType=CHAR},
+      job_level_name = #{jobLevelName,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where base_job_level_id = #{baseJobLevelId,jdbcType=CHAR}
+  </update>
+  <select id="selectByBaseJobLevelList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.BaseJobLevel" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_job_level
+    where del_flag = '0'
+    <if test="baseJobLevelId != null and baseJobLevelId != ''" >
+     and base_job_level_id = #{baseJobLevelId,jdbcType=CHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and company_id = #{companyId,jdbcType=CHAR}
+    </if>
+    <if test="payLevelType != null and payLevelType != ''" >
+     and pay_level_type = #{payLevelType,jdbcType=CHAR}
+    </if>
+    <if test="jobLevelName != null and jobLevelName != ''" >
+     and job_level_name = #{jobLevelName,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateBaseJobLevel" parameterType="com.apih5.mybatis.pojo.BaseJobLevel" >
+    <![CDATA[ 
+        update base_job_level
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and base_job_level_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.baseJobLevelId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+</mapper>

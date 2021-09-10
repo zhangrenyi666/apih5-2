@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzPppTermMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzPppTerm" >
+    <id column="ppp_term_id" property="pppTermId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="subproject_info_id" property="subprojectInfoId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="issue_id" property="issueId" jdbcType="CHAR" />
+    <result column="issue_name" property="issueName" jdbcType="VARCHAR" />
+    <result column="number_content" property="numberContent" jdbcType="VARCHAR" />
+    <result column="term" property="term" jdbcType="VARCHAR" />
+    <result column="risk_flag" property="riskFlag" jdbcType="CHAR" />
+    <result column="measure" property="measure" jdbcType="VARCHAR" />
+    <result column="negotiate_flag" property="negotiateFlag" jdbcType="CHAR" />
+    <result column="dept_and_leader" property="deptAndLeader" jdbcType="VARCHAR" />
+    <result column="implement" property="implement" jdbcType="VARCHAR" />
+    <result column="register_date" property="registerDate" jdbcType="DATE" />
+    <result column="register_person" property="registerPerson" jdbcType="VARCHAR" />
+    <result column="status_id" property="statusId" jdbcType="CHAR" />
+    <result column="status_name" property="statusName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ppp_term_id, project_id, subproject_info_id, project_name, issue_id, 
+    issue_name, number_content, term, risk_flag, measure, 
+    negotiate_flag, dept_and_leader, implement, register_date, register_person, 
+    status_id, status_name, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />,
+    (SELECT subproject_name FROM zj_tz_pro_subproject_info WHERE del_flag = '0' and term.subproject_info_id = subproject_info_id) AS subprojectInfoName
+    from zj_tz_ppp_term AS term
+    where ppp_term_id = #{pppTermId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_ppp_term
+    where ppp_term_id = #{pppTermId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzPppTerm" >
+    insert into zj_tz_ppp_term (ppp_term_id, project_id, subproject_info_id, 
+      project_name, issue_id, issue_name, 
+      number_content, term, risk_flag, 
+      measure, negotiate_flag, dept_and_leader, 
+      implement, register_date, register_person, 
+      status_id, status_name, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{pppTermId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{subprojectInfoId,jdbcType=CHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{issueId,jdbcType=CHAR}, #{issueName,jdbcType=VARCHAR}, 
+      #{numberContent,jdbcType=VARCHAR}, #{term,jdbcType=VARCHAR}, #{riskFlag,jdbcType=CHAR}, 
+      #{measure,jdbcType=VARCHAR}, #{negotiateFlag,jdbcType=CHAR}, #{deptAndLeader,jdbcType=VARCHAR}, 
+      #{implement,jdbcType=VARCHAR}, #{registerDate,jdbcType=DATE}, #{registerPerson,jdbcType=VARCHAR}, 
+      #{statusId,jdbcType=CHAR}, #{statusName,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzPppTerm" >
+    insert into zj_tz_ppp_term
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pppTermId != null" >
+        ppp_term_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="subprojectInfoId != null" >
+        subproject_info_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="issueId != null" >
+        issue_id,
+      </if>
+      <if test="issueName != null" >
+        issue_name,
+      </if>
+      <if test="numberContent != null" >
+        number_content,
+      </if>
+      <if test="term != null" >
+        term,
+      </if>
+      <if test="riskFlag != null" >
+        risk_flag,
+      </if>
+      <if test="measure != null" >
+        measure,
+      </if>
+      <if test="negotiateFlag != null" >
+        negotiate_flag,
+      </if>
+      <if test="deptAndLeader != null" >
+        dept_and_leader,
+      </if>
+      <if test="implement != null" >
+        implement,
+      </if>
+      <if test="registerDate != null" >
+        register_date,
+      </if>
+      <if test="registerPerson != null" >
+        register_person,
+      </if>
+      <if test="statusId != null" >
+        status_id,
+      </if>
+      <if test="statusName != null" >
+        status_name,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pppTermId != null" >
+        #{pppTermId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectInfoId != null" >
+        #{subprojectInfoId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="issueId != null" >
+        #{issueId,jdbcType=CHAR},
+      </if>
+      <if test="issueName != null" >
+        #{issueName,jdbcType=VARCHAR},
+      </if>
+      <if test="numberContent != null" >
+        #{numberContent,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null" >
+        #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="riskFlag != null" >
+        #{riskFlag,jdbcType=CHAR},
+      </if>
+      <if test="measure != null" >
+        #{measure,jdbcType=VARCHAR},
+      </if>
+      <if test="negotiateFlag != null" >
+        #{negotiateFlag,jdbcType=CHAR},
+      </if>
+      <if test="deptAndLeader != null" >
+        #{deptAndLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="implement != null" >
+        #{implement,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null" >
+        #{registerDate,jdbcType=DATE},
+      </if>
+      <if test="registerPerson != null" >
+        #{registerPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="statusId != null" >
+        #{statusId,jdbcType=CHAR},
+      </if>
+      <if test="statusName != null" >
+        #{statusName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzPppTerm" >
+    update zj_tz_ppp_term
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectInfoId != null" >
+        subproject_info_id = #{subprojectInfoId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="issueId != null" >
+        issue_id = #{issueId,jdbcType=CHAR},
+      </if>
+      <if test="issueName != null" >
+        issue_name = #{issueName,jdbcType=VARCHAR},
+      </if>
+      <if test="numberContent != null" >
+        number_content = #{numberContent,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null" >
+        term = #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="riskFlag != null" >
+        risk_flag = #{riskFlag,jdbcType=CHAR},
+      </if>
+      <if test="measure != null" >
+        measure = #{measure,jdbcType=VARCHAR},
+      </if>
+      <if test="negotiateFlag != null" >
+        negotiate_flag = #{negotiateFlag,jdbcType=CHAR},
+      </if>
+      <if test="deptAndLeader != null" >
+        dept_and_leader = #{deptAndLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="implement != null" >
+        implement = #{implement,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null" >
+        register_date = #{registerDate,jdbcType=DATE},
+      </if>
+      <if test="registerPerson != null" >
+        register_person = #{registerPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="statusId != null" >
+        status_id = #{statusId,jdbcType=CHAR},
+      </if>
+      <if test="statusName != null" >
+        status_name = #{statusName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ppp_term_id = #{pppTermId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzPppTerm" >
+    update zj_tz_ppp_term
+    set       project_id = #{projectId,jdbcType=CHAR},
+      subproject_info_id = #{subprojectInfoId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      issue_id = #{issueId,jdbcType=CHAR},
+      issue_name = #{issueName,jdbcType=VARCHAR},
+      number_content = #{numberContent,jdbcType=VARCHAR},
+      term = #{term,jdbcType=VARCHAR},
+      risk_flag = #{riskFlag,jdbcType=CHAR},
+      measure = #{measure,jdbcType=VARCHAR},
+      negotiate_flag = #{negotiateFlag,jdbcType=CHAR},
+      dept_and_leader = #{deptAndLeader,jdbcType=VARCHAR},
+      implement = #{implement,jdbcType=VARCHAR},
+      register_date = #{registerDate,jdbcType=DATE},
+      register_person = #{registerPerson,jdbcType=VARCHAR},
+      status_id = #{statusId,jdbcType=CHAR},
+      status_name = #{statusName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where ppp_term_id = #{pppTermId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzPppTermList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzPppTerm" >
+    select 
+    <include refid="Base_Column_List" />,
+    (SELECT subproject_name FROM zj_tz_pro_subproject_info WHERE del_flag = '0' and term.subproject_info_id = subproject_info_id) AS subprojectInfoName
+    from zj_tz_ppp_term AS term
+    where del_flag = '0'
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     and project_id in (${projectIdSql})
+    </if>
+    <if test="subprojectInfoId != null and subprojectInfoId != ''" >
+     and subproject_info_id = #{subprojectInfoId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="issueId != null and issueId != ''" >
+     and issue_id = #{issueId,jdbcType=CHAR}
+    </if>
+    <if test="issueName != null and issueName != ''" >
+     and issue_name = #{issueName,jdbcType=VARCHAR}
+    </if>
+    <if test="numberContent != null and numberContent != ''" >
+     and number_content = #{numberContent,jdbcType=VARCHAR}
+    </if>
+    <if test="term != null and term != ''" >
+     and term = #{term,jdbcType=VARCHAR}
+    </if>
+    <if test="riskFlag != null and riskFlag != ''" >
+     and risk_flag = #{riskFlag,jdbcType=CHAR}
+    </if>
+    <if test="measure != null and measure != ''" >
+     and measure = #{measure,jdbcType=VARCHAR}
+    </if>
+    <if test="negotiateFlag != null and negotiateFlag != ''" >
+     and negotiate_flag = #{negotiateFlag,jdbcType=CHAR}
+    </if>
+    <if test="deptAndLeader != null and deptAndLeader != ''" >
+     and dept_and_leader = #{deptAndLeader,jdbcType=VARCHAR}
+    </if>
+    <if test="implement != null and implement != ''" >
+     and implement = #{implement,jdbcType=VARCHAR}
+    </if>
+    <if test="registerDate != null" >
+     and register_date = #{registerDate,jdbcType=DATE}
+    </if>
+    <if test="registerPerson != null and registerPerson != ''" >
+     and register_person = #{registerPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="statusId != null and statusId != ''" >
+     and status_id = #{statusId,jdbcType=CHAR}
+    </if>
+    <if test="statusName != null and statusName != ''" >
+     and status_name = #{statusName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzPppTerm" parameterType="com.apih5.mybatis.pojo.ZjTzPppTerm" >
+    <![CDATA[ 
+        update zj_tz_ppp_term
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and ppp_term_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.pppTermId} 
+     </foreach>
+  </delete>
+  
+  <!-- 扩展 -->
+  <delete id="batchRecallZjTzPppTerm" parameterType="com.apih5.mybatis.pojo.ZjTzPppTerm" >
+    <![CDATA[ 
+        update zj_tz_ppp_term
+        set status_id = #{param2.statusId},
+            status_name=#{param2.statusName},
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and ppp_term_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.pppTermId} 
+     </foreach>
+  </delete>
+  
+</mapper>

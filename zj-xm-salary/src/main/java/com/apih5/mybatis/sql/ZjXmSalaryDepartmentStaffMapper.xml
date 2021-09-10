@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmSalaryDepartmentStaffMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmSalaryDepartmentStaff" >
+    <id column="staff_id" property="staffId" jdbcType="CHAR" />
+    <result column="position" property="position" jdbcType="CHAR" />
+    <result column="number" property="number" jdbcType="INTEGER" />
+    <result column="is_part_time" property="isPartTime" jdbcType="CHAR" />
+    <result column="department_id" property="departmentId" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    staff_id, position, number, is_part_time, department_id, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_department_staff
+    where staff_id = #{staffId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_salary_department_staff
+    where staff_id = #{staffId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryDepartmentStaff" >
+    insert into zj_xm_salary_department_staff (staff_id, position, number, 
+      is_part_time, department_id, remarks, 
+      sort, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{staffId,jdbcType=CHAR}, #{position,jdbcType=CHAR}, #{number,jdbcType=INTEGER}, 
+      #{isPartTime,jdbcType=CHAR}, #{departmentId,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryDepartmentStaff" >
+    insert into zj_xm_salary_department_staff
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="staffId != null" >
+        staff_id,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="number != null" >
+        number,
+      </if>
+      <if test="isPartTime != null" >
+        is_part_time,
+      </if>
+      <if test="departmentId != null" >
+        department_id,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="staffId != null" >
+        #{staffId,jdbcType=CHAR},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=CHAR},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=INTEGER},
+      </if>
+      <if test="isPartTime != null" >
+        #{isPartTime,jdbcType=CHAR},
+      </if>
+      <if test="departmentId != null" >
+        #{departmentId,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryDepartmentStaff" >
+    update zj_xm_salary_department_staff
+    <set >
+      <if test="position != null" >
+        position = #{position,jdbcType=CHAR},
+      </if>
+      <if test="number != null" >
+        number = #{number,jdbcType=INTEGER},
+      </if>
+      <if test="isPartTime != null" >
+        is_part_time = #{isPartTime,jdbcType=CHAR},
+      </if>
+      <if test="departmentId != null" >
+        department_id = #{departmentId,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where staff_id = #{staffId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryDepartmentStaff" >
+    update zj_xm_salary_department_staff
+    set       position = #{position,jdbcType=CHAR},
+      number = #{number,jdbcType=INTEGER},
+      is_part_time = #{isPartTime,jdbcType=CHAR},
+      department_id = #{departmentId,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where staff_id = #{staffId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmSalaryDepartmentStaffList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryDepartmentStaff" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_department_staff
+    where del_flag = '0'
+    <if test="position != null and position != ''" >
+     and position = #{position,jdbcType=CHAR}
+    </if>
+    <if test="number != null and number != ''" >
+     and number = #{number,jdbcType=INTEGER}
+    </if>
+    <if test="isPartTime != null and isPartTime != ''" >
+     and is_part_time = #{isPartTime,jdbcType=CHAR}
+    </if>
+    <if test="departmentId != null and departmentId != ''" >
+     and department_id = #{departmentId,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmSalaryDepartmentStaff" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryDepartmentStaff" >
+    <![CDATA[ 
+        update zj_xm_salary_department_staff
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and staff_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.staffId} 
+     </foreach>
+  </delete>
+</mapper>

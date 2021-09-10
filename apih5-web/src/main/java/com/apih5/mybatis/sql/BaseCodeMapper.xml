@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.BaseCodeMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.framework.api.sysdb.entity.BaseCode" >
+    <id column="code_id" property="codeId" jdbcType="CHAR" />
+    <result column="code_pid" property="codePid" jdbcType="CHAR" />
+    <result column="item_id" property="itemId" jdbcType="CHAR" />
+    <result column="item_name" property="itemName" jdbcType="VARCHAR" />
+    <result column="item_as_name" property="itemAsName" jdbcType="VARCHAR" />
+    <result column="pid_all" property="pidAll" jdbcType="VARCHAR" />
+    <result column="pid_name_all" property="pidNameAll" jdbcType="VARCHAR" />
+    <result column="ext1" property="ext1" jdbcType="VARCHAR" />
+    <result column="ext2" property="ext2" jdbcType="VARCHAR" />
+    <result column="ext3" property="ext3" jdbcType="VARCHAR" />
+    <result column="ext4" property="ext4" jdbcType="VARCHAR" />
+    <result column="ext5" property="ext5" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="code_sort" property="codeSort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code_id, code_pid, item_id, item_name, item_as_name, 
+    pid_all, pid_name_all, ext1, ext2, ext3, 
+    ext4, ext5, remarks, code_sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_code
+    where code_id = #{codeId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from base_code
+    where code_id = #{codeId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.framework.api.sysdb.entity.BaseCode" >
+    insert into base_code (code_id, code_pid, item_id, 
+      item_name, item_as_name, pid_all, 
+      pid_name_all, ext1, ext2, 
+      ext3, ext4, ext5, 
+      remarks, code_sort, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{codeId,jdbcType=CHAR}, #{codePid,jdbcType=CHAR}, #{itemId,jdbcType=CHAR}, 
+      #{itemName,jdbcType=VARCHAR}, #{itemAsName,jdbcType=VARCHAR}, #{pidAll,jdbcType=VARCHAR}, 
+      #{pidNameAll,jdbcType=VARCHAR}, #{ext1,jdbcType=VARCHAR}, #{ext2,jdbcType=VARCHAR}, 
+      #{ext3,jdbcType=VARCHAR}, #{ext4,jdbcType=VARCHAR}, #{ext5,jdbcType=VARCHAR}, 
+      #{remarks,jdbcType=VARCHAR}, #{codeSort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.framework.api.sysdb.entity.BaseCode" >
+    insert into base_code
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="codeId != null" >
+        code_id,
+      </if>
+      <if test="codePid != null" >
+        code_pid,
+      </if>
+      <if test="itemId != null" >
+        item_id,
+      </if>
+      <if test="itemName != null" >
+        item_name,
+      </if>
+      <if test="itemAsName != null" >
+        item_as_name,
+      </if>
+      <if test="pidAll != null" >
+        pid_all,
+      </if>
+      <if test="pidNameAll != null" >
+        pid_name_all,
+      </if>
+      <if test="ext1 != null" >
+        ext1,
+      </if>
+      <if test="ext2 != null" >
+        ext2,
+      </if>
+      <if test="ext3 != null" >
+        ext3,
+      </if>
+      <if test="ext4 != null" >
+        ext4,
+      </if>
+      <if test="ext5 != null" >
+        ext5,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="codeSort != null" >
+        code_sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="codeId != null" >
+        #{codeId,jdbcType=CHAR},
+      </if>
+      <if test="codePid != null" >
+        #{codePid,jdbcType=CHAR},
+      </if>
+      <if test="itemId != null" >
+        #{itemId,jdbcType=CHAR},
+      </if>
+      <if test="itemName != null" >
+        #{itemName,jdbcType=VARCHAR},
+      </if>
+      <if test="itemAsName != null" >
+        #{itemAsName,jdbcType=VARCHAR},
+      </if>
+      <if test="pidAll != null" >
+        #{pidAll,jdbcType=VARCHAR},
+      </if>
+      <if test="pidNameAll != null" >
+        #{pidNameAll,jdbcType=VARCHAR},
+      </if>
+      <if test="ext1 != null" >
+        #{ext1,jdbcType=VARCHAR},
+      </if>
+      <if test="ext2 != null" >
+        #{ext2,jdbcType=VARCHAR},
+      </if>
+      <if test="ext3 != null" >
+        #{ext3,jdbcType=VARCHAR},
+      </if>
+      <if test="ext4 != null" >
+        #{ext4,jdbcType=VARCHAR},
+      </if>
+      <if test="ext5 != null" >
+        #{ext5,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="codeSort != null" >
+        #{codeSort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.framework.api.sysdb.entity.BaseCode" >
+    update base_code
+    <set >
+      <if test="codePid != null" >
+        code_pid = #{codePid,jdbcType=CHAR},
+      </if>
+      <if test="itemId != null" >
+        item_id = #{itemId,jdbcType=CHAR},
+      </if>
+      <if test="itemName != null" >
+        item_name = #{itemName,jdbcType=VARCHAR},
+      </if>
+      <if test="itemAsName != null" >
+        item_as_name = #{itemAsName,jdbcType=VARCHAR},
+      </if>
+      <if test="pidAll != null" >
+        pid_all = #{pidAll,jdbcType=VARCHAR},
+      </if>
+      <if test="pidNameAll != null" >
+        pid_name_all = #{pidNameAll,jdbcType=VARCHAR},
+      </if>
+      <if test="ext1 != null" >
+        ext1 = #{ext1,jdbcType=VARCHAR},
+      </if>
+      <if test="ext2 != null" >
+        ext2 = #{ext2,jdbcType=VARCHAR},
+      </if>
+      <if test="ext3 != null" >
+        ext3 = #{ext3,jdbcType=VARCHAR},
+      </if>
+      <if test="ext4 != null" >
+        ext4 = #{ext4,jdbcType=VARCHAR},
+      </if>
+      <if test="ext5 != null" >
+        ext5 = #{ext5,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="codeSort != null" >
+        code_sort = #{codeSort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where code_id = #{codeId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.framework.api.sysdb.entity.BaseCode" >
+    update base_code
+    set       code_pid = #{codePid,jdbcType=CHAR},
+      item_id = #{itemId,jdbcType=CHAR},
+      item_name = #{itemName,jdbcType=VARCHAR},
+      item_as_name = #{itemAsName,jdbcType=VARCHAR},
+      pid_all = #{pidAll,jdbcType=VARCHAR},
+      pid_name_all = #{pidNameAll,jdbcType=VARCHAR},
+      ext1 = #{ext1,jdbcType=VARCHAR},
+      ext2 = #{ext2,jdbcType=VARCHAR},
+      ext3 = #{ext3,jdbcType=VARCHAR},
+      ext4 = #{ext4,jdbcType=VARCHAR},
+      ext5 = #{ext5,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      code_sort = #{codeSort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where code_id = #{codeId,jdbcType=CHAR}
+  </update>
+  <select id="selectByBaseCodeList" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.BaseCode" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_code
+    where del_flag = '0'
+    <if test="codePid != null and codePid != ''" >
+     and code_pid = #{codePid,jdbcType=CHAR}
+    </if>
+    <if test="itemId != null and itemId != ''" >
+     and item_id = #{itemId,jdbcType=CHAR}
+    </if>
+    <if test="itemName != null and itemName != ''" >
+     and item_name = #{itemName,jdbcType=VARCHAR}
+    </if>
+    <if test="itemAsName != null and itemAsName != ''" >
+     and item_as_name = #{itemAsName,jdbcType=VARCHAR}
+    </if>
+    <if test="pidAll != null and pidAll != ''" >
+     and pid_all = #{pidAll,jdbcType=VARCHAR}
+    </if>
+    <if test="pidNameAll != null and pidNameAll != ''" >
+     and pid_name_all = #{pidNameAll,jdbcType=VARCHAR}
+    </if>
+    <if test="ext1 != null and ext1 != ''" >
+     and ext1 = #{ext1,jdbcType=VARCHAR}
+    </if>
+    <if test="ext2 != null and ext2 != ''" >
+     and ext2 = #{ext2,jdbcType=VARCHAR}
+    </if>
+    <if test="ext3 != null and ext3 != ''" >
+     and ext3 = #{ext3,jdbcType=VARCHAR}
+    </if>
+    <if test="ext4 != null and ext4 != ''" >
+     and ext4 = #{ext4,jdbcType=VARCHAR}
+    </if>
+    <if test="ext5 != null and ext5 != ''" >
+     and ext5 = #{ext5,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="codeSort != null and codeSort != ''" >
+     and code_sort = #{codeSort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY code_sort, item_id  
+  </select>
+  <delete id="batchDeleteUpdateBaseCode" parameterType="com.apih5.framework.api.sysdb.entity.BaseCode" >
+    <![CDATA[ 
+        update base_code
+        set del_flag = '1'
+        where del_flag = '0' and code_id in 
+     ]]> 
+     <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.codeId} 
+     </foreach>
+  </delete>
+  <!-- 扩展 -->
+  <select id="selectByBaseCodeListByLike" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.BaseCode" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_code
+    where del_flag = '0'
+    <if test="codePid != null and codePid != ''" >
+     and code_pid = #{codePid,jdbcType=CHAR}
+    </if>
+    <if test="itemId != null and itemId != ''" >
+     and item_id = #{itemId,jdbcType=CHAR}
+    </if>
+    <if test="itemName != null and itemName != ''" >
+     and item_name = #{itemName,jdbcType=VARCHAR}
+    </if>
+    <if test="itemAsName != null and itemAsName != ''" >
+     and item_as_name = #{itemAsName,jdbcType=VARCHAR}
+    </if>
+    <if test="_parameter != null and _parameter.pidAll != null and _parameter.pidAll != ''">
+		and pid_all like '%${_parameter.pidAll}%' 
+	</if>
+    <if test="_parameter != null and _parameter.pidNameAll != null and _parameter.pidNameAll != ''">
+		and pid_name_all like '%${_parameter.pidNameAll}%' 
+	</if>
+    <if test="ext1 != null and ext1 != ''" >
+     and ext1 = #{ext1,jdbcType=VARCHAR}
+    </if>
+    <if test="ext2 != null and ext2 != ''" >
+     and ext2 = #{ext2,jdbcType=VARCHAR}
+    </if>
+    <if test="ext3 != null and ext3 != ''" >
+     and ext3 = #{ext3,jdbcType=VARCHAR}
+    </if>
+    <if test="ext4 != null and ext4 != ''" >
+     and ext4 = #{ext4,jdbcType=VARCHAR}
+    </if>
+    <if test="ext5 != null and ext5 != ''" >
+     and ext5 = #{ext5,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="codeSort != null and codeSort != ''" >
+     and code_sort = #{codeSort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY code_sort, item_id 
+  </select>
+  <select id="getBaseCodeTree" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.BaseCode" >
+    SELECT
+		 *
+		FROM
+			base_code
+		WHERE
+			del_flag = '0'
+		AND code_pid != 0
+		AND pid_all LIKE CONCAT('%',(
+				SELECT code_id FROM base_code t2 WHERE t2.del_flag = '0' AND t2.item_id = #{itemId,jdbcType=CHAR}
+			),'%')
+    ORDER BY code_sort, item_id 
+  </select>
+  <select id="selectBaseCodeTreeByLevel" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.BaseCode" >
+    SELECT
+         *
+        FROM
+            base_code
+        WHERE
+            del_flag = '0'
+        AND item_id like CONCAT('',#{subItemId,jdbcType=CHAR},'%')
+        AND item_id != #{subItemId,jdbcType=CHAR}
+        AND code_pid != 0
+        AND pid_all LIKE CONCAT('%',(
+                SELECT code_id FROM base_code t2 WHERE t2.del_flag = '0' AND t2.item_id = #{itemId,jdbcType=CHAR}
+            ),'%')
+    ORDER BY code_sort, item_id 
+  </select>
+  <select id="countBaseCodeListByCodePid" resultType="int" parameterType="com.apih5.framework.api.sysdb.entity.BaseCode" >
+    select 
+    count(1) from base_code
+    where del_flag = '0'
+    <if test="codePid != null and codePid != ''" >
+     and code_pid = #{codePid,jdbcType=CHAR}
+    </if>
+    <if test="itemId != null and itemId != ''" >
+     and item_id = #{itemId,jdbcType=CHAR}
+    </if>
+    <if test="itemName != null and itemName != ''" >
+     and item_name = #{itemName,jdbcType=VARCHAR}
+    </if>
+    <if test="itemAsName != null and itemAsName != ''" >
+     and item_as_name = #{itemAsName,jdbcType=VARCHAR}
+    </if>
+    <if test="pidAll != null and pidAll != ''" >
+     and pid_all like CONCAT('%', #{pidAll,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="pidNameAll != null and pidNameAll != ''" >
+     and pid_name_all like CONCAT('%',  #{pidNameAll,jdbcType=VARCHAR}, '%')
+    </if>
+    ORDER BY code_sort, item_id 
+  </select>
+  
+  <update id="batchUpdateBaseCodePidNameAll" parameterType="com.apih5.framework.api.sysdb.entity.BaseCode" >
+    update  base_code
+    set  
+    pid_name_all = REPLACE(pid_name_all, #{oldItemName,jdbcType=VARCHAR}, #{newItemName,jdbcType=VARCHAR}) 
+    where del_flag = '0'
+    and pid_all like CONCAT('%',#{codeId,jdbcType=CHAR},'%') 
+  </update>
+  
+  <update id="batchUpdatePidAllAndPidNameAll" parameterType="com.apih5.framework.api.sysdb.entity.BaseCode" >
+      update base_code
+       set  
+         pid_all = REPLACE(pid_all, #{oldPidAll,jdbcType=VARCHAR}, #{pidAll,jdbcType=VARCHAR}),
+         pid_name_all = REPLACE(pid_name_all, #{oldPidNameAll,jdbcType=VARCHAR}, #{pidNameAll,jdbcType=VARCHAR}) 
+       where del_flag = '0'
+       and pid_all like CONCAT(#{oldPidAll,jdbcType=VARCHAR}, '%') 
+  </update>
+    
+    <update id="batchUpdateBaseCode" parameterType="java.util.List">
+          <foreach collection="list" item="item" index="index" open="" close="" separator=";" >  
+          update base_code
+                <set>
+                 code_pid = #{item.codePid,jdbcType=CHAR},
+                 item_id = #{item.itemId,jdbcType=CHAR},
+                 item_name = #{item.itemName,jdbcType=VARCHAR},
+                 item_as_name = #{item.itemAsName,jdbcType=VARCHAR},
+                 pid_all = #{item.pidAll,jdbcType=VARCHAR},
+                 pid_name_all = #{item.pidNameAll,jdbcType=VARCHAR},
+                 ext1 = #{item.ext1,jdbcType=VARCHAR},
+                 ext2 = #{item.ext2,jdbcType=VARCHAR},
+                 ext3 = #{item.ext3,jdbcType=VARCHAR},
+                 ext4 = #{item.ext4,jdbcType=VARCHAR},
+                 ext5 = #{item.ext5,jdbcType=VARCHAR},
+                 remarks = #{item.remarks,jdbcType=VARCHAR},
+                 code_sort = #{item.codeSort,jdbcType=INTEGER},
+                 del_flag = #{item.delFlag,jdbcType=CHAR},
+                 create_time = #{item.createTime,jdbcType=TIMESTAMP},
+                 create_user = #{item.createUser,jdbcType=CHAR},
+                 create_user_name = #{item.createUserName,jdbcType=VARCHAR},
+                 modify_time = #{item.modifyTime,jdbcType=TIMESTAMP},
+                 modify_user = #{item.modifyUser,jdbcType=CHAR},
+                 modify_user_name = #{item.modifyUserName,jdbcType=VARCHAR}
+                </set>  
+                 where code_id = #{item.codeId,jdbcType=CHAR}
+         </foreach>  
+    </update>
+    
+</mapper>

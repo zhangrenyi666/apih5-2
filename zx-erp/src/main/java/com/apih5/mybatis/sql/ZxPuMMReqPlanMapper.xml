@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxPuMMReqPlanMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxPuMMReqPlan" >
+    <id column="zxPuMMReqPlanId" property="zxPuMMReqPlanId" jdbcType="CHAR" />
+    <result column="projectName" property="projectName" jdbcType="VARCHAR" />
+    <result column="cbsName" property="cbsName" jdbcType="VARCHAR" />
+    <result column="resCateName" property="resCateName" jdbcType="VARCHAR" />
+    <result column="resCode" property="resCode" jdbcType="VARCHAR" />
+    <result column="resName" property="resName" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="purNum" property="purNum" jdbcType="DECIMAL" />
+    <result column="totalMoney" property="totalMoney" jdbcType="DECIMAL" />
+    <result column="nextMonthNum" property="nextMonthNum" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="resCateID" property="resCateID" jdbcType="VARCHAR" />
+    <result column="resID" property="resID" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="beginDate" property="beginDate" jdbcType="TIMESTAMP" />
+    <result column="endDate" property="endDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxPuMMReqPlanId, projectName, cbsName, resCateName, resCode, 
+    resName, unit, spec, price, purNum, 
+    totalMoney, nextMonthNum, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_pu_mMReqPlan
+    where del_flag = '0' and zxPuMMReqPlanId = #{zxPuMMReqPlanId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_pu_mMReqPlan
+    where zxPuMMReqPlanId = #{zxPuMMReqPlanId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxPuMMReqPlan" >
+    insert into zx_pu_mMReqPlan (
+    zxPuMMReqPlanId, projectName, cbsName, resCateName, resCode, 
+    resName, unit, spec, price, purNum, 
+    totalMoney, nextMonthNum, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{zxPuMMReqPlanId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, #{cbsName,jdbcType=VARCHAR}, #{resCateName,jdbcType=VARCHAR}, #{resCode,jdbcType=VARCHAR}, 
+    #{resName,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{purNum,jdbcType=DECIMAL}, 
+    #{totalMoney,jdbcType=DECIMAL}, #{nextMonthNum,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxPuMMReqPlan" >
+    insert into zx_pu_mMReqPlan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxPuMMReqPlanId != null" >
+        zxPuMMReqPlanId,
+      </if>
+      <if test="projectName != null" >
+        projectName,
+      </if>
+      <if test="cbsName != null" >
+        cbsName,
+      </if>
+      <if test="resCateName != null" >
+        resCateName,
+      </if>
+      <if test="resCode != null" >
+        resCode,
+      </if>
+      <if test="resName != null" >
+        resName,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="purNum != null" >
+        purNum,
+      </if>
+      <if test="totalMoney != null" >
+        totalMoney,
+      </if>
+      <if test="nextMonthNum != null" >
+        nextMonthNum,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxPuMMReqPlanId != null" >
+        #{zxPuMMReqPlanId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="cbsName != null" >
+        #{cbsName,jdbcType=VARCHAR},
+      </if>
+      <if test="resCateName != null" >
+        #{resCateName,jdbcType=VARCHAR},
+      </if>
+      <if test="resCode != null" >
+        #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="purNum != null" >
+        #{purNum,jdbcType=DECIMAL},
+      </if>
+      <if test="totalMoney != null" >
+        #{totalMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="nextMonthNum != null" >
+        #{nextMonthNum,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxPuMMReqPlan" >
+    update zx_pu_mMReqPlan
+    <set >
+      <if test="projectName != null" >
+        projectName = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="cbsName != null" >
+        cbsName = #{cbsName,jdbcType=VARCHAR},
+      </if>
+      <if test="resCateName != null" >
+        resCateName = #{resCateName,jdbcType=VARCHAR},
+      </if>
+      <if test="resCode != null" >
+        resCode = #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        resName = #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="purNum != null" >
+        purNum = #{purNum,jdbcType=DECIMAL},
+      </if>
+      <if test="totalMoney != null" >
+        totalMoney = #{totalMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="nextMonthNum != null" >
+        nextMonthNum = #{nextMonthNum,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxPuMMReqPlanId = #{zxPuMMReqPlanId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxPuMMReqPlan" >
+    update zx_pu_mMReqPlan set 
+      projectName = #{projectName,jdbcType=VARCHAR},
+      cbsName = #{cbsName,jdbcType=VARCHAR},
+      resCateName = #{resCateName,jdbcType=VARCHAR},
+      resCode = #{resCode,jdbcType=VARCHAR},
+      resName = #{resName,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      purNum = #{purNum,jdbcType=DECIMAL},
+      totalMoney = #{totalMoney,jdbcType=DECIMAL},
+      nextMonthNum = #{nextMonthNum,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxPuMMReqPlanId = #{zxPuMMReqPlanId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxPuMMReqPlanList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxPuMMReqPlan" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_pu_mMReqPlan
+    where del_flag = '0'
+    <if test="zxPuMMReqPlanId != null and zxPuMMReqPlanId != ''" >
+     and zxPuMMReqPlanId = #{zxPuMMReqPlanId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and projectName = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="cbsName != null and cbsName != ''" >
+     and cbsName = #{cbsName,jdbcType=VARCHAR}
+    </if>
+    <if test="resCateName != null and resCateName != ''" >
+     and resCateName = #{resCateName,jdbcType=VARCHAR}
+    </if>
+    <if test="resCode != null and resCode != ''" >
+     and resCode = #{resCode,jdbcType=VARCHAR}
+    </if>
+    <if test="resName != null and resName != ''" >
+     and resName = #{resName,jdbcType=VARCHAR}
+    </if>
+    <if test="unit != null and unit != ''" >
+     and unit = #{unit,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="price != null and price != ''" >
+     and price = #{price,jdbcType=DECIMAL}
+    </if>
+    <if test="purNum != null and purNum != ''" >
+     and purNum = #{purNum,jdbcType=DECIMAL}
+    </if>
+    <if test="totalMoney != null and totalMoney != ''" >
+     and totalMoney = #{totalMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="nextMonthNum != null and nextMonthNum != ''" >
+     and nextMonthNum = #{nextMonthNum,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxPuMMReqPlan" parameterType="com.apih5.mybatis.pojo.ZxPuMMReqPlan" >
+    <![CDATA[ 
+        update zx_pu_mMReqPlan
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxPuMMReqPlanId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxPuMMReqPlanId} 
+     </foreach>
+  </delete>
+  <select id="selectZxPuMMReqPlan" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxPuMMReqPlan" >
+  select a.projectName,a.cbsName,a.resCateName,a.resCode,a.resName,a.unit,a.spec,
+       case when ifnull(#{type,jdbcType=VARCHAR},'') = '1' then case when sum(a.purNum) = 0 then 0 else sum(a.totalMoney)/sum(a.purNum) end else 0 end as price,
+       sum(a.purNum) as purNum,
+       sum(a.totalMoney) as totalMoney,
+       sum(a.nextMonthNum) as nextMonthNum,
+       a.projectID,a.cbsID,a.resCateID,a.resID,a.resCateCode
+from (
+  select h.projectName,
+         case when ifnull(#{type,jdbcType=VARCHAR},'') = '1' then d.cbsName else '' end as cbsName,
+         rc1.catName as resCateName,
+         case when ifnull(#{type,jdbcType=VARCHAR},'') = '1' then r.resCode else '' end as resCode,
+         case when ifnull(#{type,jdbcType=VARCHAR},'') = '1' then r.resName else '' end as resName,
+         case when ifnull(#{type,jdbcType=VARCHAR},'') = '1' then r.unit else '' end as unit,
+         case when ifnull(#{type,jdbcType=VARCHAR},'') = '1' then r.spec else '' end as spec,
+         case when ifnull(#{type,jdbcType=VARCHAR},'') = '1' then d.price else 0 end as price,
+         d.purNum,d.totalMoney,d.nextMonthNum,
+         h.projectID,
+         case when ifnull(#{type,jdbcType=VARCHAR},'') = '1' then d.cbsID else '' end as cbsID,
+         rc1.ID as resCateID,
+         rc1.catCode as resCateCode,
+         case when ifnull(#{type,jdbcType=VARCHAR},'') = '1' then d.resID else '' end as resID
+  from zx_sk_MMReqPlanItem d 
+  inner join zx_sk_MMReqPlan h on d.mmReqPlanID = h.ID
+  inner join sys_project sp on sp.project_id = h.projectID 
+  <if test="orgID != null and orgID != ''" >
+	AND sp.department_path like concat('%',#{orgID,jdbcType=VARCHAR},'%')
+	</if>
+  inner join Zx_Sk_Resource_Materials r on d.resID = r.ID
+  inner join zx_sk_rescategory_materials rc1 on rc1.catCode = left(r.resCode,2) and rc1.parentID='0002'
+  where h.createDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} 
+  <if test="resID != null and resID != ''" >
+  and (d.resID = #{resID,jdbcType=VARCHAR} or #{resID,jdbcType=VARCHAR} = '' or #{resID,jdbcType=VARCHAR} = null)
+  </if>
+  <if test="resCateID != null and resCateID != ''" >
+  and (rc1.ID = #{resCateID,jdbcType=VARCHAR} or #{resCateID,jdbcType=VARCHAR} = '' or #{resCateID,jdbcType=VARCHAR} = null)
+  </if>
+) a
+group by a.projectName,a.cbsName,a.resCateName,a.resCode,a.resName,a.unit,a.spec,a.projectID,a.cbsID,a.resCateID,a.resID,a.resCateCode
+order by a.projectName,a.resCateCode,a.resCode
+  </select>
+</mapper>

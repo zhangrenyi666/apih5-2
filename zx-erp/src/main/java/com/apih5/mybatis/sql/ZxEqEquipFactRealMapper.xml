@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqEquipFactRealMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqEquipFactReal" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="sourceID" property="sourceID" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="periodDate" property="periodDate" jdbcType="DATE" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="reporterID" property="reporterID" jdbcType="VARCHAR" />
+    <result column="reporter" property="reporter" jdbcType="VARCHAR" />
+    <result column="depID" property="depID" jdbcType="VARCHAR" />
+    <result column="depName" property="depName" jdbcType="VARCHAR" />
+    <result column="reportDate" property="reportDate" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="factID" property="factID" jdbcType="VARCHAR" />
+    <result column="copyPeriodDate" property="copyPeriodDate" jdbcType="DATE" />
+    <result column="copyPeriod" property="copyPeriod" jdbcType="VARCHAR" />
+    <result column="auditStatus" property="auditStatus" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sourceID, orgID, orgName, periodDate, 
+    period, reporterID, reporter, depID, depName, 
+    reportDate, remark, comID, comName, editTime, 
+    factID, copyPeriodDate, copyPeriod, auditStatus, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_EquipFactReal
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_EquipFactReal
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqEquipFactReal" >
+    insert into zx_eq_EquipFactReal (id, sourceID, orgID, 
+      orgName, periodDate, period, 
+      reporterID, reporter, depID, 
+      depName, reportDate, remark, 
+      comID, comName, editTime, 
+      factID, copyPeriodDate, copyPeriod, 
+      auditStatus, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{sourceID,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, 
+      #{orgName,jdbcType=VARCHAR}, #{periodDate,jdbcType=DATE}, #{period,jdbcType=VARCHAR}, 
+      #{reporterID,jdbcType=VARCHAR}, #{reporter,jdbcType=VARCHAR}, #{depID,jdbcType=VARCHAR}, 
+      #{depName,jdbcType=VARCHAR}, #{reportDate,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
+      #{comID,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, 
+      #{factID,jdbcType=VARCHAR}, #{copyPeriodDate,jdbcType=DATE}, #{copyPeriod,jdbcType=VARCHAR}, 
+      #{auditStatus,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqEquipFactReal" >
+    insert into zx_eq_EquipFactReal
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sourceID != null" >
+        sourceID,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="periodDate != null" >
+        periodDate,
+      </if>
+      <if test="period != null" >
+        period,
+      </if>
+      <if test="reporterID != null" >
+        reporterID,
+      </if>
+      <if test="reporter != null" >
+        reporter,
+      </if>
+      <if test="depID != null" >
+        depID,
+      </if>
+      <if test="depName != null" >
+        depName,
+      </if>
+      <if test="reportDate != null" >
+        reportDate,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="factID != null" >
+        factID,
+      </if>
+      <if test="copyPeriodDate != null" >
+        copyPeriodDate,
+      </if>
+      <if test="copyPeriod != null" >
+        copyPeriod,
+      </if>
+      <if test="auditStatus != null" >
+        auditStatus,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceID != null" >
+        #{sourceID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="periodDate != null" >
+        #{periodDate,jdbcType=DATE},
+      </if>
+      <if test="period != null" >
+        #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="reporterID != null" >
+        #{reporterID,jdbcType=VARCHAR},
+      </if>
+      <if test="reporter != null" >
+        #{reporter,jdbcType=VARCHAR},
+      </if>
+      <if test="depID != null" >
+        #{depID,jdbcType=VARCHAR},
+      </if>
+      <if test="depName != null" >
+        #{depName,jdbcType=VARCHAR},
+      </if>
+      <if test="reportDate != null" >
+        #{reportDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="factID != null" >
+        #{factID,jdbcType=VARCHAR},
+      </if>
+      <if test="copyPeriodDate != null" >
+        #{copyPeriodDate,jdbcType=DATE},
+      </if>
+      <if test="copyPeriod != null" >
+        #{copyPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqEquipFactReal" >
+    update zx_eq_EquipFactReal
+    <set >
+      <if test="sourceID != null" >
+        sourceID = #{sourceID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="periodDate != null" >
+        periodDate = #{periodDate,jdbcType=DATE},
+      </if>
+      <if test="period != null" >
+        period = #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="reporterID != null" >
+        reporterID = #{reporterID,jdbcType=VARCHAR},
+      </if>
+      <if test="reporter != null" >
+        reporter = #{reporter,jdbcType=VARCHAR},
+      </if>
+      <if test="depID != null" >
+        depID = #{depID,jdbcType=VARCHAR},
+      </if>
+      <if test="depName != null" >
+        depName = #{depName,jdbcType=VARCHAR},
+      </if>
+      <if test="reportDate != null" >
+        reportDate = #{reportDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="factID != null" >
+        factID = #{factID,jdbcType=VARCHAR},
+      </if>
+      <if test="copyPeriodDate != null" >
+        copyPeriodDate = #{copyPeriodDate,jdbcType=DATE},
+      </if>
+      <if test="copyPeriod != null" >
+        copyPeriod = #{copyPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        auditStatus = #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqEquipFactReal" >
+    update zx_eq_EquipFactReal
+    set       sourceID = #{sourceID,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      periodDate = #{periodDate,jdbcType=DATE},
+      period = #{period,jdbcType=VARCHAR},
+      reporterID = #{reporterID,jdbcType=VARCHAR},
+      reporter = #{reporter,jdbcType=VARCHAR},
+      depID = #{depID,jdbcType=VARCHAR},
+      depName = #{depName,jdbcType=VARCHAR},
+      reportDate = #{reportDate,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      factID = #{factID,jdbcType=VARCHAR},
+      copyPeriodDate = #{copyPeriodDate,jdbcType=DATE},
+      copyPeriod = #{copyPeriod,jdbcType=VARCHAR},
+      auditStatus = #{auditStatus,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxEqEquipFactRealList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEquipFactReal" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_EquipFactReal
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="sourceID != null and sourceID != ''" >
+     and sourceID = #{sourceID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="periodDate != null" >
+     and periodDate = #{periodDate,jdbcType=DATE}
+    </if>
+    <if test="period != null and period != ''" >
+     and period = #{period,jdbcType=VARCHAR}
+    </if>
+    <if test="reporterID != null and reporterID != ''" >
+     and reporterID = #{reporterID,jdbcType=VARCHAR}
+    </if>
+    <if test="reporter != null and reporter != ''" >
+     and reporter = #{reporter,jdbcType=VARCHAR}
+    </if>
+    <if test="depID != null and depID != ''" >
+     and depID = #{depID,jdbcType=VARCHAR}
+    </if>
+    <if test="depName != null and depName != ''" >
+     and depName = #{depName,jdbcType=VARCHAR}
+    </if>
+    <if test="reportDate != null and reportDate != ''" >
+     and reportDate = #{reportDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="factID != null and factID != ''" >
+     and factID = #{factID,jdbcType=VARCHAR}
+    </if>
+    <if test="copyPeriodDate != null" >
+     and copyPeriodDate = #{copyPeriodDate,jdbcType=DATE}
+    </if>
+    <if test="copyPeriod != null and copyPeriod != ''" >
+     and copyPeriod = #{copyPeriod,jdbcType=VARCHAR}
+    </if>
+    <if test="auditStatus != null and auditStatus != ''" >
+     and auditStatus = #{auditStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY period DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqEquipFactReal" parameterType="com.apih5.mybatis.pojo.ZxEqEquipFactReal" >
+    <![CDATA[ 
+        update zx_eq_EquipFactReal
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

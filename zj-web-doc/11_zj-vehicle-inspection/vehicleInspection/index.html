@@ -1,0 +1,207 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5shiv.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<![endif]-->
+	<link href="http://weixin.fheb.cn:90/cdn/lib/h-ui/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+	<link href="http://weixin.fheb.cn:90/cdn/lib/h-ui.admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+	<link href="http://weixin.fheb.cn:90/cdn/lib/Hui-iconfont/1.0.8/iconfont.css" rel="stylesheet" type="text/css" />
+
+	<link href="http://weixin.fheb.cn:90/cdn/lib/h-ui.admin/skin/default/skin.css" rel="stylesheet" type="text/css" id="skin" />
+	<link href="http://weixin.fheb.cn:90/cdn/lib/h-ui.admin/css/style.csss" rel="stylesheet" type="text/css" />
+
+	<!--[if IE 6]>
+<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+	<title>后台管理系统</title>
+</head>
+
+<body>
+	<header class="navbar-wrapper">
+		<div class="navbar navbar-fixed-top">
+			<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">资产管理系统</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs"
+				 href="/aboutHui.shtml">资产管理系统</a>
+				<span class="logo navbar-slogan f-l mr-10 hidden-xs">v3.0</span>
+				<a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+				<nav class="nav navbar-nav">
+					<ul class="cl">
+						<!-- <li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
+						<ul class="dropDown-menu menu radius box-shadow">
+							<li><a href="javascript:;" onclick="article_add('添加资讯','article-add.html')"><i class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
+							<li><a href="javascript:;" onclick="picture_add('添加资讯','picture-add.html')"><i class="Hui-iconfont">&#xe613;</i> 图片</a></li>
+							<li><a href="javascript:;" onclick="product_add('添加资讯','product-add.html')"><i class="Hui-iconfont">&#xe620;</i> 产品</a></li>
+							<li><a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')"><i class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
+					</ul> -->
+						<li class="navbar-levelone current"><a href="javascript:;">总管理</a></li>
+						<li class="navbar-levelone"><a href="javascript:;">业务管理</a></li>
+						<li class="navbar-levelone"><a href="javascript:;">基础管理</a></li>
+						</li>
+					</ul>
+				</nav>
+				<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
+					<ul class="cl">
+						<li>超级管理员</li>
+						<li class="dropDown dropDown_hover">
+							<a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
+							<ul class="dropDown-menu menu radius box-shadow">
+								<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
+								<li><a href="#">切换账户</a></li>
+								<li><a href="#">退出</a></li>
+							</ul>
+						</li>
+						<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a>							</li>
+						<li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
+							<ul class="dropDown-menu menu radius box-shadow">
+								<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
+								<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
+								<li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
+								<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
+								<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
+								<li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<aside class="Hui-aside">
+		<div class="menu_dropdown bk_2">
+			<dl id="menu-article">
+				<dt><i class="Hui-iconfont">&#xe616;</i> 业务管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+				<dd>
+					<ul>
+						<li><a data-href="carRemindList.html" data-title="总资产管理" href="javascript:void(0)">总资产管理</a></li>
+						<li><a data-href="assetsScrapList.html" data-title="资产报废管理" href="javascript:void(0)">资产报废管理</a></li>
+						<li><a data-href="repairList.html" data-title="资产维修管理" href="javascript:void(0)">资产维修管理</a></li>
+						<li><a data-href="discountList.html" data-title="资产折旧管理" href="javascript:void(0)">资产折旧管理</a></li>	
+						<li><a data-href="assetsInventoryTask.html" data-title="盘点任务列表" href="javascript:void(0)">资产盘点任务列表</a></li>						
+						<li><a data-href="inventoryList.html" data-title="资产盘点管理" href="javascript:void(0)">资产盘点管理</a></li>
+						<li><a data-href="checkList.html" data-title="资产验收单管理" href="javascript:void(0)">资产验收单管理</a></li>
+						<li><a data-href="twoDimensionCodeList.html" data-title="资产二维码管理" href="javascript:void(0)">资产二维码管理</a></li>
+						<li><a data-href="assetComparisonList.html" data-title="资产对比" href="javascript:void(0)">资产对比</a></li>
+						<li><a data-href="asstesHistoryList.html" data-title="资产历史追溯" href="javascript:void(0)">资产历史追溯</a></li>
+					    <li><a data-href="lcAsstesList.html" data-title="浪潮管理" href="javascript:void(0)">浪潮管理</a></li>
+					</ul>
+				</dd>
+			</dl>
+			<dl id="menu-picture">
+				<dt><i class="Hui-iconfont">&#xe613;</i> 基础管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+				<dd>
+					<ul>
+						<li><a data-href="assetsStateList.html" data-title="资产状态" href="javascript:void(0)">资产状态</a></li>
+						<li><a data-href="buyMannerList.html" data-title="购置方式" href="javascript:void(0)">购置方式</a></li>						
+						<li><a data-href="scrapTypeList.html" data-title="报废方式" href="javascript:void(0)">报废方式</a></li>
+						<li><a data-href="maintainStateList.html" data-title="维修状态" href="javascript:void(0)">维修状态</a></li>
+						<li><a data-href="unitList.html" data-title="单位编号" href="javascript:void(0)">单位编号</a></li>						
+						<li><a data-href="supplierList.html" data-title="供应商管理" href="javascript:void(0)">供应商管理</a></li>						
+						<li><a data-href="assetsBrandList.html" data-title="品牌管理" href="javascript:void(0)">品牌管理</a></li>
+						<li><a data-href="assetsTypeList.html" data-title="资产类型" href="javascript:void(0)">资产类型</a></li>
+						<li><a data-href="CompanyPermissionList.html" data-title="权限管理" href="javascript:void(0)">权限管理</a></li>
+						<li><a data-href="assetCzlList.html" data-title="残值管理" href="javascript:void(0)">残值管理</a></li>
+						<li><a data-href="departmentList.html" data-title="部门管理" href="javascript:void(0)">部门管理</a></li>
+						<li><a data-href="manufacturerManagerList.html" data-title="厂商管理" href="javascript:void(0)">厂商管理</a></li>
+						
+						
+						</br>
+						<li><a data-href="placeIList.html" data-title="存放地点" href="javascript:void(0)">存放地点</a></li>	
+						<li><a data-href="facilityManagerList.html" data-title="设备管理员" href="javascript:void(0)">设备管理员</a></li>
+						<li><a data-href="codeList.html" data-title="编号管理" href="javascript:void(0)">编号管理</a></li>
+					</ul>
+				</dd>
+			</dl>
+		</div>
+
+		<div class="menu_dropdown bk_2" style="display:none">
+			<dl id="menu-aaaaa">
+				<dt><i class="Hui-iconfont">&#xe616;</i> 业务管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+				<dd>
+					<ul>
+						<li><a data-href="assetsList.html" data-title="总资产管理" href="javascript:void(0)">总资产管理</a></li>
+						<li><a data-href="assetsScrapList.html" data-title="资产报废管理" href="javascript:void(0)">资产报废管理</a></li>
+						<li><a data-href="repairList.html" data-title="资产维修管理" href="javascript:void(0)">资产维修管理</a></li>
+						<li><a data-href="discountList.html" data-title="资产折旧管理" href="javascript:void(0)">资产折旧管理</a></li>
+						<li><a data-href="assetsInventoryTask.html" data-title="盘点任务列表" href="javascript:void(0)">资产盘点任务列表</a></li>						
+						<li><a data-href="inventoryList.html" data-title="资产盘点管理" href="javascript:void(0)">资产盘点管理</a></li>
+						<li><a data-href="checkList.html" data-title="资产验收单管理" href="javascript:void(0)">资产验收单管理</a></li>
+						<li><a data-href="twoDimensionCodeList.html" data-title="资产二维码管理" href="javascript:void(0)">资产二维码管理</a></li>
+						<li><a data-href="assetComparisonList.html" data-title="资产对比" href="javascript:void(0)">资产对比</a></li>
+						<li><a data-href="asstesHistoryList.html" data-title="资产历史追溯" href="javascript:void(0)">资产历史追溯</a></li>
+						<li><a data-href="lcAsstesList.html" data-title="浪潮管理" href="javascript:void(0)">浪潮管理</a></li>
+					</ul>
+				</dd>
+			</dl>
+		</div>
+		<div class="menu_dropdown bk_2" style="display:none">
+			<dl id="menu-aaaaa">
+				<dt><i class="Hui-iconfont">&#xe616;</i> 基础管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+				<dd>
+					<ul>
+						<li><a data-href="assetsStateList.html" data-title="资产状态" href="javascript:void(0)">资产状态</a></li>
+						<li><a data-href="buyMannerList.html" data-title="购置方式" href="javascript:void(0)">购置方式</a></li>						
+						<li><a data-href="scrapTypeList.html" data-title="报废方式" href="javascript:void(0)">报废方式</a></li>
+						<li><a data-href="maintainStateList.html" data-title="维修状态" href="javascript:void(0)">维修状态</a></li>
+						<li><a data-href="unitList.html" data-title="单位编号" href="javascript:void(0)">单位编号</a></li>						
+						<li><a data-href="supplierList.html" data-title="供应商管理" href="javascript:void(0)">供应商管理</a></li>						
+						<li><a data-href="assetsBrandList.html" data-title="品牌管理" href="javascript:void(0)">品牌管理</a></li>
+						<li><a data-href="assetsTypeList.html" data-title="资产类型" href="javascript:void(0)">资产类型</a></li>
+						<li><a data-href="CompanyPermissionList.html" data-title="权限管理" href="javascript:void(0)">权限分组</a></li>
+						<li><a data-href="assetCzlList.html" data-title="残值管理" href="javascript:void(0)">残值管理</a></li>
+						<li><a data-href="departmentList.html" data-title="部门管理" href="javascript:void(0)">部门管理</a></li>
+						
+						</br>
+						<li><a data-href="placeIList.html" data-title="存放地点" href="javascript:void(0)">存放地点</a></li>						
+						<li><a data-href="facilityManagerList.html" data-title="设备管理员" href="javascript:void(0)">设备管理员</a></li>
+						<li><a data-href="codeList.html" data-title="编号管理" href="javascript:void(0)">编号管理</a></li>
+					</ul>
+				</dd>
+			</dl>
+		</div>
+	</aside>
+	<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+	<section class="Hui-article-box">
+		<div id="Hui-tabNav" class="Hui-tabNav hidden-xs">
+			<div class="Hui-tabNav-wp">
+				<ul id="min_title_list" class="acrossTab cl">
+					<li class="active">
+						<span title="我的桌面" data-href="welcome.html">我的桌面</span>
+						<em></em></li>
+				</ul>
+			</div>
+			<div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i></a>
+				<a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a>
+			</div>
+		</div>
+		<div id="iframe_box" class="Hui-article">
+			<div class="show_iframe">
+				<div style="display:none" class="loading"></div>
+				<iframe scrolling="yes" frameborder="0" src="welcome.html"></iframe>
+			</div>
+		</div>
+	</section>
+
+	<div class="contextMenu" id="Huiadminmenu">
+		<ul>
+			<li id="closethis">关闭当前 </li>
+			<li id="closeall">关闭全部 </li>
+		</ul>
+	</div>
+
+	<!--引入cdn公用模块-->
+	<script src="http://weixin.fheb.cn:90/cdn/lib/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+	<script src="http://weixin.fheb.cn:90/cdn/lib/layer/2.4/layer.js" type="text/javascript"></script>
+	<script src="http://weixin.fheb.cn:90/cdn/lib/h-ui/js/H-ui.min.js" type="text/javascript"></script>
+	<script src="http://weixin.fheb.cn:90/cdn/lib/h-ui.admin/js/H-ui.admin.js" type="text/javascript"></script>
+	<!--引入cdn公用模块-->
+</body>
+
+</html>

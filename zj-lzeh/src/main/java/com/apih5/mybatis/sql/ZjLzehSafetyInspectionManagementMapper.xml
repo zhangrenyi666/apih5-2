@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjLzehSafetyInspectionManagementMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjLzehSafetyInspectionManagement" >
+    <id column="safety_inspection_management_id" property="safetyInspectionManagementId" jdbcType="CHAR" />
+    <result column="order_flag" property="orderFlag" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="total_number" property="totalNumber" jdbcType="INTEGER" />
+    <result column="remove_number" property="removeNumber" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    safety_inspection_management_id, order_flag, name, total_number, remove_number, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_lzeh_safety_inspection_management
+    where safety_inspection_management_id = #{safetyInspectionManagementId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_lzeh_safety_inspection_management
+    where safety_inspection_management_id = #{safetyInspectionManagementId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjLzehSafetyInspectionManagement" >
+    insert into zj_lzeh_safety_inspection_management (safety_inspection_management_id, order_flag, name, 
+      total_number, remove_number, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{safetyInspectionManagementId,jdbcType=CHAR}, #{orderFlag,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{totalNumber,jdbcType=INTEGER}, #{removeNumber,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjLzehSafetyInspectionManagement" >
+    insert into zj_lzeh_safety_inspection_management
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="safetyInspectionManagementId != null" >
+        safety_inspection_management_id,
+      </if>
+      <if test="orderFlag != null" >
+        order_flag,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="totalNumber != null" >
+        total_number,
+      </if>
+      <if test="removeNumber != null" >
+        remove_number,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="safetyInspectionManagementId != null" >
+        #{safetyInspectionManagementId,jdbcType=CHAR},
+      </if>
+      <if test="orderFlag != null" >
+        #{orderFlag,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="totalNumber != null" >
+        #{totalNumber,jdbcType=INTEGER},
+      </if>
+      <if test="removeNumber != null" >
+        #{removeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjLzehSafetyInspectionManagement" >
+    update zj_lzeh_safety_inspection_management
+    <set >
+      <if test="orderFlag != null" >
+        order_flag = #{orderFlag,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="totalNumber != null" >
+        total_number = #{totalNumber,jdbcType=INTEGER},
+      </if>
+      <if test="removeNumber != null" >
+        remove_number = #{removeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where safety_inspection_management_id = #{safetyInspectionManagementId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjLzehSafetyInspectionManagement" >
+    update zj_lzeh_safety_inspection_management
+    set       order_flag = #{orderFlag,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      total_number = #{totalNumber,jdbcType=INTEGER},
+      remove_number = #{removeNumber,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where safety_inspection_management_id = #{safetyInspectionManagementId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjLzehSafetyInspectionManagementList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjLzehSafetyInspectionManagement" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_lzeh_safety_inspection_management
+    where del_flag = '0'
+    <if test="orderFlag != null and orderFlag != ''" >
+     and order_flag = #{orderFlag,jdbcType=INTEGER}
+    </if>
+    <if test="name != null and name != ''" >
+     and name = #{name,jdbcType=VARCHAR}
+    </if>
+    <if test="totalNumber != null and totalNumber != ''" >
+     and total_number = #{totalNumber,jdbcType=INTEGER}
+    </if>
+    <if test="removeNumber != null and removeNumber != ''" >
+     and remove_number = #{removeNumber,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY order_flag asc
+  </select>
+  <delete id="batchDeleteUpdateZjLzehSafetyInspectionManagement" parameterType="com.apih5.mybatis.pojo.ZjLzehSafetyInspectionManagement" >
+    <![CDATA[ 
+        update zj_lzeh_safety_inspection_management
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and safety_inspection_management_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.safetyInspectionManagementId} 
+     </foreach>
+  </delete>
+  <select id="selectZjLzehSafetyInspectionManagementBySumDangerType" resultType="com.apih5.mybatis.pojo.ZjLzehSafetyInspectionManagement" parameterType="com.apih5.mybatis.pojo.ZjLzehSafetyInspectionManagement">
+  	SELECT
+		SUM(CASE apih5_flow_status WHEN '2' THEN 1 ELSE 0 END) AS count,
+		COUNT(*)AS total,
+		CASE danger_type 
+		WHEN '100' THEN '安全管理' 
+		WHEN '101' THEN '文明施工' 
+		WHEN '102' THEN '临边防护'
+		WHEN '103' THEN '高处作业' 
+		WHEN '104' THEN '基坑支护' 
+		WHEN '105' THEN '模板工程' 
+		WHEN '106' THEN '施工机具' 
+		WHEN '107' THEN '脚手架' 
+		WHEN '108' THEN '交通安全' 
+		WHEN '109' THEN '个体防护' 
+		WHEN '110' THEN '起重吊装' 
+		WHEN '111' THEN '施工用电'  
+		WHEN '112' THEN '消防防火'  
+		END AS content
+	FROM `zx_hw_aq_hidden_danger` WHERE del_flag = '0'
+	GROUP BY danger_type
+  </select>
+  <select id="selectZjLzehSafetyInspectionManagementBySumDangerLevel" resultType="com.apih5.mybatis.pojo.ZjLzehSafetyInspectionManagement" parameterType="com.apih5.mybatis.pojo.ZjLzehSafetyInspectionManagement">
+  	SELECT 
+		CASE danger_level 
+		WHEN 1 THEN '可接受'
+		WHEN 0 THEN '轻微'
+		WHEN 2 THEN '较大'
+		WHEN 3 THEN '重大'
+		END AS dangerlevel,
+		SUM(CASE apih5_flow_status
+			WHEN 2 THEN 1
+			ELSE 0 END) AS solved,
+		SUM(CASE apih5_flow_status
+			WHEN 2 THEN 0
+			ELSE 1 END) AS unsolved
+	FROM `zx_hw_aq_hidden_danger` WHERE del_flag = '0'
+	GROUP BY danger_level
+  </select>
+  <select id="selectZjLzehSafetyInspectionManagementBySumTroubleLevel" resultType="com.apih5.mybatis.pojo.ZjLzehSafetyInspectionManagement" parameterType="com.apih5.mybatis.pojo.ZjLzehSafetyInspectionManagement">
+  	SELECT 
+		CASE trouble_level 
+		WHEN '0' THEN '一般'
+		WHEN 2 THEN '紧要'
+		WHEN 1 THEN '严重'
+		END AS troublelevel,
+		SUM(CASE apih5_flow_status
+			WHEN 2 THEN 1
+			ELSE 0 END) AS solved,
+		SUM(CASE apih5_flow_status
+			WHEN 2 THEN 0 
+			ELSE 1 END) AS unsolved
+	FROM zx_hw_zl_trouble WHERE del_flag = '0'
+	GROUP BY trouble_level
+  </select>
+</mapper>

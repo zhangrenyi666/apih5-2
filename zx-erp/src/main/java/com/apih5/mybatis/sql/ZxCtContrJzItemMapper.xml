@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCtContrJzItemMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCtContrJzItem" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="mainID" property="mainID" jdbcType="VARCHAR" />
+    <result column="jzType" property="jzType" jdbcType="VARCHAR" />
+    <result column="subType" property="subType" jdbcType="VARCHAR" />
+    <result column="subDetail" property="subDetail" jdbcType="VARCHAR" />
+    <result column="amt" property="amt" jdbcType="DECIMAL" />
+    <result column="orderStr" property="orderStr" jdbcType="VARCHAR" />
+    <result column="subType2" property="subType2" jdbcType="VARCHAR" />
+    <result column="subDetail2" property="subDetail2" jdbcType="VARCHAR" />
+    <result column="hangCode" property="hangCode" jdbcType="VARCHAR" />
+    <result column="isHuizong" property="isHuizong" jdbcType="VARCHAR" />
+    <result column="huizongCode" property="huizongCode" jdbcType="VARCHAR" />
+    <result column="isReduce" property="isReduce" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, mainID, jzType, subType, subDetail, 
+    amt, orderStr, subType2, subDetail2, hangCode, 
+    isHuizong, huizongCode, isReduce, remark, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_ContrJzItem
+    where del_flag = '0' and id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_ct_ContrJzItem
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCtContrJzItem" >
+    insert into zx_ct_ContrJzItem (
+    id, mainID, jzType, subType, subDetail, 
+    amt, orderStr, subType2, subDetail2, hangCode, 
+    isHuizong, huizongCode, isReduce, remark, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{id,jdbcType=VARCHAR}, #{mainID,jdbcType=VARCHAR}, #{jzType,jdbcType=VARCHAR}, #{subType,jdbcType=VARCHAR}, #{subDetail,jdbcType=VARCHAR}, 
+    #{amt,jdbcType=DECIMAL}, #{orderStr,jdbcType=VARCHAR}, #{subType2,jdbcType=VARCHAR}, #{subDetail2,jdbcType=VARCHAR}, #{hangCode,jdbcType=VARCHAR}, 
+    #{isHuizong,jdbcType=VARCHAR}, #{huizongCode,jdbcType=VARCHAR}, #{isReduce,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCtContrJzItem" >
+    insert into zx_ct_ContrJzItem
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mainID != null" >
+        mainID,
+      </if>
+      <if test="jzType != null" >
+        jzType,
+      </if>
+      <if test="subType != null" >
+        subType,
+      </if>
+      <if test="subDetail != null" >
+        subDetail,
+      </if>
+      <if test="amt != null" >
+        amt,
+      </if>
+      <if test="orderStr != null" >
+        orderStr,
+      </if>
+      <if test="subType2 != null" >
+        subType2,
+      </if>
+      <if test="subDetail2 != null" >
+        subDetail2,
+      </if>
+      <if test="hangCode != null" >
+        hangCode,
+      </if>
+      <if test="isHuizong != null" >
+        isHuizong,
+      </if>
+      <if test="huizongCode != null" >
+        huizongCode,
+      </if>
+      <if test="isReduce != null" >
+        isReduce,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="mainID != null" >
+        #{mainID,jdbcType=VARCHAR},
+      </if>
+      <if test="jzType != null" >
+        #{jzType,jdbcType=VARCHAR},
+      </if>
+      <if test="subType != null" >
+        #{subType,jdbcType=VARCHAR},
+      </if>
+      <if test="subDetail != null" >
+        #{subDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null" >
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="orderStr != null" >
+        #{orderStr,jdbcType=VARCHAR},
+      </if>
+      <if test="subType2 != null" >
+        #{subType2,jdbcType=VARCHAR},
+      </if>
+      <if test="subDetail2 != null" >
+        #{subDetail2,jdbcType=VARCHAR},
+      </if>
+      <if test="hangCode != null" >
+        #{hangCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isHuizong != null" >
+        #{isHuizong,jdbcType=VARCHAR},
+      </if>
+      <if test="huizongCode != null" >
+        #{huizongCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isReduce != null" >
+        #{isReduce,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCtContrJzItem" >
+    update zx_ct_ContrJzItem
+    <set >
+      <if test="mainID != null" >
+        mainID = #{mainID,jdbcType=VARCHAR},
+      </if>
+      <if test="jzType != null" >
+        jzType = #{jzType,jdbcType=VARCHAR},
+      </if>
+      <if test="subType != null" >
+        subType = #{subType,jdbcType=VARCHAR},
+      </if>
+      <if test="subDetail != null" >
+        subDetail = #{subDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null" >
+        amt = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="orderStr != null" >
+        orderStr = #{orderStr,jdbcType=VARCHAR},
+      </if>
+      <if test="subType2 != null" >
+        subType2 = #{subType2,jdbcType=VARCHAR},
+      </if>
+      <if test="subDetail2 != null" >
+        subDetail2 = #{subDetail2,jdbcType=VARCHAR},
+      </if>
+      <if test="hangCode != null" >
+        hangCode = #{hangCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isHuizong != null" >
+        isHuizong = #{isHuizong,jdbcType=VARCHAR},
+      </if>
+      <if test="huizongCode != null" >
+        huizongCode = #{huizongCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isReduce != null" >
+        isReduce = #{isReduce,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCtContrJzItem" >
+    update zx_ct_ContrJzItem set 
+      mainID = #{mainID,jdbcType=VARCHAR},
+      jzType = #{jzType,jdbcType=VARCHAR},
+      subType = #{subType,jdbcType=VARCHAR},
+      subDetail = #{subDetail,jdbcType=VARCHAR},
+      amt = #{amt,jdbcType=DECIMAL},
+      orderStr = #{orderStr,jdbcType=VARCHAR},
+      subType2 = #{subType2,jdbcType=VARCHAR},
+      subDetail2 = #{subDetail2,jdbcType=VARCHAR},
+      hangCode = #{hangCode,jdbcType=VARCHAR},
+      isHuizong = #{isHuizong,jdbcType=VARCHAR},
+      huizongCode = #{huizongCode,jdbcType=VARCHAR},
+      isReduce = #{isReduce,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxCtContrJzItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtContrJzItem" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_ContrJzItem
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="mainID != null and mainID != ''" >
+     and mainID = #{mainID,jdbcType=VARCHAR}
+    </if>
+    <if test="jzType != null and jzType != ''" >
+     and jzType = #{jzType,jdbcType=VARCHAR}
+    </if>
+    <if test="subType != null and subType != ''" >
+     and subType = #{subType,jdbcType=VARCHAR}
+    </if>
+    <if test="subDetail != null and subDetail != ''" >
+     and subDetail = #{subDetail,jdbcType=VARCHAR}
+    </if>
+    <if test="amt != null and amt != ''" >
+     and amt = #{amt,jdbcType=DECIMAL}
+    </if>
+    <if test="orderStr != null and orderStr != ''" >
+     and orderStr = #{orderStr,jdbcType=VARCHAR}
+    </if>
+    <if test="subType2 != null and subType2 != ''" >
+     and subType2 = #{subType2,jdbcType=VARCHAR}
+    </if>
+    <if test="subDetail2 != null and subDetail2 != ''" >
+     and subDetail2 = #{subDetail2,jdbcType=VARCHAR}
+    </if>
+    <if test="hangCode != null and hangCode != ''" >
+     and hangCode = #{hangCode,jdbcType=VARCHAR}
+    </if>
+    <if test="isHuizong != null and isHuizong != ''" >
+     and isHuizong = #{isHuizong,jdbcType=VARCHAR}
+    </if>
+    <if test="huizongCode != null and huizongCode != ''" >
+     and huizongCode = #{huizongCode,jdbcType=VARCHAR}
+    </if>
+    <if test="isReduce != null and isReduce != ''" >
+     and isReduce = #{isReduce,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxCtContrJzItem" parameterType="com.apih5.mybatis.pojo.ZxCtContrJzItem" >
+    <![CDATA[ 
+        update zx_ct_ContrJzItem
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

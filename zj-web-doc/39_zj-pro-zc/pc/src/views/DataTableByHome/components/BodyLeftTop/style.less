@@ -1,0 +1,169 @@
+@import "../../style.less";
+
+.loading {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    :global(.ant-spin-container) {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.info {
+    color: @color;
+    // padding: 1px 0px;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+
+    .title {
+        font-size: 14px;
+        border-left: 2px solid;
+        padding-left: 8px;
+        margin: 3px 6px;
+        box-sizing: border-box;
+    }
+
+    .con {
+        overflow: hidden;
+        // padding: 3px;
+        font-size: 13px;
+        width: 100%;
+        // height: calc(100% - 32px);
+        height: 100%;
+        // border: 1px solid red;
+
+        .echartsContainer,
+        .tableContainer {
+            height: calc(50% - 3px);
+            overflow: hidden;
+            // display: block;
+        }
+
+        .echartsContainer {
+            display: flex;
+            // padding: 0px 6px;
+            margin-bottom: 6px;
+
+            .ectItem {
+                .block;
+                background: @blockBg;
+                flex: 1;
+                height: 100%;
+                margin-left: 6px;
+                box-sizing: border-box;
+                // background: rgba(235, 146, 74, 0.068);
+                padding: 3px;
+                // margin:0px 3px;
+                border-radius: 2px;
+
+                &:nth-child(1) {
+                    margin-left: 0px;
+                }
+
+                &:nth-last-of-type(1) {
+                    margin-right: 0px;
+                }
+            }
+        }
+
+        .tableContainer {
+            width: 100%;
+            // margin-top: 3px;
+            box-sizing: border-box;
+            .block;
+            background: @blockBg;
+            // border: 1px solid red;
+            .clearfix;
+
+            .tableLeft {
+                // float: left;
+                box-sizing: border-box;
+                display: inline-block;
+                margin-right: 3px;
+                // width: calc(50% - 3px);
+                width: 100%;
+                // height: 100%;
+                padding: 0px 6px;
+                // background: rgba(235, 146, 74, 0.068);
+            }
+
+            // .tableRight {
+            //     float: left;
+            //     display: inline-block;
+            //     margin-left: 3px;
+            //     width: calc(50% - 3px);
+            //     height: 100%;
+            //     box-sizing: border-box;
+            //     background: rgba(235, 146, 74, 0.068);
+            // }
+            //更改qnn-table样式
+            :global {
+                .ant-empty-normal {
+                    margin: 0;
+                }
+
+                .ant-table-content {
+                    .scrollstyle;
+                }
+
+                table,
+                .ant-table {
+                    background: transparent;
+                    // color: @color;
+                    
+                    color:white !important;
+                }
+
+                .ant-table-thead>tr>th {
+                    // background: fade(@color1, 10);
+                    background: rgb(34, 64, 74);
+                    // color: @color3;
+                    color:white !important;
+                    font-size: 13px;
+                }
+
+                .ant-table-small.ant-table-bordered .ant-table-content thead th {
+                    background: fade(@color1, 10) !important;
+                    // color: @color3  !important;
+                    color:white !important;
+                    font-size: 13px !important;
+                }
+
+                .ant-table.ant-table-bordered .ant-table-expanded-row-fixed::after {
+                    display: none;
+                }
+
+                .ant-empty-description {
+                    // color: @color3;
+                    color:white
+                }
+
+                .ant-table-body {
+                    .scrollstyle;
+                }
+
+                .ant-table.ant-table-small .ant-table-title,
+                .ant-table.ant-table-small .ant-table-footer,
+                .ant-table.ant-table-small .ant-table-thead>tr>th,
+                .ant-table.ant-table-small .ant-table-tbody>tr>td,
+                .ant-table.ant-table-small tfoot>tr>th,
+                .ant-table.ant-table-small tfoot>tr>td {
+                    padding: 1px;
+                    box-sizing: border-box;
+                    font-size: 12px;
+                }
+
+                .ant-table-container,
+                .ant-table-cell-fix-right-first::after,
+                th,
+                .wQnnTableEditableCell.ant-table-cell {
+                    border-color: rgba(55, 173, 203) !important;
+                    background: rgb(42, 58, 54);
+                }
+            }
+        }
+    }
+}

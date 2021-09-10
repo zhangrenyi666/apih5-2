@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.SysSelectDepartmentUserMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.SysSelectDepartmentUser" >
+    <id column="select_id" property="selectId" jdbcType="CHAR" />
+    <result column="other_id" property="otherId" jdbcType="CHAR" />
+    <result column="other_type" property="otherType" jdbcType="CHAR" />
+    <result column="department_user_flag" property="departmentUserFlag" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="VARCHAR" />
+    <result column="object_user_key" property="objectUserKey" jdbcType="VARCHAR" />
+    <result column="object_department_id" property="objectDepartmentId" jdbcType="VARCHAR" />
+    <result column="object_name" property="objectName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    select_id, other_id, other_type, department_user_flag, project_id, 
+    object_user_key, object_department_id, object_name, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_select_department_user
+    where select_id = #{selectId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_select_department_user
+    where select_id = #{selectId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.SysSelectDepartmentUser" >
+    insert into sys_select_department_user (select_id, other_id, other_type, 
+      department_user_flag, project_id, object_user_key, 
+      object_department_id, object_name, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{selectId,jdbcType=CHAR}, #{otherId,jdbcType=CHAR}, #{otherType,jdbcType=CHAR}, 
+      #{departmentUserFlag,jdbcType=CHAR}, #{projectId,jdbcType=VARCHAR}, #{objectUserKey,jdbcType=VARCHAR}, 
+      #{objectDepartmentId,jdbcType=VARCHAR}, #{objectName,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.SysSelectDepartmentUser" >
+    insert into sys_select_department_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="selectId != null" >
+        select_id,
+      </if>
+      <if test="otherId != null" >
+        other_id,
+      </if>
+      <if test="otherType != null" >
+        other_type,
+      </if>
+      <if test="departmentUserFlag != null" >
+        department_user_flag,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="objectUserKey != null" >
+        object_user_key,
+      </if>
+      <if test="objectDepartmentId != null" >
+        object_department_id,
+      </if>
+      <if test="objectName != null" >
+        object_name,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="selectId != null" >
+        #{selectId,jdbcType=CHAR},
+      </if>
+      <if test="otherId != null" >
+        #{otherId,jdbcType=CHAR},
+      </if>
+      <if test="otherType != null" >
+        #{otherType,jdbcType=CHAR},
+      </if>
+      <if test="departmentUserFlag != null" >
+        #{departmentUserFlag,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="objectUserKey != null" >
+        #{objectUserKey,jdbcType=VARCHAR},
+      </if>
+      <if test="objectDepartmentId != null" >
+        #{objectDepartmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="objectName != null" >
+        #{objectName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.SysSelectDepartmentUser" >
+    update sys_select_department_user
+    <set >
+      <if test="otherId != null" >
+        other_id = #{otherId,jdbcType=CHAR},
+      </if>
+      <if test="otherType != null" >
+        other_type = #{otherType,jdbcType=CHAR},
+      </if>
+      <if test="departmentUserFlag != null" >
+        department_user_flag = #{departmentUserFlag,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="objectUserKey != null" >
+        object_user_key = #{objectUserKey,jdbcType=VARCHAR},
+      </if>
+      <if test="objectDepartmentId != null" >
+        object_department_id = #{objectDepartmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="objectName != null" >
+        object_name = #{objectName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where select_id = #{selectId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.SysSelectDepartmentUser" >
+    update sys_select_department_user
+    set       other_id = #{otherId,jdbcType=CHAR},
+      other_type = #{otherType,jdbcType=CHAR},
+      department_user_flag = #{departmentUserFlag,jdbcType=CHAR},
+      project_id = #{projectId,jdbcType=VARCHAR},
+      object_user_key = #{objectUserKey,jdbcType=VARCHAR},
+      object_department_id = #{objectDepartmentId,jdbcType=VARCHAR},
+      object_name = #{objectName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where select_id = #{selectId,jdbcType=CHAR}
+  </update>
+  <select id="selectBySysSelectDepartmentUserList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysSelectDepartmentUser" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_select_department_user
+    where del_flag = '0'
+    <if test="otherId != null and otherId != ''" >
+     and other_id = #{otherId,jdbcType=CHAR}
+    </if>
+    <if test="otherType != null and otherType != ''" >
+     and other_type = #{otherType,jdbcType=CHAR}
+    </if>
+    <if test="departmentUserFlag != null and departmentUserFlag != ''" >
+     and department_user_flag = #{departmentUserFlag,jdbcType=CHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=VARCHAR}
+    </if>
+    <if test="objectUserKey != null and objectUserKey != ''" >
+     and object_user_key = #{objectUserKey,jdbcType=VARCHAR}
+    </if>
+    <if test="objectDepartmentId != null and objectDepartmentId != ''" >
+     and object_department_id = #{objectDepartmentId,jdbcType=VARCHAR}
+    </if>
+    <if test="objectName != null and objectName != ''" >
+     and object_name = #{objectName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY create_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateSysSelectDepartmentUser" parameterType="com.apih5.mybatis.pojo.SysSelectDepartmentUser" >
+    <![CDATA[ 
+        update sys_select_department_user
+        set del_flag = '1'
+        where del_flag = '0' and select_id in 
+     ]]> 
+     <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.selectId} 
+     </foreach>
+  </delete>
+</mapper>

@@ -1,0 +1,549 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="zsc" content="ballotList.html" />
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<script type="text/javascript" src="http://static.apih5.cn/votetemp/html5.js"></script>
+	<script type="text/javascript" src="http://static.apih5.cn/lib/respond.min.js"></script>
+	<script type="text/javascript" src="http://static.apih5.cn/votetemp/PIE-2.0beta1/PIE_IE678.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://static.apih5.cn/lib/h-ui/css/H-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="http://static.apih5.cn/lib/h-ui.admin/css/H-ui.admin.css" />
+	<link rel="stylesheet" type="text/css" href="http://static.apih5.cn/lib/Hui-iconfont/1.0.8/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="http://static.apih5.cn/lib/laypage/1.2/skin/laypage.css" />
+	<link rel="stylesheet" type="text/css" href="http://static.apih5.cn/lib/h-ui.admin/skin/default/skin.css" id="skin"
+	/>
+	<link rel="stylesheet" type="text/css" href="http://static.apih5.cn/lib/h-ui.admin/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="http://static.apih5.cn/votetemp/css/common.css" />
+	<style>
+		.v_div {
+			display: list-item;
+			height: 300px;
+			padding-bottom: 20px;
+			padding-top: 20px;
+		}
+
+		.div {
+			display: inherit;
+			float: left;
+			height: 100%;
+		}
+
+		.voter {
+			width: 20%;
+		}
+
+		.question {
+			width: 80%;
+		}
+
+		body {
+			list-style: none;
+		}
+
+		.q_title {
+			font-weight: bolder;
+			font-size: 13px;
+		}
+
+		dd {
+			display: -wekit-box;
+			display: flex;
+		}
+
+		dd label {
+			line-height: 20px;
+			width: 33%;
+		}
+
+		ul {
+			height: 100%;
+			padding: 5px;
+		}
+
+		.ul_v {
+			border-left: 1px #CCCCCC dashed;
+			border-top: 1px #CCCCCC dashed;
+			border-bottom: 1px #CCCCCC dashed;
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+			-moz-border-radius-bottomleft: 5px;
+			-webkit-border-top-left-radius: 5px;
+		}
+
+		.li_v {
+			padding: 1px;
+		}
+
+		.ul_q {
+			overflow: scroll;
+			border: 1px #CCCCCC solid;
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+
+		dd {
+			padding: 0px;
+		}
+
+		.li_q {
+			border-bottom: 1px #ccc dashed;
+		}
+
+		dl,
+		dd {
+			margin: 10px;
+		}
+
+		.red {
+			color: red;
+		}
+
+		.vcheckbox,
+		.vradio {
+			margin: 0;
+			padding: 0;
+			width: 18px;
+			height: 18px;
+			background: url(minimal.png) no-repeat;
+			border: none;
+			cursor: pointer
+		}
+
+		.vcheckbox,
+		.vcheckbox.static:hover {
+			background-position: 0 0
+		}
+
+		.vcheckbox.hover,
+		.vcheckbox:hover {
+			background-position: -20px 0
+		}
+
+		.vcheckbox.checked {
+			background-position: -40px 0
+		}
+
+		.vcheckbox.disabled {
+			background-position: -60px 0;
+			cursor: default
+		}
+
+		.vcheckbox.checked.disabled {
+			background-position: -80px 0
+		}
+
+		.vradio,
+		.vradio.static:hover {
+			background-position: -100px 0
+		}
+
+		.vradio.hover,
+		.vradio:hover {
+			background-position: -120px 0
+		}
+
+		.vradio.checked {
+			background-position: -140px 0
+		}
+
+		.vradio.disabled {
+			background-position: -160px 0;
+			cursor: default
+		}
+
+		.vradio.checked.disabled {
+			background-position: -180px 0
+		}
+
+		.un {
+			background-color: rgba(255, 0, 0, .2);
+			box-shadow: 0 0 5px rgba(255, 0, 0, .2);
+			border-radius: 5px;
+		}
+
+		.xiaq-img {
+			width: 100%;
+			display: block;
+		}
+	</style>
+	<title>投票 - 投票统计</title>
+</head>
+
+<body id="villa_content">
+	<div class="pd-10">
+		<div class="pb-10" style="text-align: center;">
+			<h3 id="v_tiltle"></h3>
+		</div>
+		<div class="pb-0">
+			<input type="hidden" id="v_id" />
+			<label style="font-size: 13px;">投票开始时间：
+				<font id="beginTime" style="font-weight: bolder;"></font>
+				<font style="font-weight: bolder;"> ~ </font>
+				<font id="endTime" style="font-weight: bolder;"></font>
+			</label>
+		</div>
+		<div class="data"></div>
+
+
+
+		<div class="col-xs-8 col-sm-9 col-xs-offset-5 ">
+			<a style="width:90px;" id="save_save" class="btn btn-primary  radius size-M pr-10;" onclick="submit()">
+				<i class="Hui-iconfont"></i>提交</a>
+		</div>
+
+
+		<input type="hidden" id="voteId" />
+	</div>
+	<script type="text/javascript" src="http://static.apih5.cn/votetemp/management/lib/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://static.apih5.cn/votetemp/management/lib/layer/2.1/layer.js"></script>
+	<script type="text/javascript" src="http://static.apih5.cn/votetemp/management/lib/laypage/1.2/laypage.js"></script>
+	<script type="text/javascript" src="http://static.apih5.cn/votetemp/management/static/h-ui/js/H-ui.js"></script>
+	<script type="text/javascript" src="http://static.apih5.cn/votetemp/management/static/h-ui.admin/js/H-ui.admin.js"></script>
+	<script type="text/javascript" src="http://static.apih5.cn/votetemp/management/lib/Validform/5.3.2/Validform.min.js"></script>
+	<script type="text/javascript" src="http://static.apih5.cn/votetemp/management/js/common.js"></script>
+	<script type="text/javascript" src="http://static.apih5.cn/votetemp/management/js/hmac-sha1.js"></script>
+	<script type="text/javascript" src="http://static.apih5.cn/votetemp/management/js/jbase64.js"></script>
+	<script type="text/javascript" src="http://static.apih5.cn/public/apih5.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript">		
+		/* 综合功能逻辑script */
+		var voteId = l.getUrlParam('id');//投票ID
+		var hwCode = l.getUrlParam('hwCode');
+		var hwOrg = l.getUrlParam('hwOrg');
+		var hwOrg = l.getUrlParam('code');		
+		window.onload = function () {
+			init();//查询
+		};
+		//内容查询
+		function init() {
+			var params = {
+				voteId: voteId,
+			};
+			l.ajax("getVoteDetailedByPc", params, function (data, message, success) {
+				if (success) {
+					iterate(data);//遍历数据
+					if (data.voterList[0].waiverFlag == "1") {
+						$(":checkbox,:radio").attr("disabled", "disabled");
+						$("textarea").attr("readOnly", true);
+					}
+				}
+			})
+		}
+
+		//遍历数据
+		function iterate(data) {
+			var voteType = data.voteType
+			var voterId = data.voterList[0].voterId;
+			$('.v_div').remove();//清除数据
+			$("#v_tiltle").text(data.voteTitle);
+			$("#beginTime").text(new Date(data.startDate).Format("yyyy-MM-dd hh:mm:ss"));
+			$("#endTime").text(new Date(data.endDate).Format("yyyy-MM-dd hh:mm:ss"));
+			if (data.voterList[0].waiverFlag == "1") {
+				$('#save_save').hide();
+			}
+			var nowtime = new Date(getnowtime());
+			var endDate = new Date(data.endDate);
+			if (endDate <= nowtime) {
+				$('#save_save').hide();
+			}
+			$("#v_id").val(voterId);
+
+
+			var voteCandidateList = data.voteCandidateList || [];
+			var str = "";
+			var n = 0;
+			$.each(voteCandidateList, function (i, v) {
+				if (voteType == "0") {
+					str += '<div class="v_div" style="height:430px">';
+					str += '<div class="div voter" id="candidateInfo" style="display: none;">';
+				}
+				else {
+					str += '<div class="v_div">';
+					str += '<div class="div voter" id="candidateInfo">';
+				}
+				str += '	<ul class="ul_v bg-1">';
+				str += '		<input type="hidden" id="p_id' + i + '" value="' + v.candidateId + '" />';
+				str += v.imageList && v.imageList[0] && v.imageList[0].fileUrl ? "<div class='xiaq'><img class='xiaq-img' src='" + l.domain + v.imageList[0].fileUrl + "'></div>" : "";
+				str += v.titleOne ? '<li class="li_v">' + v.titleOne + '：' + v.contentOne + '</li>' : '';
+				str += v.titleTwo ? '<li class="li_v">' + v.titleTwo + '：' + v.contentTwo + '</li>' : '';
+				str += v.titleThree ? '<li class="li_v">' + v.titleThree + '：' + v.contentThree + '</li>' : '';
+				str += v.titleFour ? '<li class="li_v">' + v.titleFour + '：' + v.contentFour + '</li>' : '';
+				str += v.titleFive ? '<li class="li_v">' + v.titleFive + '：' + v.contentFive + '</li>' : '';
+				str += '	</ul>';
+				str += '</div>';
+				if (voteType == "0") {
+					str += '<div class="div question" style="width:100%">';
+				}
+				else {
+					str += '<div class="div question" >';
+				}
+
+
+				str += '	<ul class="ul_q bg-1">';
+				var questionList = v.voteQuestionsList;
+				$.each(questionList, function (j, q) {
+					var objDetails = q.questionsDetailsList;
+					if (q.questionsDifCode == "1") {
+						str += '		<li class="li_q">';
+						str += '			<dl>';
+						str += '				<dt class="q_title">' + (j + 1) + '、' + q.title + '<i>（打分）</i><font class="red"> * </font></dt>';
+						$.each(objDetails, function (m, d) {
+							if (m % 4 == 0) {
+								str += '			<dd>';
+							}
+							if (d.answerFlag == "1") {
+								str += '				<label><input type="radio" value="' + d.questionsId + "_" + d.questionsDetailsId + "_" + d.content + '" name="' + n + '" checked="checked" class="vradio"/>' + questionsNo(q.questionsNo, m) + '<span>' + d.content + '分</span></label>';
+							} else {
+								str += '				<label><input type="radio" value="' + d.questionsId + "_" + d.questionsDetailsId + "_" + d.content + '" name="' + n + '" class="vradio"/>' + questionsNo(q.questionsNo, m) + '<span>' + d.content + '分</span></label>';
+							}
+							if (m + 1 % 4 == 0) {
+								str += '			</dd>';
+							}
+
+						});
+						str += '			</dl>';
+						str += '		</li>';
+					} else if (q.questionsDifCode == "2") {
+						str += '		<li class="li_q">';
+						str += '			<dl>';
+						str += '				<dt class="q_title">' + (j + 1) + '、' + q.title + '<i>（单选）</i><font class="red"> * </font></dt>';
+						$.each(objDetails, function (m, d) {
+							if (m % 4 == 0) {
+								str += '			<dd>';
+							}
+							if (d.answerFlag == "1") {
+								str += '				<label><input type="radio" value="' + d.questionsId + "_" + d.questionsDetailsId + "_" + d.content + '" name="' + n + '" checked="checked" class="vradio"/>' + questionsNo(q.questionsNo, m) + '<span>' + d.content + '</span></label>';
+							} else {
+								str += '				<label><input type="radio" value="' + d.questionsId + "_" + d.questionsDetailsId + "_" + d.content + '" name="' + n + '" class="vradio"/>' + questionsNo(q.questionsNo, m) + '<span>' + d.content + '</span></label>';
+							}
+
+							if (m + 1 % 4 == 0) {
+								str += '			</dd>';
+							}
+
+						});
+						str += '			</dl>';
+						str += '		</li>';
+					} else if (q.questionsDifCode == "3") {
+						str += '		<li class="li_q">';
+						str += '			<dl>';
+						str += '				<dt class="q_title">' + (j + 1) + '、' + q.title + '<i>（多选）</i><font class="red"> * </font></dt>';
+						$.each(objDetails, function (m, d) {
+							if (m % 4 == 0) {
+								str += '			<dd>';
+							}
+							if (d.answerFlag == "1") {
+								str += '				<label><input type="checkbox" value="' + d.questionsId + "_" + d.questionsDetailsId + "_" + d.content + '" name="' + n + '" checked="checked" class="vcheckbox"/>' + questionsNo(q.questionsNo, m) + '<span>' + d.content + '</span></label>';
+							} else {
+								str += '				<label><input type="checkbox" value="' + d.questionsId + "_" + d.questionsDetailsId + "_" + d.content + '" name="' + n + '" class="vcheckbox"/>' + questionsNo(q.questionsNo, m) + '<span>' + d.content + '</span></label>';
+							}
+							//							str +='				<label><input type="checkbox" value="'+d.id+'" name="'+n+'" class="vcheckbox"/><span>'+j+'</span></label>';
+							if (m + 1 % 4 == 0) {
+								str += '			</dd>';
+							}
+
+						});
+						str += '			</dl>';
+						str += '		</li>';
+					} else if (q.questionsDifCode == "4") {
+						str += '		<li class="li_q">';
+						str += '			<dl>';
+						str += '				<dt class="q_title">' + (j + 1) + '、' + q.title + '<i>（问答）</i></dt>';
+
+						$.each(objDetails, function (m, d) {
+							str += '				<dd>';
+							if (d.answerFlag == "1") {
+								str += '				<label><textarea class="que_text" rows="4" name="' + n + '" cols="100%" value="' + d.questionsId + '_' + d.questionsDetailsId + '"  placeholder="请输入内容">' + d.answer + '</textarea></label>';
+							} else {
+								str += '				<label><textarea class="que_text" rows="4" name="' + n + '" cols="100%" value="' + d.questionsId + '_' + d.questionsDetailsId + '"  placeholder="请输入内容"></textarea></label>';
+							}
+							str += '				</dd>';
+						});
+						str += '			</dl>';
+						str += '		</li>';
+					}
+					n++;
+				});
+				str += '	</ul>';
+				str += '</div>';
+				str += '</div>';
+			});
+			$('.data').append(str);
+		}
+
+
+		function submit() {
+			var un = [];
+			var num = 0;
+			var voterId = $("#v_id").val();
+			var voterList = [{ voterId: voterId }];
+			var candidateList = [];
+			$(".v_div").each(function (i, v) {
+				var voterAnswerList = [];
+				var candidateId = $("#p_id" + i).val();
+				$(v).find(".question").each(function (j, q) {
+					$(q).find(".li_q").each(function (k, li_q) {
+						if ($(li_q).find("input[type=radio]").length > 0) {
+							var radios = $(li_q).find("input[type=radio]:checked");
+							if (radios.length <= 0) {
+								un.push(num);
+							} else {
+								var val = $(radios).val();
+								var qid = val.split("_")[0];
+								var detid = val.split("_")[1];
+								var answer = val.split("_")[2];
+								var ans = { questionsId: qid, questionsDetailsId: detid, answer: answer };
+								voterAnswerList.push(ans);
+							}
+						} else if ($(li_q).find("input[type=checkbox]").length > 0) {
+							var checkboxs = $(li_q).find("input[type=checkbox]:checked");
+							if (checkboxs.length <= 0) {
+								un.push(num);
+							} else {
+								var qid = "";
+								var detid = "";
+								for (var l = 0; l < checkboxs.length; l++) {
+									var checkbox = checkboxs[l];
+									var val = $(checkbox).val();
+									qid = val.split("_")[0];
+									detid = val.split("_")[1];
+									answer = val.split("_")[2];
+									var ans = { questionsId: qid, questionsDetailsId: detid, answer: answer };
+									voterAnswerList.push(ans);
+								}
+							}
+						} else if ($(li_q).find("textarea").length > 0) {
+							var textarea = $(li_q).find("textarea");
+							var answer = textarea.val();
+							var val = $(textarea).attr("value");
+							var qid = val.split("_")[0];
+							var detid = val.split("_")[1];
+							if (answer == null || answer == "") {
+								un.push(num);
+							} else {
+								var ans = { questionsId: qid, questionsDetailsId: detid, answer: answer };
+								voterAnswerList.push(ans);
+							}
+						}
+						num++;
+					});
+				});
+				var candidate = { candidateId: candidateId, voterAnswerList: voterAnswerList };
+				candidateList.push(candidate);
+			});
+			//layer.close(index);
+
+			// check
+			if (un.length > 0) {
+				var items = $(".li_q");
+				items.removeClass("un");
+				for (var i = 0; i < un.length; i++) {
+					items.eq(un[i]).addClass("un");
+				}
+				layer.msg("请将投票信息添加完整。", { icon: 6, time: 2000 });
+			} else {
+				layer.confirm('是否提交，请再次确认?', { icon: 3, title: '温馨提示' }, function (index) {
+					//submit
+					$(".li_q").removeClass("un");
+					var params = {
+						voteId: voteId,
+						voterList: voterList,
+						voteCandidateList: candidateList
+					};
+					l.ajax("saveAnswerInfoPc", params, function (data, message, success) {
+						if (success) {
+							var nowtime = new Date(getnowtime());
+							var endDate = new Date(data.endDate);
+							if (endDate <= nowtime) {
+								$('#save_save').hide();
+								init();
+								layer.msg("投票活动已结束。", { icon: 6, time: 2000 });
+							} else {
+								layer.open({
+									content: '投票成功，感谢您参与投票！',
+									btn: ['确认'],
+									yes: function (index, layero) { 
+										window.parent.bb();
+										layer.closeAll(); //疯狂模式，关闭所有层  
+											//假设这是iframe页
+											var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+											parent.layer.close(index); //再执行关闭     										
+											//window.location.href='Your URL';  
+										//window.location.href = 'voteListByVoter.html?hwCode='hwCode'+&hwOrg='hwOrg'';
+                                          window.location.href = 'voteListByVoter.html?hwCode='+hwCode+'&hwOrg='+hwOrg+'&code='+code;										
+									},
+									cancel: function () { 
+										//右上角关闭回调  
+										window.location.href = 'voteListByVoter.html';
+									}
+								});
+							}
+						}
+					})
+				});
+			}
+		}
+
+
+
+
+
+
+		// 返回序号
+		function questionsNo(questionsNoFlag, num) {
+			// 无排序
+			if (questionsNoFlag == 0) {
+				return "";
+			}
+			// 字母排序
+			else if (questionsNoFlag == 1) {
+				return String.fromCharCode(65 + parseInt(num++)) + "、 ";
+			}
+			// 数字排序
+			else if (questionsNoFlag == 2) {
+				var numValue = num;
+				num = parseInt(numValue++);
+				return parseInt(numValue++) + "、 ";
+			}
+		}
+		// 当前时间获取
+		function getnowtime() {
+			var nowtime = new Date();
+			var year = nowtime.getFullYear();
+			var month = padleft0(nowtime.getMonth() + 1);
+			var day = padleft0(nowtime.getDate());
+			var hour = padleft0(nowtime.getHours());
+			var minute = padleft0(nowtime.getMinutes());
+			var second = padleft0(nowtime.getSeconds());
+			var millisecond = nowtime.getMilliseconds(); millisecond = millisecond.toString().length == 1 ? "00" + millisecond : millisecond.toString().length == 2 ? "0" + millisecond : millisecond;
+			return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+		}
+		//补齐两位数  
+		function padleft0(obj) {
+			return obj.toString().replace(/^[0-9]{1}$/, "0" + obj);
+		}
+
+		Date.prototype.Format = function (fmt) { //author: meizz 
+			var o = {
+				"M+": this.getMonth() + 1, //月份 
+				"d+": this.getDate(), //日 
+				"h+": this.getHours(), //小时 
+				"m+": this.getMinutes(), //分 
+				"s+": this.getSeconds(), //秒 
+				"q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+				"S": this.getMilliseconds() //毫秒 
+			};
+			if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+			for (var k in o)
+				if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+			return fmt;
+		}
+	</script>
+</body>
+
+</html>

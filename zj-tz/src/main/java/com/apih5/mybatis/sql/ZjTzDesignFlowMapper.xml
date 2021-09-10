@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzDesignFlowMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzDesignFlow" >
+    <id column="design_flow_id" property="designFlowId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="subproject_info_id" property="subprojectInfoId" jdbcType="CHAR" />
+    <result column="subproject_name" property="subprojectName" jdbcType="VARCHAR" />
+    <result column="skill_type_id" property="skillTypeId" jdbcType="VARCHAR" />
+    <result column="skill_type_name" property="skillTypeName" jdbcType="VARCHAR" />
+    <result column="design_part_id" property="designPartId" jdbcType="CHAR" />
+    <result column="design_part_name" property="designPartName" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="release_id" property="releaseId" jdbcType="CHAR" />
+    <result column="release_name" property="releaseName" jdbcType="VARCHAR" />
+    <result column="renew1" property="renew1" jdbcType="CHAR" />
+    <result column="renew2" property="renew2" jdbcType="CHAR" />
+    <result column="renew3" property="renew3" jdbcType="CHAR" />
+    <result column="renew4" property="renew4" jdbcType="CHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    design_flow_id, project_id, project_name, subproject_info_id, subproject_name, 
+    skill_type_id, skill_type_name, design_part_id, design_part_name, remarks, 
+    release_id, release_name, renew1, renew2, renew3, renew4, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_design_flow
+    where design_flow_id = #{designFlowId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_design_flow
+    where design_flow_id = #{designFlowId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzDesignFlow" >
+    insert into zj_tz_design_flow (design_flow_id, project_id, project_name, 
+      subproject_info_id, subproject_name, skill_type_id, 
+      skill_type_name, design_part_id, design_part_name, 
+      remarks, release_id, release_name, renew1, renew2, renew3, renew4,
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{designFlowId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, 
+      #{subprojectInfoId,jdbcType=CHAR}, #{subprojectName,jdbcType=VARCHAR}, #{skillTypeId,jdbcType=VARCHAR}, 
+      #{skillTypeName,jdbcType=VARCHAR}, #{designPartId,jdbcType=CHAR}, #{designPartName,jdbcType=VARCHAR}, 
+      #{remarks,jdbcType=VARCHAR}, #{releaseId,jdbcType=CHAR}, #{releaseName,jdbcType=VARCHAR}, #{renew1,jdbcType=CHAR},
+      #{renew2,jdbcType=CHAR}, #{renew3,jdbcType=CHAR}, #{renew4,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzDesignFlow" >
+    insert into zj_tz_design_flow
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="designFlowId != null" >
+        design_flow_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="subprojectInfoId != null" >
+        subproject_info_id,
+      </if>
+      <if test="subprojectName != null" >
+        subproject_name,
+      </if>
+      <if test="skillTypeId != null" >
+        skill_type_id,
+      </if>
+      <if test="skillTypeName != null" >
+        skill_type_name,
+      </if>
+      <if test="designPartId != null" >
+        design_part_id,
+      </if>
+      <if test="designPartName != null" >
+        design_part_name,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="releaseId != null" >
+        release_id,
+      </if>
+      <if test="releaseName != null" >
+        release_name,
+      </if>
+      <if test="renew1 != null" >
+        renew1,
+      </if>
+      <if test="renew2 != null" >
+        renew2,
+      </if>
+      <if test="renew3 != null" >
+        renew3,
+      </if>
+      <if test="renew4 != null" >
+        renew4,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="designFlowId != null" >
+        #{designFlowId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectInfoId != null" >
+        #{subprojectInfoId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectName != null" >
+        #{subprojectName,jdbcType=VARCHAR},
+      </if>
+      <if test="skillTypeId != null" >
+        #{skillTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="skillTypeName != null" >
+        #{skillTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="designPartId != null" >
+        #{designPartId,jdbcType=CHAR},
+      </if>
+      <if test="designPartName != null" >
+        #{designPartName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseId != null" >
+        #{releaseId,jdbcType=CHAR},
+      </if>
+      <if test="releaseName != null" >
+        #{releaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="renew1 != null" >
+        #{renew1,jdbcType=CHAR},
+      </if>
+      <if test="renew2 != null" >
+        #{renew2,jdbcType=CHAR},
+      </if>
+      <if test="renew3 != null" >
+        #{renew3,jdbcType=CHAR},
+      </if>
+      <if test="renew4 != null" >
+        #{renew4,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzDesignFlow" >
+    update zj_tz_design_flow
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectInfoId != null" >
+        subproject_info_id = #{subprojectInfoId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectName != null" >
+        subproject_name = #{subprojectName,jdbcType=VARCHAR},
+      </if>
+      <if test="skillTypeId != null" >
+        skill_type_id = #{skillTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="skillTypeName != null" >
+        skill_type_name = #{skillTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="designPartId != null" >
+        design_part_id = #{designPartId,jdbcType=CHAR},
+      </if>
+      <if test="designPartName != null" >
+        design_part_name = #{designPartName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseId != null" >
+        release_id = #{releaseId,jdbcType=CHAR},
+      </if>
+      <if test="releaseName != null" >
+        release_name = #{releaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="renew1 != null" >
+        renew1 = #{renew1,jdbcType=CHAR},
+      </if>
+      <if test="renew2 != null" >
+        renew2 = #{renew2,jdbcType=CHAR},
+      </if>
+      <if test="renew3 != null" >
+        renew3 = #{renew3,jdbcType=CHAR},
+      </if>
+      <if test="renew4 != null" >
+        renew4 = #{renew4,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where design_flow_id = #{designFlowId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzDesignFlow" >
+    update zj_tz_design_flow
+    set       project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      subproject_info_id = #{subprojectInfoId,jdbcType=CHAR},
+      subproject_name = #{subprojectName,jdbcType=VARCHAR},
+      skill_type_id = #{skillTypeId,jdbcType=VARCHAR},
+      skill_type_name = #{skillTypeName,jdbcType=VARCHAR},
+      design_part_id = #{designPartId,jdbcType=CHAR},
+      design_part_name = #{designPartName,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      release_id = #{releaseId,jdbcType=CHAR},
+      release_name = #{releaseName,jdbcType=VARCHAR},
+      renew1 = #{renew1,jdbcType=CHAR},
+      renew2 = #{renew2,jdbcType=CHAR},
+      renew3 = #{renew3,jdbcType=CHAR},
+      renew4 = #{renew4,jdbcType=CHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where design_flow_id = #{designFlowId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzDesignFlowList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzDesignFlow" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_design_flow
+    where del_flag = '0'
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     and project_id in (${projectIdSql})
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name LIKE CONCAT('%', #{projectName},'%')
+    </if>
+    <if test="subprojectInfoId != null and subprojectInfoId != ''" >
+     and subproject_info_id = #{subprojectInfoId,jdbcType=CHAR}
+    </if>
+    <if test="subprojectName != null and subprojectName != ''" >
+     and subproject_name LIKE CONCAT('%', #{subprojectName},'%')
+    </if>
+    <if test="skillTypeId != null and skillTypeId != ''" >
+     and skill_type_id = #{skillTypeId,jdbcType=VARCHAR}
+    </if>
+    <if test="skillTypeName != null and skillTypeName != ''" >
+     and skill_type_name = #{skillTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="designPartId != null and designPartId != ''" >
+     and design_part_id = #{designPartId,jdbcType=CHAR}
+    </if>
+    <if test="designPartName != null and designPartName != ''" >
+     and design_part_name = #{designPartName,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="releaseId != null and releaseId != ''" >
+     and release_id = #{releaseId,jdbcType=CHAR}
+    </if>
+    <if test="releaseName != null and releaseName != ''" >
+     and release_name = #{releaseName,jdbcType=VARCHAR}
+    </if>
+    <if test="renew1 != null and renew1 != ''" >
+     and renew1 = #{renew1,jdbcType=CHAR}
+    </if>
+    <if test="renew2 != null and renew2 != ''" >
+     and renew2 = #{renew2,jdbcType=CHAR}
+    </if>
+    <if test="renew3 != null and renew3 != ''" >
+     and renew3 = #{renew3,jdbcType=CHAR}
+    </if>
+    <if test="renew4 != null and renew4 != ''" >
+     and renew4 = #{renew4,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="ext1SeeFlag != null and ext1SeeFlag != ''" >
+     and release_id IN ('1','2')
+    </if>
+    <if test="ext1Flag1 != null and ext1Flag1 != ''" >
+     and release_id IN ('0','1','2') 
+    </if>
+    <if test="ext1Flag2 != null and ext1Flag2 != ''" >
+     and release_id IN ('1','2','3') 
+    </if>
+    <if test="ext1Flag3 != null and ext1Flag3 != ''" >
+     and release_id IN ('1','2') 
+    </if>
+    ORDER BY CASE renew4 WHEN '0' then 0 else 1 END, modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzDesignFlow" parameterType="com.apih5.mybatis.pojo.ZjTzDesignFlow" >
+    <![CDATA[ 
+        update zj_tz_design_flow
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and design_flow_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.designFlowId} 
+     </foreach>
+  </delete>
+  <!-- 扩展 -->
+  <delete id="batchRecallZjTzDesignFlow" parameterType="com.apih5.mybatis.pojo.ZjTzDesignFlow" >
+    <![CDATA[ 
+        update zj_tz_design_flow
+        set release_id = #{param2.releaseId},
+            release_name=#{param2.releaseName},
+            renew1 = #{param2.renew1},
+            renew2 = #{param2.renew2},
+            renew3 = #{param2.renew3},
+            renew4 = #{param2.renew4},
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and design_flow_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.designFlowId} 
+     </foreach>
+  </delete>
+  
+   <update id="updateZjTzDesignFlowProjectShortName" parameterType="com.apih5.mybatis.pojo.ZjTzDesignFlow">
+		update zj_tz_design_flow
+		set project_name = #{projectName,jdbcType=VARCHAR}
+		where del_flag = '0'
+		and project_id = #{projectId,jdbcType=CHAR}
+	</update>
+</mapper>

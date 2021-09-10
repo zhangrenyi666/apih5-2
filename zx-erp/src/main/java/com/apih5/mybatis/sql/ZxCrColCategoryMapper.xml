@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCrColCategoryMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCrColCategory" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="parentID" property="parentID" jdbcType="VARCHAR" />
+    <result column="catCode" property="catCode" jdbcType="VARCHAR" />
+    <result column="catName" property="catName" jdbcType="VARCHAR" />
+    <result column="bsid" property="bsid" jdbcType="VARCHAR" />
+    <result column="resStyle" property="resStyle" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="sendTime" property="sendTime" jdbcType="TIMESTAMP" />
+    <result column="bizType" property="bizType" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, parentID, catCode, catName, bsid, 
+    resStyle, remark, sendTime, bizType, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cr_ColCategory
+    where del_flag = '0' and id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_cr_ColCategory
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCrColCategory" >
+    insert into zx_cr_ColCategory (
+    id, parentID, catCode, catName, bsid, 
+    resStyle, remark, sendTime, bizType, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{id,jdbcType=VARCHAR}, #{parentID,jdbcType=VARCHAR}, #{catCode,jdbcType=VARCHAR}, #{catName,jdbcType=VARCHAR}, #{bsid,jdbcType=VARCHAR}, 
+    #{resStyle,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{sendTime,jdbcType=TIMESTAMP}, #{bizType,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCrColCategory" >
+    insert into zx_cr_ColCategory
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="parentID != null" >
+        parentID,
+      </if>
+      <if test="catCode != null" >
+        catCode,
+      </if>
+      <if test="catName != null" >
+        catName,
+      </if>
+      <if test="bsid != null" >
+        bsid,
+      </if>
+      <if test="resStyle != null" >
+        resStyle,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="sendTime != null" >
+        sendTime,
+      </if>
+      <if test="bizType != null" >
+        bizType,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="parentID != null" >
+        #{parentID,jdbcType=VARCHAR},
+      </if>
+      <if test="catCode != null" >
+        #{catCode,jdbcType=VARCHAR},
+      </if>
+      <if test="catName != null" >
+        #{catName,jdbcType=VARCHAR},
+      </if>
+      <if test="bsid != null" >
+        #{bsid,jdbcType=VARCHAR},
+      </if>
+      <if test="resStyle != null" >
+        #{resStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null" >
+        #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bizType != null" >
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCrColCategory" >
+    update zx_cr_ColCategory
+    <set >
+      <if test="parentID != null" >
+        parentID = #{parentID,jdbcType=VARCHAR},
+      </if>
+      <if test="catCode != null" >
+        catCode = #{catCode,jdbcType=VARCHAR},
+      </if>
+      <if test="catName != null" >
+        catName = #{catName,jdbcType=VARCHAR},
+      </if>
+      <if test="bsid != null" >
+        bsid = #{bsid,jdbcType=VARCHAR},
+      </if>
+      <if test="resStyle != null" >
+        resStyle = #{resStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null" >
+        sendTime = #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bizType != null" >
+        bizType = #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCrColCategory" >
+    update zx_cr_ColCategory set 
+      parentID = #{parentID,jdbcType=VARCHAR},
+      catCode = #{catCode,jdbcType=VARCHAR},
+      catName = #{catName,jdbcType=VARCHAR},
+      bsid = #{bsid,jdbcType=VARCHAR},
+      resStyle = #{resStyle,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      sendTime = #{sendTime,jdbcType=TIMESTAMP},
+      bizType = #{bizType,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxCrColCategoryList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCrColCategory" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cr_ColCategory
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="parentID != null and parentID != ''" >
+     and parentID = #{parentID,jdbcType=VARCHAR}
+    </if>
+    <if test="catCode != null and catCode != ''" >
+     and catCode = #{catCode,jdbcType=VARCHAR}
+    </if>
+    <if test="catName != null and catName != ''" >
+     and catName = #{catName,jdbcType=VARCHAR}
+    </if>
+    <if test="bsid != null and bsid != ''" >
+     and bsid = #{bsid,jdbcType=VARCHAR}
+    </if>
+    <if test="resStyle != null and resStyle != ''" >
+     and resStyle = #{resStyle,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="sendTime != null and sendTime != ''" >
+     and sendTime = #{sendTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="bizType != null and bizType != ''" >
+     and bizType = #{bizType,jdbcType=VARCHAR}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxCrColCategory" parameterType="com.apih5.mybatis.pojo.ZxCrColCategory" >
+    <![CDATA[ 
+        update zx_cr_ColCategory
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+  <select id="selectByZxCrColCategoryDear" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCrColCategory" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cr_ColCategory
+    where del_flag = '0'
+    and parentID != '-1'
+    and parentID = '11111'
+    ORDER BY modify_time DESC 
+  </select>
+ 
+</mapper>

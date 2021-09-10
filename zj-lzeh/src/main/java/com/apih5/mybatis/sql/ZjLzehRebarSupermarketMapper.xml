@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjLzehRebarSupermarketMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjLzehRebarSupermarket" >
+    <id column="rebar_supermarket_id" property="rebarSupermarketId" jdbcType="CHAR" />
+    <result column="rebar_requirement_number" property="rebarRequirementNumber" jdbcType="DECIMAL" />
+    <result column="cumulative_usage_number" property="cumulativeUsageNumber" jdbcType="DECIMAL" />
+    <result column="cumulative_has_been_receiving_number" property="cumulativeHasBeenReceivingNumber" jdbcType="DECIMAL" />
+    <result column="remaining_stock_number" property="remainingStockNumber" jdbcType="DECIMAL" />
+    <result column="cumulative_total_waste" property="cumulativeTotalWaste" jdbcType="DECIMAL" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    rebar_supermarket_id, rebar_requirement_number, cumulative_usage_number, cumulative_has_been_receiving_number, remaining_stock_number, 
+    cumulative_total_waste, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_lzeh_rebar_supermarket
+    where rebar_supermarket_id = #{rebarSupermarketId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_lzeh_rebar_supermarket
+    where rebar_supermarket_id = #{rebarSupermarketId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjLzehRebarSupermarket" >
+    insert into zj_lzeh_rebar_supermarket (rebar_supermarket_id, rebar_requirement_number, cumulative_usage_number, 
+      cumulative_has_been_receiving_number, remaining_stock_number, cumulative_total_waste, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{rebarSupermarketId,jdbcType=CHAR}, #{rebarRequirementNumber,jdbcType=DECIMAL}, #{cumulativeUsageNumber,jdbcType=DECIMAL}, 
+      #{cumulativeHasBeenReceivingNumber,jdbcType=DECIMAL}, #{remainingStockNumber,jdbcType=DECIMAL}, #{cumulativeTotalWaste,jdbcType=DECIMAL}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjLzehRebarSupermarket" >
+    insert into zj_lzeh_rebar_supermarket
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rebarSupermarketId != null" >
+        rebar_supermarket_id,
+      </if>
+      <if test="rebarRequirementNumber != null" >
+        rebar_requirement_number,
+      </if>
+      <if test="cumulativeUsageNumber != null" >
+        cumulative_usage_number,
+      </if>
+      <if test="cumulativeHasBeenReceivingNumber != null" >
+        cumulative_has_been_receiving_number,
+      </if>
+      <if test="remainingStockNumber != null" >
+        remaining_stock_number,
+      </if>
+      <if test="cumulativeTotalWaste != null" >
+        cumulative_total_waste,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rebarSupermarketId != null" >
+        #{rebarSupermarketId,jdbcType=CHAR},
+      </if>
+      <if test="rebarRequirementNumber != null" >
+        #{rebarRequirementNumber,jdbcType=DECIMAL},
+      </if>
+      <if test="cumulativeUsageNumber != null" >
+        #{cumulativeUsageNumber,jdbcType=DECIMAL},
+      </if>
+      <if test="cumulativeHasBeenReceivingNumber != null" >
+        #{cumulativeHasBeenReceivingNumber,jdbcType=DECIMAL},
+      </if>
+      <if test="remainingStockNumber != null" >
+        #{remainingStockNumber,jdbcType=DECIMAL},
+      </if>
+      <if test="cumulativeTotalWaste != null" >
+        #{cumulativeTotalWaste,jdbcType=DECIMAL},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjLzehRebarSupermarket" >
+    update zj_lzeh_rebar_supermarket
+    <set >
+      <if test="rebarRequirementNumber != null" >
+        rebar_requirement_number = #{rebarRequirementNumber,jdbcType=DECIMAL},
+      </if>
+      <if test="cumulativeUsageNumber != null" >
+        cumulative_usage_number = #{cumulativeUsageNumber,jdbcType=DECIMAL},
+      </if>
+      <if test="cumulativeHasBeenReceivingNumber != null" >
+        cumulative_has_been_receiving_number = #{cumulativeHasBeenReceivingNumber,jdbcType=DECIMAL},
+      </if>
+      <if test="remainingStockNumber != null" >
+        remaining_stock_number = #{remainingStockNumber,jdbcType=DECIMAL},
+      </if>
+      <if test="cumulativeTotalWaste != null" >
+        cumulative_total_waste = #{cumulativeTotalWaste,jdbcType=DECIMAL},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where rebar_supermarket_id = #{rebarSupermarketId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjLzehRebarSupermarket" >
+    update zj_lzeh_rebar_supermarket
+    set       rebar_requirement_number = #{rebarRequirementNumber,jdbcType=DECIMAL},
+      cumulative_usage_number = #{cumulativeUsageNumber,jdbcType=DECIMAL},
+      cumulative_has_been_receiving_number = #{cumulativeHasBeenReceivingNumber,jdbcType=DECIMAL},
+      remaining_stock_number = #{remainingStockNumber,jdbcType=DECIMAL},
+      cumulative_total_waste = #{cumulativeTotalWaste,jdbcType=DECIMAL},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where rebar_supermarket_id = #{rebarSupermarketId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjLzehRebarSupermarketList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjLzehRebarSupermarket" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_lzeh_rebar_supermarket
+    where del_flag = '0'
+    <if test="rebarRequirementNumber != null and rebarRequirementNumber != ''" >
+     and rebar_requirement_number = #{rebarRequirementNumber,jdbcType=DECIMAL}
+    </if>
+    <if test="cumulativeUsageNumber != null and cumulativeUsageNumber != ''" >
+     and cumulative_usage_number = #{cumulativeUsageNumber,jdbcType=DECIMAL}
+    </if>
+    <if test="cumulativeHasBeenReceivingNumber != null and cumulativeHasBeenReceivingNumber != ''" >
+     and cumulative_has_been_receiving_number = #{cumulativeHasBeenReceivingNumber,jdbcType=DECIMAL}
+    </if>
+    <if test="remainingStockNumber != null and remainingStockNumber != ''" >
+     and remaining_stock_number = #{remainingStockNumber,jdbcType=DECIMAL}
+    </if>
+    <if test="cumulativeTotalWaste != null and cumulativeTotalWaste != ''" >
+     and cumulative_total_waste = #{cumulativeTotalWaste,jdbcType=DECIMAL}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjLzehRebarSupermarket" parameterType="com.apih5.mybatis.pojo.ZjLzehRebarSupermarket" >
+    <![CDATA[ 
+        update zj_lzeh_rebar_supermarket
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and rebar_supermarket_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.rebarSupermarketId} 
+     </foreach>
+  </delete>
+</mapper>

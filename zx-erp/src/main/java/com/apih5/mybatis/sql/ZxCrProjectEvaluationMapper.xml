@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCrProjectEvaluationMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCrProjectEvaluation" >
+    <id column="zxCrProjectEvaluation_id" property="zxCrProjectEvaluationId" jdbcType="CHAR" />
+    <result column="orgId" property="orgId" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="customerId" property="customerId" jdbcType="VARCHAR" />
+    <result column="customerName" property="customerName" jdbcType="VARCHAR" />
+    <result column="orgCertificate" property="orgCertificate" jdbcType="VARCHAR" />
+    <result column="resCode" property="resCode" jdbcType="VARCHAR" />
+    <result column="resID" property="resID" jdbcType="VARCHAR" />
+    <result column="resName" property="resName" jdbcType="VARCHAR" />
+    <result column="catCode" property="catCode" jdbcType="VARCHAR" />
+    <result column="catID" property="catID" jdbcType="VARCHAR" />
+    <result column="catName" property="catName" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="checkDate" property="checkDate" jdbcType="TIMESTAMP" />
+    <result column="inDate" property="inDate" jdbcType="TIMESTAMP" />
+    <result column="outDate" property="outDate" jdbcType="TIMESTAMP" />
+    <result column="contractAmt" property="contractAmt" jdbcType="DECIMAL" />
+    <result column="totalScore" property="totalScore" jdbcType="DECIMAL" />
+    <result column="chargeMan" property="chargeMan" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="comOrders" property="comOrders" jdbcType="VARCHAR" />
+    <result column="auditStatus" property="auditStatus" jdbcType="VARCHAR" />
+    <result column="preparer" property="preparer" jdbcType="VARCHAR" />
+    <result column="auditor" property="auditor" jdbcType="VARCHAR" />
+    <result column="checkStandard" property="checkStandard" jdbcType="VARCHAR" />
+    <result column="chargeManPhone" property="chargeManPhone" jdbcType="VARCHAR" />
+    <result column="periodDate" property="periodDate" jdbcType="TIMESTAMP" />
+    <result column="companyName" property="companyName" jdbcType="VARCHAR" />
+    <result column="companyId" property="companyId" jdbcType="VARCHAR" />
+    <result column="parentID" property="parentID" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxCrProjectEvaluation_id, orgId, orgName, customerId, customerName, 
+    orgCertificate, resCode, resID, resName, catCode, 
+    catID, catName, period, periodYear, periodQuarter, checkDate, inDate,
+    outDate, contractAmt, totalScore, chargeMan, editTime, 
+    comID, comName, comOrders, auditStatus, preparer, 
+    auditor, checkStandard, chargeManPhone, periodDate, companyName, 
+    companyId,projectID, parentID, remarks, sort, del_flag,
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cr_ProjectEvaluation
+    where del_flag = '0' and zxCrProjectEvaluation_id = #{zxCrProjectEvaluationId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_cr_ProjectEvaluation
+    where zxCrProjectEvaluation_id = #{zxCrProjectEvaluationId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCrProjectEvaluation" >
+    insert into zx_cr_ProjectEvaluation (
+    zxCrProjectEvaluation_id, orgId, orgName, customerId, customerName, 
+    orgCertificate, resCode, resID, resName, catCode, 
+    catID, catName, period, periodYear, periodQuarter, checkDate, inDate,
+    outDate, contractAmt, totalScore, chargeMan, editTime, 
+    comID, comName, comOrders, auditStatus, preparer, 
+    auditor, checkStandard, chargeManPhone, periodDate, companyName, 
+    companyId, projectId, parentID, remarks, sort, del_flag,
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{zxCrProjectEvaluationId,jdbcType=CHAR}, #{orgId,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, #{customerId,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, 
+    #{orgCertificate,jdbcType=VARCHAR}, #{resCode,jdbcType=VARCHAR}, #{resID,jdbcType=VARCHAR}, #{resName,jdbcType=VARCHAR}, #{catCode,jdbcType=VARCHAR}, 
+    #{catID,jdbcType=VARCHAR}, #{catName,jdbcType=VARCHAR}, #{period,jdbcType=VARCHAR}, #{periodYear,jdbcType=VARCHAR}, #{periodQuarter,jdbcType=INTEGER}, #{checkDate,jdbcType=TIMESTAMP}, #{inDate,jdbcType=TIMESTAMP},
+    #{outDate,jdbcType=TIMESTAMP}, #{contractAmt,jdbcType=DECIMAL}, #{totalScore,jdbcType=DECIMAL}, #{chargeMan,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, 
+    #{comID,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, #{comOrders,jdbcType=VARCHAR}, #{auditStatus,jdbcType=VARCHAR}, #{preparer,jdbcType=VARCHAR}, 
+    #{auditor,jdbcType=VARCHAR}, #{checkStandard,jdbcType=VARCHAR}, #{chargeManPhone,jdbcType=VARCHAR}, #{periodDate,jdbcType=TIMESTAMP}, #{companyName,jdbcType=VARCHAR}, 
+    #{companyId,jdbcType=VARCHAR}, #{projectId,jdbcType=VARCHAR}, #{parentID,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR},
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCrProjectEvaluation" >
+    insert into zx_cr_ProjectEvaluation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxCrProjectEvaluationId != null" >
+        zxCrProjectEvaluation_id,
+      </if>
+      <if test="orgId != null" >
+        orgId,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="customerId != null" >
+        customerId,
+      </if>
+      <if test="customerName != null" >
+        customerName,
+      </if>
+      <if test="orgCertificate != null" >
+        orgCertificate,
+      </if>
+      <if test="resCode != null" >
+        resCode,
+      </if>
+      <if test="resID != null" >
+        resID,
+      </if>
+      <if test="resName != null" >
+        resName,
+      </if>
+      <if test="catCode != null" >
+        catCode,
+      </if>
+      <if test="catID != null" >
+        catID,
+      </if>
+      <if test="catName != null" >
+        catName,
+      </if>
+      <if test="period != null" >
+        period,
+      </if>
+      <if test="checkDate != null" >
+        checkDate,
+      </if>
+      <if test="inDate != null" >
+        inDate,
+      </if>
+      <if test="outDate != null" >
+        outDate,
+      </if>
+      <if test="contractAmt != null" >
+        contractAmt,
+      </if>
+      <if test="totalScore != null" >
+        totalScore,
+      </if>
+      <if test="chargeMan != null" >
+        chargeMan,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="comOrders != null" >
+        comOrders,
+      </if>
+      <if test="auditStatus != null" >
+        auditStatus,
+      </if>
+      <if test="preparer != null" >
+        preparer,
+      </if>
+      <if test="auditor != null" >
+        auditor,
+      </if>
+      <if test="checkStandard != null" >
+        checkStandard,
+      </if>
+      <if test="chargeManPhone != null" >
+        chargeManPhone,
+      </if>
+      <if test="periodDate != null" >
+        periodDate,
+      </if>
+      <if test="companyName != null" >
+        companyName,
+      </if>
+      <if test="companyId != null" >
+        companyId,
+      </if>
+      <if test="parentID != null" >
+        parentID,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxCrProjectEvaluationId != null" >
+        #{zxCrProjectEvaluationId,jdbcType=CHAR},
+      </if>
+      <if test="orgId != null" >
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null" >
+        #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCertificate != null" >
+        #{orgCertificate,jdbcType=VARCHAR},
+      </if>
+      <if test="resCode != null" >
+        #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resID != null" >
+        #{resID,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="catCode != null" >
+        #{catCode,jdbcType=VARCHAR},
+      </if>
+      <if test="catID != null" >
+        #{catID,jdbcType=VARCHAR},
+      </if>
+      <if test="catName != null" >
+        #{catName,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != null" >
+        #{checkDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inDate != null" >
+        #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outDate != null" >
+        #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contractAmt != null" >
+        #{contractAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalScore != null" >
+        #{totalScore,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeMan != null" >
+        #{chargeMan,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="preparer != null" >
+        #{preparer,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null" >
+        #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="checkStandard != null" >
+        #{checkStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeManPhone != null" >
+        #{chargeManPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="periodDate != null" >
+        #{periodDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="parentID != null" >
+        #{parentID,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCrProjectEvaluation" >
+    update zx_cr_ProjectEvaluation
+    <set >
+      <if test="orgId != null" >
+        orgId = #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null" >
+        customerId = #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        customerName = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCertificate != null" >
+        orgCertificate = #{orgCertificate,jdbcType=VARCHAR},
+      </if>
+      <if test="resCode != null" >
+        resCode = #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resID != null" >
+        resID = #{resID,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        resName = #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="catCode != null" >
+        catCode = #{catCode,jdbcType=VARCHAR},
+      </if>
+      <if test="catID != null" >
+        catID = #{catID,jdbcType=VARCHAR},
+      </if>
+      <if test="catName != null" >
+        catName = #{catName,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        period = #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != null" >
+        checkDate = #{checkDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inDate != null" >
+        inDate = #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outDate != null" >
+        outDate = #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contractAmt != null" >
+        contractAmt = #{contractAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalScore != null" >
+        totalScore = #{totalScore,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeMan != null" >
+        chargeMan = #{chargeMan,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        comOrders = #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        auditStatus = #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="preparer != null" >
+        preparer = #{preparer,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null" >
+        auditor = #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="checkStandard != null" >
+        checkStandard = #{checkStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeManPhone != null" >
+        chargeManPhone = #{chargeManPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="periodDate != null" >
+        periodDate = #{periodDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="companyName != null" >
+        companyName = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        companyId = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="parentID != null" >
+        parentID = #{parentID,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxCrProjectEvaluation_id = #{zxCrProjectEvaluationId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCrProjectEvaluation" >
+    update zx_cr_ProjectEvaluation set 
+      orgId = #{orgId,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      customerId = #{customerId,jdbcType=VARCHAR},
+      customerName = #{customerName,jdbcType=VARCHAR},
+      orgCertificate = #{orgCertificate,jdbcType=VARCHAR},
+      resCode = #{resCode,jdbcType=VARCHAR},
+      resID = #{resID,jdbcType=VARCHAR},
+      resName = #{resName,jdbcType=VARCHAR},
+      catCode = #{catCode,jdbcType=VARCHAR},
+      catID = #{catID,jdbcType=VARCHAR},
+      catName = #{catName,jdbcType=VARCHAR},
+      period = #{period,jdbcType=VARCHAR},
+      checkDate = #{checkDate,jdbcType=TIMESTAMP},
+      inDate = #{inDate,jdbcType=TIMESTAMP},
+      outDate = #{outDate,jdbcType=TIMESTAMP},
+      contractAmt = #{contractAmt,jdbcType=DECIMAL},
+      totalScore = #{totalScore,jdbcType=DECIMAL},
+      chargeMan = #{chargeMan,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      comOrders = #{comOrders,jdbcType=VARCHAR},
+      auditStatus = #{auditStatus,jdbcType=VARCHAR},
+      preparer = #{preparer,jdbcType=VARCHAR},
+      auditor = #{auditor,jdbcType=VARCHAR},
+      checkStandard = #{checkStandard,jdbcType=VARCHAR},
+      chargeManPhone = #{chargeManPhone,jdbcType=VARCHAR},
+      periodDate = #{periodDate,jdbcType=TIMESTAMP},
+      companyName = #{companyName,jdbcType=VARCHAR},
+      companyId = #{companyId,jdbcType=VARCHAR},
+      parentID = #{parentID,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxCrProjectEvaluation_id = #{zxCrProjectEvaluationId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxCrProjectEvaluationList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCrProjectEvaluation" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cr_ProjectEvaluation
+    where del_flag = '0'
+    <if test="zxCrProjectEvaluationId != null and zxCrProjectEvaluationId != ''" >
+     and zxCrProjectEvaluation_id = #{zxCrProjectEvaluationId,jdbcType=CHAR}
+    </if>
+    <if test="orgId != null and orgId != ''" >
+     and orgId = #{orgId,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="customerId != null and customerId != ''" >
+     and customerId = #{customerId,jdbcType=VARCHAR}
+    </if>
+    <if test="customerName != null and customerName != ''" >
+     and customerName = #{customerName,jdbcType=VARCHAR}
+    </if>
+    <if test="orgCertificate != null and orgCertificate != ''" >
+     and orgCertificate = #{orgCertificate,jdbcType=VARCHAR}
+    </if>
+    <if test="resCode != null and resCode != ''" >
+     and resCode = #{resCode,jdbcType=VARCHAR}
+    </if>
+    <if test="resID != null and resID != ''" >
+     and resID = #{resID,jdbcType=VARCHAR}
+    </if>
+    <if test="resName != null and resName != ''" >
+     and resName = #{resName,jdbcType=VARCHAR}
+    </if>
+    <if test="catCode != null and catCode != ''" >
+     and catCode = #{catCode,jdbcType=VARCHAR}
+    </if>
+    <if test="catID != null and catID != ''" >
+     and catID = #{catID,jdbcType=VARCHAR}
+    </if>
+    <if test="catName != null and catName != ''" >
+     and catName = #{catName,jdbcType=VARCHAR}
+    </if>
+    <if test="period != null and period != ''" >
+     and period = #{period,jdbcType=VARCHAR}
+    </if>
+    <if test="checkDate != null and checkDate != ''" >
+     and checkDate = #{checkDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="inDate != null and inDate != ''" >
+     and inDate = #{inDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="outDate != null and outDate != ''" >
+     and outDate = #{outDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="contractAmt != null and contractAmt != ''" >
+     and contractAmt = #{contractAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="totalScore != null and totalScore != ''" >
+     and totalScore = #{totalScore,jdbcType=DECIMAL}
+    </if>
+    <if test="chargeMan != null and chargeMan != ''" >
+     and chargeMan = #{chargeMan,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="comOrders != null and comOrders != ''" >
+     and comOrders = #{comOrders,jdbcType=VARCHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+      and projectId = #{projectId,jdbcType=VARCHAR}
+    </if>
+    <if test="auditStatus != null and auditStatus != ''" >
+     and auditStatus = #{auditStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="preparer != null and preparer != ''" >
+     and preparer = #{preparer,jdbcType=VARCHAR}
+    </if>
+    <if test="auditor != null and auditor != ''" >
+     and auditor = #{auditor,jdbcType=VARCHAR}
+    </if>
+    <if test="checkStandard != null and checkStandard != ''" >
+     and checkStandard = #{checkStandard,jdbcType=VARCHAR}
+    </if>
+    <if test="chargeManPhone != null and chargeManPhone != ''" >
+     and chargeManPhone = #{chargeManPhone,jdbcType=VARCHAR}
+    </if>
+    <if test="periodDate != null and periodDate != ''" >
+     and periodDate = #{periodDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and companyName = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and companyId = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="parentID != null and parentID != ''" >
+     and parentID = #{parentID,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxCrProjectEvaluation" parameterType="com.apih5.mybatis.pojo.ZxCrProjectEvaluation" >
+    <![CDATA[ 
+        update zx_cr_ProjectEvaluation
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxCrProjectEvaluation_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxCrProjectEvaluationId} 
+     </foreach>
+  </delete>
+  <update id="updateByAuditStatus" parameterType="com.apih5.mybatis.pojo.ZxCrProjectEvaluation" >
+    update zx_cr_ProjectEvaluation set
+      auditStatus = '1',
+      auditor = #{auditor,jdbcType=VARCHAR}
+    where zxCrProjectEvaluation_id = #{zxCrProjectEvaluationId,jdbcType=CHAR}
+  </update>
+  <update id="updateByAuditStatusOut" parameterType="com.apih5.mybatis.pojo.ZxCrProjectEvaluation" >
+    update zx_cr_ProjectEvaluation set
+      auditStatus = '0'
+    where zxCrProjectEvaluation_id = #{zxCrProjectEvaluationId,jdbcType=CHAR}
+  </update>
+  <!-- 查询上半年的项目评价 -->
+  <select id="selectFirstHalfYearProjectEvaluationList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCrProjectEvaluation">
+    select
+    <include refid="Base_Column_List" />
+    from zx_cr_ProjectEvaluation
+    where del_flag = '0'
+    <if test="customerId != null and customerId != ''" >
+      and customerId = #{customerId,jdbcType=VARCHAR}
+    </if>
+    <if test="resID != null and resID != ''" >
+      and resID = #{resID,jdbcType=VARCHAR}
+    </if>
+    <if test="catID != null and catID != ''" >
+      and catID = #{catID,jdbcType=VARCHAR}
+    </if>
+    <if test="periodYear != null and periodYear != ''" >
+      and periodYear = #{periodYear,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+      and companyId = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+      and projectId = #{projectId,jdbcType=VARCHAR}
+    </if>
+    and periodQuarter &lt;= 2
+    and auditStatus = '1'
+    ORDER BY modify_time DESC
+  </select>
+
+  <!-- 查询上半年的项目评价 -->
+  <select id="selectSecondHalfYearProjectEvaluationList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCrProjectEvaluation">
+    select
+    <include refid="Base_Column_List" />
+    from zx_cr_ProjectEvaluation
+    where del_flag = '0'
+    <if test="customerId != null and customerId != ''" >
+      and customerId = #{customerId,jdbcType=VARCHAR}
+    </if>
+    <if test="resID != null and resID != ''" >
+      and resID = #{resID,jdbcType=VARCHAR}
+    </if>
+    <if test="catID != null and catID != ''" >
+      and catID = #{catID,jdbcType=VARCHAR}
+    </if>
+    <if test="periodYear != null and periodYear != ''" >
+      and periodYear = #{periodYear,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+      and companyId = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+      and projectId = #{projectId,jdbcType=VARCHAR}
+    </if>
+    and periodQuarter &gt;= 2
+    and auditStatus = '1'
+    ORDER BY modify_time DESC
+  </select>
+
+</mapper>

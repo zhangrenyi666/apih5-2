@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqEemployeeMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqEemployee" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="VARCHAR" />
+    <result column="eduLevel" property="eduLevel" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="pos" property="pos" jdbcType="VARCHAR" />
+    <result column="posAge" property="posAge" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="combProp" property="combProp" jdbcType="VARCHAR" />
+    <result column="pp1" property="pp1" jdbcType="VARCHAR" />
+    <result column="pp2" property="pp2" jdbcType="VARCHAR" />
+    <result column="pp3" property="pp3" jdbcType="VARCHAR" />
+    <result column="pp4" property="pp4" jdbcType="VARCHAR" />
+    <result column="pp5" property="pp5" jdbcType="VARCHAR" />
+    <result column="pp6" property="pp6" jdbcType="VARCHAR" />
+    <result column="pp7" property="pp7" jdbcType="VARCHAR" />
+    <result column="pp8" property="pp8" jdbcType="VARCHAR" />
+    <result column="pp9" property="pp9" jdbcType="VARCHAR" />
+    <result column="pp10" property="pp10" jdbcType="VARCHAR" />
+    <result column="parentID" property="parentID" jdbcType="VARCHAR" />
+    <result column="jobID" property="jobID" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, code, orgName, orgID, name, 
+    age, eduLevel, title, pos, posAge, 
+    remark, editTime, combProp, pp1, pp2, 
+    pp3, pp4, pp5, pp6, pp7, 
+    pp8, pp9, pp10, parentID, jobID, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_Eemployee
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_Eemployee
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqEemployee" >
+    insert into zx_eq_Eemployee (id, code, orgName, 
+      orgID, name, age, 
+      eduLevel, title, pos, 
+      posAge, remark, editTime, 
+      combProp, pp1, pp2, 
+      pp3, pp4, pp5, 
+      pp6, pp7, pp8, 
+      pp9, pp10, parentID, 
+      jobID, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, 
+      #{orgID,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, 
+      #{eduLevel,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{pos,jdbcType=VARCHAR}, 
+      #{posAge,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, 
+      #{combProp,jdbcType=VARCHAR}, #{pp1,jdbcType=VARCHAR}, #{pp2,jdbcType=VARCHAR}, 
+      #{pp3,jdbcType=VARCHAR}, #{pp4,jdbcType=VARCHAR}, #{pp5,jdbcType=VARCHAR}, 
+      #{pp6,jdbcType=VARCHAR}, #{pp7,jdbcType=VARCHAR}, #{pp8,jdbcType=VARCHAR}, 
+      #{pp9,jdbcType=VARCHAR}, #{pp10,jdbcType=VARCHAR}, #{parentID,jdbcType=VARCHAR}, 
+      #{jobID,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqEemployee" >
+    insert into zx_eq_Eemployee
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="eduLevel != null" >
+        eduLevel,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="pos != null" >
+        pos,
+      </if>
+      <if test="posAge != null" >
+        posAge,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="combProp != null" >
+        combProp,
+      </if>
+      <if test="pp1 != null" >
+        pp1,
+      </if>
+      <if test="pp2 != null" >
+        pp2,
+      </if>
+      <if test="pp3 != null" >
+        pp3,
+      </if>
+      <if test="pp4 != null" >
+        pp4,
+      </if>
+      <if test="pp5 != null" >
+        pp5,
+      </if>
+      <if test="pp6 != null" >
+        pp6,
+      </if>
+      <if test="pp7 != null" >
+        pp7,
+      </if>
+      <if test="pp8 != null" >
+        pp8,
+      </if>
+      <if test="pp9 != null" >
+        pp9,
+      </if>
+      <if test="pp10 != null" >
+        pp10,
+      </if>
+      <if test="parentID != null" >
+        parentID,
+      </if>
+      <if test="jobID != null" >
+        jobID,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="eduLevel != null" >
+        #{eduLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="pos != null" >
+        #{pos,jdbcType=VARCHAR},
+      </if>
+      <if test="posAge != null" >
+        #{posAge,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="combProp != null" >
+        #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="pp1 != null" >
+        #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2 != null" >
+        #{pp2,jdbcType=VARCHAR},
+      </if>
+      <if test="pp3 != null" >
+        #{pp3,jdbcType=VARCHAR},
+      </if>
+      <if test="pp4 != null" >
+        #{pp4,jdbcType=VARCHAR},
+      </if>
+      <if test="pp5 != null" >
+        #{pp5,jdbcType=VARCHAR},
+      </if>
+      <if test="pp6 != null" >
+        #{pp6,jdbcType=VARCHAR},
+      </if>
+      <if test="pp7 != null" >
+        #{pp7,jdbcType=VARCHAR},
+      </if>
+      <if test="pp8 != null" >
+        #{pp8,jdbcType=VARCHAR},
+      </if>
+      <if test="pp9 != null" >
+        #{pp9,jdbcType=VARCHAR},
+      </if>
+      <if test="pp10 != null" >
+        #{pp10,jdbcType=VARCHAR},
+      </if>
+      <if test="parentID != null" >
+        #{parentID,jdbcType=VARCHAR},
+      </if>
+      <if test="jobID != null" >
+        #{jobID,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqEemployee" >
+    update zx_eq_Eemployee
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="eduLevel != null" >
+        eduLevel = #{eduLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="pos != null" >
+        pos = #{pos,jdbcType=VARCHAR},
+      </if>
+      <if test="posAge != null" >
+        posAge = #{posAge,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="combProp != null" >
+        combProp = #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="pp1 != null" >
+        pp1 = #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2 != null" >
+        pp2 = #{pp2,jdbcType=VARCHAR},
+      </if>
+      <if test="pp3 != null" >
+        pp3 = #{pp3,jdbcType=VARCHAR},
+      </if>
+      <if test="pp4 != null" >
+        pp4 = #{pp4,jdbcType=VARCHAR},
+      </if>
+      <if test="pp5 != null" >
+        pp5 = #{pp5,jdbcType=VARCHAR},
+      </if>
+      <if test="pp6 != null" >
+        pp6 = #{pp6,jdbcType=VARCHAR},
+      </if>
+      <if test="pp7 != null" >
+        pp7 = #{pp7,jdbcType=VARCHAR},
+      </if>
+      <if test="pp8 != null" >
+        pp8 = #{pp8,jdbcType=VARCHAR},
+      </if>
+      <if test="pp9 != null" >
+        pp9 = #{pp9,jdbcType=VARCHAR},
+      </if>
+      <if test="pp10 != null" >
+        pp10 = #{pp10,jdbcType=VARCHAR},
+      </if>
+      <if test="parentID != null" >
+        parentID = #{parentID,jdbcType=VARCHAR},
+      </if>
+      <if test="jobID != null" >
+        jobID = #{jobID,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqEemployee" >
+    update zx_eq_Eemployee
+    set       code = #{code,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      age = #{age,jdbcType=VARCHAR},
+      eduLevel = #{eduLevel,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      pos = #{pos,jdbcType=VARCHAR},
+      posAge = #{posAge,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      combProp = #{combProp,jdbcType=VARCHAR},
+      pp1 = #{pp1,jdbcType=VARCHAR},
+      pp2 = #{pp2,jdbcType=VARCHAR},
+      pp3 = #{pp3,jdbcType=VARCHAR},
+      pp4 = #{pp4,jdbcType=VARCHAR},
+      pp5 = #{pp5,jdbcType=VARCHAR},
+      pp6 = #{pp6,jdbcType=VARCHAR},
+      pp7 = #{pp7,jdbcType=VARCHAR},
+      pp8 = #{pp8,jdbcType=VARCHAR},
+      pp9 = #{pp9,jdbcType=VARCHAR},
+      pp10 = #{pp10,jdbcType=VARCHAR},
+      parentID = #{parentID,jdbcType=VARCHAR},
+      jobID = #{jobID,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxEqEemployeeList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEemployee" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_Eemployee
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="code != null and code != ''" >
+     and code = #{code,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="name != null and name != ''" >
+     and name = #{name,jdbcType=VARCHAR}
+    </if>
+    <if test="age != null and age != ''" >
+     and age = #{age,jdbcType=VARCHAR}
+    </if>
+    <if test="eduLevel != null and eduLevel != ''" >
+     and eduLevel = #{eduLevel,jdbcType=VARCHAR}
+    </if>
+    <if test="title != null and title != ''" >
+     and title = #{title,jdbcType=VARCHAR}
+    </if>
+    <if test="pos != null and pos != ''" >
+     and pos = #{pos,jdbcType=VARCHAR}
+    </if>
+    <if test="posAge != null and posAge != ''" >
+     and posAge = #{posAge,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="combProp != null and combProp != ''" >
+     and combProp = #{combProp,jdbcType=VARCHAR}
+    </if>
+    <if test="pp1 != null and pp1 != ''" >
+     and pp1 = #{pp1,jdbcType=VARCHAR}
+    </if>
+    <if test="pp2 != null and pp2 != ''" >
+     and pp2 = #{pp2,jdbcType=VARCHAR}
+    </if>
+    <if test="pp3 != null and pp3 != ''" >
+     and pp3 = #{pp3,jdbcType=VARCHAR}
+    </if>
+    <if test="pp4 != null and pp4 != ''" >
+     and pp4 = #{pp4,jdbcType=VARCHAR}
+    </if>
+    <if test="pp5 != null and pp5 != ''" >
+     and pp5 = #{pp5,jdbcType=VARCHAR}
+    </if>
+    <if test="pp6 != null and pp6 != ''" >
+     and pp6 = #{pp6,jdbcType=VARCHAR}
+    </if>
+    <if test="pp7 != null and pp7 != ''" >
+     and pp7 = #{pp7,jdbcType=VARCHAR}
+    </if>
+    <if test="pp8 != null and pp8 != ''" >
+     and pp8 = #{pp8,jdbcType=VARCHAR}
+    </if>
+    <if test="pp9 != null and pp9 != ''" >
+     and pp9 = #{pp9,jdbcType=VARCHAR}
+    </if>
+    <if test="pp10 != null and pp10 != ''" >
+     and pp10 = #{pp10,jdbcType=VARCHAR}
+    </if>
+    <if test="parentID != null and parentID != ''" >
+     and parentID = #{parentID,jdbcType=VARCHAR}
+    </if>
+    <if test="jobID != null and jobID != ''" >
+     and jobID = #{jobID,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqEemployee" parameterType="com.apih5.mybatis.pojo.ZxEqEemployee" >
+    <![CDATA[ 
+        update zx_eq_Eemployee
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+  <select id="getZxEqEemployeeListForReport" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEemployee" >
+    select
+    ee.orgName as orgName
+    ,now() as create_time
+    ,row_number() over (order by ee.projectName) as code
+    ,ee.projectName as projectName
+    ,name
+    ,age
+    ,eduLevel
+    ,title
+    ,pos
+    ,posAge
+    ,ee.remark as remark
+    from zx_eq_EEmployee e inner join zx_eq_EProjectEmployee ee on e.parentID=ee.ID
+    where e.del_flag = '0'
+    <if test="orgName != null and orgName != ''" >
+      and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+      and ee.orgID like CONCAT('%',CONCAT(#{orgID,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="name != null and name != ''" >
+      and e.name like CONCAT('%',CONCAT(#{name,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="projectName != null and projectName != ''" >
+      and ee.projectName like CONCAT('%',CONCAT(#{projectName,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="projectID != null and projectID != ''" >
+      and ee.projectID like CONCAT('%',CONCAT(#{projectID,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="age != null and age != ''" >
+      and age = #{age,jdbcType=VARCHAR}
+    </if>
+    <if test="eduLevel != null and eduLevel != ''" >
+      and e.eduLevel like CONCAT('%',CONCAT(#{eduLevel,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="title != null and title != ''" >
+      and e.title like CONCAT('%',CONCAT(#{title,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="pos != null and pos != ''" >
+      and e.pos like CONCAT('%',CONCAT(#{pos,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="posAge != null and posAge != ''" >
+      and posAge = #{posAge,jdbcType=VARCHAR}
+    </if>
+    <if test="bzDateStart != null" >
+      AND DATE_FORMAT(ee.bzDate,'%Y-%m-%d %H:%i:%s') &gt;= DATE_FORMAT(#{bzDateStart},'%Y-%m-%d %H:%i:%s')
+    </if>
+    <if test="bzDateEnd != null" >
+      AND DATE_FORMAT(ee.bzDate,'%Y-%m-%d %H:%i:%s') &lt;= DATE_FORMAT(CONCAT(#{bzDateEnd},'23:59:59'),'%Y-%m-%d %H:%i:%s')
+    </if>
+    ORDER BY ee.projectName
+  </select>
+  
+</mapper>

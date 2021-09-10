@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzProSubprojectInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzProSubprojectInfo" >
+    <id column="subproject_info_id" property="subprojectInfoId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="subproject_number" property="subprojectNumber" jdbcType="VARCHAR" />
+    <result column="subproject_name" property="subprojectName" jdbcType="VARCHAR" />
+    <result column="construct_end" property="constructEnd" jdbcType="CHAR" />
+    <result column="construct_period" property="constructPeriod" jdbcType="DECIMAL" />
+    <result column="start_date_actual" property="startDateActual" jdbcType="DATE" />
+    <result column="handover_date_actual" property="handoverDateActual" jdbcType="DATE" />
+    <result column="complate_date_actual" property="complateDateActual" jdbcType="DATE" />
+    <result column="handover_date_plan" property="handoverDatePlan" jdbcType="DATE" />
+    <result column="complate_date_plan" property="complateDatePlan" jdbcType="DATE" />
+    <result column="approval_handover_date" property="approvalHandoverDate" jdbcType="DATE" />
+    <result column="approval_complete_date" property="approvalCompleteDate" jdbcType="DATE" />
+    <result column="approval_start_date" property="approvalStartDate" jdbcType="DATE" />
+    <result column="sign_date3" property="signDate3" jdbcType="DATE" />
+    <result column="run_date1" property="runDate1" jdbcType="DATE" />
+    <result column="run_date3" property="runDate3" jdbcType="DATE" />
+    <result column="run_date2" property="runDate2" jdbcType="DATE" />
+    <result column="run_date4" property="runDate4" jdbcType="DATE" />
+    <result column="amount1" property="amount1" jdbcType="DECIMAL" />
+    <result column="amount3" property="amount3" jdbcType="DECIMAL" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    subproject_info_id, project_id, subproject_number, subproject_name, 
+    construct_end, construct_period, start_date_actual, handover_date_actual, complate_date_actual,
+    handover_date_plan, complate_date_plan, approval_handover_date, approval_complete_date, 
+    approval_start_date, sign_date3, run_date1, run_date3, run_date2, run_date4, amount1, amount3, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_pro_subproject_info
+    where subproject_info_id = #{subprojectInfoId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_pro_subproject_info
+    where subproject_info_id = #{subprojectInfoId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzProSubprojectInfo" >
+    insert into zj_tz_pro_subproject_info (subproject_info_id, project_id, subproject_number, 
+      subproject_name, construct_end, construct_period,
+      start_date_actual, handover_date_actual, complate_date_actual,
+      handover_date_plan, complate_date_plan, approval_handover_date, approval_complete_date,
+      approval_start_date, sign_date3, run_date1, run_date3, run_date2, run_date4, amount1, amount3, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{subprojectInfoId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{subprojectNumber,jdbcType=VARCHAR}, 
+      #{subprojectName,jdbcType=VARCHAR}, #{constructEnd,jdbcType=CHAR},#{constructPeriod,jdbcType=DECIMAL},
+      #{startDateActual,jdbcType=DATE}, #{handoverDateActual,jdbcType=DATE}, #{complateDateActual,jdbcType=DATE},
+      #{handoverDatePlan,jdbcType=DATE},#{complateDatePlan,jdbcType=DATE},#{approvalHandoverDate,jdbcType=DATE},
+      #{approvalCompleteDate,jdbcType=DATE},#{approvalStartDate,jdbcType=DATE},#{signDate3,jdbcType=DATE},#{runDate1,jdbcType=DATE},
+      #{runDate3,jdbcType=DATE},#{runDate2,jdbcType=DATE},#{runDate4,jdbcType=DATE},#{amount1,jdbcType=DECIMAL}, #{amount3,jdbcType=DECIMAL},
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzProSubprojectInfo" >
+    insert into zj_tz_pro_subproject_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="subprojectInfoId != null" >
+        subproject_info_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="subprojectNumber != null" >
+        subproject_number,
+      </if>
+      <if test="subprojectName != null" >
+        subproject_name,
+      </if>
+      <if test="constructEnd != null" >
+        construct_end,
+      </if>
+      <if test="constructPeriod != null" >
+        construct_period,
+      </if>
+      <if test="startDateActual != null" >
+        start_date_actual,
+      </if>
+      <if test="handoverDateActual != null" >
+        handover_date_actual,
+      </if>
+      <if test="complateDateActual != null" >
+        complate_date_actual,
+      </if>
+      <if test="handoverDatePlan != null" >
+        handover_date_plan,
+      </if>
+      <if test="complateDatePlan != null" >
+        complate_date_plan,
+      </if>
+      <if test="approvalHandoverDate != null" >
+        approval_handover_date,
+      </if>
+      <if test="approvalCompleteDate != null" >
+        approval_complete_date,
+      </if>
+      <if test="approvalStartDate != null" >
+        approval_start_date,
+      </if>
+      <if test="signDate3 != null" >
+        sign_date3,
+      </if>
+      <if test="runDate1 != null" >
+        run_date1,
+      </if>
+      <if test="runDate3 != null" >
+        run_date3,
+      </if>
+      <if test="runDate2 != null" >
+        run_date2,
+      </if>
+      <if test="runDate4 != null" >
+        run_date4,
+      </if>
+      <if test="amount1 != null" >
+        amount1,
+      </if>
+      <if test="amount3 != null" >
+        amount3,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="subprojectInfoId != null" >
+        #{subprojectInfoId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectNumber != null" >
+        #{subprojectNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectName != null" >
+        #{subprojectName,jdbcType=VARCHAR},
+      </if>
+      <if test="constructEnd != null" >
+        #{constructEnd,jdbcType=CHAR},
+      </if>
+      <if test="constructPeriod != null" >
+        #{constructPeriod,jdbcType=DECIMAL},
+      </if>
+      <if test="startDateActual != null" >
+        #{startDateActual,jdbcType=DATE},
+      </if>
+      <if test="handoverDateActual != null" >
+        #{handoverDateActual,jdbcType=DATE},
+      </if>
+      <if test="complateDateActual != null" >
+        #{complateDateActual,jdbcType=DATE},
+      </if>
+      <if test="handoverDatePlan != null" >
+        #{handoverDatePlan,jdbcType=DATE},
+      </if>
+      <if test="complateDatePlan != null" >
+        #{complateDatePlan,jdbcType=DATE},
+      </if>
+      <if test="approvalHandoverDate != null" >
+        #{approvalHandoverDate,jdbcType=DATE},
+      </if>
+      <if test="approvalCompleteDate != null" >
+        #{approvalCompleteDate,jdbcType=DATE},
+      </if>
+      <if test="approvalStartDate != null" >
+        #{approvalStartDate,jdbcType=DATE},
+      </if>
+      <if test="signDate3 != null" >
+        #{signDate3,jdbcType=DATE},
+      </if>
+      <if test="runDate1 != null" >
+        #{runDate1,jdbcType=DATE},
+      </if>
+      <if test="runDate3 != null" >
+        #{runDate3,jdbcType=DATE},
+      </if>
+      <if test="runDate2 != null" >
+        #{runDate2,jdbcType=DATE},
+      </if>
+      <if test="runDate4 != null" >
+        #{runDate4,jdbcType=DATE},
+      </if>
+      <if test="amount1 != null" >
+        #{amount1,jdbcType=DECIMAL},
+      </if>
+      <if test="amount3 != null" >
+        #{amount3,jdbcType=DECIMAL},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzProSubprojectInfo" >
+    update zj_tz_pro_subproject_info
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectNumber != null" >
+        subproject_number = #{subprojectNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectName != null" >
+        subproject_name = #{subprojectName,jdbcType=VARCHAR},
+      </if>
+      <if test="constructEnd != null" >
+        construct_end = #{constructEnd,jdbcType=CHAR},
+      </if>
+      <if test="constructPeriod != null" >
+        construct_period = #{constructPeriod,jdbcType=DECIMAL},
+      </if>
+      <if test="startDateActual != null" >
+        start_date_actual = #{startDateActual,jdbcType=DATE},
+      </if>
+      <if test="handoverDateActual != null" >
+        handover_date_actual = #{handoverDateActual,jdbcType=DATE},
+      </if>
+      <if test="complateDateActual != null" >
+        complete_date_actual = #{complateDateActual,jdbcType=DATE},
+      </if>
+      <if test="handoverDatePlan != null" >
+        handover_date_plan = #{handoverDatePlan,jdbcType=DATE},
+      </if>
+      <if test="complateDatePlan != null" >
+        complate_date_plan = #{complateDatePlan,jdbcType=DATE},
+      </if>
+      <if test="approvalHandoverDate != null" >
+        approval_handover_date = #{approvalHandoverDate,jdbcType=DATE},
+      </if>
+      <if test="approvalCompleteDate != null" >
+        approval_complete_date = #{approvalCompleteDate,jdbcType=DATE},
+      </if>
+      <if test="approvalStartDate != null" >
+        approval_start_date = #{approvalStartDate,jdbcType=DATE},
+      </if>
+      <if test="signDate3 != null" >
+        sign_date3 = #{signDate3,jdbcType=DATE},
+      </if>
+      <if test="runDate1 != null" >
+        run_date1 = #{runDate1,jdbcType=DATE},
+      </if>
+      <if test="runDate3 != null" >
+        run_date3 = #{runDate3,jdbcType=DATE},
+      </if>
+      <if test="runDate2 != null" >
+        run_date2 = #{runDate2,jdbcType=DATE},
+      </if>
+      <if test="runDate4 != null" >
+        run_date4 = #{runDate4,jdbcType=DATE},
+      </if>
+      <if test="amount1 != null" >
+        amount1 = #{amount1,jdbcType=DECIMAL},
+      </if>
+       <if test="amount3 != null" >
+        amount3 = #{amount3,jdbcType=DECIMAL},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where subproject_info_id = #{subprojectInfoId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzProSubprojectInfo" >
+    update zj_tz_pro_subproject_info
+    set       project_id = #{projectId,jdbcType=CHAR},
+      subproject_number = #{subprojectNumber,jdbcType=VARCHAR},
+      subproject_name = #{subprojectName,jdbcType=VARCHAR},
+      construct_end = #{constructEnd,jdbcType=CHAR},
+      construct_period = #{constructPeriod,jdbcType=DECIMAL},
+      start_date_actual = #{startDateActual,jdbcType=DATE},
+      handover_date_actual = #{handoverDateActual,jdbcType=DATE},
+      complate_date_actual = #{complateDateActual,jdbcType=DATE},
+      handover_date_plan = #{handoverDatePlan,jdbcType=DATE},
+      complate_date_plan = #{complateDatePlan,jdbcType=DATE},
+      approval_handover_date = #{approvalHandoverDate,jdbcType=DATE},
+      approval_complete_date = #{approvalCompleteDate,jdbcType=DATE},
+      approval_start_date = #{approvalStartDate,jdbcType=DATE},
+      sign_date3 = #{signDate3,jdbcType=DATE},
+      run_date1 = #{runDate1,jdbcType=DATE},
+      run_date3 = #{runDate3,jdbcType=DATE},
+      run_date2 = #{runDate2,jdbcType=DATE},
+      run_date4 = #{runDate4,jdbcType=DATE},
+      amount1 = #{amount1,jdbcType=DECIMAL},
+      amount3 = #{amount3,jdbcType=DECIMAL},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where subproject_info_id = #{subprojectInfoId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzProSubprojectInfoList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzProSubprojectInfo" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_pro_subproject_info
+    where del_flag = '0'
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="subprojectNumber != null and subprojectNumber != ''" >
+     and subproject_number = #{subprojectNumber,jdbcType=VARCHAR}
+    </if>
+    <if test="subprojectName != null and subprojectName != ''" >
+     and subproject_name = #{subprojectName,jdbcType=VARCHAR}
+    </if>
+    <if test="constructEnd != null and constructEnd != ''" >
+     and construct_end = #{constructEnd,jdbcType=CHAR}
+    </if>
+    <if test="constructPeriod != null and constructPeriod != ''" >
+     and construct_period = #{constructPeriod,jdbcType=DECIMAL}
+    </if>
+    <if test="startDateActual != null" >
+     and start_date_actual = #{startDateActual,jdbcType=DATE}
+    </if>
+    <if test="handoverDateActual != null" >
+     and handover_date_actual = #{handoverDateActual,jdbcType=DATE}
+    </if>
+    <if test="complateDateActual != null" >
+     and complate_date_actual = #{complateDateActual,jdbcType=DATE}
+    </if>
+    <if test="handoverDatePlan != null" >
+     and handover_date_plan = #{handoverDatePlan,jdbcType=DATE}
+    </if>
+    <if test="complateDatePlan != null" >
+     and complate_date_plan = #{complateDatePlan,jdbcType=DATE}
+    </if>
+    <if test="approvalHandoverDate != null" >
+     and approval_handover_date = #{approvalHandoverDate,jdbcType=DATE}
+    </if>
+    <if test="approvalCompleteDate != null" >
+     and approval_complete_date = #{approvalCompleteDate,jdbcType=DATE}
+    </if>
+    <if test="approvalStartDate != null" >
+     and approval_start_date = #{approvalStartDate,jdbcType=DATE}
+    </if>
+    <if test="signDate3 != null" >
+     and sign_date3 = #{signDate3,jdbcType=DATE}
+    </if>
+    <if test="runDate1 != null" >
+     and run_date1 = #{runDate1,jdbcType=DATE}
+    </if>
+    <if test="runDate3 != null" >
+     and run_date3 = #{runDate3,jdbcType=DATE}
+    </if>
+    <if test="runDate2 != null" >
+     and run_date2 = #{runDate2,jdbcType=DATE}
+    </if>
+    <if test="runDate4 != null" >
+     and run_date4 = #{runDate4,jdbcType=DATE}
+    </if>
+    <if test="amount1 != null and amount1 != ''" >
+     and amount1 = #{amount1,jdbcType=DECIMAL}
+    </if>
+    <if test="amount3 != null and amount3 != ''" >
+     and amount3 = #{amount3,jdbcType=DECIMAL}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzProSubprojectInfo" parameterType="com.apih5.mybatis.pojo.ZjTzProSubprojectInfo" >
+    <![CDATA[ 
+        update zj_tz_pro_subproject_info
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and subproject_info_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.subprojectInfoId} 
+     </foreach>
+  </delete>
+</mapper>

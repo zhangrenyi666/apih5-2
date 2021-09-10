@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqToEquipCategoryQueryPageMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQueryPage" >
+    <id column="zxEqToEquipCategoryQueryPageId" property="zxEqToEquipCategoryQueryPageId" jdbcType="CHAR" />
+    <result column="department_ID" property="departmentID" jdbcType="VARCHAR" />
+    <result column="department_name" property="departmentName" jdbcType="VARCHAR" />
+    <result column="year" property="year" jdbcType="TIMESTAMP" />
+    <result column="count1" property="count1" jdbcType="DECIMAL" />
+    <result column="orginalValue1" property="orginalValue1" jdbcType="DECIMAL" />
+    <result column="count2" property="count2" jdbcType="DECIMAL" />
+    <result column="orginalValue2" property="orginalValue2" jdbcType="DECIMAL" />
+    <result column="leftValue2" property="leftValue2" jdbcType="DECIMAL" />
+    <result column="count3" property="count3" jdbcType="DECIMAL" />
+    <result column="orginalValue3" property="orginalValue3" jdbcType="DECIMAL" />
+    <result column="leftValue3" property="leftValue3" jdbcType="DECIMAL" />
+    <result column="count4" property="count4" jdbcType="DECIMAL" />
+    <result column="orginalValue4" property="orginalValue4" jdbcType="DECIMAL" />
+    <result column="leftValue1" property="leftValue1" jdbcType="DECIMAL" />
+    <result column="leftValue4" property="leftValue4" jdbcType="DECIMAL" />
+    <result column="count5" property="count5" jdbcType="DECIMAL" />
+    <result column="orginalValue5" property="orginalValue5" jdbcType="DECIMAL" />
+    <result column="leftValue5" property="leftValue5" jdbcType="DECIMAL" />
+    <result column="count6" property="count6" jdbcType="DECIMAL" />
+    <result column="orginalValue6" property="orginalValue6" jdbcType="DECIMAL" />
+    <result column="leftValue6" property="leftValue6" jdbcType="DECIMAL" />
+    <result column="count7" property="count7" jdbcType="DECIMAL" />
+    <result column="orginalValue7" property="orginalValue7" jdbcType="DECIMAL" />
+    <result column="leftValue7" property="leftValue7" jdbcType="DECIMAL" />
+    <result column="count8" property="count8" jdbcType="DECIMAL" />
+    <result column="orginalValue8" property="orginalValue8" jdbcType="DECIMAL" />
+    <result column="leftValue8" property="leftValue8" jdbcType="DECIMAL" />
+    <result column="count9" property="count9" jdbcType="DECIMAL" />
+    <result column="orginalValue9" property="orginalValue9" jdbcType="DECIMAL" />
+    <result column="leftValue9" property="leftValue9" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="parentID" property="parentID" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxEqToEquipCategoryQueryPageId, department_ID, department_name, year, count1, 
+    orginalValue1, count2, orginalValue2, leftValue2, count3, 
+    orginalValue3, leftValue3, count4, orginalValue4, leftValue1, 
+    leftValue4, count5, orginalValue5, leftValue5, count6, 
+    orginalValue6, leftValue6, count7, orginalValue7, leftValue7, 
+    count8, orginalValue8, leftValue8, count9, orginalValue9, 
+    leftValue9, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_toEquipCategoryQueryPage
+    where del_flag = '0' and zxEqToEquipCategoryQueryPageId = #{zxEqToEquipCategoryQueryPageId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_toEquipCategoryQueryPage
+    where zxEqToEquipCategoryQueryPageId = #{zxEqToEquipCategoryQueryPageId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQueryPage" >
+    insert into zx_eq_toEquipCategoryQueryPage (
+    zxEqToEquipCategoryQueryPageId, department_ID, department_name, year, count1, 
+    orginalValue1, count2, orginalValue2, leftValue2, count3, 
+    orginalValue3, leftValue3, count4, orginalValue4, leftValue1, 
+    leftValue4, count5, orginalValue5, leftValue5, count6, 
+    orginalValue6, leftValue6, count7, orginalValue7, leftValue7, 
+    count8, orginalValue8, leftValue8, count9, orginalValue9, 
+    leftValue9, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxEqToEquipCategoryQueryPageId,jdbcType=CHAR}, #{departmentID,jdbcType=VARCHAR}, #{departmentName,jdbcType=VARCHAR}, #{year,jdbcType=TIMESTAMP}, #{count1,jdbcType=DECIMAL}, 
+    #{orginalValue1,jdbcType=DECIMAL}, #{count2,jdbcType=DECIMAL}, #{orginalValue2,jdbcType=DECIMAL}, #{leftValue2,jdbcType=DECIMAL}, #{count3,jdbcType=DECIMAL}, 
+    #{orginalValue3,jdbcType=DECIMAL}, #{leftValue3,jdbcType=DECIMAL}, #{count4,jdbcType=DECIMAL}, #{orginalValue4,jdbcType=DECIMAL}, #{leftValue1,jdbcType=DECIMAL}, 
+    #{leftValue4,jdbcType=DECIMAL}, #{count5,jdbcType=DECIMAL}, #{orginalValue5,jdbcType=DECIMAL}, #{leftValue5,jdbcType=DECIMAL}, #{count6,jdbcType=DECIMAL}, 
+    #{orginalValue6,jdbcType=DECIMAL}, #{leftValue6,jdbcType=DECIMAL}, #{count7,jdbcType=DECIMAL}, #{orginalValue7,jdbcType=DECIMAL}, #{leftValue7,jdbcType=DECIMAL}, 
+    #{count8,jdbcType=DECIMAL}, #{orginalValue8,jdbcType=DECIMAL}, #{leftValue8,jdbcType=DECIMAL}, #{count9,jdbcType=DECIMAL}, #{orginalValue9,jdbcType=DECIMAL}, 
+    #{leftValue9,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+    #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQueryPage" >
+    insert into zx_eq_toEquipCategoryQueryPage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxEqToEquipCategoryQueryPageId != null" >
+        zxEqToEquipCategoryQueryPageId,
+      </if>
+      <if test="departmentID != null" >
+        department_ID,
+      </if>
+      <if test="departmentName != null" >
+        department_name,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="count1 != null" >
+        count1,
+      </if>
+      <if test="orginalValue1 != null" >
+        orginalValue1,
+      </if>
+      <if test="count2 != null" >
+        count2,
+      </if>
+      <if test="orginalValue2 != null" >
+        orginalValue2,
+      </if>
+      <if test="leftValue2 != null" >
+        leftValue2,
+      </if>
+      <if test="count3 != null" >
+        count3,
+      </if>
+      <if test="orginalValue3 != null" >
+        orginalValue3,
+      </if>
+      <if test="leftValue3 != null" >
+        leftValue3,
+      </if>
+      <if test="count4 != null" >
+        count4,
+      </if>
+      <if test="orginalValue4 != null" >
+        orginalValue4,
+      </if>
+      <if test="leftValue1 != null" >
+        leftValue1,
+      </if>
+      <if test="leftValue4 != null" >
+        leftValue4,
+      </if>
+      <if test="count5 != null" >
+        count5,
+      </if>
+      <if test="orginalValue5 != null" >
+        orginalValue5,
+      </if>
+      <if test="leftValue5 != null" >
+        leftValue5,
+      </if>
+      <if test="count6 != null" >
+        count6,
+      </if>
+      <if test="orginalValue6 != null" >
+        orginalValue6,
+      </if>
+      <if test="leftValue6 != null" >
+        leftValue6,
+      </if>
+      <if test="count7 != null" >
+        count7,
+      </if>
+      <if test="orginalValue7 != null" >
+        orginalValue7,
+      </if>
+      <if test="leftValue7 != null" >
+        leftValue7,
+      </if>
+      <if test="count8 != null" >
+        count8,
+      </if>
+      <if test="orginalValue8 != null" >
+        orginalValue8,
+      </if>
+      <if test="leftValue8 != null" >
+        leftValue8,
+      </if>
+      <if test="count9 != null" >
+        count9,
+      </if>
+      <if test="orginalValue9 != null" >
+        orginalValue9,
+      </if>
+      <if test="leftValue9 != null" >
+        leftValue9,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxEqToEquipCategoryQueryPageId != null" >
+        #{zxEqToEquipCategoryQueryPageId,jdbcType=CHAR},
+      </if>
+      <if test="departmentID != null" >
+        #{departmentID,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentName != null" >
+        #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=TIMESTAMP},
+      </if>
+      <if test="count1 != null" >
+        #{count1,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue1 != null" >
+        #{orginalValue1,jdbcType=DECIMAL},
+      </if>
+      <if test="count2 != null" >
+        #{count2,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue2 != null" >
+        #{orginalValue2,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue2 != null" >
+        #{leftValue2,jdbcType=DECIMAL},
+      </if>
+      <if test="count3 != null" >
+        #{count3,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue3 != null" >
+        #{orginalValue3,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue3 != null" >
+        #{leftValue3,jdbcType=DECIMAL},
+      </if>
+      <if test="count4 != null" >
+        #{count4,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue4 != null" >
+        #{orginalValue4,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue1 != null" >
+        #{leftValue1,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue4 != null" >
+        #{leftValue4,jdbcType=DECIMAL},
+      </if>
+      <if test="count5 != null" >
+        #{count5,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue5 != null" >
+        #{orginalValue5,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue5 != null" >
+        #{leftValue5,jdbcType=DECIMAL},
+      </if>
+      <if test="count6 != null" >
+        #{count6,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue6 != null" >
+        #{orginalValue6,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue6 != null" >
+        #{leftValue6,jdbcType=DECIMAL},
+      </if>
+      <if test="count7 != null" >
+        #{count7,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue7 != null" >
+        #{orginalValue7,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue7 != null" >
+        #{leftValue7,jdbcType=DECIMAL},
+      </if>
+      <if test="count8 != null" >
+        #{count8,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue8 != null" >
+        #{orginalValue8,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue8 != null" >
+        #{leftValue8,jdbcType=DECIMAL},
+      </if>
+      <if test="count9 != null" >
+        #{count9,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue9 != null" >
+        #{orginalValue9,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue9 != null" >
+        #{leftValue9,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQueryPage" >
+    update zx_eq_toEquipCategoryQueryPage
+    <set >
+      <if test="departmentID != null" >
+        department_ID = #{departmentID,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentName != null" >
+        department_name = #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        year = #{year,jdbcType=TIMESTAMP},
+      </if>
+      <if test="count1 != null" >
+        count1 = #{count1,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue1 != null" >
+        orginalValue1 = #{orginalValue1,jdbcType=DECIMAL},
+      </if>
+      <if test="count2 != null" >
+        count2 = #{count2,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue2 != null" >
+        orginalValue2 = #{orginalValue2,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue2 != null" >
+        leftValue2 = #{leftValue2,jdbcType=DECIMAL},
+      </if>
+      <if test="count3 != null" >
+        count3 = #{count3,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue3 != null" >
+        orginalValue3 = #{orginalValue3,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue3 != null" >
+        leftValue3 = #{leftValue3,jdbcType=DECIMAL},
+      </if>
+      <if test="count4 != null" >
+        count4 = #{count4,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue4 != null" >
+        orginalValue4 = #{orginalValue4,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue1 != null" >
+        leftValue1 = #{leftValue1,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue4 != null" >
+        leftValue4 = #{leftValue4,jdbcType=DECIMAL},
+      </if>
+      <if test="count5 != null" >
+        count5 = #{count5,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue5 != null" >
+        orginalValue5 = #{orginalValue5,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue5 != null" >
+        leftValue5 = #{leftValue5,jdbcType=DECIMAL},
+      </if>
+      <if test="count6 != null" >
+        count6 = #{count6,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue6 != null" >
+        orginalValue6 = #{orginalValue6,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue6 != null" >
+        leftValue6 = #{leftValue6,jdbcType=DECIMAL},
+      </if>
+      <if test="count7 != null" >
+        count7 = #{count7,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue7 != null" >
+        orginalValue7 = #{orginalValue7,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue7 != null" >
+        leftValue7 = #{leftValue7,jdbcType=DECIMAL},
+      </if>
+      <if test="count8 != null" >
+        count8 = #{count8,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue8 != null" >
+        orginalValue8 = #{orginalValue8,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue8 != null" >
+        leftValue8 = #{leftValue8,jdbcType=DECIMAL},
+      </if>
+      <if test="count9 != null" >
+        count9 = #{count9,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue9 != null" >
+        orginalValue9 = #{orginalValue9,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue9 != null" >
+        leftValue9 = #{leftValue9,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxEqToEquipCategoryQueryPageId = #{zxEqToEquipCategoryQueryPageId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQueryPage" >
+    update zx_eq_toEquipCategoryQueryPage set 
+      department_ID = #{departmentID,jdbcType=VARCHAR},
+      department_name = #{departmentName,jdbcType=VARCHAR},
+      year = #{year,jdbcType=TIMESTAMP},
+      count1 = #{count1,jdbcType=DECIMAL},
+      orginalValue1 = #{orginalValue1,jdbcType=DECIMAL},
+      count2 = #{count2,jdbcType=DECIMAL},
+      orginalValue2 = #{orginalValue2,jdbcType=DECIMAL},
+      leftValue2 = #{leftValue2,jdbcType=DECIMAL},
+      count3 = #{count3,jdbcType=DECIMAL},
+      orginalValue3 = #{orginalValue3,jdbcType=DECIMAL},
+      leftValue3 = #{leftValue3,jdbcType=DECIMAL},
+      count4 = #{count4,jdbcType=DECIMAL},
+      orginalValue4 = #{orginalValue4,jdbcType=DECIMAL},
+      leftValue1 = #{leftValue1,jdbcType=DECIMAL},
+      leftValue4 = #{leftValue4,jdbcType=DECIMAL},
+      count5 = #{count5,jdbcType=DECIMAL},
+      orginalValue5 = #{orginalValue5,jdbcType=DECIMAL},
+      leftValue5 = #{leftValue5,jdbcType=DECIMAL},
+      count6 = #{count6,jdbcType=DECIMAL},
+      orginalValue6 = #{orginalValue6,jdbcType=DECIMAL},
+      leftValue6 = #{leftValue6,jdbcType=DECIMAL},
+      count7 = #{count7,jdbcType=DECIMAL},
+      orginalValue7 = #{orginalValue7,jdbcType=DECIMAL},
+      leftValue7 = #{leftValue7,jdbcType=DECIMAL},
+      count8 = #{count8,jdbcType=DECIMAL},
+      orginalValue8 = #{orginalValue8,jdbcType=DECIMAL},
+      leftValue8 = #{leftValue8,jdbcType=DECIMAL},
+      count9 = #{count9,jdbcType=DECIMAL},
+      orginalValue9 = #{orginalValue9,jdbcType=DECIMAL},
+      leftValue9 = #{leftValue9,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxEqToEquipCategoryQueryPageId = #{zxEqToEquipCategoryQueryPageId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxEqToEquipCategoryQueryPageList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQueryPage" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_toEquipCategoryQueryPage
+    where del_flag = '0'
+    <if test="zxEqToEquipCategoryQueryPageId != null and zxEqToEquipCategoryQueryPageId != ''" >
+     and zxEqToEquipCategoryQueryPageId = #{zxEqToEquipCategoryQueryPageId,jdbcType=CHAR}
+    </if>
+    <if test="departmentID != null and departmentID != ''" >
+     and department_ID = #{departmentID,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentName != null and departmentName != ''" >
+     and department_name = #{departmentName,jdbcType=VARCHAR}
+    </if>
+    <if test="year != null and year != ''" >
+     and year = #{year,jdbcType=TIMESTAMP}
+    </if>
+    <if test="count1 != null and count1 != ''" >
+     and count1 = #{count1,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue1 != null and orginalValue1 != ''" >
+     and orginalValue1 = #{orginalValue1,jdbcType=DECIMAL}
+    </if>
+    <if test="count2 != null and count2 != ''" >
+     and count2 = #{count2,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue2 != null and orginalValue2 != ''" >
+     and orginalValue2 = #{orginalValue2,jdbcType=DECIMAL}
+    </if>
+    <if test="leftValue2 != null and leftValue2 != ''" >
+     and leftValue2 = #{leftValue2,jdbcType=DECIMAL}
+    </if>
+    <if test="count3 != null and count3 != ''" >
+     and count3 = #{count3,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue3 != null and orginalValue3 != ''" >
+     and orginalValue3 = #{orginalValue3,jdbcType=DECIMAL}
+    </if>
+    <if test="leftValue3 != null and leftValue3 != ''" >
+     and leftValue3 = #{leftValue3,jdbcType=DECIMAL}
+    </if>
+    <if test="count4 != null and count4 != ''" >
+     and count4 = #{count4,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue4 != null and orginalValue4 != ''" >
+     and orginalValue4 = #{orginalValue4,jdbcType=DECIMAL}
+    </if>
+    <if test="leftValue1 != null and leftValue1 != ''" >
+     and leftValue1 = #{leftValue1,jdbcType=DECIMAL}
+    </if>
+    <if test="leftValue4 != null and leftValue4 != ''" >
+     and leftValue4 = #{leftValue4,jdbcType=DECIMAL}
+    </if>
+    <if test="count5 != null and count5 != ''" >
+     and count5 = #{count5,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue5 != null and orginalValue5 != ''" >
+     and orginalValue5 = #{orginalValue5,jdbcType=DECIMAL}
+    </if>
+    <if test="leftValue5 != null and leftValue5 != ''" >
+     and leftValue5 = #{leftValue5,jdbcType=DECIMAL}
+    </if>
+    <if test="count6 != null and count6 != ''" >
+     and count6 = #{count6,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue6 != null and orginalValue6 != ''" >
+     and orginalValue6 = #{orginalValue6,jdbcType=DECIMAL}
+    </if>
+    <if test="leftValue6 != null and leftValue6 != ''" >
+     and leftValue6 = #{leftValue6,jdbcType=DECIMAL}
+    </if>
+    <if test="count7 != null and count7 != ''" >
+     and count7 = #{count7,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue7 != null and orginalValue7 != ''" >
+     and orginalValue7 = #{orginalValue7,jdbcType=DECIMAL}
+    </if>
+    <if test="leftValue7 != null and leftValue7 != ''" >
+     and leftValue7 = #{leftValue7,jdbcType=DECIMAL}
+    </if>
+    <if test="count8 != null and count8 != ''" >
+     and count8 = #{count8,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue8 != null and orginalValue8 != ''" >
+     and orginalValue8 = #{orginalValue8,jdbcType=DECIMAL}
+    </if>
+    <if test="leftValue8 != null and leftValue8 != ''" >
+     and leftValue8 = #{leftValue8,jdbcType=DECIMAL}
+    </if>
+    <if test="count9 != null and count9 != ''" >
+     and count9 = #{count9,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue9 != null and orginalValue9 != ''" >
+     and orginalValue9 = #{orginalValue9,jdbcType=DECIMAL}
+    </if>
+    <if test="leftValue9 != null and leftValue9 != ''" >
+     and leftValue9 = #{leftValue9,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqToEquipCategoryQueryPage" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQueryPage" >
+    <![CDATA[ 
+        update zx_eq_toEquipCategoryQueryPage
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxEqToEquipCategoryQueryPageId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxEqToEquipCategoryQueryPageId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+  <select id="selectZxEqToEquipCategoryQueryPage" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQueryPage" >
+  DROP TABLE IF EXISTS temp_ieeqEquipCategoryTree;
+create table temp_ieeqEquipCategoryTree
+select datayear.* 
+from (
+-- 入账日期在此日期之前的设备，并去掉此日期之前报废和转让的设备
+select e.ID,e.ownerOrgID,e.useOrgID,e.resCatalogID,
+       e.leftValue as leftValue,
+       e.orginalValue as orginalValue
+from zx_eq_Equip as e
+where DATE_FORMAT(e.regdate,'%Y')&gt;=#{year,jdbcType=TIMESTAMP}
+  and not exists (select 1 from zx_eq_EquipScrape es where ifnull(es.auditStatus,'')='3' and DATE_FORMAT(es.scrapeDate,'%Y') &gt;= #{year,jdbcType=TIMESTAMP} and es.equipID=e.ID)
+  and not exists (select 1 from zx_eq_AssetSell s inner join zx_eq_AssetSellItem si on si.masID=s.ID where ifnull(s.auditStatus,'')='4' and DATE_FORMAT(s.busDate,'%Y') &gt;= #{year,jdbcType=TIMESTAMP} and si.equipID=e.ID)
+union all
+-- 因局调拨后会改变所属单位，所以要将本年之前入账的设备，且在本年及本年之后局调拨的设备给加回来，因本年之前它还是在账设备
+select distinct msi.equipID as ID,ms.outOrgID as ownerOrgID,e.useOrgID,e.resCatalogID,
+       e.leftValue as leftValue,
+       e.orginalValue as orginalValue
+from zx_eq_MoveSupervisorItem msi 
+inner join zx_eq_MoveSupervisor ms on msi.masID=ms.ID
+inner join zx_eq_Equip e on msi.equipID=e.ID
+where ms.auditStatus in ('2','4') 
+  and DATE_FORMAT(e.regdate,'%Y') &gt;= #{year,jdbcType=TIMESTAMP} 
+  and DATE_FORMAT(ms.busDate,'%Y') &lt; #{year,jdbcType=TIMESTAMP}
+) datayear;
+
+SELECT * FROM 
+(
+SELECT io.sort,io.department_ID,io.department_name,#{year,jdbcType=TIMESTAMP} as year,
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030001%')) and sd.department_path like io.department_path ||'%') AS count1,
+(SELECT sum(ie.orginalValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030001%')) and sd.department_path like io.department_path ||'%') AS orginalValue1,
+(SELECT sum(ie.leftValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030001%')) and sd.department_path like io.department_path ||'%') AS leftValue1,
+
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030002%')) and sd.department_path like io.department_path ||'%') AS count2,
+(SELECT sum(ie.orginalValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030002%')) and sd.department_path like io.department_path ||'%') AS orginalValue2,
+(SELECT sum(ie.leftValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030002%')) and sd.department_path like io.department_path ||'%') AS leftValue2,
+
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030003%')) and sd.department_path like io.department_path ||'%') AS count3,
+(SELECT sum(ie.orginalValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030003%')) and sd.department_path like io.department_path ||'%') AS orginalValue3,
+(SELECT sum(ie.leftValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030003%')) and sd.department_path like io.department_path ||'%') AS leftValue3,
+
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030004%')) and sd.department_path like io.department_path ||'%') AS count4,
+(SELECT sum(ie.orginalValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030004%')) and sd.department_path like io.department_path ||'%') AS orginalValue4,
+(SELECT sum(ie.leftValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030004%')) and sd.department_path like io.department_path ||'%') AS leftValue4,
+
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030005%')) and sd.department_path like io.department_path ||'%') AS count5,
+(SELECT sum(ie.orginalValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030005%')) and sd.department_path like io.department_path ||'%') AS orginalValue5,
+(SELECT sum(ie.leftValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030005%')) and sd.department_path like io.department_path ||'%') AS leftValue5,
+
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030006%')) and sd.department_path like io.department_path ||'%') AS count6,
+(SELECT sum(ie.orginalValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030006%')) and sd.department_path like io.department_path ||'%') AS orginalValue6,
+(SELECT sum(ie.leftValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030006%')) and sd.department_path like io.department_path ||'%') AS leftValue6,
+
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030007%')) and sd.department_path like io.department_path ||'%') AS count7,
+(SELECT sum(ie.orginalValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030007%')) and sd.department_path like io.department_path ||'%') AS orginalValue7,
+(SELECT sum(ie.leftValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030007%')) and sd.department_path like io.department_path ||'%') AS leftValue7,
+
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030008%')) and sd.department_path like io.department_path ||'%') AS count8,
+(SELECT sum(ie.orginalValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030008%')) and sd.department_path like io.department_path ||'%') AS orginalValue8,
+(SELECT sum(ie.leftValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030008%')) and sd.department_path like io.department_path ||'%') AS leftValue8,
+
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030009%')) and sd.department_path like io.department_path ||'%') AS count9,
+(SELECT sum(ie.orginalValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030009%')) and sd.department_path like io.department_path ||'%') AS orginalValue9,
+(SELECT sum(ie.leftValue) FROM temp_ieeqEquipCategoryTree ie inner join sys_department sd on sd.department_id = ie.useOrgID WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '00030009%')) and sd.department_path like io.department_path ||'%') AS leftValue9
+FROM sys_department io
+WHERE io.department_flag IN ('1','2','4','6') AND io.department_parent_id=#{parentID,jdbcType=VARCHAR}
+GROUP BY io.sort,io.department_id,io.department_name
+)t WHERE count1 IS NOT NULL OR orginalValue1 IS NOT NULL OR leftValue1 IS NOT NULL OR 
+         count2 IS NOT NULL OR orginalValue2 IS NOT NULL OR leftValue2 IS NOT NULL OR
+         count3 IS NOT NULL OR orginalValue3 IS NOT NULL OR leftValue3 IS NOT NULL OR
+         count4 IS NOT NULL OR orginalValue4 IS NOT NULL OR leftValue4 IS NOT NULL OR
+         count5 IS NOT NULL OR orginalValue5 IS NOT NULL OR leftValue5 IS NOT NULL OR
+         count6 IS NOT NULL OR orginalValue6 IS NOT NULL OR leftValue6 IS NOT NULL OR
+         count7 IS NOT NULL OR orginalValue7 IS NOT NULL OR leftValue7 IS NOT NULL OR
+         count8 IS NOT NULL OR orginalValue8 IS NOT NULL OR leftValue8 IS NOT NULL OR
+         count9 IS NOT NULL OR orginalValue9 IS NOT NULL OR leftValue9 IS NOT NULL
+      order by sort   
+  
+  </select>
+  <select id="selectZxEqToEquipCategoryQueryPageCount" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQueryPage" >
+DROP TABLE IF EXISTS temp_ieeqEquipCategoryTree;
+create table temp_ieeqEquipCategoryTree
+select datayear.* 
+from (
+select e.ID,e.ownerOrgID,e.useOrgID,e.resCatalogID,
+       e.leftValue as leftValue,
+       e.orginalValue as orginalValue
+from zx_eq_Equip as e
+where DATE_FORMAT(e.regdate,'%Y')&gt;=#{year,jdbcType=TIMESTAMP}
+  and not exists (select 1 from zx_eq_EquipScrape es where ifnull(es.auditStatus,'')='3' and DATE_FORMAT(es.scrapeDate,'%Y') &gt;= #{year,jdbcType=TIMESTAMP} and es.equipID=e.ID)
+  and not exists (select 1 from zx_eq_AssetSell s inner join zx_eq_AssetSellItem si on si.masID=s.ID where ifnull(s.auditStatus,'')='4' and DATE_FORMAT(s.busDate,'%Y') &gt;= #{year,jdbcType=TIMESTAMP} and si.equipID=e.ID)
+union all
+select distinct msi.equipID as ID,ms.outOrgID as ownerOrgID,e.useOrgID,e.resCatalogID,
+       e.leftValue as leftValue,
+       e.orginalValue as orginalValue
+from zx_eq_MoveSupervisorItem msi 
+inner join zx_eq_MoveSupervisor ms on msi.masID=ms.ID
+inner join zx_eq_Equip e on msi.equipID=e.ID
+where ms.auditStatus in ('2','4') 
+  and DATE_FORMAT(e.regdate,'%Y') &gt;= #{year,jdbcType=TIMESTAMP} 
+  and DATE_FORMAT(ms.busDate,'%Y') &lt; #{year,jdbcType=TIMESTAMP}
+) datayear;
+
+SELECT case irc.catname when '土方、准备作业机械' then '土方机械' when '石方开采及加工机械' then '石方机械' else irc.catname end as catname,count(t.ID) as idCount
+FROM (
+    SELECT ie.ID ID, subString(irc.bsid,0,9) bsid 
+    FROM temp_ieeqEquipCategoryTree ie 
+    INNER JOIN zx_eq_rescategory_materials irc ON irc.resCategoryMaterialsId=ie.resCatalogID
+    where ie.useOrgID IN (SELECT department_id FROM sys_department WHERE department_path LIKE (select concat(department_path,'%') from sys_department where department_id=#{orgID,jdbcType=VARCHAR}))
+)t 
+INNER JOIN zx_eq_rescategory_materials irc ON t.bsid=irc.bsid
+where irc.parentID='0003'
+GROUP BY irc.catName
+  </select>
+  <select id="selectZxEqToEquipCategoryQueryPageOrginalValue" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQueryPage" >
+DROP TABLE IF EXISTS temp_ieeqEquipCategoryTree;
+create table temp_ieeqEquipCategoryTree
+select datayear.* 
+from (
+select e.ID,e.ownerOrgID,e.useOrgID,e.resCatalogID,
+       e.leftValue as leftValue,
+       e.orginalValue as orginalValue
+from zx_eq_Equip as e
+where DATE_FORMAT(e.regdate,'%Y')&gt;=#{year,jdbcType=TIMESTAMP}
+  and not exists (select 1 from zx_eq_EquipScrape es where ifnull(es.auditStatus,'')='3' and DATE_FORMAT(es.scrapeDate,'%Y') &gt;= #{year,jdbcType=TIMESTAMP} and es.equipID=e.ID)
+  and not exists (select 1 from zx_eq_AssetSell s inner join zx_eq_AssetSellItem si on si.masID=s.ID where ifnull(s.auditStatus,'')='4' and DATE_FORMAT(s.busDate,'%Y') &gt;= #{year,jdbcType=TIMESTAMP} and si.equipID=e.ID)
+union all
+select distinct msi.equipID as ID,ms.outOrgID as ownerOrgID,e.useOrgID,e.resCatalogID,
+       e.leftValue as leftValue,
+       e.orginalValue as orginalValue
+from zx_eq_MoveSupervisorItem msi 
+inner join zx_eq_MoveSupervisor ms on msi.masID=ms.ID
+inner join zx_eq_Equip e on msi.equipID=e.ID
+where ms.auditStatus in ('2','4') 
+  and DATE_FORMAT(e.regdate,'%Y') &gt;= #{year,jdbcType=TIMESTAMP} 
+  and DATE_FORMAT(ms.busDate,'%Y') &lt; #{year,jdbcType=TIMESTAMP}
+) datayear;
+
+SELECT case irc.catname when '土方、准备作业机械' then '土方机械' when '石方开采及加工机械' then '石方机械' else irc.catname end as catname,sum(t.orginalValue) as orginalValue
+FROM (
+    SELECT ie.orginalValue, subString(irc.bsid,0,9) bsid 
+    FROM temp_ieeqEquipCategoryTree ie 
+    INNER JOIN zx_eq_rescategory_materials irc ON irc.resCategoryMaterialsId=ie.resCatalogID
+    where ie.useOrgID IN (SELECT department_id FROM sys_department WHERE department_path LIKE (select concat(department_path,'%') from sys_department where department_id=#{orgID,jdbcType=VARCHAR}))
+)t 
+INNER JOIN zx_eq_rescategory_materials irc ON t.bsid=irc.bsid
+where irc.parentID='0003'
+GROUP BY irc.catName
+  </select>
+  <select id="selectZxEqToEquipCategoryQueryPageleftValue" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQueryPage" >
+DROP TABLE IF EXISTS temp_ieeqEquipCategoryTree;
+create table temp_ieeqEquipCategoryTree
+select datayear.* 
+from (
+select e.ID,e.ownerOrgID,e.useOrgID,e.resCatalogID,
+       e.leftValue as leftValue,
+       e.orginalValue as orginalValue
+from zx_eq_Equip as e
+where DATE_FORMAT(e.regdate,'%Y')&gt;=#{year,jdbcType=TIMESTAMP}
+  and not exists (select 1 from zx_eq_EquipScrape es where ifnull(es.auditStatus,'')='3' and DATE_FORMAT(es.scrapeDate,'%Y') &gt;= #{year,jdbcType=TIMESTAMP} and es.equipID=e.ID)
+  and not exists (select 1 from zx_eq_AssetSell s inner join zx_eq_AssetSellItem si on si.masID=s.ID where ifnull(s.auditStatus,'')='4' and DATE_FORMAT(s.busDate,'%Y') &gt;= #{year,jdbcType=TIMESTAMP} and si.equipID=e.ID)
+union all
+select distinct msi.equipID as ID,ms.outOrgID as ownerOrgID,e.useOrgID,e.resCatalogID,
+       e.leftValue as leftValue,
+       e.orginalValue as orginalValue
+from zx_eq_MoveSupervisorItem msi 
+inner join zx_eq_MoveSupervisor ms on msi.masID=ms.ID
+inner join zx_eq_Equip e on msi.equipID=e.ID
+where ms.auditStatus in ('2','4') 
+  and DATE_FORMAT(e.regdate,'%Y') &gt;= #{year,jdbcType=TIMESTAMP} 
+  and DATE_FORMAT(ms.busDate,'%Y') &lt; #{year,jdbcType=TIMESTAMP}
+) datayear;
+
+SELECT case irc.catname when '土方、准备作业机械' then '土方机械' when '石方开采及加工机械' then '石方机械' else irc.catname end as catname,sum(t.leftValue) as leftValue
+FROM (
+    SELECT ie.leftValue, subString(irc.bsid,0,9) bsid 
+    FROM temp_ieeqEquipCategoryTree ie 
+    INNER JOIN zx_eq_rescategory_materials irc ON irc.resCategoryMaterialsId=ie.resCatalogID
+    where ie.useOrgID IN (SELECT department_id FROM sys_department WHERE department_path LIKE (select concat(department_path,'%') from sys_department where department_id=#{orgID,jdbcType=VARCHAR}))
+)t 
+INNER JOIN zx_eq_rescategory_materials irc ON t.bsid=irc.bsid
+where irc.parentID='0003'
+GROUP BY irc.catName
+  </select>
+</mapper>

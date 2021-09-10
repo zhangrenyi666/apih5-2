@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzPppTermBaseMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzPppTermBase" >
+    <id column="ppp_term_base_id" property="pppTermBaseId" jdbcType="CHAR" />
+    <result column="code_pid" property="codePid" jdbcType="CHAR" />
+    <result column="type_id" property="typeId" jdbcType="VARCHAR" />
+    <result column="analysis_key" property="analysisKey" jdbcType="VARCHAR" />
+    <result column="key_term" property="keyTerm" jdbcType="VARCHAR" />
+    <result column="key_analysis_content" property="keyAnalysisContent" jdbcType="VARCHAR" />
+    <result column="order_flag" property="orderFlag" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ppp_term_base_id, code_pid, type_id, analysis_key, key_term, 
+    key_analysis_content, order_flag, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_ppp_term_base
+    where ppp_term_base_id = #{pppTermBaseId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_ppp_term_base
+    where ppp_term_base_id = #{pppTermBaseId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzPppTermBase" >
+    insert into zj_tz_ppp_term_base (ppp_term_base_id, code_pid, type_id, 
+      analysis_key, key_term, key_analysis_content, 
+      order_flag, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{pppTermBaseId,jdbcType=CHAR}, #{codePid,jdbcType=CHAR}, #{typeId,jdbcType=VARCHAR}, 
+      #{analysisKey,jdbcType=VARCHAR}, #{keyTerm,jdbcType=VARCHAR}, #{keyAnalysisContent,jdbcType=VARCHAR}, 
+      #{orderFlag,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzPppTermBase" >
+    insert into zj_tz_ppp_term_base
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pppTermBaseId != null" >
+        ppp_term_base_id,
+      </if>
+      <if test="codePid != null" >
+        code_pid,
+      </if>
+      <if test="typeId != null" >
+        type_id,
+      </if>
+      <if test="analysisKey != null" >
+        analysis_key,
+      </if>
+      <if test="keyTerm != null" >
+        key_term,
+      </if>
+      <if test="keyAnalysisContent != null" >
+        key_analysis_content,
+      </if>
+      <if test="orderFlag != null" >
+        order_flag,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pppTermBaseId != null" >
+        #{pppTermBaseId,jdbcType=CHAR},
+      </if>
+      <if test="codePid != null" >
+        #{codePid,jdbcType=CHAR},
+      </if>
+      <if test="typeId != null" >
+        #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="analysisKey != null" >
+        #{analysisKey,jdbcType=VARCHAR},
+      </if>
+      <if test="keyTerm != null" >
+        #{keyTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="keyAnalysisContent != null" >
+        #{keyAnalysisContent,jdbcType=VARCHAR},
+      </if>
+      <if test="orderFlag != null" >
+        #{orderFlag,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzPppTermBase" >
+    update zj_tz_ppp_term_base
+    <set >
+      <if test="codePid != null" >
+        code_pid = #{codePid,jdbcType=CHAR},
+      </if>
+      <if test="typeId != null" >
+        type_id = #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="analysisKey != null" >
+        analysis_key = #{analysisKey,jdbcType=VARCHAR},
+      </if>
+      <if test="keyTerm != null" >
+        key_term = #{keyTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="keyAnalysisContent != null" >
+        key_analysis_content = #{keyAnalysisContent,jdbcType=VARCHAR},
+      </if>
+      <if test="orderFlag != null" >
+        order_flag = #{orderFlag,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ppp_term_base_id = #{pppTermBaseId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzPppTermBase" >
+    update zj_tz_ppp_term_base
+    set       code_pid = #{codePid,jdbcType=CHAR},
+      type_id = #{typeId,jdbcType=VARCHAR},
+      analysis_key = #{analysisKey,jdbcType=VARCHAR},
+      key_term = #{keyTerm,jdbcType=VARCHAR},
+      key_analysis_content = #{keyAnalysisContent,jdbcType=VARCHAR},
+      order_flag = #{orderFlag,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where ppp_term_base_id = #{pppTermBaseId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzPppTermBaseList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzPppTermBase" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_ppp_term_base
+    where del_flag = '0'
+    <if test="codePid != null and codePid != ''" >
+     and code_pid = #{codePid,jdbcType=CHAR}
+    </if>
+    <if test="typeId != null and typeId != ''" >
+     and type_id = #{typeId,jdbcType=VARCHAR}
+    </if>
+    <if test="analysisKey != null and analysisKey != ''" >
+     and analysis_key = #{analysisKey,jdbcType=VARCHAR}
+    </if>
+    <if test="keyTerm != null and keyTerm != ''" >
+     and key_term = #{keyTerm,jdbcType=VARCHAR}
+    </if>
+    <if test="keyAnalysisContent != null and keyAnalysisContent != ''" >
+     and key_analysis_content = #{keyAnalysisContent,jdbcType=VARCHAR}
+    </if>
+    <if test="orderFlag != null and orderFlag != ''" >
+     and order_flag = #{orderFlag,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY order_flag ASC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzPppTermBase" parameterType="com.apih5.mybatis.pojo.ZjTzPppTermBase" >
+    <![CDATA[ 
+        update zj_tz_ppp_term_base
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and ppp_term_base_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.pppTermBaseId} 
+     </foreach>
+  </delete>
+  
+  <select id="getByZjTzPppTermBaseTermList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzPppTermBase" >
+    select 
+    <include refid="Base_Column_List" />,
+    (SELECT analysis_key FROM zj_tz_ppp_term_base AS t WHERE t.del_flag = '0' AND t1.code_pid = t.ppp_term_base_id) AS analysisKeyName
+    from zj_tz_ppp_term_base AS t1
+    where del_flag = '0'
+    and code_pid !='0'
+    <if test="codePid != null and codePid != ''" >
+     and code_pid = #{codePid,jdbcType=CHAR}
+    </if>
+    <if test="typeId != null and typeId != ''" >
+     and type_id = #{typeId,jdbcType=VARCHAR}
+    </if>
+    <if test="analysisKey != null and analysisKey != ''" >
+     and analysis_key = #{analysisKey,jdbcType=VARCHAR}
+    </if>
+    <if test="keyTerm != null and keyTerm != ''" >
+     and key_term = #{keyTerm,jdbcType=VARCHAR}
+    </if>
+    <if test="keyAnalysisContent != null and keyAnalysisContent != ''" >
+     and key_analysis_content = #{keyAnalysisContent,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+     ORDER BY code_pid DESC 
+  </select>
+</mapper>

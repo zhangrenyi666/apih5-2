@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkLimitPriceRepMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkLimitPriceRep" >
+    <id column="zxSkLimitPriceRepId" property="zxSkLimitPriceRepId" jdbcType="CHAR" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="projectName" property="projectName" jdbcType="VARCHAR" />
+    <result column="resourceName" property="resourceName" jdbcType="VARCHAR" />
+    <result column="workName" property="workName" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="resourceNo" property="resourceNo" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="projectId" property="projectId" jdbcType="VARCHAR" />
+    <result column="resTypeID" property="resTypeID" jdbcType="VARCHAR" />
+    <result column="companyId" property="companyId" jdbcType="VARCHAR" />
+    <result column="companyName" property="companyName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxSkLimitPriceRepId, period, projectName, resourceName, workName, 
+    spec, unit, province, price, resourceNo, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_limitPriceRep
+    where del_flag = '0' and zxSkLimitPriceRepId = #{zxSkLimitPriceRepId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_limitPriceRep
+    where zxSkLimitPriceRepId = #{zxSkLimitPriceRepId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkLimitPriceRep" >
+    insert into zx_sk_limitPriceRep (
+    zxSkLimitPriceRepId, period, projectName, resourceName, workName, 
+    spec, unit, province, price, resourceNo, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxSkLimitPriceRepId,jdbcType=CHAR}, #{period,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, #{resourceName,jdbcType=VARCHAR}, #{workName,jdbcType=VARCHAR}, 
+    #{spec,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{resourceNo,jdbcType=VARCHAR}, 
+    #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+    #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkLimitPriceRep" >
+    insert into zx_sk_limitPriceRep
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSkLimitPriceRepId != null" >
+        zxSkLimitPriceRepId,
+      </if>
+      <if test="period != null" >
+        period,
+      </if>
+      <if test="projectName != null" >
+        projectName,
+      </if>
+      <if test="resourceName != null" >
+        resourceName,
+      </if>
+      <if test="workName != null" >
+        workName,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="resourceNo != null" >
+        resourceNo,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSkLimitPriceRepId != null" >
+        #{zxSkLimitPriceRepId,jdbcType=CHAR},
+      </if>
+      <if test="period != null" >
+        #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceName != null" >
+        #{resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="workName != null" >
+        #{workName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="resourceNo != null" >
+        #{resourceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkLimitPriceRep" >
+    update zx_sk_limitPriceRep
+    <set >
+      <if test="period != null" >
+        period = #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        projectName = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceName != null" >
+        resourceName = #{resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="workName != null" >
+        workName = #{workName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="resourceNo != null" >
+        resourceNo = #{resourceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxSkLimitPriceRepId = #{zxSkLimitPriceRepId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkLimitPriceRep" >
+    update zx_sk_limitPriceRep set 
+      period = #{period,jdbcType=VARCHAR},
+      projectName = #{projectName,jdbcType=VARCHAR},
+      resourceName = #{resourceName,jdbcType=VARCHAR},
+      workName = #{workName,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      resourceNo = #{resourceNo,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSkLimitPriceRepId = #{zxSkLimitPriceRepId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSkLimitPriceRepList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkLimitPriceRep" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_limitPriceRep
+    where del_flag = '0'
+    <if test="zxSkLimitPriceRepId != null and zxSkLimitPriceRepId != ''" >
+     and zxSkLimitPriceRepId = #{zxSkLimitPriceRepId,jdbcType=CHAR}
+    </if>
+    <if test="period != null and period != ''" >
+     and period = #{period,jdbcType=VARCHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and projectName = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceName != null and resourceName != ''" >
+     and resourceName = #{resourceName,jdbcType=VARCHAR}
+    </if>
+    <if test="workName != null and workName != ''" >
+     and workName = #{workName,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="unit != null and unit != ''" >
+     and unit = #{unit,jdbcType=VARCHAR}
+    </if>
+    <if test="province != null and province != ''" >
+     and province = #{province,jdbcType=VARCHAR}
+    </if>
+    <if test="price != null and price != ''" >
+     and price = #{price,jdbcType=DECIMAL}
+    </if>
+    <if test="resourceNo != null and resourceNo != ''" >
+     and resourceNo = #{resourceNo,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkLimitPriceRep" parameterType="com.apih5.mybatis.pojo.ZxSkLimitPriceRep" >
+    <![CDATA[ 
+        update zx_sk_limitPriceRep
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSkLimitPriceRepId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSkLimitPriceRepId} 
+     </foreach>
+  </delete>
+  <select id="selectZxSkLimitPriceRep" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkLimitPriceRep" >
+    select
+      lp.period,
+      lp.projectName,
+      lpi.resourceName,
+      lpi.resourceNo,
+      lpi.workName,
+      lpi.spec,
+      lpi.unit,
+      lp.province,
+      lpi.price
+    from zx_sk_limitprice lp
+      inner join zx_sk_limitpriceItem lpi
+        on lp.id = lpi.masterId
+    where lp.del_flag = '0'
+      and lpi.del_flag = '0'
+      and lp.apih5_flow_status = '2'
+      <if test="projectId != null and projectId != ''" >
+        and lp.projectId = #{projectId,jdbcType=VARCHAR}
+      </if>
+      <if test="period != null and period != ''" >
+        and lp.period  = #{period,jdbcType=VARCHAR}
+      </if>
+      <if test="province != null and province != ''" >
+        and lp.province = #{province,jdbcType=VARCHAR}
+      </if>
+      <if test="resTypeID != null and resTypeID != ''" >
+        and lpi.resourceId = #{resTypeID,jdbcType=VARCHAR}
+      </if>
+      <if test="workId != null and workId != ''" >
+        and lpi.workId = #{workId,jdbcType=VARCHAR}
+      </if>
+      <if test="companyId != null and companyId != ''" >
+        and lp.comID = #{companyId,jdbcType=VARCHAR}
+      </if>
+    order by
+    substring(lp.period,1,4) + 0 asc
+    ,(case
+          WHEN substring(lp.period,6,8)  like '上半年' then 1
+          WHEN substring(lp.period,6,8)  like '下半年' then 2 end)
+    ,lp.projectName
+  </select>
+</mapper>

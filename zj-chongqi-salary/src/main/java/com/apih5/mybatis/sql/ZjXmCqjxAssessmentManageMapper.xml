@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmCqjxAssessmentManageMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmCqjxAssessmentManage" >
+    <id column="manager_id" property="managerId" jdbcType="CHAR" />
+    <result column="assessment_type" property="assessmentType" jdbcType="CHAR" />
+    <result column="assessment_years" property="assessmentYears" jdbcType="TIMESTAMP" />
+    <result column="duty_closing_start_date" property="dutyClosingStartDate" jdbcType="TIMESTAMP" />
+    <result column="duty_closing_end_date" property="dutyClosingEndDate" jdbcType="TIMESTAMP" />
+    <result column="first_duty_closing_start_date" property="firstDutyDlosingStartDate" jdbcType="TIMESTAMP" />
+    <result column="first_duty_closing_end_date" property="firstDutyClosingEndDate" jdbcType="TIMESTAMP" />
+    <result column="final_duty_closing_start_date" property="finalDutyClosingStartDate" jdbcType="TIMESTAMP" />
+    <result column="final_duty_closing_end_date" property="finalDutyClosingEndDate" jdbcType="TIMESTAMP" />
+    <result column="score_closing_start_date" property="scoreClosingStartDate" jdbcType="TIMESTAMP" />
+    <result column="score_closing_end_date" property="scoreClosingEndDate" jdbcType="TIMESTAMP" />
+    <result column="first_score_closing_start_date" property="firstScoreClosingStartDate" jdbcType="TIMESTAMP" />
+    <result column="first_score_closing_end_date" property="firstScoreClosingEndDate" jdbcType="TIMESTAMP" />
+    <result column="final_score_closing_start_date" property="finalScoreClosingStartDate" jdbcType="TIMESTAMP" />
+    <result column="final_score_closing_end_date" property="finalScoreClosingEndDate" jdbcType="TIMESTAMP" />
+    <result column="assessment_dept" property="assessmentDept" jdbcType="CHAR" />
+    <result column="assessment_dept_name" property="assessmentDeptName" jdbcType="CHAR" />
+    <result column="assessment_dept_org_id" property="assessmentDeptOrgId" jdbcType="CHAR" />
+    <result column="assessment_title" property="assessmentTitle" jdbcType="VARCHAR" />
+    <result column="assessment_quarter" property="assessmentQuarter" jdbcType="VARCHAR" />
+    <result column="assessment_remarks" property="assessmentRemarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="state" property="state" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    manager_id, assessment_type, assessment_years, 
+    duty_closing_start_date, duty_closing_end_date, first_duty_closing_start_date, first_duty_closing_end_date,
+    final_duty_closing_start_date, final_duty_closing_end_date, score_closing_start_date, score_closing_end_date,
+    first_score_closing_start_date, first_score_closing_end_date, final_score_closing_start_date, final_score_closing_end_date,
+    assessment_dept, assessment_dept_name, 
+    assessment_dept_org_id, assessment_title, assessment_quarter, assessment_remarks, state, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_cqjx_assessment_manage
+    where manager_id = #{managerId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_cqjx_assessment_manage
+    where manager_id = #{managerId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxAssessmentManage" >
+    insert into zj_xm_cqjx_assessment_manage (manager_id, assessment_type, assessment_years, 
+      duty_closing_start_date, duty_closing_end_date, first_duty_closing_start_date, first_duty_closing_end_date,
+      final_duty_closing_start_date, final_duty_closing_end_date, score_closing_start_date, score_closing_end_date,
+      first_score_closing_start_date, first_score_closing_end_date, final_score_closing_start_date, final_score_closing_end_date,
+      assessment_dept, assessment_dept_name, assessment_dept_org_id, 
+      assessment_title, assessment_quarter, assessment_remarks, state,
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{managerId,jdbcType=CHAR}, #{assessmentType,jdbcType=CHAR}, #{assessmentYears,jdbcType=TIMESTAMP}, 
+      #{dutyClosingStartDate,jdbcType=TIMESTAMP}, #{dutyClosingEndDate,jdbcType=TIMESTAMP}, #{firstDutyDlosingStartDate,jdbcType=TIMESTAMP}, #{firstDutyClosingEndDate,jdbcType=TIMESTAMP},   
+      #{finalDutyClosingStartDate,jdbcType=TIMESTAMP}, #{finalDutyClosingEndDate,jdbcType=TIMESTAMP}, #{scoreClosingStartDate,jdbcType=TIMESTAMP}, #{scoreClosingEndDate,jdbcType=TIMESTAMP},   
+      #{firstScoreClosingStartDate,jdbcType=TIMESTAMP}, #{firstScoreClosingEndDate,jdbcType=TIMESTAMP}, #{finalScoreClosingStartDate,jdbcType=TIMESTAMP}, #{finalScoreClosingEndDate,jdbcType=TIMESTAMP},   
+      #{assessmentDept,jdbcType=CHAR}, #{assessmentDeptName,jdbcType=CHAR}, #{assessmentDeptOrgId,jdbcType=CHAR}, 
+      #{assessmentTitle,jdbcType=VARCHAR}, #{assessmentQuarter,jdbcType=VARCHAR}, #{assessmentRemarks,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{state,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxAssessmentManage" >
+    insert into zj_xm_cqjx_assessment_manage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="managerId != null" >
+        manager_id,
+      </if>
+      <if test="assessmentType != null" >
+        assessment_type,
+      </if>
+      <if test="assessmentYears != null" >
+        assessment_years,
+      </if>
+      <if test="dutyClosingStartDate != null" >
+        duty_closing_start_date,
+      </if>
+      <if test="dutyClosingEndDate != null" >
+        duty_closing_end_date,
+      </if>
+      <if test="firstDutyDlosingStartDate != null" >
+        first_duty_closing_start_date,
+      </if>
+      <if test="firstDutyClosingEndDate != null" >
+        first_duty_closing_end_date,
+      </if>
+      <if test="finalDutyClosingStartDate != null" >
+        final_duty_closing_start_date,
+      </if>
+      <if test="finalDutyClosingEndDate != null" >
+        final_duty_closing_end_date,
+      </if>
+      <if test="scoreClosingStartDate != null" >
+        score_closing_start_date,
+      </if>
+      <if test="scoreClosingEndDate != null" >
+        score_closing_end_date,
+      </if>
+      <if test="firstScoreClosingStartDate != null" >
+        first_score_closing_start_date,
+      </if>
+      <if test="firstScoreClosingEndDate != null" >
+        first_score_closing_end_date,
+      </if>
+      <if test="finalScoreClosingStartDate != null" >
+        final_score_closing_start_date,
+      </if>
+      <if test="finalScoreClosingEndDate != null" >
+        final_score_closing_end_date,
+      </if>
+      <if test="assessmentDept != null" >
+        assessment_dept,
+      </if>
+      <if test="assessmentDeptName != null" >
+        assessment_dept_name,
+      </if>
+      <if test="assessmentDeptOrgId != null" >
+        assessment_dept_org_id,
+      </if>
+      <if test="assessmentTitle != null" >
+        assessment_title,
+      </if>
+      <if test="assessmentQuarter != null" >
+        assessment_quarter,
+      </if>
+      <if test="assessmentRemarks != null" >
+        assessment_remarks,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="managerId != null" >
+        #{managerId,jdbcType=CHAR},
+      </if>
+      <if test="assessmentType != null" >
+        #{assessmentType,jdbcType=CHAR},
+      </if>
+      <if test="assessmentYears != null" >
+        #{assessmentYears,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dutyClosingStartDate != null" >
+        #{dutyClosingStartDate,jdbcType=TIMESTAMP},,
+      </if>
+      <if test="dutyClosingEndDate != null" >
+        #{dutyClosingEndDate,jdbcType=TIMESTAMP},,
+      </if>
+      <if test="firstDutyDlosingStartDate != null" >
+        #{firstDutyDlosingStartDate,jdbcType=TIMESTAMP},,
+      </if>
+      <if test="firstDutyClosingEndDate != null" >
+        #{firstDutyClosingEndDate,jdbcType=TIMESTAMP},,
+      </if>
+      <if test="finalDutyClosingStartDate != null" >
+        #{finalDutyClosingStartDate,jdbcType=TIMESTAMP},,
+      </if>
+      <if test="finalDutyClosingEndDate != null" >
+        #{finalDutyClosingEndDate,jdbcType=TIMESTAMP},,
+      </if>
+      <if test="scoreClosingStartDate != null" >
+        #{scoreClosingStartDate,jdbcType=TIMESTAMP},,
+      </if>
+      <if test="scoreClosingEndDate != null" >
+        #{scoreClosingEndDate,jdbcType=TIMESTAMP},,
+      </if>
+      <if test="firstScoreClosingStartDate != null" >
+        #{firstScoreClosingStartDate,jdbcType=TIMESTAMP},,
+      </if>
+      <if test="firstScoreClosingEndDate != null" >
+        #{firstScoreClosingEndDate,jdbcType=TIMESTAMP},,
+      </if>
+      <if test="finalScoreClosingStartDate != null" >
+        #{finalScoreClosingStartDate,jdbcType=TIMESTAMP},,
+      </if>
+      <if test="finalScoreClosingEndDate != null" >
+        #{finalScoreClosingEndDate,jdbcType=TIMESTAMP},,
+      </if>
+      <if test="assessmentDept != null" >
+        #{assessmentDept,jdbcType=CHAR},
+      </if>
+      <if test="assessmentDeptName != null" >
+        #{assessmentDeptName,jdbcType=CHAR},
+      </if>
+      <if test="assessmentDeptOrgId != null" >
+        #{assessmentDeptOrgId,jdbcType=CHAR},
+      </if>
+      <if test="assessmentTitle != null" >
+        #{assessmentTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="assessmentQuarter != null" >
+        #{assessmentQuarter,jdbcType=VARCHAR},
+      </if>
+      <if test="assessmentRemarks != null" >
+        #{assessmentRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=CHAR},
+      </if>      
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxAssessmentManage" >
+    update zj_xm_cqjx_assessment_manage
+    <set >
+      <if test="assessmentType != null" >
+        assessment_type = #{assessmentType,jdbcType=CHAR},
+      </if>
+      <if test="assessmentYears != null" >
+        assessment_years = #{assessmentYears,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dutyClosingStartDate != null" >
+        duty_closing_start_date = #{dutyClosingStartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dutyClosingEndDate != null" >
+        duty_closing_end_date = #{dutyClosingEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstDutyDlosingStartDate != null" >
+        first_duty_closing_start_date = #{firstDutyDlosingStartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstDutyClosingEndDate != null" >
+        first_duty_closing_end_date = #{firstDutyClosingEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finalDutyClosingStartDate != null" >
+        final_duty_closing_start_date = #{finalDutyClosingStartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finalDutyClosingEndDate != null" >
+        final_duty_closing_end_date = #{finalDutyClosingEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scoreClosingStartDate != null" >
+        score_closing_start_date = #{scoreClosingStartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scoreClosingEndDate != null" >
+        score_closing_end_date = #{scoreClosingEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstScoreClosingStartDate != null" >
+        first_score_closing_start_date = #{firstScoreClosingStartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstScoreClosingEndDate != null" >
+        first_score_closing_end_date = #{firstScoreClosingEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finalScoreClosingStartDate != null" >
+        final_score_closing_start_date = #{finalScoreClosingStartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finalScoreClosingEndDate != null" >
+        final_score_closing_end_date = #{finalScoreClosingEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="assessmentDept != null" >
+        assessment_dept = #{assessmentDept,jdbcType=CHAR},
+      </if>
+      <if test="assessmentDeptName != null" >
+        assessment_dept_name = #{assessmentDeptName,jdbcType=CHAR},
+      </if>
+      <if test="assessmentDeptOrgId != null" >
+        assessment_dept_org_id = #{assessmentDeptOrgId,jdbcType=CHAR},
+      </if>
+      <if test="assessmentTitle != null" >
+        assessment_title = #{assessmentTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="assessmentQuarter != null" >
+        assessment_quarter = #{assessmentQuarter,jdbcType=VARCHAR},
+      </if>
+      <if test="assessmentRemarks != null" >
+        assessment_remarks = #{assessmentRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where manager_id = #{managerId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxAssessmentManage" >
+    update zj_xm_cqjx_assessment_manage
+    set       assessment_type = #{assessmentType,jdbcType=CHAR},
+      assessment_years = #{assessmentYears,jdbcType=TIMESTAMP},
+      duty_closing_start_date = #{dutyClosingStartDate,jdbcType=TIMESTAMP},
+      duty_closing_end_date = #{dutyClosingEndDate,jdbcType=TIMESTAMP},
+      first_duty_closing_start_date = #{firstDutyDlosingStartDate,jdbcType=TIMESTAMP},
+      first_duty_closing_end_date = #{firstDutyClosingEndDate,jdbcType=TIMESTAMP},
+      final_duty_closing_start_date = #{finalDutyClosingStartDate,jdbcType=TIMESTAMP},
+      final_duty_closing_end_date = #{finalDutyClosingEndDate,jdbcType=TIMESTAMP},
+      score_closing_start_date = #{scoreClosingStartDate,jdbcType=TIMESTAMP},
+      score_closing_end_date = #{scoreClosingEndDate,jdbcType=TIMESTAMP},
+      first_score_closing_start_date = #{firstScoreClosingStartDate,jdbcType=TIMESTAMP},
+      first_score_closing_end_date = #{firstScoreClosingEndDate,jdbcType=TIMESTAMP},
+      final_score_closing_start_date = #{finalScoreClosingStartDate,jdbcType=TIMESTAMP},
+      final_score_closing_end_date = #{finalScoreClosingEndDate,jdbcType=TIMESTAMP},
+      assessment_dept = #{assessmentDept,jdbcType=CHAR},
+      assessment_dept_name = #{assessmentDeptName,jdbcType=CHAR},
+      assessment_dept_org_id = #{assessmentDeptOrgId,jdbcType=CHAR},
+      assessment_title = #{assessmentTitle,jdbcType=VARCHAR},
+      assessment_quarter = #{assessmentQuarter,jdbcType=VARCHAR},
+      assessment_remarks = #{assessmentRemarks,jdbcType=VARCHAR},
+      state = #{state,jdbcType=CHAR},      
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where manager_id = #{managerId,jdbcType=CHAR}
+  </update>
+  <select id="getZjXmCqjxAssessmentManageListByDeptHeader" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxAssessmentManage" >
+    (select 
+        zj_xm_cqjx_assessment_manage.manager_id, 
+        zj_xm_cqjx_assessment_manage.assessment_type, 
+        zj_xm_cqjx_assessment_manage.assessment_years,
+        zj_xm_cqjx_assessment_manage.assessment_dept, 
+        zj_xm_cqjx_assessment_manage.assessment_dept_name, 
+        zj_xm_cqjx_assessment_manage.assessment_dept_org_id, 
+        zj_xm_cqjx_assessment_manage.assessment_title, 
+        zj_xm_cqjx_assessment_manage.assessment_quarter, 
+        zj_xm_cqjx_assessment_manage.assessment_remarks
+    FROM zj_xm_cqjx_assessment_manage left join zj_xm_cqjx_executive_assistant 
+       on zj_xm_cqjx_assessment_manage.manager_id = zj_xm_cqjx_executive_assistant.manager_id
+       WHERE zj_xm_cqjx_executive_assistant.del_flag = '0'
+     and zj_xm_cqjx_assessment_manage.del_flag = '0'
+    <if test="deptId != null and deptId != ''" >
+     and department_id = #{deptId,jdbcType=CHAR}
+    </if>
+    group by zj_xm_cqjx_assessment_manage.manager_id
+    ORDER BY zj_xm_cqjx_assessment_manage.modify_time DESC 
+    )union all
+        (select 
+        zj_xm_cqjx_assessment_manage.manager_id, 
+        zj_xm_cqjx_assessment_manage.assessment_type, 
+        zj_xm_cqjx_assessment_manage.assessment_years,
+        zj_xm_cqjx_assessment_manage.assessment_dept, 
+        zj_xm_cqjx_assessment_manage.assessment_dept_name, 
+        zj_xm_cqjx_assessment_manage.assessment_dept_org_id, 
+        zj_xm_cqjx_assessment_manage.assessment_title, 
+        zj_xm_cqjx_assessment_manage.assessment_quarter, 
+        zj_xm_cqjx_assessment_manage.assessment_remarks
+    FROM zj_xm_cqjx_assessment_manage left join zj_xm_cqjx_year_assistant 
+       on zj_xm_cqjx_assessment_manage.manager_id = zj_xm_cqjx_year_assistant.manager_id
+       WHERE zj_xm_cqjx_year_assistant.del_flag = '0'
+     and zj_xm_cqjx_assessment_manage.del_flag = '0'
+    <if test="deptId != null and deptId != ''" >
+     and department_id = #{deptId,jdbcType=CHAR}
+    </if>
+    group by zj_xm_cqjx_assessment_manage.manager_id
+    ORDER BY zj_xm_cqjx_assessment_manage.modify_time DESC 
+    )
+  </select>    
+  <select id="selectByZjXmCqjxAssessmentManageList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxAssessmentManage" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_cqjx_assessment_manage
+    where del_flag = '0'
+    <if test="assessmentType != null and assessmentType != ''" >
+     and assessment_type = #{assessmentType,jdbcType=CHAR}
+    </if>
+    <if test="assessmentYears != null" >
+     and assessment_years = #{assessmentYears,jdbcType=TIMESTAMP}
+    </if>
+    <if test="dutyClosingStartDate != null" >
+      and duty_closing_start_date = #{dutyClosingStartDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="dutyClosingEndDate != null" >
+      and duty_closing_end_date = #{dutyClosingEndDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="firstDutyDlosingStartDate != null" >
+      and first_duty_closing_start_date = #{firstDutyDlosingStartDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="firstDutyClosingEndDate != null" >
+      and first_duty_closing_end_date = #{firstDutyClosingEndDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="finalDutyClosingStartDate != null" >
+      and final_duty_closing_start_date = #{finalDutyClosingStartDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="finalDutyClosingEndDate != null" >
+      and final_duty_closing_end_date = #{finalDutyClosingEndDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="scoreClosingStartDate != null" >
+      and score_closing_start_date = #{scoreClosingStartDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="scoreClosingEndDate != null" >
+      and score_closing_end_date = #{scoreClosingEndDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="firstScoreClosingStartDate != null" >
+      and first_score_closing_start_date = #{firstScoreClosingStartDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="firstScoreClosingEndDate != null" >
+      and first_score_closing_end_date = #{firstScoreClosingEndDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="finalScoreClosingStartDate != null" >
+      and final_score_closing_start_date = #{finalScoreClosingStartDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="finalScoreClosingEndDate != null" >
+      and final_score_closing_end_date = #{finalScoreClosingEndDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="assessmentDept != null and assessmentDept != ''" >
+     and assessment_dept = #{assessmentDept,jdbcType=CHAR}
+    </if>
+    <if test="assessmentDeptName != null and assessmentDeptName != ''" >
+     and assessment_dept_name = #{assessmentDeptName,jdbcType=CHAR}
+    </if>
+    <if test="assessmentDeptOrgId != null and assessmentDeptOrgId != ''" >
+     and assessment_dept_org_id = #{assessmentDeptOrgId,jdbcType=CHAR}
+    </if>
+    <if test="assessmentTitle != null and assessmentTitle != ''" >
+     and assessment_title like concat('%', #{assessmentTitle},'%')      
+     <!-- and assessment_title = #{assessmentTitle,jdbcType=VARCHAR} -->
+    </if>
+    <if test="assessmentQuarter != null and assessmentQuarter != ''" >
+     and assessment_quarter = #{assessmentQuarter,jdbcType=VARCHAR}
+    </if>
+    <if test="assessmentRemarks != null and assessmentRemarks != ''" >
+     and assessment_remarks = #{assessmentRemarks,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="state != null and state != ''" >
+     and state = #{state,jdbcType=CHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>  
+  <delete id="batchDeleteUpdateZjXmCqjxAssessmentManage" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxAssessmentManage" >
+    <![CDATA[ 
+        update zj_xm_cqjx_assessment_manage
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and manager_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.managerId} 
+     </foreach>
+  </delete>
+</mapper>

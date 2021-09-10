@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSaProjectWorkSettleMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSaProjectWorkSettle" >
+    <id column="project_work_settle_id" property="projectWorkSettleId" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="contractID" property="contractID" jdbcType="VARCHAR" />
+    <result column="billID" property="billID" jdbcType="VARCHAR" />
+    <result column="signedOrders" property="signedOrders" jdbcType="VARCHAR" />
+    <result column="signedNos" property="signedNos" jdbcType="VARCHAR" />
+    <result column="contractAmt" property="contractAmt" jdbcType="DECIMAL" />
+    <result column="changeAmt" property="changeAmt" jdbcType="DECIMAL" />
+    <result column="thisAmt" property="thisAmt" jdbcType="DECIMAL" />
+    <result column="totalAmt" property="totalAmt" jdbcType="DECIMAL" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="comOrders" property="comOrders" jdbcType="VARCHAR" />
+    <result column="thisAmtNoTax" property="thisAmtNoTax" jdbcType="DECIMAL" />
+    <result column="thisAmtTax" property="thisAmtTax" jdbcType="DECIMAL" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    project_work_settle_id, orgID, orgName, contractID, billID, 
+    signedOrders, signedNos, contractAmt, changeAmt, thisAmt, 
+    totalAmt, editTime, period, comID, comName, 
+    comOrders, thisAmtNoTax, thisAmtTax, remark, sort, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sa_ProjectWorkSettle
+    where del_flag = '0' and project_work_settle_id = #{projectWorkSettleId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sa_ProjectWorkSettle
+    where project_work_settle_id = #{projectWorkSettleId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSaProjectWorkSettle" >
+    insert into zx_sa_ProjectWorkSettle (
+    project_work_settle_id, orgID, orgName, contractID, billID, 
+    signedOrders, signedNos, contractAmt, changeAmt, thisAmt, 
+    totalAmt, editTime, period, comID, comName, 
+    comOrders, thisAmtNoTax, thisAmtTax, remark, sort, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+      )
+    values (
+      #{projectWorkSettleId,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, #{contractID,jdbcType=VARCHAR}, #{billID,jdbcType=VARCHAR}, 
+    #{signedOrders,jdbcType=VARCHAR}, #{signedNos,jdbcType=VARCHAR}, #{contractAmt,jdbcType=DECIMAL}, #{changeAmt,jdbcType=DECIMAL}, #{thisAmt,jdbcType=DECIMAL}, 
+    #{totalAmt,jdbcType=DECIMAL}, #{editTime,jdbcType=TIMESTAMP}, #{period,jdbcType=VARCHAR}, #{comID,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, 
+    #{comOrders,jdbcType=VARCHAR}, #{thisAmtNoTax,jdbcType=DECIMAL}, #{thisAmtTax,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+    #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+    #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSaProjectWorkSettle" >
+    insert into zx_sa_ProjectWorkSettle
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="projectWorkSettleId != null" >
+        project_work_settle_id,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="contractID != null" >
+        contractID,
+      </if>
+      <if test="billID != null" >
+        billID,
+      </if>
+      <if test="signedOrders != null" >
+        signedOrders,
+      </if>
+      <if test="signedNos != null" >
+        signedNos,
+      </if>
+      <if test="contractAmt != null" >
+        contractAmt,
+      </if>
+      <if test="changeAmt != null" >
+        changeAmt,
+      </if>
+      <if test="thisAmt != null" >
+        thisAmt,
+      </if>
+      <if test="totalAmt != null" >
+        totalAmt,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="period != null" >
+        period,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="comOrders != null" >
+        comOrders,
+      </if>
+      <if test="thisAmtNoTax != null" >
+        thisAmtNoTax,
+      </if>
+      <if test="thisAmtTax != null" >
+        thisAmtTax,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="projectWorkSettleId != null" >
+        #{projectWorkSettleId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractID != null" >
+        #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="billID != null" >
+        #{billID,jdbcType=VARCHAR},
+      </if>
+      <if test="signedOrders != null" >
+        #{signedOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="signedNos != null" >
+        #{signedNos,jdbcType=VARCHAR},
+      </if>
+      <if test="contractAmt != null" >
+        #{contractAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="changeAmt != null" >
+        #{changeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmt != null" >
+        #{thisAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmt != null" >
+        #{totalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="period != null" >
+        #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="thisAmtNoTax != null" >
+        #{thisAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmtTax != null" >
+        #{thisAmtTax,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSaProjectWorkSettle" >
+    update zx_sa_ProjectWorkSettle
+    <set >
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractID != null" >
+        contractID = #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="billID != null" >
+        billID = #{billID,jdbcType=VARCHAR},
+      </if>
+      <if test="signedOrders != null" >
+        signedOrders = #{signedOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="signedNos != null" >
+        signedNos = #{signedNos,jdbcType=VARCHAR},
+      </if>
+      <if test="contractAmt != null" >
+        contractAmt = #{contractAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="changeAmt != null" >
+        changeAmt = #{changeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmt != null" >
+        thisAmt = #{thisAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmt != null" >
+        totalAmt = #{totalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="period != null" >
+        period = #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        comOrders = #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="thisAmtNoTax != null" >
+        thisAmtNoTax = #{thisAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmtTax != null" >
+        thisAmtTax = #{thisAmtTax,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where project_work_settle_id = #{projectWorkSettleId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSaProjectWorkSettle" >
+    update zx_sa_ProjectWorkSettle set 
+      orgID = #{orgID,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      contractID = #{contractID,jdbcType=VARCHAR},
+      billID = #{billID,jdbcType=VARCHAR},
+      signedOrders = #{signedOrders,jdbcType=VARCHAR},
+      signedNos = #{signedNos,jdbcType=VARCHAR},
+      contractAmt = #{contractAmt,jdbcType=DECIMAL},
+      changeAmt = #{changeAmt,jdbcType=DECIMAL},
+      thisAmt = #{thisAmt,jdbcType=DECIMAL},
+      totalAmt = #{totalAmt,jdbcType=DECIMAL},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      period = #{period,jdbcType=VARCHAR},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      comOrders = #{comOrders,jdbcType=VARCHAR},
+      thisAmtNoTax = #{thisAmtNoTax,jdbcType=DECIMAL},
+      thisAmtTax = #{thisAmtTax,jdbcType=DECIMAL},
+      remark = #{remark,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where project_work_settle_id = #{projectWorkSettleId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxSaProjectWorkSettleList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSaProjectWorkSettle" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sa_ProjectWorkSettle
+    where del_flag = '0'
+    <if test="projectWorkSettleId != null and projectWorkSettleId != ''" >
+     and project_work_settle_id = #{projectWorkSettleId,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="contractID != null and contractID != ''" >
+     and contractID = #{contractID,jdbcType=VARCHAR}
+    </if>
+    <if test="billID != null and billID != ''" >
+     and billID = #{billID,jdbcType=VARCHAR}
+    </if>
+    <if test="signedOrders != null and signedOrders != ''" >
+     and signedOrders = #{signedOrders,jdbcType=VARCHAR}
+    </if>
+    <if test="signedNos != null and signedNos != ''" >
+     and signedNos = #{signedNos,jdbcType=VARCHAR}
+    </if>
+    <if test="contractAmt != null and contractAmt != ''" >
+     and contractAmt = #{contractAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="changeAmt != null and changeAmt != ''" >
+     and changeAmt = #{changeAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="thisAmt != null and thisAmt != ''" >
+     and thisAmt = #{thisAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="totalAmt != null and totalAmt != ''" >
+     and totalAmt = #{totalAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="period != null and period != ''" >
+     and period = #{period,jdbcType=VARCHAR}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="comOrders != null and comOrders != ''" >
+     and comOrders = #{comOrders,jdbcType=VARCHAR}
+    </if>
+    <if test="thisAmtNoTax != null and thisAmtNoTax != ''" >
+     and thisAmtNoTax = #{thisAmtNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="thisAmtTax != null and thisAmtTax != ''" >
+     and thisAmtTax = #{thisAmtTax,jdbcType=DECIMAL}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSaProjectWorkSettle" parameterType="com.apih5.mybatis.pojo.ZxSaProjectWorkSettle" >
+    <![CDATA[ 
+        update zx_sa_ProjectWorkSettle
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and project_work_settle_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.projectWorkSettleId} 
+     </foreach>
+  </delete>
+  
+	<select id="selectPastContractListTotalAmt" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSaProjectWorkSettle" >
+		SELECT
+			SUM( thisAmt ) AS totalAmt
+		FROM
+			zx_sa_projectworksettle 
+		WHERE
+			del_flag = '0' 
+			AND contractID = #{contractID,jdbcType=VARCHAR} 
+			AND period &lt;= #{period,jdbcType=VARCHAR} 
+	</select>
+</mapper>

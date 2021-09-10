@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqEWorkMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqEWork" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="bizDate" property="bizDate" jdbcType="TIMESTAMP" />
+    <result column="billNo" property="billNo" jdbcType="VARCHAR" />
+    <result column="equipID" property="equipID" jdbcType="VARCHAR" />
+    <result column="equipName" property="equipName" jdbcType="VARCHAR" />
+    <result column="equipNo" property="equipNo" jdbcType="VARCHAR" />
+    <result column="resCatalogID" property="resCatalogID" jdbcType="VARCHAR" />
+    <result column="resCatalogName" property="resCatalogName" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, orgName, orgID, bizDate, billNo, 
+    equipID, equipName, equipNo, resCatalogID, resCatalogName, 
+    spec, status, remark, comID, comName, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_EWork
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_EWork
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqEWork" >
+    insert into zx_eq_EWork (id, orgName, orgID, 
+      bizDate, billNo, equipID, 
+      equipName, equipNo, resCatalogID, 
+      resCatalogName, spec, status, 
+      remark, comID, comName, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, 
+      #{bizDate,jdbcType=TIMESTAMP}, #{billNo,jdbcType=VARCHAR}, #{equipID,jdbcType=VARCHAR}, 
+      #{equipName,jdbcType=VARCHAR}, #{equipNo,jdbcType=VARCHAR}, #{resCatalogID,jdbcType=VARCHAR}, 
+      #{resCatalogName,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{comID,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqEWork" >
+    insert into zx_eq_EWork
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="bizDate != null" >
+        bizDate,
+      </if>
+      <if test="billNo != null" >
+        billNo,
+      </if>
+      <if test="equipID != null" >
+        equipID,
+      </if>
+      <if test="equipName != null" >
+        equipName,
+      </if>
+      <if test="equipNo != null" >
+        equipNo,
+      </if>
+      <if test="resCatalogID != null" >
+        resCatalogID,
+      </if>
+      <if test="resCatalogName != null" >
+        resCatalogName,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="bizDate != null" >
+        #{bizDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="billNo != null" >
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="equipID != null" >
+        #{equipID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="equipNo != null" >
+        #{equipNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resCatalogID != null" >
+        #{resCatalogID,jdbcType=VARCHAR},
+      </if>
+      <if test="resCatalogName != null" >
+        #{resCatalogName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqEWork" >
+    update zx_eq_EWork
+    <set >
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="bizDate != null" >
+        bizDate = #{bizDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="billNo != null" >
+        billNo = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="equipID != null" >
+        equipID = #{equipID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        equipName = #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="equipNo != null" >
+        equipNo = #{equipNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resCatalogID != null" >
+        resCatalogID = #{resCatalogID,jdbcType=VARCHAR},
+      </if>
+      <if test="resCatalogName != null" >
+        resCatalogName = #{resCatalogName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqEWork" >
+    update zx_eq_EWork
+    set       orgName = #{orgName,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      bizDate = #{bizDate,jdbcType=TIMESTAMP},
+      billNo = #{billNo,jdbcType=VARCHAR},
+      equipID = #{equipID,jdbcType=VARCHAR},
+      equipName = #{equipName,jdbcType=VARCHAR},
+      equipNo = #{equipNo,jdbcType=VARCHAR},
+      resCatalogID = #{resCatalogID,jdbcType=VARCHAR},
+      resCatalogName = #{resCatalogName,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxEqEWorkList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEWork" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_EWork
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="bizDate != null and bizDate != ''" >
+     and bizDate = #{bizDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="billNo != null and billNo != ''" >
+     and billNo = #{billNo,jdbcType=VARCHAR}
+    </if>
+    <if test="equipID != null and equipID != ''" >
+     and equipID = #{equipID,jdbcType=VARCHAR}
+    </if>
+    <if test="equipName != null and equipName != ''" >
+     and equipName = #{equipName,jdbcType=VARCHAR}
+    </if>
+    <if test="equipNo != null and equipNo != ''" >
+     and equipNo = #{equipNo,jdbcType=VARCHAR}
+    </if>
+    <if test="resCatalogID != null and resCatalogID != ''" >
+     and resCatalogID = #{resCatalogID,jdbcType=VARCHAR}
+    </if>
+    <if test="resCatalogName != null and resCatalogName != ''" >
+     and resCatalogName = #{resCatalogName,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="status != null and status != ''" >
+     and status = #{status,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqEWork" parameterType="com.apih5.mybatis.pojo.ZxEqEWork" >
+    <![CDATA[ 
+        update zx_eq_EWork
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+  
+  <select id="getZxEqEWorkListForReport" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEWork" >
+       select 
+           t.resCatalogName,
+           t.equipNo,
+           t.equipName,
+           t.spec,
+           ifnull((SELECT sum(t1.calendarNumDay) from zx_eq_eworkitem AS t1 WHERE t1.del_flag = '0' AND t1.equipID = t.equipID),0) as calendarNumDay,
+           ifnull((SELECT sum(t1.wellDays) from zx_eq_eworkitem AS t1 WHERE t1.del_flag = '0' AND t1.equipID = t.equipID),0) as wellDays,
+           case when ifnull(sum(t1.calendarNumDay),0) = 0 then 0 else CONCAT(CAST((ifnull(sum(t1.wellDays),0)/ifnull(sum(t1.calendarNumDay),0))*100 AS DECIMAL(18,2)),'%') end as wellPercen,
+           ifnull((SELECT sum(t1.runDay) from zx_eq_eworkitem AS t1 WHERE t1.del_flag = '0' AND t1.equipID = t.equipID),0) as runDay,
+           ifnull((SELECT sum(t1.runHour) from zx_eq_eworkitem AS t1 WHERE t1.del_flag = '0' AND t1.equipID = t.equipID),0) as runHour,
+           case when ifnull(sum(t1.calendarNumDay),0) = 0 then 0 else CONCAT(CAST((ifnull(sum(t1.runDay),0)/ifnull(sum(t1.calendarNumDay),0))*100 AS DECIMAL(18,2)),'%') end as runDayPercen,
+           ifnull((SELECT sum(t1.loadMiles) from zx_eq_eworkitem AS t1 WHERE t1.del_flag = '0' AND t1.equipID = t.equipID),0) as loadMiles,
+           ifnull((SELECT sum(t1.gasoline) from zx_eq_eworkitem AS t1 WHERE t1.del_flag = '0' AND t1.equipID = t.equipID),0) as gasoline,
+           ifnull((SELECT sum(t1.diesel) from zx_eq_eworkitem AS t1 WHERE t1.del_flag = '0' AND t1.equipID = t.equipID),0) as diesel,
+           ifnull((SELECT sum(t1.consumption) from zx_eq_eworkitem AS t1 WHERE t1.del_flag = '0' AND t1.equipID = t.equipID),0) as consumption,
+           t.remark
+      from zx_eq_EWork AS t
+      LEFT JOIN zx_eq_eworkitem AS t1 ON t1.del_flag = '0' AND t1.mainID = t.id
+    where t.del_flag = '0'
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="bizDate != null and bizDate != ''" >
+     and bizDate = #{bizDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="billNo != null and billNo != ''" >
+     and billNo = #{billNo,jdbcType=VARCHAR}
+    </if>
+    <if test="equipID != null and equipID != ''" >
+     and equipID = #{equipID,jdbcType=VARCHAR}
+    </if>
+    <if test="equipName != null and equipName != ''" >
+     and equipName = #{equipName,jdbcType=VARCHAR}
+    </if>
+    <if test="equipNo != null and equipNo != ''" >
+     and equipNo = #{equipNo,jdbcType=VARCHAR}
+    </if>
+    <if test="resCatalogID != null and resCatalogID != ''" >
+     and resCatalogID = #{resCatalogID,jdbcType=VARCHAR}
+    </if>
+    <if test="resCatalogName != null and resCatalogName != ''" >
+     and resCatalogName = #{resCatalogName,jdbcType=VARCHAR}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    GROUP BY t.equipID
+    ORDER BY t.modify_time DESC 
+  </select>
+</mapper>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>维修记录详情</title>
+    <link rel="stylesheet" type="text/css" href="../css/repairDetail.css">
+    <link rel="stylesheet" type="text/css" href="../lib/layer_mobile/need/layer.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <script src="../lib/jquery/1.9.1/jquery.min.js"></script>
+    <script src="../lib/layer_mobile/layer.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../lib/ajaxfileupload/ajaxfileupload.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/main.js"></script>
+    <!-- <script src="http://weixin.fheb.cn:90/cdn/public/lny.js" type="text/javascript"></script> -->
+</head>
+
+<body>
+    <div class="repairDetail">
+        <div class="part1 p-20">
+            <!-- <img src="../img/greenCorrect_128.png"> -->
+            <!-- <div id="checkResult" class="content1 normalText">检查正常</div> -->
+            <div id="checkRecord" class="content2">设备维修记录</div>
+            <div id="checkDate" class="content3">2016-11-10 10:45:57</div>
+            <div id="checkPerson" class="content4">-</div>
+        </div>
+        <div class="part2">
+            <ul>
+                <li>
+                    <div class="left">
+                        <span class="text">所属大类</span>
+                    </div>
+                    <div class="right">
+                        <input id="sszclx1Name" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">所属小类</span>
+                    </div>
+                    <div class="right">
+                        <input id="sszclx2Name" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">资产名称</span>
+                    </div>
+                    <div class="right">
+                        <input id="zcmc" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">规定使用年限(年)</span>
+                    </div>
+                    <div class="right">
+                        <input id="synx" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">保修天数(天)</span>
+                    </div>
+                    <div class="right">
+                        <input id="bxts" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">报修日期</span>
+                        <span class="star">*</span>
+                    </div>
+                    <div class="right">
+                        <input type="date" id="bxrq" name="input_date" class="input b" placeholder="时间选择" readonly />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">维修状态</span>
+                        <span class="star">*</span>
+                    </div>
+                    <div class="right">
+                        <select class="select b-b" size="1" id="wxztdm" disabled>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">维修方</span>
+                        <span class="star">*</span>
+                    </div>
+                    <div class="right">
+                        <input id="wxf" class="input b" placeholder="必填项" readonly />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">维修费用(元)</span>
+                    </div>
+                    <div class="right">
+                        <input id="wxfy" class="input b" placeholder="必填项" readonly />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">故障说明</span>
+                    </div>
+                    <div class="right">
+                        <textarea id="gzsm" class="textarea b-b" placeholder="请输入故障说明" readonly></textarea>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">方案说明</span>
+                    </div>
+                    <div class="right">
+                        <textarea id="fasm" class="textarea b-b" placeholder="请输入方案说明" readonly></textarea>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">资产图片</span>
+                    </div>
+                    <div class="right">
+                        <div class="uploadFile">
+                            <label for="uploadBtn" name="imageList" class="upload-btn" style="display: none">
+                                <span style="padding-left: 10px;">添加图片</span>
+                                <input id="uploadBtn" class="inputFile" data-filetype="['jpg','jpeg','png','gif']" name="filesName" size="2" type="file"
+                                />
+                            </label>
+                            <span class="require" style="margin-top: 35px;">上传格式要求：["jpg","jpeg","png","gif"]</span>
+                            <ul class="uploadList" style="margin-top: 20px;height: 240px;overflow-y: auto;">
+                                <!--<li>-->
+                                <!--<a href="" class="text">cookie.jpg</a>-->
+                                <!--<img class="img" onclick="clearItem($(this))" src="../img/close.png" />-->
+                                <!--</li>-->
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <div class="btn">
+                <a onclick="editRepair()">编辑</a>
+                <!--  <a class="btn-left" onclick="editRepair()">编辑</a> -->
+                <!--   <a class="btn-right" onclick="goBack()">返回</a> -->
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+
+
+        var recordId;// 记录ID
+        var detailId;// 详情记录ID
+        var selectDepartmentList = {};// 使用部门（后）
+        var selectMemberList = {};// 使用者（后）
+
+        // 清除选中项
+        function clearItem(dom) {
+            dom.parent().remove();//删除可见范围中选中项
+        }
+
+
+        window.login(function () {
+
+            // var code = getUrl('token')
+            // setCookie('code', code, 30)
+            // console.log(code);
+            // 页面刷新加载方法
+            window.onload = function () {
+                request();
+                localStorage.removeItem("refreshState");
+                //repairDetail();// 维修记录详情查询
+            }
+
+
+
+            //获取维修列表传递的参数
+            function request() {
+                var url = location.href;
+                var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+                var paraObj = {};
+                for (i = 0; j = paraString[i]; i++) {
+                    paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+                }
+                recordId = noNull(paraObj.recordid);
+                detailId = noNull(paraObj.detailid);
+
+                setSelect();// 维修状态(下拉列表)
+                repairDetail();// 维修记录详情查询
+            }
+
+
+
+            //设置cookie  
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + "; " + expires;
+            }
+            //获取cookie  
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1);
+                    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+                }
+                return "";
+            }
+            function getUrl(k) {//获取地址栏参数，k为键名
+                var m = new RegExp("(^|&)" + k + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(m);
+                if (r != null) return decodeURI(r[2]); return null;
+            };
+
+
+
+            // 维修状态下拉菜单(全部)
+            function setSelect() {
+
+                l.ajax('getMaintainStateSelectAllList', {}, function (data, message, success) {
+
+                    if (success) {
+                        var data = noNull(data);// 详情数据
+                        if (data != "") {
+                            var $str = "";
+                            $.each(data, function (i, item) {
+                                $str += "<option value=" + item.dmbh + ">" + item.dmnr + "</option>";
+                            });
+                            $("#wxztdm").append($str);
+                        }
+                    }
+                })
+
+               
+            }
+
+            // 维修记录详情查询
+            function repairDetail() {
+                var param = {
+                    recordid: detailId
+                }
+
+                l.ajax('getAssetsRepairDetails', param, function (data, message, success) {
+                    if (success) {
+                        var data = noNull(data);// 详情数据
+                        if (data != "") {
+                            //$("#checkResult").text(noNull(data.wxztName));// 维修状态
+                            $("#sszclx1Name").val(noNull(data.sszclx1Name));// 所属大类
+                            $("#sszclx2Name").val(noNull(data.sszclx2Name));// 所属小类
+                            $("#zcmc").val(noNull(data.zcmc));// 资产名称
+                            $("#synx").val(noNull(data.synx));// 规定使用年限(年)
+                            $("#ysynx").val(noNull(data.ysynx));// 已使用年限(年)
+                            $("#bxts").val(noNull(data.bxts));// 保修天数(天)
+                            $("#checkPerson").text(noNull(data.modifyUser));// 资产名称
+                            $("#bxrq").val(dateFormat(new Date(noNull(data.bxrq)), "yyyy-MM-dd")),// 报修日期
+                                $("#checkDate").text(dateFormat(new Date(noNull(data.bxrq)), "yyyy-MM-dd"));// 报修日期
+                            $("#wxztdm").val(noNull(data.wxztdm));// 维修状态
+                            $("#checkResult").text($("#wxztdm").find("option:selected").text());// 维修状态
+                            $("#wxf").val(noNull(data.wxf));// 维修方
+                            $("#wxzq").val(noNull(data.wxzq));// 维修周期(天)
+                            $("#wxfy").val(noNull(data.wxfy));// 维修费用(元)
+                            $("#gzsm").val(noNull(data.gzsm));// 故障说明
+                            $("#fasm").val(noNull(data.fasm));// 方案说明
+                            $("#wxrq").val(dateFormat(new Date(noNull(data.wxrq)), "yyyy-MM-dd")),// 完成日期
+                                updateUploadList(noNull(data.imageList));// 图片列表
+                        }
+                    }
+                })
+
+              
+            }
+
+            // 返回上级页面
+            function goBack() {
+                window.history.go(-1);
+            }
+
+            // 遍历图片列表
+            function updateUploadList(uploadList) {
+                //$(".uploadList li").remove();
+                var $str = "";
+                $.each(uploadList, function (i, item) {
+                    $str += '<li style="width: 100%; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" data-href="' + item.fileUrl + '" data-name="' + item.fileName + '">',
+                        $str += '<a href="' + item.fileUrl + '" class="text">' + item.fileName + '</a>',
+                        $str += '</li>'
+                });
+                $(".uploadList").append($str)
+            }
+ 
+
+        })
+
+
+        // 编辑(维修)
+        function editRepair() {
+            window.location.href = "repairAdd.html?recordid=" + recordId + "&detailid=" + detailId + "&state=update"
+        }
+
+
+    </script>
+</body>
+
+</html>

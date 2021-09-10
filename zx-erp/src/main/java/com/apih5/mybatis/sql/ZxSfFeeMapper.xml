@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSfFeeMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSfFee" >
+    <id column="zxSfFeeId" property="zxSfFeeId" jdbcType="CHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="season" property="season" jdbcType="TIMESTAMP" />
+    <result column="feeAmt" property="feeAmt" jdbcType="DECIMAL" />
+    <result column="notes" property="notes" jdbcType="VARCHAR" />
+    <result column="compSendAmt" property="compSendAmt" jdbcType="DECIMAL" />
+    <result column="groupCheckAmt" property="groupCheckAmt" jdbcType="DECIMAL" />
+    <result column="compCheckAmt" property="compCheckAmt" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="yearStr" property="yearStr" jdbcType="VARCHAR" />
+    <result column="isGroup" property="isGroup" jdbcType="VARCHAR" />
+    <result column="isCompany" property="isCompany" jdbcType="VARCHAR" />
+    <result column="produceAmt" property="produceAmt" jdbcType="DECIMAL" />
+    <result column="projectId" property="projectId" jdbcType="VARCHAR" />
+    <result column="projectName" property="projectName" jdbcType="VARCHAR" />
+    <result column="companyId" property="companyId" jdbcType="VARCHAR" />
+    <result column="companyName" property="companyName" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxSfFeeId, orgName, orgID, season, feeAmt, 
+    notes, compSendAmt, groupCheckAmt, compCheckAmt, status, 
+    editTime, yearStr, isGroup, isCompany, produceAmt, 
+    projectId, projectName, companyId, companyName, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sf_fee
+    where del_flag = '0' and zxSfFeeId = #{zxSfFeeId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sf_fee
+    where zxSfFeeId = #{zxSfFeeId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSfFee" >
+    insert into zx_sf_fee (
+    zxSfFeeId, orgName, orgID, season, feeAmt, 
+    notes, compSendAmt, groupCheckAmt, compCheckAmt, status, 
+    editTime, yearStr, isGroup, isCompany, produceAmt, 
+    projectId, projectName, companyId, companyName, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxSfFeeId,jdbcType=CHAR}, #{orgName,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, #{season,jdbcType=TIMESTAMP}, #{feeAmt,jdbcType=DECIMAL}, 
+    #{notes,jdbcType=VARCHAR}, #{compSendAmt,jdbcType=DECIMAL}, #{groupCheckAmt,jdbcType=DECIMAL}, #{compCheckAmt,jdbcType=DECIMAL}, #{status,jdbcType=VARCHAR}, 
+    #{editTime,jdbcType=TIMESTAMP}, #{yearStr,jdbcType=VARCHAR}, #{isGroup,jdbcType=VARCHAR}, #{isCompany,jdbcType=VARCHAR}, #{produceAmt,jdbcType=DECIMAL}, 
+    #{projectId,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, #{companyId,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+    #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+    #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSfFee" >
+    insert into zx_sf_fee
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSfFeeId != null" >
+        zxSfFeeId,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="season != null" >
+        season,
+      </if>
+      <if test="feeAmt != null" >
+        feeAmt,
+      </if>
+      <if test="notes != null" >
+        notes,
+      </if>
+      <if test="compSendAmt != null" >
+        compSendAmt,
+      </if>
+      <if test="groupCheckAmt != null" >
+        groupCheckAmt,
+      </if>
+      <if test="compCheckAmt != null" >
+        compCheckAmt,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="yearStr != null" >
+        yearStr,
+      </if>
+      <if test="isGroup != null" >
+        isGroup,
+      </if>
+      <if test="isCompany != null" >
+        isCompany,
+      </if>
+      <if test="produceAmt != null" >
+        produceAmt,
+      </if>
+      <if test="projectId != null" >
+        projectId,
+      </if>
+      <if test="projectName != null" >
+        projectName,
+      </if>
+      <if test="companyId != null" >
+        companyId,
+      </if>
+      <if test="companyName != null" >
+        companyName,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSfFeeId != null" >
+        #{zxSfFeeId,jdbcType=CHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="season != null" >
+        #{season,jdbcType=TIMESTAMP},
+      </if>
+      <if test="feeAmt != null" >
+        #{feeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="notes != null" >
+        #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="compSendAmt != null" >
+        #{compSendAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="groupCheckAmt != null" >
+        #{groupCheckAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="compCheckAmt != null" >
+        #{compCheckAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="yearStr != null" >
+        #{yearStr,jdbcType=VARCHAR},
+      </if>
+      <if test="isGroup != null" >
+        #{isGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="isCompany != null" >
+        #{isCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="produceAmt != null" >
+        #{produceAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSfFee" >
+    update zx_sf_fee
+    <set >
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="season != null" >
+        season = #{season,jdbcType=TIMESTAMP},
+      </if>
+      <if test="feeAmt != null" >
+        feeAmt = #{feeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="notes != null" >
+        notes = #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="compSendAmt != null" >
+        compSendAmt = #{compSendAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="groupCheckAmt != null" >
+        groupCheckAmt = #{groupCheckAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="compCheckAmt != null" >
+        compCheckAmt = #{compCheckAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="yearStr != null" >
+        yearStr = #{yearStr,jdbcType=VARCHAR},
+      </if>
+      <if test="isGroup != null" >
+        isGroup = #{isGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="isCompany != null" >
+        isCompany = #{isCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="produceAmt != null" >
+        produceAmt = #{produceAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="projectId != null" >
+        projectId = #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        projectName = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        companyId = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        companyName = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxSfFeeId = #{zxSfFeeId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSfFee" >
+    update zx_sf_fee set 
+      orgName = #{orgName,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      season = #{season,jdbcType=TIMESTAMP},
+      feeAmt = #{feeAmt,jdbcType=DECIMAL},
+      notes = #{notes,jdbcType=VARCHAR},
+      compSendAmt = #{compSendAmt,jdbcType=DECIMAL},
+      groupCheckAmt = #{groupCheckAmt,jdbcType=DECIMAL},
+      compCheckAmt = #{compCheckAmt,jdbcType=DECIMAL},
+      status = #{status,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      yearStr = #{yearStr,jdbcType=VARCHAR},
+      isGroup = #{isGroup,jdbcType=VARCHAR},
+      isCompany = #{isCompany,jdbcType=VARCHAR},
+      produceAmt = #{produceAmt,jdbcType=DECIMAL},
+      projectId = #{projectId,jdbcType=VARCHAR},
+      projectName = #{projectName,jdbcType=VARCHAR},
+      companyId = #{companyId,jdbcType=VARCHAR},
+      companyName = #{companyName,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSfFeeId = #{zxSfFeeId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSfFeeList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSfFee" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sf_fee
+    where del_flag = '0'
+    <if test="zxSfFeeId != null and zxSfFeeId != ''" >
+     and zxSfFeeId = #{zxSfFeeId,jdbcType=CHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName LIKE CONCAT('%', #{orgName,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="season != null and season != ''" >
+     and season = #{season,jdbcType=TIMESTAMP}
+    </if>
+    <if test="feeAmt != null and feeAmt != ''" >
+     and feeAmt = #{feeAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="notes != null and notes != ''" >
+     and notes = #{notes,jdbcType=VARCHAR}
+    </if>
+    <if test="compSendAmt != null and compSendAmt != ''" >
+     and compSendAmt = #{compSendAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="groupCheckAmt != null and groupCheckAmt != ''" >
+     and groupCheckAmt = #{groupCheckAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="compCheckAmt != null and compCheckAmt != ''" >
+     and compCheckAmt = #{compCheckAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="status != null and status != ''" >
+     and status = #{status,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="yearStr != null and yearStr != ''" >
+     and yearStr = #{yearStr,jdbcType=VARCHAR}
+    </if>
+    <if test="isGroup != null and isGroup != ''" >
+     and isGroup = #{isGroup,jdbcType=VARCHAR}
+    </if>
+    <if test="isCompany != null and isCompany != ''" >
+     and isCompany = #{isCompany,jdbcType=VARCHAR}
+    </if>
+    <if test="produceAmt != null and produceAmt != ''" >
+     and produceAmt = #{produceAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and projectId = #{projectId,jdbcType=VARCHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and projectName = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and companyId = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and companyName = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="seasonQuery != null and seasonQuery.size() > 1" >
+      and season between #{seasonQuery[0],jdbcType=DATE} and #{seasonQuery[1],jdbcType=DATE}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSfFee" parameterType="com.apih5.mybatis.pojo.ZxSfFee" >
+    <![CDATA[ 
+        update zx_sf_fee
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSfFeeId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSfFeeId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+
+  <select id="getCompany" resultMap="BaseResultMap">
+    SELECT
+    b.company_id,
+    b.company_name,
+	sum( chanzhi ) AS endCost,
+	sum( chanzhi )/100 AS endSfCost,
+	sum( b.contractCost ) zjCost,
+	sum( b.contractCost )/100 AS zjSfCost ,
+	sum( chanzhi )/100-sum(b.contractCost )/100
+    FROM
+	zx_sf_fee a
+	LEFT JOIN zx_ct_contract b ON a.projectId = b.orgID
+	LEFT JOIN ( SELECT sum( produceAmt ) AS chanzhi, orgID FROM zx_ct_produceamtcal GROUP BY orgID ) AS pro ON a.orgID = pro.orgID
+	where b.company_id=#{companyId}  and a.del_flag='0'
+    <if test="projType != null and projType !=''" >
+      and b.projType=#{projType}
+    </if>
+    <if test="season != null " >
+      and a.season=#{season}
+    </if>
+  </select>
+
+  <select id="getCompanyList" resultMap="BaseResultMap">
+    SELECT
+    b.company_id,
+    b.company_name,
+	sum( chanzhi ) AS endCost,
+	sum( chanzhi )/100 AS endSfCost,
+	sum( b.contractCost ) zjCost,
+	sum( b.contractCost )/100 AS zjSfCost ,
+	sum( chanzhi )/100-sum(b.contractCost )/100
+    FROM
+	zx_sf_fee a
+	LEFT JOIN zx_ct_contract b ON a.projectId = b.orgID
+	LEFT JOIN ( SELECT sum( produceAmt ) AS chanzhi, orgID FROM zx_ct_produceamtcal GROUP BY orgID ) AS pro ON a.orgID = pro.orgID
+	where a.del_flag='0'
+    <if test="projType != null and projType !=''" >
+      and b.projType=#{projType}
+    </if>
+    <if test="season != null " >
+      and a.season=#{season}
+    </if>
+    ORDER BY b.company_id,b.company_name
+  </select>
+
+
+
+  <select id="getJuInfo" resultMap="BaseResultMap">
+    SELECT
+    sum( chanzhi ) AS endCost,
+    sum( chanzhi )/100 AS endSfCost,
+    sum( b.contractCost ) zjCost,
+    sum( b.contractCost )/100 AS zjSfCost ,
+    sum( chanzhi )/100-sum(b.contractCost )/100
+    FROM
+    zx_sf_fee a
+    LEFT JOIN zx_ct_contract b ON a.projectId = b.orgID
+    LEFT JOIN ( SELECT sum( produceAmt ) AS chanzhi, orgID FROM zx_ct_produceamtcal GROUP BY orgID ) AS pro ON a.orgID = pro.orgID
+    where a.del_flag='0'
+    <if test="projType != null and projType !=''" >
+      and b.projType=#{projType}
+    </if>
+    <if test="season != null " >
+      and a.season=#{season}
+    </if>
+  </select>
+
+
+
+  <select id="getGuiDang" resultMap="BaseResultMap">
+    SELECT
+	sum( chanzhi ) AS endCost,
+	sum( chanzhi )/100 AS endSfCost,
+	sum( b.contractCost ) zjCost,
+	sum( b.contractCost )/100 AS zjSfCost ,
+	sum( chanzhi )/100-sum(b.contractCost )/100 AS cost
+FROM
+	zx_sf_fee a
+	LEFT JOIN zx_ct_contract b ON a.projectId = b.orgID
+	LEFT JOIN ( SELECT sum( produceAmt ) AS chanzhi, orgID FROM zx_ct_produceamtcal GROUP BY orgID ) AS pro ON a.orgID = pro.orgID
+	LEFT JOIN sys_project c ON c.department_id = b.orgID
+	where a.del_flag='0' and b.company_id=#{record.companyId}  and DATE_FORMAT( c.doc_date, '%Y%m%d' ) &lt; #{today}
+    <if test="record.projType != null and record.projType !=''" >
+      and b.projType=#{record.projType}
+    </if>
+    <if test="record.season != null " >
+      and a.season=#{record.season}
+    </if>
+  </select>
+
+
+  <select id="getGuiDangList" resultMap="BaseResultMap">
+    SELECT
+	b.orgID,
+	b.orgName,
+	chanzhi  AS endCost,
+    chanzhi/100 AS endSfCost,
+	b.contractCost  zjCost,
+	b.contractCost/100 AS zjSfCost ,
+	chanzhi/100 - b.contractCost/100 as cost
+FROM
+	zx_sf_fee a
+	LEFT JOIN zx_ct_contract b ON a.projectId = b.orgID
+	LEFT JOIN ( SELECT sum( produceAmt ) AS chanzhi, orgID FROM zx_ct_produceamtcal GROUP BY orgID ) AS pro ON a.orgID = pro.orgID
+	LEFT JOIN sys_project c ON c.department_id = b.orgID
+	where a.del_flag='0' and b.company_id=#{record.companyId}  and DATE_FORMAT( c.doc_date, '%Y%m%d' ) &lt; #{today}
+    <if test="record.projType != null and record.projType !=''" >
+      and b.projType=#{record.projType}
+    </if>
+    <if test="record.season != null " >
+      and a.season=#{record.season}
+    </if>
+  </select>
+
+  <select id="getJiaoGong" resultMap="BaseResultMap">
+     SELECT
+	sum( chanzhi ) AS endCost,
+	sum( chanzhi )/100 AS endSfCost,
+	sum( b.contractCost ) zjCost,
+	sum( b.contractCost )/100 AS zjSfCost ,
+	sum( chanzhi )/100-sum(b.contractCost )/100 AS cost
+FROM
+	zx_sf_fee a
+	LEFT JOIN zx_ct_contract b ON a.projectId = b.orgID
+	LEFT JOIN ( SELECT sum( produceAmt ) AS chanzhi, orgID FROM zx_ct_produceamtcal GROUP BY orgID ) AS pro ON a.orgID = pro.orgID
+	LEFT JOIN sys_project c ON c.department_id = b.orgID
+	where  a.del_flag='0' and b.company_id=#{record.companyId}  and CASE WHEN ISNULL( c.doc_date ) THEN
+        DATE_FORMAT( c.delivery_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( c.delivery_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( c.doc_date, '%Y%m%d' ) >#{today} )
+        END
+    <if test="record.projType != null and record.projType !=''" >
+      and b.projType=#{record.projType}
+    </if>
+    <if test="record.season != null " >
+      and a.season=#{record.season}
+    </if>
+  </select>
+
+  <select id="getJiaoGongList" resultMap="BaseResultMap">
+    SELECT
+	b.orgID,
+	b.orgName,
+	chanzhi  AS endCost,
+    chanzhi/100 AS endSfCost,
+	b.contractCost  zjCost,
+	b.contractCost/100 AS zjSfCost ,
+	chanzhi/100 - b.contractCost/100 as cost
+FROM
+	zx_sf_fee a
+	LEFT JOIN zx_ct_contract b ON a.projectId = b.orgID
+	LEFT JOIN ( SELECT sum( produceAmt ) AS chanzhi, orgID FROM zx_ct_produceamtcal GROUP BY orgID ) AS pro ON a.orgID = pro.orgID
+	LEFT JOIN sys_project c ON c.department_id = b.orgID
+	where  a.del_flag='0' and b.company_id=#{record.companyId} and CASE WHEN ISNULL( c.doc_date ) THEN
+        DATE_FORMAT( c.delivery_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( c.delivery_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( c.doc_date, '%Y%m%d' ) >#{today} )
+        END
+    <if test="record.projType != null and record.projType !=''" >
+      and b.projType=#{record.projType}
+    </if>
+    <if test="record.season != null " >
+      and a.season=#{record.season}
+    </if>
+  </select>
+
+  <select id="getWanGong" resultMap="BaseResultMap">
+     SELECT
+	sum( chanzhi ) AS endCost,
+	sum( chanzhi )/100 AS endSfCost,
+	sum( b.contractCost ) zjCost,
+	sum( b.contractCost )/100 AS zjSfCost ,
+	sum( chanzhi )/100-sum(b.contractCost )/100 AS cost
+FROM
+	zx_sf_fee a
+	LEFT JOIN zx_ct_contract b ON a.projectId = b.orgID
+	LEFT JOIN ( SELECT sum( produceAmt ) AS chanzhi, orgID FROM zx_ct_produceamtcal GROUP BY orgID ) AS pro ON a.orgID = pro.orgID
+	LEFT JOIN sys_project c ON c.department_id = b.orgID
+	where a.del_flag='0' and b.company_id=#{record.companyId} and  CASE
+        WHEN ISNULL( c.delivery_date ) THEN
+	( CASE WHEN ISNULL( c.doc_date ) THEN DATE_FORMAT( c.main_end_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( c.main_end_date, '%Y%m%d' )  &lt;= #{today} AND DATE_FORMAT( c.doc_date, '%Y%m%d' ) > #{today} )
+		END ) ELSE (
+	DATE_FORMAT( c.main_end_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( c.delivery_date, '%Y%m%d' ) > #{today} )
+	END
+
+    <if test="record.projType != null and record.projType !=''" >
+      and b.projType=#{record.projType}
+    </if>
+    <if test="record.season != null " >
+      and a.season=#{record.season}
+    </if>
+  </select>
+
+  <select id="getWanGongList" resultMap="BaseResultMap">
+     SELECT
+	b.orgID,
+	b.orgName,
+	chanzhi  AS endCost,
+    chanzhi/100 AS endSfCost,
+	b.contractCost  zjCost,
+	b.contractCost/100 AS zjSfCost ,
+	chanzhi/100 - b.contractCost/100 as cost
+FROM
+	zx_sf_fee a
+	LEFT JOIN zx_ct_contract b ON a.projectId = b.orgID
+	LEFT JOIN ( SELECT sum( produceAmt ) AS chanzhi, orgID FROM zx_ct_produceamtcal GROUP BY orgID ) AS pro ON a.orgID = pro.orgID
+	LEFT JOIN sys_project c ON c.department_id = b.orgID
+	where a.del_flag='0'and b.company_id=#{record.companyId} and   CASE
+        WHEN ISNULL( c.delivery_date ) THEN
+	( CASE WHEN ISNULL( c.doc_date ) THEN DATE_FORMAT( c.main_end_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( c.main_end_date, '%Y%m%d' )  &lt;= #{today} AND DATE_FORMAT( c.doc_date, '%Y%m%d' ) > #{today} )
+		END ) ELSE (
+	DATE_FORMAT( c.main_end_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( c.delivery_date, '%Y%m%d' ) > #{today} )
+	END
+    <if test="record.projType != null and record.projType !=''" >
+      and b.projType=#{record.projType}
+    </if>
+    <if test="record.season != null " >
+      and a.season=#{record.season}
+    </if>
+  </select>
+
+  <select id="getKaiGong" resultMap="BaseResultMap">
+     SELECT
+	sum( chanzhi ) AS endCost,
+	sum( chanzhi )/100 AS endSfCost,
+	sum( b.contractCost ) zjCost,
+	sum( b.contractCost )/100 AS zjSfCost ,
+	sum( chanzhi )/100-sum(b.contractCost )/100 AS cost
+FROM
+	zx_sf_fee a
+	LEFT JOIN zx_ct_contract b ON a.projectId = b.orgID
+	LEFT JOIN ( SELECT sum( produceAmt ) AS chanzhi, orgID FROM zx_ct_produceamtcal GROUP BY orgID ) AS pro ON a.orgID = pro.orgID
+	LEFT JOIN sys_project c ON c.department_id = b.orgID
+	where a.del_flag='0'and b.company_id=#{record.companyId}  and  CASE
+
+	WHEN ISNULL( c.main_end_date ) THEN
+	(
+	CASE
+			WHEN ISNULL( c.delivery_date ) THEN
+			( CASE WHEN ISNULL( c.doc_date ) THEN DATE_FORMAT( c.actual_start_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( c.actual_start_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( c.doc_date, '%Y%m%d' ) > #{today} )
+				END ) ELSE ( DATE_FORMAT( c.actual_start_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( c.delivery_date, '%Y%m%d' ) > #{today} )
+		END ) ELSE (
+		DATE_FORMAT( c.actual_start_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( c.main_end_date, '%Y%m%d' ) > #{today} ) END
+    <if test="record.projType != null and record.procType !=''" >
+      and b.projType=#{record.projType}
+    </if>
+    <if test="record.season != null " >
+      and a.season=#{record.season}
+    </if>
+  </select>
+
+  <select id="getKaiGongList" resultMap="BaseResultMap">
+     SELECT
+	b.orgID,
+	b.orgName,
+	chanzhi  AS endCost,
+    chanzhi/100 AS endSfCost,
+	b.contractCost  zjCost,
+	b.contractCost/100 AS zjSfCost ,
+	chanzhi/100 - b.contractCost/100 as cost
+    FROM
+	zx_sf_fee a
+	LEFT JOIN zx_ct_contract b ON a.projectId = b.orgID
+	LEFT JOIN ( SELECT sum( produceAmt ) AS chanzhi, orgID FROM zx_ct_produceamtcal GROUP BY orgID ) AS pro ON a.orgID = pro.orgID
+	LEFT JOIN sys_project c ON c.department_id = b.orgID
+	where a.del_flag='0' and  b.company_id=#{record.companyId}  and  CASE
+
+	WHEN ISNULL( c.main_end_date ) THEN
+	(
+	CASE WHEN ISNULL( c.delivery_date ) THEN
+			( CASE WHEN ISNULL( c.doc_date ) THEN DATE_FORMAT( c.actual_start_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( c.actual_start_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( c.doc_date, '%Y%m%d' ) > #{today} )
+				END ) ELSE ( DATE_FORMAT( c.actual_start_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( c.delivery_date, '%Y%m%d' ) > #{today} )
+		END ) ELSE (
+		DATE_FORMAT( c.actual_start_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( c.main_end_date, '%Y%m%d' ) > #{today} ) END
+    <if test="record.projType != null and record.projType !=''" >
+      and b.projType=#{projType}
+    </if>
+    <if test="record.season != null " >
+      and a.season=#{record.season}
+    </if>
+  </select>
+
+</mapper>

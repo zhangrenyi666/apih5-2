@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd ">
+
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:workflow-conf/properties/horizon.properties" />
+    <!-- 开启spring注解支持 需要配置 -->
+    <context:component-scan base-package="com.horizon.**.web" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <mvc:default-servlet-handler/>
+    <!--&lt;!&ndash; 开启注解 annotation-drive你n等价&ndash;&gt;-->
+    <!--<mvc:annotation-driven validator="horizonValidator">-->
+
+        <!--<mvc:message-converters>-->
+            <!--<bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
+                <!--<property name="supportedMediaTypes">-->
+                    <!--<list>-->
+                        <!--<value>text/plain;charset=UTF-8</value>-->
+                        <!--<value>text/html;charset=UTF-8</value>-->
+                        <!--<value>application/json;charset=UTF-8</value>-->
+                    <!--</list>-->
+                <!--</property>-->
+            <!--</bean>-->
+        <!--</mvc:message-converters>-->
+    <!--</mvc:annotation-driven>-->
+
+
+    <!-- 通用视图 用于jsp访问
+    <bean id="horizonViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="order" value="1"/>
+        <property name="contentType" value="text/html"/>
+        <property name="prefix" value="${view.prefix}"/>
+        <property name="suffix" value="${view.suffix}"/>
+    </bean>
+-->
+
+    <!-- FreeMarker 模版视图 流程运行框架和表单 -->
+    <bean name="horizonXmlSpace"     class="freemarker.template.utility.XmlEscape"/>
+    <bean name="horizonIncludeTag" class="com.horizon.workflow.form.tag.IncludeTag"/>
+
+    <bean id="horizonFreeMarkerConfiguration"  class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="classpath:/templates/"/>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">0</prop>
+                <prop key="default_encoding">utf-8</prop>
+                <prop key="number_format">0.##########</prop>
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+                <prop key="classic_compatible">true</prop>
+                <prop key="template_exception_handler">ignore</prop>
+            </props>
+        </property>
+
+        <property name="freemarkerVariables" >
+            <map>
+                <entry key="xml_escape" value-ref="horizonXmlSpace"/>
+                <entry key="includeX" value-ref="horizonIncludeTag"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="horizonFreemMarkerView" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
+        <property name="suffix" value=".ftl"/>
+        <property name="contentType" value="text/html;charset=utf-8"/>
+        <property name="cache" value="true"/>
+        <property name="exposeRequestAttributes" value="true"/>
+        <property name="exposeSessionAttributes" value="true"/>
+        <property name="exposeSpringMacroHelpers" value="true"/>
+        <property name="requestContextAttribute" value="true"/>
+        <property name="order" value="1"/>
+    </bean>
+
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+</beans>

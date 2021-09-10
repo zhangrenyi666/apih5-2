@@ -1,0 +1,2671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>附属合同结算数据移植</name>
+    <description />
+    <extended_description />
+    <trans_version />
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>/</directory>
+    <parameters>
+    </parameters>
+    <log>
+      <trans-log-table>
+        <connection />
+        <schema />
+        <table />
+        <size_limit_lines />
+        <interval />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STATUS</id>
+          <enabled>Y</enabled>
+          <name>STATUS</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+          <subject />
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>STARTDATE</id>
+          <enabled>Y</enabled>
+          <name>STARTDATE</name>
+        </field>
+        <field>
+          <id>ENDDATE</id>
+          <enabled>Y</enabled>
+          <name>ENDDATE</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>DEPDATE</id>
+          <enabled>Y</enabled>
+          <name>DEPDATE</name>
+        </field>
+        <field>
+          <id>REPLAYDATE</id>
+          <enabled>Y</enabled>
+          <name>REPLAYDATE</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>EXECUTING_SERVER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_SERVER</name>
+        </field>
+        <field>
+          <id>EXECUTING_USER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_USER</name>
+        </field>
+        <field>
+          <id>CLIENT</id>
+          <enabled>N</enabled>
+          <name>CLIENT</name>
+        </field>
+      </trans-log-table>
+      <perf-log-table>
+        <connection />
+        <schema />
+        <table />
+        <interval />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>SEQ_NR</id>
+          <enabled>Y</enabled>
+          <name>SEQ_NR</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>INPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>INPUT_BUFFER_ROWS</name>
+        </field>
+        <field>
+          <id>OUTPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>OUTPUT_BUFFER_ROWS</name>
+        </field>
+      </perf-log-table>
+      <channel-log-table>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>LOGGING_OBJECT_TYPE</id>
+          <enabled>Y</enabled>
+          <name>LOGGING_OBJECT_TYPE</name>
+        </field>
+        <field>
+          <id>OBJECT_NAME</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_NAME</name>
+        </field>
+        <field>
+          <id>OBJECT_COPY</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_COPY</name>
+        </field>
+        <field>
+          <id>REPOSITORY_DIRECTORY</id>
+          <enabled>Y</enabled>
+          <name>REPOSITORY_DIRECTORY</name>
+        </field>
+        <field>
+          <id>FILENAME</id>
+          <enabled>Y</enabled>
+          <name>FILENAME</name>
+        </field>
+        <field>
+          <id>OBJECT_ID</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_ID</name>
+        </field>
+        <field>
+          <id>OBJECT_REVISION</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_REVISION</name>
+        </field>
+        <field>
+          <id>PARENT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>PARENT_CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>ROOT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>ROOT_CHANNEL_ID</name>
+        </field>
+      </channel-log-table>
+      <step-log-table>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>N</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+      </step-log-table>
+      <metrics-log-table>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_DATE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_CODE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_CODE</name>
+        </field>
+        <field>
+          <id>METRICS_DESCRIPTION</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DESCRIPTION</name>
+        </field>
+        <field>
+          <id>METRICS_SUBJECT</id>
+          <enabled>Y</enabled>
+          <name>METRICS_SUBJECT</name>
+        </field>
+        <field>
+          <id>METRICS_TYPE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_TYPE</name>
+        </field>
+        <field>
+          <id>METRICS_VALUE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_VALUE</name>
+        </field>
+      </metrics-log-table>
+    </log>
+    <maxdate>
+      <connection />
+      <table />
+      <field />
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file />
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+    <created_user>-</created_user>
+    <created_date>2021/06/24 13:43:34.300</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2021/06/24 13:43:34.300</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+  </notepads>
+  <connection>
+    <name>zj-erp-qianyi</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>apih5</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>zj1j_iems</name>
+    <server>192.168.1.56</server>
+    <type>MSSQLNATIVE</type>
+    <access>Native</access>
+    <database>zj1j_iems</database>
+    <port>1433</port>
+    <username>sa</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb18af508cc2fd8b</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQLUseIntegratedSecurity</code>
+        <attribute>false</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1433</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <order>
+    <hop>
+      <from>zx_bu_projecttype project 转换 3</from>
+      <to>zx_bu_projecttype companyId 转换 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>表输入 2</from>
+      <to>zx_bu_projecttype project 转换 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>zx_bu_projecttype companyId 转换 3</from>
+      <to>插入 / 更新 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>zx_bu_projecttype project 转换 3 2</from>
+      <to>zx_bu_projecttype companyId 转换 3 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>表输入 3</from>
+      <to>zx_bu_projecttype project 转换 3 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>zx_bu_projecttype companyId 转换 3 2</from>
+      <to>插入 / 更新 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>zx_bu_projecttype project 转换 3 2 2 2</from>
+      <to>zx_bu_projecttype companyId 转换 3 2 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>表输入 5</from>
+      <to>zx_bu_projecttype project 转换 3 2 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>zx_bu_projecttype companyId 转换 3 2 2 2</from>
+      <to>插入 / 更新 5</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>zx_bu_projecttype project 转换 3 2 2 2 2 2</from>
+      <to>zx_bu_projecttype companyId 转换 3 2 2 2 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>表输入 7</from>
+      <to>zx_bu_projecttype project 转换 3 2 2 2 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>zx_bu_projecttype companyId 转换 3 2 2 2 2 2</from>
+      <to>插入 / 更新 7</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>表输入 4</from>
+      <to>插入 / 更新 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>表输入 6</from>
+      <to>插入 / 更新 6</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <step>
+    <name>插入 / 更新 2</name>
+    <type>InsertUpdate</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj-erp-qianyi</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema />
+      <table>zx_sa_fs_settlement</table>
+      <key>
+        <name>ID</name>
+        <field>zx_sa_fs_settlement_id</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>billID</name>
+        <rename>billID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>billNo</name>
+        <rename>billNo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>orgName</name>
+        <rename>orgName</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>period</name>
+        <rename>period</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>contractNo</name>
+        <rename>contractNo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>contractName</name>
+        <rename>contractName</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>secondID</name>
+        <rename>secondID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>secondName</name>
+        <rename>secondName</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>billType</name>
+        <rename>billType</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>beginDate</name>
+        <rename>beginDate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>endDate</name>
+        <rename>endDate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisAmt</name>
+        <rename>thisAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>totalAmt</name>
+        <rename>totalAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisPayAmt</name>
+        <rename>thisPayAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>totalPayAmt</name>
+        <rename>totalPayAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>businessDate</name>
+        <rename>businessDate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>reportDate</name>
+        <rename>reportDate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>reportPerson</name>
+        <rename>reportPerson</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>countPerson</name>
+        <rename>countPerson</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>reCountPerson</name>
+        <rename>reCountPerson</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>editTime</name>
+        <rename>editTime</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comName</name>
+        <rename>comName</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comOrders</name>
+        <rename>comOrders</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>contrType</name>
+        <rename>contrType</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>content</name>
+        <rename>content</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisAmtNoTax</name>
+        <rename>thisAmtNoTax</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisAmtTax</name>
+        <rename>thisAmtTax</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>taxRate</name>
+        <rename>taxRate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>isDeduct</name>
+        <rename>isDeduct</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>isFirst</name>
+        <rename>isFirst</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>contractAmt</name>
+        <rename>contractAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>changeAmt</name>
+        <rename>changeAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>initSerialNumber</name>
+        <rename>initSerialNumber</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisEquipAmt</name>
+        <rename>thisEquipAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>totalEquipAmt</name>
+        <rename>totalEquipAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>serialNumber</name>
+        <rename>serialNumber</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>isFished</name>
+        <rename>isFished</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>signedNo</name>
+        <rename>signedNo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>startDate</name>
+        <rename>startDate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>useCount</name>
+        <rename>useCount</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>isMaxPeriod</name>
+        <rename>isMaxPeriod</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>useSignedOrder</name>
+        <rename>useSignedOrder</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>del_flag</name>
+        <rename>del_flag</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zx_sa_fs_settlement_id</name>
+        <rename>ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zx_ct_fs_contract_id</name>
+        <rename>contractID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>remarks</name>
+        <rename>remark</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>apih5_flow_status</name>
+        <rename>auditStatus</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>create_user_name</name>
+        <rename>flowBeginPerson</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>flowBeginPerson</name>
+        <rename>flowBeginPerson</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>auditStatus</name>
+        <rename>auditStatus</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>notPassNum</name>
+        <rename>notPassNum</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comID</name>
+        <rename>companyIdNew</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>orgID</name>
+        <rename>projectIDNew</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>插入 / 更新 3</name>
+    <type>InsertUpdate</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj-erp-qianyi</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema />
+      <table>zx_sa_fs_inventory_settlement</table>
+      <key>
+        <name>ID</name>
+        <field>zx_sa_fs_inventory_settlement_id</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>orgName</name>
+        <rename>orgName</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>billNo</name>
+        <rename>billNo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>period</name>
+        <rename>period</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>signedOrders</name>
+        <rename>signedOrders</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>signedNos</name>
+        <rename>signedNos</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>contractAmt</name>
+        <rename>contractAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>changeAmt</name>
+        <rename>changeAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisAmt</name>
+        <rename>thisAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>totalAmt</name>
+        <rename>totalAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>upAmt</name>
+        <rename>upAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>editTime</name>
+        <rename>editTime</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comName</name>
+        <rename>comName</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comOrders</name>
+        <rename>comOrders</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>contrType</name>
+        <rename>contrType</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisAmtNoTax</name>
+        <rename>thisAmtNoTax</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisAmtTax</name>
+        <rename>thisAmtTax</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>del_flag</name>
+        <rename>del_flag</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zx_sa_fs_inventory_settlement_id</name>
+        <rename>ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zx_ct_fs_contract_id</name>
+        <rename>contractID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zx_sa_fs_settlement_id</name>
+        <rename>billID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>orgID</name>
+        <rename>projectIDNew</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comID</name>
+        <rename>companyIdNew</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>插入 / 更新 4</name>
+    <type>InsertUpdate</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj-erp-qianyi</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema />
+      <table>zx_sa_fs_inventory_settlement_detail</table>
+      <key>
+        <name>ID</name>
+        <field>zx_sa_fs_enumeration_settlement_detailed_id</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>period</name>
+        <rename>period</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>billNo</name>
+        <rename>billNo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>orderNum</name>
+        <rename>orderNum</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>signedOrderID</name>
+        <rename>signedOrderID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>signedNo</name>
+        <rename>signedNo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>signedOrderItemID</name>
+        <rename>signedOrderItemID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>equipCode</name>
+        <rename>equipCode</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>equipName</name>
+        <rename>equipName</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>spec</name>
+        <rename>spec</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>unit</name>
+        <rename>unit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>startDate</name>
+        <rename>startDate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>contractPrice</name>
+        <rename>contractPrice</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>contractQty</name>
+        <rename>contractQty</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>contractAmt</name>
+        <rename>contractAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>changedQty</name>
+        <rename>changedQty</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>changedAmt</name>
+        <rename>changedAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisQty</name>
+        <rename>thisQty</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisPrice</name>
+        <rename>thisPrice</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisAmt</name>
+        <rename>thisAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>upQty</name>
+        <rename>upQty</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>upAmt</name>
+        <rename>upAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>totalQty</name>
+        <rename>totalQty</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>totalAmt</name>
+        <rename>totalAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>editTime</name>
+        <rename>editTime</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comName</name>
+        <rename>comName</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comOrders</name>
+        <rename>comOrders</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>alterPrice</name>
+        <rename>alterPrice</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>taxRate</name>
+        <rename>taxRate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisAmtNoTax</name>
+        <rename>thisAmtNoTax</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisAmtTax</name>
+        <rename>thisAmtTax</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>del_flag</name>
+        <rename>del_flag</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zx_sa_fs_enumeration_settlement_detailed_id</name>
+        <rename>ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zx_sa_fs_inventory_settlement_id</name>
+        <rename>mainID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zx_ct_fs_contract_id</name>
+        <rename>contractID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>remarks</name>
+        <rename>remark</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>conRevDetailId</name>
+        <rename>contractItemID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comID</name>
+        <rename>comID</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>720</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>插入 / 更新 5</name>
+    <type>InsertUpdate</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj-erp-qianyi</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema />
+      <table>zx_sa_fs_pay_settlement</table>
+      <key>
+        <name>ID</name>
+        <field>zx_sa_fs_pay_settlement_id</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>orgName</name>
+        <rename>orgName</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>billNo</name>
+        <rename>billNo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>period</name>
+        <rename>period</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisAmt</name>
+        <rename>thisAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>totalAmt</name>
+        <rename>totalAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>upAmt</name>
+        <rename>upAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>editTime</name>
+        <rename>editTime</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comName</name>
+        <rename>comName</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comOrders</name>
+        <rename>comOrders</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>inOutAmt</name>
+        <rename>inOutAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>upInOutAmt</name>
+        <rename>upInOutAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>fineAmt</name>
+        <rename>fineAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>upFineAmt</name>
+        <rename>upFineAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>foodAmt</name>
+        <rename>foodAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>upFoodAmt</name>
+        <rename>upFoodAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>otherAmt</name>
+        <rename>otherAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>upOtherAmt</name>
+        <rename>upOtherAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>contrType</name>
+        <rename>contrType</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisAmtNoTax</name>
+        <rename>thisAmtNoTax</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisAmtTax</name>
+        <rename>thisAmtTax</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>del_flag</name>
+        <rename>del_flag</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zx_sa_fs_pay_settlement_id</name>
+        <rename>ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zx_ct_fs_contract_id</name>
+        <rename>contractID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zx_sa_fs_settlement_id</name>
+        <rename>billID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>orgID</name>
+        <rename>projectIDNew</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comID</name>
+        <rename>companyIdNew</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>插入 / 更新 6</name>
+    <type>InsertUpdate</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj-erp-qianyi</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema />
+      <table>zx_sa_fs_pay_settlement_detail</table>
+      <key>
+        <name>ID</name>
+        <field>zx_sa_fs_pay_settlement_detail_id</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>period</name>
+        <rename>period</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>billNo</name>
+        <rename>billNo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>orderNum</name>
+        <rename>orderNum</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>payNo</name>
+        <rename>payNo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>payType</name>
+        <rename>payType</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>payName</name>
+        <rename>payName</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>unit</name>
+        <rename>unit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>qty</name>
+        <rename>qty</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>price</name>
+        <rename>price</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisAmt</name>
+        <rename>thisAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>upAmt</name>
+        <rename>upAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>editTime</name>
+        <rename>editTime</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comName</name>
+        <rename>comName</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>isFixed</name>
+        <rename>isFixed</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>upQty</name>
+        <rename>upQty</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>contrType</name>
+        <rename>contrType</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>taxRate</name>
+        <rename>taxRate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisAmtNoTax</name>
+        <rename>thisAmtNoTax</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisAmtTax</name>
+        <rename>thisAmtTax</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>del_flag</name>
+        <rename>del_flag</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zx_sa_fs_pay_settlement_detail_id</name>
+        <rename>ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zx_ct_fs_contract_id</name>
+        <rename>contractID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>remarks</name>
+        <rename>remark</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zx_sa_fs_pay_settlement_id</name>
+        <rename>mainID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>payId</name>
+        <rename>payID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comID</name>
+        <rename>comID</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>插入 / 更新 7</name>
+    <type>InsertUpdate</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj-erp-qianyi</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema />
+      <table>zx_sa_fs_statistics_detail</table>
+      <key>
+        <name>ID</name>
+        <field>zx_sa_fs_statistics_detail_id</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>period</name>
+        <rename>period</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>billNo</name>
+        <rename>billNo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>statisticsID</name>
+        <rename>statisticsID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>statisticsNo</name>
+        <rename>statisticsNo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>statisticsName</name>
+        <rename>statisticsName</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>statisticsType</name>
+        <rename>statisticsType</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thisAmt</name>
+        <rename>thisAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>totalAmt</name>
+        <rename>totalAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>upAmt</name>
+        <rename>upAmt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>rate</name>
+        <rename>rate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>editTime</name>
+        <rename>editTime</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comName</name>
+        <rename>comName</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comOrders</name>
+        <rename>comOrders</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>del_flag</name>
+        <rename>del_flag</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zx_sa_fs_statistics_detail_id</name>
+        <rename>ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zx_sa_fs_settlement_id</name>
+        <rename>mainID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zx_ct_fs_contract_id</name>
+        <rename>contractID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>remarks</name>
+        <rename>remark</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>orgID</name>
+        <rename>projectIDNew</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comID</name>
+        <rename>companyIdNew</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>表输入 2</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj1j_iems</connection>
+    <sql>SELECT
+	a.ID,
+	a.billID,
+	a.billNo,
+	a.orgID,
+	a.orgName,
+	a.period,
+	a.contractID,
+	a.contractNo,
+	a.contractName,
+	a.secondID,
+	a.secondName,
+CASE a.billType
+WHEN '中期' THEN '0'
+
+WHEN '最终' THEN '1'
+
+ELSE '2'
+
+END as billType,
+	a.beginDate,
+	a.endDate,
+	a.thisAmt,
+	a.totalAmt,
+	a.thisPayAmt,
+	a.totalPayAmt,
+	a.businessDate,
+	a.reportDate,
+	a.reportPerson,
+	a.remark,
+	a.countPerson,
+	a.reCountPerson,
+	a.flowBeginPerson,
+	a.workItemID,
+	a.instProcessID,
+	a.flowBeginDate,
+	a.flowEndDate,
+	a.auditStatus,
+	a.editTime,
+	a.comID,
+	a.comName,
+	a.comOrders,
+  a.contrType,
+	a.flowLock,
+	a.content,
+	a.isBack,
+	a.notPassNum,
+	a.oldWorkItemID,
+	a.isReport,
+	a.appInsHistID,
+	a.payRemark,
+	a.shortName,
+	a.notDisplay,
+	a.isFlag,
+	a.isFlagZhb,
+	a.sendDate,
+	a.isSend,
+	a.cwStatus,
+	a.cwStatusRemark,
+	a.code7,
+	a.tcje,
+	a.tcse,
+	a.tchljjsje,
+	a.bqtchse,
+	a.thisAmtNoTax,
+	a.thisAmtTax,
+	a.bqtchjsje,
+	a.taxCountWay,
+	a.ZJGCXM_NM,
+	a.ZJGCXM_XMBH,
+	a.ZJGCXM_XMMC,
+	a.accountUnitId,
+	a.accountUnitCode,
+	a.accountUnitName,
+	a.accountDepId,
+	a.accountDepCode,
+	a.accountDepName,
+	a.secondCode,
+	a.secondIDCodeBh,
+	a.contractCost,
+	a.isAudit,
+	a.upWorkItemID,
+	a.oaOrgID,
+	a.taxRate,
+	a.isDeduct,
+	a.isFirst,
+	a.bqtchjsnotax,
+	a.zjxmhtb_nm,
+	a.zjxmhtb_bh,
+	a.zjxmhtb_mc,
+	a.isRela,
+	a.orgCertificate,
+	a.setDir,
+	a.isSign,
+	a.currency,
+	a.exchangeRate,
+	a.numOfSheets,
+	a.confirmDate,
+	a.summary,
+	a.createTime,
+	a.expDate,
+	a.estPayDate,
+	a.fiId,
+	a.responseUnitName,
+	a.responseUnitCode,
+	a.assessUnitName,
+	a.assessUnitCode,
+	b.contractAmt,
+	b.changeAmt,
+	b.initSerialNumber,
+	b.thisEquipAmt,
+	b.totalEquipAmt,
+	b.serialNumber,
+	b.isFished,
+	b.signedID,
+	b.startDate,
+	b.useCount,
+	b.isMaxPeriod,
+	b.useSignedOrder,
+	c.signedNo,
+	'0' AS del_flag 
+FROM
+	iesa_EquipSettleAudit a
+	LEFT JOIN iesa_EquipSettleAccounts b ON a.billID = b.ID 
+	LEFT JOIN iesa_EquipSignedOrder c ON b.contractID = c.contractID and b.period = c.period and b.initSerialNumber=c.initSerialNumber
+WHERE 
+	a.contrType= 'p9' and b.ID is not null and a.auditStatus = '2'</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>表输入 3</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj1j_iems</connection>
+    <sql>SELECT 
+a.ID,
+a.orgID,
+a.orgName,
+a.contractID,
+b.ID as billID,
+a.billNo,
+a.period,
+a.signedOrders,
+a.signedNos,
+a.contractAmt,
+a.changeAmt,
+a.thisAmt,
+a.totalAmt,
+a.upAmt,
+a.editTime,
+a.comID,
+a.comName,
+a.comOrders,
+a.contrType,
+a.thisAmtNoTax,
+a.thisAmtTax,
+'0' as del_flag
+ FROM iesa_EquipResSettle a left join iesa_EquipSettleAudit b on a.billID = b.billID  WHERE a.contrType like '%p9%' </sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>表输入 4</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj1j_iems</connection>
+    <sql>SELECT ID,
+mainID,
+period,
+billNo,
+contractID,
+orderNum,
+signedOrderID,
+signedNo,
+signedOrderItemID,
+contractItemID,
+equipCode,
+equipName,
+spec,
+unit,
+startDate,
+contractPrice,
+contractQty,
+contractAmt,
+changedQty,
+changedAmt,
+thisQty,
+thisPrice,
+thisAmt,
+upQty,
+upAmt,
+totalQty,
+totalAmt,
+remark,
+editTime,
+comID,
+comName,
+comOrders,
+alterPrice,
+rentUnit,
+contrTrrm,
+alterTrrm,
+taxRate,
+thisAmtNoTax,
+thisAmtTax,
+'0' as del_flag FROM iesa_EquipResSettleItem WHERE mainID 
+in(SELECT ID FROM iesa_EquipResSettle WHERE contrType like '%p9%' )</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>表输入 5</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj1j_iems</connection>
+    <sql>SELECT 
+a.ID,
+a.orgID,
+a.orgName,
+a.contractID,
+b.ID as billID,
+a.billNo,
+a.period,
+a.thisAmt,
+a.totalAmt,
+a.upAmt,
+a.editTime,
+a.comID,
+a.comName,
+a.comOrders,
+a.inOutAmt,
+a.upInOutAmt,
+a.fineAmt,
+a.upFineAmt,
+a.foodAmt,
+a.upFoodAmt,
+a.otherAmt,
+a.upOtherAmt,
+a.contrType,
+a.thisAmtNoTax,
+a.thisAmtTax,
+'0' as del_flag FROM iesa_EquipPaySettle a left join iesa_EquipSettleAudit b on a.billID = b.billID  WHERE a.contrType like '%P9%'</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>表输入 6</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj1j_iems</connection>
+    <sql>SELECT 
+ID,
+mainID,
+period,
+billNo,
+contractID,
+orderNum,
+payID,
+payNo,
+payType,
+payName,
+unit,
+qty,
+price,
+thisAmt,
+upAmt,
+remark,
+editTime,
+comID,
+comName,
+comOrders
+isFixed,
+upQty,
+contrType,
+taxRate,
+thisAmtNoTax,
+thisAmtTax,
+'0' as del_flag FROM iesa_EquipPaySettleItem WHERE contrType like '%p9%' or mainID in(
+SELECT ID FROM iesa_EquipPaySettle WHERE contrType like '%P9%'
+)</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>表输入 7</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj1j_iems</connection>
+    <sql>SELECT 
+ID,
+mainID,
+orgID,
+contractID,
+period,
+billNo,
+statisticsID,
+statisticsNo,
+statisticsName,
+statisticsType,
+thisAmt,
+totalAmt,
+upAmt,
+rate,
+editTime,
+comID,
+comName,
+comOrders,
+remark,
+'0' as del_flag 
+FROM iesa_EquipSettleAuditItem WHERE mainID in(select ID from iesa_EquipSettleAudit where contrType ='P9')</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>zx_bu_projecttype companyId 转换 3</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj1j_iems</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>iecm_Org</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>comID</name>
+        <field>ID</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>comOrgID</name>
+        <rename>companyIdNew</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>orgName</name>
+        <rename>companyNameNew</rename>
+        <default />
+        <type>String</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>zx_bu_projecttype project 转换 3</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj1j_iems</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>iecm_Org</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>orgID</name>
+        <field>ID</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>comOrgID</name>
+        <rename>projectIDNew</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>orgName</name>
+        <rename>projectNameNew</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>comID</name>
+        <rename>comID</rename>
+        <default />
+        <type>None</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>zx_bu_projecttype companyId 转换 3 2</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj1j_iems</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>iecm_Org</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>comID</name>
+        <field>ID</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>comOrgID</name>
+        <rename>companyIdNew</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>orgName</name>
+        <rename>companyNameNew</rename>
+        <default />
+        <type>String</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>zx_bu_projecttype project 转换 3 2</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj1j_iems</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>iecm_Org</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>orgID</name>
+        <field>ID</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>comOrgID</name>
+        <rename>projectIDNew</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>orgName</name>
+        <rename>projectNameNew</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>comID</name>
+        <rename>comID</rename>
+        <default />
+        <type>None</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>zx_bu_projecttype companyId 转换 3 2 2 2</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj1j_iems</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>iecm_Org</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>comID</name>
+        <field>ID</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>comOrgID</name>
+        <rename>companyIdNew</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>orgName</name>
+        <rename>companyNameNew</rename>
+        <default />
+        <type>String</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>zx_bu_projecttype project 转换 3 2 2 2</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj1j_iems</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>iecm_Org</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>orgID</name>
+        <field>ID</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>comOrgID</name>
+        <rename>projectIDNew</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>orgName</name>
+        <rename>projectNameNew</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>comID</name>
+        <rename>comID</rename>
+        <default />
+        <type>None</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>zx_bu_projecttype companyId 转换 3 2 2 2 2 2</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj1j_iems</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>iecm_Org</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>comID</name>
+        <field>ID</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>comOrgID</name>
+        <rename>companyIdNew</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>orgName</name>
+        <rename>companyNameNew</rename>
+        <default />
+        <type>String</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>zx_bu_projecttype project 转换 3 2 2 2 2 2</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>zj1j_iems</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>iecm_Org</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>orgID</name>
+        <field>ID</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>comOrgID</name>
+        <rename>projectIDNew</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>orgName</name>
+        <rename>projectNameNew</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>comID</name>
+        <rename>comID</rename>
+        <default />
+        <type>None</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step_error_handling>
+  </step_error_handling>
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_transformation>N</slave_transformation>
+</transformation>

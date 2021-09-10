@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkWarehouseMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkWarehouse" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="warehouseCode" property="warehouseCode" jdbcType="VARCHAR" />
+    <result column="warehouseName" property="warehouseName" jdbcType="VARCHAR" />
+    <result column="warehouseDesc" property="warehouseDesc" jdbcType="VARCHAR" />
+    <result column="priceType" property="priceType" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="parentOrgName" property="parentOrgName" jdbcType="VARCHAR" />
+    <result column="parentOrgID" property="parentOrgID" jdbcType="VARCHAR" />
+    <result column="bizType" property="bizType" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="combProp" property="combProp" jdbcType="VARCHAR" />
+    <result column="companyId" property="companyId" jdbcType="VARCHAR" />
+    <result column="companyName" property="companyName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, warehouseCode, warehouseName, warehouseDesc, priceType, 
+    orgName, orgID, parentOrgName, parentOrgID, bizType, 
+    remark, combProp, companyId, companyName, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_Warehouse
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_Warehouse
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkWarehouse" >
+    insert into zx_sk_Warehouse (id, warehouseCode, warehouseName, 
+      warehouseDesc, priceType, orgName, 
+      orgID, parentOrgName, parentOrgID, 
+      bizType, remark, combProp, 
+      companyId, companyName, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{warehouseCode,jdbcType=VARCHAR}, #{warehouseName,jdbcType=VARCHAR}, 
+      #{warehouseDesc,jdbcType=VARCHAR}, #{priceType,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, 
+      #{orgID,jdbcType=VARCHAR}, #{parentOrgName,jdbcType=VARCHAR}, #{parentOrgID,jdbcType=VARCHAR}, 
+      #{bizType,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{combProp,jdbcType=VARCHAR}, 
+      #{companyId,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkWarehouse" >
+    insert into zx_sk_Warehouse
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="warehouseCode != null" >
+        warehouseCode,
+      </if>
+      <if test="warehouseName != null" >
+        warehouseName,
+      </if>
+      <if test="warehouseDesc != null" >
+        warehouseDesc,
+      </if>
+      <if test="priceType != null" >
+        priceType,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="parentOrgName != null" >
+        parentOrgName,
+      </if>
+      <if test="parentOrgID != null" >
+        parentOrgID,
+      </if>
+      <if test="bizType != null" >
+        bizType,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="combProp != null" >
+        combProp,
+      </if>
+      <if test="companyId != null" >
+        companyId,
+      </if>
+      <if test="companyName != null" >
+        companyName,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseCode != null" >
+        #{warehouseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseName != null" >
+        #{warehouseName,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseDesc != null" >
+        #{warehouseDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="priceType != null" >
+        #{priceType,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="parentOrgName != null" >
+        #{parentOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentOrgID != null" >
+        #{parentOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null" >
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="combProp != null" >
+        #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkWarehouse" >
+    update zx_sk_Warehouse
+    <set >
+      <if test="warehouseCode != null" >
+        warehouseCode = #{warehouseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseName != null" >
+        warehouseName = #{warehouseName,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseDesc != null" >
+        warehouseDesc = #{warehouseDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="priceType != null" >
+        priceType = #{priceType,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="parentOrgName != null" >
+        parentOrgName = #{parentOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentOrgID != null" >
+        parentOrgID = #{parentOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null" >
+        bizType = #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="combProp != null" >
+        combProp = #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        companyId = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        companyName = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkWarehouse" >
+    update zx_sk_Warehouse
+    set       warehouseCode = #{warehouseCode,jdbcType=VARCHAR},
+      warehouseName = #{warehouseName,jdbcType=VARCHAR},
+      warehouseDesc = #{warehouseDesc,jdbcType=VARCHAR},
+      priceType = #{priceType,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      parentOrgName = #{parentOrgName,jdbcType=VARCHAR},
+      parentOrgID = #{parentOrgID,jdbcType=VARCHAR},
+      bizType = #{bizType,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      combProp = #{combProp,jdbcType=VARCHAR},
+      companyId = #{companyId,jdbcType=VARCHAR},
+      companyName = #{companyName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxSkWarehouseList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkWarehouse" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_Warehouse
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="warehouseCode != null and warehouseCode != ''" >
+     and warehouseCode = #{warehouseCode,jdbcType=VARCHAR}
+    </if>
+    <if test="warehouseName != null and warehouseName != ''" >
+     and warehouseName = #{warehouseName,jdbcType=VARCHAR}
+    </if>
+    <if test="warehouseDesc != null and warehouseDesc != ''" >
+     and warehouseDesc = #{warehouseDesc,jdbcType=VARCHAR}
+    </if>
+    <if test="priceType != null and priceType != ''" >
+     and priceType = #{priceType,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="parentOrgName != null and parentOrgName != ''" >
+     and parentOrgName = #{parentOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="parentOrgID != null and parentOrgID != ''" >
+     and parentOrgID = #{parentOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="bizType != null and bizType != ''" >
+     and bizType = #{bizType,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="combProp != null and combProp != ''" >
+     and combProp = #{combProp,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and companyId = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and companyName = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkWarehouse" parameterType="com.apih5.mybatis.pojo.ZxSkWarehouse" >
+    <![CDATA[ 
+        update zx_sk_Warehouse
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

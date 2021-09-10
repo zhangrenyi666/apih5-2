@@ -1,0 +1,1624 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ProInvBasicMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ProInvBasic" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="pro_name" property="proName" jdbcType="VARCHAR" />
+    <result column="pro_num" property="proNum" jdbcType="VARCHAR" />
+    <result column="pro_category" property="proCategory" jdbcType="VARCHAR" />
+    <result column="pro_inv_category" property="proInvCategory" jdbcType="VARCHAR" />
+    <result column="is_report" property="isReport" jdbcType="VARCHAR" />
+    <result column="hz_model" property="hzModel" jdbcType="VARCHAR" />
+    <result column="inv_model" property="invModel" jdbcType="VARCHAR" />
+    <result column="pro_area" property="proArea" jdbcType="VARCHAR" />
+    <result column="gmjjhy_category" property="gmjjhyCategory" jdbcType="VARCHAR" />
+    <result column="dyqy_brand" property="dyqyBrand" jdbcType="VARCHAR" />
+    <result column="estimate_inv" property="estimateInv" jdbcType="DECIMAL" />
+    <result column="pro_build_xz" property="proBuildXz" jdbcType="VARCHAR" />
+    <result column="inv_direction" property="invDirection" jdbcType="VARCHAR" />
+    <result column="zbf" property="zbf" jdbcType="VARCHAR" />
+    <result column="is_ppp_pro" property="isPppPro" jdbcType="VARCHAR" />
+    <result column="is_rk" property="isRk" jdbcType="VARCHAR" />
+    <result column="is_zjkg" property="isZjkg" jdbcType="VARCHAR" />
+    <result column="is_ygjkg" property="isYgjkg" jdbcType="VARCHAR" />
+    <result column="pro_zbjbl" property="proZbjbl" jdbcType="DECIMAL" />
+    <result column="pro_zjly" property="proZjly" jdbcType="VARCHAR" />
+    <result column="is_spv_com" property="isSpvCom" jdbcType="VARCHAR" />
+    <result column="pro_content" property="proContent" jdbcType="VARCHAR" />
+    <result column="main_inv_condition" property="mainInvCondition" jdbcType="VARCHAR" />
+    <result column="currency" property="currency" jdbcType="VARCHAR" />
+    <result column="create_by" property="createBy" jdbcType="CHAR" />
+    <result column="create_org" property="createOrg" jdbcType="CHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="CHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="update_org" property="updateOrg" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="column_01" property="column01" jdbcType="VARCHAR" />
+    <result column="column_02" property="column02" jdbcType="VARCHAR" />
+    <result column="column_03" property="column03" jdbcType="VARCHAR" />
+    <result column="column_04" property="column04" jdbcType="VARCHAR" />
+    <result column="column_05" property="column05" jdbcType="VARCHAR" />
+    <result column="zyzjbl" property="zyzjbl" jdbcType="DECIMAL" />
+    <result column="yhdkbl" property="yhdkbl" jdbcType="DECIMAL" />
+    <result column="gzxx_id" property="gzxxId" jdbcType="CHAR" />
+    <result column="zjpftze" property="zjpftze" jdbcType="DECIMAL" />
+    <result column="pfsj" property="pfsj" jdbcType="TIMESTAMP" />
+    <result column="pfwh" property="pfwh" jdbcType="VARCHAR" />
+    <result column="jsnx" property="jsnx" jdbcType="DECIMAL" />
+    <result column="yynx" property="yynx" jdbcType="DECIMAL" />
+    <result column="hgnx" property="hgnx" jdbcType="DECIMAL" />
+    <result column="kfzq" property="kfzq" jdbcType="DECIMAL" />
+    <result column="kfmj" property="kfmj" jdbcType="DECIMAL" />
+    <result column="org" property="org" jdbcType="CHAR" />
+    <result column="gclb" property="gclb" jdbcType="VARCHAR" />
+    <result column="xmzzsj" property="xmzzsj" jdbcType="TIMESTAMP" />
+    <result column="short_name" property="shortName" jdbcType="VARCHAR" />
+    <result column="is_bb" property="isBb" jdbcType="VARCHAR" />
+    <result column="ffms" property="ffms" jdbcType="VARCHAR" />
+    <result column="gllxcd" property="gllxcd" jdbcType="DECIMAL" />
+    <result column="glgsglcd" property="glgsglcd" jdbcType="DECIMAL" />
+    <result column="glqlcd" property="glqlcd" jdbcType="DECIMAL" />
+    <result column="glsddd" property="glsddd" jdbcType="DECIMAL" />
+    <result column="gltdq" property="gltdq" jdbcType="INTEGER" />
+    <result column="gldq" property="gldq" jdbcType="INTEGER" />
+    <result column="glzq" property="glzq" jdbcType="INTEGER" />
+    <result column="qlqlcd" property="qlqlcd" jdbcType="DECIMAL" />
+    <result column="qltdq" property="qltdq" jdbcType="INTEGER" />
+    <result column="qldq" property="qldq" jdbcType="INTEGER" />
+    <result column="qlzq" property="qlzq" jdbcType="INTEGER" />
+    <result column="sdsddd" property="sdsddd" jdbcType="DECIMAL" />
+    <result column="gkmtbw" property="gkmtbw" jdbcType="INTEGER" />
+    <result column="gkssbw" property="gkssbw" jdbcType="INTEGER" />
+    <result column="gkmtbwcd" property="gkmtbwcd" jdbcType="DECIMAL" />
+    <result column="wkzdmj" property="wkzdmj" jdbcType="DECIMAL" />
+    <result column="gdlxcd" property="gdlxcd" jdbcType="DECIMAL" />
+    <result column="tllxcd" property="tllxcd" jdbcType="DECIMAL" />
+    <result column="jcjc" property="jcjc" jdbcType="INTEGER" />
+    <result column="cyyqyq" property="cyyqyq" jdbcType="INTEGER" />
+    <result column="cyyqyqghmj" property="cyyqyqghmj" jdbcType="DECIMAL" />
+    <result column="sybhf" property="sybhf" jdbcType="VARCHAR" />
+    <result column="zfcnyhtj" property="zfcnyhtj" jdbcType="VARCHAR" />
+    <result column="zbjzykhzb" property="zbjzykhzb" jdbcType="DECIMAL" />
+    <result column="xmjd" property="xmjd" jdbcType="VARCHAR" />
+    <result column="sfrk" property="sfrk" jdbcType="CHAR" />
+    <result column="rksj" property="rksj" jdbcType="TIMESTAMP" />
+    <result column="ygjjtpfrq" property="ygjjtpfrq" jdbcType="TIMESTAMP" />
+    <result column="sjkgrq" property="sjkgrq" jdbcType="TIMESTAMP" />
+    <result column="jgrq" property="jgrq" jdbcType="TIMESTAMP" />
+    <result column="kshgyyrq" property="kshgyyrq" jdbcType="TIMESTAMP" />
+    <result column="jsrq" property="jsrq" jdbcType="TIMESTAMP" />
+    <result column="zbrq" property="zbrq" jdbcType="TIMESTAMP" />
+    <result column="pgjdjcsy" property="pgjdjcsy" jdbcType="DECIMAL" />
+    <result column="pgjdtrzsy" property="pgjdtrzsy" jdbcType="DECIMAL" />
+    <result column="cnmbjcsy" property="cnmbjcsy" jdbcType="DECIMAL" />
+    <result column="cnmutrzsy" property="cnmutrzsy" jdbcType="DECIMAL" />
+    <result column="tpyjcltxsl" property="tpyjcltxsl" jdbcType="DECIMAL" />
+    <result column="tpyjsr" property="tpyjsr" jdbcType="DECIMAL" />
+    <result column="zhjcsyl" property="zhjcsyl" jdbcType="DECIMAL" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+    <result column="xmcwnbsyl" property="xmcwnbsyl" jdbcType="DECIMAL" />
+    <result column="zbjcwnbsyl" property="zbjcwnbsyl" jdbcType="DECIMAL" />
+    <result column="dttzhsqn" property="dttzhsqn" jdbcType="DECIMAL" />
+    <result column="pgsjdjcsyl" property="pgsjdjcsyl" jdbcType="DECIMAL" />
+    <result column="sglr" property="sglr" jdbcType="DECIMAL" />
+    <result column="tszhjcsyl" property="tszhjcsyl" jdbcType="DECIMAL" />
+    <result column="ysjjcsyl" property="ysjjcsyl" jdbcType="DECIMAL" />
+    <result column="sftzxm" property="sftzxm" jdbcType="VARCHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, pro_name, pro_num, pro_category, pro_inv_category, 
+    is_report, hz_model, inv_model, pro_area, gmjjhy_category, 
+    dyqy_brand, estimate_inv, pro_build_xz, inv_direction, zbf, 
+    is_ppp_pro, is_rk, is_zjkg, is_ygjkg, pro_zbjbl, 
+    pro_zjly, is_spv_com, pro_content, main_inv_condition, currency, 
+    create_by, create_org, create_date, update_by, update_date, 
+    update_org, remarks, del_flag, column_01, column_02, 
+    column_03, column_04, column_05, zyzjbl, yhdkbl, 
+    gzxx_id, zjpftze, pfsj, pfwh, jsnx, 
+    yynx, hgnx, kfzq, kfmj, org, 
+    gclb, xmzzsj, short_name, is_bb, ffms, 
+    gllxcd, glgsglcd, glqlcd, glsddd, gltdq, 
+    gldq, glzq, qlqlcd, qltdq, qldq, 
+    qlzq, sdsddd, gkmtbw, gkssbw, gkmtbwcd, 
+    wkzdmj, gdlxcd, tllxcd, jcjc, cyyqyq, 
+    cyyqyqghmj, sybhf, zfcnyhtj, zbjzykhzb, xmjd, 
+    sfrk, rksj, ygjjtpfrq, sjkgrq, jgrq, 
+    kshgyyrq, jsrq, zbrq, pgjdjcsy, pgjdtrzsy, 
+    cnmbjcsy, cnmutrzsy, tpyjcltxsl, tpyjsr, zhjcsyl, 
+    bz, xmcwnbsyl, zbjcwnbsyl, dttzhsqn, pgsjdjcsyl, 
+    sglr, tszhjcsyl, ysjjcsyl, sftzxm, project_id
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_inv_basic
+    where del_flag = '0' and id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from pro_inv_basic
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ProInvBasic" >
+    insert into pro_inv_basic (id, pro_name, pro_num, 
+      pro_category, pro_inv_category, is_report, 
+      hz_model, inv_model, pro_area, 
+      gmjjhy_category, dyqy_brand, estimate_inv, 
+      pro_build_xz, inv_direction, zbf, 
+      is_ppp_pro, is_rk, is_zjkg, 
+      is_ygjkg, pro_zbjbl, pro_zjly, 
+      is_spv_com, pro_content, main_inv_condition, 
+      currency, create_by, create_org, 
+      create_date, update_by, update_date, 
+      update_org, remarks, del_flag, 
+      column_01, column_02, column_03, 
+      column_04, column_05, zyzjbl, 
+      yhdkbl, gzxx_id, zjpftze, 
+      pfsj, pfwh, jsnx, 
+      yynx, hgnx, kfzq, 
+      kfmj, org, gclb, 
+      xmzzsj, short_name, is_bb, 
+      ffms, gllxcd, glgsglcd, 
+      glqlcd, glsddd, gltdq, 
+      gldq, glzq, qlqlcd, 
+      qltdq, qldq, qlzq, 
+      sdsddd, gkmtbw, gkssbw, 
+      gkmtbwcd, wkzdmj, gdlxcd, 
+      tllxcd, jcjc, cyyqyq, 
+      cyyqyqghmj, sybhf, zfcnyhtj, 
+      zbjzykhzb, xmjd, sfrk, 
+      rksj, ygjjtpfrq, sjkgrq, 
+      jgrq, kshgyyrq, jsrq, 
+      zbrq, pgjdjcsy, pgjdtrzsy, 
+      cnmbjcsy, cnmutrzsy, tpyjcltxsl, 
+      tpyjsr, zhjcsyl, bz, 
+      xmcwnbsyl, zbjcwnbsyl, dttzhsqn, 
+      pgsjdjcsyl, sglr, tszhjcsyl, 
+      ysjjcsyl, sftzxm, project_id
+      )
+    values (#{id,jdbcType=CHAR}, #{proName,jdbcType=VARCHAR}, #{proNum,jdbcType=VARCHAR}, 
+      #{proCategory,jdbcType=VARCHAR}, #{proInvCategory,jdbcType=VARCHAR}, #{isReport,jdbcType=VARCHAR}, 
+      #{hzModel,jdbcType=VARCHAR}, #{invModel,jdbcType=VARCHAR}, #{proArea,jdbcType=VARCHAR}, 
+      #{gmjjhyCategory,jdbcType=VARCHAR}, #{dyqyBrand,jdbcType=VARCHAR}, #{estimateInv,jdbcType=DECIMAL}, 
+      #{proBuildXz,jdbcType=VARCHAR}, #{invDirection,jdbcType=VARCHAR}, #{zbf,jdbcType=VARCHAR}, 
+      #{isPppPro,jdbcType=VARCHAR}, #{isRk,jdbcType=VARCHAR}, #{isZjkg,jdbcType=VARCHAR}, 
+      #{isYgjkg,jdbcType=VARCHAR}, #{proZbjbl,jdbcType=DECIMAL}, #{proZjly,jdbcType=VARCHAR}, 
+      #{isSpvCom,jdbcType=VARCHAR}, #{proContent,jdbcType=VARCHAR}, #{mainInvCondition,jdbcType=VARCHAR}, 
+      #{currency,jdbcType=VARCHAR}, #{createBy,jdbcType=CHAR}, #{createOrg,jdbcType=CHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=CHAR}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{updateOrg,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{column01,jdbcType=VARCHAR}, #{column02,jdbcType=VARCHAR}, #{column03,jdbcType=VARCHAR}, 
+      #{column04,jdbcType=VARCHAR}, #{column05,jdbcType=VARCHAR}, #{zyzjbl,jdbcType=DECIMAL}, 
+      #{yhdkbl,jdbcType=DECIMAL}, #{gzxxId,jdbcType=CHAR}, #{zjpftze,jdbcType=DECIMAL}, 
+      #{pfsj,jdbcType=TIMESTAMP}, #{pfwh,jdbcType=VARCHAR}, #{jsnx,jdbcType=DECIMAL}, 
+      #{yynx,jdbcType=DECIMAL}, #{hgnx,jdbcType=DECIMAL}, #{kfzq,jdbcType=DECIMAL}, 
+      #{kfmj,jdbcType=DECIMAL}, #{org,jdbcType=CHAR}, #{gclb,jdbcType=VARCHAR}, 
+      #{xmzzsj,jdbcType=TIMESTAMP}, #{shortName,jdbcType=VARCHAR}, #{isBb,jdbcType=VARCHAR}, 
+      #{ffms,jdbcType=VARCHAR}, #{gllxcd,jdbcType=DECIMAL}, #{glgsglcd,jdbcType=DECIMAL}, 
+      #{glqlcd,jdbcType=DECIMAL}, #{glsddd,jdbcType=DECIMAL}, #{gltdq,jdbcType=INTEGER}, 
+      #{gldq,jdbcType=INTEGER}, #{glzq,jdbcType=INTEGER}, #{qlqlcd,jdbcType=DECIMAL}, 
+      #{qltdq,jdbcType=INTEGER}, #{qldq,jdbcType=INTEGER}, #{qlzq,jdbcType=INTEGER}, 
+      #{sdsddd,jdbcType=DECIMAL}, #{gkmtbw,jdbcType=INTEGER}, #{gkssbw,jdbcType=INTEGER}, 
+      #{gkmtbwcd,jdbcType=DECIMAL}, #{wkzdmj,jdbcType=DECIMAL}, #{gdlxcd,jdbcType=DECIMAL}, 
+      #{tllxcd,jdbcType=DECIMAL}, #{jcjc,jdbcType=INTEGER}, #{cyyqyq,jdbcType=INTEGER}, 
+      #{cyyqyqghmj,jdbcType=DECIMAL}, #{sybhf,jdbcType=VARCHAR}, #{zfcnyhtj,jdbcType=VARCHAR}, 
+      #{zbjzykhzb,jdbcType=DECIMAL}, #{xmjd,jdbcType=VARCHAR}, #{sfrk,jdbcType=CHAR}, 
+      #{rksj,jdbcType=TIMESTAMP}, #{ygjjtpfrq,jdbcType=TIMESTAMP}, #{sjkgrq,jdbcType=TIMESTAMP}, 
+      #{jgrq,jdbcType=TIMESTAMP}, #{kshgyyrq,jdbcType=TIMESTAMP}, #{jsrq,jdbcType=TIMESTAMP}, 
+      #{zbrq,jdbcType=TIMESTAMP}, #{pgjdjcsy,jdbcType=DECIMAL}, #{pgjdtrzsy,jdbcType=DECIMAL}, 
+      #{cnmbjcsy,jdbcType=DECIMAL}, #{cnmutrzsy,jdbcType=DECIMAL}, #{tpyjcltxsl,jdbcType=DECIMAL}, 
+      #{tpyjsr,jdbcType=DECIMAL}, #{zhjcsyl,jdbcType=DECIMAL}, #{bz,jdbcType=VARCHAR}, 
+      #{xmcwnbsyl,jdbcType=DECIMAL}, #{zbjcwnbsyl,jdbcType=DECIMAL}, #{dttzhsqn,jdbcType=DECIMAL}, 
+      #{pgsjdjcsyl,jdbcType=DECIMAL}, #{sglr,jdbcType=DECIMAL}, #{tszhjcsyl,jdbcType=DECIMAL}, 
+      #{ysjjcsyl,jdbcType=DECIMAL}, #{sftzxm,jdbcType=VARCHAR}, #{projectId,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ProInvBasic" >
+    insert into pro_inv_basic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="proName != null" >
+        pro_name,
+      </if>
+      <if test="proNum != null" >
+        pro_num,
+      </if>
+      <if test="proCategory != null" >
+        pro_category,
+      </if>
+      <if test="proInvCategory != null" >
+        pro_inv_category,
+      </if>
+      <if test="isReport != null" >
+        is_report,
+      </if>
+      <if test="hzModel != null" >
+        hz_model,
+      </if>
+      <if test="invModel != null" >
+        inv_model,
+      </if>
+      <if test="proArea != null" >
+        pro_area,
+      </if>
+      <if test="gmjjhyCategory != null" >
+        gmjjhy_category,
+      </if>
+      <if test="dyqyBrand != null" >
+        dyqy_brand,
+      </if>
+      <if test="estimateInv != null" >
+        estimate_inv,
+      </if>
+      <if test="proBuildXz != null" >
+        pro_build_xz,
+      </if>
+      <if test="invDirection != null" >
+        inv_direction,
+      </if>
+      <if test="zbf != null" >
+        zbf,
+      </if>
+      <if test="isPppPro != null" >
+        is_ppp_pro,
+      </if>
+      <if test="isRk != null" >
+        is_rk,
+      </if>
+      <if test="isZjkg != null" >
+        is_zjkg,
+      </if>
+      <if test="isYgjkg != null" >
+        is_ygjkg,
+      </if>
+      <if test="proZbjbl != null" >
+        pro_zbjbl,
+      </if>
+      <if test="proZjly != null" >
+        pro_zjly,
+      </if>
+      <if test="isSpvCom != null" >
+        is_spv_com,
+      </if>
+      <if test="proContent != null" >
+        pro_content,
+      </if>
+      <if test="mainInvCondition != null" >
+        main_inv_condition,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createOrg != null" >
+        create_org,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="updateOrg != null" >
+        update_org,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="column01 != null" >
+        column_01,
+      </if>
+      <if test="column02 != null" >
+        column_02,
+      </if>
+      <if test="column03 != null" >
+        column_03,
+      </if>
+      <if test="column04 != null" >
+        column_04,
+      </if>
+      <if test="column05 != null" >
+        column_05,
+      </if>
+      <if test="zyzjbl != null" >
+        zyzjbl,
+      </if>
+      <if test="yhdkbl != null" >
+        yhdkbl,
+      </if>
+      <if test="gzxxId != null" >
+        gzxx_id,
+      </if>
+      <if test="zjpftze != null" >
+        zjpftze,
+      </if>
+      <if test="pfsj != null" >
+        pfsj,
+      </if>
+      <if test="pfwh != null" >
+        pfwh,
+      </if>
+      <if test="jsnx != null" >
+        jsnx,
+      </if>
+      <if test="yynx != null" >
+        yynx,
+      </if>
+      <if test="hgnx != null" >
+        hgnx,
+      </if>
+      <if test="kfzq != null" >
+        kfzq,
+      </if>
+      <if test="kfmj != null" >
+        kfmj,
+      </if>
+      <if test="org != null" >
+        org,
+      </if>
+      <if test="gclb != null" >
+        gclb,
+      </if>
+      <if test="xmzzsj != null" >
+        xmzzsj,
+      </if>
+      <if test="shortName != null" >
+        short_name,
+      </if>
+      <if test="isBb != null" >
+        is_bb,
+      </if>
+      <if test="ffms != null" >
+        ffms,
+      </if>
+      <if test="gllxcd != null" >
+        gllxcd,
+      </if>
+      <if test="glgsglcd != null" >
+        glgsglcd,
+      </if>
+      <if test="glqlcd != null" >
+        glqlcd,
+      </if>
+      <if test="glsddd != null" >
+        glsddd,
+      </if>
+      <if test="gltdq != null" >
+        gltdq,
+      </if>
+      <if test="gldq != null" >
+        gldq,
+      </if>
+      <if test="glzq != null" >
+        glzq,
+      </if>
+      <if test="qlqlcd != null" >
+        qlqlcd,
+      </if>
+      <if test="qltdq != null" >
+        qltdq,
+      </if>
+      <if test="qldq != null" >
+        qldq,
+      </if>
+      <if test="qlzq != null" >
+        qlzq,
+      </if>
+      <if test="sdsddd != null" >
+        sdsddd,
+      </if>
+      <if test="gkmtbw != null" >
+        gkmtbw,
+      </if>
+      <if test="gkssbw != null" >
+        gkssbw,
+      </if>
+      <if test="gkmtbwcd != null" >
+        gkmtbwcd,
+      </if>
+      <if test="wkzdmj != null" >
+        wkzdmj,
+      </if>
+      <if test="gdlxcd != null" >
+        gdlxcd,
+      </if>
+      <if test="tllxcd != null" >
+        tllxcd,
+      </if>
+      <if test="jcjc != null" >
+        jcjc,
+      </if>
+      <if test="cyyqyq != null" >
+        cyyqyq,
+      </if>
+      <if test="cyyqyqghmj != null" >
+        cyyqyqghmj,
+      </if>
+      <if test="sybhf != null" >
+        sybhf,
+      </if>
+      <if test="zfcnyhtj != null" >
+        zfcnyhtj,
+      </if>
+      <if test="zbjzykhzb != null" >
+        zbjzykhzb,
+      </if>
+      <if test="xmjd != null" >
+        xmjd,
+      </if>
+      <if test="sfrk != null" >
+        sfrk,
+      </if>
+      <if test="rksj != null" >
+        rksj,
+      </if>
+      <if test="ygjjtpfrq != null" >
+        ygjjtpfrq,
+      </if>
+      <if test="sjkgrq != null" >
+        sjkgrq,
+      </if>
+      <if test="jgrq != null" >
+        jgrq,
+      </if>
+      <if test="kshgyyrq != null" >
+        kshgyyrq,
+      </if>
+      <if test="jsrq != null" >
+        jsrq,
+      </if>
+      <if test="zbrq != null" >
+        zbrq,
+      </if>
+      <if test="pgjdjcsy != null" >
+        pgjdjcsy,
+      </if>
+      <if test="pgjdtrzsy != null" >
+        pgjdtrzsy,
+      </if>
+      <if test="cnmbjcsy != null" >
+        cnmbjcsy,
+      </if>
+      <if test="cnmutrzsy != null" >
+        cnmutrzsy,
+      </if>
+      <if test="tpyjcltxsl != null" >
+        tpyjcltxsl,
+      </if>
+      <if test="tpyjsr != null" >
+        tpyjsr,
+      </if>
+      <if test="zhjcsyl != null" >
+        zhjcsyl,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+      <if test="xmcwnbsyl != null" >
+        xmcwnbsyl,
+      </if>
+      <if test="zbjcwnbsyl != null" >
+        zbjcwnbsyl,
+      </if>
+      <if test="dttzhsqn != null" >
+        dttzhsqn,
+      </if>
+      <if test="pgsjdjcsyl != null" >
+        pgsjdjcsyl,
+      </if>
+      <if test="sglr != null" >
+        sglr,
+      </if>
+      <if test="tszhjcsyl != null" >
+        tszhjcsyl,
+      </if>
+      <if test="ysjjcsyl != null" >
+        ysjjcsyl,
+      </if>
+      <if test="sftzxm != null" >
+        sftzxm,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="proName != null" >
+        #{proName,jdbcType=VARCHAR},
+      </if>
+      <if test="proNum != null" >
+        #{proNum,jdbcType=VARCHAR},
+      </if>
+      <if test="proCategory != null" >
+        #{proCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="proInvCategory != null" >
+        #{proInvCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="isReport != null" >
+        #{isReport,jdbcType=VARCHAR},
+      </if>
+      <if test="hzModel != null" >
+        #{hzModel,jdbcType=VARCHAR},
+      </if>
+      <if test="invModel != null" >
+        #{invModel,jdbcType=VARCHAR},
+      </if>
+      <if test="proArea != null" >
+        #{proArea,jdbcType=VARCHAR},
+      </if>
+      <if test="gmjjhyCategory != null" >
+        #{gmjjhyCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="dyqyBrand != null" >
+        #{dyqyBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="estimateInv != null" >
+        #{estimateInv,jdbcType=DECIMAL},
+      </if>
+      <if test="proBuildXz != null" >
+        #{proBuildXz,jdbcType=VARCHAR},
+      </if>
+      <if test="invDirection != null" >
+        #{invDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="zbf != null" >
+        #{zbf,jdbcType=VARCHAR},
+      </if>
+      <if test="isPppPro != null" >
+        #{isPppPro,jdbcType=VARCHAR},
+      </if>
+      <if test="isRk != null" >
+        #{isRk,jdbcType=VARCHAR},
+      </if>
+      <if test="isZjkg != null" >
+        #{isZjkg,jdbcType=VARCHAR},
+      </if>
+      <if test="isYgjkg != null" >
+        #{isYgjkg,jdbcType=VARCHAR},
+      </if>
+      <if test="proZbjbl != null" >
+        #{proZbjbl,jdbcType=DECIMAL},
+      </if>
+      <if test="proZjly != null" >
+        #{proZjly,jdbcType=VARCHAR},
+      </if>
+      <if test="isSpvCom != null" >
+        #{isSpvCom,jdbcType=VARCHAR},
+      </if>
+      <if test="proContent != null" >
+        #{proContent,jdbcType=VARCHAR},
+      </if>
+      <if test="mainInvCondition != null" >
+        #{mainInvCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=CHAR},
+      </if>
+      <if test="createOrg != null" >
+        #{createOrg,jdbcType=CHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=CHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateOrg != null" >
+        #{updateOrg,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="column01 != null" >
+        #{column01,jdbcType=VARCHAR},
+      </if>
+      <if test="column02 != null" >
+        #{column02,jdbcType=VARCHAR},
+      </if>
+      <if test="column03 != null" >
+        #{column03,jdbcType=VARCHAR},
+      </if>
+      <if test="column04 != null" >
+        #{column04,jdbcType=VARCHAR},
+      </if>
+      <if test="column05 != null" >
+        #{column05,jdbcType=VARCHAR},
+      </if>
+      <if test="zyzjbl != null" >
+        #{zyzjbl,jdbcType=DECIMAL},
+      </if>
+      <if test="yhdkbl != null" >
+        #{yhdkbl,jdbcType=DECIMAL},
+      </if>
+      <if test="gzxxId != null" >
+        #{gzxxId,jdbcType=CHAR},
+      </if>
+      <if test="zjpftze != null" >
+        #{zjpftze,jdbcType=DECIMAL},
+      </if>
+      <if test="pfsj != null" >
+        #{pfsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pfwh != null" >
+        #{pfwh,jdbcType=VARCHAR},
+      </if>
+      <if test="jsnx != null" >
+        #{jsnx,jdbcType=DECIMAL},
+      </if>
+      <if test="yynx != null" >
+        #{yynx,jdbcType=DECIMAL},
+      </if>
+      <if test="hgnx != null" >
+        #{hgnx,jdbcType=DECIMAL},
+      </if>
+      <if test="kfzq != null" >
+        #{kfzq,jdbcType=DECIMAL},
+      </if>
+      <if test="kfmj != null" >
+        #{kfmj,jdbcType=DECIMAL},
+      </if>
+      <if test="org != null" >
+        #{org,jdbcType=CHAR},
+      </if>
+      <if test="gclb != null" >
+        #{gclb,jdbcType=VARCHAR},
+      </if>
+      <if test="xmzzsj != null" >
+        #{xmzzsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shortName != null" >
+        #{shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="isBb != null" >
+        #{isBb,jdbcType=VARCHAR},
+      </if>
+      <if test="ffms != null" >
+        #{ffms,jdbcType=VARCHAR},
+      </if>
+      <if test="gllxcd != null" >
+        #{gllxcd,jdbcType=DECIMAL},
+      </if>
+      <if test="glgsglcd != null" >
+        #{glgsglcd,jdbcType=DECIMAL},
+      </if>
+      <if test="glqlcd != null" >
+        #{glqlcd,jdbcType=DECIMAL},
+      </if>
+      <if test="glsddd != null" >
+        #{glsddd,jdbcType=DECIMAL},
+      </if>
+      <if test="gltdq != null" >
+        #{gltdq,jdbcType=INTEGER},
+      </if>
+      <if test="gldq != null" >
+        #{gldq,jdbcType=INTEGER},
+      </if>
+      <if test="glzq != null" >
+        #{glzq,jdbcType=INTEGER},
+      </if>
+      <if test="qlqlcd != null" >
+        #{qlqlcd,jdbcType=DECIMAL},
+      </if>
+      <if test="qltdq != null" >
+        #{qltdq,jdbcType=INTEGER},
+      </if>
+      <if test="qldq != null" >
+        #{qldq,jdbcType=INTEGER},
+      </if>
+      <if test="qlzq != null" >
+        #{qlzq,jdbcType=INTEGER},
+      </if>
+      <if test="sdsddd != null" >
+        #{sdsddd,jdbcType=DECIMAL},
+      </if>
+      <if test="gkmtbw != null" >
+        #{gkmtbw,jdbcType=INTEGER},
+      </if>
+      <if test="gkssbw != null" >
+        #{gkssbw,jdbcType=INTEGER},
+      </if>
+      <if test="gkmtbwcd != null" >
+        #{gkmtbwcd,jdbcType=DECIMAL},
+      </if>
+      <if test="wkzdmj != null" >
+        #{wkzdmj,jdbcType=DECIMAL},
+      </if>
+      <if test="gdlxcd != null" >
+        #{gdlxcd,jdbcType=DECIMAL},
+      </if>
+      <if test="tllxcd != null" >
+        #{tllxcd,jdbcType=DECIMAL},
+      </if>
+      <if test="jcjc != null" >
+        #{jcjc,jdbcType=INTEGER},
+      </if>
+      <if test="cyyqyq != null" >
+        #{cyyqyq,jdbcType=INTEGER},
+      </if>
+      <if test="cyyqyqghmj != null" >
+        #{cyyqyqghmj,jdbcType=DECIMAL},
+      </if>
+      <if test="sybhf != null" >
+        #{sybhf,jdbcType=VARCHAR},
+      </if>
+      <if test="zfcnyhtj != null" >
+        #{zfcnyhtj,jdbcType=VARCHAR},
+      </if>
+      <if test="zbjzykhzb != null" >
+        #{zbjzykhzb,jdbcType=DECIMAL},
+      </if>
+      <if test="xmjd != null" >
+        #{xmjd,jdbcType=VARCHAR},
+      </if>
+      <if test="sfrk != null" >
+        #{sfrk,jdbcType=CHAR},
+      </if>
+      <if test="rksj != null" >
+        #{rksj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ygjjtpfrq != null" >
+        #{ygjjtpfrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sjkgrq != null" >
+        #{sjkgrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jgrq != null" >
+        #{jgrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kshgyyrq != null" >
+        #{kshgyyrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jsrq != null" >
+        #{jsrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zbrq != null" >
+        #{zbrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pgjdjcsy != null" >
+        #{pgjdjcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="pgjdtrzsy != null" >
+        #{pgjdtrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnmbjcsy != null" >
+        #{cnmbjcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnmutrzsy != null" >
+        #{cnmutrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="tpyjcltxsl != null" >
+        #{tpyjcltxsl,jdbcType=DECIMAL},
+      </if>
+      <if test="tpyjsr != null" >
+        #{tpyjsr,jdbcType=DECIMAL},
+      </if>
+      <if test="zhjcsyl != null" >
+        #{zhjcsyl,jdbcType=DECIMAL},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="xmcwnbsyl != null" >
+        #{xmcwnbsyl,jdbcType=DECIMAL},
+      </if>
+      <if test="zbjcwnbsyl != null" >
+        #{zbjcwnbsyl,jdbcType=DECIMAL},
+      </if>
+      <if test="dttzhsqn != null" >
+        #{dttzhsqn,jdbcType=DECIMAL},
+      </if>
+      <if test="pgsjdjcsyl != null" >
+        #{pgsjdjcsyl,jdbcType=DECIMAL},
+      </if>
+      <if test="sglr != null" >
+        #{sglr,jdbcType=DECIMAL},
+      </if>
+      <if test="tszhjcsyl != null" >
+        #{tszhjcsyl,jdbcType=DECIMAL},
+      </if>
+      <if test="ysjjcsyl != null" >
+        #{ysjjcsyl,jdbcType=DECIMAL},
+      </if>
+      <if test="sftzxm != null" >
+        #{sftzxm,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ProInvBasic" >
+    update pro_inv_basic
+    <set >
+      <if test="proName != null" >
+        pro_name = #{proName,jdbcType=VARCHAR},
+      </if>
+      <if test="proNum != null" >
+        pro_num = #{proNum,jdbcType=VARCHAR},
+      </if>
+      <if test="proCategory != null" >
+        pro_category = #{proCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="proInvCategory != null" >
+        pro_inv_category = #{proInvCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="isReport != null" >
+        is_report = #{isReport,jdbcType=VARCHAR},
+      </if>
+      <if test="hzModel != null" >
+        hz_model = #{hzModel,jdbcType=VARCHAR},
+      </if>
+      <if test="invModel != null" >
+        inv_model = #{invModel,jdbcType=VARCHAR},
+      </if>
+      <if test="proArea != null" >
+        pro_area = #{proArea,jdbcType=VARCHAR},
+      </if>
+      <if test="gmjjhyCategory != null" >
+        gmjjhy_category = #{gmjjhyCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="dyqyBrand != null" >
+        dyqy_brand = #{dyqyBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="estimateInv != null" >
+        estimate_inv = #{estimateInv,jdbcType=DECIMAL},
+      </if>
+      <if test="proBuildXz != null" >
+        pro_build_xz = #{proBuildXz,jdbcType=VARCHAR},
+      </if>
+      <if test="invDirection != null" >
+        inv_direction = #{invDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="zbf != null" >
+        zbf = #{zbf,jdbcType=VARCHAR},
+      </if>
+      <if test="isPppPro != null" >
+        is_ppp_pro = #{isPppPro,jdbcType=VARCHAR},
+      </if>
+      <if test="isRk != null" >
+        is_rk = #{isRk,jdbcType=VARCHAR},
+      </if>
+      <if test="isZjkg != null" >
+        is_zjkg = #{isZjkg,jdbcType=VARCHAR},
+      </if>
+      <if test="isYgjkg != null" >
+        is_ygjkg = #{isYgjkg,jdbcType=VARCHAR},
+      </if>
+      <if test="proZbjbl != null" >
+        pro_zbjbl = #{proZbjbl,jdbcType=DECIMAL},
+      </if>
+      <if test="proZjly != null" >
+        pro_zjly = #{proZjly,jdbcType=VARCHAR},
+      </if>
+      <if test="isSpvCom != null" >
+        is_spv_com = #{isSpvCom,jdbcType=VARCHAR},
+      </if>
+      <if test="proContent != null" >
+        pro_content = #{proContent,jdbcType=VARCHAR},
+      </if>
+      <if test="mainInvCondition != null" >
+        main_inv_condition = #{mainInvCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        currency = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=CHAR},
+      </if>
+      <if test="createOrg != null" >
+        create_org = #{createOrg,jdbcType=CHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=CHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateOrg != null" >
+        update_org = #{updateOrg,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="column01 != null" >
+        column_01 = #{column01,jdbcType=VARCHAR},
+      </if>
+      <if test="column02 != null" >
+        column_02 = #{column02,jdbcType=VARCHAR},
+      </if>
+      <if test="column03 != null" >
+        column_03 = #{column03,jdbcType=VARCHAR},
+      </if>
+      <if test="column04 != null" >
+        column_04 = #{column04,jdbcType=VARCHAR},
+      </if>
+      <if test="column05 != null" >
+        column_05 = #{column05,jdbcType=VARCHAR},
+      </if>
+      <if test="zyzjbl != null" >
+        zyzjbl = #{zyzjbl,jdbcType=DECIMAL},
+      </if>
+      <if test="yhdkbl != null" >
+        yhdkbl = #{yhdkbl,jdbcType=DECIMAL},
+      </if>
+      <if test="gzxxId != null" >
+        gzxx_id = #{gzxxId,jdbcType=CHAR},
+      </if>
+      <if test="zjpftze != null" >
+        zjpftze = #{zjpftze,jdbcType=DECIMAL},
+      </if>
+      <if test="pfsj != null" >
+        pfsj = #{pfsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pfwh != null" >
+        pfwh = #{pfwh,jdbcType=VARCHAR},
+      </if>
+      <if test="jsnx != null" >
+        jsnx = #{jsnx,jdbcType=DECIMAL},
+      </if>
+      <if test="yynx != null" >
+        yynx = #{yynx,jdbcType=DECIMAL},
+      </if>
+      <if test="hgnx != null" >
+        hgnx = #{hgnx,jdbcType=DECIMAL},
+      </if>
+      <if test="kfzq != null" >
+        kfzq = #{kfzq,jdbcType=DECIMAL},
+      </if>
+      <if test="kfmj != null" >
+        kfmj = #{kfmj,jdbcType=DECIMAL},
+      </if>
+      <if test="org != null" >
+        org = #{org,jdbcType=CHAR},
+      </if>
+      <if test="gclb != null" >
+        gclb = #{gclb,jdbcType=VARCHAR},
+      </if>
+      <if test="xmzzsj != null" >
+        xmzzsj = #{xmzzsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shortName != null" >
+        short_name = #{shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="isBb != null" >
+        is_bb = #{isBb,jdbcType=VARCHAR},
+      </if>
+      <if test="ffms != null" >
+        ffms = #{ffms,jdbcType=VARCHAR},
+      </if>
+      <if test="gllxcd != null" >
+        gllxcd = #{gllxcd,jdbcType=DECIMAL},
+      </if>
+      <if test="glgsglcd != null" >
+        glgsglcd = #{glgsglcd,jdbcType=DECIMAL},
+      </if>
+      <if test="glqlcd != null" >
+        glqlcd = #{glqlcd,jdbcType=DECIMAL},
+      </if>
+      <if test="glsddd != null" >
+        glsddd = #{glsddd,jdbcType=DECIMAL},
+      </if>
+      <if test="gltdq != null" >
+        gltdq = #{gltdq,jdbcType=INTEGER},
+      </if>
+      <if test="gldq != null" >
+        gldq = #{gldq,jdbcType=INTEGER},
+      </if>
+      <if test="glzq != null" >
+        glzq = #{glzq,jdbcType=INTEGER},
+      </if>
+      <if test="qlqlcd != null" >
+        qlqlcd = #{qlqlcd,jdbcType=DECIMAL},
+      </if>
+      <if test="qltdq != null" >
+        qltdq = #{qltdq,jdbcType=INTEGER},
+      </if>
+      <if test="qldq != null" >
+        qldq = #{qldq,jdbcType=INTEGER},
+      </if>
+      <if test="qlzq != null" >
+        qlzq = #{qlzq,jdbcType=INTEGER},
+      </if>
+      <if test="sdsddd != null" >
+        sdsddd = #{sdsddd,jdbcType=DECIMAL},
+      </if>
+      <if test="gkmtbw != null" >
+        gkmtbw = #{gkmtbw,jdbcType=INTEGER},
+      </if>
+      <if test="gkssbw != null" >
+        gkssbw = #{gkssbw,jdbcType=INTEGER},
+      </if>
+      <if test="gkmtbwcd != null" >
+        gkmtbwcd = #{gkmtbwcd,jdbcType=DECIMAL},
+      </if>
+      <if test="wkzdmj != null" >
+        wkzdmj = #{wkzdmj,jdbcType=DECIMAL},
+      </if>
+      <if test="gdlxcd != null" >
+        gdlxcd = #{gdlxcd,jdbcType=DECIMAL},
+      </if>
+      <if test="tllxcd != null" >
+        tllxcd = #{tllxcd,jdbcType=DECIMAL},
+      </if>
+      <if test="jcjc != null" >
+        jcjc = #{jcjc,jdbcType=INTEGER},
+      </if>
+      <if test="cyyqyq != null" >
+        cyyqyq = #{cyyqyq,jdbcType=INTEGER},
+      </if>
+      <if test="cyyqyqghmj != null" >
+        cyyqyqghmj = #{cyyqyqghmj,jdbcType=DECIMAL},
+      </if>
+      <if test="sybhf != null" >
+        sybhf = #{sybhf,jdbcType=VARCHAR},
+      </if>
+      <if test="zfcnyhtj != null" >
+        zfcnyhtj = #{zfcnyhtj,jdbcType=VARCHAR},
+      </if>
+      <if test="zbjzykhzb != null" >
+        zbjzykhzb = #{zbjzykhzb,jdbcType=DECIMAL},
+      </if>
+      <if test="xmjd != null" >
+        xmjd = #{xmjd,jdbcType=VARCHAR},
+      </if>
+      <if test="sfrk != null" >
+        sfrk = #{sfrk,jdbcType=CHAR},
+      </if>
+      <if test="rksj != null" >
+        rksj = #{rksj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ygjjtpfrq != null" >
+        ygjjtpfrq = #{ygjjtpfrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sjkgrq != null" >
+        sjkgrq = #{sjkgrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jgrq != null" >
+        jgrq = #{jgrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kshgyyrq != null" >
+        kshgyyrq = #{kshgyyrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jsrq != null" >
+        jsrq = #{jsrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zbrq != null" >
+        zbrq = #{zbrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pgjdjcsy != null" >
+        pgjdjcsy = #{pgjdjcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="pgjdtrzsy != null" >
+        pgjdtrzsy = #{pgjdtrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnmbjcsy != null" >
+        cnmbjcsy = #{cnmbjcsy,jdbcType=DECIMAL},
+      </if>
+      <if test="cnmutrzsy != null" >
+        cnmutrzsy = #{cnmutrzsy,jdbcType=DECIMAL},
+      </if>
+      <if test="tpyjcltxsl != null" >
+        tpyjcltxsl = #{tpyjcltxsl,jdbcType=DECIMAL},
+      </if>
+      <if test="tpyjsr != null" >
+        tpyjsr = #{tpyjsr,jdbcType=DECIMAL},
+      </if>
+      <if test="zhjcsyl != null" >
+        zhjcsyl = #{zhjcsyl,jdbcType=DECIMAL},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="xmcwnbsyl != null" >
+        xmcwnbsyl = #{xmcwnbsyl,jdbcType=DECIMAL},
+      </if>
+      <if test="zbjcwnbsyl != null" >
+        zbjcwnbsyl = #{zbjcwnbsyl,jdbcType=DECIMAL},
+      </if>
+      <if test="dttzhsqn != null" >
+        dttzhsqn = #{dttzhsqn,jdbcType=DECIMAL},
+      </if>
+      <if test="pgsjdjcsyl != null" >
+        pgsjdjcsyl = #{pgsjdjcsyl,jdbcType=DECIMAL},
+      </if>
+      <if test="sglr != null" >
+        sglr = #{sglr,jdbcType=DECIMAL},
+      </if>
+      <if test="tszhjcsyl != null" >
+        tszhjcsyl = #{tszhjcsyl,jdbcType=DECIMAL},
+      </if>
+      <if test="ysjjcsyl != null" >
+        ysjjcsyl = #{ysjjcsyl,jdbcType=DECIMAL},
+      </if>
+      <if test="sftzxm != null" >
+        sftzxm = #{sftzxm,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ProInvBasic" >
+    update pro_inv_basic
+    set       pro_name = #{proName,jdbcType=VARCHAR},
+      pro_num = #{proNum,jdbcType=VARCHAR},
+      pro_category = #{proCategory,jdbcType=VARCHAR},
+      pro_inv_category = #{proInvCategory,jdbcType=VARCHAR},
+      is_report = #{isReport,jdbcType=VARCHAR},
+      hz_model = #{hzModel,jdbcType=VARCHAR},
+      inv_model = #{invModel,jdbcType=VARCHAR},
+      pro_area = #{proArea,jdbcType=VARCHAR},
+      gmjjhy_category = #{gmjjhyCategory,jdbcType=VARCHAR},
+      dyqy_brand = #{dyqyBrand,jdbcType=VARCHAR},
+      estimate_inv = #{estimateInv,jdbcType=DECIMAL},
+      pro_build_xz = #{proBuildXz,jdbcType=VARCHAR},
+      inv_direction = #{invDirection,jdbcType=VARCHAR},
+      zbf = #{zbf,jdbcType=VARCHAR},
+      is_ppp_pro = #{isPppPro,jdbcType=VARCHAR},
+      is_rk = #{isRk,jdbcType=VARCHAR},
+      is_zjkg = #{isZjkg,jdbcType=VARCHAR},
+      is_ygjkg = #{isYgjkg,jdbcType=VARCHAR},
+      pro_zbjbl = #{proZbjbl,jdbcType=DECIMAL},
+      pro_zjly = #{proZjly,jdbcType=VARCHAR},
+      is_spv_com = #{isSpvCom,jdbcType=VARCHAR},
+      pro_content = #{proContent,jdbcType=VARCHAR},
+      main_inv_condition = #{mainInvCondition,jdbcType=VARCHAR},
+      currency = #{currency,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=CHAR},
+      create_org = #{createOrg,jdbcType=CHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=CHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      update_org = #{updateOrg,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      column_01 = #{column01,jdbcType=VARCHAR},
+      column_02 = #{column02,jdbcType=VARCHAR},
+      column_03 = #{column03,jdbcType=VARCHAR},
+      column_04 = #{column04,jdbcType=VARCHAR},
+      column_05 = #{column05,jdbcType=VARCHAR},
+      zyzjbl = #{zyzjbl,jdbcType=DECIMAL},
+      yhdkbl = #{yhdkbl,jdbcType=DECIMAL},
+      gzxx_id = #{gzxxId,jdbcType=CHAR},
+      zjpftze = #{zjpftze,jdbcType=DECIMAL},
+      pfsj = #{pfsj,jdbcType=TIMESTAMP},
+      pfwh = #{pfwh,jdbcType=VARCHAR},
+      jsnx = #{jsnx,jdbcType=DECIMAL},
+      yynx = #{yynx,jdbcType=DECIMAL},
+      hgnx = #{hgnx,jdbcType=DECIMAL},
+      kfzq = #{kfzq,jdbcType=DECIMAL},
+      kfmj = #{kfmj,jdbcType=DECIMAL},
+      org = #{org,jdbcType=CHAR},
+      gclb = #{gclb,jdbcType=VARCHAR},
+      xmzzsj = #{xmzzsj,jdbcType=TIMESTAMP},
+      short_name = #{shortName,jdbcType=VARCHAR},
+      is_bb = #{isBb,jdbcType=VARCHAR},
+      ffms = #{ffms,jdbcType=VARCHAR},
+      gllxcd = #{gllxcd,jdbcType=DECIMAL},
+      glgsglcd = #{glgsglcd,jdbcType=DECIMAL},
+      glqlcd = #{glqlcd,jdbcType=DECIMAL},
+      glsddd = #{glsddd,jdbcType=DECIMAL},
+      gltdq = #{gltdq,jdbcType=INTEGER},
+      gldq = #{gldq,jdbcType=INTEGER},
+      glzq = #{glzq,jdbcType=INTEGER},
+      qlqlcd = #{qlqlcd,jdbcType=DECIMAL},
+      qltdq = #{qltdq,jdbcType=INTEGER},
+      qldq = #{qldq,jdbcType=INTEGER},
+      qlzq = #{qlzq,jdbcType=INTEGER},
+      sdsddd = #{sdsddd,jdbcType=DECIMAL},
+      gkmtbw = #{gkmtbw,jdbcType=INTEGER},
+      gkssbw = #{gkssbw,jdbcType=INTEGER},
+      gkmtbwcd = #{gkmtbwcd,jdbcType=DECIMAL},
+      wkzdmj = #{wkzdmj,jdbcType=DECIMAL},
+      gdlxcd = #{gdlxcd,jdbcType=DECIMAL},
+      tllxcd = #{tllxcd,jdbcType=DECIMAL},
+      jcjc = #{jcjc,jdbcType=INTEGER},
+      cyyqyq = #{cyyqyq,jdbcType=INTEGER},
+      cyyqyqghmj = #{cyyqyqghmj,jdbcType=DECIMAL},
+      sybhf = #{sybhf,jdbcType=VARCHAR},
+      zfcnyhtj = #{zfcnyhtj,jdbcType=VARCHAR},
+      zbjzykhzb = #{zbjzykhzb,jdbcType=DECIMAL},
+      xmjd = #{xmjd,jdbcType=VARCHAR},
+      sfrk = #{sfrk,jdbcType=CHAR},
+      rksj = #{rksj,jdbcType=TIMESTAMP},
+      ygjjtpfrq = #{ygjjtpfrq,jdbcType=TIMESTAMP},
+      sjkgrq = #{sjkgrq,jdbcType=TIMESTAMP},
+      jgrq = #{jgrq,jdbcType=TIMESTAMP},
+      kshgyyrq = #{kshgyyrq,jdbcType=TIMESTAMP},
+      jsrq = #{jsrq,jdbcType=TIMESTAMP},
+      zbrq = #{zbrq,jdbcType=TIMESTAMP},
+      pgjdjcsy = #{pgjdjcsy,jdbcType=DECIMAL},
+      pgjdtrzsy = #{pgjdtrzsy,jdbcType=DECIMAL},
+      cnmbjcsy = #{cnmbjcsy,jdbcType=DECIMAL},
+      cnmutrzsy = #{cnmutrzsy,jdbcType=DECIMAL},
+      tpyjcltxsl = #{tpyjcltxsl,jdbcType=DECIMAL},
+      tpyjsr = #{tpyjsr,jdbcType=DECIMAL},
+      zhjcsyl = #{zhjcsyl,jdbcType=DECIMAL},
+      bz = #{bz,jdbcType=VARCHAR},
+      xmcwnbsyl = #{xmcwnbsyl,jdbcType=DECIMAL},
+      zbjcwnbsyl = #{zbjcwnbsyl,jdbcType=DECIMAL},
+      dttzhsqn = #{dttzhsqn,jdbcType=DECIMAL},
+      pgsjdjcsyl = #{pgsjdjcsyl,jdbcType=DECIMAL},
+      sglr = #{sglr,jdbcType=DECIMAL},
+      tszhjcsyl = #{tszhjcsyl,jdbcType=DECIMAL},
+      ysjjcsyl = #{ysjjcsyl,jdbcType=DECIMAL},
+      sftzxm = #{sftzxm,jdbcType=VARCHAR},
+      project_id = #{projectId,jdbcType=CHAR}
+    where id = #{id,jdbcType=CHAR}
+    ORDER BY update_date DESC 
+  </update>
+  <select id="selectByProInvBasicList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ProInvBasic" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_inv_basic
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=}
+    </if>
+    <if test="proName != null and proName != ''" >
+     and pro_name LIKE concat('%', #{proName}, '%')
+    </if>
+    <if test="proNum != null and proNum != ''" >
+     and pro_num = #{proNum,jdbcType=VARCHAR}
+    </if>
+    <if test="proCategory != null and proCategory != ''" >
+     and pro_category = #{proCategory,jdbcType=VARCHAR}
+    </if>
+    <if test="proInvCategory != null and proInvCategory != ''" >
+     and pro_inv_category = #{proInvCategory,jdbcType=VARCHAR}
+    </if>
+    <if test="isReport != null and isReport != ''" >
+     and is_report = #{isReport,jdbcType=VARCHAR}
+    </if>
+    <if test="hzModel != null and hzModel != ''" >
+     and hz_model = #{hzModel,jdbcType=VARCHAR}
+    </if>
+    <if test="invModel != null and invModel != ''" >
+     and inv_model = #{invModel,jdbcType=VARCHAR}
+    </if>
+    <if test="proArea != null and proArea != ''" >
+     and pro_area = #{proArea,jdbcType=VARCHAR}
+    </if>
+    <if test="gmjjhyCategory != null and gmjjhyCategory != ''" >
+     and gmjjhy_category = #{gmjjhyCategory,jdbcType=VARCHAR}
+    </if>
+    <if test="dyqyBrand != null and dyqyBrand != ''" >
+     and dyqy_brand = #{dyqyBrand,jdbcType=VARCHAR}
+    </if>
+    <if test="estimateInv != null and estimateInv != ''" >
+     and estimate_inv = #{estimateInv,jdbcType=DECIMAL}
+    </if>
+    <if test="proBuildXz != null and proBuildXz != ''" >
+     and pro_build_xz = #{proBuildXz,jdbcType=VARCHAR}
+    </if>
+    <if test="invDirection != null and invDirection != ''" >
+     and inv_direction = #{invDirection,jdbcType=VARCHAR}
+    </if>
+    <if test="zbf != null and zbf != ''" >
+     and zbf = #{zbf,jdbcType=VARCHAR}
+    </if>
+    <if test="isPppPro != null and isPppPro != ''" >
+     and is_ppp_pro = #{isPppPro,jdbcType=VARCHAR}
+    </if>
+    <if test="isRk != null and isRk != ''" >
+     and is_rk = #{isRk,jdbcType=VARCHAR}
+    </if>
+    <if test="isZjkg != null and isZjkg != ''" >
+     and is_zjkg = #{isZjkg,jdbcType=VARCHAR}
+    </if>
+    <if test="isYgjkg != null and isYgjkg != ''" >
+     and is_ygjkg = #{isYgjkg,jdbcType=VARCHAR}
+    </if>
+    <if test="proZbjbl != null and proZbjbl != ''" >
+     and pro_zbjbl = #{proZbjbl,jdbcType=DECIMAL}
+    </if>
+    <if test="proZjly != null and proZjly != ''" >
+     and pro_zjly = #{proZjly,jdbcType=VARCHAR}
+    </if>
+    <if test="isSpvCom != null and isSpvCom != ''" >
+     and is_spv_com = #{isSpvCom,jdbcType=VARCHAR}
+    </if>
+    <if test="proContent != null and proContent != ''" >
+     and pro_content = #{proContent,jdbcType=VARCHAR}
+    </if>
+    <if test="mainInvCondition != null and mainInvCondition != ''" >
+     and main_inv_condition = #{mainInvCondition,jdbcType=VARCHAR}
+    </if>
+    <if test="currency != null and currency != ''" >
+     and currency = #{currency,jdbcType=VARCHAR}
+    </if>
+    <if test="createBy != null and createBy != ''" >
+     and create_by = #{createBy,jdbcType=CHAR}
+    </if>
+    <if test="createOrg != null and createOrg != ''" >
+     and create_org = #{createOrg,jdbcType=CHAR}
+    </if>
+    <if test="createDate != null and createDate != ''" >
+     and create_date = #{createDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updateBy != null and updateBy != ''" >
+     and update_by = #{updateBy,jdbcType=CHAR}
+    </if>
+    <if test="updateDate != null and updateDate != ''" >
+     and update_date = #{updateDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updateOrg != null and updateOrg != ''" >
+     and update_org = #{updateOrg,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="column01 != null and column01 != ''" >
+     and column_01 = #{column01,jdbcType=VARCHAR}
+    </if>
+    <if test="column02 != null and column02 != ''" >
+     and column_02 = #{column02,jdbcType=VARCHAR}
+    </if>
+    <if test="column03 != null and column03 != ''" >
+     and column_03 = #{column03,jdbcType=VARCHAR}
+    </if>
+    <if test="column04 != null and column04 != ''" >
+     and column_04 = #{column04,jdbcType=VARCHAR}
+    </if>
+    <if test="column05 != null and column05 != ''" >
+     and column_05 = #{column05,jdbcType=VARCHAR}
+    </if>
+    <if test="zyzjbl != null and zyzjbl != ''" >
+     and zyzjbl = #{zyzjbl,jdbcType=DECIMAL}
+    </if>
+    <if test="yhdkbl != null and yhdkbl != ''" >
+     and yhdkbl = #{yhdkbl,jdbcType=DECIMAL}
+    </if>
+    <if test="gzxxId != null and gzxxId != ''" >
+     and gzxx_id = #{gzxxId,jdbcType=CHAR}
+    </if>
+    <if test="zjpftze != null and zjpftze != ''" >
+     and zjpftze = #{zjpftze,jdbcType=DECIMAL}
+    </if>
+    <if test="pfsj != null and pfsj != ''" >
+     and pfsj = #{pfsj,jdbcType=TIMESTAMP}
+    </if>
+    <if test="pfwh != null and pfwh != ''" >
+     and pfwh = #{pfwh,jdbcType=VARCHAR}
+    </if>
+    <if test="jsnx != null and jsnx != ''" >
+     and jsnx = #{jsnx,jdbcType=DECIMAL}
+    </if>
+    <if test="yynx != null and yynx != ''" >
+     and yynx = #{yynx,jdbcType=DECIMAL}
+    </if>
+    <if test="hgnx != null and hgnx != ''" >
+     and hgnx = #{hgnx,jdbcType=DECIMAL}
+    </if>
+    <if test="kfzq != null and kfzq != ''" >
+     and kfzq = #{kfzq,jdbcType=DECIMAL}
+    </if>
+    <if test="kfmj != null and kfmj != ''" >
+     and kfmj = #{kfmj,jdbcType=DECIMAL}
+    </if>
+    <if test="org != null and org != ''" >
+     and org = #{org,jdbcType=CHAR}
+    </if>
+    <if test="gclb != null and gclb != ''" >
+     and gclb = #{gclb,jdbcType=VARCHAR}
+    </if>
+    <if test="xmzzsj != null and xmzzsj != ''" >
+     and xmzzsj = #{xmzzsj,jdbcType=TIMESTAMP}
+    </if>
+    <if test="shortName != null and shortName != ''" >
+     and short_name = #{shortName,jdbcType=VARCHAR}
+    </if>
+    <if test="isBb != null and isBb != ''" >
+     and is_bb = #{isBb,jdbcType=VARCHAR}
+    </if>
+    <if test="ffms != null and ffms != ''" >
+     and ffms = #{ffms,jdbcType=VARCHAR}
+    </if>
+    <if test="gllxcd != null and gllxcd != ''" >
+     and gllxcd = #{gllxcd,jdbcType=DECIMAL}
+    </if>
+    <if test="glgsglcd != null and glgsglcd != ''" >
+     and glgsglcd = #{glgsglcd,jdbcType=DECIMAL}
+    </if>
+    <if test="glqlcd != null and glqlcd != ''" >
+     and glqlcd = #{glqlcd,jdbcType=DECIMAL}
+    </if>
+    <if test="glsddd != null and glsddd != ''" >
+     and glsddd = #{glsddd,jdbcType=DECIMAL}
+    </if>
+    <if test="gltdq != null and gltdq != ''" >
+     and gltdq = #{gltdq,jdbcType=INTEGER}
+    </if>
+    <if test="gldq != null and gldq != ''" >
+     and gldq = #{gldq,jdbcType=INTEGER}
+    </if>
+    <if test="glzq != null and glzq != ''" >
+     and glzq = #{glzq,jdbcType=INTEGER}
+    </if>
+    <if test="qlqlcd != null and qlqlcd != ''" >
+     and qlqlcd = #{qlqlcd,jdbcType=DECIMAL}
+    </if>
+    <if test="qltdq != null and qltdq != ''" >
+     and qltdq = #{qltdq,jdbcType=INTEGER}
+    </if>
+    <if test="qldq != null and qldq != ''" >
+     and qldq = #{qldq,jdbcType=INTEGER}
+    </if>
+    <if test="qlzq != null and qlzq != ''" >
+     and qlzq = #{qlzq,jdbcType=INTEGER}
+    </if>
+    <if test="sdsddd != null and sdsddd != ''" >
+     and sdsddd = #{sdsddd,jdbcType=DECIMAL}
+    </if>
+    <if test="gkmtbw != null and gkmtbw != ''" >
+     and gkmtbw = #{gkmtbw,jdbcType=INTEGER}
+    </if>
+    <if test="gkssbw != null and gkssbw != ''" >
+     and gkssbw = #{gkssbw,jdbcType=INTEGER}
+    </if>
+    <if test="gkmtbwcd != null and gkmtbwcd != ''" >
+     and gkmtbwcd = #{gkmtbwcd,jdbcType=DECIMAL}
+    </if>
+    <if test="wkzdmj != null and wkzdmj != ''" >
+     and wkzdmj = #{wkzdmj,jdbcType=DECIMAL}
+    </if>
+    <if test="gdlxcd != null and gdlxcd != ''" >
+     and gdlxcd = #{gdlxcd,jdbcType=DECIMAL}
+    </if>
+    <if test="tllxcd != null and tllxcd != ''" >
+     and tllxcd = #{tllxcd,jdbcType=DECIMAL}
+    </if>
+    <if test="jcjc != null and jcjc != ''" >
+     and jcjc = #{jcjc,jdbcType=INTEGER}
+    </if>
+    <if test="cyyqyq != null and cyyqyq != ''" >
+     and cyyqyq = #{cyyqyq,jdbcType=INTEGER}
+    </if>
+    <if test="cyyqyqghmj != null and cyyqyqghmj != ''" >
+     and cyyqyqghmj = #{cyyqyqghmj,jdbcType=DECIMAL}
+    </if>
+    <if test="sybhf != null and sybhf != ''" >
+     and sybhf = #{sybhf,jdbcType=VARCHAR}
+    </if>
+    <if test="zfcnyhtj != null and zfcnyhtj != ''" >
+     and zfcnyhtj = #{zfcnyhtj,jdbcType=VARCHAR}
+    </if>
+    <if test="zbjzykhzb != null and zbjzykhzb != ''" >
+     and zbjzykhzb = #{zbjzykhzb,jdbcType=DECIMAL}
+    </if>
+    <if test="xmjd != null and xmjd != ''" >
+     and xmjd = #{xmjd,jdbcType=VARCHAR}
+    </if>
+    <if test="sfrk != null and sfrk != ''" >
+     and sfrk = #{sfrk,jdbcType=CHAR}
+    </if>
+    <if test="rksj != null and rksj != ''" >
+     and rksj = #{rksj,jdbcType=TIMESTAMP}
+    </if>
+    <if test="ygjjtpfrq != null and ygjjtpfrq != ''" >
+     and ygjjtpfrq = #{ygjjtpfrq,jdbcType=TIMESTAMP}
+    </if>
+    <if test="sjkgrq != null and sjkgrq != ''" >
+     and sjkgrq = #{sjkgrq,jdbcType=TIMESTAMP}
+    </if>
+    <if test="jgrq != null and jgrq != ''" >
+     and jgrq = #{jgrq,jdbcType=TIMESTAMP}
+    </if>
+    <if test="kshgyyrq != null and kshgyyrq != ''" >
+     and kshgyyrq = #{kshgyyrq,jdbcType=TIMESTAMP}
+    </if>
+    <if test="jsrq != null and jsrq != ''" >
+     and jsrq = #{jsrq,jdbcType=TIMESTAMP}
+    </if>
+    <if test="zbrq != null and zbrq != ''" >
+     and zbrq = #{zbrq,jdbcType=TIMESTAMP}
+    </if>
+    <if test="pgjdjcsy != null and pgjdjcsy != ''" >
+     and pgjdjcsy = #{pgjdjcsy,jdbcType=DECIMAL}
+    </if>
+    <if test="pgjdtrzsy != null and pgjdtrzsy != ''" >
+     and pgjdtrzsy = #{pgjdtrzsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnmbjcsy != null and cnmbjcsy != ''" >
+     and cnmbjcsy = #{cnmbjcsy,jdbcType=DECIMAL}
+    </if>
+    <if test="cnmutrzsy != null and cnmutrzsy != ''" >
+     and cnmutrzsy = #{cnmutrzsy,jdbcType=DECIMAL}
+    </if>
+    <if test="tpyjcltxsl != null and tpyjcltxsl != ''" >
+     and tpyjcltxsl = #{tpyjcltxsl,jdbcType=DECIMAL}
+    </if>
+    <if test="tpyjsr != null and tpyjsr != ''" >
+     and tpyjsr = #{tpyjsr,jdbcType=DECIMAL}
+    </if>
+    <if test="zhjcsyl != null and zhjcsyl != ''" >
+     and zhjcsyl = #{zhjcsyl,jdbcType=DECIMAL}
+    </if>
+    <if test="bz != null and bz != ''" >
+     and bz = #{bz,jdbcType=VARCHAR}
+    </if>
+    <if test="xmcwnbsyl != null and xmcwnbsyl != ''" >
+     and xmcwnbsyl = #{xmcwnbsyl,jdbcType=DECIMAL}
+    </if>
+    <if test="zbjcwnbsyl != null and zbjcwnbsyl != ''" >
+     and zbjcwnbsyl = #{zbjcwnbsyl,jdbcType=DECIMAL}
+    </if>
+    <if test="dttzhsqn != null and dttzhsqn != ''" >
+     and dttzhsqn = #{dttzhsqn,jdbcType=DECIMAL}
+    </if>
+    <if test="pgsjdjcsyl != null and pgsjdjcsyl != ''" >
+     and pgsjdjcsyl = #{pgsjdjcsyl,jdbcType=DECIMAL}
+    </if>
+    <if test="sglr != null and sglr != ''" >
+     and sglr = #{sglr,jdbcType=DECIMAL}
+    </if>
+    <if test="tszhjcsyl != null and tszhjcsyl != ''" >
+     and tszhjcsyl = #{tszhjcsyl,jdbcType=DECIMAL}
+    </if>
+    <if test="ysjjcsyl != null and ysjjcsyl != ''" >
+     and ysjjcsyl = #{ysjjcsyl,jdbcType=DECIMAL}
+    </if>
+    <if test="sftzxm != null and sftzxm != ''" >
+     and sftzxm = #{sftzxm,jdbcType=VARCHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    ORDER BY update_date DESC 
+  </select>
+  <delete id="batchDeleteUpdateProInvBasic" parameterType="com.apih5.mybatis.pojo.ProInvBasic" >
+    <![CDATA[ 
+        update pro_inv_basic
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+  
+   <select id="getProInvBasicByProjectId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />,
+    (SELECT  d.label  lab FROM sys_dict  d inner join  sys_dict_category c  on d.category_id = c.id  and  c.del_flag = '0' where  d.del_flag = '0'  and  c.category_code = 'TZMS_TZXX'  AND d.value=inv_model) AS investPatten,
+    (SELECT  d.label  lab FROM sys_dict  d inner join  sys_dict_category c  on d.category_id = c.id  and  c.del_flag = '0' where  d.del_flag = '0'  and  c.category_code = 'TA'  AND d.value=pro_area) AS location
+    from pro_inv_basic
+    where del_flag = '0' and project_id = #{projectId}
+  </select>
+  
+</mapper>

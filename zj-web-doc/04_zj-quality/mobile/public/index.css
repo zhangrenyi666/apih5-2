@@ -1,0 +1,146 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #333333;
+    background-color: #ffffff;
+    height: 100%;
+    overflow: hidden;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti, "Microsoft YaHei";
+}
+
+#root {
+    z-index: 10;
+    background: #f8f8f8;
+    height: 100%;
+}
+
+#loading {
+    opacity: 1;
+    z-index: 100;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(52, 52, 52, .2);
+    transition: all .3s;
+    visibility: visible;
+    opacity: 1;
+}
+
+#loading.hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.loading {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -40px;
+    margin-left: -40px;
+}
+
+.loading .dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: 1.7s dotrotate cubic-bezier(0.775, 0.005, 0.310, 1.000) infinite;
+    animation: 1.7s dotrotate cubic-bezier(0.775, 0.005, 0.310, 1.000) infinite;
+}
+
+.loading .dot:nth-child(1) {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.loading .dot:nth-child(2) {
+    -webkit-animation-delay: 0.35s;
+    animation-delay: 0.35s;
+}
+
+.loading .dot:nth-child(3) {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.loading .dot:nth-child(4) {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.loading .dot:after,
+.loading .dot .first {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #007bc7;
+    border-radius: 50%;
+    left: 50%;
+    margin-left: -4px;
+}
+
+.loading .dot .first {
+    background: #007bc7;
+    margin-top: -4px;
+    animation: 1.7s dotscale cubic-bezier(0.775, 0.005, 0.310, 1.000) infinite;
+    animation-delay: 0.1s;
+}
+
+@keyframes dotrotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dotscale {
+    0%,
+    10% {
+        width: 16px;
+        height: 16px;
+        margin-left: -8px;
+        margin-top: -4px;
+    }
+    50% {
+        width: 8px;
+        height: 8px;
+        margin-left: -4px;
+        margin-top: 0;
+    }
+    90%,
+    100% {
+        width: 16px;
+        height: 16px;
+        margin-left: -8px;
+        margin-top: -4px;
+    }
+}

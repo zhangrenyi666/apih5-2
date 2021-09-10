@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjLzehProductionMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjLzehProduction" >
+    <id column="production_id" property="productionId" jdbcType="CHAR" />
+    <result column="total_contract_amount" property="totalContractAmount" jdbcType="DECIMAL" />
+    <result column="accumulated_completion_amount" property="accumulatedCompletionAmount" jdbcType="DECIMAL" />
+    <result column="current_year_scheme_amount" property="currentYearSchemeAmount" jdbcType="DECIMAL" />
+    <result column="current_year_completion_amount" property="currentYearCompletionAmount" jdbcType="DECIMAL" />
+    <result column="current_month_scheme_amount" property="currentMonthSchemeAmount" jdbcType="DECIMAL" />
+    <result column="current_month_completion_amount" property="currentMonthCompletionAmount" jdbcType="DECIMAL" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    production_id, total_contract_amount, accumulated_completion_amount, current_year_scheme_amount, current_year_completion_amount, 
+    current_month_scheme_amount, current_month_completion_amount, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_lzeh_production
+    where production_id = #{productionId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_lzeh_production
+    where production_id = #{productionId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjLzehProduction" >
+    insert into zj_lzeh_production (production_id, total_contract_amount, accumulated_completion_amount, 
+      current_year_scheme_amount, current_year_completion_amount, current_month_scheme_amount, 
+      current_month_completion_amount, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{productionId,jdbcType=CHAR}, #{totalContractAmount,jdbcType=DECIMAL}, #{accumulatedCompletionAmount,jdbcType=DECIMAL}, 
+      #{currentYearSchemeAmount,jdbcType=DECIMAL}, #{currentYearCompletionAmount,jdbcType=DECIMAL}, #{currentMonthSchemeAmount,jdbcType=DECIMAL}, 
+      #{currentMonthCompletionAmount,jdbcType=DECIMAL}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjLzehProduction" >
+    insert into zj_lzeh_production
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="productionId != null" >
+        production_id,
+      </if>
+      <if test="totalContractAmount != null" >
+        total_contract_amount,
+      </if>
+      <if test="accumulatedCompletionAmount != null" >
+        accumulated_completion_amount,
+      </if>
+      <if test="currentYearSchemeAmount != null" >
+        current_year_scheme_amount,
+      </if>
+      <if test="currentYearCompletionAmount != null" >
+        current_year_completion_amount,
+      </if>
+      <if test="currentMonthSchemeAmount != null" >
+        current_month_scheme_amount,
+      </if>
+      <if test="currentMonthCompletionAmount != null" >
+        current_month_completion_amount,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="productionId != null" >
+        #{productionId,jdbcType=CHAR},
+      </if>
+      <if test="totalContractAmount != null" >
+        #{totalContractAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="accumulatedCompletionAmount != null" >
+        #{accumulatedCompletionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="currentYearSchemeAmount != null" >
+        #{currentYearSchemeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="currentYearCompletionAmount != null" >
+        #{currentYearCompletionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="currentMonthSchemeAmount != null" >
+        #{currentMonthSchemeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="currentMonthCompletionAmount != null" >
+        #{currentMonthCompletionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjLzehProduction" >
+    update zj_lzeh_production
+    <set >
+      <if test="totalContractAmount != null" >
+        total_contract_amount = #{totalContractAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="accumulatedCompletionAmount != null" >
+        accumulated_completion_amount = #{accumulatedCompletionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="currentYearSchemeAmount != null" >
+        current_year_scheme_amount = #{currentYearSchemeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="currentYearCompletionAmount != null" >
+        current_year_completion_amount = #{currentYearCompletionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="currentMonthSchemeAmount != null" >
+        current_month_scheme_amount = #{currentMonthSchemeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="currentMonthCompletionAmount != null" >
+        current_month_completion_amount = #{currentMonthCompletionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where production_id = #{productionId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjLzehProduction" >
+    update zj_lzeh_production
+    set       total_contract_amount = #{totalContractAmount,jdbcType=DECIMAL},
+      accumulated_completion_amount = #{accumulatedCompletionAmount,jdbcType=DECIMAL},
+      current_year_scheme_amount = #{currentYearSchemeAmount,jdbcType=DECIMAL},
+      current_year_completion_amount = #{currentYearCompletionAmount,jdbcType=DECIMAL},
+      current_month_scheme_amount = #{currentMonthSchemeAmount,jdbcType=DECIMAL},
+      current_month_completion_amount = #{currentMonthCompletionAmount,jdbcType=DECIMAL},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where production_id = #{productionId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjLzehProductionList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjLzehProduction" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_lzeh_production
+    where del_flag = '0'
+    <if test="totalContractAmount != null and totalContractAmount != ''" >
+     and total_contract_amount = #{totalContractAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="accumulatedCompletionAmount != null and accumulatedCompletionAmount != ''" >
+     and accumulated_completion_amount = #{accumulatedCompletionAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="currentYearSchemeAmount != null and currentYearSchemeAmount != ''" >
+     and current_year_scheme_amount = #{currentYearSchemeAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="currentYearCompletionAmount != null and currentYearCompletionAmount != ''" >
+     and current_year_completion_amount = #{currentYearCompletionAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="currentMonthSchemeAmount != null and currentMonthSchemeAmount != ''" >
+     and current_month_scheme_amount = #{currentMonthSchemeAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="currentMonthCompletionAmount != null and currentMonthCompletionAmount != ''" >
+     and current_month_completion_amount = #{currentMonthCompletionAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjLzehProduction" parameterType="com.apih5.mybatis.pojo.ZjLzehProduction" >
+    <![CDATA[ 
+        update zj_lzeh_production
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and production_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.productionId} 
+     </foreach>
+  </delete>
+</mapper>

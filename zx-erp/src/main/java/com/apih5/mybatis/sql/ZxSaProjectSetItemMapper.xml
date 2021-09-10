@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSaProjectSetItemMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSaProjectSetItem" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="mainID" property="mainID" jdbcType="VARCHAR" />
+    <result column="contrType" property="contrType" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="workNo" property="workNo" jdbcType="VARCHAR" />
+    <result column="workType" property="workType" jdbcType="VARCHAR" />
+    <result column="workName" property="workName" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="orderNum" property="orderNum" jdbcType="VARCHAR" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="comOrders" property="comOrders" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, mainID, contrType, orgID, workNo, 
+    workType, workName, unit, remark, orderNum, 
+    comID, comName, comOrders, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sa_ProjectSetItem
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sa_ProjectSetItem
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSaProjectSetItem" >
+    insert into zx_sa_ProjectSetItem (id, mainID, contrType, 
+      orgID, workNo, workType, 
+      workName, unit, remark, 
+      orderNum, comID, comName, 
+      comOrders, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{mainID,jdbcType=VARCHAR}, #{contrType,jdbcType=VARCHAR}, 
+      #{orgID,jdbcType=VARCHAR}, #{workNo,jdbcType=VARCHAR}, #{workType,jdbcType=VARCHAR}, 
+      #{workName,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{orderNum,jdbcType=VARCHAR}, #{comID,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, 
+      #{comOrders,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSaProjectSetItem" >
+    insert into zx_sa_ProjectSetItem
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mainID != null" >
+        mainID,
+      </if>
+      <if test="contrType != null" >
+        contrType,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="workNo != null" >
+        workNo,
+      </if>
+      <if test="workType != null" >
+        workType,
+      </if>
+      <if test="workName != null" >
+        workName,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="orderNum != null" >
+        orderNum,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="comOrders != null" >
+        comOrders,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="mainID != null" >
+        #{mainID,jdbcType=VARCHAR},
+      </if>
+      <if test="contrType != null" >
+        #{contrType,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="workNo != null" >
+        #{workNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workType != null" >
+        #{workType,jdbcType=VARCHAR},
+      </if>
+      <if test="workName != null" >
+        #{workName,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNum != null" >
+        #{orderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSaProjectSetItem" >
+    update zx_sa_ProjectSetItem
+    <set >
+      <if test="mainID != null" >
+        mainID = #{mainID,jdbcType=VARCHAR},
+      </if>
+      <if test="contrType != null" >
+        contrType = #{contrType,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="workNo != null" >
+        workNo = #{workNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workType != null" >
+        workType = #{workType,jdbcType=VARCHAR},
+      </if>
+      <if test="workName != null" >
+        workName = #{workName,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNum != null" >
+        orderNum = #{orderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        comOrders = #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSaProjectSetItem" >
+    update zx_sa_ProjectSetItem
+    set       mainID = #{mainID,jdbcType=VARCHAR},
+      contrType = #{contrType,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      workNo = #{workNo,jdbcType=VARCHAR},
+      workType = #{workType,jdbcType=VARCHAR},
+      workName = #{workName,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      orderNum = #{orderNum,jdbcType=VARCHAR},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      comOrders = #{comOrders,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxSaProjectSetItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSaProjectSetItem" >
+    select 
+    <include refid="Base_Column_List" />,
+    (SELECT COUNT(*) FROM zx_sa_projectpaysettleitem AS pay WHERE pay.payID = item.id AND pay.del_flag = '0') as quoteFlag1,
+    (SELECT COUNT(*) FROM zx_ct_supplies_shop_pay_settlement_item AS pay WHERE pay.payID = item.id AND pay.del_flag = '0') as quoteFlag2,
+    (SELECT COUNT(*) FROM zx_sa_equippaysettleitem AS pay WHERE pay.payID = item.id AND pay.del_flag = '0') as quoteFlag3,
+    (SELECT COUNT(*) FROM zx_sa_other_equip_pay_settle_item AS pay WHERE pay.payID = item.id AND pay.del_flag = '0') as quoteFlag4
+    from zx_sa_ProjectSetItem AS item
+    where del_flag = '0'
+    <if test="mainID != null and mainID != ''" >
+     and mainID = #{mainID,jdbcType=VARCHAR}
+    </if>
+    <if test="contrType != null and contrType != ''" >
+     and contrType = #{contrType,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="workNo != null and workNo != ''" >
+     and workNo = #{workNo,jdbcType=VARCHAR}
+    </if>
+    <if test="workType != null and workType != ''" >
+     and workType = #{workType,jdbcType=VARCHAR}
+    </if>
+    <if test="workName != null and workName != ''" >
+     and workName = #{workName,jdbcType=VARCHAR}
+    </if>
+    <if test="unit != null and unit != ''" >
+     and unit = #{unit,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="orderNum != null and orderNum != ''" >
+     and orderNum = #{orderNum,jdbcType=VARCHAR}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="comOrders != null and comOrders != ''" >
+     and comOrders = #{comOrders,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="contrTypeFlag1 != null and contrTypeFlag1 != ''" >
+     and (SELECT COUNT(*) FROM zx_sa_projectpaysettleitem AS pay WHERE pay.payID = item.id AND pay.del_flag = '0') = '0'
+    </if>
+    <if test="contrTypeFlag2 != null and contrTypeFlag2 != ''" >
+     and (SELECT COUNT(*) FROM zx_ct_supplies_shop_pay_settlement_item AS pay WHERE pay.payID = item.id AND pay.del_flag = '0') = '0'
+    </if>
+    <if test="contrTypeFlag3 != null and contrTypeFlag3 != ''" >
+     and (SELECT COUNT(*) FROM zx_sa_equippaysettleitem AS pay WHERE pay.payID = item.id AND pay.del_flag = '0') = '0'
+    </if>
+    <if test="contrTypeFlag4 != null and contrTypeFlag4 != ''" >
+     and (SELECT COUNT(*) FROM zx_sa_other_equip_pay_settle_item AS pay WHERE pay.payID = item.id AND pay.del_flag = '0') = '0'
+    </if>
+    
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSaProjectSetItem" parameterType="com.apih5.mybatis.pojo.ZxSaProjectSetItem" >
+    <![CDATA[ 
+        update zx_sa_ProjectSetItem
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzProShareholderInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzProShareholderInfo" >
+    <id column="shareholder_info_id" property="shareholderInfoId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="shareholder_name" property="shareholderName" jdbcType="VARCHAR" />
+    <result column="proportion" property="proportion" jdbcType="DECIMAL" />
+    <result column="contribution_amount" property="contributionAmount" jdbcType="DECIMAL" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  	<result column="shareholder_type" property="shareholderType" jdbcType="CHAR" />
+    <result column="construction_proportion" property="constructionProportion" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    shareholder_info_id, project_id, shareholder_name, proportion, contribution_amount, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name, shareholder_type, construction_proportion
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_pro_shareholder_info
+    where shareholder_info_id = #{shareholderInfoId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_pro_shareholder_info
+    where shareholder_info_id = #{shareholderInfoId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzProShareholderInfo" >
+    insert into zj_tz_pro_shareholder_info (shareholder_info_id, project_id, shareholder_name, 
+      proportion, contribution_amount, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name, 
+      shareholder_type, construction_proportion
+      )
+    values (#{shareholderInfoId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{shareholderName,jdbcType=VARCHAR}, 
+      #{proportion,jdbcType=DECIMAL}, #{contributionAmount,jdbcType=DECIMAL}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}, 
+      #{shareholderType,jdbcType=CHAR}, #{constructionProportion,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzProShareholderInfo" >
+    insert into zj_tz_pro_shareholder_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="shareholderInfoId != null" >
+        shareholder_info_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="shareholderName != null" >
+        shareholder_name,
+      </if>
+      <if test="proportion != null" >
+        proportion,
+      </if>
+      <if test="contributionAmount != null" >
+        contribution_amount,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+      <if test="shareholderType != null" >
+        shareholder_type,
+      </if>
+      <if test="constructionProportion != null" >
+        construction_proportion,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="shareholderInfoId != null" >
+        #{shareholderInfoId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="shareholderName != null" >
+        #{shareholderName,jdbcType=VARCHAR},
+      </if>
+      <if test="proportion != null" >
+        #{proportion,jdbcType=DECIMAL},
+      </if>
+      <if test="contributionAmount != null" >
+        #{contributionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="shareholderType != null" >
+        #{shareholderType,jdbcType=CHAR},
+      </if>
+      <if test="constructionProportion != null" >
+        #{constructionProportion,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzProShareholderInfo" >
+    update zj_tz_pro_shareholder_info
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="shareholderName != null" >
+        shareholder_name = #{shareholderName,jdbcType=VARCHAR},
+      </if>
+      <if test="proportion != null" >
+        proportion = #{proportion,jdbcType=DECIMAL},
+      </if>
+      <if test="contributionAmount != null" >
+        contribution_amount = #{contributionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="shareholderType != null" >
+        shareholder_type = #{shareholderType,jdbcType=CHAR},
+      </if>
+      <if test="constructionProportion != null" >
+        construction_proportion = #{constructionProportion,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where shareholder_info_id = #{shareholderInfoId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzProShareholderInfo" >
+    update zj_tz_pro_shareholder_info
+    set       project_id = #{projectId,jdbcType=CHAR},
+      shareholder_name = #{shareholderName,jdbcType=VARCHAR},
+      proportion = #{proportion,jdbcType=DECIMAL},
+      contribution_amount = #{contributionAmount,jdbcType=DECIMAL},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      shareholder_type = #{shareholderType,jdbcType=CHAR},
+      construction_proportion = #{constructionProportion,jdbcType=DECIMAL}
+    where shareholder_info_id = #{shareholderInfoId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzProShareholderInfoList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzProShareholderInfo" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_pro_shareholder_info
+    where del_flag = '0'
+    <if test="shareholderInfoId != null and shareholderInfoId != ''" >
+     and shareholder_info_id = #{shareholderInfoId,jdbcType=}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="shareholderName != null and shareholderName != ''" >
+     and shareholder_name = #{shareholderName,jdbcType=VARCHAR}
+    </if>
+    <if test="proportion != null and proportion != ''" >
+     and proportion = #{proportion,jdbcType=DECIMAL}
+    </if>
+    <if test="contributionAmount != null and contributionAmount != ''" >
+     and contribution_amount = #{contributionAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="shareholderType != null and shareholderType != ''" >
+     and shareholder_type = #{shareholderType,jdbcType=CHAR}
+    </if>
+    <if test="constructionProportion != null and constructionProportion != ''" >
+     and construction_proportion = #{constructionProportion,jdbcType=DECIMAL}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzProShareholderInfo" parameterType="com.apih5.mybatis.pojo.ZjTzProShareholderInfo" >
+    <![CDATA[ 
+        update zj_tz_pro_shareholder_info
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and shareholder_info_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.shareholderInfoId} 
+     </foreach>
+  </delete>
+</mapper>

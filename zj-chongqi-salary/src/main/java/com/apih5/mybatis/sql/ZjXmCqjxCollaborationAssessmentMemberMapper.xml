@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmCqjxCollaborationAssessmentMemberMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessmentMember" >
+    <id column="zc_oa_id" property="zcOaId" jdbcType="CHAR" />
+    <result column="other_id" property="otherId" jdbcType="CHAR" />
+    <result column="manager_id" property="managerId" jdbcType="CHAR" />
+    <result column="other_type" property="otherType" jdbcType="CHAR" />
+    <result column="oa_department_member_flag" property="oaDepartmentMemberFlag" jdbcType="CHAR" />
+    <result column="oa_user_id" property="oaUserId" jdbcType="VARCHAR" />
+    <result column="oa_user_Name" property="oaUserName" jdbcType="VARCHAR" />
+    <result column="oa_org_id" property="oaOrgId" jdbcType="VARCHAR" />
+    <result column="oa_org_name" property="oaOrgName" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="CHAR" />
+    <result column="assessment_flag" property="assessmentFlag" jdbcType="CHAR" />
+    <result column="effective_flag" property="effectiveFlag" jdbcType="CHAR" />
+    <result column="assessment_lock" property="assessmentLock" jdbcType="CHAR" />
+    <result column="assessment_score" property="assessmentScore" jdbcType="DOUBLE" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zc_oa_id, manager_id, other_id, other_type, oa_department_member_flag, oa_user_id, 
+    oa_user_Name, oa_org_id, oa_org_name, mobile, assessment_flag, effective_flag, assessment_lock,
+    assessment_score, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectZjXmCqjxCollaborationTodoCount" resultType="java.lang.Integer" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessmentMember" >
+    select 
+      count(*)
+       FROM zj_xm_cqjx_collaboration_assessment_member
+       WHERE del_flag = '0'      
+    <if test="oaUserId != null and oaUserId != ''" >
+     and oa_user_id = #{oaUserId,jdbcType=CHAR}
+    </if>
+     and assessment_flag = '0'
+     and effective_flag = '0'  
+  </select>     
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_cqjx_collaboration_assessment_member
+    where zc_oa_id = #{zcOaId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_cqjx_collaboration_assessment_member
+    where zc_oa_id = #{zcOaId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessmentMember" >
+    insert into zj_xm_cqjx_collaboration_assessment_member (zc_oa_id, other_id, manager_id, other_type, 
+      oa_department_member_flag, oa_user_id, oa_user_Name, 
+      oa_org_id, oa_org_name, mobile, effective_flag,
+      assessment_flag, assessment_lock, assessment_score, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{zcOaId,jdbcType=CHAR}, #{otherId,jdbcType=CHAR}, #{managerId,jdbcType=CHAR}, #{otherType,jdbcType=CHAR}, 
+      #{oaDepartmentMemberFlag,jdbcType=CHAR}, #{oaUserId,jdbcType=VARCHAR}, #{oaUserName,jdbcType=VARCHAR}, 
+      #{oaOrgId,jdbcType=VARCHAR}, #{oaOrgName,jdbcType=VARCHAR}, #{mobile,jdbcType=CHAR}, 
+      #{effectiveFlag,jdbcType=CHAR}, #{assessmentFlag,jdbcType=CHAR}, #{assessmentLock,jdbcType=CHAR}, 
+      #{assessmentScore,jdbcType=DOUBLE}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessmentMember" >
+    insert into zj_xm_cqjx_collaboration_assessment_member
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zcOaId != null" >
+        zc_oa_id,
+      </if>
+      <if test="otherId != null" >
+        other_id,
+      </if>
+      <if test="managerId != null" >
+        manager_id,
+      </if>
+      <if test="otherType != null" >
+        other_type,
+      </if>
+      <if test="oaDepartmentMemberFlag != null" >
+        oa_department_member_flag,
+      </if>
+      <if test="oaUserId != null" >
+        oa_user_id,
+      </if>
+      <if test="oaUserName != null" >
+        oa_user_Name,
+      </if>
+      <if test="oaOrgId != null" >
+        oa_org_id,
+      </if>
+      <if test="oaOrgName != null" >
+        oa_org_name,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="assessmentFlag != null" >
+        assessment_flag,
+      </if>
+      <if test="effectiveFlag != null" >
+        effective_flag,
+      </if>
+      <if test="assessmentLock != null" >
+        assessment_lock,
+      </if>
+      <if test="assessmentScore != null" >
+        assessment_score,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zcOaId != null" >
+        #{zcOaId,jdbcType=CHAR},
+      </if>
+      <if test="otherId != null" >
+        #{otherId,jdbcType=CHAR},
+      </if>
+      <if test="managerId != null" >
+        #{managerId,jdbcType=CHAR},
+      </if>
+      <if test="otherType != null" >
+        #{otherType,jdbcType=CHAR},
+      </if>
+      <if test="oaDepartmentMemberFlag != null" >
+        #{oaDepartmentMemberFlag,jdbcType=CHAR},
+      </if>
+      <if test="oaUserId != null" >
+        #{oaUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="oaUserName != null" >
+        #{oaUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="oaOrgId != null" >
+        #{oaOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="oaOrgName != null" >
+        #{oaOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=CHAR},
+      </if>
+      <if test="assessmentFlag != null" >
+        #{assessmentFlag,jdbcType=CHAR},
+      </if>
+      <if test="effectiveFlag != null" >
+        #{effectiveFlag,jdbcType=CHAR},
+      </if>
+      <if test="assessmentLock != null" >
+        #{assessmentLock,jdbcType=CHAR},
+      </if>
+      <if test="assessmentScore != null" >
+        #{assessmentScore,jdbcType=DOUBLE},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessmentMember" >
+    update zj_xm_cqjx_collaboration_assessment_member
+    <set >
+      <if test="otherId != null" >
+        other_id = #{otherId,jdbcType=CHAR},
+      </if>
+      <if test="otherType != null" >
+        other_type = #{otherType,jdbcType=CHAR},
+      </if>
+      <if test="managerId != null" >
+        manager_id = #{managerId,jdbcType=CHAR},
+      </if>
+      <if test="oaDepartmentMemberFlag != null" >
+        oa_department_member_flag = #{oaDepartmentMemberFlag,jdbcType=CHAR},
+      </if>
+      <if test="oaUserId != null" >
+        oa_user_id = #{oaUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="oaUserName != null" >
+        oa_user_Name = #{oaUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="oaOrgId != null" >
+        oa_org_id = #{oaOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="oaOrgName != null" >
+        oa_org_name = #{oaOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=CHAR},
+      </if>
+      <if test="assessmentFlag != null" >
+        assessment_flag = #{assessmentFlag,jdbcType=CHAR},
+      </if>
+      <if test="effectiveFlag != null" >
+        effective_flag = #{effectiveFlag,jdbcType=CHAR},
+      </if>
+      <if test="assessmentLock != null" >
+        assessment_lock = #{assessmentLock,jdbcType=CHAR},
+      </if>
+      <if test="assessmentScore != null" >
+        assessment_score = #{assessmentScore,jdbcType=DOUBLE},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zc_oa_id = #{zcOaId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessmentMember" >
+    update zj_xm_cqjx_collaboration_assessment_member
+    set       other_id = #{otherId,jdbcType=CHAR},
+      manager_id = #{managerId,jdbcType=CHAR},    
+      other_type = #{otherType,jdbcType=CHAR},
+      oa_department_member_flag = #{oaDepartmentMemberFlag,jdbcType=CHAR},
+      oa_user_id = #{oaUserId,jdbcType=VARCHAR},
+      oa_user_Name = #{oaUserName,jdbcType=VARCHAR},
+      oa_org_id = #{oaOrgId,jdbcType=VARCHAR},
+      oa_org_name = #{oaOrgName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=CHAR},
+      assessment_flag = #{assessmentFlag,jdbcType=CHAR},
+      effective_flag = #{effectiveFlag,jdbcType=CHAR},  
+      assessment_lock = #{assessmentLock,jdbcType=CHAR},          
+      assessment_score = #{assessmentScore,jdbcType=DOUBLE},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zc_oa_id = #{zcOaId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmCqjxCollaborationAssessmentMemberList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessmentMember" >
+    select 
+        zm.zc_oa_id, zm.manager_id, zm.other_id, zm.other_type, zm.oa_department_member_flag, zm.oa_user_id, 
+    zm.oa_user_Name, zm.oa_org_id, zm.oa_org_name, zm.mobile, zm.assessment_flag, zm.effective_flag,
+    zm.assessment_score, zm.del_flag, zm.create_time, zm.create_user, zm.create_user_name, 
+    zm.modify_time, zm.modify_user, zm.modify_user_name,zm.assessment_lock,
+		(SELECT closing_date from zj_xm_cqjx_collaboration_assessment WHERE del_flag = '0' and collaboration_id = zm.other_id) AS closingDate,    
+    (SELECT collaboration_detailed_score FROM zj_xm_cqjx_collaboration_assessment_detailed 
+            WHERE del_flag = '0' and other_id = zj_xm_cqjx_collaboration_assessment_detailed.collaborationt_id 
+            AND user_key = oa_user_id AND create_user = #{createUser,jdbcType=CHAR}) AS `option`,
+		(SELECT collaboration_title from zj_xm_cqjx_collaboration_assessment WHERE del_flag = '0' and collaboration_id = zm.other_id) AS collaborationTitle,              
+		(SELECT count(*) FROM zj_xm_cqjx_collaboration_assessment_member WHERE del_flag = '0' and other_id = zm.other_id and effective_flag = '0' and oa_user_id != zm.oa_user_id) AS effectiveNum,
+		(SELECT count(*) FROM zj_xm_cqjx_collaboration_assessment_member WHERE del_flag = '0' and other_id = zm.other_id and oa_user_id != zm.oa_user_id and effective_flag = '1') AS invalidNum          
+    from zj_xm_cqjx_collaboration_assessment_member zm
+    where del_flag = '0'
+    <if test="otherId != null and otherId != ''" >
+     and zm.other_id = #{otherId,jdbcType=CHAR}
+    </if>
+    <if test="managerId != null and managerId != ''" >
+     and zm.manager_id = #{managerId,jdbcType=CHAR}
+    </if>
+    <if test="otherType != null and otherType != ''" >
+     and zm.other_type = #{otherType,jdbcType=CHAR}
+    </if>
+    <if test="oaDepartmentMemberFlag != null and oaDepartmentMemberFlag != ''" >
+     and zm.oa_department_member_flag = #{oaDepartmentMemberFlag,jdbcType=CHAR}
+    </if>
+    <if test="oaUserId != null and oaUserId != ''" >
+     and zm.oa_user_id = #{oaUserId,jdbcType=VARCHAR}
+    </if>
+    <if test="oaUserName != null and oaUserName != ''" >
+     and zm.oa_user_Name = #{oaUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="oaOrgId != null and oaOrgId != ''" >
+     and zm.oa_org_id = #{oaOrgId,jdbcType=VARCHAR}
+    </if>
+    <if test="oaOrgName != null and oaOrgName != ''" >
+     and zm.oa_org_name = #{oaOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="mobile != null and mobile != ''" >
+     and zm.mobile = #{mobile,jdbcType=CHAR}
+    </if>
+    <if test="assessmentLock != null and assessmentLock != ''" >
+     and zm.assessment_lock = #{assessmentLock,jdbcType=CHAR}
+    </if>
+    <if test="assessmentFlag != null and assessmentFlag != ''" >
+     and zm.assessment_flag = #{assessmentFlag,jdbcType=CHAR}
+    </if>
+    <if test="effectiveFlag != null and effectiveFlag != ''" >
+     and zm.effective_flag = #{effectiveFlag,jdbcType=CHAR}
+    </if>
+    <if test="assessmentScore != null and assessmentScore != ''" >
+     and zm.assessment_score = #{assessmentScore,jdbcType=DOUBLE}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and zm.create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and zm.modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <select id="selectDeleteByZjXmCqjxCollaborationAssessmentMemberList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessmentMember" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_cqjx_collaboration_assessment_member
+    where del_flag = '1'
+    <if test="otherId != null and otherId != ''" >
+     and other_id = #{otherId,jdbcType=CHAR}
+    </if>
+    <if test="managerId != null and managerId != ''" >
+     and manager_id = #{managerId,jdbcType=CHAR}
+    </if>
+    <if test="otherType != null and otherType != ''" >
+     and other_type = #{otherType,jdbcType=CHAR}
+    </if>
+    <if test="oaDepartmentMemberFlag != null and oaDepartmentMemberFlag != ''" >
+     and oa_department_member_flag = #{oaDepartmentMemberFlag,jdbcType=CHAR}
+    </if>
+    <if test="assessmentLock != null and assessmentLock != ''" >
+     and assessment_lock = #{assessmentLock,jdbcType=CHAR}
+    </if>    
+    <if test="oaUserId != null and oaUserId != ''" >
+     and oa_user_id = #{oaUserId,jdbcType=VARCHAR}
+    </if>
+    <if test="oaUserName != null and oaUserName != ''" >
+     and oa_user_Name = #{oaUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="oaOrgId != null and oaOrgId != ''" >
+     and oa_org_id = #{oaOrgId,jdbcType=VARCHAR}
+    </if>
+    <if test="oaOrgName != null and oaOrgName != ''" >
+     and oa_org_name = #{oaOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="mobile != null and mobile != ''" >
+     and mobile = #{mobile,jdbcType=CHAR}
+    </if>
+    <if test="assessmentFlag != null and assessmentFlag != ''" >
+     and assessment_flag = #{assessmentFlag,jdbcType=CHAR}
+    </if>
+    <if test="assessmentScore != null and assessmentScore != ''" >
+     and assessment_score = #{assessmentScore,jdbcType=DOUBLE}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select> 
+     <select id="selectByZjXmCqjxCollaborationAssessmentList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessmentMember" >
+    select 
+    <include refid="Base_Column_List" />   
+    from zj_xm_cqjx_collaboration_assessment_member
+    where del_flag = '0'
+    <if test="otherId != null and otherId != ''" >
+     and other_id = #{otherId,jdbcType=CHAR}
+    </if>
+    <if test="managerId != null and managerId != ''" >
+     and manager_id = #{managerId,jdbcType=CHAR}
+    </if>
+    <if test="otherType != null and otherType != ''" >
+     and other_type = #{otherType,jdbcType=CHAR}
+    </if>
+    <if test="oaDepartmentMemberFlag != null and oaDepartmentMemberFlag != ''" >
+     and oa_department_member_flag = #{oaDepartmentMemberFlag,jdbcType=CHAR}
+    </if>
+    <if test="oaUserId != null and oaUserId != ''" >
+     and oa_user_id = #{oaUserId,jdbcType=VARCHAR}
+    </if>
+    <if test="oaUserName != null and oaUserName != ''" >
+     and oa_user_Name = #{oaUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="assessmentLock != null and assessmentLock != ''" >
+     and assessment_lock = #{assessmentLock,jdbcType=CHAR}
+    </if>        
+    <if test="oaOrgId != null and oaOrgId != ''" >
+     and oa_org_id = #{oaOrgId,jdbcType=VARCHAR}
+    </if>
+    <if test="oaOrgName != null and oaOrgName != ''" >
+     and oa_org_name = #{oaOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="mobile != null and mobile != ''" >
+     and mobile = #{mobile,jdbcType=CHAR}
+    </if>
+    <if test="assessmentFlag != null and assessmentFlag != ''" >
+     and assessment_flag = #{assessmentFlag,jdbcType=CHAR}
+    </if>
+    <if test="assessmentScore != null and assessmentScore != ''" >
+     and assessment_score = #{assessmentScore,jdbcType=DOUBLE}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <select id="selectByZjXmCqjxCollaborationAssessmentListByUser" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessmentMember" >
+    select 
+    <include refid="Base_Column_List" />,
+      (SELECT collaboration_title FROM zj_xm_cqjx_collaboration_assessment WHERE del_flag = '0' and collaboration_id = other_id) AS collaborationTitle,
+      (select assessment_type from zj_xm_cqjx_assessment_manage where del_flag = '0' and manager_id = zj_xm_cqjx_collaboration_assessment_member.manager_id) AS assessmentType,     
+      (SELECT collaboration_years FROM zj_xm_cqjx_collaboration_assessment WHERE del_flag = '0' and collaboration_id = other_id) AS collaborationYears,
+      (SELECT collaboration_quarter FROM zj_xm_cqjx_collaboration_assessment WHERE del_flag = '0' and collaboration_id = other_id) AS collaborationQuarter,
+      (SELECT collaboration_remarks FROM zj_xm_cqjx_collaboration_assessment WHERE del_flag = '0' and collaboration_id = other_id) AS collaborationRemarks,
+      (SELECT closing_date FROM zj_xm_cqjx_collaboration_assessment WHERE del_flag = '0' and collaboration_id = other_id) AS closingDate
+    from zj_xm_cqjx_collaboration_assessment_member
+    where del_flag = '0'
+    <if test="otherId != null and otherId != ''" >
+     and other_id = #{otherId,jdbcType=CHAR}
+    </if>
+    <if test="managerId != null and managerId != ''" >
+     and manager_id = #{managerId,jdbcType=CHAR}
+    </if>
+    <if test="otherType != null and otherType != ''" >
+     and other_type = #{otherType,jdbcType=CHAR}
+    </if>
+    <if test="assessmentLock != null and assessmentLock != ''" >
+     and assessment_lock = #{assessmentLock,jdbcType=CHAR}
+    </if>        
+    <if test="oaDepartmentMemberFlag != null and oaDepartmentMemberFlag != ''" >
+     and oa_department_member_flag = #{oaDepartmentMemberFlag,jdbcType=CHAR}
+    </if>
+    <if test="oaUserId != null and oaUserId != ''" >
+     and oa_user_id = #{oaUserId,jdbcType=VARCHAR}
+    </if>
+    <if test="oaUserName != null and oaUserName != ''" >
+     and oa_user_Name = #{oaUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="oaOrgId != null and oaOrgId != ''" >
+     and oa_org_id = #{oaOrgId,jdbcType=VARCHAR}
+    </if>
+    <if test="oaOrgName != null and oaOrgName != ''" >
+     and oa_org_name = #{oaOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="mobile != null and mobile != ''" >
+     and mobile = #{mobile,jdbcType=CHAR}
+    </if>
+    <if test="assessmentFlag != null and assessmentFlag != ''" >
+     and assessment_flag = #{assessmentFlag,jdbcType=CHAR}
+    </if>
+    <if test="assessmentScore != null and assessmentScore != ''" >
+     and assessment_score = #{assessmentScore,jdbcType=DOUBLE}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmCqjxCollaborationAssessmentMember" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessmentMember" >
+    <![CDATA[ 
+        update zj_xm_cqjx_collaboration_assessment_member
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zc_oa_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zcOaId} 
+     </foreach>
+  </delete>
+  <update id="batchUpdateZjXmCqjxCollaborationAssessmentMember" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessmentMember" >
+    <![CDATA[ 
+        update zj_xm_cqjx_collaboration_assessment_member
+        set del_flag = '0',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '1' and zc_oa_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zcOaId} 
+     </foreach>
+  </update>  
+</mapper>

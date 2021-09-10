@@ -1,0 +1,1102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.SysProjectMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.SysProject" >
+    <id column="department_id" property="departmentId" jdbcType="CHAR" />
+    <result column="department_name" property="departmentName" jdbcType="VARCHAR" />
+    <result column="department_full_name" property="departmentFullName" jdbcType="VARCHAR" />
+    <result column="department_parent_id" property="departmentParentId" jdbcType="VARCHAR" />
+    <result column="department_path" property="departmentPath" jdbcType="VARCHAR" />
+    <result column="department_path_name" property="departmentPathName" jdbcType="VARCHAR" />
+    <result column="department_flag" property="departmentFlag" jdbcType="CHAR" />
+    <result column="department_flag_name" property="departmentFlagName" jdbcType="VARCHAR" />
+    <result column="company_id" property="companyId" jdbcType="CHAR" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="company_conf" property="companyConf" jdbcType="VARCHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="headquarters_id" property="headquartersId" jdbcType="CHAR" />
+    <result column="headquarters_name" property="headquartersName" jdbcType="VARCHAR" />
+    <result column="headquarters_conf" property="headquartersConf" jdbcType="VARCHAR" />
+    <result column="delegate_id" property="delegateId" jdbcType="CHAR" />
+    <result column="delegate_name" property="delegateName" jdbcType="VARCHAR" />
+    <result column="delegate_conf" property="delegateConf" jdbcType="VARCHAR" />
+    <result column="conf_up" property="confUp" jdbcType="VARCHAR" />
+    <result column="conf_down" property="confDown" jdbcType="VARCHAR" />
+    <result column="conf_down_show_flag" property="confDownShowFlag" jdbcType="CHAR" />
+    <result column="other_id" property="otherId" jdbcType="VARCHAR" />
+    <result column="project_pinyin" property="projectPinyin" jdbcType="VARCHAR" />
+    <result column="contractor_type" property="contractorType" jdbcType="CHAR" />
+    <result column="ju_flag" property="juFlag" jdbcType="CHAR" />
+    <result column="ju_name" property="juName" jdbcType="CHAR" />
+    <result column="locationIn_depr_formula" property="locationInDeprFormula" jdbcType="CHAR" />
+    <result column="contractor" property="contractor" jdbcType="VARCHAR" />
+    <result column="bidding_qualification" property="biddingQualification" jdbcType="VARCHAR" />
+    <result column="biz_dep" property="bizDep" jdbcType="VARCHAR" />
+    <result column="sub_area" property="subArea" jdbcType="VARCHAR" />
+    <result column="project_location" property="projectLocation" jdbcType="CHAR" />
+    <result column="province_abbreviation" property="provinceAbbreviation" jdbcType="CHAR" />
+    <result column="city_name" property="cityName" jdbcType="CHAR" />
+    <result column="map_x_y" property="mapXY" jdbcType="VARCHAR" />
+    <result column="lot_no" property="lotNo" jdbcType="VARCHAR" />
+    <result column="proj_type" property="projType" jdbcType="CHAR" />
+    <result column="project_property" property="projectProperty" jdbcType="CHAR" />
+    <result column="pro_describe" property="proDescribe" jdbcType="CHAR" />
+    <result column="detail" property="detail" jdbcType="VARCHAR" />
+    <result column="actual_start_date" property="actualStartDate" jdbcType="TIMESTAMP" />
+    <result column="main_end_date" property="mainEndDate" jdbcType="TIMESTAMP" />
+    <result column="delivery_date" property="deliveryDate" jdbcType="TIMESTAMP" />
+    <result column="actual_end_date" property="actualEndDate" jdbcType="TIMESTAMP" />
+    <result column="doc_date" property="docDate" jdbcType="TIMESTAMP" />
+    <result column="project_chief_name" property="projectChiefName" jdbcType="VARCHAR" />
+    <result column="contracting_type" property="contractingType" jdbcType="CHAR" />
+    <result column="project_chief_tel" property="projectChiefTel" jdbcType="VARCHAR" />
+    <result column="company_type" property="companyType" jdbcType="CHAR" />
+    <result column="pro_level" property="proLevel" jdbcType="CHAR" />
+    <result column="contract_amount" property="contractAmount" jdbcType="DECIMAL" />
+    <result column="output_value" property="outputValue" jdbcType="DECIMAL" />
+    <result column="pro_cost" property="proCost" jdbcType="DECIMAL" />
+    <result column="metering_amount" property="meteringAmount" jdbcType="DECIMAL" />
+    <!-- <result column="schedule" property="schedule" jdbcType="VARCHAR" /> -->
+    <result column="department_num" property="departmentNum" jdbcType="INTEGER" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    department_id, department_name, department_full_name, department_parent_id, department_path, 
+    department_path_name, department_flag, department_flag_name, company_id, company_name, 
+    company_conf, project_id, project_name, headquarters_id, headquarters_name, 
+    headquarters_conf, delegate_id, delegate_name, delegate_conf, conf_up, 
+    conf_down, conf_down_show_flag, other_id, project_pinyin, contractor_type, 
+    ju_flag, ju_name, locationIn_depr_formula, contractor, bidding_qualification, 
+    biz_dep, sub_area, project_location, province_abbreviation, city_name, 
+    map_x_y, lot_no, proj_type, project_property, pro_describe, 
+    detail, actual_start_date, main_end_date, delivery_date, actual_end_date, 
+    doc_date, project_chief_name, contracting_type, project_chief_tel, company_type, 
+    pro_level, contract_amount, output_value, pro_cost, metering_amount, 
+    <!-- schedule, --> department_num, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_project
+    where del_flag = '0' and department_id = #{departmentId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_project
+    where department_id = #{departmentId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.SysProject" >
+    insert into sys_project (
+    department_id, department_name, department_full_name, department_parent_id, department_path, 
+    department_path_name, department_flag, department_flag_name, company_id, company_name, 
+    company_conf, project_id, project_name, headquarters_id, headquarters_name, 
+    headquarters_conf, delegate_id, delegate_name, delegate_conf, conf_up, 
+    conf_down, conf_down_show_flag, other_id, project_pinyin, contractor_type, 
+    ju_flag, ju_name, locationIn_depr_formula, contractor, bidding_qualification, 
+    biz_dep, sub_area, project_location, province_abbreviation, city_name, 
+    map_x_y, lot_no, proj_type, project_property, pro_describe, 
+    detail, actual_start_date, main_end_date, delivery_date, actual_end_date, 
+    doc_date, project_chief_name, contracting_type, project_chief_tel, company_type, 
+    pro_level, contract_amount, output_value, pro_cost, metering_amount, 
+    <!-- schedule, --> department_num, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{departmentId,jdbcType=CHAR}, #{departmentName,jdbcType=VARCHAR}, #{departmentFullName,jdbcType=VARCHAR}, #{departmentParentId,jdbcType=VARCHAR}, #{departmentPath,jdbcType=VARCHAR}, 
+    #{departmentPathName,jdbcType=VARCHAR}, #{departmentFlag,jdbcType=CHAR}, #{departmentFlagName,jdbcType=VARCHAR}, #{companyId,jdbcType=CHAR}, #{companyName,jdbcType=VARCHAR}, 
+    #{companyConf,jdbcType=VARCHAR}, #{projectId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, #{headquartersId,jdbcType=CHAR}, #{headquartersName,jdbcType=VARCHAR}, 
+    #{headquartersConf,jdbcType=VARCHAR}, #{delegateId,jdbcType=CHAR}, #{delegateName,jdbcType=VARCHAR}, #{delegateConf,jdbcType=VARCHAR}, #{confUp,jdbcType=VARCHAR}, 
+    #{confDown,jdbcType=VARCHAR}, #{confDownShowFlag,jdbcType=CHAR}, #{otherId,jdbcType=VARCHAR}, #{projectPinyin,jdbcType=VARCHAR}, #{contractorType,jdbcType=CHAR}, 
+    #{juFlag,jdbcType=CHAR}, #{juName,jdbcType=CHAR}, #{locationInDeprFormula,jdbcType=CHAR}, #{contractor,jdbcType=VARCHAR}, #{biddingQualification,jdbcType=VARCHAR}, 
+    #{bizDep,jdbcType=VARCHAR}, #{subArea,jdbcType=VARCHAR}, #{projectLocation,jdbcType=CHAR}, #{provinceAbbreviation,jdbcType=CHAR}, #{cityName,jdbcType=CHAR}, 
+    #{mapXY,jdbcType=VARCHAR}, #{lotNo,jdbcType=VARCHAR}, #{projType,jdbcType=CHAR}, #{projectProperty,jdbcType=CHAR}, #{proDescribe,jdbcType=CHAR}, 
+    #{detail,jdbcType=VARCHAR}, #{actualStartDate,jdbcType=TIMESTAMP}, #{mainEndDate,jdbcType=TIMESTAMP}, #{deliveryDate,jdbcType=TIMESTAMP}, #{actualEndDate,jdbcType=TIMESTAMP}, 
+    #{docDate,jdbcType=TIMESTAMP}, #{projectChiefName,jdbcType=VARCHAR}, #{contractingType,jdbcType=CHAR}, #{projectChiefTel,jdbcType=VARCHAR}, #{companyType,jdbcType=CHAR}, 
+    #{proLevel,jdbcType=CHAR}, #{contractAmount,jdbcType=DECIMAL}, #{outputValue,jdbcType=DECIMAL}, #{proCost,jdbcType=DECIMAL}, #{meteringAmount,jdbcType=DECIMAL}, 
+   <!--  #{schedule,jdbcType=VARCHAR},  --> #{departmentNum,jdbcType=INTEGER}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.SysProject" >
+    insert into sys_project
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="departmentId != null" >
+        department_id,
+      </if>
+      <if test="departmentName != null" >
+        department_name,
+      </if>
+      <if test="departmentFullName != null" >
+        department_full_name,
+      </if>
+      <if test="departmentParentId != null" >
+        department_parent_id,
+      </if>
+      <if test="departmentPath != null" >
+        department_path,
+      </if>
+      <if test="departmentPathName != null" >
+        department_path_name,
+      </if>
+      <if test="departmentFlag != null" >
+        department_flag,
+      </if>
+      <if test="departmentFlagName != null" >
+        department_flag_name,
+      </if>
+      <if test="companyId != null" >
+        company_id,
+      </if>
+      <if test="companyName != null" >
+        company_name,
+      </if>
+      <if test="companyConf != null" >
+        company_conf,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="headquartersId != null" >
+        headquarters_id,
+      </if>
+      <if test="headquartersName != null" >
+        headquarters_name,
+      </if>
+      <if test="headquartersConf != null" >
+        headquarters_conf,
+      </if>
+      <if test="delegateId != null" >
+        delegate_id,
+      </if>
+      <if test="delegateName != null" >
+        delegate_name,
+      </if>
+      <if test="delegateConf != null" >
+        delegate_conf,
+      </if>
+      <if test="confUp != null" >
+        conf_up,
+      </if>
+      <if test="confDown != null" >
+        conf_down,
+      </if>
+      <if test="confDownShowFlag != null" >
+        conf_down_show_flag,
+      </if>
+      <if test="otherId != null" >
+        other_id,
+      </if>
+      <if test="projectPinyin != null" >
+        project_pinyin,
+      </if>
+      <if test="contractorType != null" >
+        contractor_type,
+      </if>
+      <if test="juFlag != null" >
+        ju_flag,
+      </if>
+      <if test="juName != null" >
+        ju_name,
+      </if>
+      <if test="locationInDeprFormula != null" >
+        locationIn_depr_formula,
+      </if>
+      <if test="contractor != null" >
+        contractor,
+      </if>
+      <if test="biddingQualification != null" >
+        bidding_qualification,
+      </if>
+      <if test="bizDep != null" >
+        biz_dep,
+      </if>
+      <if test="subArea != null" >
+        sub_area,
+      </if>
+      <if test="projectLocation != null" >
+        project_location,
+      </if>
+      <if test="provinceAbbreviation != null" >
+        province_abbreviation,
+      </if>
+      <if test="cityName != null" >
+        city_name,
+      </if>
+      <if test="mapXY != null" >
+        map_x_y,
+      </if>
+      <if test="lotNo != null" >
+        lot_no,
+      </if>
+      <if test="projType != null" >
+        proj_type,
+      </if>
+      <if test="projectProperty != null" >
+        project_property,
+      </if>
+      <if test="proDescribe != null" >
+        pro_describe,
+      </if>
+      <if test="detail != null" >
+        detail,
+      </if>
+      <if test="actualStartDate != null" >
+        actual_start_date,
+      </if>
+      <if test="mainEndDate != null" >
+        main_end_date,
+      </if>
+      <if test="deliveryDate != null" >
+        delivery_date,
+      </if>
+      <if test="actualEndDate != null" >
+        actual_end_date,
+      </if>
+      <if test="docDate != null" >
+        doc_date,
+      </if>
+      <if test="projectChiefName != null" >
+        project_chief_name,
+      </if>
+      <if test="contractingType != null" >
+        contracting_type,
+      </if>
+      <if test="projectChiefTel != null" >
+        project_chief_tel,
+      </if>
+      <if test="companyType != null" >
+        company_type,
+      </if>
+      <if test="proLevel != null" >
+        pro_level,
+      </if>
+      <if test="contractAmount != null" >
+        contract_amount,
+      </if>
+      <if test="outputValue != null" >
+        output_value,
+      </if>
+      <if test="proCost != null" >
+        pro_cost,
+      </if>
+      <if test="meteringAmount != null" >
+        metering_amount,
+      </if>
+     <!--  <if test="schedule != null" >
+        schedule,
+      </if> -->
+      <if test="departmentNum != null" >
+        department_num,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="departmentId != null" >
+        #{departmentId,jdbcType=CHAR},
+      </if>
+      <if test="departmentName != null" >
+        #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentFullName != null" >
+        #{departmentFullName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentParentId != null" >
+        #{departmentParentId,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentPath != null" >
+        #{departmentPath,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentPathName != null" >
+        #{departmentPathName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentFlag != null" >
+        #{departmentFlag,jdbcType=CHAR},
+      </if>
+      <if test="departmentFlagName != null" >
+        #{departmentFlagName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyConf != null" >
+        #{companyConf,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="headquartersId != null" >
+        #{headquartersId,jdbcType=CHAR},
+      </if>
+      <if test="headquartersName != null" >
+        #{headquartersName,jdbcType=VARCHAR},
+      </if>
+      <if test="headquartersConf != null" >
+        #{headquartersConf,jdbcType=VARCHAR},
+      </if>
+      <if test="delegateId != null" >
+        #{delegateId,jdbcType=CHAR},
+      </if>
+      <if test="delegateName != null" >
+        #{delegateName,jdbcType=VARCHAR},
+      </if>
+      <if test="delegateConf != null" >
+        #{delegateConf,jdbcType=VARCHAR},
+      </if>
+      <if test="confUp != null" >
+        #{confUp,jdbcType=VARCHAR},
+      </if>
+      <if test="confDown != null" >
+        #{confDown,jdbcType=VARCHAR},
+      </if>
+      <if test="confDownShowFlag != null" >
+        #{confDownShowFlag,jdbcType=CHAR},
+      </if>
+      <if test="otherId != null" >
+        #{otherId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectPinyin != null" >
+        #{projectPinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="contractorType != null" >
+        #{contractorType,jdbcType=CHAR},
+      </if>
+      <if test="juFlag != null" >
+        #{juFlag,jdbcType=CHAR},
+      </if>
+      <if test="juName != null" >
+        #{juName,jdbcType=CHAR},
+      </if>
+      <if test="locationInDeprFormula != null" >
+        #{locationInDeprFormula,jdbcType=CHAR},
+      </if>
+      <if test="contractor != null" >
+        #{contractor,jdbcType=VARCHAR},
+      </if>
+      <if test="biddingQualification != null" >
+        #{biddingQualification,jdbcType=VARCHAR},
+      </if>
+      <if test="bizDep != null" >
+        #{bizDep,jdbcType=VARCHAR},
+      </if>
+      <if test="subArea != null" >
+        #{subArea,jdbcType=VARCHAR},
+      </if>
+      <if test="projectLocation != null" >
+        #{projectLocation,jdbcType=CHAR},
+      </if>
+      <if test="provinceAbbreviation != null" >
+        #{provinceAbbreviation,jdbcType=CHAR},
+      </if>
+      <if test="cityName != null" >
+        #{cityName,jdbcType=CHAR},
+      </if>
+      <if test="mapXY != null" >
+        #{mapXY,jdbcType=VARCHAR},
+      </if>
+      <if test="lotNo != null" >
+        #{lotNo,jdbcType=VARCHAR},
+      </if>
+      <if test="projType != null" >
+        #{projType,jdbcType=CHAR},
+      </if>
+      <if test="projectProperty != null" >
+        #{projectProperty,jdbcType=CHAR},
+      </if>
+      <if test="proDescribe != null" >
+        #{proDescribe,jdbcType=CHAR},
+      </if>
+      <if test="detail != null" >
+        #{detail,jdbcType=VARCHAR},
+      </if>
+      <if test="actualStartDate != null" >
+        #{actualStartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mainEndDate != null" >
+        #{mainEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deliveryDate != null" >
+        #{deliveryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actualEndDate != null" >
+        #{actualEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="docDate != null" >
+        #{docDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="projectChiefName != null" >
+        #{projectChiefName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractingType != null" >
+        #{contractingType,jdbcType=CHAR},
+      </if>
+      <if test="projectChiefTel != null" >
+        #{projectChiefTel,jdbcType=VARCHAR},
+      </if>
+      <if test="companyType != null" >
+        #{companyType,jdbcType=CHAR},
+      </if>
+      <if test="proLevel != null" >
+        #{proLevel,jdbcType=CHAR},
+      </if>
+      <if test="contractAmount != null" >
+        #{contractAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="outputValue != null" >
+        #{outputValue,jdbcType=DECIMAL},
+      </if>
+      <if test="proCost != null" >
+        #{proCost,jdbcType=DECIMAL},
+      </if>
+      <if test="meteringAmount != null" >
+        #{meteringAmount,jdbcType=DECIMAL},
+      </if>
+     <!--  <if test="schedule != null" >
+        #{schedule,jdbcType=VARCHAR},
+      </if> -->
+      <if test="departmentNum != null" >
+        #{departmentNum,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.SysProject" >
+    update sys_project
+    <set >
+      <if test="departmentName != null" >
+        department_name = #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentFullName != null" >
+        department_full_name = #{departmentFullName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentParentId != null" >
+        department_parent_id = #{departmentParentId,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentPath != null" >
+        department_path = #{departmentPath,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentPathName != null" >
+        department_path_name = #{departmentPathName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentFlag != null" >
+        department_flag = #{departmentFlag,jdbcType=CHAR},
+      </if>
+      <if test="departmentFlagName != null" >
+        department_flag_name = #{departmentFlagName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        company_id = #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="companyName != null" >
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyConf != null" >
+        company_conf = #{companyConf,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="headquartersId != null" >
+        headquarters_id = #{headquartersId,jdbcType=CHAR},
+      </if>
+      <if test="headquartersName != null" >
+        headquarters_name = #{headquartersName,jdbcType=VARCHAR},
+      </if>
+      <if test="headquartersConf != null" >
+        headquarters_conf = #{headquartersConf,jdbcType=VARCHAR},
+      </if>
+      <if test="delegateId != null" >
+        delegate_id = #{delegateId,jdbcType=CHAR},
+      </if>
+      <if test="delegateName != null" >
+        delegate_name = #{delegateName,jdbcType=VARCHAR},
+      </if>
+      <if test="delegateConf != null" >
+        delegate_conf = #{delegateConf,jdbcType=VARCHAR},
+      </if>
+      <if test="confUp != null" >
+        conf_up = #{confUp,jdbcType=VARCHAR},
+      </if>
+      <if test="confDown != null" >
+        conf_down = #{confDown,jdbcType=VARCHAR},
+      </if>
+      <if test="confDownShowFlag != null" >
+        conf_down_show_flag = #{confDownShowFlag,jdbcType=CHAR},
+      </if>
+      <if test="otherId != null" >
+        other_id = #{otherId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectPinyin != null" >
+        project_pinyin = #{projectPinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="contractorType != null" >
+        contractor_type = #{contractorType,jdbcType=CHAR},
+      </if>
+      <if test="juFlag != null" >
+        ju_flag = #{juFlag,jdbcType=CHAR},
+      </if>
+      <if test="juName != null" >
+        ju_name = #{juName,jdbcType=CHAR},
+      </if>
+      <if test="locationInDeprFormula != null" >
+        locationIn_depr_formula = #{locationInDeprFormula,jdbcType=CHAR},
+      </if>
+      <if test="contractor != null" >
+        contractor = #{contractor,jdbcType=VARCHAR},
+      </if>
+      <if test="biddingQualification != null" >
+        bidding_qualification = #{biddingQualification,jdbcType=VARCHAR},
+      </if>
+      <if test="bizDep != null" >
+        biz_dep = #{bizDep,jdbcType=VARCHAR},
+      </if>
+      <if test="subArea != null" >
+        sub_area = #{subArea,jdbcType=VARCHAR},
+      </if>
+      <if test="projectLocation != null" >
+        project_location = #{projectLocation,jdbcType=CHAR},
+      </if>
+      <if test="provinceAbbreviation != null" >
+        province_abbreviation = #{provinceAbbreviation,jdbcType=CHAR},
+      </if>
+      <if test="cityName != null" >
+        city_name = #{cityName,jdbcType=CHAR},
+      </if>
+      <if test="mapXY != null" >
+        map_x_y = #{mapXY,jdbcType=VARCHAR},
+      </if>
+      <if test="lotNo != null" >
+        lot_no = #{lotNo,jdbcType=VARCHAR},
+      </if>
+      <if test="projType != null" >
+        proj_type = #{projType,jdbcType=CHAR},
+      </if>
+      <if test="projectProperty != null" >
+        project_property = #{projectProperty,jdbcType=CHAR},
+      </if>
+      <if test="proDescribe != null" >
+        pro_describe = #{proDescribe,jdbcType=CHAR},
+      </if>
+      <if test="detail != null" >
+        detail = #{detail,jdbcType=VARCHAR},
+      </if>
+      <if test="actualStartDate != null" >
+        actual_start_date = #{actualStartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mainEndDate != null" >
+        main_end_date = #{mainEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deliveryDate != null" >
+        delivery_date = #{deliveryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actualEndDate != null" >
+        actual_end_date = #{actualEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="docDate != null" >
+        doc_date = #{docDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="projectChiefName != null" >
+        project_chief_name = #{projectChiefName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractingType != null" >
+        contracting_type = #{contractingType,jdbcType=CHAR},
+      </if>
+      <if test="projectChiefTel != null" >
+        project_chief_tel = #{projectChiefTel,jdbcType=VARCHAR},
+      </if>
+      <if test="companyType != null" >
+        company_type = #{companyType,jdbcType=CHAR},
+      </if>
+      <if test="proLevel != null" >
+        pro_level = #{proLevel,jdbcType=CHAR},
+      </if>
+      <if test="contractAmount != null" >
+        contract_amount = #{contractAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="outputValue != null" >
+        output_value = #{outputValue,jdbcType=DECIMAL},
+      </if>
+      <if test="proCost != null" >
+        pro_cost = #{proCost,jdbcType=DECIMAL},
+      </if>
+      <if test="meteringAmount != null" >
+        metering_amount = #{meteringAmount,jdbcType=DECIMAL},
+      </if>
+      <!-- <if test="schedule != null" >
+        schedule = #{schedule,jdbcType=VARCHAR},
+      </if> -->
+      <if test="departmentNum != null" >
+        department_num = #{departmentNum,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where department_id = #{departmentId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.SysProject" >
+    update sys_project set 
+      department_name = #{departmentName,jdbcType=VARCHAR},
+      department_full_name = #{departmentFullName,jdbcType=VARCHAR},
+      department_parent_id = #{departmentParentId,jdbcType=VARCHAR},
+      department_path = #{departmentPath,jdbcType=VARCHAR},
+      department_path_name = #{departmentPathName,jdbcType=VARCHAR},
+      department_flag = #{departmentFlag,jdbcType=CHAR},
+      department_flag_name = #{departmentFlagName,jdbcType=VARCHAR},
+      company_id = #{companyId,jdbcType=CHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      company_conf = #{companyConf,jdbcType=VARCHAR},
+      project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      headquarters_id = #{headquartersId,jdbcType=CHAR},
+      headquarters_name = #{headquartersName,jdbcType=VARCHAR},
+      headquarters_conf = #{headquartersConf,jdbcType=VARCHAR},
+      delegate_id = #{delegateId,jdbcType=CHAR},
+      delegate_name = #{delegateName,jdbcType=VARCHAR},
+      delegate_conf = #{delegateConf,jdbcType=VARCHAR},
+      conf_up = #{confUp,jdbcType=VARCHAR},
+      conf_down = #{confDown,jdbcType=VARCHAR},
+      conf_down_show_flag = #{confDownShowFlag,jdbcType=CHAR},
+      other_id = #{otherId,jdbcType=VARCHAR},
+      project_pinyin = #{projectPinyin,jdbcType=VARCHAR},
+      contractor_type = #{contractorType,jdbcType=CHAR},
+      ju_flag = #{juFlag,jdbcType=CHAR},
+      ju_name = #{juName,jdbcType=CHAR},
+      locationIn_depr_formula = #{locationInDeprFormula,jdbcType=CHAR},
+      contractor = #{contractor,jdbcType=VARCHAR},
+      bidding_qualification = #{biddingQualification,jdbcType=VARCHAR},
+      biz_dep = #{bizDep,jdbcType=VARCHAR},
+      sub_area = #{subArea,jdbcType=VARCHAR},
+      project_location = #{projectLocation,jdbcType=CHAR},
+      province_abbreviation = #{provinceAbbreviation,jdbcType=CHAR},
+      city_name = #{cityName,jdbcType=CHAR},
+      map_x_y = #{mapXY,jdbcType=VARCHAR},
+      lot_no = #{lotNo,jdbcType=VARCHAR},
+      proj_type = #{projType,jdbcType=CHAR},
+      project_property = #{projectProperty,jdbcType=CHAR},
+      pro_describe = #{proDescribe,jdbcType=CHAR},
+      detail = #{detail,jdbcType=VARCHAR},
+      actual_start_date = #{actualStartDate,jdbcType=TIMESTAMP},
+      main_end_date = #{mainEndDate,jdbcType=TIMESTAMP},
+      delivery_date = #{deliveryDate,jdbcType=TIMESTAMP},
+      actual_end_date = #{actualEndDate,jdbcType=TIMESTAMP},
+      doc_date = #{docDate,jdbcType=TIMESTAMP},
+      project_chief_name = #{projectChiefName,jdbcType=VARCHAR},
+      contracting_type = #{contractingType,jdbcType=CHAR},
+      project_chief_tel = #{projectChiefTel,jdbcType=VARCHAR},
+      company_type = #{companyType,jdbcType=CHAR},
+      pro_level = #{proLevel,jdbcType=CHAR},
+      contract_amount = #{contractAmount,jdbcType=DECIMAL},
+      output_value = #{outputValue,jdbcType=DECIMAL},
+      pro_cost = #{proCost,jdbcType=DECIMAL},
+      metering_amount = #{meteringAmount,jdbcType=DECIMAL},
+      <!-- schedule = #{schedule,jdbcType=VARCHAR}, -->
+      department_num = #{departmentNum,jdbcType=INTEGER},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where department_id = #{departmentId,jdbcType=CHAR}
+  </update>
+  <select id="selectBySysProjectList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysProject" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_project
+    where del_flag = '0'
+    <if test="departmentId != null and departmentId != ''" >
+     and department_id = #{departmentId,jdbcType=CHAR}
+    </if>
+    <if test="departmentName != null and departmentName != ''" >
+     and department_name = #{departmentName,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentFullName != null and departmentFullName != ''" >
+     and department_full_name = #{departmentFullName,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentParentId != null and departmentParentId != ''" >
+     and department_parent_id = #{departmentParentId,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentPath != null and departmentPath != ''" >
+     and department_path = #{departmentPath,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentPathName != null and departmentPathName != ''" >
+     and department_path_name = #{departmentPathName,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentFlag != null and departmentFlag != ''" >
+     and department_flag = #{departmentFlag,jdbcType=CHAR}
+    </if>
+    <if test="departmentFlagName != null and departmentFlagName != ''" >
+     and department_flag_name = #{departmentFlagName,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and company_id = #{companyId,jdbcType=CHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and company_name = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="companyConf != null and companyConf != ''" >
+     and company_conf = #{companyConf,jdbcType=VARCHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="headquartersId != null and headquartersId != ''" >
+     and headquarters_id = #{headquartersId,jdbcType=CHAR}
+    </if>
+    <if test="headquartersName != null and headquartersName != ''" >
+     and headquarters_name = #{headquartersName,jdbcType=VARCHAR}
+    </if>
+    <if test="headquartersConf != null and headquartersConf != ''" >
+     and headquarters_conf = #{headquartersConf,jdbcType=VARCHAR}
+    </if>
+    <if test="delegateId != null and delegateId != ''" >
+     and delegate_id = #{delegateId,jdbcType=CHAR}
+    </if>
+    <if test="delegateName != null and delegateName != ''" >
+     and delegate_name = #{delegateName,jdbcType=VARCHAR}
+    </if>
+    <if test="delegateConf != null and delegateConf != ''" >
+     and delegate_conf = #{delegateConf,jdbcType=VARCHAR}
+    </if>
+    <if test="confUp != null and confUp != ''" >
+     and conf_up = #{confUp,jdbcType=VARCHAR}
+    </if>
+    <if test="confDown != null and confDown != ''" >
+     and conf_down like CONCAT('%', #{confDown,jdbcType=VARCHAR}, '%') 
+    </if>
+    <if test="confDownShowFlag != null and confDownShowFlag != ''" >
+     and conf_down_show_flag = #{confDownShowFlag,jdbcType=CHAR}
+    </if>
+    <if test="otherId != null and otherId != ''" >
+     and other_id = #{otherId,jdbcType=VARCHAR}
+    </if>
+    <if test="projectPinyin != null and projectPinyin != ''" >
+     and project_pinyin = #{projectPinyin,jdbcType=VARCHAR}
+    </if>
+    <if test="contractorType != null and contractorType != ''" >
+     and contractor_type = #{contractorType,jdbcType=CHAR}
+    </if>
+    <if test="juFlag != null and juFlag != ''" >
+     and ju_flag = #{juFlag,jdbcType=CHAR}
+    </if>
+    <if test="juName != null and juName != ''" >
+     and ju_name = #{juName,jdbcType=CHAR}
+    </if>
+    <if test="locationInDeprFormula != null and locationInDeprFormula != ''" >
+     and locationIn_depr_formula = #{locationInDeprFormula,jdbcType=CHAR}
+    </if>
+    <if test="contractor != null and contractor != ''" >
+     and contractor = #{contractor,jdbcType=VARCHAR}
+    </if>
+    <if test="biddingQualification != null and biddingQualification != ''" >
+     and bidding_qualification = #{biddingQualification,jdbcType=VARCHAR}
+    </if>
+    <if test="bizDep != null and bizDep != ''" >
+     and biz_dep = #{bizDep,jdbcType=VARCHAR}
+    </if>
+    <if test="subArea != null and subArea != ''" >
+     and sub_area = #{subArea,jdbcType=VARCHAR}
+    </if>
+    <if test="projectLocation != null and projectLocation != ''" >
+     and project_location = #{projectLocation,jdbcType=CHAR}
+    </if>
+    <if test="provinceAbbreviation != null and provinceAbbreviation != ''" >
+     and province_abbreviation = #{provinceAbbreviation,jdbcType=CHAR}
+    </if>
+    <if test="cityName != null and cityName != ''" >
+     and city_name = #{cityName,jdbcType=CHAR}
+    </if>
+    <if test="mapXY != null and mapXY != ''" >
+     and map_x_y = #{mapXY,jdbcType=VARCHAR}
+    </if>
+    <if test="lotNo != null and lotNo != ''" >
+     and lot_no = #{lotNo,jdbcType=VARCHAR}
+    </if>
+    <if test="projType != null and projType != ''" >
+     and proj_type = #{projType,jdbcType=CHAR}
+    </if>
+    <if test="projectProperty != null and projectProperty != ''" >
+     and project_property = #{projectProperty,jdbcType=CHAR}
+    </if>
+    <if test="proDescribe != null and proDescribe != ''" >
+     and pro_describe = #{proDescribe,jdbcType=CHAR}
+    </if>
+    <if test="detail != null and detail != ''" >
+     and detail = #{detail,jdbcType=VARCHAR}
+    </if>
+    <if test="actualStartDate != null and actualStartDate != ''" >
+     and actual_start_date = #{actualStartDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="mainEndDate != null and mainEndDate != ''" >
+     and main_end_date = #{mainEndDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="deliveryDate != null and deliveryDate != ''" >
+     and delivery_date = #{deliveryDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="actualEndDate != null and actualEndDate != ''" >
+     and actual_end_date = #{actualEndDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="docDate != null and docDate != ''" >
+     and doc_date = #{docDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="projectChiefName != null and projectChiefName != ''" >
+     and project_chief_name = #{projectChiefName,jdbcType=VARCHAR}
+    </if>
+    <if test="contractingType != null and contractingType != ''" >
+     and contracting_type = #{contractingType,jdbcType=CHAR}
+    </if>
+    <if test="projectChiefTel != null and projectChiefTel != ''" >
+     and project_chief_tel = #{projectChiefTel,jdbcType=VARCHAR}
+    </if>
+    <if test="companyType != null and companyType != ''" >
+     and company_type = #{companyType,jdbcType=CHAR}
+    </if>
+    <if test="proLevel != null and proLevel != ''" >
+     and pro_level = #{proLevel,jdbcType=CHAR}
+    </if>
+    <if test="contractAmount != null and contractAmount != ''" >
+     and contract_amount = #{contractAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="outputValue != null and outputValue != ''" >
+     and output_value = #{outputValue,jdbcType=DECIMAL}
+    </if>
+    <if test="proCost != null and proCost != ''" >
+     and pro_cost = #{proCost,jdbcType=DECIMAL}
+    </if>
+    <if test="meteringAmount != null and meteringAmount != ''" >
+     and metering_amount = #{meteringAmount,jdbcType=DECIMAL}
+    </if>
+   <!--  <if test="schedule != null and schedule != ''" >
+     and schedule = #{schedule,jdbcType=VARCHAR}
+    </if> -->
+    <if test="departmentNum != null and departmentNum != ''" >
+     and department_num = #{departmentNum,jdbcType=INTEGER}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateSysProject" parameterType="com.apih5.mybatis.pojo.SysProject" >
+    <![CDATA[ 
+        update sys_project
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and department_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.departmentId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+  <select id="selectBySysProjectListByUserKey" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysProject" >
+    SELECT
+        t1.*
+    FROM
+        sys_project AS t1
+    INNER JOIN sys_user_department AS t2 ON t2.department_id = t1.department_id
+        AND t1.del_flag = '0'
+        AND t2.del_flag = '0'
+    where 1=1
+    <if test="userKey != null and userKey != ''" >
+     and t2.user_key = #{userKey,jdbcType=CHAR}
+    </if>
+    <if test="departmentId != null and departmentId != ''" >
+     and t2.department_id = #{departmentId,jdbcType=CHAR}
+    </if>
+    ORDER BY t1.sort, t1.modify_time DESC 
+  </select>
+  <!-- 获取相关人员的公司 -->
+  <select id="selectBySysProjectCompanyListByUser" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysProject" >
+    SELECT
+        DISTINCT t1.company_id,company_name,t1.department_parent_id, t1.departmentFlag
+    FROM
+        sys_project AS t1
+    INNER JOIN sys_user_department AS t2 ON t2.department_id = t1.department_id
+        AND t1.del_flag = '0'
+        AND t2.del_flag = '0'
+    where 1=1
+    <if test="userKey != null and userKey != ''" >
+     and t2.user_key = #{userKey,jdbcType=CHAR}
+    </if>
+    <if test="departmentId != null and departmentId != ''" >
+     and t2.department_id = #{departmentId,jdbcType=CHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and t1.company_id = #{companyId,jdbcType=CHAR}
+    </if>
+    ORDER BY t1.sort, t1.modify_time DESC 
+  </select>
+  <!-- 公司和项目 -->
+  <select id="getSysCompanyProject" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysProject" >
+    SELECT
+        t.*
+    FROM (
+        SELECT
+            department_id,
+            department_name,
+            project_id,
+            project_name,
+            company_id,
+            company_name
+        FROM
+            sys_department
+        WHERE
+            del_flag = '0'
+            AND department_flag = '2'
+        <if test="companyId != null and companyId != ''" >
+            AND company_id = #{companyId,jdbcType=CHAR}
+        </if>
+        <if test="projectId != null and projectId != ''" >
+           AND project_id = #{projectId,jdbcType=CHAR}
+        </if>
+        UNION ALL
+        SELECT
+            department_id,
+            department_name,
+            project_id,
+            project_name,
+            company_id,
+            company_name
+        FROM
+            sys_project
+        WHERE
+            del_flag = '0'
+            AND department_flag = '4'
+        <if test="companyId != null and companyId != ''" >
+            AND company_id = #{companyId,jdbcType=CHAR}
+        </if>
+        <if test="projectId != null and projectId != ''" >
+            AND project_id = #{projectId,jdbcType=CHAR}
+        </if>
+    ) t  
+  </select>
+</mapper>

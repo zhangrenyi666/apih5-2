@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzRunSchemeOpinionMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzRunSchemeOpinion" >
+    <id column="run_scheme_opinion_id" property="runSchemeOpinionId" jdbcType="CHAR" />
+    <result column="run_scheme_id" property="runSchemeId" jdbcType="CHAR" />
+    <result column="review_number" property="reviewNumber" jdbcType="INTEGER" />
+    <result column="review_flag" property="reviewFlag" jdbcType="CHAR" />
+    <result column="reviewer_key" property="reviewerKey" jdbcType="CHAR" />
+    <result column="reviewer" property="reviewer" jdbcType="VARCHAR" />
+    <result column="reviewer_dept" property="reviewerDept" jdbcType="CHAR" />
+    <result column="reviewer_dept_name" property="reviewerDeptName" jdbcType="VARCHAR" />
+    <result column="opinion" property="opinion" jdbcType="VARCHAR" />
+    <result column="review_start_time" property="reviewStartTime" jdbcType="TIMESTAMP" />
+    <result column="review_end_time" property="reviewEndTime" jdbcType="TIMESTAMP" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    run_scheme_opinion_id, run_scheme_id, review_number, review_flag, reviewer_key, 
+    reviewer, reviewer_dept, reviewer_dept_name, opinion, review_start_time, 
+    review_end_time, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_run_scheme_opinion
+    where run_scheme_opinion_id = #{runSchemeOpinionId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_run_scheme_opinion
+    where run_scheme_opinion_id = #{runSchemeOpinionId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzRunSchemeOpinion" >
+    insert into zj_tz_run_scheme_opinion (run_scheme_opinion_id, run_scheme_id, review_number, 
+      review_flag, reviewer_key, reviewer, 
+      reviewer_dept, reviewer_dept_name, opinion, 
+      review_start_time, review_end_time, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{runSchemeOpinionId,jdbcType=CHAR}, #{runSchemeId,jdbcType=CHAR}, #{reviewNumber,jdbcType=INTEGER}, 
+      #{reviewFlag,jdbcType=CHAR}, #{reviewerKey,jdbcType=CHAR}, #{reviewer,jdbcType=VARCHAR}, 
+      #{reviewerDept,jdbcType=CHAR}, #{reviewerDeptName,jdbcType=VARCHAR}, #{opinion,jdbcType=VARCHAR}, 
+      #{reviewStartTime,jdbcType=TIMESTAMP}, #{reviewEndTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzRunSchemeOpinion" >
+    insert into zj_tz_run_scheme_opinion
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="runSchemeOpinionId != null" >
+        run_scheme_opinion_id,
+      </if>
+      <if test="runSchemeId != null" >
+        run_scheme_id,
+      </if>
+      <if test="reviewNumber != null" >
+        review_number,
+      </if>
+      <if test="reviewFlag != null" >
+        review_flag,
+      </if>
+      <if test="reviewerKey != null" >
+        reviewer_key,
+      </if>
+      <if test="reviewer != null" >
+        reviewer,
+      </if>
+      <if test="reviewerDept != null" >
+        reviewer_dept,
+      </if>
+      <if test="reviewerDeptName != null" >
+        reviewer_dept_name,
+      </if>
+      <if test="opinion != null" >
+        opinion,
+      </if>
+      <if test="reviewStartTime != null" >
+        review_start_time,
+      </if>
+      <if test="reviewEndTime != null" >
+        review_end_time,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="runSchemeOpinionId != null" >
+        #{runSchemeOpinionId,jdbcType=CHAR},
+      </if>
+      <if test="runSchemeId != null" >
+        #{runSchemeId,jdbcType=CHAR},
+      </if>
+      <if test="reviewNumber != null" >
+        #{reviewNumber,jdbcType=INTEGER},
+      </if>
+      <if test="reviewFlag != null" >
+        #{reviewFlag,jdbcType=CHAR},
+      </if>
+      <if test="reviewerKey != null" >
+        #{reviewerKey,jdbcType=CHAR},
+      </if>
+      <if test="reviewer != null" >
+        #{reviewer,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewerDept != null" >
+        #{reviewerDept,jdbcType=CHAR},
+      </if>
+      <if test="reviewerDeptName != null" >
+        #{reviewerDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="opinion != null" >
+        #{opinion,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewStartTime != null" >
+        #{reviewStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reviewEndTime != null" >
+        #{reviewEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzRunSchemeOpinion" >
+    update zj_tz_run_scheme_opinion
+    <set >
+      <if test="runSchemeId != null" >
+        run_scheme_id = #{runSchemeId,jdbcType=CHAR},
+      </if>
+      <if test="reviewNumber != null" >
+        review_number = #{reviewNumber,jdbcType=INTEGER},
+      </if>
+      <if test="reviewFlag != null" >
+        review_flag = #{reviewFlag,jdbcType=CHAR},
+      </if>
+      <if test="reviewerKey != null" >
+        reviewer_key = #{reviewerKey,jdbcType=CHAR},
+      </if>
+      <if test="reviewer != null" >
+        reviewer = #{reviewer,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewerDept != null" >
+        reviewer_dept = #{reviewerDept,jdbcType=CHAR},
+      </if>
+      <if test="reviewerDeptName != null" >
+        reviewer_dept_name = #{reviewerDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="opinion != null" >
+        opinion = #{opinion,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewStartTime != null" >
+        review_start_time = #{reviewStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reviewEndTime != null" >
+        review_end_time = #{reviewEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where run_scheme_opinion_id = #{runSchemeOpinionId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzRunSchemeOpinion" >
+    update zj_tz_run_scheme_opinion
+    set       run_scheme_id = #{runSchemeId,jdbcType=CHAR},
+      review_number = #{reviewNumber,jdbcType=INTEGER},
+      review_flag = #{reviewFlag,jdbcType=CHAR},
+      reviewer_key = #{reviewerKey,jdbcType=CHAR},
+      reviewer = #{reviewer,jdbcType=VARCHAR},
+      reviewer_dept = #{reviewerDept,jdbcType=CHAR},
+      reviewer_dept_name = #{reviewerDeptName,jdbcType=VARCHAR},
+      opinion = #{opinion,jdbcType=VARCHAR},
+      review_start_time = #{reviewStartTime,jdbcType=TIMESTAMP},
+      review_end_time = #{reviewEndTime,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where run_scheme_opinion_id = #{runSchemeOpinionId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzRunSchemeOpinionList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzRunSchemeOpinion" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_run_scheme_opinion
+    where del_flag = '0'
+    <if test="runSchemeId != null and runSchemeId != ''" >
+     and run_scheme_id = #{runSchemeId,jdbcType=CHAR}
+    </if>
+    <if test="reviewNumber != null and reviewNumber != ''" >
+     and review_number = #{reviewNumber,jdbcType=INTEGER}
+    </if>
+    <if test="reviewFlag != null and reviewFlag != ''" >
+     and review_flag = #{reviewFlag,jdbcType=CHAR}
+    </if>
+    <if test="reviewerKey != null and reviewerKey != ''" >
+     and reviewer_key = #{reviewerKey,jdbcType=CHAR}
+    </if>
+    <if test="reviewer != null and reviewer != ''" >
+     and reviewer = #{reviewer,jdbcType=VARCHAR}
+    </if>
+    <if test="reviewerDept != null and reviewerDept != ''" >
+     and reviewer_dept = #{reviewerDept,jdbcType=CHAR}
+    </if>
+    <if test="reviewerDeptName != null and reviewerDeptName != ''" >
+     and reviewer_dept_name = #{reviewerDeptName,jdbcType=VARCHAR}
+    </if>
+    <if test="opinion != null and opinion != ''" >
+     and opinion = #{opinion,jdbcType=VARCHAR}
+    </if>
+    <if test="reviewStartTime != null and reviewStartTime != ''" >
+     and review_start_time = #{reviewStartTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="reviewEndTime != null and reviewEndTime != ''" >
+     and review_end_time = #{reviewEndTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="groupByFlagReviewNumber != null and groupByFlagReviewNumber != ''" >
+     GROUP BY review_number
+    </if>
+    ORDER BY review_number ASC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzRunSchemeOpinion" parameterType="com.apih5.mybatis.pojo.ZjTzRunSchemeOpinion" >
+    <![CDATA[ 
+        update zj_tz_run_scheme_opinion
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and run_scheme_opinion_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.runSchemeOpinionId} 
+     </foreach>
+  </delete>
+</mapper>

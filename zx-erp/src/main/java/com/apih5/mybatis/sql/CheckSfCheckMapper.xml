@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.CheckSfCheckMapper">
+    <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.CheckSfCheck">
+        <id column="checkSfCheck_id" property="checkSfCheckId" jdbcType="CHAR"/>
+        <result column="orgName" property="orgName" jdbcType="VARCHAR"/>
+        <result column="orgID" property="orgID" jdbcType="VARCHAR"/>
+        <result column="orgNum" property="orgNum" jdbcType="INTEGER"/>
+        <result column="checkNum" property="checkNum" jdbcType="INTEGER"/>
+        <result column="noCheckNum" property="noCheckNum" jdbcType="INTEGER"/>
+        <result column="checkFGL" property="checkFGL" jdbcType="DECIMAL"/>
+        <result column="startDate" property="startDate" jdbcType="TIMESTAMP"/>
+        <result column="endDate" property="endDate" jdbcType="TIMESTAMP"/>
+        <result column="company_id" property="companyId" jdbcType="VARCHAR"/>
+        <result column="company_name" property="companyName" jdbcType="VARCHAR"/>
+        <result column="del_flag" property="delFlag" jdbcType="CHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="create_user" property="createUser" jdbcType="CHAR"/>
+        <result column="create_user_name" property="createUserName" jdbcType="VARCHAR"/>
+        <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP"/>
+        <result column="modify_user" property="modifyUser" jdbcType="CHAR"/>
+        <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    checkSfCheck_id, orgName, orgID, orgNum, checkNum,
+    noCheckNum, checkFGL, startDate, endDate, company_id, 
+    company_name, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from checkSfCheck
+        where del_flag = '0' and checkSfCheck_id = #{checkSfCheckId,jdbcType=CHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from checkSfCheck
+    where checkSfCheck_id = #{checkSfCheckId,jdbcType=CHAR}
+  </delete>
+    <insert id="insert" parameterType="com.apih5.mybatis.pojo.CheckSfCheck">
+    insert into checkSfCheck (
+    checkSfCheck_id, orgName, orgID, orgNum, checkNum,
+    noCheckNum, checkFGL, startDate, endDate, company_id, 
+    company_name, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{checkSfCheckId,jdbcType=CHAR}, #{orgName,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, #{orgNum,jdbcType=INTEGER}, #{checkNum,jdbcType=INTEGER},
+    #{noCheckNum,jdbcType=INTEGER}, #{checkFGL,jdbcType=DECIMAL}, #{startDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP}, #{companyId,jdbcType=VARCHAR}, 
+    #{companyName,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+    #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.CheckSfCheck">
+        insert into checkSfCheck
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="checkSfCheckId != null">
+                checkSfCheck_id,
+            </if>
+            <if test="orgNmae != null">
+                orgName,
+            </if>
+            <if test="orgID != null">
+                orgID,
+            </if>
+            <if test="orgNum != null">
+                orgNum,
+            </if>
+            <if test="checkNum != null">
+                checkNum,
+            </if>
+            <if test="noCheckNum != null">
+                noCheckNum,
+            </if>
+            <if test="checkFGL != null">
+                checkFGL,
+            </if>
+            <if test="startDate != null">
+                startDate,
+            </if>
+            <if test="endDate != null">
+                endDate,
+            </if>
+            <if test="companyId != null">
+                company_id,
+            </if>
+            <if test="companyName != null">
+                company_name,
+            </if>
+            <if test="delFlag != null">
+                del_flag,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createUser != null">
+                create_user,
+            </if>
+            <if test="createUserName != null">
+                create_user_name,
+            </if>
+            <if test="modifyTime != null">
+                modify_time,
+            </if>
+            <if test="modifyUser != null">
+                modify_user,
+            </if>
+            <if test="modifyUserName != null">
+                modify_user_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="checkSfCheckId != null">
+                #{checkSfCheckId,jdbcType=CHAR},
+            </if>
+            <if test="orgNmae != null">
+                #{orgName,jdbcType=VARCHAR},
+            </if>
+            <if test="orgID != null">
+                #{orgID,jdbcType=VARCHAR},
+            </if>
+            <if test="orgNum != null">
+                #{orgNum,jdbcType=INTEGER},
+            </if>
+            <if test="checkNum != null">
+                #{checkNum,jdbcType=INTEGER},
+            </if>
+            <if test="noCheckNum != null">
+                #{noCheckNum,jdbcType=INTEGER},
+            </if>
+            <if test="checkFGL != null">
+                #{checkFGL,jdbcType=DECIMAL},
+            </if>
+            <if test="startDate != null">
+                #{startDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="endDate != null">
+                #{endDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="companyId != null">
+                #{companyId,jdbcType=VARCHAR},
+            </if>
+            <if test="companyName != null">
+                #{companyName,jdbcType=VARCHAR},
+            </if>
+            <if test="delFlag != null">
+                #{delFlag,jdbcType=CHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                #{createUser,jdbcType=CHAR},
+            </if>
+            <if test="createUserName != null">
+                #{createUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyTime != null">
+                #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyUser != null">
+                #{modifyUser,jdbcType=CHAR},
+            </if>
+            <if test="modifyUserName != null">
+                #{modifyUserName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.CheckSfCheck">
+        update checkSfCheck
+        <set>
+            <if test="orgNmae != null">
+                orgName = #{orgName,jdbcType=VARCHAR},
+            </if>
+            <if test="orgID != null">
+                orgID = #{orgID,jdbcType=VARCHAR},
+            </if>
+            <if test="orgNum != null">
+                orgNum = #{orgNum,jdbcType=INTEGER},
+            </if>
+            <if test="checkNum != null">
+                checkNum = #{checkNum,jdbcType=INTEGER},
+            </if>
+            <if test="noCheckNum != null">
+                noCheckNum = #{noCheckNum,jdbcType=INTEGER},
+            </if>
+            <if test="checkFGL != null">
+                checkFGL = #{checkFGL,jdbcType=DECIMAL},
+            </if>
+            <if test="startDate != null">
+                startDate = #{startDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="endDate != null">
+                endDate = #{endDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="companyId != null">
+                company_id = #{companyId,jdbcType=VARCHAR},
+            </if>
+            <if test="companyName != null">
+                company_name = #{companyName,jdbcType=VARCHAR},
+            </if>
+            <if test="delFlag != null">
+                del_flag = #{delFlag,jdbcType=CHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                create_user = #{createUser,jdbcType=CHAR},
+            </if>
+            <if test="createUserName != null">
+                create_user_name = #{createUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyTime != null">
+                modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyUser != null">
+                modify_user = #{modifyUser,jdbcType=CHAR},
+            </if>
+            <if test="modifyUserName != null">
+                modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where checkSfCheck_id = #{checkSfCheckId,jdbcType=CHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.CheckSfCheck">
+    update checkSfCheck set 
+      orgName = #{orgName,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      orgNum = #{orgNum,jdbcType=INTEGER},
+      checkNum = #{checkNum,jdbcType=INTEGER},
+      noCheckNum = #{noCheckNum,jdbcType=INTEGER},
+      checkFGL = #{checkFGL,jdbcType=DECIMAL},
+      startDate = #{startDate,jdbcType=TIMESTAMP},
+      endDate = #{endDate,jdbcType=TIMESTAMP},
+      company_id = #{companyId,jdbcType=VARCHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where checkSfCheck_id = #{checkSfCheckId,jdbcType=CHAR}
+  </update>
+    <select id="selectByCheckSfCheckList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.CheckSfCheck">
+        select
+        <include refid="Base_Column_List"/>
+        from checkSfCheck
+        where del_flag = '0'
+        <if test="checkSfCheckId != null and checkSfCheckId != ''">
+            and checkSfCheck_id = #{checkSfCheckId,jdbcType=CHAR}
+        </if>
+        <if test="orgNmae != null and orgNmae != ''">
+            and orgName = #{orgName,jdbcType=VARCHAR}
+        </if>
+        <if test="orgID != null and orgID != ''">
+            and orgID = #{orgID,jdbcType=VARCHAR}
+        </if>
+        <if test="orgNum != null and orgNum != ''">
+            and orgNum = #{orgNum,jdbcType=INTEGER}
+        </if>
+        <if test="checkNum != null and checkNum != ''">
+            and checkNum = #{checkNum,jdbcType=INTEGER}
+        </if>
+        <if test="noCheckNum != null and noCheckNum != ''">
+            and noCheckNum = #{noCheckNum,jdbcType=INTEGER}
+        </if>
+        <if test="checkFGL != null and checkFGL != ''">
+            and checkFGL = #{checkFGL,jdbcType=DECIMAL}
+        </if>
+        <if test="startDate != null and startDate != ''">
+            and startDate = #{startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="endDate != null and endDate != ''">
+            and endDate = #{endDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="companyId != null and companyId != ''">
+            and company_id = #{companyId,jdbcType=VARCHAR}
+        </if>
+        <if test="companyName != null and companyName != ''">
+            and company_name = #{companyName,jdbcType=VARCHAR}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and create_time = #{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="createUser != null and createUser != ''">
+            and create_user = #{createUser,jdbcType=CHAR}
+        </if>
+        <if test="createUserName != null and createUserName != ''">
+            and create_user_name = #{createUserName,jdbcType=VARCHAR}
+        </if>
+        <if test="modifyTime != null and modifyTime != ''">
+            and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="modifyUser != null and modifyUser != ''">
+            and modify_user = #{modifyUser,jdbcType=CHAR}
+        </if>
+        <if test="modifyUserName != null and modifyUserName != ''">
+            and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+        </if>
+        ORDER BY modify_time DESC
+    </select>
+    <delete id="batchDeleteUpdateCheckSfCheck" parameterType="com.apih5.mybatis.pojo.CheckSfCheck">
+        <![CDATA[
+        update checkSfCheck
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and checkSfCheck_id in 
+     ]]>
+        <foreach collection="param1" item="model" open="(" separator="," close=")">#{model.checkSfCheckId}
+        </foreach>
+    </delete>
+    <!-- ↓↓↓扩展↓↓↓ -->
+
+    <!-- 查询公司的检查信息 -->
+    <select id="getCompany" resultMap="BaseResultMap">
+      SELECT
+	a.company_id,
+	a.company_name,
+	count( a.orgID ) AS orgNum,
+	count( b.projID ) AS checkNum,
+	count( a.orgID ) - count( b.projID ) AS noCheckNum
+FROM
+	zx_ct_contract a
+	LEFT JOIN zx_sf_check b ON a.orgID = b.projID
+WHERE b.checkDate>#{startDate} and b.checkDate &lt;#{endDate} and company_id=#{companyId}
+  </select>
+
+    <!-- 查询归档项目的检查信息 -->
+    <select id="getGuiDang" resultMap="BaseResultMap">
+        SELECT
+        count( a.orgID ) AS orgNum,
+        count( c.projID ) as checkNum,
+        count( a.orgID ) - count( c.projID ) AS noCheckNum
+        FROM
+        zx_ct_contract a
+        LEFT JOIN sys_project b ON b.department_id = a.orgID
+        LEFT JOIN zx_sf_check c ON c.projID = a.orgID
+        WHERE
+        DATE_FORMAT( b.doc_date, '%Y%m%d' ) &lt; #{today}
+        AND a.company_id = #{companyId}
+        AND c.checkDate>#{startDate} and c.checkDate &lt;#{endDate}
+  </select>
+
+    <!-- 查询归档项目的检查信息 -->
+    <select id="getJiaoGong" resultMap="BaseResultMap">
+        SELECT
+        count( a.orgID ) AS orgNum,
+        count( c.projID ) AS checkNum,
+        count( a.orgID ) - count( c.projID ) AS noCheckNum
+        FROM
+        zx_ct_contract a
+        LEFT JOIN sys_project b ON b.department_id = a.orgID
+        LEFT JOIN zx_sf_check c ON c.projID = a.orgID
+        WHERE
+        CASE WHEN ISNULL( b.doc_date ) THEN
+        DATE_FORMAT( b.delivery_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( b.delivery_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( b.doc_date, '%Y%m%d' ) >#{today} )
+        END AND a.company_id = #{order.companyId}  AND c.checkDate>#{startDate} and c.checkDate &lt;#{endDate}
+
+    </select>
+
+    <select id="getWanGong" resultMap="BaseResultMap">
+        SELECT
+        count( a.orgID ) AS orgNum,
+        count( c.projID ) AS checkNum,
+        count( a.orgID ) - count( c.projID ) AS noCheckNum
+        FROM
+        zx_ct_contract a
+        LEFT JOIN sys_project b ON b.department_id = a.orgID
+        LEFT JOIN zx_sf_check c ON c.projID = a.orgID
+        WHERE
+        CASE
+        WHEN ISNULL( b.delivery_date ) THEN
+	( CASE WHEN ISNULL( b.doc_date ) THEN DATE_FORMAT( b.main_end_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( b.main_end_date, '%Y%m%d' )  &lt;= #{today} AND DATE_FORMAT( b.doc_date, '%Y%m%d' ) > #{today} )
+		END ) ELSE (
+	DATE_FORMAT( b.main_end_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( b.delivery_date, '%Y%m%d' ) > #{today} )
+	END AND a.company_id = #{order.companyId} AND c.checkDate>#{startDate} and c.checkDate &lt;#{endDate}
+    </select>
+
+    <select id="getKaiGong" resultMap="BaseResultMap">
+  SELECT
+	count( a.orgID ) AS orgNum,
+	count( c.projID ) AS checkNum,
+	count( a.orgID ) - count( c.projID ) AS noCheckNum
+FROM
+	zx_ct_contract a
+	LEFT JOIN sys_project b ON b.department_id = a.orgID
+	LEFT JOIN zx_sf_check c ON c.projID = a.orgID
+WHERE
+CASE
+
+	WHEN ISNULL( b.main_end_date ) THEN
+	(
+	CASE
+
+			WHEN ISNULL( b.delivery_date ) THEN
+			( CASE WHEN ISNULL( b.doc_date ) THEN DATE_FORMAT( b.actual_start_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( b.actual_start_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( b.doc_date, '%Y%m%d' ) > #{today} )
+				END ) ELSE ( DATE_FORMAT( b.actual_start_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( b.delivery_date, '%Y%m%d' ) > #{today} )
+		END ) ELSE (
+		DATE_FORMAT( b.actual_start_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( b.main_end_date, '%Y%m%d' ) > #{today} ) END
+
+AND a.company_id = #{order.companyId}
+
+  </select>
+
+    <select id="getGuiDangList" resultMap="BaseResultMap">
+        SELECT
+        a.projectName as orgName,
+        a.orgID,
+        1 AS orgNum,
+        CASE
+        WHEN ISNULL(c.projID) THEN
+        0
+        ELSE
+        1
+        END AS checkNum,
+        1- CASE
+	    WHEN ISNULL(c.projID) THEN
+		0
+	    ELSE
+		1
+        END as noCheckNum,
+        CASE
+        WHEN ISNULL(c.projID) THEN
+        0
+        ELSE
+        100
+        END AS checkFGL
+        FROM zx_ct_contract a
+        LEFT JOIN sys_project b ON a.orgID = b.project_id LEFT JOIN zx_sf_check c on
+        c.projID=a.orgID
+        WHERE
+        DATE_FORMAT( b.doc_date, '%Y%m%d' ) &lt; #{today}
+        AND a.company_id = #{order.companyId}
+  </select>
+
+    <select id="getJiaoGongList" resultMap="BaseResultMap">
+        SELECT
+        a.projectName AS orgName,
+        a.orgID,
+        1 AS orgNum,
+        CASE
+        WHEN ISNULL( c.projID ) THEN
+        0 ELSE 1
+        END AS checkNum,
+        1-CASE
+        WHEN ISNULL( c.projID ) THEN
+        0 ELSE 1
+        END AS noCheckNum,
+         CASE
+        WHEN ISNULL(c.projID) THEN
+        0
+        ELSE
+        100
+        END AS checkFGL
+        FROM
+        zx_ct_contract a
+        LEFT JOIN sys_project b ON a.orgID = b.project_id
+        LEFT JOIN zx_sf_check c ON c.projID = a.orgID
+        WHERE
+        CASE
+        WHEN ISNULL( b.doc_date ) THEN
+        DATE_FORMAT( b.delivery_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( b.delivery_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( b.doc_date, '%Y%m%d' ) > #{today} )
+        END
+        AND a.company_id = #{order.companyId}
+    </select>
+
+    <select id="getWanGongList" resultMap="BaseResultMap">
+        SELECT
+        a.projectName AS orgName,
+        a.orgID,
+        1 AS orgNum,
+        CASE
+        WHEN ISNULL( c.projID ) THEN
+        0 ELSE 1
+        END AS checkNum,
+        1-
+        CASE
+        WHEN ISNULL( c.projID ) THEN
+        0 ELSE 1
+        END AS noCheckNum,
+         CASE
+        WHEN ISNULL(c.projID) THEN
+        0
+        ELSE
+        100
+        END AS checkFGL
+        FROM
+        zx_ct_contract a
+        LEFT JOIN sys_project b ON a.orgID = b.project_id
+        LEFT JOIN zx_sf_check c ON c.projID = a.orgID
+        WHERE
+        CASE
+        WHEN ISNULL( b.delivery_date ) THEN
+        (
+        CASE
+        WHEN ISNULL( b.doc_date ) THEN
+        DATE_FORMAT( b.main_end_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( b.main_end_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( b.doc_date, '%Y%m%d' ) > #{today} )
+        END
+        ) ELSE ( DATE_FORMAT( b.main_end_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( b.delivery_date, '%Y%m%d' ) > #{today} )
+        END
+        AND a.company_id = #{order.companyId}
+    </select>
+
+    <select id="getKaiGongList" resultMap="BaseResultMap">
+        SELECT
+        a.projectName AS orgName,
+        a.orgID,
+        1 AS orgNum,
+        CASE
+
+        WHEN ISNULL( c.projID ) THEN
+        0 ELSE 1
+        END AS checkNum,
+        1-
+        CASE
+
+        WHEN ISNULL( c.projID ) THEN
+        0 ELSE 1
+        END AS noCheckNum,
+         CASE
+        WHEN ISNULL(c.projID) THEN
+        0
+        ELSE
+        100
+        END AS checkFGL
+        FROM
+        zx_ct_contract a
+        LEFT JOIN sys_project b ON a.orgID = b.project_id
+        LEFT JOIN zx_sf_check c ON c.projID = a.orgID
+        WHERE
+        CASE
+
+        WHEN ISNULL( b.main_end_date ) THEN
+        (
+        CASE
+
+        WHEN ISNULL( b.delivery_date ) THEN
+        (
+        CASE
+
+        WHEN ISNULL( b.doc_date ) THEN
+        DATE_FORMAT( b.actual_start_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( b.actual_start_date, '%Y%m%d' ) &lt;=#{today} AND DATE_FORMAT( b.doc_date, '%Y%m%d' ) > #{today} )
+        END
+        ) ELSE ( DATE_FORMAT( b.actual_start_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( b.delivery_date, '%Y%m%d' ) > #{today} )
+        END
+        ) ELSE ( DATE_FORMAT( b.actual_start_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( b.main_end_date, '%Y%m%d' ) > #{today} )
+        END
+        AND a.company_id = #{order.companyId}
+    </select>
+
+    <select id="getComList" resultMap="BaseResultMap">
+        SELECT
+	a.company_id,
+	a.company_name,
+	count( a.orgID ) AS orgNum,
+	count( b.projID ) AS checkNum,
+	count( a.orgID ) - count( b.projID ) AS noCheckNum
+FROM
+	zx_ct_contract a
+	LEFT JOIN zx_sf_check b ON a.orgID = b.projID
+WHERE b.checkDate>#{startDate} and b.checkDate &lt;#{endDate}
+GROUP BY
+	a.company_id,
+	a.company_name
+    </select>
+
+</mapper>

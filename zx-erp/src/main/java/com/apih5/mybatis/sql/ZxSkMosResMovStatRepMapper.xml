@@ -1,0 +1,1551 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkMosResMovStatRepMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkMosResMovStatRep" >
+    <id column="zx_sk_mosResMovStatRep_id" property="zxSkMosResMovStatRepId" jdbcType="CHAR" />
+    <result column="resourceID" property="resourceID" jdbcType="VARCHAR" />
+    <result column="catCode" property="catCode" jdbcType="VARCHAR" />
+    <result column="resName" property="resName" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="resCode" property="resCode" jdbcType="VARCHAR" />
+    <result column="stockQty" property="stockQty" jdbcType="DECIMAL" />
+    <result column="stockAmt" property="stockAmt" jdbcType="DECIMAL" />
+    <result column="serQty" property="serQty" jdbcType="DECIMAL" />
+    <result column="serAmt" property="serAmt" jdbcType="DECIMAL" />
+    <result column="serAmtNoTax" property="serAmtNoTax" jdbcType="DECIMAL" />
+    <result column="orsQty" property="orsQty" jdbcType="DECIMAL" />
+    <result column="orsAmt" property="orsAmt" jdbcType="DECIMAL" />
+    <result column="orsAmtNoTax" property="orsAmtNoTax" jdbcType="DECIMAL" />
+    <result column="otrQty" property="otrQty" jdbcType="DECIMAL" />
+    <result column="otrAmt" property="otrAmt" jdbcType="DECIMAL" />
+    <result column="otrAmtNoTax" property="otrAmtNoTax" jdbcType="DECIMAL" />
+    <result column="ocsQty" property="ocsQty" jdbcType="DECIMAL" />
+    <result column="ocsAmt" property="ocsAmt" jdbcType="DECIMAL" />
+    <result column="ocsAmtNoTax" property="ocsAmtNoTax" jdbcType="DECIMAL" />
+    <result column="obuQty" property="obuQty" jdbcType="DECIMAL" />
+    <result column="oswQty" property="oswQty" jdbcType="DECIMAL" />
+    <result column="oswAmt" property="oswAmt" jdbcType="DECIMAL" />
+    <result column="otkQty" property="otkQty" jdbcType="DECIMAL" />
+    <result column="otkAmt" property="otkAmt" jdbcType="DECIMAL" />
+    <result column="vinQty" property="vinQty" jdbcType="DECIMAL" />
+    <result column="vinAmt" property="vinAmt" jdbcType="DECIMAL" />
+    <result column="qty" property="qty" jdbcType="DECIMAL" />
+    <result column="priceNoTax" property="priceNoTax" jdbcType="DECIMAL" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="amtNoTax" property="amtNoTax" jdbcType="DECIMAL" />
+    <result column="amt" property="amt" jdbcType="DECIMAL" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="endQty" property="endQty" jdbcType="DECIMAL" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="blocID" property="blocID" jdbcType="VARCHAR" />
+    <result column="blocName" property="blocName" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zx_sk_mosResMovStatRep_id, resourceID, catCode, resName, unit, 
+    resCode, stockQty, stockAmt, serQty, serAmt, 
+    serAmtNoTax, orsQty, orsAmt, orsAmtNoTax, otrQty, 
+    otrAmt, otrAmtNoTax, ocsQty, ocsAmt, ocsAmtNoTax, 
+    obuQty, oswQty, oswAmt, otkQty, otkAmt, 
+    vinQty, vinAmt, qty, priceNoTax, price, 
+    amtNoTax, amt, code, endQty, orgID, 
+    orgName, comID, comName, blocID, blocName, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_mosResMovStatRep
+    where del_flag = '0' and zx_sk_mosResMovStatRep_id = #{zxSkMosResMovStatRepId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_mosResMovStatRep
+    where zx_sk_mosResMovStatRep_id = #{zxSkMosResMovStatRepId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkMosResMovStatRep" >
+    insert into zx_sk_mosResMovStatRep (
+    zx_sk_mosResMovStatRep_id, resourceID, catCode, resName, unit, 
+    resCode, stockQty, stockAmt, serQty, serAmt, 
+    serAmtNoTax, orsQty, orsAmt, orsAmtNoTax, otrQty, 
+    otrAmt, otrAmtNoTax, ocsQty, ocsAmt, ocsAmtNoTax, 
+    obuQty, oswQty, oswAmt, otkQty, otkAmt, 
+    vinQty, vinAmt, qty, priceNoTax, price, 
+    amtNoTax, amt, code, endQty, orgID, 
+    orgName, comID, comName, blocID, blocName, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxSkMosResMovStatRepId,jdbcType=CHAR}, #{resourceID,jdbcType=VARCHAR}, #{catCode,jdbcType=VARCHAR}, #{resName,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, 
+    #{resCode,jdbcType=VARCHAR}, #{stockQty,jdbcType=DECIMAL}, #{stockAmt,jdbcType=DECIMAL}, #{serQty,jdbcType=DECIMAL}, #{serAmt,jdbcType=DECIMAL}, 
+    #{serAmtNoTax,jdbcType=DECIMAL}, #{orsQty,jdbcType=DECIMAL}, #{orsAmt,jdbcType=DECIMAL}, #{orsAmtNoTax,jdbcType=DECIMAL}, #{otrQty,jdbcType=DECIMAL}, 
+    #{otrAmt,jdbcType=DECIMAL}, #{otrAmtNoTax,jdbcType=DECIMAL}, #{ocsQty,jdbcType=DECIMAL}, #{ocsAmt,jdbcType=DECIMAL}, #{ocsAmtNoTax,jdbcType=DECIMAL}, 
+    #{obuQty,jdbcType=DECIMAL}, #{oswQty,jdbcType=DECIMAL}, #{oswAmt,jdbcType=DECIMAL}, #{otkQty,jdbcType=DECIMAL}, #{otkAmt,jdbcType=DECIMAL}, 
+    #{vinQty,jdbcType=DECIMAL}, #{vinAmt,jdbcType=DECIMAL}, #{qty,jdbcType=DECIMAL}, #{priceNoTax,jdbcType=DECIMAL}, #{price,jdbcType=DECIMAL}, 
+    #{amtNoTax,jdbcType=DECIMAL}, #{amt,jdbcType=DECIMAL}, #{code,jdbcType=VARCHAR}, #{endQty,jdbcType=DECIMAL}, #{orgID,jdbcType=VARCHAR}, 
+    #{orgName,jdbcType=VARCHAR}, #{comID,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, #{blocID,jdbcType=VARCHAR}, #{blocName,jdbcType=VARCHAR}, 
+    #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+    #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkMosResMovStatRep" >
+    insert into zx_sk_mosResMovStatRep
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSkMosResMovStatRepId != null" >
+        zx_sk_mosResMovStatRep_id,
+      </if>
+      <if test="resourceID != null" >
+        resourceID,
+      </if>
+      <if test="catCode != null" >
+        catCode,
+      </if>
+      <if test="resName != null" >
+        resName,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="resCode != null" >
+        resCode,
+      </if>
+      <if test="stockQty != null" >
+        stockQty,
+      </if>
+      <if test="stockAmt != null" >
+        stockAmt,
+      </if>
+      <if test="serQty != null" >
+        serQty,
+      </if>
+      <if test="serAmt != null" >
+        serAmt,
+      </if>
+      <if test="serAmtNoTax != null" >
+        serAmtNoTax,
+      </if>
+      <if test="orsQty != null" >
+        orsQty,
+      </if>
+      <if test="orsAmt != null" >
+        orsAmt,
+      </if>
+      <if test="orsAmtNoTax != null" >
+        orsAmtNoTax,
+      </if>
+      <if test="otrQty != null" >
+        otrQty,
+      </if>
+      <if test="otrAmt != null" >
+        otrAmt,
+      </if>
+      <if test="otrAmtNoTax != null" >
+        otrAmtNoTax,
+      </if>
+      <if test="ocsQty != null" >
+        ocsQty,
+      </if>
+      <if test="ocsAmt != null" >
+        ocsAmt,
+      </if>
+      <if test="ocsAmtNoTax != null" >
+        ocsAmtNoTax,
+      </if>
+      <if test="obuQty != null" >
+        obuQty,
+      </if>
+      <if test="oswQty != null" >
+        oswQty,
+      </if>
+      <if test="oswAmt != null" >
+        oswAmt,
+      </if>
+      <if test="otkQty != null" >
+        otkQty,
+      </if>
+      <if test="otkAmt != null" >
+        otkAmt,
+      </if>
+      <if test="vinQty != null" >
+        vinQty,
+      </if>
+      <if test="vinAmt != null" >
+        vinAmt,
+      </if>
+      <if test="qty != null" >
+        qty,
+      </if>
+      <if test="priceNoTax != null" >
+        priceNoTax,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="amtNoTax != null" >
+        amtNoTax,
+      </if>
+      <if test="amt != null" >
+        amt,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="endQty != null" >
+        endQty,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="blocID != null" >
+        blocID,
+      </if>
+      <if test="blocName != null" >
+        blocName,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSkMosResMovStatRepId != null" >
+        #{zxSkMosResMovStatRepId,jdbcType=CHAR},
+      </if>
+      <if test="resourceID != null" >
+        #{resourceID,jdbcType=VARCHAR},
+      </if>
+      <if test="catCode != null" >
+        #{catCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="resCode != null" >
+        #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stockQty != null" >
+        #{stockQty,jdbcType=DECIMAL},
+      </if>
+      <if test="stockAmt != null" >
+        #{stockAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="serQty != null" >
+        #{serQty,jdbcType=DECIMAL},
+      </if>
+      <if test="serAmt != null" >
+        #{serAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="serAmtNoTax != null" >
+        #{serAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="orsQty != null" >
+        #{orsQty,jdbcType=DECIMAL},
+      </if>
+      <if test="orsAmt != null" >
+        #{orsAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="orsAmtNoTax != null" >
+        #{orsAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="otrQty != null" >
+        #{otrQty,jdbcType=DECIMAL},
+      </if>
+      <if test="otrAmt != null" >
+        #{otrAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="otrAmtNoTax != null" >
+        #{otrAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="ocsQty != null" >
+        #{ocsQty,jdbcType=DECIMAL},
+      </if>
+      <if test="ocsAmt != null" >
+        #{ocsAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="ocsAmtNoTax != null" >
+        #{ocsAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="obuQty != null" >
+        #{obuQty,jdbcType=DECIMAL},
+      </if>
+      <if test="oswQty != null" >
+        #{oswQty,jdbcType=DECIMAL},
+      </if>
+      <if test="oswAmt != null" >
+        #{oswAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="otkQty != null" >
+        #{otkQty,jdbcType=DECIMAL},
+      </if>
+      <if test="otkAmt != null" >
+        #{otkAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="vinQty != null" >
+        #{vinQty,jdbcType=DECIMAL},
+      </if>
+      <if test="vinAmt != null" >
+        #{vinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="qty != null" >
+        #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="priceNoTax != null" >
+        #{priceNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="amtNoTax != null" >
+        #{amtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="amt != null" >
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="endQty != null" >
+        #{endQty,jdbcType=DECIMAL},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="blocID != null" >
+        #{blocID,jdbcType=VARCHAR},
+      </if>
+      <if test="blocName != null" >
+        #{blocName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkMosResMovStatRep" >
+    update zx_sk_mosResMovStatRep
+    <set >
+      <if test="resourceID != null" >
+        resourceID = #{resourceID,jdbcType=VARCHAR},
+      </if>
+      <if test="catCode != null" >
+        catCode = #{catCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        resName = #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="resCode != null" >
+        resCode = #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stockQty != null" >
+        stockQty = #{stockQty,jdbcType=DECIMAL},
+      </if>
+      <if test="stockAmt != null" >
+        stockAmt = #{stockAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="serQty != null" >
+        serQty = #{serQty,jdbcType=DECIMAL},
+      </if>
+      <if test="serAmt != null" >
+        serAmt = #{serAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="serAmtNoTax != null" >
+        serAmtNoTax = #{serAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="orsQty != null" >
+        orsQty = #{orsQty,jdbcType=DECIMAL},
+      </if>
+      <if test="orsAmt != null" >
+        orsAmt = #{orsAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="orsAmtNoTax != null" >
+        orsAmtNoTax = #{orsAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="otrQty != null" >
+        otrQty = #{otrQty,jdbcType=DECIMAL},
+      </if>
+      <if test="otrAmt != null" >
+        otrAmt = #{otrAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="otrAmtNoTax != null" >
+        otrAmtNoTax = #{otrAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="ocsQty != null" >
+        ocsQty = #{ocsQty,jdbcType=DECIMAL},
+      </if>
+      <if test="ocsAmt != null" >
+        ocsAmt = #{ocsAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="ocsAmtNoTax != null" >
+        ocsAmtNoTax = #{ocsAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="obuQty != null" >
+        obuQty = #{obuQty,jdbcType=DECIMAL},
+      </if>
+      <if test="oswQty != null" >
+        oswQty = #{oswQty,jdbcType=DECIMAL},
+      </if>
+      <if test="oswAmt != null" >
+        oswAmt = #{oswAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="otkQty != null" >
+        otkQty = #{otkQty,jdbcType=DECIMAL},
+      </if>
+      <if test="otkAmt != null" >
+        otkAmt = #{otkAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="vinQty != null" >
+        vinQty = #{vinQty,jdbcType=DECIMAL},
+      </if>
+      <if test="vinAmt != null" >
+        vinAmt = #{vinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="qty != null" >
+        qty = #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="priceNoTax != null" >
+        priceNoTax = #{priceNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="amtNoTax != null" >
+        amtNoTax = #{amtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="amt != null" >
+        amt = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="endQty != null" >
+        endQty = #{endQty,jdbcType=DECIMAL},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="blocID != null" >
+        blocID = #{blocID,jdbcType=VARCHAR},
+      </if>
+      <if test="blocName != null" >
+        blocName = #{blocName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zx_sk_mosResMovStatRep_id = #{zxSkMosResMovStatRepId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkMosResMovStatRep" >
+    update zx_sk_mosResMovStatRep set 
+      resourceID = #{resourceID,jdbcType=VARCHAR},
+      catCode = #{catCode,jdbcType=VARCHAR},
+      resName = #{resName,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      resCode = #{resCode,jdbcType=VARCHAR},
+      stockQty = #{stockQty,jdbcType=DECIMAL},
+      stockAmt = #{stockAmt,jdbcType=DECIMAL},
+      serQty = #{serQty,jdbcType=DECIMAL},
+      serAmt = #{serAmt,jdbcType=DECIMAL},
+      serAmtNoTax = #{serAmtNoTax,jdbcType=DECIMAL},
+      orsQty = #{orsQty,jdbcType=DECIMAL},
+      orsAmt = #{orsAmt,jdbcType=DECIMAL},
+      orsAmtNoTax = #{orsAmtNoTax,jdbcType=DECIMAL},
+      otrQty = #{otrQty,jdbcType=DECIMAL},
+      otrAmt = #{otrAmt,jdbcType=DECIMAL},
+      otrAmtNoTax = #{otrAmtNoTax,jdbcType=DECIMAL},
+      ocsQty = #{ocsQty,jdbcType=DECIMAL},
+      ocsAmt = #{ocsAmt,jdbcType=DECIMAL},
+      ocsAmtNoTax = #{ocsAmtNoTax,jdbcType=DECIMAL},
+      obuQty = #{obuQty,jdbcType=DECIMAL},
+      oswQty = #{oswQty,jdbcType=DECIMAL},
+      oswAmt = #{oswAmt,jdbcType=DECIMAL},
+      otkQty = #{otkQty,jdbcType=DECIMAL},
+      otkAmt = #{otkAmt,jdbcType=DECIMAL},
+      vinQty = #{vinQty,jdbcType=DECIMAL},
+      vinAmt = #{vinAmt,jdbcType=DECIMAL},
+      qty = #{qty,jdbcType=DECIMAL},
+      priceNoTax = #{priceNoTax,jdbcType=DECIMAL},
+      price = #{price,jdbcType=DECIMAL},
+      amtNoTax = #{amtNoTax,jdbcType=DECIMAL},
+      amt = #{amt,jdbcType=DECIMAL},
+      code = #{code,jdbcType=VARCHAR},
+      endQty = #{endQty,jdbcType=DECIMAL},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      blocID = #{blocID,jdbcType=VARCHAR},
+      blocName = #{blocName,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zx_sk_mosResMovStatRep_id = #{zxSkMosResMovStatRepId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSkMosResMovStatRepList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkMosResMovStatRep" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_mosResMovStatRep
+    where del_flag = '0'
+    <if test="zxSkMosResMovStatRepId != null and zxSkMosResMovStatRepId != ''" >
+     and zx_sk_mosResMovStatRep_id = #{zxSkMosResMovStatRepId,jdbcType=CHAR}
+    </if>
+    <if test="resourceID != null and resourceID != ''" >
+     and resourceID = #{resourceID,jdbcType=VARCHAR}
+    </if>
+    <if test="catCode != null and catCode != ''" >
+     and catCode = #{catCode,jdbcType=VARCHAR}
+    </if>
+    <if test="resName != null and resName != ''" >
+     and resName = #{resName,jdbcType=VARCHAR}
+    </if>
+    <if test="unit != null and unit != ''" >
+     and unit = #{unit,jdbcType=VARCHAR}
+    </if>
+    <if test="resCode != null and resCode != ''" >
+     and resCode = #{resCode,jdbcType=VARCHAR}
+    </if>
+    <if test="stockQty != null and stockQty != ''" >
+     and stockQty = #{stockQty,jdbcType=DECIMAL}
+    </if>
+    <if test="stockAmt != null and stockAmt != ''" >
+     and stockAmt = #{stockAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="serQty != null and serQty != ''" >
+     and serQty = #{serQty,jdbcType=DECIMAL}
+    </if>
+    <if test="serAmt != null and serAmt != ''" >
+     and serAmt = #{serAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="serAmtNoTax != null and serAmtNoTax != ''" >
+     and serAmtNoTax = #{serAmtNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="orsQty != null and orsQty != ''" >
+     and orsQty = #{orsQty,jdbcType=DECIMAL}
+    </if>
+    <if test="orsAmt != null and orsAmt != ''" >
+     and orsAmt = #{orsAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="orsAmtNoTax != null and orsAmtNoTax != ''" >
+     and orsAmtNoTax = #{orsAmtNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="otrQty != null and otrQty != ''" >
+     and otrQty = #{otrQty,jdbcType=DECIMAL}
+    </if>
+    <if test="otrAmt != null and otrAmt != ''" >
+     and otrAmt = #{otrAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="otrAmtNoTax != null and otrAmtNoTax != ''" >
+     and otrAmtNoTax = #{otrAmtNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="ocsQty != null and ocsQty != ''" >
+     and ocsQty = #{ocsQty,jdbcType=DECIMAL}
+    </if>
+    <if test="ocsAmt != null and ocsAmt != ''" >
+     and ocsAmt = #{ocsAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="ocsAmtNoTax != null and ocsAmtNoTax != ''" >
+     and ocsAmtNoTax = #{ocsAmtNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="obuQty != null and obuQty != ''" >
+     and obuQty = #{obuQty,jdbcType=DECIMAL}
+    </if>
+    <if test="oswQty != null and oswQty != ''" >
+     and oswQty = #{oswQty,jdbcType=DECIMAL}
+    </if>
+    <if test="oswAmt != null and oswAmt != ''" >
+     and oswAmt = #{oswAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="otkQty != null and otkQty != ''" >
+     and otkQty = #{otkQty,jdbcType=DECIMAL}
+    </if>
+    <if test="otkAmt != null and otkAmt != ''" >
+     and otkAmt = #{otkAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="vinQty != null and vinQty != ''" >
+     and vinQty = #{vinQty,jdbcType=DECIMAL}
+    </if>
+    <if test="vinAmt != null and vinAmt != ''" >
+     and vinAmt = #{vinAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="qty != null and qty != ''" >
+     and qty = #{qty,jdbcType=DECIMAL}
+    </if>
+    <if test="priceNoTax != null and priceNoTax != ''" >
+     and priceNoTax = #{priceNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="price != null and price != ''" >
+     and price = #{price,jdbcType=DECIMAL}
+    </if>
+    <if test="amtNoTax != null and amtNoTax != ''" >
+     and amtNoTax = #{amtNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="amt != null and amt != ''" >
+     and amt = #{amt,jdbcType=DECIMAL}
+    </if>
+    <if test="code != null and code != ''" >
+     and code = #{code,jdbcType=VARCHAR}
+    </if>
+    <if test="endQty != null and endQty != ''" >
+     and endQty = #{endQty,jdbcType=DECIMAL}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="blocID != null and blocID != ''" >
+     and blocID = #{blocID,jdbcType=VARCHAR}
+    </if>
+    <if test="blocName != null and blocName != ''" >
+     and blocName = #{blocName,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkMosResMovStatRep" parameterType="com.apih5.mybatis.pojo.ZxSkMosResMovStatRep" >
+    <![CDATA[ 
+        update zx_sk_mosResMovStatRep
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zx_sk_mosResMovStatRep_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSkMosResMovStatRepId} 
+     </foreach>
+  </delete>
+
+
+
+  <select id="filtrateZxSkMosResMovStatRep"  resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkMosResMovStatRep">
+    CREATE TEMPORARY TABLE main as (
+    select
+    main.resourceID,
+    main.catCode,
+    main.resName,
+    main.unit,
+    main.resCode,
+    sot.stockQty,
+    sot.stockAmt,
+    ser.serQty,
+    ser.serAmt,
+    ser.serAmtNoTax,
+    ors.orsQty,
+    ors.orsAmt,
+    ors.orsAmtNoTax,
+    otr.otrQty,
+    otr.otrAmt,
+    otr.otrAmtNoTax,
+    ocs.ocsQty,
+    ocs.ocsAmt,
+    ocs.ocsAmtNoTax,
+    obu.obuQty,
+    osw.oswQty,
+    osw.oswAmt,
+    otk.otkQty,
+    otk.otkAmt,
+    vin.vinQty,
+    vin.vinAmt
+    from (
+    select distinct main1.* from (
+    SELECT irc.id as resourceID,irc.catCode AS catCode,irc.catName AS resName,irc.unit AS unit, sti.resCode
+    FROM zx_sk_rescategory_materials irc
+    left join zx_sk_stocktransfer st on st.resourceID=irc.id
+    left join zx_sk_stocktransitem sti on sti.billID=st.id
+    WHERE irc.resStyle='mt' AND irc.parentID='0002' AND irc.bizType='bst01'
+    union all
+    SELECT (select c.id from zx_sk_rescategory_materials c where (
+    select irc.bsid from zx_sk_rescategory_materials irc where irc.id=(
+    select ir.categoryID from zx_sk_resource_materials ir where ir.id=isti.resID)) like CONCAT(c.bsid,'%')
+    and c.resStyle='mt' and c.parentID='0002'
+    )	resourceID,
+    (select c.catCode from zx_sk_rescategory_materials c where (
+    select irc.bsid from zx_sk_rescategory_materials irc where irc.id=(
+    select ir.categoryID from zx_sk_resource_materials ir where ir.id=isti.resID)) like CONCAT(c.bsid,'%')
+    and c.resStyle='mt' and c.parentID='0002'
+    )	catCode,
+    (select c.catName from zx_sk_rescategory_materials c where (
+    select irc.bsid from zx_sk_rescategory_materials irc where irc.id=(
+    select ir.categoryID from zx_sk_resource_materials ir where ir.id=isti.resID)) like CONCAT(c.bsid,'%')
+    and c.resStyle='mt' and c.parentID='0002'
+    )	resName,
+    (select c.unit from zx_sk_rescategory_materials c where (
+    select irc.bsid from zx_sk_rescategory_materials irc where irc.id=(
+    select ir.categoryID from zx_sk_resource_materials ir where ir.id=isti.resID)) like CONCAT(c.bsid,'%')
+    and c.resStyle='mt' and c.parentID='0002'
+    )	unit,
+    isti.resCode
+    FROM zx_sk_stocktransitem isti
+    INNER JOIN zx_sk_stocktransfer ist ON isti.billID=ist.id AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where id=ist.orgID) like CONCAT(@bsid , '%')
+    -- 		left join zx_ct_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE (ist.billType=18 or ist.billType=24)
+    -- 		AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 			and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    ) main1
+    ) main
+    LEFT JOIN( -- 年初库存
+    SELECT ist.resourceID,isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)-if(isti.outQty IS NULL,0,isti.outQty)) AS stockQty,
+    sum(if(isti.inAmt IS NULL,0,isti.inAmt)-if(isti.outAmt IS NULL,0,isti.outAmt)) AS stockAmt
+    FROM zx_sk_stocktransitem isti
+    INNER JOIN zx_sk_stocktransfer ist ON isti.billID=ist.id
+    -- 		left join zx_ct_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE
+    ist.billStatus='1' AND ist.billType!='10'
+    -- 	AND ist.busDate&lt;@beginDate
+    -- 	AND (select bsid from sys_project where id=ist.orgID) like CONCAT(@bsid , '%')
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    ) sot
+    ON sot.resourceID=main.resourceID and sot.resCode=main.resCode
+    -- -----------------------------------自行采购-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID,
+    isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) serQty,
+    sum(if(isti.resAllFee IS NULL,0,isti.resAllFee)) serAmt,
+    -- sum(if(isti.resAllFeeNoTax is null,0,isti.resAllFeeNoTax)) serAmtNoTax,
+    sum(isti.resAllFee/(1+(ist.taxRate *0.01))) serAmtNoTax
+    FROM zx_sk_StockTransItem isti
+    INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.id
+    AND ist.billStatus='1'
+    -- 			AND (select bsid from sys_project where id=ist.orgID) like CONCAT(@bsid + '%')
+    -- 		left join zx_ct_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE ((ist.billType=11 AND ist.materialSource='0001') /*or ist.billType=14*/ or ist.billType=12)
+    -- edit by wenjw 2017.4.12
+    --     WHERE ((ist.billType=11 ) /*or ist.billType=14*/ or ist.billType=12) AND ist.materialSource='0001'
+    --     AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )ser ON ser.resourceID=main.resourceID and ser.resCode=main.resCode
+    -- -----------------------------------甲供-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) orsQty,
+    sum(if(isti.resAllFee IS NULL,0,isti.resAllFee)) orsAmt,
+    -- 	sum(isnull(isti.resAllFeeNoTax,0)) orsAmtNoTax,
+    sum(isti.resAllFee/(1+(ist.taxRate *0.01))) orsAmtNoTax
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.id
+    -- 			left join zx_ct_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    -- WHERE ist.billType=11 AND ist.materialSource='0002' AND ist.billStatus='已审核'
+    -- edit by wenjw 2017.4.12
+    WHERE (ist.billType=11 or ist.billType=12) AND ist.materialSource='0002' AND ist.billStatus='1'
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )ors ON ors.resourceID=main.resourceID and ors.resCode=main.resCode
+    -- -----------------------------------其它-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) otrQty,
+    sum(if(isti.resAllFee IS NULL,0,isti.resAllFee)) otrAmt,
+    -- 	sum(isnull(isti.resAllFeeNoTax,0)) otrAmtNoTax,
+    sum(isti.resAllFee/(1+(ist.taxRate *0.01))) otrAmtNoTax
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.ID
+    AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 		left join iect_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    -- WHERE ((ist.billType=11 AND ist.materialSource='0003') or ist.billType=18)
+    -- edit by wenjw 2017.4.12
+    WHERE (((ist.billType=11 or ist.billType=12) AND ist.materialSource='0003') or ist.billType=18)
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )otr ON otr.resourceID=main.resourceID and otr.resCode=main.resCode
+    -- -----------------------------------甲控-----------------------------------(liut 2012-04-24)
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) ocsQty,
+    sum(if(isti.resAllFee IS NULL,0,isti.resAllFee)) ocsAmt,
+    -- 	sum(isnull(isti.resAllFeeNoTax,0)) ocsAmtNoTax,
+    sum(isti.resAllFee/(1+(ist.taxRate *0.01))) ocsAmtNoTax
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.ID
+    AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 		left join zx_ct_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    -- edit by wenjw 2017.4.12   18的不包含在甲控中
+    WHERE (((ist.billType=11 or ist.billType=12) AND ist.materialSource='0004'))  -- or ist.billType=18
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )ocs ON ocs.resourceID=main.resourceID and ocs.resCode=main.resCode
+    -- -----------------------------------预收-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) obuQty
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.ID
+    -- 			left join iect_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE ist.billType=11 AND isti.precollecte='1' AND ist.billStatus='1'
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )obu ON obu.resourceID=main.resourceID and obu.resCode=main.resCode
+    -- -----------------------------------工程耗用-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) oswQty,
+    sum(if(isti.outAmt IS NULL,0,isti.outAmt)) oswAmt
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.ID
+    AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 		left join iect_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE ist.billType IN (21,22)/*in (14,21,22)*/
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )osw ON osw.resourceID=main.resourceID and osw.resCode=main.resCode
+    -- -----------------------------------调拨(包括加工改制单)-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.outQty IS NULL,0,isti.outQty)) otkQty,
+    sum(if(isti.outAmt IS NULL,0,isti.outAmt)) otkAmt
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.ID
+    AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid , '%')
+    -- 		left join iect_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE ist.billType IN ('16','17','30','33')
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 		and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )otk ON otk.resourceID=main.resourceID and otk.resCode=main.resCode
+    -- --盈亏（数量、金额）  resourceID不知道为啥为空
+    left join (
+    SELECT (select c.ID from zx_sk_rescategory_materials c where (
+    select irc.bsid from zx_sk_rescategory_materials irc where irc.id=(
+    select ir.categoryID from zx_sk_resource_materials ir where ir.id=isti.resID)) like CONCAT(c.bsid,'%')
+    and c.resStyle='mt' and c.parentID='0002'
+    )	resourceID,
+    isti.resCode,sum(if(isti.inQty IS NULL,0,isti.inQty)-if(isti.outQty IS NULL,0,isti.outQty)) vinQty,
+    sum(if(isti.inAmt-isti.outAmt IS NULL,0,isti.inAmt-isti.outAmt)) vinAmt
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.id
+    AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 		left join iect_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE (ist.billType=18 or ist.billType=24)
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 		and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY isti.resID, isti.resCode
+    ) vin ON vin.resourceID=main.resourceID and vin.resCode=main.resCode
+    );
+    CREATE TEMPORARY TABLE main1 as (
+    select
+    main.resourceID,
+    main.catCode,
+    main.resName,
+    main.unit,
+    main.resCode,
+    sot.stockQty,
+    sot.stockAmt,
+    ser.serQty,
+    ser.serAmt,
+    ser.serAmtNoTax,
+    ors.orsQty,
+    ors.orsAmt,
+    ors.orsAmtNoTax,
+    otr.otrQty,
+    otr.otrAmt,
+    otr.otrAmtNoTax,
+    ocs.ocsQty,
+    ocs.ocsAmt,
+    ocs.ocsAmtNoTax,
+    obu.obuQty,
+    osw.oswQty,
+    osw.oswAmt,
+    otk.otkQty,
+    otk.otkAmt,
+    vin.vinQty,
+    vin.vinAmt
+    from (
+    select distinct main1.* from (
+    SELECT irc.id as resourceID,irc.catCode AS catCode,irc.catName AS resName,irc.unit AS unit, sti.resCode
+    FROM zx_sk_rescategory_materials irc
+    left join zx_sk_stocktransfer st on st.resourceID=irc.id
+    left join zx_sk_stocktransitem sti on sti.billID=st.id
+    WHERE irc.resStyle='mt' AND irc.parentID='0002' AND irc.bizType='bst01'
+    union all
+    SELECT (select c.id from zx_sk_rescategory_materials c where (
+    select irc.bsid from zx_sk_rescategory_materials irc where irc.id=(
+    select ir.categoryID from zx_sk_resource_materials ir where ir.id=isti.resID)) like CONCAT(c.bsid,'%')
+    and c.resStyle='mt' and c.parentID='0002'
+    )	resourceID,
+    (select c.catCode from zx_sk_rescategory_materials c where (
+    select irc.bsid from zx_sk_rescategory_materials irc where irc.id=(
+    select ir.categoryID from zx_sk_resource_materials ir where ir.id=isti.resID)) like CONCAT(c.bsid,'%')
+    and c.resStyle='mt' and c.parentID='0002'
+    )	catCode,
+    (select c.catName from zx_sk_rescategory_materials c where (
+    select irc.bsid from zx_sk_rescategory_materials irc where irc.id=(
+    select ir.categoryID from zx_sk_resource_materials ir where ir.id=isti.resID)) like CONCAT(c.bsid,'%')
+    and c.resStyle='mt' and c.parentID='0002'
+    )	resName,
+    (select c.unit from zx_sk_rescategory_materials c where (
+    select irc.bsid from zx_sk_rescategory_materials irc where irc.id=(
+    select ir.categoryID from zx_sk_resource_materials ir where ir.id=isti.resID)) like CONCAT(c.bsid,'%')
+    and c.resStyle='mt' and c.parentID='0002'
+    )	unit,
+    isti.resCode
+    FROM zx_sk_stocktransitem isti
+    INNER JOIN zx_sk_stocktransfer ist ON isti.billID=ist.id AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where id=ist.orgID) like CONCAT(@bsid , '%')
+    -- 		left join zx_ct_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE (ist.billType=18 or ist.billType=24)
+    -- 		AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 			and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    ) main1
+    ) main
+    LEFT JOIN( -- 年初库存
+    SELECT ist.resourceID,isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)-if(isti.outQty IS NULL,0,isti.outQty)) AS stockQty,
+    sum(if(isti.inAmt IS NULL,0,isti.inAmt)-if(isti.outAmt IS NULL,0,isti.outAmt)) AS stockAmt
+    FROM zx_sk_stocktransitem isti
+    INNER JOIN zx_sk_stocktransfer ist ON isti.billID=ist.id
+    -- 		left join zx_ct_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE
+    ist.billStatus='1' AND ist.billType!='10'
+    -- 	AND ist.busDate&lt;@beginDate
+    -- 	AND (select bsid from sys_project where id=ist.orgID) like CONCAT(@bsid , '%')
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    ) sot
+    ON sot.resourceID=main.resourceID and sot.resCode=main.resCode
+    -- -----------------------------------自行采购-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID,
+    isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) serQty,
+    sum(if(isti.resAllFee IS NULL,0,isti.resAllFee)) serAmt,
+    -- sum(if(isti.resAllFeeNoTax is null,0,isti.resAllFeeNoTax)) serAmtNoTax,
+    sum(isti.resAllFee/(1+(ist.taxRate *0.01))) serAmtNoTax
+    FROM zx_sk_StockTransItem isti
+    INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.id
+    AND ist.billStatus='1'
+    -- 			AND (select bsid from sys_project where id=ist.orgID) like CONCAT(@bsid + '%')
+    -- 		left join zx_ct_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE ((ist.billType=11 AND ist.materialSource='0001') /*or ist.billType=14*/ or ist.billType=12)
+    -- edit by wenjw 2017.4.12
+    --     WHERE ((ist.billType=11 ) /*or ist.billType=14*/ or ist.billType=12) AND ist.materialSource='0001'
+    --     AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )ser ON ser.resourceID=main.resourceID and ser.resCode=main.resCode
+    -- -----------------------------------甲供-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) orsQty,
+    sum(if(isti.resAllFee IS NULL,0,isti.resAllFee)) orsAmt,
+    -- 	sum(isnull(isti.resAllFeeNoTax,0)) orsAmtNoTax,
+    sum(isti.resAllFee/(1+(ist.taxRate *0.01))) orsAmtNoTax
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.id
+    -- 			left join zx_ct_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    -- WHERE ist.billType=11 AND ist.materialSource='0002' AND ist.billStatus='已审核'
+    -- edit by wenjw 2017.4.12
+    WHERE (ist.billType=11 or ist.billType=12) AND ist.materialSource='0002' AND ist.billStatus='1'
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )ors ON ors.resourceID=main.resourceID and ors.resCode=main.resCode
+    -- -----------------------------------其它-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) otrQty,
+    sum(if(isti.resAllFee IS NULL,0,isti.resAllFee)) otrAmt,
+    -- 	sum(isnull(isti.resAllFeeNoTax,0)) otrAmtNoTax,
+    sum(isti.resAllFee/(1+(ist.taxRate *0.01))) otrAmtNoTax
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.ID
+    AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 		left join iect_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    -- WHERE ((ist.billType=11 AND ist.materialSource='0003') or ist.billType=18)
+    -- edit by wenjw 2017.4.12
+    WHERE (((ist.billType=11 or ist.billType=12) AND ist.materialSource='0003') or ist.billType=18)
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )otr ON otr.resourceID=main.resourceID and otr.resCode=main.resCode
+    -- -----------------------------------甲控-----------------------------------(liut 2012-04-24)
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) ocsQty,
+    sum(if(isti.resAllFee IS NULL,0,isti.resAllFee)) ocsAmt,
+    -- 	sum(isnull(isti.resAllFeeNoTax,0)) ocsAmtNoTax,
+    sum(isti.resAllFee/(1+(ist.taxRate *0.01))) ocsAmtNoTax
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.ID
+    AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 		left join zx_ct_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    -- edit by wenjw 2017.4.12   18的不包含在甲控中
+    WHERE (((ist.billType=11 or ist.billType=12) AND ist.materialSource='0004'))  -- or ist.billType=18
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )ocs ON ocs.resourceID=main.resourceID and ocs.resCode=main.resCode
+    -- -----------------------------------预收-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) obuQty
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.ID
+    -- 			left join iect_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE ist.billType=11 AND isti.precollecte='1' AND ist.billStatus='1'
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )obu ON obu.resourceID=main.resourceID and obu.resCode=main.resCode
+    -- -----------------------------------工程耗用-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) oswQty,
+    sum(if(isti.outAmt IS NULL,0,isti.outAmt)) oswAmt
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.ID
+    AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 		left join iect_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE ist.billType IN (21,22)/*in (14,21,22)*/
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )osw ON osw.resourceID=main.resourceID and osw.resCode=main.resCode
+    -- -----------------------------------调拨(包括加工改制单)-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.outQty IS NULL,0,isti.outQty)) otkQty,
+    sum(if(isti.outAmt IS NULL,0,isti.outAmt)) otkAmt
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.ID
+    AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid , '%')
+    -- 		left join iect_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE ist.billType IN ('16','17','30','33')
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 		and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )otk ON otk.resourceID=main.resourceID and otk.resCode=main.resCode
+    -- --盈亏（数量、金额）  resourceID不知道为啥为空
+    left join (
+    SELECT (select c.ID from zx_sk_rescategory_materials c where (
+    select irc.bsid from zx_sk_rescategory_materials irc where irc.id=(
+    select ir.categoryID from zx_sk_resource_materials ir where ir.id=isti.resID)) like CONCAT(c.bsid,'%')
+    and c.resStyle='mt' and c.parentID='0002'
+    )	resourceID,
+    isti.resCode,sum(if(isti.inQty IS NULL,0,isti.inQty)-if(isti.outQty IS NULL,0,isti.outQty)) vinQty,
+    sum(if(isti.inAmt-isti.outAmt IS NULL,0,isti.inAmt-isti.outAmt)) vinAmt
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.id
+    AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 		left join iect_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE (ist.billType=18 or ist.billType=24)
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 		and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY isti.resID, isti.resCode
+    ) vin ON vin.resourceID=main.resourceID and vin.resCode=main.resCode
+    );
+    CREATE TEMPORARY TABLE main2 as (
+    select
+    main.resourceID,
+    main.catCode,
+    main.resName,
+    main.unit,
+    main.resCode,
+    sot.stockQty,
+    sot.stockAmt,
+    ser.serQty,
+    ser.serAmt,
+    ser.serAmtNoTax,
+    ors.orsQty,
+    ors.orsAmt,
+    ors.orsAmtNoTax,
+    otr.otrQty,
+    otr.otrAmt,
+    otr.otrAmtNoTax,
+    ocs.ocsQty,
+    ocs.ocsAmt,
+    ocs.ocsAmtNoTax,
+    obu.obuQty,
+    osw.oswQty,
+    osw.oswAmt,
+    otk.otkQty,
+    otk.otkAmt,
+    vin.vinQty,
+    vin.vinAmt
+    from (
+    select distinct main1.* from (
+    SELECT irc.id as resourceID,irc.catCode AS catCode,irc.catName AS resName,irc.unit AS unit, sti.resCode
+    FROM zx_sk_rescategory_materials irc
+    left join zx_sk_stocktransfer st on st.resourceID=irc.id
+    left join zx_sk_stocktransitem sti on sti.billID=st.id
+    WHERE irc.resStyle='mt' AND irc.parentID='0002' AND irc.bizType='bst01'
+    union all
+    SELECT (select c.id from zx_sk_rescategory_materials c where (
+    select irc.bsid from zx_sk_rescategory_materials irc where irc.id=(
+    select ir.categoryID from zx_sk_resource_materials ir where ir.id=isti.resID)) like CONCAT(c.bsid,'%')
+    and c.resStyle='mt' and c.parentID='0002'
+    )	resourceID,
+    (select c.catCode from zx_sk_rescategory_materials c where (
+    select irc.bsid from zx_sk_rescategory_materials irc where irc.id=(
+    select ir.categoryID from zx_sk_resource_materials ir where ir.id=isti.resID)) like CONCAT(c.bsid,'%')
+    and c.resStyle='mt' and c.parentID='0002'
+    )	catCode,
+    (select c.catName from zx_sk_rescategory_materials c where (
+    select irc.bsid from zx_sk_rescategory_materials irc where irc.id=(
+    select ir.categoryID from zx_sk_resource_materials ir where ir.id=isti.resID)) like CONCAT(c.bsid,'%')
+    and c.resStyle='mt' and c.parentID='0002'
+    )	resName,
+    (select c.unit from zx_sk_rescategory_materials c where (
+    select irc.bsid from zx_sk_rescategory_materials irc where irc.id=(
+    select ir.categoryID from zx_sk_resource_materials ir where ir.id=isti.resID)) like CONCAT(c.bsid,'%')
+    and c.resStyle='mt' and c.parentID='0002'
+    )	unit,
+    isti.resCode
+    FROM zx_sk_stocktransitem isti
+    INNER JOIN zx_sk_stocktransfer ist ON isti.billID=ist.id AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where id=ist.orgID) like CONCAT(@bsid , '%')
+    -- 		left join zx_ct_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE (ist.billType=18 or ist.billType=24)
+    -- 		AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 			and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    ) main1
+    ) main
+    LEFT JOIN( -- 年初库存
+    SELECT ist.resourceID,isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)-if(isti.outQty IS NULL,0,isti.outQty)) AS stockQty,
+    sum(if(isti.inAmt IS NULL,0,isti.inAmt)-if(isti.outAmt IS NULL,0,isti.outAmt)) AS stockAmt
+    FROM zx_sk_stocktransitem isti
+    INNER JOIN zx_sk_stocktransfer ist ON isti.billID=ist.id
+    -- 		left join zx_ct_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE
+    ist.billStatus='1' AND ist.billType!='10'
+    -- 	AND ist.busDate&lt;@beginDate
+    -- 	AND (select bsid from sys_project where id=ist.orgID) like CONCAT(@bsid , '%')
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    ) sot
+    ON sot.resourceID=main.resourceID and sot.resCode=main.resCode
+    -- -----------------------------------自行采购-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID,
+    isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) serQty,
+    sum(if(isti.resAllFee IS NULL,0,isti.resAllFee)) serAmt,
+    -- sum(if(isti.resAllFeeNoTax is null,0,isti.resAllFeeNoTax)) serAmtNoTax,
+    sum(isti.resAllFee/(1+(ist.taxRate *0.01))) serAmtNoTax
+    FROM zx_sk_StockTransItem isti
+    INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.id
+    AND ist.billStatus='1'
+    -- 			AND (select bsid from sys_project where id=ist.orgID) like CONCAT(@bsid + '%')
+    -- 		left join zx_ct_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE ((ist.billType=11 AND ist.materialSource='0001') /*or ist.billType=14*/ or ist.billType=12)
+    -- edit by wenjw 2017.4.12
+    --     WHERE ((ist.billType=11 ) /*or ist.billType=14*/ or ist.billType=12) AND ist.materialSource='0001'
+    --     AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )ser ON ser.resourceID=main.resourceID and ser.resCode=main.resCode
+    -- -----------------------------------甲供-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) orsQty,
+    sum(if(isti.resAllFee IS NULL,0,isti.resAllFee)) orsAmt,
+    -- 	sum(isnull(isti.resAllFeeNoTax,0)) orsAmtNoTax,
+    sum(isti.resAllFee/(1+(ist.taxRate *0.01))) orsAmtNoTax
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.id
+    -- 			left join zx_ct_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    -- WHERE ist.billType=11 AND ist.materialSource='0002' AND ist.billStatus='已审核'
+    -- edit by wenjw 2017.4.12
+    WHERE (ist.billType=11 or ist.billType=12) AND ist.materialSource='0002' AND ist.billStatus='1'
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )ors ON ors.resourceID=main.resourceID and ors.resCode=main.resCode
+    -- -----------------------------------其它-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) otrQty,
+    sum(if(isti.resAllFee IS NULL,0,isti.resAllFee)) otrAmt,
+    -- 	sum(isnull(isti.resAllFeeNoTax,0)) otrAmtNoTax,
+    sum(isti.resAllFee/(1+(ist.taxRate *0.01))) otrAmtNoTax
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.ID
+    AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 		left join iect_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    -- WHERE ((ist.billType=11 AND ist.materialSource='0003') or ist.billType=18)
+    -- edit by wenjw 2017.4.12
+    WHERE (((ist.billType=11 or ist.billType=12) AND ist.materialSource='0003') or ist.billType=18)
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )otr ON otr.resourceID=main.resourceID and otr.resCode=main.resCode
+    -- -----------------------------------甲控-----------------------------------(liut 2012-04-24)
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) ocsQty,
+    sum(if(isti.resAllFee IS NULL,0,isti.resAllFee)) ocsAmt,
+    -- 	sum(isnull(isti.resAllFeeNoTax,0)) ocsAmtNoTax,
+    sum(isti.resAllFee/(1+(ist.taxRate *0.01))) ocsAmtNoTax
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.ID
+    AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 		left join zx_ct_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    -- edit by wenjw 2017.4.12   18的不包含在甲控中
+    WHERE (((ist.billType=11 or ist.billType=12) AND ist.materialSource='0004'))  -- or ist.billType=18
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )ocs ON ocs.resourceID=main.resourceID and ocs.resCode=main.resCode
+    -- -----------------------------------预收-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) obuQty
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.ID
+    -- 			left join iect_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE ist.billType=11 AND isti.precollecte='1' AND ist.billStatus='1'
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )obu ON obu.resourceID=main.resourceID and obu.resCode=main.resCode
+    -- -----------------------------------工程耗用-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.inQty IS NULL,0,isti.inQty)) oswQty,
+    sum(if(isti.outAmt IS NULL,0,isti.outAmt)) oswAmt
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.ID
+    AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 		left join iect_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE ist.billType IN (21,22)/*in (14,21,22)*/
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 	and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )osw ON osw.resourceID=main.resourceID and osw.resCode=main.resCode
+    -- -----------------------------------调拨(包括加工改制单)-----------------------------------
+    LEFT JOIN (
+    SELECT ist.resourceID, isti.resCode,
+    sum(if(isti.outQty IS NULL,0,isti.outQty)) otkQty,
+    sum(if(isti.outAmt IS NULL,0,isti.outAmt)) otkAmt
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.ID
+    AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid , '%')
+    -- 		left join iect_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE ist.billType IN ('16','17','30','33')
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 		and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY ist.resourceID, isti.resCode
+    )otk ON otk.resourceID=main.resourceID and otk.resCode=main.resCode
+    -- --盈亏（数量、金额）  resourceID不知道为啥为空
+    left join (
+    SELECT (select c.ID from zx_sk_rescategory_materials c where (
+    select irc.bsid from zx_sk_rescategory_materials irc where irc.id=(
+    select ir.categoryID from zx_sk_resource_materials ir where ir.id=isti.resID)) like CONCAT(c.bsid,'%')
+    and c.resStyle='mt' and c.parentID='0002'
+    )	resourceID,
+    isti.resCode,sum(if(isti.inQty IS NULL,0,isti.inQty)-if(isti.outQty IS NULL,0,isti.outQty)) vinQty,
+    sum(if(isti.inAmt-isti.outAmt IS NULL,0,isti.inAmt-isti.outAmt)) vinAmt
+    FROM zx_sk_StockTransItem isti INNER JOIN zx_sk_StockTransfer ist ON isti.billID=ist.id
+    AND ist.billStatus='1'
+    -- 		AND (select bsid from sys_project where ID=ist.orgID) like CONCAT(@bsid + '%')
+    -- 		left join iect_Contract ic on ic.orgID=ist.orgID and contractType='P1'
+    WHERE (ist.billType=18 or ist.billType=24)
+    -- 	AND ist.busDate BETWEEN @beginDate AND @endDate
+    -- 		and (@isFinish=0 or (@isFinish=1 and ic.contractStatus =3) or (@isFinish=2 and ic.contractStatus in ('1','2')))
+    GROUP BY isti.resID, isti.resCode
+    ) vin ON vin.resourceID=main.resourceID and vin.resCode=main.resCode
+    );
+    select * from(select
+    st.resourceID,
+    st.catCode,
+    st.resName,
+    st.unit,
+    st.resCode,
+    round(sum(st.stockQty),3) as stockQty,
+    -- 	round(sum(st.inAmtNoTax),2) as inAmtNoTax,
+    -- 	round(sum(st.inAmt),2) as inAmt,
+    round(sum(st.serQty),3) as serQty,
+    round(sum(st.orsQty),3) as orsQty,
+    round(sum(st.obuQty),3) as obuQty,
+    round(sum(st.otrQty),3) as otrQty,
+    round(sum(st.ocsQty),3) as ocsQty,
+    round(sum(st.oswQty),3) as oswQty,
+    round(sum(st.otkQty),3) as otkQty,
+    round(sum(st.vinQty),3) as vinQty,
+    res.orderNo
+    from (
+    select 1  orderNo union all select 2  orderNo union all
+    select 3  orderNo union all select 4  orderNo union all
+    select 5  orderNo union all select 6  orderNo union all
+    select 7  orderNo union all select 8  orderNo union all
+    select 9  orderNo union all select 10 orderNo union all
+    select 11 orderNo union all select 12 orderNo union all
+    select 13 orderNo union all select 14 orderNo union all
+    select 15 orderNo union all select 16 orderNo
+    -- 	union all
+    -- 	select 17 orderNo union all select 18 orderNo union all
+    -- 	select 19 orderNo union all select 20 orderNo union all
+    -- 	select 21 orderNo union all select 22 orderNo union all
+    -- 	select 23 orderNo union all select 24 orderNo union all
+    -- 	select 25 orderNo union all select 26 orderNo union all
+    -- 	select 27 orderNo union all select 28 orderNo union all
+    -- 	select 29 orderNo union all select 30 orderNo union all
+    -- 	select 31 orderNo
+    ) res left join (
+    select
+    case when sb.resCode like '%a'  then 2
+    when sb.resCode like '%b'  then 3
+    when sb.resCode like '%c'  then 4
+    when sb.resCode like '%e'  then 5
+    when sb.resCode like '%d'  then 6
+    when sb.resCode like '%g'  then 7
+    when sb.resCode like '%p'  then 8
+    when sb.resCode like '%h'  then 9
+    when sb.resCode like '%f'  then 10
+    when sb.resCode like '%q'  then 11
+    when sb.resCode like '%n'  then 12
+    when sb.resCode like '%m'  then 13
+    when sb.resCode like '%t'  then 14
+    when sb.resCode like '%u'  then 15
+    when sb.resCode like '%s'  then 16
+    -- 			 when sb.resCode like '%D'  then 19
+    -- 			 when sb.resCode like '%A'  then 20
+    -- 			 when sb.resCode like '%E'  then 21
+    -- 			 when sb.resCode like '%w'  then 22
+    -- 			 when sb.resCode like '%y'  then 23
+    -- 			 when sb.resCode like '%R'  then 24
+    -- 			 when sb.resCode like '%Y'  then 25
+    -- 			 when sb.resCode like '%G'  then 26
+    -- 			 when sb.resCode like '%H'  then 27
+    -- 			 when sb.resCode like '%L'  then 28
+    -- 			 when sb.resCode like '%M'  then 29
+    -- 			 when sb.resCode like '%N'  then 30
+    -- 			 when sb.resCode like '%F'  then 31
+    end orderNo,
+    sb.resourceID,
+    sb.catCode,
+    sb.resName,
+    sb.unit,
+    sb.resCode,
+    sum(sb.stockQty) as stockQty,
+    -- 	sum(sb.inAmt) as inAmt,
+    -- 	sum(sb.inAmtNoTax) as inAmtNoTax,
+    sum(sb.serQty) as serQty,
+    sum(sb.orsQty) as orsQty,
+    sum(sb.obuQty) as obuQty,
+    sum(sb.otrQty) as otrQty,
+    sum(sb.ocsQty) as ocsQty,
+    sum(sb.oswQty) as oswQty,
+    sum(sb.otkQty) as otkQty,
+    sum(sb.vinQty) as vinQty
+    from main sb
+    group by sb.resCode
+    union all
+    select
+    case when sb.catCode='01' then 1
+    when (sb.resCode like '0201%' or sb.resCode like '0202%' or sb.resCode like '0203%') then 17
+    when (sb.resCode like '0301%' or sb.resCode like '0302%' or sb.resCode like '0303%' or sb.resCode like '0304%') then 18
+    end AS orderNo,
+    sb.resourceID,
+    sb.catCode,
+    sb.resName,
+    sb.unit,
+    sb.resCode,
+    sum(sb.stockQty) as stockQty,
+    -- 		sum(sb.inAmt) as inAmt,
+    -- 		sum(sb.inAmtNoTax) as inAmtNoTax,
+    sum(sb.serQty) as serQty,
+    sum(sb.orsQty) as orsQty,
+    sum(sb.obuQty) as obuQty,
+    sum(sb.otrQty) as otrQty,
+    sum(sb.ocsQty) as ocsQty,
+    sum(sb.oswQty) as oswQty,
+    sum(sb.otkQty) as otkQty,
+    sum(sb.vinQty) as vinQty
+    from main1 sb
+    group by sb.catCode,sb.resCode
+    ) st on st.orderNo=res.orderNo
+    where res.orderNo is not null
+    group by res.orderNo
+    order by res.orderNo) as a
+    union all
+    (select
+    resourceID,
+    catCode,
+    resName,
+    unit,
+    resCode,
+    stockQty,
+    -- 	round(sum(st.inAmtNoTax),2) as inAmtNoTax,
+    -- 	round(sum(st.inAmt),2) as inAmt,
+    serQty,
+    orsQty,
+    obuQty,
+    otrQty,
+    ocsQty,
+    oswQty,
+    otkQty,
+    vinQty,
+    '' as orderNo
+    from main2
+    where catCode != '01');
+    drop table if exists main;
+    drop table if exists main1;
+    drop table if exists main2;
+  </select>
+
+
+
+
+</mapper>

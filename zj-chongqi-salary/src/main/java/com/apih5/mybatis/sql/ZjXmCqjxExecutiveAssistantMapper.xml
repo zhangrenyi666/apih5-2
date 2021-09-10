@@ -1,0 +1,1073 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.apih5.mybatis.dao.ZjXmCqjxExecutiveAssistantMapper">
+	<resultMap id="BaseResultMap"
+		type="com.apih5.mybatis.pojo.ZjXmCqjxExecutiveAssistant">
+		<id column="executive_id" property="executiveId" jdbcType="CHAR" />
+		<result column="manager_id" property="managerId"
+			jdbcType="CHAR" />
+		<result column="assessment_type" property="assessmentType"
+			jdbcType="CHAR" />
+		<result column="assessment_years" property="assessmentYears"
+			jdbcType="TIMESTAMP" />
+		<result column="assessment_title" property="assessmentTitle"
+			jdbcType="VARCHAR" />
+		<result column="assessment_quarter"
+			property="assessmentQuarter" jdbcType="VARCHAR" />
+		<result column="assessment_state" property="assessmentState"
+			jdbcType="CHAR" />
+		<result column="position" property="position"
+			jdbcType="VARCHAR" />
+		<result column="department_id" property="departmentId"
+			jdbcType="VARCHAR" />
+		<result column="charge_leader_id" property="chargeLeaderId"
+			jdbcType="CHAR" />
+		<result column="charge_leader_option"
+			property="chargeLeaderOption" jdbcType="VARCHAR" />
+		<result column="executive_leader_id"
+			property="executiveLeaderId" jdbcType="CHAR" />
+		<result column="executive_leader_option"
+			property="executiveLeaderOption" jdbcType="VARCHAR" />
+		<result column="quarter_score" property="quarterScore"
+			jdbcType="DOUBLE" />
+		<result column="task_score" property="taskScore"
+			jdbcType="DOUBLE" />
+		<result column="cooperation_score" property="cooperationScore"
+			jdbcType="DOUBLE" />
+		<result column="discipline_score" property="disciplineScore"
+			jdbcType="DOUBLE" />
+		<result column="task_flag" property="taskFlag" jdbcType="CHAR" />
+		<result column="cooperation_flag" property="cooperationFlag"
+			jdbcType="CHAR" />
+		<result column="discipline_flag" property="disciplineFlag"
+			jdbcType="CHAR" />
+		<result column="dept_coefficient" property="deptCoefficient"
+			jdbcType="CHAR" />
+		<result column="assistant_lock" property="assistantLock"
+			jdbcType="CHAR" />
+		<result column="leader_see" property="leaderSee"
+			jdbcType="CHAR" />
+		<result column="del_flag" property="delFlag" jdbcType="CHAR" />
+		<result column="create_time" property="createTime"
+			jdbcType="TIMESTAMP" />
+		<result column="create_user" property="createUser"
+			jdbcType="CHAR" />
+		<result column="create_user_name" property="createUserName"
+			jdbcType="VARCHAR" />
+		<result column="modify_time" property="modifyTime"
+			jdbcType="TIMESTAMP" />
+		<result column="modify_user" property="modifyUser"
+			jdbcType="CHAR" />
+		<result column="modify_user_name" property="modifyUserName"
+			jdbcType="VARCHAR" />
+		<result column="quarter_average_score"
+			property="quarterAverageScore" jdbcType="DOUBLE" />
+		<result column="comprehensive_score"
+			property="comprehensiveScore" jdbcType="DOUBLE" />
+		<result column="year_final_score" property="yearFinalScore"
+			jdbcType="DOUBLE" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		executive_id, assessment_type, manager_id, assessment_years, assessment_title,
+		assessment_quarter,
+		assessment_state, position, department_id, charge_leader_id, charge_leader_option,
+		executive_leader_id,
+		executive_leader_option, quarter_score, task_score, cooperation_score, discipline_score,
+		task_flag, cooperation_flag, discipline_flag, dept_coefficient,
+		assistant_lock, leader_see, del_flag, create_time,
+		create_user, create_user_name, modify_time, modify_user, modify_user_name
+	</sql>
+	<select id="selectZjXmCqjxExecutiveAssistantTodoCount"
+		resultType="java.lang.Integer"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxExecutiveAssistant">
+		select
+		count(*)
+		FROM zj_xm_cqjx_executive_assistant
+		WHERE zj_xm_cqjx_executive_assistant.del_flag = '0'
+		<if test="assessmentType != null and assessmentType != ''">
+			and assessment_type = #{assessmentType,jdbcType=CHAR}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and zj_xm_cqjx_executive_assistant.create_user =
+			#{createUser,jdbcType=CHAR}
+		</if>
+		and assessment_state IN
+		<foreach collection="assistantList" item="model" open="("
+			separator="," close=")">#{model.assessmentState}
+		</foreach>
+	</select>
+	<select id="selectZjXmCqjxAssistantLeaderHasTodoCount"
+		resultType="java.lang.Integer"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxExecutiveAssistant">
+		SELECT
+			count(*)
+		FROM zj_xm_cqjx_executive_assistant t1
+		LEFT JOIN zj_xm_cqjx_assistant_leader_approval t2 ON t2.executive_id = t1.executive_id AND t2.del_flag = '0'
+			where t1.del_flag = '0'
+		<if test="createUser != null and createUser != ''">
+			and t2.leader_id = #{createUser,jdbcType=CHAR}
+		</if>
+			and t2.approval_flag IN ('2','3','4','5')  
+	</select>	
+	<select id="selectZjXmCqjxAssistantLeaderTodoCount"
+		resultType="java.lang.Integer"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxExecutiveAssistant">
+		select
+		count(*)
+		FROM zj_xm_cqjx_executive_assistant left join
+		zj_xm_cqjx_assistant_leader_approval
+		on zj_xm_cqjx_executive_assistant.executive_id =
+		zj_xm_cqjx_assistant_leader_approval.executive_id
+		WHERE zj_xm_cqjx_executive_assistant.del_flag = '0'
+		and zj_xm_cqjx_assistant_leader_approval.del_flag = '0'
+		<if test="assessmentType != null and assessmentType != ''">
+			and assessment_type = #{assessmentType,jdbcType=CHAR}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and zj_xm_cqjx_executive_assistant.create_user =
+			#{createUser,jdbcType=CHAR}
+		</if>
+		<if test="chargeLeaderId != null and chargeLeaderId != ''">
+			and zj_xm_cqjx_assistant_leader_approval.leader_id =
+			#{chargeLeaderId,jdbcType=CHAR}
+			and zj_xm_cqjx_assistant_leader_approval.approval_flag IN ("1","4")
+		</if>
+		<if test="leaderSee != null and leaderSee != ''">
+			and leader_see = #{leaderSee,jdbcType=CHAR}
+		</if>
+		and assessment_state IN
+		<foreach collection="assistantList" item="model" open="("
+			separator="," close=")">#{model.assessmentState}
+		</foreach>
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from zj_xm_cqjx_executive_assistant
+		where executive_id = #{executiveId,jdbcType=CHAR}
+	</select>
+	<select id="selectByManagerId" resultMap="BaseResultMap"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxExecutiveAssistant">
+		select
+		<include refid="Base_Column_List" />
+		from zj_xm_cqjx_executive_assistant
+		where del_flag = '0'
+		<if test="managerId != null and managerId != ''">
+			and manager_id = #{managerId,jdbcType=CHAR}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and create_user = #{createUser,jdbcType=CHAR}
+		</if>
+	</select>
+	<select id="selectLeaderTodoListByUserKey"
+		resultMap="BaseResultMap"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxExecutiveAssistant">
+		(select
+		zj_xm_cqjx_assistant_leader_approval.assistant_leader_approval_id AS
+		assistantLeaderApprovalId,
+		zj_xm_cqjx_executive_assistant.executive_id,
+		zj_xm_cqjx_executive_assistant.assessment_type,
+		zj_xm_cqjx_executive_assistant.manager_id,
+		zj_xm_cqjx_executive_assistant.assessment_years,
+		zj_xm_cqjx_executive_assistant.assessment_title,
+		zj_xm_cqjx_executive_assistant.assessment_quarter,
+		zj_xm_cqjx_executive_assistant.assessment_state,
+		zj_xm_cqjx_executive_assistant.position,
+		zj_xm_cqjx_executive_assistant.department_id,
+		zj_xm_cqjx_executive_assistant.charge_leader_id,
+		zj_xm_cqjx_executive_assistant.charge_leader_option,
+		zj_xm_cqjx_executive_assistant.executive_leader_id,
+		zj_xm_cqjx_executive_assistant.executive_leader_option,zj_xm_cqjx_executive_assistant.create_user_name,
+		zj_xm_cqjx_executive_assistant.modify_time,zj_xm_cqjx_executive_assistant.assistant_lock,
+		zj_xm_cqjx_assistant_leader_approval.leader_option AS leaderOption,
+		(select oa_org_name from zj_xm_cqjx_oa_dept_member
+		where del_flag = '0' and oa_user_id =
+		zj_xm_cqjx_executive_assistant.create_user
+		and other_id = zj_xm_cqjx_executive_assistant.manager_id) AS
+		departmentName,
+		(SELECT first_duty_closing_end_date FROM zj_xm_cqjx_assessment_manage WHERE
+		del_flag = '0' and manager_id =
+		zj_xm_cqjx_executive_assistant.manager_id) AS firstDutyClosingEndDate,
+		(SELECT first_score_closing_end_date FROM zj_xm_cqjx_assessment_manage
+		WHERE del_flag = '0' and manager_id =
+		zj_xm_cqjx_executive_assistant.manager_id) AS
+		firstScoreClosingEndDate,
+		(SELECT state FROM zj_xm_cqjx_assessment_manage WHERE del_flag = '0' and
+		manager_id = zj_xm_cqjx_executive_assistant.manager_id) AS state
+		from zj_xm_cqjx_executive_assistant left join
+		zj_xm_cqjx_assistant_leader_approval on
+		zj_xm_cqjx_assistant_leader_approval.executive_id =
+		zj_xm_cqjx_executive_assistant.executive_id
+		where zj_xm_cqjx_executive_assistant.del_flag = '0'
+		and zj_xm_cqjx_assistant_leader_approval.del_flag = '0'
+		and assessment_state IN ('1','4','6')
+		and zj_xm_cqjx_assistant_leader_approval.leader_id =
+		#{createUser,jdbcType=CHAR}
+		and approval_flag IN ('1','4')
+		<if test="leaderSee != null and leaderSee != ''">
+			and leader_see = #{leaderSee,jdbcType=CHAR}
+		</if>
+		)
+		union all
+		(select
+		zj_xm_cqjx_assistant_leader_approval.assistant_leader_approval_id AS assistantLeaderApprovalId,
+		zj_xm_cqjx_executive_assistant.executive_id,
+		zj_xm_cqjx_executive_assistant.assessment_type,
+		zj_xm_cqjx_executive_assistant.manager_id,
+		zj_xm_cqjx_executive_assistant.assessment_years,
+		zj_xm_cqjx_executive_assistant.assessment_title,
+		zj_xm_cqjx_executive_assistant.assessment_quarter,
+		zj_xm_cqjx_executive_assistant.assessment_state,
+		zj_xm_cqjx_executive_assistant.position,
+		zj_xm_cqjx_executive_assistant.department_id,
+		zj_xm_cqjx_executive_assistant.charge_leader_id,
+		zj_xm_cqjx_executive_assistant.charge_leader_option,
+		zj_xm_cqjx_executive_assistant.executive_leader_id,
+		zj_xm_cqjx_executive_assistant.executive_leader_option,zj_xm_cqjx_executive_assistant.create_user_name,
+		zj_xm_cqjx_executive_assistant.modify_time,zj_xm_cqjx_executive_assistant.assistant_lock,
+		zj_xm_cqjx_assistant_leader_approval.leader_option AS leaderOption,
+		(select oa_org_name from zj_xm_cqjx_oa_dept_member
+		where del_flag = '0' and oa_user_id =
+		zj_xm_cqjx_executive_assistant.create_user
+		and other_id = zj_xm_cqjx_executive_assistant.manager_id) AS
+		departmentName,
+		(SELECT final_duty_closing_end_date FROM
+		zj_xm_cqjx_assessment_manage WHERE del_flag = '0' and manager_id =
+		zj_xm_cqjx_executive_assistant.manager_id) AS firstDutyClosingEndDate,
+		(SELECT final_score_closing_end_date FROM zj_xm_cqjx_assessment_manage
+		WHERE del_flag = '0' and manager_id =
+		zj_xm_cqjx_executive_assistant.manager_id) AS
+		firstScoreClosingEndDate,
+		(SELECT state FROM zj_xm_cqjx_assessment_manage WHERE del_flag = '0' and
+		manager_id = zj_xm_cqjx_executive_assistant.manager_id) AS state
+		from zj_xm_cqjx_executive_assistant left join
+		zj_xm_cqjx_assistant_leader_approval on
+		zj_xm_cqjx_assistant_leader_approval.executive_id =
+		zj_xm_cqjx_executive_assistant.executive_id
+		where zj_xm_cqjx_executive_assistant.del_flag = '0'
+		and zj_xm_cqjx_assistant_leader_approval.del_flag = '0'
+		and assessment_state IN ('3','7')
+		and zj_xm_cqjx_assistant_leader_approval.leader_id =
+		#{createUser,jdbcType=CHAR}
+		and approval_flag IN ('1','4')
+		<if test="leaderSee != null and leaderSee != ''">
+			and leader_see = #{leaderSee,jdbcType=CHAR}
+		</if>
+		)
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from zj_xm_cqjx_executive_assistant
+		where executive_id = #{executiveId,jdbcType=CHAR}
+	</delete>
+	<insert id="insert"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxExecutiveAssistant">
+		insert into zj_xm_cqjx_executive_assistant (executive_id,
+		assessment_type, manager_id, assessment_years,
+		assessment_title, assessment_quarter, assessment_state,
+		position, department_id, charge_leader_id, charge_leader_option,
+		executive_leader_id, executive_leader_option, quarter_score,
+		task_score, cooperation_score, discipline_score, task_flag,
+		cooperation_flag, discipline_flag, dept_coefficient,
+		assistant_lock, leader_see, del_flag, create_time, create_user, create_user_name,
+		modify_time, modify_user, modify_user_name
+		)
+		values (#{executiveId,jdbcType=CHAR}, #{assessmentType,jdbcType=CHAR},
+		#{managerId,jdbcType=CHAR}, #{assessmentYears,jdbcType=TIMESTAMP},
+		#{assessmentTitle,jdbcType=VARCHAR},
+		#{assessmentQuarter,jdbcType=VARCHAR},
+		#{assessmentState,jdbcType=CHAR},
+		#{position,jdbcType=VARCHAR}, #{departmentId,jdbcType=VARCHAR}, #{chargeLeaderId,jdbcType=CHAR},
+		#{chargeLeaderOption,jdbcType=VARCHAR},
+		#{executiveLeaderId,jdbcType=CHAR},
+		#{executiveLeaderOption,jdbcType=VARCHAR},
+		#{quarterScore,jdbcType=DOUBLE},
+		#{taskScore,jdbcType=DOUBLE}, #{cooperationScore,jdbcType=DOUBLE},
+		#{disciplineScore,jdbcType=DOUBLE},
+		#{taskFlag,jdbcType=CHAR}, #{cooperationFlag,jdbcType=CHAR}, #{disciplineFlag,jdbcType=CHAR},
+		#{deptCoefficient,jdbcType=CHAR},
+		#{assistantLock,jdbcType=CHAR}, #{leaderSee,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR},
+		#{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR},
+		#{createUserName,jdbcType=VARCHAR},
+		#{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxExecutiveAssistant">
+		insert into zj_xm_cqjx_executive_assistant
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="executiveId != null">
+				executive_id,
+			</if>
+			<if test="managerId != null">
+				manager_id,
+			</if>
+			<if test="assessmentType != null">
+				assessment_type,
+			</if>
+			<if test="assessmentYears != null">
+				assessment_years,
+			</if>
+			<if test="assessmentTitle != null">
+				assessment_title,
+			</if>
+			<if test="assessmentQuarter != null">
+				assessment_quarter,
+			</if>
+			<if test="assessmentState != null">
+				assessment_state,
+			</if>
+			<if test="position != null">
+				position,
+			</if>
+			<if test="departmentId != null">
+				department_id,
+			</if>
+			<if test="chargeLeaderId != null">
+				charge_leader_id,
+			</if>
+			<if test="chargeLeaderOption != null">
+				charge_leader_option,
+			</if>
+			<if test="executiveLeaderId != null">
+				executive_leader_id,
+			</if>
+			<if test="executiveLeaderOption != null">
+				executive_leader_option,
+			</if>
+			<if test="quarterScore != null">
+				quarter_score,
+			</if>
+			<if test="taskScore != null">
+				task_score,
+			</if>
+			<if test="cooperationScore != null">
+				cooperation_score,
+			</if>
+			<if test="disciplineScore != null">
+				discipline_score,
+			</if>
+			<if test="taskFlag != null">
+				task_flag,
+			</if>
+			<if test="cooperationFlag != null">
+				cooperation_flag,
+			</if>
+			<if test="disciplineFlag != null">
+				discipline_flag,
+			</if>
+			<if test="deptCoefficient != null">
+				dept_coefficient,
+			</if>
+			<if test="leaderSee != null">
+				leader_see,
+			</if>
+			<if test="delFlag != null">
+				del_flag,
+			</if>
+			<if test="assistantLock != null">
+				assistant_lock,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="createUser != null">
+				create_user,
+			</if>
+			<if test="createUserName != null">
+				create_user_name,
+			</if>
+			<if test="modifyTime != null">
+				modify_time,
+			</if>
+			<if test="modifyUser != null">
+				modify_user,
+			</if>
+			<if test="modifyUserName != null">
+				modify_user_name,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="executiveId != null">
+				#{executiveId,jdbcType=CHAR},
+			</if>
+			<if test="managerId != null">
+				#{managerId,jdbcType=CHAR},
+			</if>
+			<if test="assessmentType != null">
+				#{assessmentType,jdbcType=CHAR},
+			</if>
+			<if test="assessmentYears != null">
+				#{assessmentYears,jdbcType=TIMESTAMP},
+			</if>
+			<if test="assessmentTitle != null">
+				#{assessmentTitle,jdbcType=VARCHAR},
+			</if>
+			<if test="assessmentQuarter != null">
+				#{assessmentQuarter,jdbcType=VARCHAR},
+			</if>
+			<if test="assessmentState != null">
+				#{assessmentState,jdbcType=CHAR},
+			</if>
+			<if test="position != null">
+				#{position,jdbcType=VARCHAR},
+			</if>
+			<if test="departmentId != null">
+				#{departmentId,jdbcType=VARCHAR},
+			</if>
+			<if test="chargeLeaderId != null">
+				#{chargeLeaderId,jdbcType=CHAR},
+			</if>
+			<if test="chargeLeaderOption != null">
+				#{chargeLeaderOption,jdbcType=VARCHAR},
+			</if>
+			<if test="executiveLeaderId != null">
+				#{executiveLeaderId,jdbcType=CHAR},
+			</if>
+			<if test="executiveLeaderOption != null">
+				#{executiveLeaderOption,jdbcType=VARCHAR},
+			</if>
+			<if test="quarterScore != null">
+				#{quarterScore,jdbcType=DOUBLE},
+			</if>
+			<if test="taskScore != null">
+				#{taskScore,jdbcType=DOUBLE},
+			</if>
+			<if test="cooperationScore != null">
+				#{cooperationScore,jdbcType=DOUBLE},
+			</if>
+			<if test="disciplineScore != null">
+				#{disciplineScore,jdbcType=DOUBLE},
+			</if>
+			<if test="taskFlag != null">
+				#{taskFlag,jdbcType=CHAR},
+			</if>
+			<if test="cooperationFlag != null">
+				#{cooperationFlag,jdbcType=CHAR},
+			</if>
+			<if test="disciplineFlag != null">
+				#{disciplineFlag,jdbcType=CHAR},
+			</if>
+			<if test="deptCoefficient != null">
+				#{deptCoefficient,jdbcType=CHAR},
+			</if>
+			<if test="leaderSee != null">
+				#{leaderSee,jdbcType=CHAR},
+			</if>
+			<if test="delFlag != null">
+				#{delFlag,jdbcType=CHAR},
+			</if>
+			<if test="assistantLock != null">
+				#{assistantLock,jdbcType=CHAR},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createUser != null">
+				#{createUser,jdbcType=CHAR},
+			</if>
+			<if test="createUserName != null">
+				#{createUserName,jdbcType=VARCHAR},
+			</if>
+			<if test="modifyTime != null">
+				#{modifyTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifyUser != null">
+				#{modifyUser,jdbcType=CHAR},
+			</if>
+			<if test="modifyUserName != null">
+				#{modifyUserName,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxExecutiveAssistant">
+		update zj_xm_cqjx_executive_assistant
+		<set>
+			<if test="managerId != null">
+				manager_id = #{managerId,jdbcType=CHAR},
+			</if>
+			<if test="assessmentType != null">
+				assessment_type = #{assessmentType,jdbcType=CHAR},
+			</if>
+			<if test="assessmentYears != null">
+				assessment_years = #{assessmentYears,jdbcType=TIMESTAMP},
+			</if>
+			<if test="assessmentTitle != null">
+				assessment_title = #{assessmentTitle,jdbcType=VARCHAR},
+			</if>
+			<if test="assessmentQuarter != null">
+				assessment_quarter = #{assessmentQuarter,jdbcType=VARCHAR},
+			</if>
+			<if test="assessmentState != null">
+				assessment_state = #{assessmentState,jdbcType=CHAR},
+			</if>
+			<if test="position != null">
+				position = #{position,jdbcType=VARCHAR},
+			</if>
+			<if test="departmentId != null">
+				department_id = #{departmentId,jdbcType=VARCHAR},
+			</if>
+			<if test="chargeLeaderId != null">
+				charge_leader_id = #{chargeLeaderId,jdbcType=CHAR},
+			</if>
+			<if test="chargeLeaderOption != null">
+				charge_leader_option = #{chargeLeaderOption,jdbcType=VARCHAR},
+			</if>
+			<if test="executiveLeaderId != null">
+				executive_leader_id = #{executiveLeaderId,jdbcType=CHAR},
+			</if>
+			<if test="executiveLeaderOption != null">
+				executive_leader_option = #{executiveLeaderOption,jdbcType=VARCHAR},
+			</if>
+			<if test="quarterScore != null">
+				quarter_score = #{quarterScore,jdbcType=DOUBLE},
+			</if>
+			<if test="taskScore != null">
+				task_score = #{taskScore,jdbcType=DOUBLE},
+			</if>
+			<if test="cooperationScore != null">
+				cooperation_score = #{cooperationScore,jdbcType=DOUBLE},
+			</if>
+			<if test="disciplineScore != null">
+				discipline_score = #{disciplineScore,jdbcType=DOUBLE},
+			</if>
+			<if test="taskFlag != null">
+				task_flag = #{taskFlag,jdbcType=CHAR},
+			</if>
+			<if test="cooperationFlag != null">
+				cooperation_flag = #{cooperationFlag,jdbcType=CHAR},
+			</if>
+			<if test="disciplineFlag != null">
+				discipline_flag = #{disciplineFlag,jdbcType=CHAR},
+			</if>
+			<if test="taskFlag != null">
+				task_flag = #{taskFlag,jdbcType=CHAR},
+			</if>
+			<if test="assistantLock != null">
+				assistant_lock = #{assistantLock,jdbcType=CHAR},
+			</if>
+			<if test="cooperationFlag != null">
+				cooperation_flag = #{cooperationFlag,jdbcType=CHAR},
+			</if>
+			<if test="disciplineFlag != null">
+				discipline_flag = #{disciplineFlag,jdbcType=CHAR},
+			</if>
+			<if test="deptCoefficient != null">
+				dept_coefficient = #{deptCoefficient,jdbcType=CHAR},
+			</if>
+			<if test="leaderSee != null">
+				leader_see = #{leaderSee,jdbcType=CHAR},
+			</if>
+			<if test="delFlag != null">
+				del_flag = #{delFlag,jdbcType=CHAR},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createUser != null">
+				create_user = #{createUser,jdbcType=CHAR},
+			</if>
+			<if test="createUserName != null">
+				create_user_name = #{createUserName,jdbcType=VARCHAR},
+			</if>
+			<if test="modifyTime != null">
+				modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifyUser != null">
+				modify_user = #{modifyUser,jdbcType=CHAR},
+			</if>
+			<if test="modifyUserName != null">
+				modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where executive_id = #{executiveId,jdbcType=CHAR}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxExecutiveAssistant">
+		update zj_xm_cqjx_executive_assistant
+		set manager_id = #{managerId,jdbcType=CHAR},
+		assessment_type = #{assessmentType,jdbcType=CHAR},
+		assessment_years = #{assessmentYears,jdbcType=TIMESTAMP},
+		assessment_title = #{assessmentTitle,jdbcType=VARCHAR},
+		assessment_quarter = #{assessmentQuarter,jdbcType=VARCHAR},
+		assessment_state = #{assessmentState,jdbcType=CHAR},
+		position = #{position,jdbcType=VARCHAR},
+		department_id = #{departmentId,jdbcType=VARCHAR},
+		charge_leader_id = #{chargeLeaderId,jdbcType=CHAR},
+		charge_leader_option = #{chargeLeaderOption,jdbcType=VARCHAR},
+		executive_leader_id = #{executiveLeaderId,jdbcType=CHAR},
+		executive_leader_option = #{executiveLeaderOption,jdbcType=VARCHAR},
+		quarter_score = #{quarterScore,jdbcType=DOUBLE},
+		task_score = #{taskScore,jdbcType=DOUBLE},
+		cooperation_score = #{cooperationScore,jdbcType=DOUBLE},
+		discipline_score = #{disciplineScore,jdbcType=DOUBLE},
+		task_flag = #{taskFlag,jdbcType=CHAR},
+		cooperation_flag = #{cooperationFlag,jdbcType=CHAR},
+		discipline_flag = #{disciplineFlag,jdbcType=CHAR},
+		dept_coefficient = #{deptCoefficient,jdbcType=CHAR},
+		leader_see = #{leaderSee,jdbcType=CHAR},
+		del_flag = #{delFlag,jdbcType=CHAR},
+		assistant_lock = #{assistantLock,jdbcType=CHAR},
+		create_time = #{createTime,jdbcType=TIMESTAMP},
+		create_user = #{createUser,jdbcType=CHAR},
+		create_user_name = #{createUserName,jdbcType=VARCHAR},
+		modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+		modify_user = #{modifyUser,jdbcType=CHAR},
+		modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+		where executive_id = #{executiveId,jdbcType=CHAR}
+	</update>
+	<select id="selectListByZjXmCqjxExecutiveAssistant"
+		resultMap="BaseResultMap"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxExecutiveAssistant">
+		select
+		<include refid="Base_Column_List" />,
+		(select oa_org_name from zj_xm_cqjx_oa_dept_member
+		where del_flag = '0' and oa_user_id = zt.create_user and other_id =
+		zt.manager_id) AS departmentName	
+		from zj_xm_cqjx_executive_assistant zt
+		where zt.del_flag = '0'
+		<if test="managerId != null and managerId != ''">
+			and zt.manager_id = #{managerId,jdbcType=CHAR}
+		</if>
+		<if test="departmentId != null and departmentId != ''">
+			and zt.department_id = #{departmentId,jdbcType=CHAR}
+		</if>
+		<if test="assessmentState != null and assessmentState != ''">
+			and zt.assessment_state = #{assessmentState,jdbcType=CHAR}
+		</if>
+		<if test="assessmentYears != null">
+			and DATE_FORMAT(zt.assessment_years,"%Y") =
+			DATE_FORMAT(#{assessmentYears,jdbcType=TIMESTAMP},"%Y")
+		</if>
+		<if test="assessmentTitle != null and assessmentTitle != ''">
+			and zt.assessment_title = #{assessmentTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="assessmentQuarter != null and assessmentQuarter != ''">
+			and zt.assessment_quarter = #{assessmentQuarter,jdbcType=VARCHAR}
+		</if>
+		<if test="position != null and position != ''">
+			and zt.position = #{position,jdbcType=VARCHAR}
+		</if>
+		<if test="chargeLeaderId != null and chargeLeaderId != ''">
+			and zt.charge_leader_id = #{chargeLeaderId,jdbcType=CHAR}
+		</if>
+		<if test="chargeLeaderOption != null and chargeLeaderOption != ''">
+			and zt.charge_leader_option = #{chargeLeaderOption,jdbcType=VARCHAR}
+		</if>
+		<if test="executiveLeaderId != null and executiveLeaderId != ''">
+			and zt.executive_leader_id = #{executiveLeaderId,jdbcType=CHAR}
+		</if>
+		<if
+			test="executiveLeaderOption != null and executiveLeaderOption != ''">
+			and zt.executive_leader_option =
+			#{executiveLeaderOption,jdbcType=VARCHAR}
+		</if>
+		<!-- <if test="quarterScore != null and quarterScore != ''" > and zt.quarter_score 
+			= #{quarterScore,jdbcType=DOUBLE} </if> -->
+		<if test="createUser != null and createUser != ''">
+			and zt.create_user = #{createUser,jdbcType=VARCHAR}
+		</if>
+		<if test="assistantLock != null and assistantLock != ''">
+			and zt.assistant_lock = #{assistantLock,jdbcType=CHAR}
+		</if>
+		<if test="createUserName != null and createUserName != ''">
+			and zt.create_user_name = #{createUserName,jdbcType=VARCHAR}
+		</if>
+		<if test="taskFlag != null and taskFlag != ''">
+			and zt.task_flag = #{taskFlag,jdbcType=CHAR}
+		</if>
+		<if test="cooperationFlag != null and cooperationFlag != ''">
+			and zt.cooperation_flag = #{cooperationFlag,jdbcType=CHAR}
+		</if>
+		<if test="assessmentType != null and assessmentType != ''">
+			and zt.assessment_type = #{assessmentType,jdbcType=CHAR}
+		</if>
+		<if test="disciplineFlag != null and disciplineFlag != ''">
+			and zt.discipline_flag = #{disciplineFlag,jdbcType=CHAR},
+		</if>
+		<if test="disciplineFlag != null and disciplineFlag != ''">
+			and zt.dept_coefficient = #{deptCoefficient,jdbcType=CHAR}
+		</if>
+		<if test="modifyUserName != null and modifyUserName != ''">
+			and zt.modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+		</if>
+		ORDER BY modify_time DESC
+	</select>
+	<select id="selectZjXmCqjxExecutiveAssistantListByList"
+		resultMap="BaseResultMap"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxExecutiveAssistant">
+		( SELECT
+		"0" AS assistantFlag,
+		zt.department_id,
+		zt.leader_see,
+		zt.executive_id,
+		zt.assessment_type,
+		zt.manager_id,
+		zt.assessment_years,
+		zt.assessment_title,
+		zt.assessment_quarter,
+		zt.assessment_state,
+		zt.position,
+		zt.charge_leader_id,
+		zt.charge_leader_option,
+		zt.executive_leader_id,
+		zt.executive_leader_option,
+		zt.quarter_score,
+		zt.task_score,
+		zt.cooperation_score,
+		zt.discipline_score,
+		zt.task_flag,
+		zt.cooperation_flag,
+		zt.discipline_flag,
+		zt.dept_coefficient,
+		zt.assistant_lock,
+		zt.del_flag,
+		zt.create_time,
+		zt.create_user,
+		zt.create_user_name,
+		zt.modify_time,
+		zt.modify_user,
+		zt.modify_user_name,
+		null AS quarter_average_score,
+		null AS comprehensive_score,
+		null AS year_final_score,
+		( SELECT oa_org_name FROM zj_xm_cqjx_oa_dept_member WHERE del_flag =
+		'0' AND oa_user_id = zt.create_user AND other_id = zt.manager_id ) AS
+		departmentName,
+		zm.duty_closing_end_date AS dutyClosingEndDate,
+		zm.score_closing_end_date AS scoreClosingEndDate,
+		zm.`state` AS state
+		FROM
+		zj_xm_cqjx_executive_assistant zt
+		LEFT JOIN zj_xm_cqjx_assessment_manage zm ON zt.manager_id = zm.manager_id
+		WHERE
+		zt.del_flag = '0'
+		AND zm.del_flag = '0'
+		<if test="assessmentYears != null">
+			and DATE_FORMAT(zt.assessment_years,"%Y") =
+			DATE_FORMAT(#{assessmentYears,jdbcType=TIMESTAMP},"%Y")
+		</if>
+		<if test="assessmentType != null and assessmentType != ''">
+			and zt.assessment_type = #{assessmentType,jdbcType=CHAR}
+		</if>		
+		<if test="assessmentTitle != null and assessmentTitle != ''">
+			and zt.assessment_title = #{assessmentTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="assessmentQuarter != null and assessmentQuarter != ''">
+			and zt.assessment_quarter = #{assessmentQuarter,jdbcType=VARCHAR}
+		</if>
+		<if test="assessmentState != null and assessmentState != ''">
+			and zt.assessment_state = #{assessmentState,jdbcType=CHAR}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and zt.create_user = #{createUser,jdbcType=VARCHAR}
+		</if>
+		ORDER BY modify_time DESC
+		) UNION ALL
+		(
+		SELECT
+		"1" AS assistantFlag,
+		zt.department_id,
+		zt.leader_see,
+		zt.year_assistant_id,
+		zt.assessment_type,
+		zt.manager_id,
+		zt.assessment_years,
+		zt.assessment_title,
+		zt.assessment_quarter,
+		zt.assessment_state,
+		zt.position,
+		"" AS charge_leader_id,
+		"" AS charge_leader_option,
+		"" AS executive_leader_id,
+		"" AS executive_leader_option,
+		null AS quarter_score,
+		null AS task_score,
+		null AS cooperation_score,
+		null AS discipline_score,
+		"" AS task_flag,
+		"" AS cooperation_flag,
+		"" AS discipline_flag,
+		"" AS dept_coefficient,
+		"" AS assistant_lock,
+		zt.del_flag,
+		zt.create_time,
+		zt.create_user,
+		zt.create_user_name,
+		zt.modify_time,
+		zt.modify_user,
+		zt.modify_user_name,
+		zt.quarter_average_score,
+		zt.comprehensive_score,
+		zt.year_final_score,
+		( SELECT oa_org_name FROM zj_xm_cqjx_oa_dept_member WHERE del_flag =
+		'0' AND oa_user_id = zt.create_user AND other_id = zt.manager_id ) AS
+		departmentName,
+		zm.duty_closing_end_date AS dutyClosingEndDate,
+		zm.score_closing_end_date AS scoreClosingEndDate,
+		zm.`state` AS state
+		FROM
+		zj_xm_cqjx_year_assistant zt
+		LEFT JOIN zj_xm_cqjx_assessment_manage zm ON zt.manager_id = zm.manager_id
+		WHERE
+		zt.del_flag = '0'
+		AND zm.del_flag = '0'
+		<if test="assessmentYears != null">
+			and DATE_FORMAT(zt.assessment_years,"%Y") =
+			DATE_FORMAT(#{assessmentYears,jdbcType=TIMESTAMP},"%Y")
+		</if>
+		<if test="assessmentType != null and assessmentType != ''">
+			and zt.assessment_type = #{assessmentType,jdbcType=CHAR}
+		</if>		
+		<if test="assessmentTitle != null and assessmentTitle != ''">
+			and zt.assessment_title = #{assessmentTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="assessmentQuarter != null and assessmentQuarter != ''">
+			and zt.assessment_quarter = #{assessmentQuarter,jdbcType=VARCHAR}
+		</if>
+		<if test="assessmentState != null and assessmentState != ''">
+			and zt.assessment_state = #{assessmentState,jdbcType=CHAR}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and zt.create_user = #{createUser,jdbcType=VARCHAR}
+		</if>		
+		ORDER BY modify_time DESC
+		)
+	</select>
+	<select id="selectByZjXmCqjxExecutiveAssistantList"
+		resultMap="BaseResultMap"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxExecutiveAssistant">
+		select
+		zt.department_id, zt.leader_see, zt.executive_id, zt.assessment_type, zt.manager_id,
+		zt.assessment_years, zt.assessment_title, zt.assessment_quarter,
+		zt.assessment_state, zt.position, zt.charge_leader_id,
+		zt.charge_leader_option, zt.executive_leader_id,
+		zt.executive_leader_option, zt.quarter_score, zt.task_score,
+		zt.cooperation_score, zt.discipline_score,
+		zt.task_flag, zt.cooperation_flag, zt.discipline_flag, zt.dept_coefficient,
+		zt.assistant_lock, zt.del_flag, zt.create_time,
+		zt.create_user, zt.create_user_name, zt.modify_time, zt.modify_user,
+		zt.modify_user_name,
+		(select oa_org_name from zj_xm_cqjx_oa_dept_member
+		where del_flag = '0' and oa_user_id = zt.create_user and other_id =
+		zt.manager_id) AS departmentName,
+		zm.duty_closing_end_date AS dutyClosingEndDate,
+		zm.score_closing_end_date AS scoreClosingEndDate,
+		zm.`state`AS state
+		from zj_xm_cqjx_executive_assistant zt left join
+		zj_xm_cqjx_assessment_manage zm on zt.manager_id = zm.manager_id
+		where zt.del_flag = '0'
+		and zm.del_flag = '0'
+		<if test="managerId != null and managerId != ''">
+			and zt.manager_id = #{managerId,jdbcType=CHAR}
+		</if>
+		<if test="departmentId != null and departmentId != ''">
+			and zt.department_id = #{departmentId,jdbcType=CHAR}
+		</if>
+		<if test="leaderSee != null and leaderSee != ''">
+			and zt.leader_see = #{leaderSee,jdbcType=CHAR}
+		</if>
+		<if test="assessmentYears != null">
+			and DATE_FORMAT(zt.assessment_years,"%Y") =
+			DATE_FORMAT(#{assessmentYears,jdbcType=TIMESTAMP},"%Y")
+		</if>
+		<if test="assessmentTitle != null and assessmentTitle != ''">
+			and zt.assessment_title = #{assessmentTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="assessmentQuarter != null and assessmentQuarter != ''">
+			and zt.assessment_quarter = #{assessmentQuarter,jdbcType=VARCHAR}
+		</if>
+		<if test="assessmentState != null and assessmentState != ''">
+			and zt.assessment_state = #{assessmentState,jdbcType=CHAR}
+		</if>
+		<if test="position != null and position != ''">
+			and zt.position = #{position,jdbcType=VARCHAR}
+		</if>
+		<if test="chargeLeaderId != null and chargeLeaderId != ''">
+			and zt.charge_leader_id = #{chargeLeaderId,jdbcType=CHAR}
+		</if>
+		<if test="chargeLeaderOption != null and chargeLeaderOption != ''">
+			and zt.charge_leader_option = #{chargeLeaderOption,jdbcType=VARCHAR}
+		</if>
+		<if test="executiveLeaderId != null and executiveLeaderId != ''">
+			and zt.executive_leader_id = #{executiveLeaderId,jdbcType=CHAR}
+		</if>
+		<if
+			test="executiveLeaderOption != null and executiveLeaderOption != ''">
+			and zt.executive_leader_option =
+			#{executiveLeaderOption,jdbcType=VARCHAR}
+		</if>
+		<if test="quarterScore != null and quarterScore != ''">
+			and zt.quarter_score = #{quarterScore,jdbcType=DOUBLE}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and zt.create_user = #{createUser,jdbcType=VARCHAR}
+		</if>
+		<if test="assistantLock != null and assistantLock != ''">
+			and zt.assistant_lock = #{assistantLock,jdbcType=CHAR}
+		</if>
+		<if test="createUserName != null and createUserName != ''">
+			and zt.create_user_name = #{createUserName,jdbcType=VARCHAR}
+		</if>
+		<if test="taskFlag != null and taskFlag != ''">
+			and zt.task_flag = #{taskFlag,jdbcType=CHAR}
+		</if>
+		<if test="cooperationFlag != null and cooperationFlag != ''">
+			and zt.cooperation_flag = #{cooperationFlag,jdbcType=CHAR}
+		</if>
+		<if test="assessmentType != null and assessmentType != ''">
+			and zt.assessment_type = #{assessmentType,jdbcType=CHAR}
+		</if>
+		<if test="disciplineFlag != null and disciplineFlag != ''">
+			and zt.discipline_flag = #{disciplineFlag,jdbcType=CHAR}
+		</if>
+		<if test="disciplineFlag != null and disciplineFlag != ''">
+			and zt.dept_coefficient is null
+		</if>
+		<if test="modifyUserName != null and modifyUserName != ''">
+			and zt.modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+		</if>
+		ORDER BY modify_time DESC
+	</select>
+	<select id="selectZjXmCqjxAssessmentManageListByDeptHeader"
+		resultMap="BaseResultMap"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxExecutiveAssistant">
+		select
+		<include refid="Base_Column_List" />
+		,
+		(select oa_org_name from zj_xm_cqjx_oa_dept_member
+		where del_flag = '0' and oa_user_id =
+		zj_xm_cqjx_executive_assistant.create_user
+		and other_id = zj_xm_cqjx_executive_assistant.manager_id) AS
+		departmentName,
+		(SELECT mobile from zj_xm_cqjx_oa_dept_member
+		WHERE del_flag = '0' AND other_id =
+		zj_xm_cqjx_executive_assistant.manager_id
+		AND oa_user_id = zj_xm_cqjx_executive_assistant.create_user) AS mobile
+		from zj_xm_cqjx_executive_assistant
+		where del_flag = '0'
+		<if test="managerId != null and managerId != ''">
+			and manager_id = #{managerId,jdbcType=CHAR}
+		</if>
+		<if test="departmentId != null and departmentId != ''">
+			and department_id = #{departmentId,jdbcType=CHAR}
+		</if>
+		ORDER BY modify_time DESC
+	</select>
+	<select id="selectAssistantDetailByQuarter"
+		resultMap="BaseResultMap"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxExecutiveAssistant">
+		select
+		<include refid="Base_Column_List" />
+		,
+		(select oa_org_name from zj_xm_cqjx_oa_dept_member
+		where del_flag = '0' and oa_user_id =
+		zj_xm_cqjx_executive_assistant.create_user
+		and other_id = zj_xm_cqjx_executive_assistant.manager_id) AS
+		departmentName,
+		(SELECT mobile from zj_xm_cqjx_oa_dept_member
+		WHERE del_flag = '0' AND other_id =
+		zj_xm_cqjx_executive_assistant.manager_id
+		AND oa_user_id = zj_xm_cqjx_executive_assistant.create_user) AS mobile
+		from zj_xm_cqjx_executive_assistant
+		where del_flag = '0'
+		<if test="managerId != null and managerId != ''">
+			and manager_id = #{managerId,jdbcType=CHAR}
+		</if>
+		<if test="assessmentYears != null and assessmentYears != ''">
+			and assessment_years = #{assessmentYears,jdbcType=TIMESTAMP}
+		</if>
+		<if test="assessmentTitle != null and assessmentTitle != ''">
+			and assessment_title = #{assessmentTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="assessmentQuarter != null and assessmentQuarter != ''">
+			and assessment_quarter = #{assessmentQuarter,jdbcType=VARCHAR}
+		</if>
+		<if test="assessmentState != null and assessmentState != ''">
+			and assessment_state = #{assessmentState,jdbcType=CHAR}
+		</if>
+		<if test="position != null and position != ''">
+			and position = #{position,jdbcType=VARCHAR}
+		</if>
+		<if test="chargeLeaderId != null and chargeLeaderId != ''">
+			and charge_leader_id = #{chargeLeaderId,jdbcType=CHAR}
+		</if>
+		<if test="chargeLeaderOption != null and chargeLeaderOption != ''">
+			and charge_leader_option = #{chargeLeaderOption,jdbcType=VARCHAR}
+		</if>
+		<if test="executiveLeaderId != null and executiveLeaderId != ''">
+			and executive_leader_id = #{executiveLeaderId,jdbcType=CHAR}
+		</if>
+		<if
+			test="executiveLeaderOption != null and executiveLeaderOption != ''">
+			and executive_leader_option =
+			#{executiveLeaderOption,jdbcType=VARCHAR}
+		</if>
+		<if test="quarterScore != null and quarterScore != ''">
+			and quarter_score = #{quarterScore,jdbcType=DOUBLE}
+		</if>
+		<if test="departmentName != null and departmentName != ''">
+			and (select oa_org_name from zj_xm_cqjx_oa_dept_member
+			where del_flag = '0' and oa_user_id =
+			zj_xm_cqjx_executive_assistant.create_user
+			and other_id = zj_xm_cqjx_executive_assistant.manager_id) like
+			concat('%', #{departmentName},'%')
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and create_user = #{createUser,jdbcType=CHAR}
+		</if>
+		<if test="createUserName != null and createUserName != ''">
+			and create_user_name like concat('%', #{createUserName},'%')
+		</if>
+		<if test="taskFlag != null and taskFlag != ''">
+			and task_flag = #{taskFlag,jdbcType=CHAR}
+		</if>
+		<if test="cooperationFlag != null and cooperationFlag != ''">
+			and cooperation_flag = #{cooperationFlag,jdbcType=CHAR}
+		</if>
+		<if test="assessmentType != null and assessmentType != ''">
+			and assessment_type = #{assessmentType,jdbcType=CHAR}
+		</if>
+		<if test="disciplineFlag != null and disciplineFlag != ''">
+			and discipline_flag = #{disciplineFlag,jdbcType=CHAR},
+		</if>
+		<if test="modifyUserName != null and modifyUserName != ''">
+			and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+		</if>
+		ORDER BY modify_time DESC
+	</select>
+	<delete id="batchDeleteUpdateZjXmCqjxExecutiveAssistant"
+		parameterType="com.apih5.mybatis.pojo.ZjXmCqjxExecutiveAssistant">
+    <![CDATA[ 
+        update zj_xm_cqjx_executive_assistant
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and executive_id in 
+     ]]>
+		<foreach collection="param1" item="model" open="("
+			separator="," close=")">#{model.executiveId}
+		</foreach>
+	</delete>
+	<select id="selectLeaderDoneListByUserKey" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxExecutiveAssistant">
+		SELECT
+			t2.assistant_leader_approval_id AS assistantLeaderApprovalId,
+			t2.leader_option AS leaderOption,
+			t1.*,
+			(SELECT oa_org_name FROM zj_xm_cqjx_oa_dept_member t3 where del_flag = '0' and t3.oa_user_id = t1.create_user and t3.other_id = t1.manager_id) AS departmentName,
+			(SELECT state FROM zj_xm_cqjx_assessment_manage t5 WHERE del_flag = '0' and t5.manager_id = t1.manager_id) AS state
+		FROM zj_xm_cqjx_executive_assistant t1
+		LEFT JOIN zj_xm_cqjx_assistant_leader_approval t2 ON t2.executive_id = t1.executive_id AND t2.del_flag = '0'
+			where t1.del_flag = '0'
+		<if test="createUser != null and createUser != ''">
+			and t2.leader_id = #{createUser,jdbcType=CHAR}
+		</if>
+			and t2.approval_flag IN ('2','3','4','5')  
+		<if test="leaderSee != null and leaderSee != ''">
+			and leader_see = #{leaderSee,jdbcType=CHAR}	
+		</if>
+	</select>
+</mapper>

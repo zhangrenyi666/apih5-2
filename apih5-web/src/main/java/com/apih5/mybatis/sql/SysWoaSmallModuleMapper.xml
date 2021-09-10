@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.SysWoaSmallModuleMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.SysWoaSmallModule" >
+    <id column="small_module_id" property="smallModuleId" jdbcType="CHAR" />
+    <result column="todo_show" property="todoShow" jdbcType="CHAR" />
+    <result column="small_module_type" property="smallModuleType" jdbcType="VARCHAR" />
+    <result column="small_data_count_id" property="smallDataCountId" jdbcType="VARCHAR" />
+    <result column="small_module_title" property="smallModuleTitle" jdbcType="VARCHAR" />
+    <result column="small_module_link" property="smallModuleLink" jdbcType="VARCHAR" />
+    <result column="small_app_link" property="smallAppLink" jdbcType="VARCHAR" />
+    <result column="small_web_link" property="smallWebLink" jdbcType="VARCHAR" />
+    <result column="small_module_icon" property="smallModuleIcon" jdbcType="VARCHAR" />
+    <result column="small_module_event_icon" property="smallModuleEventIcon" jdbcType="VARCHAR" />
+    <result column="largel_module_id" property="largelModuleId" jdbcType="CHAR" />
+    <result column="pc_menu_role_flag" property="pcMenuRoleFlag" jdbcType="CHAR" />
+    <result column="pc_menu_id" property="pcMenuId" jdbcType="CHAR" />
+    <result column="small_module_sort" property="smallModuleSort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    small_module_id, todo_show, small_module_type, small_data_count_id, small_module_title, 
+    small_module_link, small_app_link, small_web_link, small_module_icon, small_module_event_icon, 
+    largel_module_id, pc_menu_role_flag, pc_menu_id, small_module_sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_woa_small_module
+    where small_module_id = #{smallModuleId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_woa_small_module
+    where small_module_id = #{smallModuleId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.SysWoaSmallModule" >
+    insert into sys_woa_small_module (small_module_id, todo_show, small_module_type, 
+      small_data_count_id, small_module_title, small_module_link, 
+      small_app_link, small_web_link, small_module_icon, 
+      small_module_event_icon, largel_module_id, pc_menu_role_flag, 
+      pc_menu_id, small_module_sort, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{smallModuleId,jdbcType=CHAR}, #{todoShow,jdbcType=CHAR}, #{smallModuleType,jdbcType=VARCHAR}, 
+      #{smallDataCountId,jdbcType=VARCHAR}, #{smallModuleTitle,jdbcType=VARCHAR}, #{smallModuleLink,jdbcType=VARCHAR}, 
+      #{smallAppLink,jdbcType=VARCHAR}, #{smallWebLink,jdbcType=VARCHAR}, #{smallModuleIcon,jdbcType=VARCHAR}, 
+      #{smallModuleEventIcon,jdbcType=VARCHAR}, #{largelModuleId,jdbcType=CHAR}, #{pcMenuRoleFlag,jdbcType=CHAR}, 
+      #{pcMenuId,jdbcType=CHAR}, #{smallModuleSort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.SysWoaSmallModule" >
+    insert into sys_woa_small_module
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="smallModuleId != null" >
+        small_module_id,
+      </if>
+      <if test="todoShow != null" >
+        todo_show,
+      </if>
+      <if test="smallModuleType != null" >
+        small_module_type,
+      </if>
+      <if test="smallDataCountId != null" >
+        small_data_count_id,
+      </if>
+      <if test="smallModuleTitle != null" >
+        small_module_title,
+      </if>
+      <if test="smallModuleLink != null" >
+        small_module_link,
+      </if>
+      <if test="smallAppLink != null" >
+        small_app_link,
+      </if>
+      <if test="smallWebLink != null" >
+        small_web_link,
+      </if>
+      <if test="smallModuleIcon != null" >
+        small_module_icon,
+      </if>
+      <if test="smallModuleEventIcon != null" >
+        small_module_event_icon,
+      </if>
+      <if test="largelModuleId != null" >
+        largel_module_id,
+      </if>
+      <if test="pcMenuRoleFlag != null" >
+        pc_menu_role_flag,
+      </if>
+      <if test="pcMenuId != null" >
+        pc_menu_id,
+      </if>
+      <if test="smallModuleSort != null" >
+        small_module_sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="smallModuleId != null" >
+        #{smallModuleId,jdbcType=CHAR},
+      </if>
+      <if test="todoShow != null" >
+        #{todoShow,jdbcType=CHAR},
+      </if>
+      <if test="smallModuleType != null" >
+        #{smallModuleType,jdbcType=VARCHAR},
+      </if>
+      <if test="smallDataCountId != null" >
+        #{smallDataCountId,jdbcType=VARCHAR},
+      </if>
+      <if test="smallModuleTitle != null" >
+        #{smallModuleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="smallModuleLink != null" >
+        #{smallModuleLink,jdbcType=VARCHAR},
+      </if>
+      <if test="smallAppLink != null" >
+        #{smallAppLink,jdbcType=VARCHAR},
+      </if>
+      <if test="smallWebLink != null" >
+        #{smallWebLink,jdbcType=VARCHAR},
+      </if>
+      <if test="smallModuleIcon != null" >
+        #{smallModuleIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="smallModuleEventIcon != null" >
+        #{smallModuleEventIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="largelModuleId != null" >
+        #{largelModuleId,jdbcType=CHAR},
+      </if>
+      <if test="pcMenuRoleFlag != null" >
+        #{pcMenuRoleFlag,jdbcType=CHAR},
+      </if>
+      <if test="pcMenuId != null" >
+        #{pcMenuId,jdbcType=CHAR},
+      </if>
+      <if test="smallModuleSort != null" >
+        #{smallModuleSort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.SysWoaSmallModule" >
+    update sys_woa_small_module
+    <set >
+      <if test="todoShow != null" >
+        todo_show = #{todoShow,jdbcType=CHAR},
+      </if>
+      <if test="smallModuleType != null" >
+        small_module_type = #{smallModuleType,jdbcType=VARCHAR},
+      </if>
+      <if test="smallDataCountId != null" >
+        small_data_count_id = #{smallDataCountId,jdbcType=VARCHAR},
+      </if>
+      <if test="smallModuleTitle != null" >
+        small_module_title = #{smallModuleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="smallModuleLink != null" >
+        small_module_link = #{smallModuleLink,jdbcType=VARCHAR},
+      </if>
+      <if test="smallAppLink != null" >
+        small_app_link = #{smallAppLink,jdbcType=VARCHAR},
+      </if>
+      <if test="smallWebLink != null" >
+        small_web_link = #{smallWebLink,jdbcType=VARCHAR},
+      </if>
+      <if test="smallModuleIcon != null" >
+        small_module_icon = #{smallModuleIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="smallModuleEventIcon != null" >
+        small_module_event_icon = #{smallModuleEventIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="largelModuleId != null" >
+        largel_module_id = #{largelModuleId,jdbcType=CHAR},
+      </if>
+      <if test="pcMenuRoleFlag != null" >
+        pc_menu_role_flag = #{pcMenuRoleFlag,jdbcType=CHAR},
+      </if>
+      <if test="pcMenuId != null" >
+        pc_menu_id = #{pcMenuId,jdbcType=CHAR},
+      </if>
+      <if test="smallModuleSort != null" >
+        small_module_sort = #{smallModuleSort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where small_module_id = #{smallModuleId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.SysWoaSmallModule" >
+    update sys_woa_small_module
+    set       todo_show = #{todoShow,jdbcType=CHAR},
+      small_module_type = #{smallModuleType,jdbcType=VARCHAR},
+      small_data_count_id = #{smallDataCountId,jdbcType=VARCHAR},
+      small_module_title = #{smallModuleTitle,jdbcType=VARCHAR},
+      small_module_link = #{smallModuleLink,jdbcType=VARCHAR},
+      small_app_link = #{smallAppLink,jdbcType=VARCHAR},
+      small_web_link = #{smallWebLink,jdbcType=VARCHAR},
+      small_module_icon = #{smallModuleIcon,jdbcType=VARCHAR},
+      small_module_event_icon = #{smallModuleEventIcon,jdbcType=VARCHAR},
+      largel_module_id = #{largelModuleId,jdbcType=CHAR},
+      pc_menu_role_flag = #{pcMenuRoleFlag,jdbcType=CHAR},
+      pc_menu_id = #{pcMenuId,jdbcType=CHAR},
+      small_module_sort = #{smallModuleSort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where small_module_id = #{smallModuleId,jdbcType=CHAR}
+  </update>
+  <select id="selectBySysWoaSmallModuleList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysWoaSmallModule" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_woa_small_module
+    where del_flag = '0'
+    <if test="todoShow != null and todoShow != ''" >
+     and todo_show = #{todoShow,jdbcType=CHAR}
+    </if>
+    <if test="smallModuleType != null and smallModuleType != ''" >
+     and small_module_type = #{smallModuleType,jdbcType=VARCHAR}
+    </if>
+    <if test="smallDataCountId != null and smallDataCountId != ''" >
+     and small_data_count_id = #{smallDataCountId,jdbcType=VARCHAR}
+    </if>
+    <if test="smallModuleTitle != null and smallModuleTitle != ''" >
+     and small_module_title = #{smallModuleTitle,jdbcType=VARCHAR}
+    </if>
+    <if test="smallModuleLink != null and smallModuleLink != ''" >
+     and small_module_link = #{smallModuleLink,jdbcType=VARCHAR}
+    </if>
+    <if test="smallAppLink != null and smallAppLink != ''" >
+     and small_app_link = #{smallAppLink,jdbcType=VARCHAR}
+    </if>
+    <if test="smallWebLink != null and smallWebLink != ''" >
+     and small_web_link = #{smallWebLink,jdbcType=VARCHAR}
+    </if>
+    <if test="smallModuleIcon != null and smallModuleIcon != ''" >
+     and small_module_icon = #{smallModuleIcon,jdbcType=VARCHAR}
+    </if>
+    <if test="smallModuleEventIcon != null and smallModuleEventIcon != ''" >
+     and small_module_event_icon = #{smallModuleEventIcon,jdbcType=VARCHAR}
+    </if>
+    <if test="largelModuleId != null and largelModuleId != ''" >
+     and largel_module_id = #{largelModuleId,jdbcType=CHAR}
+    </if>
+    <if test="pcMenuRoleFlag != null and pcMenuRoleFlag != ''" >
+     and pc_menu_role_flag = #{pcMenuRoleFlag,jdbcType=CHAR}
+    </if>
+    <if test="pcMenuId != null and pcMenuId != ''" >
+     and pc_menu_id = #{pcMenuId,jdbcType=CHAR}
+    </if>
+    <if test="smallModuleSort != null and smallModuleSort != ''" >
+     and small_module_sort = #{smallModuleSort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY small_module_sort
+  </select>
+  <delete id="batchDeleteUpdateSysWoaSmallModule" parameterType="com.apih5.mybatis.pojo.SysWoaSmallModule" >
+    <![CDATA[ 
+        update sys_woa_small_module
+        set del_flag = '1'
+        where del_flag = '0' and small_module_id in 
+     ]]> 
+     <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.smallModuleId} 
+     </foreach>
+  </delete>
+</mapper>

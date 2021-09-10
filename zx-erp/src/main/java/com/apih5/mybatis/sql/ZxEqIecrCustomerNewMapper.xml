@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqIecrCustomerNewMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqIecrCustomerNew" >
+    <id column="customerNewID" property="customerNewID" jdbcType="VARCHAR" />
+    <result column="customerName" property="customerName" jdbcType="VARCHAR" />
+    <result column="customerNo" property="customerNo" jdbcType="VARCHAR" />
+    <result column="corparation" property="corparation" jdbcType="VARCHAR" />
+    <result column="orgCertificate" property="orgCertificate" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="district" property="district" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="fax" property="fax" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="homePage" property="homePage" jdbcType="VARCHAR" />
+    <result column="supplierType" property="supplierType" jdbcType="VARCHAR" />
+    <result column="services" property="services" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="regDate" property="regDate" jdbcType="TIMESTAMP" />
+    <result column="regMoney" property="regMoney" jdbcType="DECIMAL" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    customerNewID, customerName, customerNo, corparation, orgCertificate, 
+    province, district, address, telephone, fax, 
+    email, homePage, supplierType, services, editTime, 
+    regDate, regMoney, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_iecr_CustomerNew
+    where customerNewID = #{customerNewID,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_iecr_CustomerNew
+    where customerNewID = #{customerNewID,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqIecrCustomerNew" >
+    insert into zx_eq_iecr_CustomerNew (customerNewID, customerName, customerNo, 
+      corparation, orgCertificate, province, 
+      district, address, telephone, 
+      fax, email, homePage, 
+      supplierType, services, editTime, 
+      regDate, regMoney, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{customerNewID,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, #{customerNo,jdbcType=VARCHAR}, 
+      #{corparation,jdbcType=VARCHAR}, #{orgCertificate,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+      #{district,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, 
+      #{fax,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{homePage,jdbcType=VARCHAR}, 
+      #{supplierType,jdbcType=VARCHAR}, #{services,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, 
+      #{regDate,jdbcType=TIMESTAMP}, #{regMoney,jdbcType=DECIMAL}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqIecrCustomerNew" >
+    insert into zx_eq_iecr_CustomerNew
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="customerNewID != null" >
+        customerNewID,
+      </if>
+      <if test="customerName != null" >
+        customerName,
+      </if>
+      <if test="customerNo != null" >
+        customerNo,
+      </if>
+      <if test="corparation != null" >
+        corparation,
+      </if>
+      <if test="orgCertificate != null" >
+        orgCertificate,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="district != null" >
+        district,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
+      <if test="fax != null" >
+        fax,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="homePage != null" >
+        homePage,
+      </if>
+      <if test="supplierType != null" >
+        supplierType,
+      </if>
+      <if test="services != null" >
+        services,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="regDate != null" >
+        regDate,
+      </if>
+      <if test="regMoney != null" >
+        regMoney,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="customerNewID != null" >
+        #{customerNewID,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerNo != null" >
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="corparation != null" >
+        #{corparation,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCertificate != null" >
+        #{orgCertificate,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null" >
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="homePage != null" >
+        #{homePage,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierType != null" >
+        #{supplierType,jdbcType=VARCHAR},
+      </if>
+      <if test="services != null" >
+        #{services,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regDate != null" >
+        #{regDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regMoney != null" >
+        #{regMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqIecrCustomerNew" >
+    update zx_eq_iecr_CustomerNew
+    <set >
+      <if test="customerName != null" >
+        customerName = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerNo != null" >
+        customerNo = #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="corparation != null" >
+        corparation = #{corparation,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCertificate != null" >
+        orgCertificate = #{orgCertificate,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null" >
+        district = #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        fax = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="homePage != null" >
+        homePage = #{homePage,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierType != null" >
+        supplierType = #{supplierType,jdbcType=VARCHAR},
+      </if>
+      <if test="services != null" >
+        services = #{services,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regDate != null" >
+        regDate = #{regDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regMoney != null" >
+        regMoney = #{regMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where customerNewID = #{customerNewID,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqIecrCustomerNew" >
+    update zx_eq_iecr_CustomerNew
+    set       customerName = #{customerName,jdbcType=VARCHAR},
+      customerNo = #{customerNo,jdbcType=VARCHAR},
+      corparation = #{corparation,jdbcType=VARCHAR},
+      orgCertificate = #{orgCertificate,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      district = #{district,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      fax = #{fax,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      homePage = #{homePage,jdbcType=VARCHAR},
+      supplierType = #{supplierType,jdbcType=VARCHAR},
+      services = #{services,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      regDate = #{regDate,jdbcType=TIMESTAMP},
+      regMoney = #{regMoney,jdbcType=DECIMAL},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where customerNewID = #{customerNewID,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxEqIecrCustomerNewList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqIecrCustomerNew" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_iecr_CustomerNew
+    where del_flag = '0'
+    <if test="customerNewID != null and customerNewID != ''" >
+     and customerNewID = #{customerNewID,jdbcType=}
+    </if>
+    <if test="customerName != null and customerName != ''" >
+     and customerName = #{customerName,jdbcType=VARCHAR}
+    </if>
+    <if test="customerNo != null and customerNo != ''" >
+     and customerNo = #{customerNo,jdbcType=VARCHAR}
+    </if>
+    <if test="corparation != null and corparation != ''" >
+     and corparation = #{corparation,jdbcType=VARCHAR}
+    </if>
+    <if test="orgCertificate != null and orgCertificate != ''" >
+     and orgCertificate = #{orgCertificate,jdbcType=VARCHAR}
+    </if>
+    <if test="province != null and province != ''" >
+     and province = #{province,jdbcType=VARCHAR}
+    </if>
+    <if test="district != null and district != ''" >
+     and district = #{district,jdbcType=VARCHAR}
+    </if>
+    <if test="address != null and address != ''" >
+     and address = #{address,jdbcType=VARCHAR}
+    </if>
+    <if test="telephone != null and telephone != ''" >
+     and telephone = #{telephone,jdbcType=VARCHAR}
+    </if>
+    <if test="fax != null and fax != ''" >
+     and fax = #{fax,jdbcType=VARCHAR}
+    </if>
+    <if test="email != null and email != ''" >
+     and email = #{email,jdbcType=VARCHAR}
+    </if>
+    <if test="homePage != null and homePage != ''" >
+     and homePage = #{homePage,jdbcType=VARCHAR}
+    </if>
+    <if test="supplierType != null and supplierType != ''" >
+     and supplierType = #{supplierType,jdbcType=VARCHAR}
+    </if>
+    <if test="services != null and services != ''" >
+     and services = #{services,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="regDate != null and regDate != ''" >
+     and regDate = #{regDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="regMoney != null and regMoney != ''" >
+     and regMoney = #{regMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqIecrCustomerNew" parameterType="com.apih5.mybatis.pojo.ZxEqIecrCustomerNew" >
+    <![CDATA[ 
+        update zx_eq_iecr_CustomerNew
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and customerNewID in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.customerNewID} 
+     </foreach>
+  </delete>
+</mapper>

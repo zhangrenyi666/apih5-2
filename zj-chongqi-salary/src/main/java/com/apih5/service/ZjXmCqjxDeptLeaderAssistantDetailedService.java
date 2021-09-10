@@ -1,0 +1,20 @@
+package com.apih5.service;
+
+import java.util.List;
+import com.apih5.framework.entity.ResponseEntity;
+import com.apih5.mybatis.pojo.ZjXmCqjxDeptLeaderAssistantDetailed;
+
+public interface ZjXmCqjxDeptLeaderAssistantDetailedService {
+
+    public ResponseEntity getZjXmCqjxDeptLeaderAssistantDetailedListByCondition(ZjXmCqjxDeptLeaderAssistantDetailed zjXmCqjxDeptLeaderAssistantDetailed);
+
+    public ResponseEntity getZjXmCqjxDeptLeaderAssistantDetailedDetails(ZjXmCqjxDeptLeaderAssistantDetailed zjXmCqjxDeptLeaderAssistantDetailed);
+
+    public ResponseEntity saveZjXmCqjxDeptLeaderAssistantDetailed(ZjXmCqjxDeptLeaderAssistantDetailed zjXmCqjxDeptLeaderAssistantDetailed);
+
+    public ResponseEntity updateZjXmCqjxDeptLeaderAssistantDetailed(ZjXmCqjxDeptLeaderAssistantDetailed zjXmCqjxDeptLeaderAssistantDetailed);
+
+    public ResponseEntity batchDeleteUpdateZjXmCqjxDeptLeaderAssistantDetailed(List<ZjXmCqjxDeptLeaderAssistantDetailed> zjXmCqjxDeptLeaderAssistantDetailedList);
+
+}
+

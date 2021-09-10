@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzPartManageMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzPartManage" >
+    <id column="part_manage_id" property="partManageId" jdbcType="CHAR" />
+    <result column="design_flow_id" property="designFlowId" jdbcType="CHAR" />
+    <result column="design_flow_temp_id" property="designFlowTempId" jdbcType="CHAR" />
+    <result column="design_flow_temp_name" property="designFlowTempName" jdbcType="CHAR" />
+    <result column="order_num" property="orderNum" jdbcType="INTEGER" />
+    <result column="design_part_id" property="designPartId" jdbcType="CHAR" />
+    <result column="design_part_name" property="designPartName" jdbcType="VARCHAR" />
+    <result column="bid_part_id" property="bidPartId" jdbcType="CHAR" />
+    <result column="bid_part_name" property="bidPartName" jdbcType="VARCHAR" />
+    <result column="bu_id" property="buId" jdbcType="CHAR" />
+    <result column="bu_name" property="buName" jdbcType="VARCHAR" />
+    <result column="plan_date" property="planDate" jdbcType="DATE" />
+    <result column="actual_date" property="actualDate" jdbcType="DATE" />
+    <result column="file_flag" property="fileFlag" jdbcType="CHAR" />
+    <result column="update_flag" property="updateFlag" jdbcType="CHAR" />
+    <result column="lock_flag" property="lockFlag" jdbcType="CHAR" />
+    <result column="renew" property="renew" jdbcType="CHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    part_manage_id, design_flow_id, design_flow_temp_id, design_flow_temp_name, order_num, 
+    design_part_id, design_part_name, bid_part_id, bid_part_name, bu_id, 
+    bu_name, plan_date, actual_date, file_flag, update_flag, 
+    lock_flag, renew, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_part_manage
+    where part_manage_id = #{partManageId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_part_manage
+    where part_manage_id = #{partManageId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzPartManage" >
+    insert into zj_tz_part_manage (part_manage_id, design_flow_id, design_flow_temp_id, 
+      design_flow_temp_name, order_num, design_part_id, 
+      design_part_name, bid_part_id, bid_part_name, 
+      bu_id, bu_name, plan_date, 
+      actual_date, file_flag, update_flag, 
+      lock_flag, renew, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{partManageId,jdbcType=CHAR}, #{designFlowId,jdbcType=CHAR}, #{designFlowTempId,jdbcType=CHAR}, 
+      #{designFlowTempName,jdbcType=CHAR}, #{orderNum,jdbcType=INTEGER}, #{designPartId,jdbcType=CHAR}, 
+      #{designPartName,jdbcType=VARCHAR}, #{bidPartId,jdbcType=CHAR}, #{bidPartName,jdbcType=VARCHAR}, 
+      #{buId,jdbcType=CHAR}, #{buName,jdbcType=VARCHAR}, #{planDate,jdbcType=DATE}, 
+      #{actualDate,jdbcType=DATE}, #{fileFlag,jdbcType=CHAR}, #{updateFlag,jdbcType=CHAR}, 
+      #{lockFlag,jdbcType=CHAR}, #{renew,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzPartManage" >
+    insert into zj_tz_part_manage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="partManageId != null" >
+        part_manage_id,
+      </if>
+      <if test="designFlowId != null" >
+        design_flow_id,
+      </if>
+      <if test="designFlowTempId != null" >
+        design_flow_temp_id,
+      </if>
+      <if test="designFlowTempName != null" >
+        design_flow_temp_name,
+      </if>
+      <if test="orderNum != null" >
+        order_num,
+      </if>
+      <if test="designPartId != null" >
+        design_part_id,
+      </if>
+      <if test="designPartName != null" >
+        design_part_name,
+      </if>
+      <if test="bidPartId != null" >
+        bid_part_id,
+      </if>
+      <if test="bidPartName != null" >
+        bid_part_name,
+      </if>
+      <if test="buId != null" >
+        bu_id,
+      </if>
+      <if test="buName != null" >
+        bu_name,
+      </if>
+      <if test="planDate != null" >
+        plan_date,
+      </if>
+      <if test="actualDate != null" >
+        actual_date,
+      </if>
+      <if test="fileFlag != null" >
+        file_flag,
+      </if>
+      <if test="updateFlag != null" >
+        update_flag,
+      </if>
+      <if test="lockFlag != null" >
+        lock_flag,
+      </if>
+      <if test="renew != null" >
+        renew,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="partManageId != null" >
+        #{partManageId,jdbcType=CHAR},
+      </if>
+      <if test="designFlowId != null" >
+        #{designFlowId,jdbcType=CHAR},
+      </if>
+      <if test="designFlowTempId != null" >
+        #{designFlowTempId,jdbcType=CHAR},
+      </if>
+      <if test="designFlowTempName != null" >
+        #{designFlowTempName,jdbcType=CHAR},
+      </if>
+      <if test="orderNum != null" >
+        #{orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="designPartId != null" >
+        #{designPartId,jdbcType=CHAR},
+      </if>
+      <if test="designPartName != null" >
+        #{designPartName,jdbcType=VARCHAR},
+      </if>
+      <if test="bidPartId != null" >
+        #{bidPartId,jdbcType=CHAR},
+      </if>
+      <if test="bidPartName != null" >
+        #{bidPartName,jdbcType=VARCHAR},
+      </if>
+      <if test="buId != null" >
+        #{buId,jdbcType=CHAR},
+      </if>
+      <if test="buName != null" >
+        #{buName,jdbcType=VARCHAR},
+      </if>
+      <if test="planDate != null" >
+        #{planDate,jdbcType=DATE},
+      </if>
+      <if test="actualDate != null" >
+        #{actualDate,jdbcType=DATE},
+      </if>
+      <if test="fileFlag != null" >
+        #{fileFlag,jdbcType=CHAR},
+      </if>
+      <if test="updateFlag != null" >
+        #{updateFlag,jdbcType=CHAR},
+      </if>
+      <if test="lockFlag != null" >
+        #{lockFlag,jdbcType=CHAR},
+      </if>
+      <if test="renew != null" >
+        #{renew,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzPartManage" >
+    update zj_tz_part_manage
+    <set >
+      <if test="designFlowId != null" >
+        design_flow_id = #{designFlowId,jdbcType=CHAR},
+      </if>
+      <if test="designFlowTempId != null" >
+        design_flow_temp_id = #{designFlowTempId,jdbcType=CHAR},
+      </if>
+      <if test="designFlowTempName != null" >
+        design_flow_temp_name = #{designFlowTempName,jdbcType=CHAR},
+      </if>
+      <if test="orderNum != null" >
+        order_num = #{orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="designPartId != null" >
+        design_part_id = #{designPartId,jdbcType=CHAR},
+      </if>
+      <if test="designPartName != null" >
+        design_part_name = #{designPartName,jdbcType=VARCHAR},
+      </if>
+      <if test="bidPartId != null" >
+        bid_part_id = #{bidPartId,jdbcType=CHAR},
+      </if>
+      <if test="bidPartName != null" >
+        bid_part_name = #{bidPartName,jdbcType=VARCHAR},
+      </if>
+      <if test="buId != null" >
+        bu_id = #{buId,jdbcType=CHAR},
+      </if>
+      <if test="buName != null" >
+        bu_name = #{buName,jdbcType=VARCHAR},
+      </if>
+      <if test="planDate != null" >
+        plan_date = #{planDate,jdbcType=DATE},
+      </if>
+      <if test="actualDate != null" >
+        actual_date = #{actualDate,jdbcType=DATE},
+      </if>
+      <if test="fileFlag != null" >
+        file_flag = #{fileFlag,jdbcType=CHAR},
+      </if>
+      <if test="updateFlag != null" >
+        update_flag = #{updateFlag,jdbcType=CHAR},
+      </if>
+      <if test="lockFlag != null" >
+        lock_flag = #{lockFlag,jdbcType=CHAR},
+      </if>
+      <if test="renew != null" >
+        renew = #{renew,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where part_manage_id = #{partManageId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzPartManage" >
+    update zj_tz_part_manage
+    set       design_flow_id = #{designFlowId,jdbcType=CHAR},
+      design_flow_temp_id = #{designFlowTempId,jdbcType=CHAR},
+      design_flow_temp_name = #{designFlowTempName,jdbcType=CHAR},
+      order_num = #{orderNum,jdbcType=INTEGER},
+      design_part_id = #{designPartId,jdbcType=CHAR},
+      design_part_name = #{designPartName,jdbcType=VARCHAR},
+      bid_part_id = #{bidPartId,jdbcType=CHAR},
+      bid_part_name = #{bidPartName,jdbcType=VARCHAR},
+      bu_id = #{buId,jdbcType=CHAR},
+      bu_name = #{buName,jdbcType=VARCHAR},
+      plan_date = #{planDate,jdbcType=DATE},
+      actual_date = #{actualDate,jdbcType=DATE},
+      file_flag = #{fileFlag,jdbcType=CHAR},
+      update_flag = #{updateFlag,jdbcType=CHAR},
+      lock_flag = #{lockFlag,jdbcType=CHAR},
+      renew = #{renew,jdbcType=CHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where part_manage_id = #{partManageId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzPartManageList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzPartManage" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_part_manage
+    where del_flag = '0'
+    <if test="designFlowId != null and designFlowId != ''" >
+     and design_flow_id = #{designFlowId,jdbcType=CHAR}
+    </if>
+    <if test="designFlowTempId != null and designFlowTempId != ''" >
+     and design_flow_temp_id = #{designFlowTempId,jdbcType=CHAR}
+    </if>
+    <if test="designFlowTempName != null and designFlowTempName != ''" >
+     and design_flow_temp_name = #{designFlowTempName,jdbcType=CHAR}
+    </if>
+    <if test="orderNum != null and orderNum != ''" >
+     and order_num = #{orderNum,jdbcType=INTEGER}
+    </if>
+    <if test="designPartId != null and designPartId != ''" >
+     and design_part_id = #{designPartId,jdbcType=CHAR}
+    </if>
+    <if test="designPartName != null and designPartName != ''" >
+     and design_part_name = #{designPartName,jdbcType=VARCHAR}
+    </if>
+    <if test="bidPartId != null and bidPartId != ''" >
+     and bid_part_id = #{bidPartId,jdbcType=CHAR}
+    </if>
+    <if test="bidPartName != null and bidPartName != ''" >
+     and bid_part_name = #{bidPartName,jdbcType=VARCHAR}
+    </if>
+    <if test="buId != null and buId != ''" >
+     and bu_id = #{buId,jdbcType=CHAR}
+    </if>
+    <if test="buName != null and buName != ''" >
+     and bu_name = #{buName,jdbcType=VARCHAR}
+    </if>
+    <if test="planDate != null" >
+     and plan_date = #{planDate,jdbcType=DATE}
+    </if>
+    <if test="actualDate != null" >
+     and actual_date = #{actualDate,jdbcType=DATE}
+    </if>
+    <if test="fileFlag != null and fileFlag != ''" >
+     and file_flag = #{fileFlag,jdbcType=CHAR}
+    </if>
+    <if test="updateFlag != null and updateFlag != ''" >
+     and update_flag = #{updateFlag,jdbcType=CHAR}
+    </if>
+    <if test="lockFlag != null and lockFlag != ''" >
+     and lock_flag = #{lockFlag,jdbcType=CHAR}
+    </if>
+    <if test="renew != null and renew != ''" >
+     and renew = #{renew,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY order_num ASC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzPartManage" parameterType="com.apih5.mybatis.pojo.ZjTzPartManage" >
+    <![CDATA[ 
+        update zj_tz_part_manage
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and part_manage_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.partManageId} 
+     </foreach>
+  </delete>
+  
+  <!-- 扩展 -->
+  <select id="selectByZjTzPartManageListGreaterOrderNum" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzPartManage" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_part_manage
+    where del_flag = '0'
+    <if test="designFlowId != null and designFlowId != ''" >
+     and design_flow_id = #{designFlowId,jdbcType=CHAR}
+    </if>
+    <if test="designFlowTempId != null and designFlowTempId != ''" >
+     and design_flow_temp_id = #{designFlowTempId,jdbcType=CHAR}
+    </if>
+    <if test="designFlowTempName != null and designFlowTempName != ''" >
+     and design_flow_temp_name = #{designFlowTempName,jdbcType=CHAR}
+    </if>
+    <if test="orderNum != null and orderNum != ''" >
+     and order_num &gt; #{orderNum,jdbcType=INTEGER}
+    </if>
+    <if test="designPartId != null and designPartId != ''" >
+     and design_part_id = #{designPartId,jdbcType=CHAR}
+    </if>
+    <if test="designPartName != null and designPartName != ''" >
+     and design_part_name = #{designPartName,jdbcType=VARCHAR}
+    </if>
+    <if test="bidPartId != null and bidPartId != ''" >
+     and bid_part_id = #{bidPartId,jdbcType=CHAR}
+    </if>
+    <if test="bidPartName != null and bidPartName != ''" >
+     and bid_part_name = #{bidPartName,jdbcType=VARCHAR}
+    </if>
+    <if test="buId != null and buId != ''" >
+     and bu_id = #{buId,jdbcType=CHAR}
+    </if>
+    <if test="buName != null and buName != ''" >
+     and bu_name = #{buName,jdbcType=VARCHAR}
+    </if>
+    <if test="planDate != null" >
+     and plan_date = #{planDate,jdbcType=DATE}
+    </if>
+    <if test="actualDate != null" >
+     and actual_date = #{actualDate,jdbcType=DATE}
+    </if>
+    <if test="fileFlag != null and fileFlag != ''" >
+     and file_flag = #{fileFlag,jdbcType=CHAR}
+    </if>
+    <if test="updateFlag != null and updateFlag != ''" >
+     and update_flag = #{updateFlag,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY order_num ASC 
+  </select>
+  
+   <delete id="batchUpdateZjTzPartManageAddOne" parameterType="com.apih5.mybatis.pojo.ZjTzPartManage" >
+    <![CDATA[ 
+        update zj_tz_part_manage
+        set order_num = order_num+1,
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and part_manage_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.partManageId} 
+     </foreach>
+  </delete>
+  
+  <select id="selectByZjTzPartManageListLessOrderNum" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzPartManage" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_part_manage
+    where del_flag = '0'
+    <if test="designFlowId != null and designFlowId != ''" >
+     and design_flow_id = #{designFlowId,jdbcType=CHAR}
+    </if>
+    <if test="designFlowTempId != null and designFlowTempId != ''" >
+     and design_flow_temp_id = #{designFlowTempId,jdbcType=CHAR}
+    </if>
+    <if test="designFlowTempName != null and designFlowTempName != ''" >
+     and design_flow_temp_name = #{designFlowTempName,jdbcType=CHAR}
+    </if>
+    <if test="orderNum != null and orderNum != ''" >
+     and order_num &lt; #{orderNum,jdbcType=INTEGER}
+    </if>
+    <if test="designPartId != null and designPartId != ''" >
+     and design_part_id = #{designPartId,jdbcType=CHAR}
+    </if>
+    <if test="designPartName != null and designPartName != ''" >
+     and design_part_name = #{designPartName,jdbcType=VARCHAR}
+    </if>
+    <if test="bidPartId != null and bidPartId != ''" >
+     and bid_part_id = #{bidPartId,jdbcType=CHAR}
+    </if>
+    <if test="bidPartName != null and bidPartName != ''" >
+     and bid_part_name = #{bidPartName,jdbcType=VARCHAR}
+    </if>
+    <if test="buId != null and buId != ''" >
+     and bu_id = #{buId,jdbcType=CHAR}
+    </if>
+    <if test="buName != null and buName != ''" >
+     and bu_name = #{buName,jdbcType=VARCHAR}
+    </if>
+    <if test="planDate != null" >
+     and plan_date = #{planDate,jdbcType=DATE}
+    </if>
+    <if test="actualDate != null" >
+     and actual_date = #{actualDate,jdbcType=DATE}
+    </if>
+    <if test="fileFlag != null and fileFlag != ''" >
+     and file_flag = #{fileFlag,jdbcType=CHAR}
+    </if>
+    <if test="updateFlag != null and updateFlag != ''" >
+     and update_flag = #{updateFlag,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY order_num ASC 
+  </select>
+  <delete id="batchUpdateZjTzPartManageSubOne" parameterType="com.apih5.mybatis.pojo.ZjTzPartManage" >
+    <![CDATA[ 
+        update zj_tz_part_manage
+        set order_num = order_num-1,
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and part_manage_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.partManageId} 
+     </foreach>
+  </delete>
+  <delete id="batchLockUpdateZjTzPartManage" parameterType="com.apih5.mybatis.pojo.ZjTzPartManage" >
+    <![CDATA[ 
+        update zj_tz_part_manage
+        set lock_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and part_manage_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.partManageId} 
+     </foreach>
+  </delete>
+   <delete id="batchClearUpdateZjTzPartManage" parameterType="com.apih5.mybatis.pojo.ZjTzPartManage" >
+    <![CDATA[ 
+        update zj_tz_part_manage
+        set lock_flag = '0',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and part_manage_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.partManageId} 
+     </foreach>
+  </delete>
+  
+</mapper>

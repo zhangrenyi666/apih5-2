@@ -1,0 +1,25 @@
+package com.apih5.service;
+
+import java.util.List;
+import com.apih5.framework.entity.ResponseEntity;
+import com.apih5.mybatis.pojo.ZxSkStockTransferDiskFillingStorage;
+
+public interface ZxSkStockTransferDiskFillingStorageService {
+
+    public ResponseEntity getZxSkStockTransferDiskFillingStorageListByCondition(ZxSkStockTransferDiskFillingStorage zxSkStockTransferDiskFillingStorage);
+
+    public ResponseEntity getZxSkStockTransferDiskFillingStorageDetails(ZxSkStockTransferDiskFillingStorage zxSkStockTransferDiskFillingStorage);
+
+    public ResponseEntity saveZxSkStockTransferDiskFillingStorage(ZxSkStockTransferDiskFillingStorage zxSkStockTransferDiskFillingStorage);
+
+    public ResponseEntity updateZxSkStockTransferDiskFillingStorage(ZxSkStockTransferDiskFillingStorage zxSkStockTransferDiskFillingStorage);
+
+    public ResponseEntity batchDeleteUpdateZxSkStockTransferDiskFillingStorage(List<ZxSkStockTransferDiskFillingStorage> zxSkStockTransferDiskFillingStorageList);
+
+    public ResponseEntity checkZxSkStockTransferDiskFillingStorage(ZxSkStockTransferDiskFillingStorage zxSkStockTransferDiskFillingStorage);
+
+    public ResponseEntity getZxSkStockTransferDiskFillingStorageNo(ZxSkStockTransferDiskFillingStorage zxSkStockTransferDiskFillingStorage);
+
+
+}
+

@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[95],{rVxC:function(n,t,u){"use strict";u.r(t);var e=u("Dlqy");u.d(t,"default",function(){return e.default}),u.d(t,"getRules",function(){return e.getRules}),u.d(t,"tool",function(){return e.tool})}}]);

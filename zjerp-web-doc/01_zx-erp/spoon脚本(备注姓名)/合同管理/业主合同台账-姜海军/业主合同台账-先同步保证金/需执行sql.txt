@@ -1,0 +1,98 @@
+UPDATE zx_ct_contract zcc
+SET zcc.projectLocation = (
+	SELECT bc.item_id FROM base_code bc WHERE bc.del_flag = '0' AND bc.item_name = zcc.projectLocation AND bc.code_pid = '1DA87A3JD8E4DF01A8C0000060CDF9DC'
+)
+WHERE zcc.del_flag = '0'
+AND (zcc.projectLocation != ''
+OR NOT ISNULL(zcc.projectLocation));
+
+UPDATE zx_ct_contract zcc
+SET zcc.contractNo = zcc.`code`,
+zcc.shortName = zcc.code5
+WHERE zcc.del_flag = '0';
+
+UPDATE zx_ct_contract zcc, zx_ct_contrdetail zccd
+SET zcc.projQuality = zccd.projQuality,
+		zcc.dyyfkMoney = zccd.dyyfkMoney,
+    zcc.dyyfkqkdMoney = zccd.dyyfkqkdMoney,
+    zcc.khdyyfkPercent = zccd.khdyyfkPercent,
+    zcc.dyyfkqekhdMoney = zccd.dyyfkqekhdMoney,
+    zcc.clyfkPercent = zccd.clyfkPercent,
+    zcc.clyfkxeMoney = zccd.clyfkxeMoney,
+    zcc.ckklxPercent = zccd.ckklxPercent,
+    zcc.ckklxxeMoney = zccd.ckklxxeMoney,
+    zcc.wyjxeMoney = zccd.wyjxeMoney,
+    zcc.cpjexeMoney = zccd.cpjexeMoney,
+    zcc.bljblPercent = zccd.bljblPercent,
+    zcc.bljqkdMoney = zccd.bljqkdMoney,
+    zcc.ljkbljxeMoney = zccd.ljkbljxeMoney,
+    zcc.clkhkblPercent = zccd.clkhkblPercent,
+    zcc.projDetail = zccd.projDetail,
+    zcc.ownerNodeDeys = zccd.ownerNodeDeys,
+    zcc.ownerSpecialClause = zccd.ownerSpecialClause
+WHERE zccd.contractID = zcc.id
+AND zcc.del_flag = '0'
+AND zccd.del_flag = '0';
+
+UPDATE zx_ct_contract zcc
+SET zcc.subArea = ( 
+	SELECT bc.item_id FROM base_code bc WHERE bc.del_flag = '0' AND bc.item_name = zcc.subArea AND bc.code_pid = '1ELME0TU903G0C0012AC00007107D66E'
+)
+WHERE zcc.del_flag = '0'
+AND (zcc.subArea != ''
+OR NOT ISNULL(zcc.subArea));
+
+UPDATE zx_ct_contract zcc
+SET zcc.provinceAbbreviation = ( 
+	SELECT bc.item_name FROM base_code bc WHERE bc.del_flag = '0' AND bc.item_id = zcc.provinceAbbreviation AND code_pid = 'categorycm1001300'
+)
+WHERE zcc.del_flag = '0'
+AND (zcc.provinceAbbreviation != ''
+OR NOT ISNULL(zcc.provinceAbbreviation));
+
+UPDATE zx_ct_contract zcc
+SET zcc.cityName = ( 
+	SELECT IF(ISNULL(bc.item_id),'',bc.item_id) FROM base_code bc WHERE bc.del_flag = '0' 
+	AND zcc.cityName LIKE CONCAT('%', REPLACE(bc.item_name, ' ', ''), '%') 
+	AND bc.pid_all LIKE '1DA87A3JD8E4DF01A8C0000060CDF9DC,%'
+	AND bc.pid_name_all LIKE CONCAT('%',LEFT(zcc.cityName,2) ,'%') 
+	ORDER BY bc.pid_all DESC
+	LIMIT 1
+)
+WHERE zcc.del_flag = '0'
+AND (zcc.cityName != ''
+OR NOT ISNULL(zcc.cityName));
+
+UPDATE zx_ct_contract zcc
+SET zcc.isEasyTax = (
+		IF(zcc.isEasyTax = '否', '10002', '10001')
+)
+WHERE zcc.del_flag = '0'
+AND (zcc.isEasyTax != ''
+OR NOT ISNULL(zcc.isEasyTax));
+
+UPDATE zx_ct_contract zcc
+SET zcc.locationInDeprFormula = (
+		SELECT department_id FROM sys_department WHERE del_flag = '0' AND department_flag = '2' AND zcc.locationInDeprFormula = department_name
+)
+WHERE zcc.del_flag = '0'
+AND (zcc.locationInDeprFormula != ''
+OR NOT ISNULL(zcc.locationInDeprFormula));
+
+UPDATE zx_ct_contract
+SET code = (
+	CASE 
+		WHEN INSTR(code,'-T-') > 0 THEN SUBSTRING(code,instr(code,'-T-') + 1)
+		WHEN INSTR(code,'-X-') > 0 THEN SUBSTRING(code,instr(code,'-X-') + 1)
+		WHEN code LIKE '1%' OR code LIKE '0%' THEN SUBSTRING(code, instr(code,'-') + 1)
+		ELSE code
+	END 
+),
+contractNo = (
+	CASE 
+		WHEN INSTR(contractNo,'-T-') > 0 THEN SUBSTRING(contractNo,instr(contractNo,'-T-') + 1)
+		WHEN INSTR(contractNo,'-X-') > 0 THEN SUBSTRING(contractNo,instr(contractNo,'-X-') + 1)
+		WHEN contractNo LIKE '1%' OR contractNo LIKE '0%' THEN SUBSTRING(contractNo, instr(contractNo,'-') + 1)
+		ELSE contractNo
+	END 
+)

@@ -1,0 +1,141 @@
+@import '../../style.less';
+.info {
+    color: @color;
+    // padding: 8px;
+    // padding-top:0;
+    box-sizing: border-box; // .block;
+    .title {
+        font-size: 14px;
+        border-left: 2px solid;
+        padding-left: 8px;
+        margin: 3px 0;
+        box-sizing: border-box;
+    }
+    .more {
+        font-size: 14px;
+        font-weight: 500;
+        float: right;
+        cursor: pointer;
+        color: rgb(0, 183, 255);
+    }
+    .con {
+        overflow: hidden;
+        height: calc(100% - 32px);
+        box-sizing: border-box;
+        // border: 1px solid red;
+        padding: 8px;
+        .precessList {
+            cursor: pointer;
+            &:hover {
+                opacity: 0.6;
+            }
+            height: 28%;
+           // background: linear-gradient(to left top, @color6, @color2, @color3, @color4); //块的颜色;
+            border-radius:2px;
+            color:#ffffffff;
+            padding: 8px; 
+            box-sizing: border-box;
+            overflow: hidden;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            background-color: rgba(44, 114, 161, 0.226);
+            box-shadow: 0 0 3px rgba(122, 122, 122, 0.267);
+            .right {
+                display: flex;
+                align-items: center;
+                margin-left: 10px;
+                box-sizing: border-box;
+                img {
+                    border-radius: 4px;
+                    height: 100%;
+                    width: 80px;
+                    max-width: 150px;
+                    vertical-align: middle;
+                    background: rgba(215, 251, 251, 0.2);
+                    &:after {
+                        width: 100%;
+                        content: '加载中...';
+                        display: inline-block;
+                        text-align: center;
+                        margin-top: 45%;
+                        font-size: 12px;
+                        color: aquamarine;
+                    }
+                }
+            }
+            .left {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .timeAndDesc {
+                width: 100%;
+                border-top: 1px solid rgba(71, 78, 82, 0.203);
+                font-size: 13px; // color:rgba(71, 78, 82, 0.603);
+                margin-top: 8px;
+                display: flex;
+                justify-content: space-between;
+                box-sizing: border-box;
+            }
+        }
+        .precessListAni {
+            animation: precessListAni 0.4s linear infinite;
+        }
+    }
+}
+
+.bannerContainer {
+    margin-top: 16px;
+    position: relative;
+    .bannera {
+        display: block; 
+        width: 100%;
+        overflow: hidden; 
+        box-sizing: border-box;
+        height: 450px;
+        .bannerImg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .arrowLeft, .arrowRight{ 
+        display: inline-block;
+        position: absolute;
+        top:46%;
+        cursor: pointer;
+        font-size: 30px;
+        background: rgba(0, 183, 255, 0.5);
+        color:white;
+    }
+    .arrowLeft{
+        left:0;
+    }
+    .arrowRight{
+        right:0;
+    }
+}
+
+@keyframes precessListAni {
+    0% {
+        padding: 0;
+        margin: 0;
+    }
+    50% {
+        // margin:0;
+        // padding:0;
+    }
+    80% {
+        // transform: translateX(-100%);
+        // opacity: 0;
+    }
+    100% {
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        transform: translate(-100%);
+        transform-origin: 0% 100%;
+        height: 0px;
+    }
+}

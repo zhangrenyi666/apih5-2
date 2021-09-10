@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>资产详情</title>
+    <link rel="stylesheet" type="text/css" href="../css/assetsDetail.css">
+    <link rel="stylesheet" type="text/css" href="../lib/layer_mobile/need/layer.css">
+    <link rel="stylesheet" href="../lib/swiper/swiper.min.css">
+    <script src="../lib/jquery/1.9.1/jquery.min.js"></script>
+    <script src="../lib/action-sheet/action-sheet.js"></script>
+    <script src="http://weixin.fheb.cn:90/cdn/public/lny.js" type="text/javascript"></script>
+    <script src="../lib/layer_mobile/layer.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../lib/swiper/swiper.min.js"></script>
+    <!-- <script src="../lib/flickity/flickity.pkgd.min.js"></script> -->
+    <script src="../js/common.js"></script>
+    <script src="../js/main.js"></script>
+    <style>
+        .layui-m-layerbtn span {
+            font-size: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="assetsDetail">
+        <div class="img swiper-container">
+        </div>
+        <div class="content">
+            <div class="title">资产名称</div>
+            <ul>
+                <li>
+                    <div class="left">
+                        <span class="text">资产大类：</span>
+                    </div>
+                    <div class="right">
+                        <span id="sszclx1Name" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">资产小类：</span>
+                    </div>
+                    <div class="right">
+                        <span id="sszclx2Name" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">资产编号：</span>
+                    </div>
+                    <div class="right">
+                        <span id="zcbh" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">资产名称：</span>
+                    </div>
+                    <div class="right">
+                        <span id="zcmc" class="text"></span>
+                    </div>
+                </li>
+                <li class="remove">
+                    <div class="left">
+                        <span class="text">资产原值：</span>
+                    </div>
+                    <div class="right">
+                        <span id="zcyz" class="text"></span>
+                    </div>
+                </li>
+                <li class="remove">
+                    <div class="left">
+                        <span class="text">残值率：</span>
+                    </div>
+                    <div class="right">
+                        <span id="czl" class="text"></span>
+                    </div>
+                </li>
+                <li class="remove">
+                    <div class="left">
+                        <span class="text">使用年限：</span>
+                    </div>
+                    <div class="right">
+                        <span id="synx" class="text"></span>
+                    </div>
+                </li>
+                <li class="remove">
+                    <div class="left">
+                        <span class="text">保修天数：</span>
+                    </div>
+                    <div class="right">
+                        <span id="bxts" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">规格型号：</span>
+                    </div>
+                    <div class="right">
+                        <span id="ggxh" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">购入日期：</span>
+                    </div>
+                    <div class="right">
+                        <span id="grrq" class="text"></span>
+                    </div>
+                </li>
+                <li class="remove">
+                    <div class="left">
+                        <span class="text">购入方式：</span>
+                    </div>
+                    <div class="right">
+                        <span id="grfsdm" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">管理员：</span>
+                    </div>
+                    <div class="right">
+                        <span id="glrymc" class="text"></span>
+                    </div>
+                </li>
+                <li class="remove">
+                    <div class="left">
+                        <span class="text">产权单位：</span>
+                    </div>
+                    <div class="right">
+                        <span id="cqdwid" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">使用单位：</span>
+                    </div>
+                    <div class="right">
+                        <span id="sydwName" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">使用部门：</span>
+                    </div>
+                    <div class="right">
+                        <span id="sybm" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">存放地点：</span>
+                    </div>
+                    <div class="right">
+                        <span id="cfddmc" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">使用人：</span>
+                    </div>
+                    <div class="right">
+                        <span id="syr" class="text"></span>
+                    </div>
+                </li>
+                <li class="remove">
+                    <div class="left">
+                        <span class="text">出厂日期：</span>
+                    </div>
+                    <div class="right">
+                        <span id="scrq" class="text"></span>
+                    </div>
+                </li>
+                <li class="remove">
+                    <div class="left">
+                        <span class="text">出厂编号：</span>
+                    </div>
+                    <div class="right">
+                        <span id="serialNumber" class="text"></span>
+                    </div>
+                </li>
+                <li class="remove">
+                    <div class="left">
+                        <span class="text">供应商：</span>
+                    </div>
+                    <div class="right">
+                        <span id="gysId" class="text"></span>
+                    </div>
+                </li>
+                <li class="remove">
+                    <div class="left">
+                        <span class="text">供应范围：</span>
+                    </div>
+                    <div class="right">
+                        <span id="rangeId" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">品牌：</span>
+                    </div>
+                    <div class="right">
+                        <span id="brandId" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">备注：</span>
+                    </div>
+                    <div class="right">
+                        <span id="bz" class="text"></span>
+                    </div>
+                </li>
+            </ul>
+            <input id="recordId" type="hidden" value="">
+        </div>
+        <div class="footer">
+            <img id="open" class="" src="../img/add.png">
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        window.login(function () {
+            var recordId = getUrl("id");
+            console.log(recordId);
+            var zcztdm = ''//资产状态
+            function admin(isAdmin) {
+                if (isAdmin == '1') {
+                    $("#open").show();
+                } else {
+                    $(".remove").remove();
+                    $("#open").remove();
+                }
+            }
+            //设置cookie  
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + "; " + expires;
+            }
+            //获取cookie  
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1);
+                    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+                }
+                return "";
+            }
+            function getUrl(k) {//获取地址栏参数，k为键名
+                var m = new RegExp("(^|&)" + k + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(m);
+                if (r != null) return decodeURI(r[2]); return null;
+            };
+
+            function btns(url, recordId, text) {
+                return '<a href="' + url + '.html?id=' + recordId + '" style="font-size: 28px;text-decoration: none;color: #565656;background-color: #dbdbdb;display:block;border-bottom: 1px solid #c2c2c2;padding:20px">' + text + '</a>'
+            }
+
+            $("#open").click(function () {
+                //底部对话框
+                layer.open({
+                    content:
+                        //1正常使用  2未验收  3已报废
+                        zcztdm == '1' ?
+                            (
+                                '<a href="inventoryList.html?id=' + recordId + '" style="font-size: 28px;text-decoration: none;color: #565656;background-color: #dbdbdb; display:block;border-bottom: 1px solid #c2c2c2; padding:20px">资产盘点</a>' +
+                                '<a href="repairList.html?id=' + recordId + '" style="font-size: 28px;text-decoration: none;color: #565656;background-color: #dbdbdb;border-bottom: 1px solid #c2c2c2;display:block;padding:20px">资产维修</a>' +
+                                '<a href="assetsHistoryList.html?id=' + recordId + '" style="font-size: 28px;text-decoration: none;color: #565656;background-color: #dbdbdb;display:block;padding:20px">历史记录</a>'
+                            )
+                            :
+                            (
+                                zcztdm == '2' ?
+                                    '<a href="assetsHistoryList.html?id=' + recordId + '" style="font-size: 28px;text-decoration: none;color: #565656;background-color: #dbdbdb;display:block;padding:20px">历史记录</a>'
+                                    :
+                                    '<a href="assetsHistoryList.html?id=' + recordId + '" style="font-size: 28px;text-decoration: none;color: #565656;background-color: #dbdbdb;display:block;padding:20px">历史记录</a>'
+                            )
+                    , btn: ['确定']
+                    , skin: 'footer'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+            })
+
+            // 页面刷新加载方法
+            window.onload = function () {
+                assetsDetail();// 资产详情查询
+            }
+            // 资产详情查询
+            function assetsDetail() {
+                var param = {
+                    recordid: recordId
+                }
+                l.ajax('getWeChatAssetsDetails', param, function (data, message, success) {
+                    if (success) {
+                        var data = noNull(data);// 详情数据
+                        zcztdm = data.zcztdm;
+                        if (data != "") {
+                            admin(data.isAdmin);
+                            if (data.isAdmin == '1') {
+                                $("#open").click();//模拟点击让底部弹窗出来
+                            }
+
+                            localStorage.setItem("wangAssetsDetailData", JSON.stringify(data)); //把详情页所有数据保存到本地储存
+                            $("#recordId").val(noNull(data.recordId));// 记录ID
+                            $("#sszclx1Name").text(noNull(data.sszclx1Name));// 资产大类
+                            $("#sszclx2Name").text(noNull(data.sszclx2Name));// 资产小类
+                            $("#zcbh").text(noNull(data.zcbh));// 资产编号
+                            $("#zcmc").text(noNull(data.zcmc));// 资产名称
+                            $("#zcyz").text(noNull(data.zcyz));// 资产原值
+                            $("#czl").text(noNull(data.czl));// 残值率
+                            $("#synx").text(noNull(data.synx));// 使用年限
+                            $("#bxts").text(noNull(data.bxts));// 保修天数
+                            $("#nynx").text(noNull(data.nynx));// 耐用年限
+                            $("#ggxh").text(noNull(data.ggxh));// 规格型号
+                            $("#grrq").text(data.grrq ? dateFormat(new Date(noNull(data.grrq)), "yyyy-MM-dd") : '');// 购入日期
+                            $('.title').text(data.zcmc);
+                            if (data.grfsdm) {
+                                if (data.grfsdm == ' ') {
+                                    $("#grfsdm").text('');// 购入方式
+                                } else if (noNull(data.grfsdm) == '1') {
+                                    $("#grfsdm").text('自购');// 购入方式
+                                } else if (data.grfsdm == '2') {
+                                    $("#grfsdm").text('集采');// 购入方式
+                                } else if (data.grfsdm == '3') {
+                                    $("#grfsdm").text('调拨');// 购入方式
+                                } else if (data.grfsdm == '5') {
+                                    $("#grfsdm").text('其他');// 购入方式
+                                }
+                            } else {
+                                $("#grfsdm").text('');// 购入方式
+                            }
+                            $("#glrymc").text(noNull(data.glryName));//管理员
+                            $("#cqdwid").text(noNull(data.cqdwName));// 产权单位
+                            $("#sydwName").text(noNull(data.sydwName));//使用单位
+                            $("#sybm").text(noNull(data.sybmName));//使用部门
+                            $("#cfddmc").text(noNull(data.cfddmc));// 存放地点
+                            $("#syr").text(noNull(data.syr));// 使用人
+                            $("#scrq").text(data.scrq ? dateFormat(new Date(noNull(data.scrq)), "yyyy-MM-dd") : '');// 出厂日期
+                            $("#serialNumber").text(noNull(data.serialNumber));//出厂编号
+                            $("#gysId").text(noNull(data.gysName));// 供应商
+                            $("#rangeId").text(noNull(data.rangeName));// 供应范围
+                            $("#brandId").text(noNull(data.brandName));// 品牌
+                            $("#bz").text(noNull(data.bz));// 备注                      
+                            addpicture(noNull(data.imageList));// 资产图片
+                            var assetsDetailData =
+                                "sszclx1Name=" + noNull(data.sszclx1Name) + "&sszclx2Name=" + noNull(data.sszclx2Name) + "&zcmc=" + noNull(data.zcmc) + "&cfddmc=" + noNull(data.cfddmc)
+                                + "&sybm=" + noNull(data.sybm) + "&syr=" + noNull(data.syr) + "&zccz=" + noNull(data.zccz) + "&zcztdm=" + noNull(data.zcztName) + "&zcyz=" + noNull(data.zcyz)
+                                + "&zxjz=" + noNull(data.zxjz) + "&czl=" + noNull(data.czl) + "&synx=" + noNull(data.synx) + "&bxts=" + noNull(data.bxts) + "&ysynx=" + noNull(data.ysynx)
+                                + "&sybmq=" + noNull(data.sszclx1Name)//使用部门前
+                                + "&syzq=" + noNull(data.sszclx2Name)//使用者前
+                                ;
+                            localStorage.setItem("assetsDetailData", assetsDetailData);
+                            queryBuyManner(noNull(data.grfsdm));// 查询购入方式列表
+                        }
+                    }
+                })
+            }
+
+            //轮播图片赋值
+            function addpicture(imageList) {
+                if (imageList != "") {
+                    $str = '';
+                    $str += '<div class="swiper-wrapper">'
+                    $.each(imageList, function (i, item) {
+                        $str += '<img  class="swiper-slide" src="' + API + noNull(item.fileUrl) + '" title="" style="display: block"/>';
+                    });
+                    $str += '</div>';
+                    $('.swiper-container').append($str);
+                    var mySwiper = new Swiper('.swiper-container', {
+                        loop: true,
+                        autoplay: {
+                            delay: 2000,
+                            disableOnInteraction: false,
+                            stopOnLastSlide: false
+                        }
+                    })
+                }
+            }
+            // 查询购入方式列表
+            function queryBuyManner(grfsdmId) {
+                l.ajax('getBuyMannerSelectAllList', {}, function (data, message, success) {
+                    if (success) {
+                        var listData = noNull(data);// 详情数据
+                        if (listData != "") {
+                            $.each(listData, function (i, item) {
+                                if (item.recordid == grfsdmId) {
+                                    // $("#grfsdm").text(noNull(item.dmnr));
+                                }
+                            })
+                        }
+                    }
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

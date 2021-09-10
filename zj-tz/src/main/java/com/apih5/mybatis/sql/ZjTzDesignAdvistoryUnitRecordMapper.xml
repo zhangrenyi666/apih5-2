@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzDesignAdvistoryUnitRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzDesignAdvistoryUnitRecord" >
+    <id column="design_advistory_unit_record_id" property="designAdvistoryUnitRecordId" jdbcType="CHAR" />
+    <result column="design_advistory_unit_id" property="designAdvistoryUnitId" jdbcType="CHAR" />
+    <result column="type_id" property="typeId" jdbcType="CHAR" />
+    <result column="type_name" property="typeName" jdbcType="CHAR" />
+    <result column="design_advistory_unit_standard_id" property="designAdvistoryUnitStandardId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="subproject_info_id" property="subprojectInfoId" jdbcType="CHAR" />
+    <result column="subproject_name" property="subprojectName" jdbcType="VARCHAR" />
+    <result column="design_stage_id" property="designStageId" jdbcType="CHAR" />
+    <result column="design_stage_name" property="designStageName" jdbcType="VARCHAR" />
+    <result column="select_mode_id" property="selectModeId" jdbcType="CHAR" />
+    <result column="select_mode_name" property="selectModeName" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="amount1" property="amount1" jdbcType="DECIMAL" />
+    <result column="amount2" property="amount2" jdbcType="DECIMAL" />
+    <result column="pro_leader" property="proLeader" jdbcType="VARCHAR" />
+    <result column="pro_leader_tel" property="proLeaderTel" jdbcType="VARCHAR" />
+    <result column="evaluate_order_id" property="evaluateOrderId" jdbcType="CHAR" />
+    <result column="evaluate_order_name" property="evaluateOrderName" jdbcType="VARCHAR" />
+    <result column="evaluate_person" property="evaluatePerson" jdbcType="VARCHAR" />
+    <result column="evaluate_date" property="evaluateDate" jdbcType="DATE" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="release_id" property="releaseId" jdbcType="CHAR" />
+    <result column="release_name" property="releaseName" jdbcType="VARCHAR" />
+    <result column="renew1" property="renew1" jdbcType="CHAR" />
+    <result column="renew2" property="renew2" jdbcType="CHAR" />
+    <result column="renew3" property="renew3" jdbcType="CHAR" />
+    <result column="renew4" property="renew4" jdbcType="CHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    design_advistory_unit_record_id, design_advistory_unit_id, type_id, type_name, design_advistory_unit_standard_id, 
+    project_id, project_name, subproject_info_id, subproject_name, design_stage_id, 
+    design_stage_name, select_mode_id, select_mode_name, content, amount1, 
+    amount2, pro_leader, pro_leader_tel, evaluate_order_id, evaluate_order_name, 
+    evaluate_person, evaluate_date, remarks, release_id, release_name, renew1, renew2, renew3, renew4,
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />,
+    (SELECT unit_name FROM zj_tz_design_advistory_unit_standard AS s WHERE s.del_flag = '0' AND s.design_advistory_unit_standard_id = record.design_advistory_unit_standard_id) AS unitName,
+    (SELECT org_code FROM zj_tz_design_advistory_unit_standard AS s WHERE s.del_flag = '0' AND s.design_advistory_unit_standard_id = record.design_advistory_unit_standard_id) AS orgCode
+    from zj_tz_design_advistory_unit_record AS record
+    where design_advistory_unit_record_id = #{designAdvistoryUnitRecordId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_design_advistory_unit_record
+    where design_advistory_unit_record_id = #{designAdvistoryUnitRecordId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzDesignAdvistoryUnitRecord" >
+    insert into zj_tz_design_advistory_unit_record (design_advistory_unit_record_id, design_advistory_unit_id, type_id, 
+      type_name, design_advistory_unit_standard_id, project_id, 
+      project_name, subproject_info_id, subproject_name, 
+      design_stage_id, design_stage_name, select_mode_id, 
+      select_mode_name, content, amount1, 
+      amount2, pro_leader, pro_leader_tel, 
+      evaluate_order_id, evaluate_order_name, evaluate_person, 
+      evaluate_date, remarks, release_id, 
+      release_name, renew1, renew2, renew3, renew4, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{designAdvistoryUnitRecordId,jdbcType=CHAR}, #{designAdvistoryUnitId,jdbcType=CHAR}, #{typeId,jdbcType=CHAR}, 
+      #{typeName,jdbcType=CHAR}, #{designAdvistoryUnitStandardId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{subprojectInfoId,jdbcType=CHAR}, #{subprojectName,jdbcType=VARCHAR}, 
+      #{designStageId,jdbcType=CHAR}, #{designStageName,jdbcType=VARCHAR}, #{selectModeId,jdbcType=CHAR}, 
+      #{selectModeName,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{amount1,jdbcType=DECIMAL}, 
+      #{amount2,jdbcType=DECIMAL}, #{proLeader,jdbcType=VARCHAR}, #{proLeaderTel,jdbcType=VARCHAR}, 
+      #{evaluateOrderId,jdbcType=CHAR}, #{evaluateOrderName,jdbcType=VARCHAR}, #{evaluatePerson,jdbcType=VARCHAR}, 
+      #{evaluateDate,jdbcType=DATE}, #{remarks,jdbcType=VARCHAR}, #{releaseId,jdbcType=CHAR}, 
+      #{releaseName,jdbcType=VARCHAR}, #{renew1,jdbcType=CHAR}, #{renew2,jdbcType=CHAR}, #{renew3,jdbcType=CHAR}, #{renew4,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzDesignAdvistoryUnitRecord" >
+    insert into zj_tz_design_advistory_unit_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="designAdvistoryUnitRecordId != null" >
+        design_advistory_unit_record_id,
+      </if>
+      <if test="designAdvistoryUnitId != null" >
+        design_advistory_unit_id,
+      </if>
+      <if test="typeId != null" >
+        type_id,
+      </if>
+      <if test="typeName != null" >
+        type_name,
+      </if>
+      <if test="designAdvistoryUnitStandardId != null" >
+        design_advistory_unit_standard_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="subprojectInfoId != null" >
+        subproject_info_id,
+      </if>
+      <if test="subprojectName != null" >
+        subproject_name,
+      </if>
+      <if test="designStageId != null" >
+        design_stage_id,
+      </if>
+      <if test="designStageName != null" >
+        design_stage_name,
+      </if>
+      <if test="selectModeId != null" >
+        select_mode_id,
+      </if>
+      <if test="selectModeName != null" >
+        select_mode_name,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="amount1 != null" >
+        amount1,
+      </if>
+      <if test="amount2 != null" >
+        amount2,
+      </if>
+      <if test="proLeader != null" >
+        pro_leader,
+      </if>
+      <if test="proLeaderTel != null" >
+        pro_leader_tel,
+      </if>
+      <if test="evaluateOrderId != null" >
+        evaluate_order_id,
+      </if>
+      <if test="evaluateOrderName != null" >
+        evaluate_order_name,
+      </if>
+      <if test="evaluatePerson != null" >
+        evaluate_person,
+      </if>
+      <if test="evaluateDate != null" >
+        evaluate_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="releaseId != null" >
+        release_id,
+      </if>
+      <if test="releaseName != null" >
+        release_name,
+      </if>
+      <if test="renew1 != null" >
+        renew1,
+      </if>
+      <if test="renew2 != null" >
+        renew2,
+      </if>
+      <if test="renew3 != null" >
+        renew3,
+      </if>
+      <if test="renew4 != null" >
+        renew4,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="designAdvistoryUnitRecordId != null" >
+        #{designAdvistoryUnitRecordId,jdbcType=CHAR},
+      </if>
+      <if test="designAdvistoryUnitId != null" >
+        #{designAdvistoryUnitId,jdbcType=CHAR},
+      </if>
+      <if test="typeId != null" >
+        #{typeId,jdbcType=CHAR},
+      </if>
+      <if test="typeName != null" >
+        #{typeName,jdbcType=CHAR},
+      </if>
+      <if test="designAdvistoryUnitStandardId != null" >
+        #{designAdvistoryUnitStandardId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectInfoId != null" >
+        #{subprojectInfoId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectName != null" >
+        #{subprojectName,jdbcType=VARCHAR},
+      </if>
+      <if test="designStageId != null" >
+        #{designStageId,jdbcType=CHAR},
+      </if>
+      <if test="designStageName != null" >
+        #{designStageName,jdbcType=VARCHAR},
+      </if>
+      <if test="selectModeId != null" >
+        #{selectModeId,jdbcType=CHAR},
+      </if>
+      <if test="selectModeName != null" >
+        #{selectModeName,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="amount1 != null" >
+        #{amount1,jdbcType=DECIMAL},
+      </if>
+      <if test="amount2 != null" >
+        #{amount2,jdbcType=DECIMAL},
+      </if>
+      <if test="proLeader != null" >
+        #{proLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="proLeaderTel != null" >
+        #{proLeaderTel,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluateOrderId != null" >
+        #{evaluateOrderId,jdbcType=CHAR},
+      </if>
+      <if test="evaluateOrderName != null" >
+        #{evaluateOrderName,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluatePerson != null" >
+        #{evaluatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluateDate != null" >
+        #{evaluateDate,jdbcType=DATE},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseId != null" >
+        #{releaseId,jdbcType=CHAR},
+      </if>
+      <if test="releaseName != null" >
+        #{releaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="renew1 != null" >
+        #{renew1,jdbcType=CHAR},
+      </if>
+      <if test="renew2 != null" >
+        #{renew2,jdbcType=CHAR},
+      </if>
+      <if test="renew3 != null" >
+        #{renew3,jdbcType=CHAR},
+      </if>
+      <if test="renew4 != null" >
+        #{renew4,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzDesignAdvistoryUnitRecord" >
+    update zj_tz_design_advistory_unit_record
+    <set >
+      <if test="designAdvistoryUnitId != null" >
+        design_advistory_unit_id = #{designAdvistoryUnitId,jdbcType=CHAR},
+      </if>
+      <if test="typeId != null" >
+        type_id = #{typeId,jdbcType=CHAR},
+      </if>
+      <if test="typeName != null" >
+        type_name = #{typeName,jdbcType=CHAR},
+      </if>
+      <if test="designAdvistoryUnitStandardId != null" >
+        design_advistory_unit_standard_id = #{designAdvistoryUnitStandardId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectInfoId != null" >
+        subproject_info_id = #{subprojectInfoId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectName != null" >
+        subproject_name = #{subprojectName,jdbcType=VARCHAR},
+      </if>
+      <if test="designStageId != null" >
+        design_stage_id = #{designStageId,jdbcType=CHAR},
+      </if>
+      <if test="designStageName != null" >
+        design_stage_name = #{designStageName,jdbcType=VARCHAR},
+      </if>
+      <if test="selectModeId != null" >
+        select_mode_id = #{selectModeId,jdbcType=CHAR},
+      </if>
+      <if test="selectModeName != null" >
+        select_mode_name = #{selectModeName,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="amount1 != null" >
+        amount1 = #{amount1,jdbcType=DECIMAL},
+      </if>
+      <if test="amount2 != null" >
+        amount2 = #{amount2,jdbcType=DECIMAL},
+      </if>
+      <if test="proLeader != null" >
+        pro_leader = #{proLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="proLeaderTel != null" >
+        pro_leader_tel = #{proLeaderTel,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluateOrderId != null" >
+        evaluate_order_id = #{evaluateOrderId,jdbcType=CHAR},
+      </if>
+      <if test="evaluateOrderName != null" >
+        evaluate_order_name = #{evaluateOrderName,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluatePerson != null" >
+        evaluate_person = #{evaluatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluateDate != null" >
+        evaluate_date = #{evaluateDate,jdbcType=DATE},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseId != null" >
+        release_id = #{releaseId,jdbcType=CHAR},
+      </if>
+      <if test="releaseName != null" >
+        release_name = #{releaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="renew1 != null" >
+        renew1 = #{renew1,jdbcType=CHAR},
+      </if>
+      <if test="renew2 != null" >
+        renew2 = #{renew2,jdbcType=CHAR},
+      </if>
+      <if test="renew3 != null" >
+        renew3 = #{renew3,jdbcType=CHAR},
+      </if>
+      <if test="renew4 != null" >
+        renew4 = #{renew4,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where design_advistory_unit_record_id = #{designAdvistoryUnitRecordId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzDesignAdvistoryUnitRecord" >
+    update zj_tz_design_advistory_unit_record
+    set       design_advistory_unit_id = #{designAdvistoryUnitId,jdbcType=CHAR},
+      type_id = #{typeId,jdbcType=CHAR},
+      type_name = #{typeName,jdbcType=CHAR},
+      design_advistory_unit_standard_id = #{designAdvistoryUnitStandardId,jdbcType=CHAR},
+      project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      subproject_info_id = #{subprojectInfoId,jdbcType=CHAR},
+      subproject_name = #{subprojectName,jdbcType=VARCHAR},
+      design_stage_id = #{designStageId,jdbcType=CHAR},
+      design_stage_name = #{designStageName,jdbcType=VARCHAR},
+      select_mode_id = #{selectModeId,jdbcType=CHAR},
+      select_mode_name = #{selectModeName,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      amount1 = #{amount1,jdbcType=DECIMAL},
+      amount2 = #{amount2,jdbcType=DECIMAL},
+      pro_leader = #{proLeader,jdbcType=VARCHAR},
+      pro_leader_tel = #{proLeaderTel,jdbcType=VARCHAR},
+      evaluate_order_id = #{evaluateOrderId,jdbcType=CHAR},
+      evaluate_order_name = #{evaluateOrderName,jdbcType=VARCHAR},
+      evaluate_person = #{evaluatePerson,jdbcType=VARCHAR},
+      evaluate_date = #{evaluateDate,jdbcType=DATE},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      release_id = #{releaseId,jdbcType=CHAR},
+      release_name = #{releaseName,jdbcType=VARCHAR},
+      renew1 = #{renew1,jdbcType=CHAR},
+      renew2 = #{renew2,jdbcType=CHAR},
+      renew3 = #{renew3,jdbcType=CHAR},
+      renew4 = #{renew4,jdbcType=CHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where design_advistory_unit_record_id = #{designAdvistoryUnitRecordId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzDesignAdvistoryUnitRecordList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzDesignAdvistoryUnitRecord" >
+    select 
+    <include refid="Base_Column_List" />,
+    (SELECT unit_name FROM zj_tz_design_advistory_unit_standard AS s WHERE s.del_flag = '0' AND s.design_advistory_unit_standard_id = record.design_advistory_unit_standard_id) AS unitName,
+    (SELECT org_code FROM zj_tz_design_advistory_unit_standard AS s WHERE s.del_flag = '0' AND s.design_advistory_unit_standard_id = record.design_advistory_unit_standard_id) AS orgCode
+    from zj_tz_design_advistory_unit_record AS record
+    where del_flag = '0'
+    <if test="designAdvistoryUnitId != null and designAdvistoryUnitId != ''" >
+     and design_advistory_unit_id = #{designAdvistoryUnitId,jdbcType=CHAR}
+    </if>
+    <if test="typeId != null and typeId != ''" >
+     and type_id = #{typeId,jdbcType=CHAR}
+    </if>
+    <if test="typeName != null and typeName != ''" >
+     and type_name = #{typeName,jdbcType=CHAR}
+    </if>
+    <if test="designAdvistoryUnitStandardId != null and designAdvistoryUnitStandardId != ''" >
+     and design_advistory_unit_standard_id = #{designAdvistoryUnitStandardId,jdbcType=CHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="subprojectInfoId != null and subprojectInfoId != ''" >
+     and subproject_info_id = #{subprojectInfoId,jdbcType=CHAR}
+    </if>
+    <if test="subprojectName != null and subprojectName != ''" >
+     and subproject_name = #{subprojectName,jdbcType=VARCHAR}
+    </if>
+    <if test="designStageId != null and designStageId != ''" >
+     and design_stage_id = #{designStageId,jdbcType=CHAR}
+    </if>
+    <if test="designStageName != null and designStageName != ''" >
+     and design_stage_name = #{designStageName,jdbcType=VARCHAR}
+    </if>
+    <if test="selectModeId != null and selectModeId != ''" >
+     and select_mode_id = #{selectModeId,jdbcType=CHAR}
+    </if>
+    <if test="selectModeName != null and selectModeName != ''" >
+     and select_mode_name = #{selectModeName,jdbcType=VARCHAR}
+    </if>
+    <if test="content != null and content != ''" >
+     and content = #{content,jdbcType=VARCHAR}
+    </if>
+    <if test="amount1 != null and amount1 != ''" >
+     and amount1 = #{amount1,jdbcType=DECIMAL}
+    </if>
+    <if test="amount2 != null and amount2 != ''" >
+     and amount2 = #{amount2,jdbcType=DECIMAL}
+    </if>
+    <if test="proLeader != null and proLeader != ''" >
+     and pro_leader = #{proLeader,jdbcType=VARCHAR}
+    </if>
+    <if test="proLeaderTel != null and proLeaderTel != ''" >
+     and pro_leader_tel = #{proLeaderTel,jdbcType=VARCHAR}
+    </if>
+    <if test="evaluateOrderId != null and evaluateOrderId != ''" >
+     and evaluate_order_id = #{evaluateOrderId,jdbcType=CHAR}
+    </if>
+    <if test="evaluateOrderName != null and evaluateOrderName != ''" >
+     and evaluate_order_name = #{evaluateOrderName,jdbcType=VARCHAR}
+    </if>
+    <if test="evaluatePerson != null and evaluatePerson != ''" >
+     and evaluate_person = #{evaluatePerson,jdbcType=VARCHAR}
+    </if>
+    <if test="evaluateDate != null" >
+     and evaluate_date = #{evaluateDate,jdbcType=DATE}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="releaseId != null and releaseId != ''" >
+     and release_id = #{releaseId,jdbcType=CHAR}
+    </if>
+    <if test="releaseName != null and releaseName != ''" >
+     and release_name = #{releaseName,jdbcType=VARCHAR}
+    </if>
+    <if test="renew1 != null and renew1 != ''" >
+     and renew1 = #{renew1,jdbcType=CHAR}
+    </if>
+    <if test="renew2 != null and renew2 != ''" >
+     and renew2 = #{renew2,jdbcType=CHAR}
+    </if>
+    <if test="renew3 != null and renew3 != ''" >
+     and renew3 = #{renew3,jdbcType=CHAR}
+    </if>
+    <if test="renew4 != null and renew4 != ''" >
+     and renew4 = #{renew4,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="ext1SeeFlag != null and ext1SeeFlag != ''" >
+     and release_id != ('0')
+    </if>
+    <if test="ext1Flag1 != null and ext1Flag1 != ''" >
+     and release_id IN ('0','1','2') 
+    </if>
+    <if test="ext1Flag2 != null and ext1Flag2 != ''" >
+     and release_id IN ('1','2','3') 
+    </if>
+    <if test="ext1Flag3 != null and ext1Flag3 != ''" >
+     and release_id IN ('1','2') 
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzDesignAdvistoryUnitRecord" parameterType="com.apih5.mybatis.pojo.ZjTzDesignAdvistoryUnitRecord" >
+    <![CDATA[ 
+        update zj_tz_design_advistory_unit_record
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and design_advistory_unit_record_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.designAdvistoryUnitRecordId} 
+     </foreach>
+  </delete>
+  <!-- 扩展 -->
+  <delete id="batchRecallZjTzDesignAdvistoryUnitRecord" parameterType="com.apih5.mybatis.pojo.ZjTzDesignAdvistoryUnitRecord" >
+    <![CDATA[ 
+        update zj_tz_design_advistory_unit_record
+        set release_id = #{param2.releaseId},
+            release_name=#{param2.releaseName},
+            renew1 = #{param2.renew1},
+            renew2 = #{param2.renew2},
+            renew3 = #{param2.renew3},
+            renew4 = #{param2.renew4},
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and design_advistory_unit_record_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.designAdvistoryUnitRecordId} 
+     </foreach>
+  </delete>
+</mapper>

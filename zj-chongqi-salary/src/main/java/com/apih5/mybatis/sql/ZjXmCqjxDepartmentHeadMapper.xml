@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmCqjxDepartmentHeadMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmCqjxDepartmentHead" >
+    <id column="department_head_id" property="departmentHeadId" jdbcType="CHAR" />
+    <result column="department_id" property="departmentId" jdbcType="CHAR" />
+    <result column="department_name" property="departmentName" jdbcType="VARCHAR" />
+    <result column="department_org_id" property="departmentOrgId" jdbcType="VARCHAR" />
+    <result column="user_key" property="userKey" jdbcType="CHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_org_id" property="userOrgId" jdbcType="VARCHAR" />
+    <result column="charge_leader_id" property="chargeLeaderId" jdbcType="CHAR" />
+    <result column="charge_leader_name" property="chargeLeaderName" jdbcType="VARCHAR" />
+    <result column="charge_leader_org_id" property="chargeLeaderOrgId" jdbcType="VARCHAR" />
+    <result column="executive_leader_id" property="executiveLeaderId" jdbcType="CHAR" />
+    <result column="executive_leader_name" property="executiveLeaderName" jdbcType="VARCHAR" />
+    <result column="executive_leader_name" property="executiveLeaderName" jdbcType="VARCHAR" />
+    <result column="department_leader_name" property="departmentLeaderName" jdbcType="VARCHAR" />
+    <result column="project_leader_name" property="projectLeaderName" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    department_head_id, department_id, department_name, department_org_id, user_key, 
+    user_name, user_org_id, charge_leader_id, charge_leader_name, charge_leader_org_id, 
+    executive_leader_id, executive_leader_name, executive_leader_org_id, 
+    department_leader_name, project_leader_name,remarks, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_cqjx_department_head
+    where department_head_id = #{departmentHeadId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_cqjx_department_head
+    where department_head_id = #{departmentHeadId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDepartmentHead" >
+    insert into zj_xm_cqjx_department_head (department_head_id, department_id, department_name, 
+      department_org_id, user_key, user_name, 
+      user_org_id, charge_leader_id, charge_leader_name, charge_leader_org_id, 
+      executive_leader_id, executive_leader_name, executive_leader_org_id, department_leader_name, project_leader_name,
+      remarks, del_flag, create_time, create_user, create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (#{departmentHeadId,jdbcType=CHAR}, #{departmentId,jdbcType=CHAR}, #{departmentName,jdbcType=VARCHAR}, 
+      #{departmentOrgId,jdbcType=VARCHAR}, #{userKey,jdbcType=CHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{userOrgId,jdbcType=VARCHAR}, #{chargeLeaderId,jdbcType=VARCHAR}, #{chargeLeaderName,jdbcType=VARCHAR}, 
+      #{chargeLeaderOrgId,jdbcType=VARCHAR}, #{executiveLeaderId,jdbcType=VARCHAR}, #{executiveLeaderName,jdbcType=VARCHAR}, 
+      #{executiveLeaderOrgId,jdbcType=VARCHAR}, #{departmentLeaderName,jdbcType=VARCHAR}, #{projectLeaderName,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDepartmentHead" >
+    insert into zj_xm_cqjx_department_head
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="departmentHeadId != null" >
+        department_head_id,
+      </if>
+      <if test="departmentId != null" >
+        department_id,
+      </if>
+      <if test="departmentName != null" >
+        department_name,
+      </if>
+      <if test="departmentOrgId != null" >
+        department_org_id,
+      </if>
+      <if test="userKey != null" >
+        user_key,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="userOrgId != null" >
+        user_org_id,
+      </if>
+      <if test="chargeLeaderId != null" >
+        charge_leader_id,
+      </if>
+      <if test="chargeLeaderName != null" >
+        charge_leader_name,
+      </if>
+      <if test="chargeLeaderOrgId != null" >
+        charge_leader_org_id,
+      </if>
+      <if test="executiveLeaderId != null" >
+        executive_leader_id,
+      </if>
+      <if test="executiveLeaderName != null" >
+        executive_leader_name,
+      </if>
+      <if test="executiveLeaderOrgId != null" >
+        executive_leader_org_id,
+      </if>
+      <if test="departmentLeaderName != null" >
+        department_leader_name,
+      </if>
+      <if test="projectLeaderName != null" >
+        project_leader_name,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="departmentHeadId != null" >
+        #{departmentHeadId,jdbcType=CHAR},
+      </if>
+      <if test="departmentId != null" >
+        #{departmentId,jdbcType=CHAR},
+      </if>
+      <if test="departmentName != null" >
+        #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentOrgId != null" >
+        #{departmentOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="userKey != null" >
+        #{userKey,jdbcType=CHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userOrgId != null" >
+        #{userOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeLeaderId != null" >
+        #{chargeLeaderId,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeLeaderName != null" >
+        #{chargeLeaderName,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeLeaderOrgId != null" >
+        #{chargeLeaderOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="executiveLeaderId != null" >
+        #{executiveLeaderId,jdbcType=VARCHAR},
+      </if>
+      <if test="executiveLeaderName != null" >
+        #{executiveLeaderName,jdbcType=VARCHAR},
+      </if>
+      <if test="executiveLeaderOrgId != null" >
+        #{executiveLeaderOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentLeaderName != null" >
+        #{departmentLeaderName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectLeaderName != null" >
+        #{projectLeaderName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDepartmentHead" >
+    update zj_xm_cqjx_department_head
+    <set >
+      <if test="departmentId != null" >
+        department_id = #{departmentId,jdbcType=CHAR},
+      </if>
+      <if test="departmentName != null" >
+        department_name = #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentOrgId != null" >
+        department_org_id = #{departmentOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="userKey != null" >
+        user_key = #{userKey,jdbcType=CHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userOrgId != null" >
+        user_org_id = #{userOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeLeaderId != null" >
+        charge_leader_id = #{chargeLeaderId,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeLeaderName != null" >
+        charge_leader_name = #{chargeLeaderName,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeLeaderOrgId != null" >
+        charge_leader_org_id = #{chargeLeaderOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="executiveLeaderId != null" >
+        executive_leader_id = #{executiveLeaderId,jdbcType=VARCHAR},
+      </if>
+      <if test="executiveLeaderName != null" >
+        executive_leader_name = #{executiveLeaderName,jdbcType=VARCHAR},
+      </if>
+      <if test="executiveLeaderOrgId != null" >
+        executive_leader_org_id = #{executiveLeaderOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentLeaderName != null" >
+        department_leader_name = #{departmentLeaderName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectLeaderName != null" >
+        project_leader_name = #{projectLeaderName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where department_head_id = #{departmentHeadId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDepartmentHead" >
+    update zj_xm_cqjx_department_head
+    set       department_id = #{departmentId,jdbcType=CHAR},
+      department_name = #{departmentName,jdbcType=VARCHAR},
+      department_org_id = #{departmentOrgId,jdbcType=VARCHAR},
+      user_key = #{userKey,jdbcType=CHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_org_id = #{userOrgId,jdbcType=VARCHAR},
+      charge_leader_id = #{chargeLeaderId,jdbcType=VARCHAR},
+      charge_leader_name = #{chargeLeaderName,jdbcType=VARCHAR},
+      charge_leader_org_id = #{chargeLeaderOrgId,jdbcType=VARCHAR},
+      executive_leader_id = #{executiveLeaderId,jdbcType=VARCHAR},
+      executive_leader_name = #{executiveLeaderName,jdbcType=VARCHAR},
+      executive_leader_org_id = #{executiveLeaderOrgId,jdbcType=VARCHAR},
+      department_leader_name = #{departmentLeaderName,jdbcType=VARCHAR},
+      project_leader_name = #{projectLeaderName,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where department_head_id = #{departmentHeadId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmCqjxDepartmentHeadList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDepartmentHead" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_cqjx_department_head
+    where del_flag = '0'
+    <if test="departmentId != null and departmentId != ''" >
+     and department_id = #{departmentId,jdbcType=CHAR}
+    </if>
+    <if test="departmentName != null and departmentName != ''" >
+     and department_name = #{departmentName,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentOrgId != null and departmentOrgId != ''" >
+     and department_org_id = #{departmentOrgId,jdbcType=VARCHAR}
+    </if>
+    <if test="userKey != null and userKey != ''" >
+     and user_key = #{userKey,jdbcType=CHAR}
+    </if>
+    <if test="userName != null and userName != ''" >
+     and user_name = #{userName,jdbcType=VARCHAR}
+    </if>
+    <if test="userOrgId != null and userOrgId != ''" >
+     and user_org_id = #{userOrgId,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="chargeLeaderId != null and chargeLeaderId != ''" >
+     and charge_leader_id = #{chargeLeaderId,jdbcType=VARCHAR}
+    </if>
+    <if test="chargeLeaderName != null and chargeLeaderName != ''" >
+     and charge_leader_name = #{chargeLeaderName,jdbcType=VARCHAR}
+    </if>
+    <if test="chargeLeaderOrgId != null and chargeLeaderOrgId != ''" >
+     and charge_leader_org_id = #{chargeLeaderOrgId,jdbcType=VARCHAR}
+    </if>
+    <if test="executiveLeaderId != null and executiveLeaderId != ''" >
+     and executive_leader_id = #{executiveLeaderId,jdbcType=VARCHAR}
+    </if>
+    <if test="executiveLeaderName != null and executiveLeaderName != ''" >
+     and executive_leader_name = #{executiveLeaderName,jdbcType=VARCHAR}
+    </if>
+    <if test="executiveLeaderOrgId != null and executiveLeaderOrgId != ''" >
+     and executive_leader_org_id = #{executiveLeaderOrgId,jdbcType=VARCHAR}
+    </if>    
+   ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmCqjxDepartmentHead" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDepartmentHead" >
+    <![CDATA[ 
+        update zj_xm_cqjx_department_head
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and department_head_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.departmentHeadId} 
+     </foreach>
+  </delete>
+</mapper>

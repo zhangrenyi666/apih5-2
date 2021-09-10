@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqMoveUseOrgMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqMoveUseOrg" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="outOrgID" property="outOrgID" jdbcType="VARCHAR" />
+    <result column="acceptOrgID" property="acceptOrgID" jdbcType="VARCHAR" />
+    <result column="outOrgName" property="outOrgName" jdbcType="VARCHAR" />
+    <result column="acceptOrgName" property="acceptOrgName" jdbcType="VARCHAR" />
+    <result column="movedate" property="movedate" jdbcType="TIMESTAMP" />
+    <result column="deliveryLocation" property="deliveryLocation" jdbcType="VARCHAR" />
+    <result column="moveExes" property="moveExes" jdbcType="DECIMAL" />
+    <result column="exesPayOrg" property="exesPayOrg" jdbcType="VARCHAR" />
+    <result column="outOpinion" property="outOpinion" jdbcType="VARCHAR" />
+    <result column="outTransactor" property="outTransactor" jdbcType="VARCHAR" />
+    <result column="acceptOpinion" property="acceptOpinion" jdbcType="VARCHAR" />
+    <result column="acceptTransactor" property="acceptTransactor" jdbcType="VARCHAR" />
+    <result column="adminOrgOpinion" property="adminOrgOpinion" jdbcType="VARCHAR" />
+    <result column="approveStatus" property="approveStatus" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="transferNo" property="transferNo" jdbcType="VARCHAR" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="careinfo" property="careinfo" jdbcType="VARCHAR" />
+    <result column="adminLeader" property="adminLeader" jdbcType="VARCHAR" />
+    <result column="equipAdmin" property="equipAdmin" jdbcType="VARCHAR" />
+    <result column="finance" property="finance" jdbcType="VARCHAR" />
+    <result column="lister" property="lister" jdbcType="VARCHAR" />
+    <result column="serialNo" property="serialNo" jdbcType="VARCHAR" />
+    <result column="inEquipManageDpt" property="inEquipManageDpt" jdbcType="VARCHAR" />
+    <result column="acceptFinance" property="acceptFinance" jdbcType="VARCHAR" />
+    <result column="locality" property="locality" jdbcType="VARCHAR" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="outComID" property="outComID" jdbcType="VARCHAR" />
+    <result column="outComName" property="outComName" jdbcType="VARCHAR" />
+    <result column="acceptComID" property="acceptComID" jdbcType="VARCHAR" />
+    <result column="acceptComName" property="acceptComName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, outOrgID, acceptOrgID, outOrgName, acceptOrgName, 
+    movedate, deliveryLocation, moveExes, exesPayOrg, outOpinion, 
+    outTransactor, acceptOpinion, acceptTransactor, adminOrgOpinion, approveStatus, 
+    remark, transferNo, reason, careinfo, adminLeader, 
+    equipAdmin, finance, lister, serialNo, inEquipManageDpt, 
+    acceptFinance, locality, comID, comName, outComID, 
+    outComName, acceptComID, acceptComName, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_MoveUseOrg
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_MoveUseOrg
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqMoveUseOrg" >
+    insert into zx_eq_MoveUseOrg (id, outOrgID, acceptOrgID, 
+      outOrgName, acceptOrgName, movedate, 
+      deliveryLocation, moveExes, exesPayOrg, 
+      outOpinion, outTransactor, acceptOpinion, 
+      acceptTransactor, adminOrgOpinion, approveStatus, 
+      remark, transferNo, reason, 
+      careinfo, adminLeader, equipAdmin, 
+      finance, lister, serialNo, 
+      inEquipManageDpt, acceptFinance, locality, 
+      comID, comName, outComID, 
+      outComName, acceptComID, acceptComName, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{outOrgID,jdbcType=VARCHAR}, #{acceptOrgID,jdbcType=VARCHAR}, 
+      #{outOrgName,jdbcType=VARCHAR}, #{acceptOrgName,jdbcType=VARCHAR}, #{movedate,jdbcType=TIMESTAMP}, 
+      #{deliveryLocation,jdbcType=VARCHAR}, #{moveExes,jdbcType=DECIMAL}, #{exesPayOrg,jdbcType=VARCHAR}, 
+      #{outOpinion,jdbcType=VARCHAR}, #{outTransactor,jdbcType=VARCHAR}, #{acceptOpinion,jdbcType=VARCHAR}, 
+      #{acceptTransactor,jdbcType=VARCHAR}, #{adminOrgOpinion,jdbcType=VARCHAR}, #{approveStatus,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{transferNo,jdbcType=VARCHAR}, #{reason,jdbcType=VARCHAR}, 
+      #{careinfo,jdbcType=VARCHAR}, #{adminLeader,jdbcType=VARCHAR}, #{equipAdmin,jdbcType=VARCHAR}, 
+      #{finance,jdbcType=VARCHAR}, #{lister,jdbcType=VARCHAR}, #{serialNo,jdbcType=VARCHAR}, 
+      #{inEquipManageDpt,jdbcType=VARCHAR}, #{acceptFinance,jdbcType=VARCHAR}, #{locality,jdbcType=VARCHAR}, 
+      #{comID,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, #{outComID,jdbcType=VARCHAR}, 
+      #{outComName,jdbcType=VARCHAR}, #{acceptComID,jdbcType=VARCHAR}, #{acceptComName,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqMoveUseOrg" >
+    insert into zx_eq_MoveUseOrg
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="outOrgID != null" >
+        outOrgID,
+      </if>
+      <if test="acceptOrgID != null" >
+        acceptOrgID,
+      </if>
+      <if test="outOrgName != null" >
+        outOrgName,
+      </if>
+      <if test="acceptOrgName != null" >
+        acceptOrgName,
+      </if>
+      <if test="movedate != null" >
+        movedate,
+      </if>
+      <if test="deliveryLocation != null" >
+        deliveryLocation,
+      </if>
+      <if test="moveExes != null" >
+        moveExes,
+      </if>
+      <if test="exesPayOrg != null" >
+        exesPayOrg,
+      </if>
+      <if test="outOpinion != null" >
+        outOpinion,
+      </if>
+      <if test="outTransactor != null" >
+        outTransactor,
+      </if>
+      <if test="acceptOpinion != null" >
+        acceptOpinion,
+      </if>
+      <if test="acceptTransactor != null" >
+        acceptTransactor,
+      </if>
+      <if test="adminOrgOpinion != null" >
+        adminOrgOpinion,
+      </if>
+      <if test="approveStatus != null" >
+        approveStatus,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="transferNo != null" >
+        transferNo,
+      </if>
+      <if test="reason != null" >
+        reason,
+      </if>
+      <if test="careinfo != null" >
+        careinfo,
+      </if>
+      <if test="adminLeader != null" >
+        adminLeader,
+      </if>
+      <if test="equipAdmin != null" >
+        equipAdmin,
+      </if>
+      <if test="finance != null" >
+        finance,
+      </if>
+      <if test="lister != null" >
+        lister,
+      </if>
+      <if test="serialNo != null" >
+        serialNo,
+      </if>
+      <if test="inEquipManageDpt != null" >
+        inEquipManageDpt,
+      </if>
+      <if test="acceptFinance != null" >
+        acceptFinance,
+      </if>
+      <if test="locality != null" >
+        locality,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="outComID != null" >
+        outComID,
+      </if>
+      <if test="outComName != null" >
+        outComName,
+      </if>
+      <if test="acceptComID != null" >
+        acceptComID,
+      </if>
+      <if test="acceptComName != null" >
+        acceptComName,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgID != null" >
+        #{outOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgID != null" >
+        #{acceptOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgName != null" >
+        #{outOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgName != null" >
+        #{acceptOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="movedate != null" >
+        #{movedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deliveryLocation != null" >
+        #{deliveryLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="moveExes != null" >
+        #{moveExes,jdbcType=DECIMAL},
+      </if>
+      <if test="exesPayOrg != null" >
+        #{exesPayOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="outOpinion != null" >
+        #{outOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="outTransactor != null" >
+        #{outTransactor,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOpinion != null" >
+        #{acceptOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTransactor != null" >
+        #{acceptTransactor,jdbcType=VARCHAR},
+      </if>
+      <if test="adminOrgOpinion != null" >
+        #{adminOrgOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="approveStatus != null" >
+        #{approveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="transferNo != null" >
+        #{transferNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null" >
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="careinfo != null" >
+        #{careinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="adminLeader != null" >
+        #{adminLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="equipAdmin != null" >
+        #{equipAdmin,jdbcType=VARCHAR},
+      </if>
+      <if test="finance != null" >
+        #{finance,jdbcType=VARCHAR},
+      </if>
+      <if test="lister != null" >
+        #{lister,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNo != null" >
+        #{serialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inEquipManageDpt != null" >
+        #{inEquipManageDpt,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptFinance != null" >
+        #{acceptFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="locality != null" >
+        #{locality,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="outComID != null" >
+        #{outComID,jdbcType=VARCHAR},
+      </if>
+      <if test="outComName != null" >
+        #{outComName,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptComID != null" >
+        #{acceptComID,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptComName != null" >
+        #{acceptComName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqMoveUseOrg" >
+    update zx_eq_MoveUseOrg
+    <set >
+      <if test="outOrgID != null" >
+        outOrgID = #{outOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgID != null" >
+        acceptOrgID = #{acceptOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgName != null" >
+        outOrgName = #{outOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgName != null" >
+        acceptOrgName = #{acceptOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="movedate != null" >
+        movedate = #{movedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deliveryLocation != null" >
+        deliveryLocation = #{deliveryLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="moveExes != null" >
+        moveExes = #{moveExes,jdbcType=DECIMAL},
+      </if>
+      <if test="exesPayOrg != null" >
+        exesPayOrg = #{exesPayOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="outOpinion != null" >
+        outOpinion = #{outOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="outTransactor != null" >
+        outTransactor = #{outTransactor,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOpinion != null" >
+        acceptOpinion = #{acceptOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTransactor != null" >
+        acceptTransactor = #{acceptTransactor,jdbcType=VARCHAR},
+      </if>
+      <if test="adminOrgOpinion != null" >
+        adminOrgOpinion = #{adminOrgOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="approveStatus != null" >
+        approveStatus = #{approveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="transferNo != null" >
+        transferNo = #{transferNo,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null" >
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="careinfo != null" >
+        careinfo = #{careinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="adminLeader != null" >
+        adminLeader = #{adminLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="equipAdmin != null" >
+        equipAdmin = #{equipAdmin,jdbcType=VARCHAR},
+      </if>
+      <if test="finance != null" >
+        finance = #{finance,jdbcType=VARCHAR},
+      </if>
+      <if test="lister != null" >
+        lister = #{lister,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNo != null" >
+        serialNo = #{serialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inEquipManageDpt != null" >
+        inEquipManageDpt = #{inEquipManageDpt,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptFinance != null" >
+        acceptFinance = #{acceptFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="locality != null" >
+        locality = #{locality,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="outComID != null" >
+        outComID = #{outComID,jdbcType=VARCHAR},
+      </if>
+      <if test="outComName != null" >
+        outComName = #{outComName,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptComID != null" >
+        acceptComID = #{acceptComID,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptComName != null" >
+        acceptComName = #{acceptComName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqMoveUseOrg" >
+    update zx_eq_MoveUseOrg
+    set       outOrgID = #{outOrgID,jdbcType=VARCHAR},
+      acceptOrgID = #{acceptOrgID,jdbcType=VARCHAR},
+      outOrgName = #{outOrgName,jdbcType=VARCHAR},
+      acceptOrgName = #{acceptOrgName,jdbcType=VARCHAR},
+      movedate = #{movedate,jdbcType=TIMESTAMP},
+      deliveryLocation = #{deliveryLocation,jdbcType=VARCHAR},
+      moveExes = #{moveExes,jdbcType=DECIMAL},
+      exesPayOrg = #{exesPayOrg,jdbcType=VARCHAR},
+      outOpinion = #{outOpinion,jdbcType=VARCHAR},
+      outTransactor = #{outTransactor,jdbcType=VARCHAR},
+      acceptOpinion = #{acceptOpinion,jdbcType=VARCHAR},
+      acceptTransactor = #{acceptTransactor,jdbcType=VARCHAR},
+      adminOrgOpinion = #{adminOrgOpinion,jdbcType=VARCHAR},
+      approveStatus = #{approveStatus,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      transferNo = #{transferNo,jdbcType=VARCHAR},
+      reason = #{reason,jdbcType=VARCHAR},
+      careinfo = #{careinfo,jdbcType=VARCHAR},
+      adminLeader = #{adminLeader,jdbcType=VARCHAR},
+      equipAdmin = #{equipAdmin,jdbcType=VARCHAR},
+      finance = #{finance,jdbcType=VARCHAR},
+      lister = #{lister,jdbcType=VARCHAR},
+      serialNo = #{serialNo,jdbcType=VARCHAR},
+      inEquipManageDpt = #{inEquipManageDpt,jdbcType=VARCHAR},
+      acceptFinance = #{acceptFinance,jdbcType=VARCHAR},
+      locality = #{locality,jdbcType=VARCHAR},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      outComID = #{outComID,jdbcType=VARCHAR},
+      outComName = #{outComName,jdbcType=VARCHAR},
+      acceptComID = #{acceptComID,jdbcType=VARCHAR},
+      acceptComName = #{acceptComName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxEqMoveUseOrgList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqMoveUseOrg" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_MoveUseOrg
+    where del_flag = '0'
+    <if test="outOrgID != null and outOrgID != ''" >
+     and outOrgID = #{outOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="acceptOrgID != null and acceptOrgID != ''" >
+     and acceptOrgID = #{acceptOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="outOrgName != null and outOrgName != ''" >
+     and outOrgName = #{outOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="acceptOrgName != null and acceptOrgName != ''" >
+     and acceptOrgName = #{acceptOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="movedate != null and movedate != ''" >
+     and movedate = #{movedate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="deliveryLocation != null and deliveryLocation != ''" >
+     and deliveryLocation = #{deliveryLocation,jdbcType=VARCHAR}
+    </if>
+    <if test="moveExes != null and moveExes != ''" >
+     and moveExes = #{moveExes,jdbcType=DECIMAL}
+    </if>
+    <if test="exesPayOrg != null and exesPayOrg != ''" >
+     and exesPayOrg = #{exesPayOrg,jdbcType=VARCHAR}
+    </if>
+    <if test="outOpinion != null and outOpinion != ''" >
+     and outOpinion = #{outOpinion,jdbcType=VARCHAR}
+    </if>
+    <if test="outTransactor != null and outTransactor != ''" >
+     and outTransactor = #{outTransactor,jdbcType=VARCHAR}
+    </if>
+    <if test="acceptOpinion != null and acceptOpinion != ''" >
+     and acceptOpinion = #{acceptOpinion,jdbcType=VARCHAR}
+    </if>
+    <if test="acceptTransactor != null and acceptTransactor != ''" >
+     and acceptTransactor = #{acceptTransactor,jdbcType=VARCHAR}
+    </if>
+    <if test="adminOrgOpinion != null and adminOrgOpinion != ''" >
+     and adminOrgOpinion = #{adminOrgOpinion,jdbcType=VARCHAR}
+    </if>
+    <if test="approveStatus != null and approveStatus != ''" >
+     and approveStatus = #{approveStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="transferNo != null and transferNo != ''" >
+     and transferNo = #{transferNo,jdbcType=VARCHAR}
+    </if>
+    <if test="reason != null and reason != ''" >
+     and reason = #{reason,jdbcType=VARCHAR}
+    </if>
+    <if test="careinfo != null and careinfo != ''" >
+     and careinfo = #{careinfo,jdbcType=VARCHAR}
+    </if>
+    <if test="adminLeader != null and adminLeader != ''" >
+     and adminLeader = #{adminLeader,jdbcType=VARCHAR}
+    </if>
+    <if test="equipAdmin != null and equipAdmin != ''" >
+     and equipAdmin = #{equipAdmin,jdbcType=VARCHAR}
+    </if>
+    <if test="finance != null and finance != ''" >
+     and finance = #{finance,jdbcType=VARCHAR}
+    </if>
+    <if test="lister != null and lister != ''" >
+     and lister = #{lister,jdbcType=VARCHAR}
+    </if>
+    <if test="serialNo != null and serialNo != ''" >
+     and serialNo = #{serialNo,jdbcType=VARCHAR}
+    </if>
+    <if test="inEquipManageDpt != null and inEquipManageDpt != ''" >
+     and inEquipManageDpt = #{inEquipManageDpt,jdbcType=VARCHAR}
+    </if>
+    <if test="acceptFinance != null and acceptFinance != ''" >
+     and acceptFinance = #{acceptFinance,jdbcType=VARCHAR}
+    </if>
+    <if test="locality != null and locality != ''" >
+     and locality = #{locality,jdbcType=VARCHAR}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="outComID != null and outComID != ''" >
+     and outComID = #{outComID,jdbcType=VARCHAR}
+    </if>
+    <if test="outComName != null and outComName != ''" >
+     and outComName = #{outComName,jdbcType=VARCHAR}
+    </if>
+    <if test="acceptComID != null and acceptComID != ''" >
+     and acceptComID = #{acceptComID,jdbcType=VARCHAR}
+    </if>
+    <if test="acceptComName != null and acceptComName != ''" >
+     and acceptComName = #{acceptComName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="seeFlagForCom != null and seeFlagForCom != ''" >
+     and (outComID = #{seeFlagForCom} OR acceptComID = #{seeFlagForCom})
+    </if>
+    <if test="seeFlagForPro != null and seeFlagForPro != ''" >
+     and (outOrgID = #{seeFlagForPro} OR acceptOrgID = #{seeFlagForPro})
+    </if>
+    
+    
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqMoveUseOrg" parameterType="com.apih5.mybatis.pojo.ZxEqMoveUseOrg" >
+    <![CDATA[ 
+        update zx_eq_MoveUseOrg
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

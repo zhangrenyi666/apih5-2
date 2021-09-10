@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmCqjxProjectSuperviseApprovalMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmCqjxProjectSuperviseApproval" >
+    <id column="assistant_leader_approval_id" property="assistantLeaderApprovalId" jdbcType="CHAR" />
+    <result column="executive_id" property="executiveId" jdbcType="CHAR" />
+    <result column="other_type" property="otherType" jdbcType="CHAR" />
+    <result column="leader_id" property="leaderId" jdbcType="CHAR" />
+    <result column="leader_name" property="leaderName" jdbcType="VARCHAR" />
+    <result column="leader_org_id" property="leaderOrgId" jdbcType="VARCHAR" />
+    <result column="leader_score" property="leaderScore" jdbcType="DOUBLE" />
+    <result column="approval_flag" property="approvalFlag" jdbcType="CHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    assistant_leader_approval_id, executive_id, other_type, leader_id, leader_name, 
+    leader_org_id, leader_score, approval_flag, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectProjectSuperviseLeaderTodoCount" resultType="java.lang.Integer" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxProjectSuperviseApproval" >
+    select 
+      count(*)
+      from zj_xm_cqjx_project_overall_evaluation_assistant zt 
+        left join zj_xm_cqjx_project_supervise_approval zl on zt.overall_evaluation_id = zl.executive_id
+		where zl.del_flag = '0'
+		and zt.del_flag = "0"
+		and approval_flag = "1"	 
+    <if test="createUser != null and createUser != ''" >
+     and leader_id = #{createUser,jdbcType=CHAR}
+    </if>
+  </select>     
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_cqjx_project_supervise_approval
+    where assistant_leader_approval_id = #{assistantLeaderApprovalId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_cqjx_project_supervise_approval
+    where assistant_leader_approval_id = #{assistantLeaderApprovalId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxProjectSuperviseApproval" >
+    insert into zj_xm_cqjx_project_supervise_approval (assistant_leader_approval_id, executive_id, other_type, 
+      leader_id, leader_name, leader_org_id, 
+      leader_score, approval_flag, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{assistantLeaderApprovalId,jdbcType=CHAR}, #{executiveId,jdbcType=CHAR}, #{otherType,jdbcType=CHAR}, 
+      #{leaderId,jdbcType=CHAR}, #{leaderName,jdbcType=VARCHAR}, #{leaderOrgId,jdbcType=VARCHAR}, 
+      #{leaderScore,jdbcType=DOUBLE}, #{approvalFlag,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxProjectSuperviseApproval" >
+    insert into zj_xm_cqjx_project_supervise_approval
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="assistantLeaderApprovalId != null" >
+        assistant_leader_approval_id,
+      </if>
+      <if test="executiveId != null" >
+        executive_id,
+      </if>
+      <if test="otherType != null" >
+        other_type,
+      </if>
+      <if test="leaderId != null" >
+        leader_id,
+      </if>
+      <if test="leaderName != null" >
+        leader_name,
+      </if>
+      <if test="leaderOrgId != null" >
+        leader_org_id,
+      </if>
+      <if test="leaderScore != null" >
+        leader_score,
+      </if>
+      <if test="approvalFlag != null" >
+        approval_flag,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="assistantLeaderApprovalId != null" >
+        #{assistantLeaderApprovalId,jdbcType=CHAR},
+      </if>
+      <if test="executiveId != null" >
+        #{executiveId,jdbcType=CHAR},
+      </if>
+      <if test="otherType != null" >
+        #{otherType,jdbcType=CHAR},
+      </if>
+      <if test="leaderId != null" >
+        #{leaderId,jdbcType=CHAR},
+      </if>
+      <if test="leaderName != null" >
+        #{leaderName,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderOrgId != null" >
+        #{leaderOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderScore != null" >
+        #{leaderScore,jdbcType=DOUBLE},
+      </if>
+      <if test="approvalFlag != null" >
+        #{approvalFlag,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxProjectSuperviseApproval" >
+    update zj_xm_cqjx_project_supervise_approval
+    <set >
+      <if test="executiveId != null" >
+        executive_id = #{executiveId,jdbcType=CHAR},
+      </if>
+      <if test="otherType != null" >
+        other_type = #{otherType,jdbcType=CHAR},
+      </if>
+      <if test="leaderId != null" >
+        leader_id = #{leaderId,jdbcType=CHAR},
+      </if>
+      <if test="leaderName != null" >
+        leader_name = #{leaderName,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderOrgId != null" >
+        leader_org_id = #{leaderOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderScore != null" >
+        leader_score = #{leaderScore,jdbcType=DOUBLE},
+      </if>
+      <if test="approvalFlag != null" >
+        approval_flag = #{approvalFlag,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where assistant_leader_approval_id = #{assistantLeaderApprovalId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxProjectSuperviseApproval" >
+    update zj_xm_cqjx_project_supervise_approval
+    set       executive_id = #{executiveId,jdbcType=CHAR},
+      other_type = #{otherType,jdbcType=CHAR},
+      leader_id = #{leaderId,jdbcType=CHAR},
+      leader_name = #{leaderName,jdbcType=VARCHAR},
+      leader_org_id = #{leaderOrgId,jdbcType=VARCHAR},
+      leader_score = #{leaderScore,jdbcType=DOUBLE},
+      approval_flag = #{approvalFlag,jdbcType=CHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where assistant_leader_approval_id = #{assistantLeaderApprovalId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmCqjxProjectSuperviseApprovalList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxProjectSuperviseApproval" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_cqjx_project_supervise_approval
+    where del_flag = '0'
+    <if test="executiveId != null and executiveId != ''" >
+     and executive_id = #{executiveId,jdbcType=CHAR}
+    </if>
+    <if test="otherType != null and otherType != ''" >
+     and other_type = #{otherType,jdbcType=CHAR}
+    </if>
+    <if test="leaderId != null and leaderId != ''" >
+     and leader_id = #{leaderId,jdbcType=CHAR}
+    </if>
+    <if test="leaderName != null and leaderName != ''" >
+     and leader_name = #{leaderName,jdbcType=VARCHAR}
+    </if>
+    <if test="leaderOrgId != null and leaderOrgId != ''" >
+     and leader_org_id = #{leaderOrgId,jdbcType=VARCHAR}
+    </if>
+    <if test="leaderScore != null and leaderScore != ''" >
+     and leader_score = #{leaderScore,jdbcType=DOUBLE}
+    </if>
+    <if test="approvalFlag != null and approvalFlag != ''" >
+     and approval_flag = #{approvalFlag,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmCqjxProjectSuperviseApproval" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxProjectSuperviseApproval" >
+    <![CDATA[ 
+        update zj_xm_cqjx_project_supervise_approval
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and assistant_leader_approval_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.assistantLeaderApprovalId} 
+     </foreach>
+  </delete>
+</mapper>

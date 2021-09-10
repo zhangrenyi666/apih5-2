@@ -1,0 +1,104 @@
+.head{
+    width: 50%;
+}
+.root{
+    //宽100%
+    width: 100%;
+    //高100%
+    height: 100%;
+    //它的所有子元素自动成为容器成员，称为Flex项目
+    display: flex;
+    //position:定位, relative:相对定位
+    position: relative;
+    .rootl{
+        //设置弹性盒元素的初始长度为 父盒子的50%
+        flex-basis: 50%;
+        //距离右边距16px
+        margin-right: 8px;
+        //calc() 函数用于动态计算长度值。vh Viewport高度，1vh 等于viewport高的的1%;viewport:可视窗口，也就是浏览器。
+        height:calc(100vh - 168px);
+        //overflow-y属性来确定对上/下边缘的裁剪;如果溢出元素内容区域的话.auto:如果溢出框,则应该提供滚动机制。
+        overflow-y: auto;
+        //overflow-x属性来确定对左/右边缘的裁剪.hidden:裁剪内容,不提供滚动机制。
+        // overflow-x: auto;
+    }
+    .hr {
+        //高度100%
+        height: 100%;
+        //宽8px
+        width: 4px;
+        //层数2
+        z-index: 2;
+        //cursor属性规定要显示的光标的类型(形状).e-resize:此光标指示矩形框的边缘可被向右(东)移动
+        // cursor: e-resize;
+        //背景颜色
+        background: rgba(30, 130, 223, 0.733);
+        //定位,absolute:生成绝对定位的元素,相对于,static 定位以外的第一个父元素进行定位.
+        position: absolute;
+        //绝对定位像右50%
+        top: 0px;
+        right: calc(50% - 6px);
+        //transition:把鼠标指针放到div元素上,其宽度会从
+        // transition: 0.1s;
+        //:hover 选择鼠标指针浮动在其上的元素，并设置其样式：
+        // &:hover {
+        //     width: 28px;
+        //     transition: 0.1s;
+        // }
+    }
+    .rootr{
+        //让所有弹性盒模型对象的子元素都有相同的长度，且忽略它们内部的内容：
+        flex:1;
+        //scroll :裁剪内容 - 提供滚动机制。
+        overflow-y: auto;
+        // .alert {
+        //     font-size: 24px;
+        //     text-align: center;
+        //     margin-top: 20%;
+        //     color: #ccc;
+        // }
+    }
+    .addColor{
+        background-color: #e6e6e6;
+    }
+    .addBack{
+        background-color: #DBECE6;
+        color : red;
+    }
+    :global{
+        .ant-table-row:hover > td {
+            background: transparent !important;
+        }
+        .qnn-table-td,.qnn-table-td-content {
+            background-color: transparent !important;
+        }
+        .selected {
+            background-color:"#DBECE6";
+            color: red;
+        }
+    }
+    
+}
+:global{
+    // height: 100%;
+    // width: 100%
+    .replyData{
+        .ant-modal-header{
+            text-align: center;
+        }
+        @media (min-width: 576px){
+            .ant-col-sm-offset-4 {
+                margin-left: 0;
+                text-align: center;
+            }
+        }
+        .qnn-form-btnsContainer{
+            margin-bottom: 0 !important;
+        }
+    }
+}
+.backgrounde6{
+    div{
+        background: #e6e6e6!important;
+    }
+}

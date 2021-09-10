@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzExecutiveMeetChangeRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzExecutiveMeetChangeRecord" >
+    <id column="executive_meet_change_record_id" property="executiveMeetChangeRecordId" jdbcType="CHAR" />
+    <result column="executive_meet_id" property="executiveMeetId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="period_id" property="periodId" jdbcType="CHAR" />
+    <result column="period_name" property="periodName" jdbcType="VARCHAR" />
+    <result column="business_date" property="businessDate" jdbcType="DATE" />
+    <result column="start_date" property="startDate" jdbcType="DATE" />
+    <result column="end_date" property="endDate" jdbcType="DATE" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="status_id" property="statusId" jdbcType="CHAR" />
+    <result column="status_name" property="statusName" jdbcType="VARCHAR" />
+    <result column="conent_desc" property="conentDesc" jdbcType="VARCHAR" />
+    <result column="legal" property="legal" jdbcType="VARCHAR" />
+    <result column="change_num" property="changeNum" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    executive_meet_change_record_id, executive_meet_id, project_id, period_id, period_name, 
+    business_date, start_date, end_date, remarks, status_id, 
+    status_name, conent_desc, legal, change_num, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_executive_meet_change_record
+    where executive_meet_change_record_id = #{executiveMeetChangeRecordId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_executive_meet_change_record
+    where executive_meet_change_record_id = #{executiveMeetChangeRecordId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzExecutiveMeetChangeRecord" >
+    insert into zj_tz_executive_meet_change_record (executive_meet_change_record_id, executive_meet_id, project_id, 
+      period_id, period_name, business_date, 
+      start_date, end_date, remarks, 
+      status_id, status_name, conent_desc, 
+      legal, change_num, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{executiveMeetChangeRecordId,jdbcType=CHAR}, #{executiveMeetId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, 
+      #{periodId,jdbcType=CHAR}, #{periodName,jdbcType=VARCHAR}, #{businessDate,jdbcType=DATE}, 
+      #{startDate,jdbcType=DATE}, #{endDate,jdbcType=DATE}, #{remarks,jdbcType=VARCHAR}, 
+      #{statusId,jdbcType=CHAR}, #{statusName,jdbcType=VARCHAR}, #{conentDesc,jdbcType=VARCHAR}, 
+      #{legal,jdbcType=VARCHAR}, #{changeNum,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzExecutiveMeetChangeRecord" >
+    insert into zj_tz_executive_meet_change_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="executiveMeetChangeRecordId != null" >
+        executive_meet_change_record_id,
+      </if>
+      <if test="executiveMeetId != null" >
+        executive_meet_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="periodId != null" >
+        period_id,
+      </if>
+      <if test="periodName != null" >
+        period_name,
+      </if>
+      <if test="businessDate != null" >
+        business_date,
+      </if>
+      <if test="startDate != null" >
+        start_date,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="statusId != null" >
+        status_id,
+      </if>
+      <if test="statusName != null" >
+        status_name,
+      </if>
+      <if test="conentDesc != null" >
+        conent_desc,
+      </if>
+      <if test="legal != null" >
+        legal,
+      </if>
+      <if test="changeNum != null" >
+        change_num,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="executiveMeetChangeRecordId != null" >
+        #{executiveMeetChangeRecordId,jdbcType=CHAR},
+      </if>
+      <if test="executiveMeetId != null" >
+        #{executiveMeetId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="periodId != null" >
+        #{periodId,jdbcType=CHAR},
+      </if>
+      <if test="periodName != null" >
+        #{periodName,jdbcType=VARCHAR},
+      </if>
+      <if test="businessDate != null" >
+        #{businessDate,jdbcType=DATE},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=DATE},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=DATE},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="statusId != null" >
+        #{statusId,jdbcType=CHAR},
+      </if>
+      <if test="statusName != null" >
+        #{statusName,jdbcType=VARCHAR},
+      </if>
+      <if test="conentDesc != null" >
+        #{conentDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="legal != null" >
+        #{legal,jdbcType=VARCHAR},
+      </if>
+      <if test="changeNum != null" >
+        #{changeNum,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzExecutiveMeetChangeRecord" >
+    update zj_tz_executive_meet_change_record
+    <set >
+      <if test="executiveMeetId != null" >
+        executive_meet_id = #{executiveMeetId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="periodId != null" >
+        period_id = #{periodId,jdbcType=CHAR},
+      </if>
+      <if test="periodName != null" >
+        period_name = #{periodName,jdbcType=VARCHAR},
+      </if>
+      <if test="businessDate != null" >
+        business_date = #{businessDate,jdbcType=DATE},
+      </if>
+      <if test="startDate != null" >
+        start_date = #{startDate,jdbcType=DATE},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate,jdbcType=DATE},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="statusId != null" >
+        status_id = #{statusId,jdbcType=CHAR},
+      </if>
+      <if test="statusName != null" >
+        status_name = #{statusName,jdbcType=VARCHAR},
+      </if>
+      <if test="conentDesc != null" >
+        conent_desc = #{conentDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="legal != null" >
+        legal = #{legal,jdbcType=VARCHAR},
+      </if>
+      <if test="changeNum != null" >
+        change_num = #{changeNum,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where executive_meet_change_record_id = #{executiveMeetChangeRecordId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzExecutiveMeetChangeRecord" >
+    update zj_tz_executive_meet_change_record
+    set       executive_meet_id = #{executiveMeetId,jdbcType=CHAR},
+      project_id = #{projectId,jdbcType=CHAR},
+      period_id = #{periodId,jdbcType=CHAR},
+      period_name = #{periodName,jdbcType=VARCHAR},
+      business_date = #{businessDate,jdbcType=DATE},
+      start_date = #{startDate,jdbcType=DATE},
+      end_date = #{endDate,jdbcType=DATE},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      status_id = #{statusId,jdbcType=CHAR},
+      status_name = #{statusName,jdbcType=VARCHAR},
+      conent_desc = #{conentDesc,jdbcType=VARCHAR},
+      legal = #{legal,jdbcType=VARCHAR},
+      change_num = #{changeNum,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where executive_meet_change_record_id = #{executiveMeetChangeRecordId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzExecutiveMeetChangeRecordList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzExecutiveMeetChangeRecord" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_executive_meet_change_record
+    where del_flag = '0'
+    <if test="executiveMeetChangeRecordId != null and executiveMeetChangeRecordId != ''" >
+     and executive_meet_change_record_id = #{executiveMeetChangeRecordId,jdbcType=}
+    </if>
+    <if test="executiveMeetId != null and executiveMeetId != ''" >
+     and executive_meet_id = #{executiveMeetId,jdbcType=CHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="periodId != null and periodId != ''" >
+     and period_id = #{periodId,jdbcType=CHAR}
+    </if>
+    <if test="periodName != null and periodName != ''" >
+     and period_name = #{periodName,jdbcType=VARCHAR}
+    </if>
+    <if test="businessDate != null" >
+     and business_date = #{businessDate,jdbcType=DATE}
+    </if>
+    <if test="startDate != null" >
+     and start_date = #{startDate,jdbcType=DATE}
+    </if>
+    <if test="endDate != null" >
+     and end_date = #{endDate,jdbcType=DATE}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="statusId != null and statusId != ''" >
+     and status_id = #{statusId,jdbcType=CHAR}
+    </if>
+    <if test="statusName != null and statusName != ''" >
+     and status_name = #{statusName,jdbcType=VARCHAR}
+    </if>
+    <if test="conentDesc != null and conentDesc != ''" >
+     and conent_desc = #{conentDesc,jdbcType=VARCHAR}
+    </if>
+    <if test="legal != null and legal != ''" >
+     and legal = #{legal,jdbcType=VARCHAR}
+    </if>
+    <if test="changeNum != null and changeNum != ''" >
+     and change_num = #{changeNum,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY change_num DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzExecutiveMeetChangeRecord" parameterType="com.apih5.mybatis.pojo.ZjTzExecutiveMeetChangeRecord" >
+    <![CDATA[ 
+        update zj_tz_executive_meet_change_record
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and executive_meet_change_record_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.executiveMeetChangeRecordId} 
+     </foreach>
+  </delete>
+</mapper>

@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjLzehTaskCensusItemMapper">
+    <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjLzehTaskCensusItem">
+        <id column="zj_lzeh_task_census_item_id" property="zjLzehTaskCensusItemId" jdbcType="CHAR"/>
+        <result column="zj_lzeh_task_census_id" property="zjLzehTaskCensusId" jdbcType="CHAR"/>
+        <result column="person_name" property="personName" jdbcType="VARCHAR"/>
+        <result column="allNum" property="allNum" jdbcType="INTEGER"/>
+        <result column="cNum" property="cNum" jdbcType="INTEGER"/>
+        <result column="num" property="num" jdbcType="INTEGER"/>
+        <result column="mallNum" property="mallNum" jdbcType="INTEGER"/>
+        <result column="mcNum" property="mcNum" jdbcType="INTEGER"/>
+        <result column="mnum" property="mnum" jdbcType="INTEGER"/>
+        <result column="pallNum" property="pallNum" jdbcType="INTEGER"/>
+        <result column="pcNum" property="pcNum" jdbcType="INTEGER"/>
+        <result column="pnum" property="pnum" jdbcType="INTEGER"/>
+        <result column="allqty" property="allqty" jdbcType="INTEGER"/>
+        <result column="cqty" property="cqty" jdbcType="INTEGER"/>
+        <result column="qty" property="qty" jdbcType="INTEGER"/>
+        <result column="cRate" property="cRate" jdbcType="DECIMAL"/>
+        <result column="xuhao" property="xuhao" jdbcType="INTEGER"/>
+        <result column="remarks" property="remarks" jdbcType="VARCHAR"/>
+        <result column="sort" property="sort" jdbcType="INTEGER"/>
+        <result column="del_flag" property="delFlag" jdbcType="CHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="create_user" property="createUser" jdbcType="CHAR"/>
+        <result column="create_user_name" property="createUserName" jdbcType="VARCHAR"/>
+        <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP"/>
+        <result column="modify_user" property="modifyUser" jdbcType="CHAR"/>
+        <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    zj_lzeh_task_census_item_id, zj_lzeh_task_census_id, person_name, allNum, cNum, 
+    num, mallNum, mcNum, mnum, pallNum, 
+    pcNum, pnum, allqty, cqty, qty, 
+    cRate, xuhao, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from zj_lzeh_task_census_item
+        where del_flag = '0' and zj_lzeh_task_census_item_id = #{zjLzehTaskCensusItemId,jdbcType=CHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from zj_lzeh_task_census_item
+    where zj_lzeh_task_census_item_id = #{zjLzehTaskCensusItemId,jdbcType=CHAR}
+  </delete>
+    <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjLzehTaskCensusItem">
+    insert into zj_lzeh_task_census_item (
+    zj_lzeh_task_census_item_id, zj_lzeh_task_census_id, person_name, allNum, cNum, 
+    num, mallNum, mcNum, mnum, pallNum, 
+    pcNum, pnum, allqty, cqty, qty, 
+    cRate, xuhao, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{zjLzehTaskCensusItemId,jdbcType=CHAR}, #{zjLzehTaskCensusId,jdbcType=CHAR}, #{personName,jdbcType=VARCHAR}, #{allNum,jdbcType=INTEGER}, #{cNum,jdbcType=INTEGER}, 
+    #{num,jdbcType=INTEGER}, #{mallNum,jdbcType=INTEGER}, #{mcNum,jdbcType=INTEGER}, #{mnum,jdbcType=INTEGER}, #{pallNum,jdbcType=INTEGER}, 
+    #{pcNum,jdbcType=INTEGER}, #{pnum,jdbcType=INTEGER}, #{allqty,jdbcType=INTEGER}, #{cqty,jdbcType=INTEGER}, #{qty,jdbcType=INTEGER}, 
+    #{cRate,jdbcType=DECIMAL}, #{xuhao,jdbcType=INTEGER}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjLzehTaskCensusItem">
+        insert into zj_lzeh_task_census_item
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="zjLzehTaskCensusItemId != null">
+                zj_lzeh_task_census_item_id,
+            </if>
+            <if test="zjLzehTaskCensusId != null">
+                zj_lzeh_task_census_id,
+            </if>
+            <if test="personName != null">
+                person_name,
+            </if>
+            <if test="allNum != null">
+                allNum,
+            </if>
+            <if test="cNum != null">
+                cNum,
+            </if>
+            <if test="num != null">
+                num,
+            </if>
+            <if test="mallNum != null">
+                mallNum,
+            </if>
+            <if test="mcNum != null">
+                mcNum,
+            </if>
+            <if test="mnum != null">
+                mnum,
+            </if>
+            <if test="pallNum != null">
+                pallNum,
+            </if>
+            <if test="pcNum != null">
+                pcNum,
+            </if>
+            <if test="pnum != null">
+                pnum,
+            </if>
+            <if test="allqty != null">
+                allqty,
+            </if>
+            <if test="cqty != null">
+                cqty,
+            </if>
+            <if test="qty != null">
+                qty,
+            </if>
+            <if test="cRate != null">
+                cRate,
+            </if>
+            <if test="xuhao != null">
+                xuhao,
+            </if>
+            <if test="remarks != null">
+                remarks,
+            </if>
+            <if test="sort != null">
+                sort,
+            </if>
+            <if test="delFlag != null">
+                del_flag,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createUser != null">
+                create_user,
+            </if>
+            <if test="createUserName != null">
+                create_user_name,
+            </if>
+            <if test="modifyTime != null">
+                modify_time,
+            </if>
+            <if test="modifyUser != null">
+                modify_user,
+            </if>
+            <if test="modifyUserName != null">
+                modify_user_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="zjLzehTaskCensusItemId != null">
+                #{zjLzehTaskCensusItemId,jdbcType=CHAR},
+            </if>
+            <if test="zjLzehTaskCensusId != null">
+                #{zjLzehTaskCensusId,jdbcType=CHAR},
+            </if>
+            <if test="personName != null">
+                #{personName,jdbcType=VARCHAR},
+            </if>
+            <if test="allNum != null">
+                #{allNum,jdbcType=INTEGER},
+            </if>
+            <if test="cNum != null">
+                #{cNum,jdbcType=INTEGER},
+            </if>
+            <if test="num != null">
+                #{num,jdbcType=INTEGER},
+            </if>
+            <if test="mallNum != null">
+                #{mallNum,jdbcType=INTEGER},
+            </if>
+            <if test="mcNum != null">
+                #{mcNum,jdbcType=INTEGER},
+            </if>
+            <if test="mnum != null">
+                #{mnum,jdbcType=INTEGER},
+            </if>
+            <if test="pallNum != null">
+                #{pallNum,jdbcType=INTEGER},
+            </if>
+            <if test="pcNum != null">
+                #{pcNum,jdbcType=INTEGER},
+            </if>
+            <if test="pnum != null">
+                #{pnum,jdbcType=INTEGER},
+            </if>
+            <if test="allqty != null">
+                #{allqty,jdbcType=INTEGER},
+            </if>
+            <if test="cqty != null">
+                #{cqty,jdbcType=INTEGER},
+            </if>
+            <if test="qty != null">
+                #{qty,jdbcType=INTEGER},
+            </if>
+            <if test="cRate != null">
+                #{cRate,jdbcType=DECIMAL},
+            </if>
+            <if test="xuhao != null">
+                #{xuhao,jdbcType=INTEGER},
+            </if>
+            <if test="remarks != null">
+                #{remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="sort != null">
+                #{sort,jdbcType=INTEGER},
+            </if>
+            <if test="delFlag != null">
+                #{delFlag,jdbcType=CHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                #{createUser,jdbcType=CHAR},
+            </if>
+            <if test="createUserName != null">
+                #{createUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyTime != null">
+                #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyUser != null">
+                #{modifyUser,jdbcType=CHAR},
+            </if>
+            <if test="modifyUserName != null">
+                #{modifyUserName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjLzehTaskCensusItem">
+        update zj_lzeh_task_census_item
+        <set>
+            <if test="zjLzehTaskCensusId != null">
+                zj_lzeh_task_census_id = #{zjLzehTaskCensusId,jdbcType=CHAR},
+            </if>
+            <if test="personName != null">
+                person_name = #{personName,jdbcType=VARCHAR},
+            </if>
+            <if test="allNum != null">
+                allNum = #{allNum,jdbcType=INTEGER},
+            </if>
+            <if test="cNum != null">
+                cNum = #{cNum,jdbcType=INTEGER},
+            </if>
+            <if test="num != null">
+                num = #{num,jdbcType=INTEGER},
+            </if>
+            <if test="mallNum != null">
+                mallNum = #{mallNum,jdbcType=INTEGER},
+            </if>
+            <if test="mcNum != null">
+                mcNum = #{mcNum,jdbcType=INTEGER},
+            </if>
+            <if test="mnum != null">
+                mnum = #{mnum,jdbcType=INTEGER},
+            </if>
+            <if test="pallNum != null">
+                pallNum = #{pallNum,jdbcType=INTEGER},
+            </if>
+            <if test="pcNum != null">
+                pcNum = #{pcNum,jdbcType=INTEGER},
+            </if>
+            <if test="pnum != null">
+                pnum = #{pnum,jdbcType=INTEGER},
+            </if>
+            <if test="allqty != null">
+                allqty = #{allqty,jdbcType=INTEGER},
+            </if>
+            <if test="cqty != null">
+                cqty = #{cqty,jdbcType=INTEGER},
+            </if>
+            <if test="qty != null">
+                qty = #{qty,jdbcType=INTEGER},
+            </if>
+            <if test="cRate != null">
+                cRate = #{cRate,jdbcType=DECIMAL},
+            </if>
+            <if test="xuhao != null">
+                xuhao = #{xuhao,jdbcType=INTEGER},
+            </if>
+            <if test="remarks != null">
+                remarks = #{remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="sort != null">
+                sort = #{sort,jdbcType=INTEGER},
+            </if>
+            <if test="delFlag != null">
+                del_flag = #{delFlag,jdbcType=CHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                create_user = #{createUser,jdbcType=CHAR},
+            </if>
+            <if test="createUserName != null">
+                create_user_name = #{createUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyTime != null">
+                modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyUser != null">
+                modify_user = #{modifyUser,jdbcType=CHAR},
+            </if>
+            <if test="modifyUserName != null">
+                modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where zj_lzeh_task_census_item_id = #{zjLzehTaskCensusItemId,jdbcType=CHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjLzehTaskCensusItem">
+    update zj_lzeh_task_census_item set 
+      zj_lzeh_task_census_id = #{zjLzehTaskCensusId,jdbcType=CHAR},
+      person_name = #{personName,jdbcType=VARCHAR},
+      allNum = #{allNum,jdbcType=INTEGER},
+      cNum = #{cNum,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER},
+      mallNum = #{mallNum,jdbcType=INTEGER},
+      mcNum = #{mcNum,jdbcType=INTEGER},
+      mnum = #{mnum,jdbcType=INTEGER},
+      pallNum = #{pallNum,jdbcType=INTEGER},
+      pcNum = #{pcNum,jdbcType=INTEGER},
+      pnum = #{pnum,jdbcType=INTEGER},
+      allqty = #{allqty,jdbcType=INTEGER},
+      cqty = #{cqty,jdbcType=INTEGER},
+      qty = #{qty,jdbcType=INTEGER},
+      cRate = #{cRate,jdbcType=DECIMAL},
+      xuhao = #{xuhao,jdbcType=INTEGER},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zj_lzeh_task_census_item_id = #{zjLzehTaskCensusItemId,jdbcType=CHAR}
+  </update>
+    <select id="selectByZjLzehTaskCensusItemList" resultMap="BaseResultMap"
+            parameterType="com.apih5.mybatis.pojo.ZjLzehTaskCensusItem">
+        select
+        <include refid="Base_Column_List"/>
+        from zj_lzeh_task_census_item
+        where del_flag = '0'
+        <if test="zjLzehTaskCensusItemId != null and zjLzehTaskCensusItemId != ''">
+            and zj_lzeh_task_census_item_id = #{zjLzehTaskCensusItemId,jdbcType=CHAR}
+        </if>
+        <if test="zjLzehTaskCensusId != null and zjLzehTaskCensusId != ''">
+            and zj_lzeh_task_census_id = #{zjLzehTaskCensusId,jdbcType=CHAR}
+        </if>
+        <if test="personName != null and personName != ''">
+            and person_name = #{personName,jdbcType=VARCHAR}
+        </if>
+        <if test="allNum != null and allNum != ''">
+            and allNum = #{allNum,jdbcType=INTEGER}
+        </if>
+        <if test="cNum != null and cNum != ''">
+            and cNum = #{cNum,jdbcType=INTEGER}
+        </if>
+        <if test="num != null and num != ''">
+            and num = #{num,jdbcType=INTEGER}
+        </if>
+        <if test="mallNum != null and mallNum != ''">
+            and mallNum = #{mallNum,jdbcType=INTEGER}
+        </if>
+        <if test="mcNum != null and mcNum != ''">
+            and mcNum = #{mcNum,jdbcType=INTEGER}
+        </if>
+        <if test="mnum != null and mnum != ''">
+            and mnum = #{mnum,jdbcType=INTEGER}
+        </if>
+        <if test="pallNum != null and pallNum != ''">
+            and pallNum = #{pallNum,jdbcType=INTEGER}
+        </if>
+        <if test="pcNum != null and pcNum != ''">
+            and pcNum = #{pcNum,jdbcType=INTEGER}
+        </if>
+        <if test="pnum != null and pnum != ''">
+            and pnum = #{pnum,jdbcType=INTEGER}
+        </if>
+        <if test="allqty != null and allqty != ''">
+            and allqty = #{allqty,jdbcType=INTEGER}
+        </if>
+        <if test="cqty != null and cqty != ''">
+            and cqty = #{cqty,jdbcType=INTEGER}
+        </if>
+        <if test="qty != null and qty != ''">
+            and qty = #{qty,jdbcType=INTEGER}
+        </if>
+        <if test="cRate != null and cRate != ''">
+            and cRate = #{cRate,jdbcType=DECIMAL}
+        </if>
+        <if test="xuhao != null and xuhao != ''">
+            and xuhao = #{xuhao,jdbcType=INTEGER}
+        </if>
+        <if test="remarks != null and remarks != ''">
+            and remarks = #{remarks,jdbcType=VARCHAR}
+        </if>
+        <if test="sort != null and sort != ''">
+            and sort = #{sort,jdbcType=INTEGER}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and create_time = #{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="createUser != null and createUser != ''">
+            and create_user = #{createUser,jdbcType=CHAR}
+        </if>
+        <if test="createUserName != null and createUserName != ''">
+            and create_user_name = #{createUserName,jdbcType=VARCHAR}
+        </if>
+        <if test="modifyTime != null and modifyTime != ''">
+            and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="modifyUser != null and modifyUser != ''">
+            and modify_user = #{modifyUser,jdbcType=CHAR}
+        </if>
+        <if test="modifyUserName != null and modifyUserName != ''">
+            and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+        </if>
+        ORDER BY modify_time DESC
+    </select>
+    <delete id="batchDeleteUpdateZjLzehTaskCensusItem" parameterType="com.apih5.mybatis.pojo.ZjLzehTaskCensusItem">
+        <![CDATA[
+        update zj_lzeh_task_census_item
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zj_lzeh_task_census_item_id in 
+     ]]>
+        <foreach collection="param1" item="model" open="(" separator="," close=")">#{model.zjLzehTaskCensusItemId}
+        </foreach>
+    </delete>
+    <!-- ↓↓↓扩展↓↓↓ -->
+    <select id="selectTaskCensusItemByMonth" resultMap="BaseResultMap">
+           SELECT IFNULL(implement_person, IFNULL(mperson, pperson)) AS person_name
+           , IFNULL(allNum, 0) AS allNum
+           , IFNULL(cNum, 0) AS cNum
+           , IFNULL(allNum, 0) - IFNULL(cNum, 0) AS num
+           , IFNULL(mallNum, 0) AS mallNum
+           , IFNULL(mcNum, 0) AS mcNum
+           , IFNULL(mallNum, 0) - IFNULL(mcNum, 0) AS mnum
+           , IFNULL(pallNum, 0) AS pallNum
+           , IFNULL(pcNum, 0) AS pcNum
+           , IFNULL(pallNum, 0) - IFNULL(pcNum, 0) AS pnum
+           , IFNULL(allNum, 0) + IFNULL(mallNum, 0) + IFNULL(pallNum, 0) AS allqty
+           , IFNULL(cNum, 0) + IFNULL(mcNum, 0) + IFNULL(pcNum, 0) AS cqty
+           , IFNULL(allNum, 0) - IFNULL(cNum, 0) + IFNULL(mallNum, 0) - IFNULL(mcNum, 0) + IFNULL(pallNum, 0) - IFNULL(pcNum, 0) AS qty
+           , CONVERT((IFNULL(cNum, 0) + IFNULL(mcNum, 0) + IFNULL(pcNum, 0)) / (IFNULL(allNum, 0) + IFNULL(mallNum, 0) + IFNULL(pallNum, 0)), DECIMAL(15, 2)) * 100 AS cRate
+           , @rownum := @rownum + 1 AS xuhao
+           FROM (
+	           SELECT @rownum := 0
+           ) r, (
+		           SELECT *
+		           FROM (
+			           SELECT *
+			           FROM (
+				           SELECT a.implement_person, allNum, cNum
+				           FROM (
+					           SELECT implement_person, COUNT(*) AS allNum
+					           FROM zj_lzeh_temp_task_manage
+					           WHERE del_flag = '0' and status &lt;>'0'
+						           AND date_format(begin_date, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+					           GROUP BY implement_person
+				           ) a
+					           LEFT JOIN (
+						           SELECT implement_person, COUNT(*) AS cNum
+						           FROM zj_lzeh_temp_task_manage
+						           WHERE del_flag = '0'
+							           AND STATUS = '4'
+							           AND date_format(begin_date, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+						           GROUP BY implement_person
+					           ) b
+					           ON a.implement_person = b.implement_person
+			           ) temp1
+				           LEFT JOIN (
+					           SELECT temp3.duty_person AS mperson, mallNum, mcNum
+					           FROM (
+						           SELECT mi.duty_person, COUNT(*) AS mallNum
+						           FROM zj_lzeh_manage_task_plan_item mi
+							           LEFT JOIN zj_lzeh_manage_task_plan mp ON mi.zj_lzeh_manage_task_plan_id = mp.zj_lzeh_manage_task_plan_id
+						           WHERE mi.del_flag = '0'
+							           AND date_format(mp.MONTH, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+						           GROUP BY mi.duty_person
+					           ) temp3
+						           LEFT JOIN (
+							           SELECT mi.duty_person, COUNT(*) AS mcNum
+							           FROM zj_lzeh_manage_task_plan_item mi
+								           LEFT JOIN zj_lzeh_manage_task_plan mp ON mi.zj_lzeh_manage_task_plan_id = mp.zj_lzeh_manage_task_plan_id
+							           WHERE mi.del_flag = '0'
+								           AND mi.COMPLETION = '已完成'
+								           AND date_format(mp.MONTH, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+							           GROUP BY mi.duty_person
+						           ) temp4
+						           ON temp3.duty_person = temp4.duty_person
+				           ) manage1
+				           ON temp1.implement_person = manage1.mperson
+			           UNION
+			           SELECT *
+			           FROM (
+				           SELECT a.implement_person, allNum, cNum
+				           FROM (
+					           SELECT implement_person, COUNT(*) AS allNum
+					           FROM zj_lzeh_temp_task_manage
+					           WHERE del_flag = '0' and status &lt;>'0'
+						           AND date_format(begin_date, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+					           GROUP BY implement_person
+				           ) a
+					           LEFT JOIN (
+						           SELECT implement_person, COUNT(*) AS cNum
+						           FROM zj_lzeh_temp_task_manage
+						           WHERE del_flag = '0'
+							           AND STATUS = '4'
+							           AND date_format(begin_date, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+						           GROUP BY implement_person
+					           ) b
+					           ON a.implement_person = b.implement_person
+			           ) temp
+				           RIGHT JOIN (
+					           SELECT temp3.duty_person AS mperson, mallNum, mcNum
+					           FROM (
+						           SELECT duty_person, COUNT(*) AS mallNum
+						           FROM zj_lzeh_manage_task_plan_item mi
+							           LEFT JOIN zj_lzeh_manage_task_plan mp ON mi.zj_lzeh_manage_task_plan_id = mp.zj_lzeh_manage_task_plan_id
+						           WHERE mi.del_flag = '0'
+							           AND date_format(mp.MONTH, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+						           GROUP BY mi.duty_person
+					           ) temp3
+						           LEFT JOIN (
+							           SELECT duty_person, COUNT(*) AS mcNum
+							           FROM zj_lzeh_manage_task_plan_item mi
+								           LEFT JOIN zj_lzeh_manage_task_plan mp ON mi.zj_lzeh_manage_task_plan_id = mp.zj_lzeh_manage_task_plan_id
+							           WHERE mi.del_flag = '0'
+								           AND mi.COMPLETION = '已完成'
+								           AND date_format(mp.MONTH, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+							           GROUP BY mi.duty_person
+						           ) temp4
+						           ON temp3.duty_person = temp4.duty_person
+				           ) manage
+				           ON temp.implement_person = manage.mperson
+		           ) t1
+			           LEFT JOIN (
+				           SELECT temp5.duty_person AS pperson, pallNum, pcNum
+				           FROM (
+					           SELECT duty_person, COUNT(*) AS pallNum
+					           FROM zj_lzeh_produce_task_plan_item pi
+						           LEFT JOIN zj_lzeh_produce_task_plan pp ON pi.zj_lzeh_produce_task_plan_id = pp.zj_lzeh_produce_task_plan_id
+					           WHERE pi.del_flag = '0'
+						           AND date_format(pp.MONTH, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+					           GROUP BY pi.duty_person
+				           ) temp5
+					           LEFT JOIN (
+						           SELECT pi.duty_person, COUNT(*) AS pcNum
+						           FROM zj_lzeh_produce_task_plan_item pi
+							           LEFT JOIN zj_lzeh_produce_task_plan pp ON pi.zj_lzeh_produce_task_plan_id = pp.zj_lzeh_produce_task_plan_id
+						           WHERE pi.del_flag = '0'
+							           AND pi.COMPLETION = '已完成'
+							           AND date_format(pp.MONTH, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+						           GROUP BY pi.duty_person
+					           ) temp6
+					           ON temp5.duty_person = temp6.duty_person
+			           ) t2
+			           ON t1.implement_person = t2.pperson
+				           OR t1.mperson = t2.pperson
+		           UNION
+		           SELECT *
+		           FROM (
+			           SELECT *
+			           FROM (
+				           SELECT a.implement_person, allNum, cNum
+				           FROM (
+					           SELECT implement_person, COUNT(*) AS allNum
+					           FROM zj_lzeh_temp_task_manage
+					           WHERE del_flag = '0' and status &lt;>'0'
+						           AND date_format(begin_date, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+					           GROUP BY implement_person
+				           ) a
+					           LEFT JOIN (
+						           SELECT implement_person, COUNT(*) AS cNum
+						           FROM zj_lzeh_temp_task_manage
+						           WHERE del_flag = '0'
+							           AND STATUS = '4'
+							           AND date_format(begin_date, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+						           GROUP BY implement_person
+					           ) b
+					           ON a.implement_person = b.implement_person
+			           ) temp1
+				           LEFT JOIN (
+					           SELECT temp3.duty_person AS mperson, mallNum, mcNum
+					           FROM (
+						           SELECT duty_person, COUNT(*) AS mallNum
+						           FROM zj_lzeh_manage_task_plan_item mi
+							           LEFT JOIN zj_lzeh_manage_task_plan mp ON mi.zj_lzeh_manage_task_plan_id = mp.zj_lzeh_manage_task_plan_id
+						           WHERE mi.del_flag = '0'
+							           AND date_format(mp.MONTH, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+						           GROUP BY mi.duty_person
+					           ) temp3
+						           LEFT JOIN (
+							           SELECT duty_person, COUNT(*) AS mcNum
+							           FROM zj_lzeh_manage_task_plan_item mi
+								           LEFT JOIN zj_lzeh_manage_task_plan mp ON mi.zj_lzeh_manage_task_plan_id = mp.zj_lzeh_manage_task_plan_id
+							           WHERE mi.del_flag = '0'
+								           AND mi.COMPLETION = '已完成'
+							           GROUP BY mi.duty_person
+						           ) temp4
+						           ON temp3.duty_person = temp4.duty_person
+				           ) manage1
+				           ON temp1.implement_person = manage1.mperson
+			           UNION
+			           SELECT *
+			           FROM (
+				           SELECT a.implement_person, allNum, cNum
+				           FROM (
+				           	SELECT implement_person, COUNT(*) AS allNum
+					           FROM zj_lzeh_temp_task_manage
+					           WHERE del_flag = '0' and status &lt;> '0'
+						           AND date_format(begin_date, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+					           GROUP BY implement_person
+				           ) a
+					           LEFT JOIN (
+						           SELECT implement_person, COUNT(*) AS cNum
+						           FROM zj_lzeh_temp_task_manage
+						           WHERE del_flag = '0'
+							           AND STATUS = '4'
+							           AND date_format(begin_date, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+						           GROUP BY implement_person
+					           ) b
+					           ON a.implement_person = b.implement_person
+			           ) temp
+				           RIGHT JOIN (
+					           SELECT temp3.duty_person AS mperson, mallNum, mcNum
+					           FROM (
+						           SELECT duty_person, COUNT(*) AS mallNum
+						           FROM zj_lzeh_manage_task_plan_item mi
+							           LEFT JOIN zj_lzeh_manage_task_plan mp ON mi.zj_lzeh_manage_task_plan_id = mp.zj_lzeh_manage_task_plan_id
+						           WHERE mi.del_flag = '0'
+							           AND date_format(mp.MONTH, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+						           GROUP BY mi.duty_person
+					           ) temp3
+						           LEFT JOIN (
+						           	SELECT duty_person, COUNT(*) AS mcNum
+						           	FROM zj_lzeh_manage_task_plan_item mi
+								           LEFT JOIN zj_lzeh_manage_task_plan mp ON mi.zj_lzeh_manage_task_plan_id = mp.zj_lzeh_manage_task_plan_id
+							           WHERE mi.del_flag = '0'
+								           AND mi.COMPLETION = '已完成'
+								           AND date_format(mp.MONTH, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+							           GROUP BY mi.duty_person
+						           ) temp4
+						           ON temp3.duty_person = temp4.duty_person
+				           ) manage
+				           ON temp.implement_person = manage.mperson
+		           ) t1
+			           RIGHT JOIN (
+				           SELECT temp5.duty_person AS pperson, pallNum, pcNum
+				           FROM (
+					           SELECT duty_person, COUNT(*) AS pallNum
+					           FROM zj_lzeh_produce_task_plan_item pi
+					           	LEFT JOIN zj_lzeh_produce_task_plan pp ON pi.zj_lzeh_produce_task_plan_id = pp.zj_lzeh_produce_task_plan_id
+				           	WHERE pi.del_flag = '0'
+					           	AND date_format(pp.MONTH, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+				           	GROUP BY pi.duty_person
+				           ) temp5
+				           	LEFT JOIN (
+				           		SELECT duty_person, COUNT(*) AS pcNum
+				           		FROM zj_lzeh_produce_task_plan_item pi
+				           			LEFT JOIN zj_lzeh_produce_task_plan pp ON pi.zj_lzeh_produce_task_plan_id = pp.zj_lzeh_produce_task_plan_id
+				           		WHERE pi.del_flag = '0'
+				           			AND pi.COMPLETION = '已完成'
+					           		AND date_format(pp.MONTH, '%Y%m') = date_format(#{cenMonth,jdbcType=TIMESTAMP}, '%Y%m')
+					           	GROUP BY pi.duty_person
+					           ) temp6
+				           	ON temp5.duty_person = temp6.duty_person
+		           	) t2
+			           ON t1.implement_person = t2.pperson
+				           OR t1.mperson = t2.pperson
+	           ) taskInfo
+           ORDER BY CONVERT((IFNULL(cNum, 0) + IFNULL(mcNum, 0) + IFNULL(pcNum, 0)) / (IFNULL(allNum, 0) + IFNULL(mallNum, 0) + IFNULL(pallNum, 0)), DECIMAL(15, 2)) DESC
+    </select>
+
+    <select id="selectChartInfoByID" resultMap="BaseResultMap">
+        SELECT
+        allqty,
+        cqty,
+        cRate,
+        tc.census_month as cenMonth,
+
+        CASE WHEN date_format( tc.census_month, '%m' ) = '01' THEN
+        (
+        SELECT
+        avg( a.cRate )
+        FROM
+        zj_lzeh_task_census_item a
+        LEFT JOIN zj_lzeh_task_census b ON a.zj_lzeh_task_census_id = b.zj_lzeh_task_census_id
+        WHERE
+        a.person_name = #{personName,jdbcType=VARCHAR} and date_format(b.census_month,'%m')&lt;='01' GROUP BY
+        a.person_name
+        )
+        WHEN date_format( tc.census_month, '%m' ) = '02' THEN
+        (
+        SELECT
+        avg( a.cRate )
+        FROM
+        zj_lzeh_task_census_item a
+        LEFT JOIN zj_lzeh_task_census b ON a.zj_lzeh_task_census_id = b.zj_lzeh_task_census_id
+        WHERE
+        a.person_name = #{personName,jdbcType=VARCHAR} and date_format(b.census_month,'%m')&lt;='02' GROUP BY
+        a.person_name
+        )
+        WHEN date_format( tc.census_month, '%m' ) = '03' THEN
+        (
+        SELECT
+        avg( a.cRate )
+        FROM
+        zj_lzeh_task_census_item a
+        LEFT JOIN zj_lzeh_task_census b ON a.zj_lzeh_task_census_id = b.zj_lzeh_task_census_id
+        WHERE
+        a.person_name = #{personName,jdbcType=VARCHAR} and date_format(b.census_month,'%m')&lt;='03' GROUP BY
+        a.person_name
+        )
+        WHEN date_format( tc.census_month, '%m' ) = '04' THEN
+        (
+        SELECT
+        avg( a.cRate )
+        FROM
+        zj_lzeh_task_census_item a
+        LEFT JOIN zj_lzeh_task_census b ON a.zj_lzeh_task_census_id = b.zj_lzeh_task_census_id
+        WHERE
+        a.person_name = #{personName,jdbcType=VARCHAR} and date_format(b.census_month,'%m')&lt;='04' GROUP BY
+        a.person_name
+        )
+        WHEN date_format( tc.census_month, '%m' ) = '05' THEN
+        (
+        SELECT
+        avg( a.cRate )
+        FROM
+        zj_lzeh_task_census_item a
+        LEFT JOIN zj_lzeh_task_census b ON a.zj_lzeh_task_census_id = b.zj_lzeh_task_census_id
+        WHERE
+        a.person_name = #{personName,jdbcType=VARCHAR} and date_format(b.census_month,'%m')&lt;='05' GROUP BY
+        a.person_name
+        )
+        WHEN date_format( tc.census_month, '%m' ) = '06' THEN
+        (
+        SELECT
+        avg( a.cRate )
+        FROM
+        zj_lzeh_task_census_item a
+        LEFT JOIN zj_lzeh_task_census b ON a.zj_lzeh_task_census_id = b.zj_lzeh_task_census_id
+        WHERE
+        a.person_name = #{personName,jdbcType=VARCHAR} and date_format(b.census_month,'%m')&lt;='06' GROUP BY
+        a.person_name
+        )
+        WHEN date_format( tc.census_month, '%m' ) = '07' THEN
+        (
+        SELECT
+        avg( a.cRate )
+        FROM
+        zj_lzeh_task_census_item a
+        LEFT JOIN zj_lzeh_task_census b ON a.zj_lzeh_task_census_id = b.zj_lzeh_task_census_id
+        WHERE
+        a.person_name = #{personName,jdbcType=VARCHAR} and date_format(b.census_month,'%m')&lt;='07' GROUP BY
+        a.person_name
+        )
+        WHEN date_format( tc.census_month, '%m' ) = '08' THEN
+        (
+        SELECT
+        avg( a.cRate )
+        FROM
+        zj_lzeh_task_census_item a
+        LEFT JOIN zj_lzeh_task_census b ON a.zj_lzeh_task_census_id = b.zj_lzeh_task_census_id
+        WHERE
+        a.person_name = #{personName,jdbcType=VARCHAR} and date_format(b.census_month,'%m')&lt;='08' GROUP BY
+        a.person_name
+        )
+        WHEN date_format( tc.census_month, '%m' ) = '09' THEN
+        (
+        SELECT
+        avg( a.cRate )
+        FROM
+        zj_lzeh_task_census_item a
+        LEFT JOIN zj_lzeh_task_census b ON a.zj_lzeh_task_census_id = b.zj_lzeh_task_census_id
+        WHERE
+        a.person_name =#{personName,jdbcType=VARCHAR} and date_format(b.census_month,'%m')&lt;='09' GROUP BY
+        a.person_name
+        )
+        WHEN date_format( tc.census_month, '%m' ) = '10' THEN
+        (
+        SELECT
+        avg( a.cRate )
+        FROM
+        zj_lzeh_task_census_item a
+        LEFT JOIN zj_lzeh_task_census b ON a.zj_lzeh_task_census_id = b.zj_lzeh_task_census_id
+        WHERE
+        a.person_name = #{personName,jdbcType=VARCHAR} and date_format(b.census_month,'%m')&lt;='10' GROUP BY
+        a.person_name
+        )
+        WHEN date_format( tc.census_month, '%m' ) = '11' THEN
+        (
+        SELECT
+        avg( a.cRate )
+        FROM
+        zj_lzeh_task_census_item a
+        LEFT JOIN zj_lzeh_task_census b ON a.zj_lzeh_task_census_id = b.zj_lzeh_task_census_id
+        WHERE
+        a.person_name = #{personName,jdbcType=VARCHAR} and date_format(b.census_month,'%m')&lt;='11' GROUP BY
+        a.person_name
+        )
+        WHEN date_format( tc.census_month, '%m' ) = '12' THEN
+        (
+        SELECT
+        avg( a.cRate )
+        FROM
+        zj_lzeh_task_census_item a
+        LEFT JOIN zj_lzeh_task_census b ON a.zj_lzeh_task_census_id = b.zj_lzeh_task_census_id
+        WHERE
+        a.person_name = #{personName,jdbcType=VARCHAR} and date_format(b.census_month,'%m')&lt;='12' GROUP BY
+        a.person_name
+        ) END AS avgRate
+        FROM
+        zj_lzeh_task_census_item tci
+        LEFT JOIN zj_lzeh_task_census tc ON tci.zj_lzeh_task_census_id = tc.zj_lzeh_task_census_id
+        WHERE
+        DATE_FORMAT( tc.census_month, '%Y' ) = DATE_FORMAT( #{cenMonth,jdbcType=TIMESTAMP}, '%Y' ) and person_name =#{personName,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectChartByCenMonth" resultMap="BaseResultMap">
+        SELECT
+            a.zj_lzeh_task_census_item_id,
+	        a.person_name,
+	        a.allqty,
+	        a.cqty,
+	        a.qty,
+	        a.cRate ,
+	        @rownum := @rownum + 1 AS xuhao
+        FROM
+            (SELECT @rownum := 0) r,
+	        zj_lzeh_task_census_item a
+	        LEFT JOIN zj_lzeh_task_census b ON a.zj_lzeh_task_census_id = b.zj_lzeh_task_census_id
+	        where a.del_flag ='0' and DATE_FORMAT(b.census_month,'%Y%m') = DATE_FORMAT( #{cenMonth,jdbcType=TIMESTAMP}, '%Y%m' )
+        ORDER BY
+	    cRate desc
+    </select>
+
+    <select id="selectAvgCRateByCenMonth" resultMap="BaseResultMap">
+        SELECT
+        AVG( a.cRate ) AS avgRate,
+        a.person_name
+        FROM
+        zj_lzeh_task_census_item a
+        LEFT JOIN zj_lzeh_task_census b ON a.zj_lzeh_task_census_id = b.zj_lzeh_task_census_id
+        WHERE
+        a.del_flag ='0'AND DATE_FORMAT( b.census_month, '%Y' ) =  DATE_FORMAT( #{cenMonth,jdbcType=TIMESTAMP}, '%Y' )
+        AND DATE_FORMAT( b.census_month, '%Y%m' ) &lt;= DATE_FORMAT( #{cenMonth,jdbcType=TIMESTAMP}, '%Y%m' )
+        GROUP BY
+        a.person_name
+    </select>
+
+</mapper>

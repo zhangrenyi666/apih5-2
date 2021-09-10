@@ -1,0 +1,3 @@
+yarn build
+
+rem pause

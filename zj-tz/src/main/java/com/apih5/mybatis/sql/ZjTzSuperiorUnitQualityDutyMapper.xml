@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzSuperiorUnitQualityDutyMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzSuperiorUnitQualityDuty" >
+    <id column="superior_unit_quality_id" property="superiorUnitQualityId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="subprojects_id" property="subprojectsId" jdbcType="VARCHAR" />
+    <result column="subprojects_name" property="subprojectsName" jdbcType="VARCHAR" />
+    <result column="superior_unit_quality_title" property="superiorUnitQualityTitle" jdbcType="VARCHAR" />
+    <result column="superior_unit_quality_content" property="superiorUnitQualityContent" jdbcType="VARCHAR" />
+    <result column="superior_unit_quality_date" property="superiorUnitQualityDate" jdbcType="TIMESTAMP" />
+    <result column="superior_unit_quality_user" property="superiorUnitQualityUser" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    superior_unit_quality_id, project_id, project_name, subprojects_id, subprojects_name, 
+    superior_unit_quality_title, superior_unit_quality_content, superior_unit_quality_date, superior_unit_quality_user, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_qhse_superior_unit_quality_duty
+    where superior_unit_quality_id = #{superiorUnitQualityId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_qhse_superior_unit_quality_duty
+    where superior_unit_quality_id = #{superiorUnitQualityId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzSuperiorUnitQualityDuty" >
+    insert into zj_tz_qhse_superior_unit_quality_duty (superior_unit_quality_id, project_id, project_name, 
+      subprojects_id, subprojects_name, superior_unit_quality_title, 
+      superior_unit_quality_content, superior_unit_quality_date, superior_unit_quality_user, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{superiorUnitQualityId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, 
+      #{subprojectsId,jdbcType=VARCHAR}, #{subprojectsName,jdbcType=VARCHAR}, #{superiorUnitQualityTitle,jdbcType=VARCHAR}, 
+      #{superiorUnitQualityContent,jdbcType=VARCHAR}, #{superiorUnitQualityDate,jdbcType=TIMESTAMP}, #{superiorUnitQualityUser,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzSuperiorUnitQualityDuty" >
+    insert into zj_tz_qhse_superior_unit_quality_duty
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="superiorUnitQualityId != null" >
+        superior_unit_quality_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="subprojectsId != null" >
+        subprojects_id,
+      </if>
+      <if test="subprojectsName != null" >
+        subprojects_name,
+      </if>
+      <if test="superiorUnitQualityTitle != null" >
+        superior_unit_quality_title,
+      </if>
+      <if test="superiorUnitQualityContent != null" >
+        superior_unit_quality_content,
+      </if>
+      <if test="superiorUnitQualityDate != null" >
+        superior_unit_quality_date,
+      </if>
+      <if test="superiorUnitQualityUser != null" >
+        superior_unit_quality_user,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="superiorUnitQualityId != null" >
+        #{superiorUnitQualityId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectsId != null" >
+        #{subprojectsId,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectsName != null" >
+        #{subprojectsName,jdbcType=VARCHAR},
+      </if>
+      <if test="superiorUnitQualityTitle != null" >
+        #{superiorUnitQualityTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="superiorUnitQualityContent != null" >
+        #{superiorUnitQualityContent,jdbcType=VARCHAR},
+      </if>
+      <if test="superiorUnitQualityDate != null" >
+        #{superiorUnitQualityDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="superiorUnitQualityUser != null" >
+        #{superiorUnitQualityUser,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzSuperiorUnitQualityDuty" >
+    update zj_tz_qhse_superior_unit_quality_duty
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectsId != null" >
+        subprojects_id = #{subprojectsId,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectsName != null" >
+        subprojects_name = #{subprojectsName,jdbcType=VARCHAR},
+      </if>
+      <if test="superiorUnitQualityTitle != null" >
+        superior_unit_quality_title = #{superiorUnitQualityTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="superiorUnitQualityContent != null" >
+        superior_unit_quality_content = #{superiorUnitQualityContent,jdbcType=VARCHAR},
+      </if>
+      <if test="superiorUnitQualityDate != null" >
+        superior_unit_quality_date = #{superiorUnitQualityDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="superiorUnitQualityUser != null" >
+        superior_unit_quality_user = #{superiorUnitQualityUser,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where superior_unit_quality_id = #{superiorUnitQualityId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzSuperiorUnitQualityDuty" >
+    update zj_tz_qhse_superior_unit_quality_duty
+    set       project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      subprojects_id = #{subprojectsId,jdbcType=VARCHAR},
+      subprojects_name = #{subprojectsName,jdbcType=VARCHAR},
+      superior_unit_quality_title = #{superiorUnitQualityTitle,jdbcType=VARCHAR},
+      superior_unit_quality_content = #{superiorUnitQualityContent,jdbcType=VARCHAR},
+      superior_unit_quality_date = #{superiorUnitQualityDate,jdbcType=TIMESTAMP},
+      superior_unit_quality_user = #{superiorUnitQualityUser,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where superior_unit_quality_id = #{superiorUnitQualityId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzSuperiorUnitQualityDutyList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzSuperiorUnitQualityDuty" >
+    select 
+    zj_tz_qhse_superior_unit_quality_duty.superior_unit_quality_id, zj_tz_qhse_superior_unit_quality_duty.project_id, zj_tz_pro_manage.project_name, 
+    zj_tz_qhse_superior_unit_quality_duty.subprojects_id, zj_tz_qhse_superior_unit_quality_duty.subprojects_name, zj_tz_qhse_superior_unit_quality_duty.superior_unit_quality_title, 
+    zj_tz_qhse_superior_unit_quality_duty.superior_unit_quality_content, zj_tz_qhse_superior_unit_quality_duty.superior_unit_quality_date, zj_tz_qhse_superior_unit_quality_duty.superior_unit_quality_user, 
+    zj_tz_qhse_superior_unit_quality_duty.del_flag, zj_tz_qhse_superior_unit_quality_duty.create_time, zj_tz_qhse_superior_unit_quality_duty.create_user, 
+    zj_tz_qhse_superior_unit_quality_duty.create_user_name, zj_tz_qhse_superior_unit_quality_duty.modify_time, zj_tz_qhse_superior_unit_quality_duty.modify_user, 
+    zj_tz_qhse_superior_unit_quality_duty.modify_user_name
+    from zj_tz_qhse_superior_unit_quality_duty left join zj_tz_pro_manage on zj_tz_pro_manage.project_id = zj_tz_qhse_superior_unit_quality_duty.project_id and zj_tz_pro_manage.del_flag = '0'
+    where zj_tz_qhse_superior_unit_quality_duty.del_flag = '0'
+    <if test="projectId != null and projectId != ''" >
+     and zj_tz_qhse_superior_unit_quality_duty.project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     and zj_tz_qhse_superior_unit_quality_duty.project_id in (${projectIdSql})
+    </if>     
+    <if test="projectName != null and projectName != ''" >
+     <!-- and project_name = #{projectName,jdbcType=VARCHAR} -->
+     and zj_tz_pro_manage.project_name like CONCAT('%', #{projectName,jdbcType=VARCHAR}, '%')     
+    </if>
+    <if test="subprojectsId != null and subprojectsId != ''" >
+     and zj_tz_qhse_superior_unit_quality_duty.subprojects_id = #{subprojectsId,jdbcType=VARCHAR}
+    </if>
+    <if test="subprojectsName != null and subprojectsName != ''" >
+     and zj_tz_qhse_superior_unit_quality_duty.subprojects_name = #{subprojectsName,jdbcType=VARCHAR}
+    </if>
+    <if test="superiorUnitQualityTitle != null and superiorUnitQualityTitle != ''" >
+     <!-- and superior_unit_quality_title = #{superiorUnitQualityTitle,jdbcType=VARCHAR} -->
+     and zj_tz_qhse_superior_unit_quality_duty.superior_unit_quality_title like CONCAT('%', #{superiorUnitQualityTitle,jdbcType=VARCHAR}, '%')     
+    </if>
+    <if test="superiorUnitQualityContent != null and superiorUnitQualityContent != ''" >
+     and zj_tz_qhse_superior_unit_quality_duty.superior_unit_quality_content = #{superiorUnitQualityContent,jdbcType=VARCHAR}
+    </if>
+    <if test="superiorUnitQualityDate != null" >
+     and zj_tz_qhse_superior_unit_quality_duty.superior_unit_quality_date = #{superiorUnitQualityDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="superiorUnitQualityUser != null and superiorUnitQualityUser != ''" >
+     and zj_tz_qhse_superior_unit_quality_duty.superior_unit_quality_user = #{superiorUnitQualityUser,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and zj_tz_qhse_superior_unit_quality_duty.create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and zj_tz_qhse_superior_unit_quality_duty.modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY zj_tz_qhse_superior_unit_quality_duty.modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzSuperiorUnitQualityDuty" parameterType="com.apih5.mybatis.pojo.ZjTzSuperiorUnitQualityDuty" >
+    <![CDATA[ 
+        update zj_tz_qhse_superior_unit_quality_duty
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and superior_unit_quality_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.superiorUnitQualityId} 
+     </foreach>
+  </delete>
+</mapper>

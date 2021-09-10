@@ -1,0 +1,347 @@
+import React, { Component } from "react";
+import QnnTable from "../modules/qnn-table";
+import QnnForm from "../modules/qnn-table/qnn-form";
+import { push } from "react-router-redux";
+import { message as Msg, Modal } from 'antd';
+import s from "./style.less";
+const config = {
+    fetchConfig: {
+        apiName: 'getZjTzPolicyCountryReplyList',
+        otherParams: {
+            replyFlag: '1'
+        }
+    }
+};
+class index extends Component {
+    constructor() {
+        super();
+        this.state = {
+            visible: false,
+            replyData: []
+        }
+    }
+    render() {
+        const { visible, replyData } = this.state;
+        return (
+            <div className={s.root}>
+                <QnnTable
+                    {...this.props}
+                    fetch={this.props.myFetch}
+                    upload={this.props.myUpload}
+                    headers={{ token: this.props.loginAndLogoutInfo.loginInfo.token }}
+                    wrappedComponentRef={(me) => {
+                        this.table = me;
+                    }}
+                    {...config}
+                    method={{
+                        willExecuteClick: (obj) => {
+                            obj.btnCallbackFn.clearSelectedRows();
+                            if (obj.selectedRows.length === 1) {
+                                this.setState({
+                                    replyData: obj.selectedRows,
+                                    visible: true
+                                });
+                            } else {
+                                Msg.error('请选择一条数据！');
+                            }
+                        }
+                    }}
+                    actionBtns={{
+                        apiName: "getSysMenuBtn",
+                        otherParams: function (obj) {
+                            var props = obj.Pprops;
+                            let curRouteData = props.routerInfo.routeData[props.routerInfo.curKey];
+                            return {
+                                menuParentId: curRouteData._value,
+                                tableField: "projectInfo"
+                            }
+                        }
+                    }}
+                    {...window.PolicyResponsesPage}
+                    formConfig={[
+                        {
+                            isInTable: false,
+                            form: {
+                                field: 'policyId',
+                                type: 'string',
+                                hide: true,
+                            }
+                        }, {
+                            isInTable: false,
+                            form: {
+                                field: 'policyReplyId',
+                                type: 'string',
+                                hide: true,
+                            }
+                        }, {
+                            isInSearch: false,
+                            table: {
+                                title: '标题',
+                                dataIndex: 'title',
+                                key: 'title',
+                                width: 200,
+                                onClick: 'detail',
+                                fixed: 'left'
+                            },
+                            form: {
+                                type: 'string',
+                                placeholder: '请输入',
+                                required: true,
+                            }
+                        }, {
+                            isInSearch: false,
+                            isInForm: false,
+                            table: {
+                                title: '最近回复内容',
+                                dataIndex: 'replyInfo',
+                                key: 'replyInfo',
+                                width: 150,
+                                fixed: 'left'
+                            }
+                        }, {
+                            isInSearch: false,
+                            table: {
+                                title: '文号',
+                                dataIndex: 'symbolNo',
+                                key: 'symbolNo',
+                                width: 150
+                            },
+                            form: {
+                                type: 'string',
+                                required: true,
+                                placeholder: '请输入',
+                            },
+                        }, {
+                            table: {
+                                title: '发文部门',
+                                dataIndex: 'departmentName',
+                                key: 'departmentName',
+                                width: 100,
+                            },
+                            form: {
+                                field: 'departmentName',
+                                type: 'string',
+                                required: true,
+                                placeholder: '请输入',
+                            },
+                        },
+                        {
+                            table: {
+                                title: '系统发布日期',
+                                dataIndex: 'sysDate',
+                                key: 'sysDate',
+                                format: 'YYYY-MM-DD',
+                                width: 120,
+                            },
+                            form: {
+                                type: 'date',
+                                required: true,
+                                placeholder: '请输入',
+                            },
+                        },
+                        {
+                            table: {
+                                title: '原文发布日期',
+                                dataIndex: 'releaseDate',
+                                key: 'releaseDate',
+                                format: 'YYYY-MM-DD',
+                                width: 120,
+                            },
+                            form: {
+                                required: true,
+                                type: 'date',
+                                placeholder: '请输入',
+                            },
+                        },
+                        {
+                            table: {
+                                title: '登记用户',
+                                dataIndex: 'registerUser',
+                                key: 'registerUser',
+                                width: 100,
+                            },
+                            form: {
+                                required: true,
+                                type: 'string',
+                                placeholder: '请输入',
+                            },
+                        },
+                        {
+                            table: {
+                                title: '是否有效文件',
+                                dataIndex: 'effectiveName',
+                                key: 'effectiveName',
+                                width: 120,
+                            },
+                            form: {
+                                type: "radio",
+                                required: true,
+                                label: "是否有效文件",
+                                field: "effectiveId",
+                                optionData: [
+                                    {
+                                        label: "否",
+                                        value: "0"
+                                    },
+                                    {
+                                        label: "是",
+                                        value: "1"
+                                    }
+                                ]
+                            },
+                        },
+                        {
+                            table: {
+                                title: '分析报告',
+                                dataIndex: 'report',
+                                key: 'report',
+                                width: 150,
+                            },
+                            form: {
+                                type: 'textarea',
+                                required: true,
+                                placeholder: '请输入',
+                            },
+                        },
+                        {
+                            isInTable: false,
+                            form: {
+                                label: '附件',
+                                field: 'zjTzFileList',
+                                type: 'files',
+                                showDownloadIcon: true,//是否显示下载按钮
+                                onPreview: "bind:_docFilesByOfficeUrl",//365显示
+                                
+                                fetchConfig: {
+                                    apiName: window.configs.domain + 'upload',
+                                    otherParams: {
+                                        name: '国家政策回复'
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            isInForm: false,
+                            table: {
+                                title: "操作",
+                                fixed: 'right',
+                                dataIndex: 'action',
+                                key: 'action',
+                                align: "center",
+                                noHaveSearchInput: true,
+                                showType: "tile",
+                                width: 80,
+                                btns: [
+                                    {
+                                        name: 'PolicyDetail',
+                                        render: (rowData) => {
+                                            return '<a>回复记录</a>';
+                                        },
+                                        onClick: (obj) => {
+                                            const { mainModule } = obj.props.myPublic.appInfo;
+                                            const { policyReplyId } = obj.rowData;
+                                            obj.props.dispatch(
+                                                push(`${mainModule}PolicyResponsesDetail/${policyReplyId}`)
+                                            )
+                                        },
+                                    }
+                                ]
+                            }
+                        }
+                    ]}
+                />
+                {visible ? <div>
+                    <Modal
+                        width={'40%'}
+                        style={{ paddingBottom: '0', top: '0' }}
+                        title="回复"
+                        visible={visible}
+                        footer={null}
+                        onCancel={this.handleCancel}
+                        bodyStyle={{ padding: '10px', overflow: 'hidden' }}
+                        centered={true}
+                        closable={false}
+                        maskClosable={false}
+                        wrapClassName={'PlansToPush'}
+                    >
+                        <QnnForm
+                            form={this.props.form}
+                            history={this.props.history}
+                            match={this.props.match}
+                            fetch={this.props.myFetch}
+                            upload={this.props.myUpload} //必须返回一个promise
+                            //内部自带发送ajax的组件发送请求时会自动加到head头里面的数据 （上传会用到）
+                            headers={{
+                                token: this.props.loginAndLogoutInfo.loginInfo.token
+                            }}
+                            formItemLayout={{
+                                labelCol: {
+                                    xs: { span: 7 },
+                                    sm: { span: 7 }
+                                },
+                                wrapperCol: {
+                                    xs: { span: 17 },
+                                    sm: { span: 17 }
+                                }
+                            }}
+                            formConfig={[
+                                {
+                                    type: "textarea",
+                                    label: "应对预案及其效果",
+                                    field: "replyInfo", //唯一的字段名 ***必传
+                                    required: true,
+                                    placeholder: "请输入",
+                                },
+                                {
+                                    label: '附件',
+                                    field: 'zjTzPolicyCountryReplyFileList',
+                                    type: 'files',
+                                    showDownloadIcon: true,//是否显示下载按钮
+                                    onPreview: "bind:_docFilesByOfficeUrl",//365显示
+                                    
+                                    fetchConfig: {
+                                        apiName: window.configs.domain + 'upload',
+                                        otherParams: {
+                                            name: '国家政策回复'
+                                        }
+                                    }
+                                }
+                            ]}
+                            btns={[
+                                {
+                                    name: "cancel",
+                                    type: "dashed",
+                                    label: "取消",
+                                    isValidate: false,
+                                    onClick: (obj) => {
+                                        this.setState({ visible: false });
+                                    }
+                                },
+                                {
+                                    name: "submit",
+                                    type: "primary",
+                                    label: "确定",
+                                    onClick: (obj) => {
+                                        replyData[0].replyInfo = obj.values.replyInfo;
+                                        replyData[0].zjTzPolicyCountryReplyFileList = obj.values.zjTzPolicyCountryReplyFileList;
+                                        obj.btnfns.fetchByCb('updateZjTzPolicyCountryReply', ...replyData, ({ data, success, message }) => {
+                                            if (success) {
+                                                Msg.success(message);
+                                                this.setState({ visible: false });
+                                                this.table.refresh();
+                                            } else {
+                                                Msg.error(message);
+                                            }
+                                        });
+                                    }
+                                }
+                            ]}
+                        />
+                    </Modal>
+                </div> : null}
+            </div>
+        );
+    }
+}
+
+export default index;

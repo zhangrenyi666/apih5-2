@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkResInOutStockAllAmtMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkResInOutStockAllAmt" >
+    <id column="zxSkResInOutStockAllAmtId" property="zxSkResInOutStockAllAmtId" jdbcType="CHAR" />
+    <result column="resName" property="resName" jdbcType="VARCHAR" />
+    <result column="resCode" property="resCode" jdbcType="VARCHAR" />
+    <result column="stockAmt" property="stockAmt" jdbcType="DECIMAL" />
+    <result column="obuAmt" property="obuAmt" jdbcType="DECIMAL" />
+    <result column="totalAmt" property="totalAmt" jdbcType="DECIMAL" />
+    <result column="totalAmtAll" property="totalAmtAll" jdbcType="DECIMAL" />
+    <result column="oswAmt" property="oswAmt" jdbcType="DECIMAL" />
+    <result column="otkAmt" property="otkAmt" jdbcType="DECIMAL" />
+    <result column="vinAmt" property="vinAmt" jdbcType="DECIMAL" />
+    <result column="thisAmt" property="thisAmt" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="isFinish" property="isFinish" jdbcType="VARCHAR" />
+    <result column="resID" property="resID" jdbcType="VARCHAR" />
+    <result column="beginDate" property="beginDate" jdbcType="TIMESTAMP" />
+    <result column="endDate" property="endDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxSkResInOutStockAllAmtId, resName, resCode, stockAmt, obuAmt, 
+    totalAmt, totalAmtAll, oswAmt, otkAmt, vinAmt, 
+    thisAmt, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_resInOutStockAllAmt
+    where del_flag = '0' and zxSkResInOutStockAllAmtId = #{zxSkResInOutStockAllAmtId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_resInOutStockAllAmt
+    where zxSkResInOutStockAllAmtId = #{zxSkResInOutStockAllAmtId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkResInOutStockAllAmt" >
+    insert into zx_sk_resInOutStockAllAmt (
+    zxSkResInOutStockAllAmtId, resName, resCode, stockAmt, obuAmt, 
+    totalAmt, totalAmtAll, oswAmt, otkAmt, vinAmt, 
+    thisAmt, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxSkResInOutStockAllAmtId,jdbcType=CHAR}, #{resName,jdbcType=VARCHAR}, #{resCode,jdbcType=VARCHAR}, #{stockAmt,jdbcType=DECIMAL}, #{obuAmt,jdbcType=DECIMAL}, 
+    #{totalAmt,jdbcType=DECIMAL}, #{totalAmtAll,jdbcType=DECIMAL}, #{oswAmt,jdbcType=DECIMAL}, #{otkAmt,jdbcType=DECIMAL}, #{vinAmt,jdbcType=DECIMAL}, 
+    #{thisAmt,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+    #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkResInOutStockAllAmt" >
+    insert into zx_sk_resInOutStockAllAmt
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSkResInOutStockAllAmtId != null" >
+        zxSkResInOutStockAllAmtId,
+      </if>
+      <if test="resName != null" >
+        resName,
+      </if>
+      <if test="resCode != null" >
+        resCode,
+      </if>
+      <if test="stockAmt != null" >
+        stockAmt,
+      </if>
+      <if test="obuAmt != null" >
+        obuAmt,
+      </if>
+      <if test="totalAmt != null" >
+        totalAmt,
+      </if>
+      <if test="totalAmtAll != null" >
+        totalAmtAll,
+      </if>
+      <if test="oswAmt != null" >
+        oswAmt,
+      </if>
+      <if test="otkAmt != null" >
+        otkAmt,
+      </if>
+      <if test="vinAmt != null" >
+        vinAmt,
+      </if>
+      <if test="thisAmt != null" >
+        thisAmt,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSkResInOutStockAllAmtId != null" >
+        #{zxSkResInOutStockAllAmtId,jdbcType=CHAR},
+      </if>
+      <if test="resName != null" >
+        #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="resCode != null" >
+        #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stockAmt != null" >
+        #{stockAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="obuAmt != null" >
+        #{obuAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmt != null" >
+        #{totalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmtAll != null" >
+        #{totalAmtAll,jdbcType=DECIMAL},
+      </if>
+      <if test="oswAmt != null" >
+        #{oswAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="otkAmt != null" >
+        #{otkAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="vinAmt != null" >
+        #{vinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmt != null" >
+        #{thisAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkResInOutStockAllAmt" >
+    update zx_sk_resInOutStockAllAmt
+    <set >
+      <if test="resName != null" >
+        resName = #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="resCode != null" >
+        resCode = #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stockAmt != null" >
+        stockAmt = #{stockAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="obuAmt != null" >
+        obuAmt = #{obuAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmt != null" >
+        totalAmt = #{totalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmtAll != null" >
+        totalAmtAll = #{totalAmtAll,jdbcType=DECIMAL},
+      </if>
+      <if test="oswAmt != null" >
+        oswAmt = #{oswAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="otkAmt != null" >
+        otkAmt = #{otkAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="vinAmt != null" >
+        vinAmt = #{vinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmt != null" >
+        thisAmt = #{thisAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxSkResInOutStockAllAmtId = #{zxSkResInOutStockAllAmtId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkResInOutStockAllAmt" >
+    update zx_sk_resInOutStockAllAmt set 
+      resName = #{resName,jdbcType=VARCHAR},
+      resCode = #{resCode,jdbcType=VARCHAR},
+      stockAmt = #{stockAmt,jdbcType=DECIMAL},
+      obuAmt = #{obuAmt,jdbcType=DECIMAL},
+      totalAmt = #{totalAmt,jdbcType=DECIMAL},
+      totalAmtAll = #{totalAmtAll,jdbcType=DECIMAL},
+      oswAmt = #{oswAmt,jdbcType=DECIMAL},
+      otkAmt = #{otkAmt,jdbcType=DECIMAL},
+      vinAmt = #{vinAmt,jdbcType=DECIMAL},
+      thisAmt = #{thisAmt,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSkResInOutStockAllAmtId = #{zxSkResInOutStockAllAmtId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSkResInOutStockAllAmtList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkResInOutStockAllAmt" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_resInOutStockAllAmt
+    where del_flag = '0'
+    <if test="zxSkResInOutStockAllAmtId != null and zxSkResInOutStockAllAmtId != ''" >
+     and zxSkResInOutStockAllAmtId = #{zxSkResInOutStockAllAmtId,jdbcType=CHAR}
+    </if>
+    <if test="resName != null and resName != ''" >
+     and resName = #{resName,jdbcType=VARCHAR}
+    </if>
+    <if test="resCode != null and resCode != ''" >
+     and resCode = #{resCode,jdbcType=VARCHAR}
+    </if>
+    <if test="stockAmt != null and stockAmt != ''" >
+     and stockAmt = #{stockAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="obuAmt != null and obuAmt != ''" >
+     and obuAmt = #{obuAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="totalAmt != null and totalAmt != ''" >
+     and totalAmt = #{totalAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="totalAmtAll != null and totalAmtAll != ''" >
+     and totalAmtAll = #{totalAmtAll,jdbcType=DECIMAL}
+    </if>
+    <if test="oswAmt != null and oswAmt != ''" >
+     and oswAmt = #{oswAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="otkAmt != null and otkAmt != ''" >
+     and otkAmt = #{otkAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="vinAmt != null and vinAmt != ''" >
+     and vinAmt = #{vinAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="thisAmt != null and thisAmt != ''" >
+     and thisAmt = #{thisAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkResInOutStockAllAmt" parameterType="com.apih5.mybatis.pojo.ZxSkResInOutStockAllAmt" >
+    <![CDATA[ 
+        update zx_sk_resInOutStockAllAmt
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSkResInOutStockAllAmtId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSkResInOutStockAllAmtId} 
+     </foreach>
+  </delete>
+  <select id="selectZxSkResInOutStockAllAmt" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkResInOutStockAllAmt" >
+  select a.resName,a.resCode,a.stockAmt, a.obuAmt, 
+-- 不含税
+a.totalAmt,
+-- 含税
+a.totalAmtAll,
+a.oswAmt,a.otkAmt,a.vinAmt,a.thisAmt 
+from (
+  select s.resourceID, s.resName, s.resCode, 
+         round(s.stockAmt,2) as stockAmt, round(s.obuAmt,2) as obuAmt, 
+	 round(s.totalAmt,2) as totalAmt,
+         round(s.totalAmtAll,2) as totalAmtAll,
+         round(s.oswAmt,2) as oswAmt, round(s.otkAmt,2) as otkAmt, round(s.vinAmt,2) as vinAmt, 
+         round((ifnull(s.stockAmt,0)+ifnull(s.totalAmt,0)-ifnull(s.oswAmt,0)-ifnull(s.otkAmt,0)+ifnull(s.vinAmt,0)),2) as thisAmt
+  from(
+    select -- 物资类别、-统计字母或代码
+           main.resourceID,main.resName,main.resCode,
+           -- 年初结存(数量）
+           (ifnull(st.stockAmt,0))/10000.0 as stockAmt,
+           -- 累计收入（预收、合计）
+           ifnull(st.obuAmt,0)/10000.0 as obuAmt,
+           (ifnull(st.serAmt,0) + ifnull(st.orsAmt,0)+ifnull(st.otrAmt,0)+ifnull(st.ocsAmt,0))/10000.0 as totalAmt,
+           (ifnull(st.serAmtAll,0) + ifnull(st.orsAmtAll,0)+ifnull(st.otrAmtAll,0)+ifnull(st.ocsAmtAll,0))/10000.0 as totalAmtAll,
+           -- 累计消费、累计拔出
+           ifnull(st.oswAmt,0)/10000.0 as oswAmt,ifnull(st.otkAmt,0)/10000.0 as otkAmt,
+           -- 盈亏
+           (ifnull(st.vinAmt,0))/10000.0 as vinAmt
+    from (
+      select distinct irc.ID as resourceID,irc.catCode as resCode,irc.catName as resName,irc.unit as unit
+      from zx_sk_rescategory_materials irc 
+      where irc.resStyle='mt' and irc.parentID='0002' 
+      <if test="resID != null and resID != ''" > 
+      and (irc.ID=#{resID,jdbcType=VARCHAR} or #{resID,jdbcType=VARCHAR}='')
+      </if>
+       and irc.catName!='周转材料'
+    ) as main 
+    left join (
+      -- 单据类型(billType)说明:11收料单,14直进直出单,16对外调拨单,18盘赢入库单,21领料单 22退库单,,24盘亏出库单,30对内调拨单,45加工改制单
+      select stall.resourceID,
+             -- 年初结存(消耗材料)
+             sum(case when stall.billType != 10 and stall.busDate&lt;#{beginDate,jdbcType=TIMESTAMP} then (ifnull(stall.inQty,0)-ifnull(stall.outQty,0)) else 0 end) as stockQty,
+             sum(case when stall.billType != 10 and stall.busDate&lt;#{beginDate,jdbcType=TIMESTAMP} then (ifnull(stall.inAmt,0)-ifnull(stall.outAmt,0)) else 0 end) as stockAmt,
+             -- 自行采购
+             sum(case when ((stall.billType=11 and stall.materialSource='0001') or stall.billType=12) and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.inQty,0) else 0 end) as serQty,
+             sum(case when ((stall.billType=11 and stall.materialSource='0001') or stall.billType=12) and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.inAmt,0) else 0 end) as serAmt,
+	     sum(case when ((stall.billType=11 and stall.materialSource='0001') or stall.billType=12) and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.inAmtAll,0) else 0 end) as serAmtAll,
+             -- 甲供
+             sum(case when stall.billType=11 and stall.materialSource='0002' and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.inQty,0) else 0 end) as orsQty,
+             sum(case when stall.billType=11 and stall.materialSource='0002' and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.inAmt,0) else 0 end) as orsAmt,
+	     sum(case when stall.billType=11 and stall.materialSource='0002' and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.inAmtAll,0) else 0 end) as orsAmtAll,
+             -- 其它
+             sum(case when stall.billType=11 and stall.materialSource='0003' and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.inQty,0) else 0 end) as otrQty,
+             sum(case when stall.billType=11 and stall.materialSource='0003' and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.inAmt,0) else 0 end) as otrAmt,
+	     sum(case when stall.billType=11 and stall.materialSource='0003' and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.inAmtAll,0) else 0 end) as otrAmtAll,
+             -- 甲控
+             sum(case when stall.billType=11 and stall.materialSource='0004' and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.inQty,0) else 0 end) as ocsQty,
+             sum(case when stall.billType=11 and stall.materialSource='0004' and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.inAmt,0) else 0 end) as ocsAmt,
+	     sum(case when stall.billType=11 and stall.materialSource='0004' and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.inAmtAll,0) else 0 end) as ocsAmtAll,
+             -- 预收
+             sum(case when stall.billType=11 and stall.precollecte='1' and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.inQty,0) else 0 end) as obuQty,
+             sum(case when stall.billType=11 and stall.precollecte='1' and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.inAmt,0) else 0 end) as obuAmt,
+	     sum(case when stall.billType=11 and stall.precollecte='1' and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.inAmtAll,0) else 0 end) as obuAmtAll,
+             -- 工程耗用
+             sum(case when stall.billType in (21,22) and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.outQty,0) else 0 end) as oswQty,
+             sum(case when stall.billType in (21,22) and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.outAmt,0) else 0 end) as oswAmt,
+             sum(case when stall.billType in (21,22) and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.outAmt,0) else 0 end) as oswAmtAll,
+             -- 调拨(包括加工改制单)
+             sum(case when stall.billType in (16,17,30,33,45) and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.outQty,0) else 0 end) as otkQty,
+             sum(case when stall.billType in (16,17,30,33,45) and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.outAmt,0) else 0 end) as otkAmt,
+             sum(case when stall.billType in (16,17,30,33,45) and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then ifnull(stall.outAmt,0) else 0 end) as otkAmtAll,
+             -- 盈亏（数量、金额）
+             sum(case when (stall.billType=18 or stall.billType=24) and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then (ifnull(stall.inQty,0)-ifnull(stall.outQty,0)) else 0 end) as vinQty,
+             sum(case when (stall.billType=18 or stall.billType=24) and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then (ifnull(stall.inAmt,0)-ifnull(stall.outAmt,0)) else 0 end) as vinAmt,
+	     sum(case when (stall.billType=18 or stall.billType=24) and stall.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then (ifnull(stall.inAmt,0)-ifnull(stall.outAmt,0)) else 0 end) as vinAmtAll
+      from (
+        select srm.ID as resourceID,
+               ist.billType,ist.busDate,ist.materialSource,isti.precollecte, 
+               ifnull(isti.inQty,0) as inQty,ifnull(isti.outQty,0) as outQty,
+               ifnull(isti.inAmt,0) as inAmt,ifnull(isti.inAmtAll,0) as inAmtAll,ifnull(isti.outAmt,0) as outAmt
+        from zx_sk_stocktransItem isti 
+        inner join zx_sk_stocktransfer ist on isti.billID=ist.ID
+		inner join Zx_Sk_Resource_Materials ir on ir.ID = isti.resID
+		inner join zx_sk_rescategory_materials srm on srm.parentID='0002' and catCode = left(ir.resCode,2)
+        left join zx_ct_supplies_contract ic on ic.orgID=ist.orgID
+        where ist.billStatus='1'
+        <if test="isFinish != null and isFinish != ''" >
+          and (#{isFinish,jdbcType=VARCHAR}=0 or (#{isFinish,jdbcType=VARCHAR}=1 and ic.contractStatus =3) or (#{isFinish,jdbcType=VARCHAR}=2 and ic.contractStatus in ('1','2')))
+          </if>
+          and ist.busDate&lt;=#{endDate,jdbcType=TIMESTAMP}
+      ) as stall
+      group by stall.resourceID
+    ) st on main.resourceID=st.resourceID
+  ) s
+
+  union all
+  -- 注：由于周转材料数据不进单据表，且业务关系和消耗材料不同，所以下面单独查出来。-- 2011-3-3
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -周转材料统计-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+  select  
+         -- 物资编号、物资名称
+         res.resourceID,'周转材料' as resName, '15' as resCode,
+         -- 年初库存净值
+         round(ifnull(sum(ifnull(sy.lastremainAmt,0)),0)/10000.0,2) as stockAmt, 
+         -- 累计预收    累计收入
+         round(ifnull(sum(ifnull(sy.oburemainAmt,0)),0)/10000.0,2) as obuAmt, 
+         -- 只保留本年收入，故改为如下
+         round(ifnull(sum(ifnull(sy.remainAmt,0)),0)/10000.0,2) totalAmt, 
+	 round(ifnull(sum(ifnull(sy.remainAmtTotal,0)),0)/10000.0,2) totalAmtAll, 
+         -- 本累计消耗(开工累计摊销+开累本年报废)
+         -- round(ifnull(sum(ifnull(sy.shareAmt,0)+ifnull(sy.thisRemainAmt,0)),0)/10000.0,2) as oswAmt,
+         -- 去掉开累本年报废edit by wenjw 2017.7.17
+         round(ifnull(sum(ifnull(sy.shareAmt,0)),0)/10000.0,2) as oswAmt,
+         -- 累计拔出     盘亏盘盈
+         round(ifnull(sum(ifnull(sy.thisCurrentAmt,0)),0)/10000.0,2) as otkAmt, 0 as vinAmt, 
+         -- 期末库存
+         round(ifnull(sum(ifnull(sy.thisBadAmt,0)),0)/10000.0,2) as thisAmt
+  from (
+    select irc.parentID as resourceID,irc.catCode as resCode, irc.catName as resName, irc.ID as resID 
+    from zx_sk_rescategory_materials  irc
+    where irc.catCode like '15%' and length(irc.catCode)=4
+  ) res
+  left join (
+    select 
+           -- 物资编号、物资名称、 规格、 单位、 单价
+           isti.resID, 
+           -- 年初库存：净值
+           ifnull(t.lastremainAmt,0) as lastremainAmt,
+           -- 收入：本年累计预收、 本年累计收入金额
+           ifnull(t.oburemainAmt,0) as oburemainAmt,ifnull(t.remainAmt,0) as remainAmt,
+           ifnull(t.oburemainAmtTotal,0) as oburemainAmtTotal,ifnull(t.remainAmtTotal,0) as remainAmtTotal,	   
+           -- 摊销：本期摊销
+           ifnull(t.shareAmt,0) shareAmt,
+           -- 调出：本期调出净值
+           ifnull(t.thisCurrentAmt,0) as thisCurrentAmt,
+           -- 报废：本期报废净值
+           ifnull(t.thisRemainAmt,0) as thisRemainAmt,
+           -- 期末库存：期末库存净值
+           ifnull(t.thisBadAmt,0) as thisBadAmt
+    from zx_sk_TurnoverInItem isti
+    inner join zx_sk_TurnoverIn ist on isti.billID=ist.ID
+    left join zx_ct_supplies_contract ic on ic.orgID=ist.orgID
+    left join (
+        select c.batchNo,
+               -- 年初库存(净值)
+               sum(case when c.busDate &lt; #{beginDate,jdbcType=TIMESTAMP} then c.remainAmt else 0 end) as lastremainAmt,
+               -- 本年收入(净值,预收净值)
+               sum(case when (c.billType='入库' or c.billType='退货') and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then c.originalAmt else 0 end) as remainAmt,
+               sum(case when c.billType='入库' and c.precollecte='1' and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then c.remainAmt else 0 end) as oburemainAmt,
+	       sum(case when (c.billType='入库' or c.billType='退货') and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then c.remainAmtTotal else 0 end) as remainAmtTotal,
+               sum(case when c.billType='入库' and c.precollecte='1' and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then c.remainAmtTotal else 0 end) as oburemainAmtTotal,
+               -- 摊销(本期)
+               sum(case when c.billType='摊销' and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then c.shareAmt else 0 end) as shareAmt,
+               -- 本期调出(净值 )
+               sum(case when c.billType='调拨' and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.remainAmt else 0 end) as thisCurrentAmt,
+               -- 本期报废(净值 )
+               sum(case when c.billType='报废' and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.remainAmt else 0 end) as thisRemainAmt,
+               -- 期末库存(净值)
+               sum(case when c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} then c.remainAmt else 0 end) as thisBadAmt
+        from view_zx_sk_turnoverstock c
+        left join zx_ct_supplies_contract ic on ic.orgID=c.orgID
+        where c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP}
+        group by c.batchNo
+    ) t on isti.ID=t.batchNo
+    inner join sys_project p on p.project_id=ist.orgID
+    where 
+    <if test="isFinish != null and isFinish != ''" >
+     (#{isFinish,jdbcType=VARCHAR}=0 or (#{isFinish,jdbcType=VARCHAR}=1 and ic.contractStatus =3) or (#{isFinish,jdbcType=VARCHAR}=2 and ic.contractStatus in ('1','2'))) and 
+    </if>
+    ist.busDate &lt;= #{endDate,jdbcType=TIMESTAMP}
+    <if test="orgID != null and orgID != ''" >
+	AND p.department_path like concat('%',#{orgID,jdbcType=VARCHAR},'%')
+	</if>
+  ) sy on sy.resID = res.resID
+  group by res.resourceID
+) a
+<if test="orgID != null and orgID != ''" >
+where a.resourceID=#{resID,jdbcType=VARCHAR} or #{resID,jdbcType=VARCHAR}=''
+</if>
+order by a.resCode
+  </select>
+</mapper>

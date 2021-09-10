@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqAbcMachineryMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqAbcMachinery" >
+    <id column="zxEqAbcMachineryId" property="zxEqAbcMachineryId" jdbcType="CHAR" />
+    <result column="orgname" property="orgname" jdbcType="VARCHAR" />
+    <result column="numsum" property="numsum" jdbcType="DECIMAL" />
+    <result column="num1" property="num1" jdbcType="DECIMAL" />
+    <result column="num2" property="num2" jdbcType="DECIMAL" />
+    <result column="num3" property="num3" jdbcType="DECIMAL" />
+    <result column="num4" property="num4" jdbcType="DECIMAL" />
+    <result column="yamtsum" property="yamtsum" jdbcType="DECIMAL" />
+    <result column="yamt1" property="yamt1" jdbcType="DECIMAL" />
+    <result column="yamt2" property="yamt2" jdbcType="DECIMAL" />
+    <result column="yamt3" property="yamt3" jdbcType="DECIMAL" />
+    <result column="yamt4" property="yamt4" jdbcType="DECIMAL" />
+    <result column="jamtsum" property="jamtsum" jdbcType="DECIMAL" />
+    <result column="jamt1" property="jamt1" jdbcType="DECIMAL" />
+    <result column="jamt2" property="jamt2" jdbcType="DECIMAL" />
+    <result column="jamt3" property="jamt3" jdbcType="DECIMAL" />
+    <result column="jamt4" property="jamt4" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="TIMESTAMP" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxEqAbcMachineryId, orgname, numsum, num1, num2, 
+    num3, num4, yamtsum, yamt1, yamt2, 
+    yamt3, yamt4, jamtsum, jamt1, jamt2, 
+    jamt3, jamt4, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_abcMachinery
+    where del_flag = '0' and zxEqAbcMachineryId = #{zxEqAbcMachineryId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_abcMachinery
+    where zxEqAbcMachineryId = #{zxEqAbcMachineryId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqAbcMachinery" >
+    insert into zx_eq_abcMachinery (
+    zxEqAbcMachineryId, orgname, numsum, num1, num2, 
+    num3, num4, yamtsum, yamt1, yamt2, 
+    yamt3, yamt4, jamtsum, jamt1, jamt2, 
+    jamt3, jamt4, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{zxEqAbcMachineryId,jdbcType=CHAR}, #{orgname,jdbcType=VARCHAR}, #{numsum,jdbcType=DECIMAL}, #{num1,jdbcType=DECIMAL}, #{num2,jdbcType=DECIMAL}, 
+    #{num3,jdbcType=DECIMAL}, #{num4,jdbcType=DECIMAL}, #{yamtsum,jdbcType=DECIMAL}, #{yamt1,jdbcType=DECIMAL}, #{yamt2,jdbcType=DECIMAL}, 
+    #{yamt3,jdbcType=DECIMAL}, #{yamt4,jdbcType=DECIMAL}, #{jamtsum,jdbcType=DECIMAL}, #{jamt1,jdbcType=DECIMAL}, #{jamt2,jdbcType=DECIMAL}, 
+    #{jamt3,jdbcType=DECIMAL}, #{jamt4,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqAbcMachinery" >
+    insert into zx_eq_abcMachinery
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxEqAbcMachineryId != null" >
+        zxEqAbcMachineryId,
+      </if>
+      <if test="orgname != null" >
+        orgname,
+      </if>
+      <if test="numsum != null" >
+        numsum,
+      </if>
+      <if test="num1 != null" >
+        num1,
+      </if>
+      <if test="num2 != null" >
+        num2,
+      </if>
+      <if test="num3 != null" >
+        num3,
+      </if>
+      <if test="num4 != null" >
+        num4,
+      </if>
+      <if test="yamtsum != null" >
+        yamtsum,
+      </if>
+      <if test="yamt1 != null" >
+        yamt1,
+      </if>
+      <if test="yamt2 != null" >
+        yamt2,
+      </if>
+      <if test="yamt3 != null" >
+        yamt3,
+      </if>
+      <if test="yamt4 != null" >
+        yamt4,
+      </if>
+      <if test="jamtsum != null" >
+        jamtsum,
+      </if>
+      <if test="jamt1 != null" >
+        jamt1,
+      </if>
+      <if test="jamt2 != null" >
+        jamt2,
+      </if>
+      <if test="jamt3 != null" >
+        jamt3,
+      </if>
+      <if test="jamt4 != null" >
+        jamt4,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxEqAbcMachineryId != null" >
+        #{zxEqAbcMachineryId,jdbcType=CHAR},
+      </if>
+      <if test="orgname != null" >
+        #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="numsum != null" >
+        #{numsum,jdbcType=DECIMAL},
+      </if>
+      <if test="num1 != null" >
+        #{num1,jdbcType=DECIMAL},
+      </if>
+      <if test="num2 != null" >
+        #{num2,jdbcType=DECIMAL},
+      </if>
+      <if test="num3 != null" >
+        #{num3,jdbcType=DECIMAL},
+      </if>
+      <if test="num4 != null" >
+        #{num4,jdbcType=DECIMAL},
+      </if>
+      <if test="yamtsum != null" >
+        #{yamtsum,jdbcType=DECIMAL},
+      </if>
+      <if test="yamt1 != null" >
+        #{yamt1,jdbcType=DECIMAL},
+      </if>
+      <if test="yamt2 != null" >
+        #{yamt2,jdbcType=DECIMAL},
+      </if>
+      <if test="yamt3 != null" >
+        #{yamt3,jdbcType=DECIMAL},
+      </if>
+      <if test="yamt4 != null" >
+        #{yamt4,jdbcType=DECIMAL},
+      </if>
+      <if test="jamtsum != null" >
+        #{jamtsum,jdbcType=DECIMAL},
+      </if>
+      <if test="jamt1 != null" >
+        #{jamt1,jdbcType=DECIMAL},
+      </if>
+      <if test="jamt2 != null" >
+        #{jamt2,jdbcType=DECIMAL},
+      </if>
+      <if test="jamt3 != null" >
+        #{jamt3,jdbcType=DECIMAL},
+      </if>
+      <if test="jamt4 != null" >
+        #{jamt4,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqAbcMachinery" >
+    update zx_eq_abcMachinery
+    <set >
+      <if test="orgname != null" >
+        orgname = #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="numsum != null" >
+        numsum = #{numsum,jdbcType=DECIMAL},
+      </if>
+      <if test="num1 != null" >
+        num1 = #{num1,jdbcType=DECIMAL},
+      </if>
+      <if test="num2 != null" >
+        num2 = #{num2,jdbcType=DECIMAL},
+      </if>
+      <if test="num3 != null" >
+        num3 = #{num3,jdbcType=DECIMAL},
+      </if>
+      <if test="num4 != null" >
+        num4 = #{num4,jdbcType=DECIMAL},
+      </if>
+      <if test="yamtsum != null" >
+        yamtsum = #{yamtsum,jdbcType=DECIMAL},
+      </if>
+      <if test="yamt1 != null" >
+        yamt1 = #{yamt1,jdbcType=DECIMAL},
+      </if>
+      <if test="yamt2 != null" >
+        yamt2 = #{yamt2,jdbcType=DECIMAL},
+      </if>
+      <if test="yamt3 != null" >
+        yamt3 = #{yamt3,jdbcType=DECIMAL},
+      </if>
+      <if test="yamt4 != null" >
+        yamt4 = #{yamt4,jdbcType=DECIMAL},
+      </if>
+      <if test="jamtsum != null" >
+        jamtsum = #{jamtsum,jdbcType=DECIMAL},
+      </if>
+      <if test="jamt1 != null" >
+        jamt1 = #{jamt1,jdbcType=DECIMAL},
+      </if>
+      <if test="jamt2 != null" >
+        jamt2 = #{jamt2,jdbcType=DECIMAL},
+      </if>
+      <if test="jamt3 != null" >
+        jamt3 = #{jamt3,jdbcType=DECIMAL},
+      </if>
+      <if test="jamt4 != null" >
+        jamt4 = #{jamt4,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxEqAbcMachineryId = #{zxEqAbcMachineryId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqAbcMachinery" >
+    update zx_eq_abcMachinery set 
+      orgname = #{orgname,jdbcType=VARCHAR},
+      numsum = #{numsum,jdbcType=DECIMAL},
+      num1 = #{num1,jdbcType=DECIMAL},
+      num2 = #{num2,jdbcType=DECIMAL},
+      num3 = #{num3,jdbcType=DECIMAL},
+      num4 = #{num4,jdbcType=DECIMAL},
+      yamtsum = #{yamtsum,jdbcType=DECIMAL},
+      yamt1 = #{yamt1,jdbcType=DECIMAL},
+      yamt2 = #{yamt2,jdbcType=DECIMAL},
+      yamt3 = #{yamt3,jdbcType=DECIMAL},
+      yamt4 = #{yamt4,jdbcType=DECIMAL},
+      jamtsum = #{jamtsum,jdbcType=DECIMAL},
+      jamt1 = #{jamt1,jdbcType=DECIMAL},
+      jamt2 = #{jamt2,jdbcType=DECIMAL},
+      jamt3 = #{jamt3,jdbcType=DECIMAL},
+      jamt4 = #{jamt4,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxEqAbcMachineryId = #{zxEqAbcMachineryId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxEqAbcMachineryList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqAbcMachinery" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_abcMachinery
+    where del_flag = '0'
+    <if test="zxEqAbcMachineryId != null and zxEqAbcMachineryId != ''" >
+     and zxEqAbcMachineryId = #{zxEqAbcMachineryId,jdbcType=CHAR}
+    </if>
+    <if test="orgname != null and orgname != ''" >
+     and orgname = #{orgname,jdbcType=VARCHAR}
+    </if>
+    <if test="numsum != null and numsum != ''" >
+     and numsum = #{numsum,jdbcType=DECIMAL}
+    </if>
+    <if test="num1 != null and num1 != ''" >
+     and num1 = #{num1,jdbcType=DECIMAL}
+    </if>
+    <if test="num2 != null and num2 != ''" >
+     and num2 = #{num2,jdbcType=DECIMAL}
+    </if>
+    <if test="num3 != null and num3 != ''" >
+     and num3 = #{num3,jdbcType=DECIMAL}
+    </if>
+    <if test="num4 != null and num4 != ''" >
+     and num4 = #{num4,jdbcType=DECIMAL}
+    </if>
+    <if test="yamtsum != null and yamtsum != ''" >
+     and yamtsum = #{yamtsum,jdbcType=DECIMAL}
+    </if>
+    <if test="yamt1 != null and yamt1 != ''" >
+     and yamt1 = #{yamt1,jdbcType=DECIMAL}
+    </if>
+    <if test="yamt2 != null and yamt2 != ''" >
+     and yamt2 = #{yamt2,jdbcType=DECIMAL}
+    </if>
+    <if test="yamt3 != null and yamt3 != ''" >
+     and yamt3 = #{yamt3,jdbcType=DECIMAL}
+    </if>
+    <if test="yamt4 != null and yamt4 != ''" >
+     and yamt4 = #{yamt4,jdbcType=DECIMAL}
+    </if>
+    <if test="jamtsum != null and jamtsum != ''" >
+     and jamtsum = #{jamtsum,jdbcType=DECIMAL}
+    </if>
+    <if test="jamt1 != null and jamt1 != ''" >
+     and jamt1 = #{jamt1,jdbcType=DECIMAL}
+    </if>
+    <if test="jamt2 != null and jamt2 != ''" >
+     and jamt2 = #{jamt2,jdbcType=DECIMAL}
+    </if>
+    <if test="jamt3 != null and jamt3 != ''" >
+     and jamt3 = #{jamt3,jdbcType=DECIMAL}
+    </if>
+    <if test="jamt4 != null and jamt4 != ''" >
+     and jamt4 = #{jamt4,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqAbcMachinery" parameterType="com.apih5.mybatis.pojo.ZxEqAbcMachinery" >
+    <![CDATA[ 
+        update zx_eq_abcMachinery
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxEqAbcMachineryId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxEqAbcMachineryId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+  <select id="selectZxEqAbcMachinery" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqAbcMachinery" >
+  DROP TABLE IF EXISTS temp_ieeqEquipYearMastABC;
+create table temp_ieeqEquipYearMastABC
+select data.*
+from (
+select o.sort,o.department_name orgname,e.abcType,
+       e.orginalValue as orginalValue,
+       e.leftValue as leftValue,
+       case when (o.department_name like '%海外%') then 'hw'
+            when o.department_flag = '6' then 'gs'
+            when o.department_flag = '1' then 'ju'
+       else 'zzz' end as treecode
+from zx_eq_Equip as e
+left join sys_department as o on o.department_id=e.ownerOrgID
+where ((DATE_FORMAT(e.regdate,'%Y%m')&gt;=#{period,jdbcType=TIMESTAMP} and length(#{period,jdbcType=TIMESTAMP})='6')
+       or (DATE_FORMAT(e.regdate,'%Y')&gt;=#{period,jdbcType=TIMESTAMP} and length(#{period,jdbcType=TIMESTAMP})='4'))
+  and not exists (select 1 from zx_eq_EquipScrape es where ifnull(es.auditStatus,'')='3' and ((DATE_FORMAT(es.scrapeDate,'%Y%m')&gt;=#{period,jdbcType=TIMESTAMP} and length(#{period,jdbcType=TIMESTAMP})='6') or (DATE_FORMAT(es.scrapeDate,'%Y')&gt;=#{period,jdbcType=TIMESTAMP} and length(#{period,jdbcType=TIMESTAMP})='4')) and es.equipID=e.ID)
+  and not exists (select 1 from zx_eq_AssetSell s inner join zx_eq_AssetSellItem si on si.masID=s.ID where ifnull(s.auditStatus,'')='4' and ((DATE_FORMAT(s.busDate,'%Y%m')&gt;=#{period,jdbcType=TIMESTAMP} and length(#{period,jdbcType=TIMESTAMP})='6') or (DATE_FORMAT(s.busDate,'%Y')&gt;=#{period,jdbcType=TIMESTAMP} and length(#{period,jdbcType=TIMESTAMP})='4')) and si.equipID=e.ID)
+  and ifnull(e.status,'') not in ('报废','转让外部单位')
+union all  
+-- 因局调拨后会改变所属单位，所以要将本年之前入账的设备，
+     且在本年及本年之后局调拨的设备给加回来，因本年之前它还是在账设备
+select o.sort,o.department_name orgname, e1.abcType, e1.orginalValue, e1.leftValue,
+       case when (o.department_name like '%海外%' and o.department_flag ='6') then 'hw'
+            when o.department_flag = '6' then 'gs'
+            when o.department_flag = '1' then 'ju'
+       else 'zzz' end as treecode
+from (
+    select distinct ms.outOrgID,msi.equipID,e.abcType,
+       e.orginalValue as orginalValue,
+       e.leftValue as leftValue
+    from zx_eq_MoveSupervisorItem msi 
+    inner join zx_eq_MoveSupervisor ms on msi.masID=ms.ID
+    inner join zx_eq_Equip e on msi.equipID=e.ID
+    where ms.auditStatus in ('2','4') and ((DATE_FORMAT(e.regdate,'%Y%m')&gt;=#{period,jdbcType=TIMESTAMP} and length(#{period,jdbcType=TIMESTAMP})='6') or (DATE_FORMAT(e.regdate,'%Y')&gt;=#{period,jdbcType=TIMESTAMP} and length(#{period,jdbcType=TIMESTAMP})='4')) and ((DATE_FORMAT(e.regdate,'%Y%m')>#{period,jdbcType=TIMESTAMP} and length(#{period,jdbcType=TIMESTAMP})='6') or (DATE_FORMAT(e.regdate,'%Y')&lt;#{period,jdbcType=TIMESTAMP} and length(#{period,jdbcType=TIMESTAMP})='4'))
+    and ifnull(e.status,'') not in ('报废','转让外部单位')
+) e1
+left join sys_department o on e1.outOrgID=o.department_id 
+) data;
+
+select b.orgname,ifnull(aa.num,0) as numsum,ifnull(a1.num,0) as num1,ifnull(a2.num,0) as num2,ifnull(a3.num,0) as num3,ifnull(a4.num,0) as num4,
+       ifnull(aa.amt,0)/10000 as yamtsum,ifnull(a1.amt,0)/10000 as yamt1,ifnull(a2.amt,0)/10000 as yamt2,ifnull(a3.amt,0)/10000 as yamt3,ifnull(a4.amt,0)/10000 as yamt4,
+       ifnull(aa.amt1,0)/10000 as jamtsum,ifnull(a1.amt1,0)/10000 as jamt1,ifnull(a2.amt1,0)/10000 as jamt2,ifnull(a3.amt1,0)/10000 as jamt3,ifnull(a4.amt,0)/10000 as jamt4,'' as remarks
+from (
+    select distinct orgname,sort,1 as paixu
+    from temp_ieeqEquipYearMastABC
+    union
+    select '全局合计' as orgname,'1' as sort,3 as paixu
+    union
+    select '海外公司' as orgname,'1' as sort,4 as paixu
+    union
+    select '全局合计' as orgname,'1' as sort,5 as paixu
+) as b
+
+left join (
+    select orgname,count(orgname) as num,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode in ('gs','ju')
+    group by orgname
+    union
+    select '全局合计' as orgname,count(orgname) as num,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode in ('gs','ju')
+    union
+    select '海外公司' as orgname,count(orgname) as num,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode='hw'
+    union
+    select '全局合计' as orgname,count(orgname) as num,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode in ('gs','ju','hw')
+) as aa on b.orgname=aa.orgname
+
+left join (
+    select orgname,count(orgname) as num,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode in ('gs','ju') and abcType='A'
+    group by orgname
+    union
+    select '全局合计' as orgname,count(orgname) as numsum,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode in ('gs','ju') and abcType='A'
+    union
+    select '海外公司' as orgname,count(orgname) as numsum,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode='hw' and abcType='A'
+    union
+    select '全局合计' as orgname,count(orgname) as numsum,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode in ('gs','ju','hw') and abcType='A'
+) as a1 on b.orgname=a1.orgname
+
+left join (
+    select orgname,count(orgname) as num,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode in ('gs','ju') and abcType='B'
+    group by orgname
+    union
+    select '全局合计' as orgname,count(orgname) as numsum,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode in ('gs','ju') and abcType='B'
+    union
+    select '海外公司' as orgname,count(orgname) as numsum,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode='hw' and abcType='B'
+    union
+    select '全局合计' as orgname,count(orgname) as numsum,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode in ('gs','ju','hw') and abcType='B'
+) as a2 on b.orgname=a2.orgname
+
+left join (
+    select orgname,count(orgname) as num,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode in ('gs','ju') and abcType='C'
+    group by orgname
+    union
+    select '全局合计' as orgname,count(orgname) as numsum,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode in ('gs','ju') and abcType='C'
+    union
+    select '海外公司' as orgname,count(orgname) as numsum,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode='hw' and abcType='C'
+    union
+    select '全局合计' as orgname,count(orgname) as numsum,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode in ('gs','ju','hw') and abcType='C'
+) as a3 on b.orgname=a3.orgname
+
+left join (
+    select orgname,count(orgname) as num,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode in ('gs','ju') and abcType='D'
+    group by orgname
+    union
+    select '全局合计' as orgname,count(orgname) as numsum,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode in ('gs','ju') and abcType='D'
+    union
+    select '海外公司' as orgname,count(orgname) as numsum,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode='hw' and abcType='D'
+    union
+    select '全局合计' as orgname,count(orgname) as numsum,sum(orginalValue) as amt,sum(leftValue) as amt1
+    from temp_ieeqEquipYearMastABC
+    where treecode in ('gs','ju','hw') and abcType='D'
+) as a4 on b.orgname=a4.orgname
+where 
+(@curdepartment_flag='ju'
+or (@curdepartment_flag!='ju' and b.orgname not in ('海外公司','国内合计','全局合计')))
+order by b.paixu,b.sort,b.orgname
+  </select>
+</mapper>

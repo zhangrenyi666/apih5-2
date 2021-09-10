@@ -1,0 +1,1192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSfCheckMapper">
+    <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSfCheck">
+        <id column="zxSfCheckId" property="zxSfCheckId" jdbcType="CHAR"/>
+        <result column="orgName" property="orgName" jdbcType="VARCHAR"/>
+        <result column="orgID" property="orgID" jdbcType="VARCHAR"/>
+        <result column="projName" property="projName" jdbcType="VARCHAR"/>
+        <result column="projID" property="projID" jdbcType="VARCHAR"/>
+        <result column="checkDate" property="checkDate" jdbcType="TIMESTAMP"/>
+        <result column="checkContext" property="checkContext" jdbcType="VARCHAR"/>
+        <result column="checkGroup" property="checkGroup" jdbcType="VARCHAR"/>
+        <result column="checkEmployee" property="checkEmployee" jdbcType="VARCHAR"/>
+        <result column="editTime" property="editTime" jdbcType="TIMESTAMP"/>
+        <result column="isGroup" property="isGroup" jdbcType="VARCHAR"/>
+        <result column="isCompany" property="isCompany" jdbcType="VARCHAR"/>
+        <result column="checkType" property="checkType" jdbcType="VARCHAR"/>
+        <result column="reportID" property="reportID" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+        <result column="isSend" property="isSend" jdbcType="VARCHAR"/>
+        <result column="isReported" property="isReported" jdbcType="VARCHAR"/>
+        <result column="sendID" property="sendID" jdbcType="VARCHAR"/>
+        <result column="checkAgainStatus" property="checkAgainStatus" jdbcType="VARCHAR"/>
+        <result column="companyId" property="companyId" jdbcType="VARCHAR"/>
+        <result column="companyName" property="companyName" jdbcType="VARCHAR"/>
+        <result column="remarks" property="remarks" jdbcType="VARCHAR"/>
+        <result column="sort" property="sort" jdbcType="INTEGER"/>
+        <result column="del_flag" property="delFlag" jdbcType="CHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="create_user" property="createUser" jdbcType="CHAR"/>
+        <result column="create_user_name" property="createUserName" jdbcType="VARCHAR"/>
+        <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP"/>
+        <result column="modify_user" property="modifyUser" jdbcType="CHAR"/>
+        <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    zxSfCheckId, orgName, orgID, projName, projID, 
+    checkDate, checkContext, checkGroup, checkEmployee, editTime, 
+    isGroup, isCompany, checkType, reportID, status, 
+    isSend, isReported, sendID, checkAgainStatus, companyId, 
+    companyName, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from zx_sf_check
+        where del_flag = '0' and zxSfCheckId = #{zxSfCheckId,jdbcType=CHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from zx_sf_check
+    where zxSfCheckId = #{zxSfCheckId,jdbcType=CHAR}
+  </delete>
+    <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSfCheck">
+    insert into zx_sf_check (
+    zxSfCheckId, orgName, orgID, projName, projID, 
+    checkDate, checkContext, checkGroup, checkEmployee, editTime, 
+    isGroup, isCompany, checkType, reportID, status, 
+    isSend, isReported, sendID, checkAgainStatus, companyId, 
+    companyName, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxSfCheckId,jdbcType=CHAR}, #{orgName,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, #{projName,jdbcType=VARCHAR}, #{projID,jdbcType=VARCHAR}, 
+    #{checkDate,jdbcType=TIMESTAMP}, #{checkContext,jdbcType=VARCHAR}, #{checkGroup,jdbcType=VARCHAR}, #{checkEmployee,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, 
+    #{isGroup,jdbcType=VARCHAR}, #{isCompany,jdbcType=VARCHAR}, #{checkType,jdbcType=VARCHAR}, #{reportID,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+    #{isSend,jdbcType=VARCHAR}, #{isReported,jdbcType=VARCHAR}, #{sendID,jdbcType=VARCHAR}, #{checkAgainStatus,jdbcType=VARCHAR}, #{companyId,jdbcType=VARCHAR}, 
+    #{companyName,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+    #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSfCheck">
+        insert into zx_sf_check
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="zxSfCheckId != null">
+                zxSfCheckId,
+            </if>
+            <if test="orgName != null">
+                orgName,
+            </if>
+            <if test="orgID != null">
+                orgID,
+            </if>
+            <if test="projName != null">
+                projName,
+            </if>
+            <if test="projID != null">
+                projID,
+            </if>
+            <if test="checkDate != null">
+                checkDate,
+            </if>
+            <if test="checkContext != null">
+                checkContext,
+            </if>
+            <if test="checkGroup != null">
+                checkGroup,
+            </if>
+            <if test="checkEmployee != null">
+                checkEmployee,
+            </if>
+            <if test="editTime != null">
+                editTime,
+            </if>
+            <if test="isGroup != null">
+                isGroup,
+            </if>
+            <if test="isCompany != null">
+                isCompany,
+            </if>
+            <if test="checkType != null">
+                checkType,
+            </if>
+            <if test="reportID != null">
+                reportID,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="isSend != null">
+                isSend,
+            </if>
+            <if test="isReported != null">
+                isReported,
+            </if>
+            <if test="sendID != null">
+                sendID,
+            </if>
+            <if test="checkAgainStatus != null">
+                checkAgainStatus,
+            </if>
+            <if test="companyId != null">
+                companyId,
+            </if>
+            <if test="companyName != null">
+                companyName,
+            </if>
+            <if test="remarks != null">
+                remarks,
+            </if>
+            <if test="sort != null">
+                sort,
+            </if>
+            <if test="delFlag != null">
+                del_flag,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createUser != null">
+                create_user,
+            </if>
+            <if test="createUserName != null">
+                create_user_name,
+            </if>
+            <if test="modifyTime != null">
+                modify_time,
+            </if>
+            <if test="modifyUser != null">
+                modify_user,
+            </if>
+            <if test="modifyUserName != null">
+                modify_user_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="zxSfCheckId != null">
+                #{zxSfCheckId,jdbcType=CHAR},
+            </if>
+            <if test="orgName != null">
+                #{orgName,jdbcType=VARCHAR},
+            </if>
+            <if test="orgID != null">
+                #{orgID,jdbcType=VARCHAR},
+            </if>
+            <if test="projName != null">
+                #{projName,jdbcType=VARCHAR},
+            </if>
+            <if test="projID != null">
+                #{projID,jdbcType=VARCHAR},
+            </if>
+            <if test="checkDate != null">
+                #{checkDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="checkContext != null">
+                #{checkContext,jdbcType=VARCHAR},
+            </if>
+            <if test="checkGroup != null">
+                #{checkGroup,jdbcType=VARCHAR},
+            </if>
+            <if test="checkEmployee != null">
+                #{checkEmployee,jdbcType=VARCHAR},
+            </if>
+            <if test="editTime != null">
+                #{editTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isGroup != null">
+                #{isGroup,jdbcType=VARCHAR},
+            </if>
+            <if test="isCompany != null">
+                #{isCompany,jdbcType=VARCHAR},
+            </if>
+            <if test="checkType != null">
+                #{checkType,jdbcType=VARCHAR},
+            </if>
+            <if test="reportID != null">
+                #{reportID,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="isSend != null">
+                #{isSend,jdbcType=VARCHAR},
+            </if>
+            <if test="isReported != null">
+                #{isReported,jdbcType=VARCHAR},
+            </if>
+            <if test="sendID != null">
+                #{sendID,jdbcType=VARCHAR},
+            </if>
+            <if test="checkAgainStatus != null">
+                #{checkAgainStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="companyId != null">
+                #{companyId,jdbcType=VARCHAR},
+            </if>
+            <if test="companyName != null">
+                #{companyName,jdbcType=VARCHAR},
+            </if>
+            <if test="remarks != null">
+                #{remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="sort != null">
+                #{sort,jdbcType=INTEGER},
+            </if>
+            <if test="delFlag != null">
+                #{delFlag,jdbcType=CHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                #{createUser,jdbcType=CHAR},
+            </if>
+            <if test="createUserName != null">
+                #{createUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyTime != null">
+                #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyUser != null">
+                #{modifyUser,jdbcType=CHAR},
+            </if>
+            <if test="modifyUserName != null">
+                #{modifyUserName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSfCheck">
+        update zx_sf_check
+        <set>
+            <if test="orgName != null">
+                orgName = #{orgName,jdbcType=VARCHAR},
+            </if>
+            <if test="orgID != null">
+                orgID = #{orgID,jdbcType=VARCHAR},
+            </if>
+            <if test="projName != null">
+                projName = #{projName,jdbcType=VARCHAR},
+            </if>
+            <if test="projID != null">
+                projID = #{projID,jdbcType=VARCHAR},
+            </if>
+            <if test="checkDate != null">
+                checkDate = #{checkDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="checkContext != null">
+                checkContext = #{checkContext,jdbcType=VARCHAR},
+            </if>
+            <if test="checkGroup != null">
+                checkGroup = #{checkGroup,jdbcType=VARCHAR},
+            </if>
+            <if test="checkEmployee != null">
+                checkEmployee = #{checkEmployee,jdbcType=VARCHAR},
+            </if>
+            <if test="editTime != null">
+                editTime = #{editTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isGroup != null">
+                isGroup = #{isGroup,jdbcType=VARCHAR},
+            </if>
+            <if test="isCompany != null">
+                isCompany = #{isCompany,jdbcType=VARCHAR},
+            </if>
+            <if test="checkType != null">
+                checkType = #{checkType,jdbcType=VARCHAR},
+            </if>
+            <if test="reportID != null">
+                reportID = #{reportID,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="isSend != null">
+                isSend = #{isSend,jdbcType=VARCHAR},
+            </if>
+            <if test="isReported != null">
+                isReported = #{isReported,jdbcType=VARCHAR},
+            </if>
+            <if test="sendID != null">
+                sendID = #{sendID,jdbcType=VARCHAR},
+            </if>
+            <if test="checkAgainStatus != null">
+                checkAgainStatus = #{checkAgainStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="companyId != null">
+                companyId = #{companyId,jdbcType=VARCHAR},
+            </if>
+            <if test="companyName != null">
+                companyName = #{companyName,jdbcType=VARCHAR},
+            </if>
+            <if test="remarks != null">
+                remarks = #{remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="sort != null">
+                sort = #{sort,jdbcType=INTEGER},
+            </if>
+            <if test="delFlag != null">
+                del_flag = #{delFlag,jdbcType=CHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                create_user = #{createUser,jdbcType=CHAR},
+            </if>
+            <if test="createUserName != null">
+                create_user_name = #{createUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyTime != null">
+                modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyUser != null">
+                modify_user = #{modifyUser,jdbcType=CHAR},
+            </if>
+            <if test="modifyUserName != null">
+                modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where zxSfCheckId = #{zxSfCheckId,jdbcType=CHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSfCheck">
+    update zx_sf_check set 
+      orgName = #{orgName,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      projName = #{projName,jdbcType=VARCHAR},
+      projID = #{projID,jdbcType=VARCHAR},
+      checkDate = #{checkDate,jdbcType=TIMESTAMP},
+      checkContext = #{checkContext,jdbcType=VARCHAR},
+      checkGroup = #{checkGroup,jdbcType=VARCHAR},
+      checkEmployee = #{checkEmployee,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      isGroup = #{isGroup,jdbcType=VARCHAR},
+      isCompany = #{isCompany,jdbcType=VARCHAR},
+      checkType = #{checkType,jdbcType=VARCHAR},
+      reportID = #{reportID,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      isSend = #{isSend,jdbcType=VARCHAR},
+      isReported = #{isReported,jdbcType=VARCHAR},
+      sendID = #{sendID,jdbcType=VARCHAR},
+      checkAgainStatus = #{checkAgainStatus,jdbcType=VARCHAR},
+      companyId = #{companyId,jdbcType=VARCHAR},
+      companyName = #{companyName,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSfCheckId = #{zxSfCheckId,jdbcType=CHAR}
+  </update>
+    <select id="selectByZxSfCheckList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSfCheck">
+        select
+        <include refid="Base_Column_List"/>
+        from zx_sf_check
+        where del_flag = '0'
+        <if test="zxSfCheckId != null and zxSfCheckId != ''">
+            and zxSfCheckId = #{zxSfCheckId,jdbcType=CHAR}
+        </if>
+        <if test="orgName != null and orgName != ''">
+            and orgName = #{orgName,jdbcType=VARCHAR}
+        </if>
+        <if test="orgID != null and orgID != ''">
+            and orgID = #{orgID,jdbcType=VARCHAR}
+        </if>
+        <if test="projName != null and projName != ''">
+            and projName = #{projName,jdbcType=VARCHAR}
+        </if>
+        <if test="projID != null and projID != ''">
+            and projID = #{projID,jdbcType=VARCHAR}
+        </if>
+        <if test="checkDate != null and checkDate != ''">
+            and checkDate = #{checkDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="checkContext != null and checkContext != ''">
+            and checkContext = #{checkContext,jdbcType=VARCHAR}
+        </if>
+        <if test="checkGroup != null and checkGroup != ''">
+            and checkGroup = #{checkGroup,jdbcType=VARCHAR}
+        </if>
+        <if test="checkEmployee != null and checkEmployee != ''">
+            and checkEmployee = #{checkEmployee,jdbcType=VARCHAR}
+        </if>
+        <if test="editTime != null and editTime != ''">
+            and editTime = #{editTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="isGroup != null and isGroup != ''">
+            and isGroup = #{isGroup,jdbcType=VARCHAR}
+        </if>
+        <if test="isCompany != null and isCompany != ''">
+            and isCompany = #{isCompany,jdbcType=VARCHAR}
+        </if>
+        <if test="checkType != null and checkType != ''">
+            and checkType = #{checkType,jdbcType=VARCHAR}
+        </if>
+        <if test="reportID != null and reportID != ''">
+            and reportID = #{reportID,jdbcType=VARCHAR}
+        </if>
+        <if test="status != null and status != ''">
+            and status = #{status,jdbcType=VARCHAR}
+        </if>
+        <if test="isSend != null and isSend != ''">
+            and isSend = #{isSend,jdbcType=VARCHAR}
+        </if>
+        <if test="isReported != null and isReported != ''">
+            and isReported = #{isReported,jdbcType=VARCHAR}
+        </if>
+        <if test="sendID != null and sendID != ''">
+            and sendID = #{sendID,jdbcType=VARCHAR}
+        </if>
+        <if test="checkAgainStatus != null and checkAgainStatus != ''">
+            and checkAgainStatus = #{checkAgainStatus,jdbcType=VARCHAR}
+        </if>
+        <if test="companyId != null and companyId != ''">
+            and companyId = #{companyId,jdbcType=VARCHAR}
+        </if>
+        <if test="companyName != null and companyName != ''">
+            and companyName = #{companyName,jdbcType=VARCHAR}
+        </if>
+        <if test="remarks != null and remarks != ''">
+            and remarks = #{remarks,jdbcType=VARCHAR}
+        </if>
+        <if test="sort != null and sort != ''">
+            and sort = #{sort,jdbcType=INTEGER}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and create_time = #{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="createUser != null and createUser != ''">
+            and create_user = #{createUser,jdbcType=CHAR}
+        </if>
+        <if test="createUserName != null and createUserName != ''">
+            and create_user_name = #{createUserName,jdbcType=VARCHAR}
+        </if>
+        <if test="modifyTime != null and modifyTime != ''">
+            and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="modifyUser != null and modifyUser != ''">
+            and modify_user = #{modifyUser,jdbcType=CHAR}
+        </if>
+        <if test="modifyUserName != null and modifyUserName != ''">
+            and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+        </if>
+        ORDER BY modify_time DESC
+    </select>
+    <delete id="batchDeleteUpdateZxSfCheck" parameterType="com.apih5.mybatis.pojo.ZxSfCheck">
+        <![CDATA[
+        update zx_sf_check
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSfCheckId in 
+     ]]>
+        <foreach collection="param1" item="model" open="(" separator="," close=")">#{model.zxSfCheckId}
+        </foreach>
+    </delete>
+    <!-- ↓↓↓扩展↓↓↓ -->
+    <select id="selectByZxSfCheckListAll" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSfCheck">
+        select
+        <include refid="Base_Column_List"/>
+        from zx_sf_Check
+        where del_flag = '0'
+        <if test="zxSfCheckId != null and zxSfCheckId != ''">
+            and zxSfCheckId = #{zxSfCheckId,jdbcType=CHAR}
+        </if>
+        <if test="orgName != null and orgName != ''">
+            and orgName = #{orgName,jdbcType=VARCHAR}
+        </if>
+        <if test="orgID != null and orgID != ''">
+            and orgID = #{orgID,jdbcType=VARCHAR}
+        </if>
+        <if test="projName != null and projName != ''">
+            and projName = #{projName,jdbcType=VARCHAR}
+        </if>
+        <if test="projID != null and projID != ''">
+            and projID = #{projID,jdbcType=VARCHAR}
+        </if>
+        <if test="checkDate != null">
+            and checkDate = #{checkDate,jdbcType=DATE}
+        </if>
+        <if test="checkContext != null and checkContext != ''">
+            and checkContext = #{checkContext,jdbcType=VARCHAR}
+        </if>
+        <if test="checkGroup != null and checkGroup != ''">
+            and checkGroup = #{checkGroup,jdbcType=VARCHAR}
+        </if>
+        <if test="checkEmployee != null and checkEmployee != ''">
+            and checkEmployee = #{checkEmployee,jdbcType=VARCHAR}
+        </if>
+        <if test="editTime != null and editTime != ''">
+            and editTime = #{editTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="isGroup != null and isGroup != ''">
+            and isGroup = #{isGroup,jdbcType=VARCHAR}
+        </if>
+        <if test="isCompany != null and isCompany != ''">
+            and isCompany = #{isCompany,jdbcType=VARCHAR}
+        </if>
+        <if test="checkType != null and checkType != ''">
+            and checkType = #{checkType,jdbcType=VARCHAR}
+        </if>
+        <if test="reportID != null and reportID != ''">
+            and reportID = #{reportID,jdbcType=VARCHAR}
+        </if>
+        <if test="status != null and status != ''">
+            and status = #{status,jdbcType=VARCHAR}
+        </if>
+        <if test="isSend != null and isSend != ''">
+            and isSend = #{isSend,jdbcType=VARCHAR}
+        </if>
+        <if test="isReported != null and isReported != ''">
+            and isReported = #{isReported,jdbcType=VARCHAR}
+        </if>
+        <if test="sendID != null and sendID != ''">
+            and sendID = #{sendID,jdbcType=VARCHAR}
+        </if>
+        <if test="checkAgainStatus != null and checkAgainStatus != ''">
+            and checkAgainStatus = #{checkAgainStatus,jdbcType=VARCHAR}
+        </if>
+        <if test="companyId != null and companyId != ''">
+            and companyId = #{companyId,jdbcType=VARCHAR}
+        </if>
+        <if test="remarks != null and remarks != ''">
+            and remarks = #{remarks,jdbcType=VARCHAR}
+        </if>
+        <if test="sort != null and sort != ''">
+            and sort = #{sort,jdbcType=INTEGER}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and create_time = #{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="createUser != null and createUser != ''">
+            and create_user = #{createUser,jdbcType=CHAR}
+        </if>
+        <if test="createUserName != null and createUserName != ''">
+            and create_user_name = #{createUserName,jdbcType=VARCHAR}
+        </if>
+        <if test="modifyTime != null and modifyTime != ''">
+            and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="modifyUser != null and modifyUser != ''">
+            and modify_user = #{modifyUser,jdbcType=CHAR}
+        </if>
+        <if test="modifyUserName != null and modifyUserName != ''">
+            and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+        </if>
+        UNION
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM zx_sf_Check
+        WHERE del_flag = '0'
+        AND isSend in ('1', '2')
+        <if test="companyId != null and companyId != ''">
+            and companyId = #{companyId,jdbcType=VARCHAR}
+        </if>
+        <if test="orgID != null and orgID != ''">
+            and orgID = #{orgID,jdbcType=VARCHAR}
+        </if>
+        ORDER BY modify_time DESC
+    </select>
+    <select id="selectByZxSfCheckListAllcompany" resultMap="BaseResultMap"
+            parameterType="com.apih5.mybatis.pojo.ZxSfCheck">
+        select
+        <include refid="Base_Column_List"/>
+        from zx_sf_Check
+        where del_flag = '0'
+        <if test="zxSfCheckId != null and zxSfCheckId != ''">
+            and zxSfCheckId = #{zxSfCheckId,jdbcType=CHAR}
+        </if>
+        <if test="orgName != null and orgName != ''">
+            and orgName = #{orgName,jdbcType=VARCHAR}
+        </if>
+        <if test="orgID != null and orgID != ''">
+            and orgID = #{orgID,jdbcType=VARCHAR}
+        </if>
+        <if test="projName != null and projName != ''">
+            and projName = #{projName,jdbcType=VARCHAR}
+        </if>
+        <if test="projID != null and projID != ''">
+            and projID = #{projID,jdbcType=VARCHAR}
+        </if>
+        <if test="checkDate != null">
+            and checkDate = #{checkDate,jdbcType=DATE}
+        </if>
+        <if test="checkContext != null and checkContext != ''">
+            and checkContext = #{checkContext,jdbcType=VARCHAR}
+        </if>
+        <if test="checkGroup != null and checkGroup != ''">
+            and checkGroup = #{checkGroup,jdbcType=VARCHAR}
+        </if>
+        <if test="checkEmployee != null and checkEmployee != ''">
+            and checkEmployee = #{checkEmployee,jdbcType=VARCHAR}
+        </if>
+        <if test="editTime != null and editTime != ''">
+            and editTime = #{editTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="isGroup != null and isGroup != ''">
+            and isGroup = #{isGroup,jdbcType=VARCHAR}
+        </if>
+        <if test="isCompany != null and isCompany != ''">
+            and isCompany = #{isCompany,jdbcType=VARCHAR}
+        </if>
+        <if test="checkType != null and checkType != ''">
+            and checkType = #{checkType,jdbcType=VARCHAR}
+        </if>
+        <if test="reportID != null and reportID != ''">
+            and reportID = #{reportID,jdbcType=VARCHAR}
+        </if>
+        <if test="status != null and status != ''">
+            and status = #{status,jdbcType=VARCHAR}
+        </if>
+        <if test="isSend != null and isSend != ''">
+            and isSend = #{isSend,jdbcType=VARCHAR}
+        </if>
+        <if test="isReported != null and isReported != ''">
+            and isReported = #{isReported,jdbcType=VARCHAR}
+        </if>
+        <if test="sendID != null and sendID != ''">
+            and sendID = #{sendID,jdbcType=VARCHAR}
+        </if>
+        <if test="checkAgainStatus != null and checkAgainStatus != ''">
+            and checkAgainStatus = #{checkAgainStatus,jdbcType=VARCHAR}
+        </if>
+        <if test="companyId != null and companyId != ''">
+            and companyId = #{companyId,jdbcType=VARCHAR}
+        </if>
+        <if test="remarks != null and remarks != ''">
+            and remarks = #{remarks,jdbcType=VARCHAR}
+        </if>
+        <if test="sort != null and sort != ''">
+            and sort = #{sort,jdbcType=INTEGER}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and create_time = #{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="createUser != null and createUser != ''">
+            and create_user = #{createUser,jdbcType=CHAR}
+        </if>
+        <if test="createUserName != null and createUserName != ''">
+            and create_user_name = #{createUserName,jdbcType=VARCHAR}
+        </if>
+        <if test="modifyTime != null and modifyTime != ''">
+            and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="modifyUser != null and modifyUser != ''">
+            and modify_user = #{modifyUser,jdbcType=CHAR}
+        </if>
+        <if test="modifyUserName != null and modifyUserName != ''">
+            and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+        </if>
+        UNION
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM zx_sf_Check
+        WHERE del_flag = '0'
+        AND isSend = '1'
+        <if test="companyId != null and companyId != ''">
+            and companyId = #{companyId,jdbcType=VARCHAR}
+        </if>
+        <if test="orgID != null and orgID != ''">
+            and orgID = #{orgID,jdbcType=VARCHAR}
+        </if>
+        ORDER BY modify_time DESC
+    </select>
+    <select id="selectByZxSfCheckListAllBureau" resultMap="BaseResultMap"
+            parameterType="com.apih5.mybatis.pojo.ZxSfCheck">
+        select
+        <include refid="Base_Column_List"/>
+        from zx_sf_Check
+        where del_flag = '0'
+        <if test="zxSfCheckId != null and zxSfCheckId != ''">
+            and zxSfCheckId = #{zxSfCheckId,jdbcType=CHAR}
+        </if>
+        <if test="orgName != null and orgName != ''">
+            and orgName = #{orgName,jdbcType=VARCHAR}
+        </if>
+        <if test="orgID != null and orgID != ''">
+            and orgID = #{orgID,jdbcType=VARCHAR}
+        </if>
+        <if test="projName != null and projName != ''">
+            and projName = #{projName,jdbcType=VARCHAR}
+        </if>
+        <if test="projID != null and projID != ''">
+            and projID = #{projID,jdbcType=VARCHAR}
+        </if>
+        <if test="checkDate != null">
+            and checkDate = #{checkDate,jdbcType=DATE}
+        </if>
+        <if test="checkContext != null and checkContext != ''">
+            and checkContext = #{checkContext,jdbcType=VARCHAR}
+        </if>
+        <if test="checkGroup != null and checkGroup != ''">
+            and checkGroup = #{checkGroup,jdbcType=VARCHAR}
+        </if>
+        <if test="checkEmployee != null and checkEmployee != ''">
+            and checkEmployee = #{checkEmployee,jdbcType=VARCHAR}
+        </if>
+        <if test="editTime != null and editTime != ''">
+            and editTime = #{editTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="isGroup != null and isGroup != ''">
+            and isGroup = #{isGroup,jdbcType=VARCHAR}
+        </if>
+        <if test="isCompany != null and isCompany != ''">
+            and isCompany = #{isCompany,jdbcType=VARCHAR}
+        </if>
+        <if test="checkType != null and checkType != ''">
+            and checkType = #{checkType,jdbcType=VARCHAR}
+        </if>
+        <if test="reportID != null and reportID != ''">
+            and reportID = #{reportID,jdbcType=VARCHAR}
+        </if>
+        <if test="status != null and status != ''">
+            and status = #{status,jdbcType=VARCHAR}
+        </if>
+        <if test="isSend != null and isSend != ''">
+            and isSend = #{isSend,jdbcType=VARCHAR}
+        </if>
+        <if test="isReported != null and isReported != ''">
+            and isReported = #{isReported,jdbcType=VARCHAR}
+        </if>
+        <if test="sendID != null and sendID != ''">
+            and sendID = #{sendID,jdbcType=VARCHAR}
+        </if>
+        <if test="checkAgainStatus != null and checkAgainStatus != ''">
+            and checkAgainStatus = #{checkAgainStatus,jdbcType=VARCHAR}
+        </if>
+        <if test="companyId != null and companyId != ''">
+            and companyId = #{companyId,jdbcType=VARCHAR}
+        </if>
+        <if test="remarks != null and remarks != ''">
+            and remarks = #{remarks,jdbcType=VARCHAR}
+        </if>
+        <if test="sort != null and sort != ''">
+            and sort = #{sort,jdbcType=INTEGER}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and create_time = #{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="createUser != null and createUser != ''">
+            and create_user = #{createUser,jdbcType=CHAR}
+        </if>
+        <if test="createUserName != null and createUserName != ''">
+            and create_user_name = #{createUserName,jdbcType=VARCHAR}
+        </if>
+        <if test="modifyTime != null and modifyTime != ''">
+            and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="modifyUser != null and modifyUser != ''">
+            and modify_user = #{modifyUser,jdbcType=CHAR}
+        </if>
+        <if test="modifyUserName != null and modifyUserName != ''">
+            and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+        </if>
+        ORDER BY modify_time DESC
+    </select>
+
+    <!-- 查询公司的检查信息 -->
+    <select id="getCompany" resultMap="BaseResultMap">
+        SELECT
+        a.company_id,
+        a.company_name,
+        count( a.orgID ) AS orgNum,
+        count( b.orgID ) AS checkNum,
+        count( a.orgID ) - count( b.orgID ) AS noCheckNum
+        FROM
+        zx_ct_contract a
+        LEFT JOIN zx_sf_check b ON a.orgID = b.orgID
+        WHERE b.del_flag ='0'
+        <if test="startDate != null ">
+            and b.checkDate>#{startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="endDate != null ">
+            and b.checkDate &lt;#{endDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="companyId != null and companyId != '' ">
+            and a.company_id=#{companyId,jdbcType=VARCHAR}
+        </if>
+
+    </select>
+
+    <!-- 查询归档项目的检查信息 -->
+    <select id="getGuiDang" resultMap="BaseResultMap">
+        SELECT
+        count( a.orgID ) AS orgNum,
+        count( c.orgID ) as checkNum,
+        count( a.orgID ) - count( c.orgID ) AS noCheckNum
+        FROM
+        zx_ct_contract a
+        LEFT JOIN sys_project b ON b.department_id = a.orgID
+        LEFT JOIN zx_sf_check c ON c.orgID = a.orgID
+        WHERE c.del_flag ='0'
+        AND DATE_FORMAT( b.doc_date, '%Y%m%d' ) &lt; #{today,jdbcType=VARCHAR}
+        <if test="record.companyId != null and record.companyId != '' ">
+            AND a.company_id=#{record.companyId,jdbcType=VARCHAR}
+        </if>
+        <if test="record.startDate != null  ">
+            AND c.checkDate>#{record.startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="record.endDate != null ">
+            AND c.checkDate &lt;#{record.endDate,jdbcType=TIMESTAMP}
+        </if>
+    </select>
+
+    <!-- 查询归档项目的检查信息 -->
+    <select id="getJiaoGong" resultMap="BaseResultMap">
+        SELECT
+        count( a.orgID ) AS orgNum,
+        count( c.orgID ) AS checkNum,
+        count( a.orgID ) - count( c.orgID ) AS noCheckNum
+        FROM
+        zx_ct_contract a
+        LEFT JOIN sys_project b ON b.department_id = a.orgID
+        LEFT JOIN zx_sf_check c ON c.orgID = a.orgID
+        WHERE
+        CASE WHEN ISNULL( b.doc_date ) THEN
+        DATE_FORMAT( b.delivery_date, '%Y%m%d' ) &lt;= #{today,jdbcType=VARCHAR} ELSE ( DATE_FORMAT( b.delivery_date, '%Y%m%d' ) &lt;=
+        #{today} AND DATE_FORMAT( b.doc_date, '%Y%m%d' ) >#{today,jdbcType=VARCHAR} )
+        END AND c.del_flag ='0'
+        <if test="record.companyId != null and record.companyId != '' ">
+            AND a.company_id=#{record.companyId,jdbcType=VARCHAR}
+        </if>
+        <if test="record.startDate != null ">
+            AND c.checkDate>#{record.startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="record.endDate != null ">
+            AND c.checkDate &lt;#{record.endDate,jdbcType=TIMESTAMP}
+        </if>
+
+    </select>
+
+    <select id="getWanGong" resultMap="BaseResultMap">
+        SELECT
+        count( a.orgID ) AS orgNum,
+        count( c.orgID ) AS checkNum,
+        count( a.orgID ) - count( c.orgID ) AS noCheckNum
+        FROM
+        zx_ct_contract a
+        LEFT JOIN sys_project b ON b.department_id = a.orgID
+        LEFT JOIN zx_sf_check c ON c.orgID = a.orgID
+        WHERE
+        CASE
+        WHEN ISNULL( b.delivery_date ) THEN
+        ( CASE WHEN ISNULL( b.doc_date ) THEN DATE_FORMAT( b.main_end_date, '%Y%m%d' ) &lt;= #{today,jdbcType=VARCHAR} ELSE (
+        DATE_FORMAT( b.main_end_date, '%Y%m%d' ) &lt;= #{today,jdbcType=VARCHAR} AND DATE_FORMAT( b.doc_date, '%Y%m%d' ) > #{today,jdbcType=VARCHAR} )
+        END ) ELSE (
+        DATE_FORMAT( b.main_end_date, '%Y%m%d' ) &lt;= #{today,jdbcType=VARCHAR} AND DATE_FORMAT( b.delivery_date, '%Y%m%d' ) > #{today,jdbcType=VARCHAR}
+        )
+        END AND c.del_flag ='0'
+        <if test="record.companyId != null and record.companyId != '' ">
+            AND a.company_id=#{record.companyId,jdbcType=VARCHAR}
+        </if>
+        <if test="record.startDate != null ">
+            AND c.checkDate>#{record.startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="record.endDate != null ">
+            AND c.checkDate &lt;#{record.endDate,jdbcType=TIMESTAMP}
+        </if>
+    </select>
+
+    <select id="getKaiGong" resultMap="BaseResultMap">
+        SELECT
+        count( a.orgID ) AS orgNum,
+        count( c.projID ) AS checkNum,
+        count( a.orgID ) - count( c.orgID ) AS noCheckNum
+        FROM
+        zx_ct_contract a
+        LEFT JOIN sys_project b ON b.department_id = a.orgID
+        LEFT JOIN zx_sf_check c ON c.orgID = a.orgID
+        WHERE
+        CASE
+
+        WHEN ISNULL( b.main_end_date ) THEN
+        (
+        CASE
+
+        WHEN ISNULL( b.delivery_date ) THEN
+        ( CASE WHEN ISNULL( b.doc_date ) THEN DATE_FORMAT( b.actual_start_date, '%Y%m%d' ) &lt;= #{today,jdbcType=VARCHAR} ELSE (
+        DATE_FORMAT( b.actual_start_date, '%Y%m%d' ) &lt;= #{today,jdbcType=VARCHAR} AND DATE_FORMAT( b.doc_date, '%Y%m%d' ) > #{today,jdbcType=VARCHAR} )
+        END ) ELSE ( DATE_FORMAT( b.actual_start_date, '%Y%m%d' ) &lt;= #{today,jdbcType=VARCHAR} AND DATE_FORMAT( b.delivery_date,
+        '%Y%m%d' ) > #{today,jdbcType=VARCHAR} )
+        END ) ELSE (
+        DATE_FORMAT( b.actual_start_date, '%Y%m%d' ) &lt;= #{today,jdbcType=VARCHAR} AND DATE_FORMAT( b.main_end_date, '%Y%m%d' ) >
+        #{today,jdbcType=VARCHAR} ) END
+        AND c.del_flag ='0'
+        <if test="record.companyId != null and record.companyId != '' ">
+            AND a.company_id=#{record.companyId,jdbcType=VARCHAR}
+        </if>
+        <if test="record.startDate != null  ">
+            AND c.checkDate>#{record.startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="record.endDate != null ">
+            AND c.checkDate &lt;#{record.endDate,jdbcType=TIMESTAMP}
+        </if>
+
+    </select>
+
+    <select id="getGuiDangList" resultMap="BaseResultMap">
+        SELECT
+        a.projectName as orgName,
+        a.orgID,
+        1 AS orgNum,
+        CASE
+        WHEN ISNULL(c.orgID) THEN
+        0
+        ELSE
+        1
+        END AS checkNum,
+        1- CASE
+        WHEN ISNULL(c.orgID) THEN
+        0
+        ELSE
+        1
+        END as noCheckNum,
+        CASE
+        WHEN ISNULL(c.orgID) THEN
+        0
+        ELSE
+        100
+        END AS checkFGL
+        FROM zx_ct_contract a
+        LEFT JOIN sys_project b ON a.orgID = b.project_id LEFT JOIN zx_sf_check c on
+        c.orgID=a.orgID
+        WHERE
+        DATE_FORMAT( b.doc_date, '%Y%m%d' ) &lt; #{today,jdbcType=VARCHAR}
+        AND c.del_flag ='0'
+        <if test="record.companyId != null and record.companyId != '' ">
+            AND a.company_id=#{record.companyId,jdbcType=VARCHAR}
+        </if>
+        <if test="record.startDate != null ">
+            AND c.checkDate>#{record.startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="record.endDate != null ">
+            AND c.checkDate &lt;#{record.endDate,jdbcType=TIMESTAMP}
+        </if>
+    </select>
+
+    <select id="getJiaoGongList" resultMap="BaseResultMap">
+        SELECT
+        a.projectName AS orgName,
+        a.orgID,
+        1 AS orgNum,
+        CASE
+        WHEN ISNULL( c.orgID ) THEN
+        0 ELSE 1
+        END AS checkNum,
+        1-CASE
+        WHEN ISNULL( c.orgID ) THEN
+        0 ELSE 1
+        END AS noCheckNum,
+        CASE
+        WHEN ISNULL(c.orgID) THEN
+        0
+        ELSE
+        100
+        END AS checkFGL
+        FROM
+        zx_ct_contract a
+        LEFT JOIN sys_project b ON a.orgID = b.project_id
+        LEFT JOIN zx_sf_check c ON c.orgID = a.orgID
+        WHERE
+        CASE
+        WHEN ISNULL( b.doc_date ) THEN
+        DATE_FORMAT( b.delivery_date, '%Y%m%d' ) &lt;= #{today,jdbcType=VARCHAR} ELSE ( DATE_FORMAT( b.delivery_date, '%Y%m%d' ) &lt;=
+        #{today,jdbcType=VARCHAR} AND DATE_FORMAT( b.doc_date, '%Y%m%d' ) > #{today,jdbcType=VARCHAR} )
+        END
+        AND c.del_flag ='0'
+
+        <if test="record.companyId != null and record.companyId != '' ">
+            AND a.company_id=#{record.companyId,jdbcType=VARCHAR}
+        </if>
+        <if test="record.startDate != null ">
+            AND c.checkDate>#{record.startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="record.endDate != null ">
+            AND c.checkDate &lt;#{record.endDate,jdbcType=TIMESTAMP}
+        </if>
+    </select>
+
+    <select id="getWanGongList" resultMap="BaseResultMap">
+        SELECT
+        a.projectName AS orgName,
+        a.orgID,
+        1 AS orgNum,
+        CASE
+        WHEN ISNULL( c.orgID ) THEN
+        0 ELSE 1
+        END AS checkNum,
+        1-
+        CASE
+        WHEN ISNULL( c.orgID ) THEN
+        0 ELSE 1
+        END AS noCheckNum,
+        CASE
+        WHEN ISNULL(c.orgID) THEN
+        0
+        ELSE
+        100
+        END AS checkFGL
+        FROM
+        zx_ct_contract a
+        LEFT JOIN sys_project b ON a.orgID = b.project_id
+        LEFT JOIN zx_sf_check c ON c.orgID = a.orgID
+        WHERE
+        CASE
+        WHEN ISNULL( b.delivery_date ) THEN
+        (
+        CASE
+        WHEN ISNULL( b.doc_date ) THEN
+        DATE_FORMAT( b.main_end_date, '%Y%m%d' ) &lt;= #{today,jdbcType=VARCHAR} ELSE ( DATE_FORMAT( b.main_end_date, '%Y%m%d' ) &lt;=
+        #{today} AND DATE_FORMAT( b.doc_date, '%Y%m%d' ) > #{today,jdbcType=VARCHAR} )
+        END
+        ) ELSE ( DATE_FORMAT( b.main_end_date, '%Y%m%d' ) &lt;= #{today,jdbcType=VARCHAR} AND DATE_FORMAT( b.delivery_date, '%Y%m%d' ) >
+        #{today,jdbcType=VARCHAR} )
+        END
+        AND c.del_flag ='0'
+        <if test="record.companyId != null and record.companyId != '' ">
+            AND a.company_id=#{record.companyId,jdbcType=VARCHAR}
+        </if>
+        <if test="record.startDate != null ">
+            AND c.checkDate>#{record.startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="record.endDate != null ">
+            AND c.checkDate &lt;#{record.endDate,jdbcType=TIMESTAMP}
+        </if>
+    </select>
+
+    <select id="getKaiGongList" resultMap="BaseResultMap">
+        SELECT
+        a.projectName AS orgName,
+        a.orgID,
+        1 AS orgNum,
+        CASE
+
+        WHEN ISNULL( c.orgID ) THEN
+        0 ELSE 1
+        END AS checkNum,
+        1-
+        CASE
+
+        WHEN ISNULL( c.orgID ) THEN
+        0 ELSE 1
+        END AS noCheckNum,
+        CASE
+        WHEN ISNULL(c.orgID) THEN
+        0
+        ELSE
+        100
+        END AS checkFGL
+        FROM
+        zx_ct_contract a
+        LEFT JOIN sys_project b ON a.orgID = b.project_id
+        LEFT JOIN zx_sf_check c ON c.orgID = a.orgID
+        WHERE
+        CASE
+
+        WHEN ISNULL( b.main_end_date ) THEN
+        (
+        CASE
+
+        WHEN ISNULL( b.delivery_date ) THEN
+        (
+        CASE
+
+        WHEN ISNULL( b.doc_date ) THEN
+        DATE_FORMAT( b.actual_start_date, '%Y%m%d' ) &lt;= #{today,jdbcType=VARCHAR} ELSE ( DATE_FORMAT( b.actual_start_date, '%Y%m%d' )
+        &lt;=#{today,jdbcType=VARCHAR} AND DATE_FORMAT( b.doc_date, '%Y%m%d' ) > #{today,jdbcType=VARCHAR} )
+        END
+        ) ELSE ( DATE_FORMAT( b.actual_start_date, '%Y%m%d' ) &lt;= #{today,jdbcType=VARCHAR} AND DATE_FORMAT( b.delivery_date, '%Y%m%d'
+        ) > #{today,jdbcType=VARCHAR} )
+        END
+        ) ELSE ( DATE_FORMAT( b.actual_start_date, '%Y%m%d' ) &lt;= #{today,jdbcType=VARCHAR} AND DATE_FORMAT( b.main_end_date, '%Y%m%d'
+        ) > #{today,jdbcType=VARCHAR} )
+        END
+        AND c.del_flag ='0'
+
+        <if test="record.companyId != null and record.companyId != '' ">
+            AND a.company_id=#{record.companyId,jdbcType=VARCHAR}
+        </if>
+        <if test="record.startDate != null ">
+            AND c.checkDate>#{record.startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="record.endDate != null ">
+            AND c.checkDate &lt;#{record.endDate,jdbcType=TIMESTAMP}
+        </if>
+    </select>
+
+    <select id="getComList" resultMap="BaseResultMap">
+        SELECT
+        a.company_id,
+        a.company_name,
+        count( a.orgID ) AS orgNum,
+        count( b.orgID ) AS checkNum,
+        count( a.orgID ) - count( b.orgID ) AS noCheckNum
+        FROM
+        zx_ct_contract a
+        LEFT JOIN zx_sf_check b ON a.orgID = b.orgID
+        WHERE b.del_flag ='0'
+        <if test="record.startDate != null ">
+            AND b.checkDate>#{record.startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="record.endDate != null ">
+            AND b.checkDate &lt;#{record.endDate,jdbcType=TIMESTAMP}
+        </if>
+        GROUP BY
+        a.company_id,
+        a.company_name
+    </select>
+
+
+    <select id="getJuInfo" resultMap="BaseResultMap">
+        SELECT
+        count( a.orgID ) AS orgNum,
+        count( b.orgID ) AS checkNum,
+        count( a.orgID ) - count( b.orgID ) AS noCheckNum
+        FROM
+        zx_ct_contract a
+        LEFT JOIN zx_sf_check b ON a.orgID = b.orgID
+        WHERE b.del_flag ='0'
+        <if test="record.startDate != null ">
+            AND b.checkDate>#{record.startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="record.endDate != null ">
+            AND b.checkDate &lt;#{record.endDate,jdbcType=TIMESTAMP}
+        </if>
+    </select>
+
+    <select id="selectByZxSfCheckId" resultMap="BaseResultMap">
+        SELECT
+        a.zxSfCheckId,
+        a.orgID,
+        a.orgName,
+        a.checkDate,
+        a.checkContext,
+        a.checkGroup,
+        a.checkEmployee,
+        #{startDate} as startDate,
+        #{endDate} as endDate,
+        count( b.riskInfo ) AS riskNum,
+        count( CASE WHEN b.checkResult = '合格' THEN 1 ELSE NULL END ) AS zGaiNum
+        FROM
+        zx_sf_check a
+        LEFT JOIN zx_sf_checkitem b ON a.zxSfCheckId = b.checkID
+        where a.del_flag = '0'
+        <if test="orgID != null and orgID != ''">
+            and a.orgID = #{orgID,jdbcType=VARCHAR}
+        </if>
+        <if test="startDate != null">
+            and a.checkDate >= #{startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="endDate != null ">
+            and a.checkDate &lt;= #{endDate,jdbcType=TIMESTAMP}
+        </if>
+        GROUP BY
+        a.zxSfCheckId
+
+    </select>
+</mapper>

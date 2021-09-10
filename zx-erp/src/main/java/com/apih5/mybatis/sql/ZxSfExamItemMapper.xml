@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSfExamItemMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSfExamItem" >
+    <id column="zxSfExamItemId" property="zxSfExamItemId" jdbcType="CHAR" />
+    <result column="examID" property="examID" jdbcType="VARCHAR" />
+    <result column="examContext" property="examContext" jdbcType="VARCHAR" />
+    <result column="examName" property="examName" jdbcType="VARCHAR" />
+    <result column="allScore" property="allScore" jdbcType="DECIMAL" />
+    <result column="selfScore" property="selfScore" jdbcType="DECIMAL" />
+    <result column="examScore" property="examScore" jdbcType="DECIMAL" />
+    <result column="notes" property="notes" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="VARCHAR" />
+    <result column="orderNo" property="orderNo" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxSfExamItemId, examID, examContext, examName, allScore, 
+    selfScore, examScore, notes, editTime, orderNo, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sf_examItem
+    where del_flag = '0' and zxSfExamItemId = #{zxSfExamItemId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sf_examItem
+    where zxSfExamItemId = #{zxSfExamItemId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSfExamItem" >
+    insert into zx_sf_examItem (
+    zxSfExamItemId, examID, examContext, examName, allScore, 
+    selfScore, examScore, notes, editTime, orderNo, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxSfExamItemId,jdbcType=CHAR}, #{examID,jdbcType=VARCHAR}, #{examContext,jdbcType=VARCHAR}, #{examName,jdbcType=VARCHAR}, #{allScore,jdbcType=DECIMAL}, 
+    #{selfScore,jdbcType=DECIMAL}, #{examScore,jdbcType=DECIMAL}, #{notes,jdbcType=VARCHAR}, #{editTime,jdbcType=VARCHAR}, #{orderNo,jdbcType=VARCHAR}, 
+    #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+    #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSfExamItem" >
+    insert into zx_sf_examItem
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSfExamItemId != null" >
+        zxSfExamItemId,
+      </if>
+      <if test="examID != null" >
+        examID,
+      </if>
+      <if test="examContext != null" >
+        examContext,
+      </if>
+      <if test="examName != null" >
+        examName,
+      </if>
+      <if test="allScore != null" >
+        allScore,
+      </if>
+      <if test="selfScore != null" >
+        selfScore,
+      </if>
+      <if test="examScore != null" >
+        examScore,
+      </if>
+      <if test="notes != null" >
+        notes,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="orderNo != null" >
+        orderNo,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSfExamItemId != null" >
+        #{zxSfExamItemId,jdbcType=CHAR},
+      </if>
+      <if test="examID != null" >
+        #{examID,jdbcType=VARCHAR},
+      </if>
+      <if test="examContext != null" >
+        #{examContext,jdbcType=VARCHAR},
+      </if>
+      <if test="examName != null" >
+        #{examName,jdbcType=VARCHAR},
+      </if>
+      <if test="allScore != null" >
+        #{allScore,jdbcType=DECIMAL},
+      </if>
+      <if test="selfScore != null" >
+        #{selfScore,jdbcType=DECIMAL},
+      </if>
+      <if test="examScore != null" >
+        #{examScore,jdbcType=DECIMAL},
+      </if>
+      <if test="notes != null" >
+        #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null" >
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSfExamItem" >
+    update zx_sf_examItem
+    <set >
+      <if test="examID != null" >
+        examID = #{examID,jdbcType=VARCHAR},
+      </if>
+      <if test="examContext != null" >
+        examContext = #{examContext,jdbcType=VARCHAR},
+      </if>
+      <if test="examName != null" >
+        examName = #{examName,jdbcType=VARCHAR},
+      </if>
+      <if test="allScore != null" >
+        allScore = #{allScore,jdbcType=DECIMAL},
+      </if>
+      <if test="selfScore != null" >
+        selfScore = #{selfScore,jdbcType=DECIMAL},
+      </if>
+      <if test="examScore != null" >
+        examScore = #{examScore,jdbcType=DECIMAL},
+      </if>
+      <if test="notes != null" >
+        notes = #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null" >
+        orderNo = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxSfExamItemId = #{zxSfExamItemId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSfExamItem" >
+    update zx_sf_examItem set 
+      examID = #{examID,jdbcType=VARCHAR},
+      examContext = #{examContext,jdbcType=VARCHAR},
+      examName = #{examName,jdbcType=VARCHAR},
+      allScore = #{allScore,jdbcType=DECIMAL},
+      selfScore = #{selfScore,jdbcType=DECIMAL},
+      examScore = #{examScore,jdbcType=DECIMAL},
+      notes = #{notes,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=VARCHAR},
+      orderNo = #{orderNo,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSfExamItemId = #{zxSfExamItemId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSfExamItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSfExamItem" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sf_examItem
+    where del_flag = '0'
+    <if test="zxSfExamItemId != null and zxSfExamItemId != ''" >
+     and zxSfExamItemId = #{zxSfExamItemId,jdbcType=CHAR}
+    </if>
+    <if test="examID != null and examID != ''" >
+     and examID = #{examID,jdbcType=VARCHAR}
+    </if>
+    <if test="examContext != null and examContext != ''" >
+     and examContext = #{examContext,jdbcType=VARCHAR}
+    </if>
+    <if test="examName != null and examName != ''" >
+     and examName = #{examName,jdbcType=VARCHAR}
+    </if>
+    <if test="allScore != null and allScore != ''" >
+     and allScore = #{allScore,jdbcType=DECIMAL}
+    </if>
+    <if test="selfScore != null and selfScore != ''" >
+     and selfScore = #{selfScore,jdbcType=DECIMAL}
+    </if>
+    <if test="examScore != null and examScore != ''" >
+     and examScore = #{examScore,jdbcType=DECIMAL}
+    </if>
+    <if test="notes != null and notes != ''" >
+     and notes = #{notes,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=VARCHAR}
+    </if>
+    <if test="orderNo != null and orderNo != ''" >
+     and orderNo = #{orderNo,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <delete id="batchDeleteUpdateZxSfExamItem" parameterType="com.apih5.mybatis.pojo.ZxSfExamItem" >
+    <![CDATA[ 
+        update zx_sf_examItem
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSfExamItemId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSfExamItemId} 
+     </foreach>
+  </delete>
+  <insert id="insertInit" parameterType="com.apih5.mybatis.pojo.ZxSfExamItem" >
+    insert into zx_sf_examItem (
+    zxSfExamItemId, examID, examContext, examName, allScore, 
+    selfScore, examScore, notes, editTime, orderNo, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxSfExamItemId,jdbcType=CHAR}, #{examID,jdbcType=VARCHAR}, #{examContext,jdbcType=VARCHAR}, #{examName,jdbcType=VARCHAR}, #{allScore,jdbcType=DECIMAL}, 
+    #{selfScore,jdbcType=DECIMAL}, #{examScore,jdbcType=DECIMAL}, #{notes,jdbcType=VARCHAR}, #{editTime,jdbcType=VARCHAR}, #{orderNo,jdbcType=VARCHAR}, 
+    #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 0, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+    #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+</mapper>

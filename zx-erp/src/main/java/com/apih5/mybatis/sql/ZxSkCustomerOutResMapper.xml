@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkCustomerOutResMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkCustomerOutRes" >
+    <id column="zxSkCustomerOutResId" property="zxSkCustomerOutResId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="outOrgName" property="outOrgName" jdbcType="VARCHAR" />
+    <result column="busDate" property="busDate" jdbcType="TIMESTAMP" />
+    <result column="billNo" property="billNo" jdbcType="VARCHAR" />
+    <result column="resourceName" property="resourceName" jdbcType="VARCHAR" />
+    <result column="resCode" property="resCode" jdbcType="VARCHAR" />
+    <result column="resName" property="resName" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="resUnit" property="resUnit" jdbcType="VARCHAR" />
+    <result column="inQty" property="inQty" jdbcType="DECIMAL" />
+    <result column="inPrice" property="inPrice" jdbcType="DECIMAL" />
+    <result column="resAllFee" property="resAllFee" jdbcType="DECIMAL" />
+    <result column="inPriceNoTax" property="inPriceNoTax" jdbcType="DECIMAL" />
+    <result column="resAllFeeNoTax" property="resAllFeeNoTax" jdbcType="DECIMAL" />
+    <result column="inAmt" property="inAmt" jdbcType="DECIMAL" />
+    <result column="asmaterialSource" property="asmaterialSource" jdbcType="VARCHAR" />
+    <result column="precollecte" property="precollecte" jdbcType="VARCHAR" />
+    <result column="purchType" property="purchType" jdbcType="VARCHAR" />
+    <result column="contractNo" property="contractNo" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="beginDate" property="beginDate" jdbcType="TIMESTAMP" />
+    <result column="endDate" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="outOrgID" property="outOrgID" jdbcType="VARCHAR" />
+    <result column="resID" property="resID" jdbcType="VARCHAR" />
+    <result column="secondResTypeID" property="secondResTypeID" jdbcType="VARCHAR" />
+    <result column="resTypeID" property="resTypeID" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxSkCustomerOutResId, project_name, outOrgName, busDate, billNo, 
+    resourceName, resCode, resName, spec, resUnit, 
+    inQty, inPrice, resAllFee, inPriceNoTax, resAllFeeNoTax, 
+    inAmt, asmaterialSource, precollecte, purchType, contractNo, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_customerOutRes
+    where del_flag = '0' and zxSkCustomerOutResId = #{zxSkCustomerOutResId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_customerOutRes
+    where zxSkCustomerOutResId = #{zxSkCustomerOutResId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkCustomerOutRes" >
+    insert into zx_sk_customerOutRes (
+    zxSkCustomerOutResId, project_name, outOrgName, busDate, billNo, 
+    resourceName, resCode, resName, spec, resUnit, 
+    inQty, inPrice, resAllFee, inPriceNoTax, resAllFeeNoTax, 
+    inAmt, asmaterialSource, precollecte, purchType, contractNo, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxSkCustomerOutResId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, #{outOrgName,jdbcType=VARCHAR}, #{busDate,jdbcType=TIMESTAMP}, #{billNo,jdbcType=VARCHAR}, 
+    #{resourceName,jdbcType=VARCHAR}, #{resCode,jdbcType=VARCHAR}, #{resName,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, #{resUnit,jdbcType=VARCHAR}, 
+    #{inQty,jdbcType=DECIMAL}, #{inPrice,jdbcType=DECIMAL}, #{resAllFee,jdbcType=DECIMAL}, #{inPriceNoTax,jdbcType=DECIMAL}, #{resAllFeeNoTax,jdbcType=DECIMAL}, 
+    #{inAmt,jdbcType=DECIMAL}, #{asmaterialSource,jdbcType=VARCHAR}, #{precollecte,jdbcType=VARCHAR}, #{purchType,jdbcType=VARCHAR}, #{contractNo,jdbcType=VARCHAR}, 
+    #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+    #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkCustomerOutRes" >
+    insert into zx_sk_customerOutRes
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSkCustomerOutResId != null" >
+        zxSkCustomerOutResId,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="outOrgName != null" >
+        outOrgName,
+      </if>
+      <if test="busDate != null" >
+        busDate,
+      </if>
+      <if test="billNo != null" >
+        billNo,
+      </if>
+      <if test="resourceName != null" >
+        resourceName,
+      </if>
+      <if test="resCode != null" >
+        resCode,
+      </if>
+      <if test="resName != null" >
+        resName,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="resUnit != null" >
+        resUnit,
+      </if>
+      <if test="inQty != null" >
+        inQty,
+      </if>
+      <if test="inPrice != null" >
+        inPrice,
+      </if>
+      <if test="resAllFee != null" >
+        resAllFee,
+      </if>
+      <if test="inPriceNoTax != null" >
+        inPriceNoTax,
+      </if>
+      <if test="resAllFeeNoTax != null" >
+        resAllFeeNoTax,
+      </if>
+      <if test="inAmt != null" >
+        inAmt,
+      </if>
+      <if test="asmaterialSource != null" >
+        asmaterialSource,
+      </if>
+      <if test="precollecte != null" >
+        precollecte,
+      </if>
+      <if test="purchType != null" >
+        purchType,
+      </if>
+      <if test="contractNo != null" >
+        contractNo,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSkCustomerOutResId != null" >
+        #{zxSkCustomerOutResId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgName != null" >
+        #{outOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="busDate != null" >
+        #{busDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="billNo != null" >
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceName != null" >
+        #{resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="resCode != null" >
+        #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="resUnit != null" >
+        #{resUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="inQty != null" >
+        #{inQty,jdbcType=DECIMAL},
+      </if>
+      <if test="inPrice != null" >
+        #{inPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="resAllFee != null" >
+        #{resAllFee,jdbcType=DECIMAL},
+      </if>
+      <if test="inPriceNoTax != null" >
+        #{inPriceNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="resAllFeeNoTax != null" >
+        #{resAllFeeNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="inAmt != null" >
+        #{inAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="asmaterialSource != null" >
+        #{asmaterialSource,jdbcType=VARCHAR},
+      </if>
+      <if test="precollecte != null" >
+        #{precollecte,jdbcType=VARCHAR},
+      </if>
+      <if test="purchType != null" >
+        #{purchType,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null" >
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkCustomerOutRes" >
+    update zx_sk_customerOutRes
+    <set >
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgName != null" >
+        outOrgName = #{outOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="busDate != null" >
+        busDate = #{busDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="billNo != null" >
+        billNo = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceName != null" >
+        resourceName = #{resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="resCode != null" >
+        resCode = #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        resName = #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="resUnit != null" >
+        resUnit = #{resUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="inQty != null" >
+        inQty = #{inQty,jdbcType=DECIMAL},
+      </if>
+      <if test="inPrice != null" >
+        inPrice = #{inPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="resAllFee != null" >
+        resAllFee = #{resAllFee,jdbcType=DECIMAL},
+      </if>
+      <if test="inPriceNoTax != null" >
+        inPriceNoTax = #{inPriceNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="resAllFeeNoTax != null" >
+        resAllFeeNoTax = #{resAllFeeNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="inAmt != null" >
+        inAmt = #{inAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="asmaterialSource != null" >
+        asmaterialSource = #{asmaterialSource,jdbcType=VARCHAR},
+      </if>
+      <if test="precollecte != null" >
+        precollecte = #{precollecte,jdbcType=VARCHAR},
+      </if>
+      <if test="purchType != null" >
+        purchType = #{purchType,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null" >
+        contractNo = #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxSkCustomerOutResId = #{zxSkCustomerOutResId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkCustomerOutRes" >
+    update zx_sk_customerOutRes set 
+      project_name = #{projectName,jdbcType=VARCHAR},
+      outOrgName = #{outOrgName,jdbcType=VARCHAR},
+      busDate = #{busDate,jdbcType=TIMESTAMP},
+      billNo = #{billNo,jdbcType=VARCHAR},
+      resourceName = #{resourceName,jdbcType=VARCHAR},
+      resCode = #{resCode,jdbcType=VARCHAR},
+      resName = #{resName,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      resUnit = #{resUnit,jdbcType=VARCHAR},
+      inQty = #{inQty,jdbcType=DECIMAL},
+      inPrice = #{inPrice,jdbcType=DECIMAL},
+      resAllFee = #{resAllFee,jdbcType=DECIMAL},
+      inPriceNoTax = #{inPriceNoTax,jdbcType=DECIMAL},
+      resAllFeeNoTax = #{resAllFeeNoTax,jdbcType=DECIMAL},
+      inAmt = #{inAmt,jdbcType=DECIMAL},
+      asmaterialSource = #{asmaterialSource,jdbcType=VARCHAR},
+      precollecte = #{precollecte,jdbcType=VARCHAR},
+      purchType = #{purchType,jdbcType=VARCHAR},
+      contractNo = #{contractNo,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSkCustomerOutResId = #{zxSkCustomerOutResId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSkCustomerOutResList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkCustomerOutRes" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_customerOutRes
+    where del_flag = '0'
+    <if test="zxSkCustomerOutResId != null and zxSkCustomerOutResId != ''" >
+     and zxSkCustomerOutResId = #{zxSkCustomerOutResId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="outOrgName != null and outOrgName != ''" >
+     and outOrgName = #{outOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="busDate != null and busDate != ''" >
+     and busDate = #{busDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="billNo != null and billNo != ''" >
+     and billNo = #{billNo,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceName != null and resourceName != ''" >
+     and resourceName = #{resourceName,jdbcType=VARCHAR}
+    </if>
+    <if test="resCode != null and resCode != ''" >
+     and resCode = #{resCode,jdbcType=VARCHAR}
+    </if>
+    <if test="resName != null and resName != ''" >
+     and resName = #{resName,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="resUnit != null and resUnit != ''" >
+     and resUnit = #{resUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="inQty != null and inQty != ''" >
+     and inQty = #{inQty,jdbcType=DECIMAL}
+    </if>
+    <if test="inPrice != null and inPrice != ''" >
+     and inPrice = #{inPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="resAllFee != null and resAllFee != ''" >
+     and resAllFee = #{resAllFee,jdbcType=DECIMAL}
+    </if>
+    <if test="inPriceNoTax != null and inPriceNoTax != ''" >
+     and inPriceNoTax = #{inPriceNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="resAllFeeNoTax != null and resAllFeeNoTax != ''" >
+     and resAllFeeNoTax = #{resAllFeeNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="inAmt != null and inAmt != ''" >
+     and inAmt = #{inAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="asmaterialSource != null and asmaterialSource != ''" >
+     and asmaterialSource = #{asmaterialSource,jdbcType=VARCHAR}
+    </if>
+    <if test="precollecte != null and precollecte != ''" >
+     and precollecte = #{precollecte,jdbcType=VARCHAR}
+    </if>
+    <if test="purchType != null and purchType != ''" >
+     and purchType = #{purchType,jdbcType=VARCHAR}
+    </if>
+    <if test="contractNo != null and contractNo != ''" >
+     and contractNo = #{contractNo,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkCustomerOutRes" parameterType="com.apih5.mybatis.pojo.ZxSkCustomerOutRes" >
+    <![CDATA[ 
+        update zx_sk_customerOutRes
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSkCustomerOutResId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSkCustomerOutResId} 
+     </foreach>
+  </delete>
+  <select id="selectZxSkCustomerOutResList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkCustomerOutRes">
+  select tem.* 
+	from (
+      select 
+              o.project_name,it.outOrgName,it.busDate,it.billNo
+              ,it.resourceName
+              ,iti.resCode,iti.resName,iti.spec,iti.resUnit,
+              round(iti.inQty,3) inQty,
+              round(iti.inPrice,2) as inPrice,
+              round(iti.inQty*iti.inPrice,2) as resAllFee,
+              round(iti.inPriceNoTax,2) as inPriceNoTax,
+              round(iti.inQty*iti.inPrice/(1+(case when IsNum(it.taxRate)=1 then it.taxRate+0 else 0 end)*0.01),2) as resAllFeeNoTax,
+              round(iti.inAmt,2) as inAmt,
+              (case it.materialSource  when '0001' then '自行采购' when '0002' then '甲供' when '0003' then '其它' when '0004' then '甲控' end) asmaterialSource,
+              (case when substring(it.billNo,1,2)='[冲' then '是' else (case iti.precollecte when '1' then '是' else '否' end) end) as precollecte,
+              case when it.purchType = '1' then '1' 
+                   when (it.purchType = '2' or it.purchType = '3') then '2'
+                   else null end as purchType,
+              (select contractNo from zx_ct_supplies_contract where zx_ct_supplies_contract.contractNo = it.contractNo) as contractNo
+              ,it.remark as remarks
+      from zx_sk_stocktransItem iti 
+      inner join zx_sk_stocktransfer it on iti.billID=it.ID and it.billStatus='1'
+      inner join sys_project o on it.inOrgID = o.project_ID
+      where it.billType in (11,12)
+      <if test="beginDate != null" > 
+      and busDate between #{beginDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="endDate != null" > 
+       and #{endDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="outOrgID != null and outOrgID != ''" > 
+        and (it.outOrgID=#{outOrgID,jdbcType=VARCHAR} 
+        or #{outOrgID,jdbcType=VARCHAR}='' 
+        or #{outOrgID,jdbcType=VARCHAR}=null)
+        </if>
+        <if test="resID != null and resID != ''" > 
+        and (iti.resID=#{resID,jdbcType=VARCHAR} or #{resID,jdbcType=VARCHAR}='')
+        </if>
+        <if test="resTypeID != null and resTypeID != ''" > 
+        and (it.resourceID=#{resTypeID,jdbcType=VARCHAR} or #{resTypeID,jdbcType=VARCHAR}='')
+        </if>
+        <if test="secondResTypeID != null and secondResTypeID != ''" > 
+        and (it.resourceID=#{secondResTypeID,jdbcType=VARCHAR} or #{secondResTypeID,jdbcType=VARCHAR}='')
+        </if>
+         <if test="orgID != null and orgID != ''" > 
+		and (o.company_id = #{orgID,jdbcType=VARCHAR} or o.project_id = #{orgID,jdbcType=VARCHAR})
+		</if>
+    ) tem
+    order by tem.outOrgName,tem.busDate,tem.resCode
+  </select>
+</mapper>

@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzBrandYearPointMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzBrandYearPoint" >
+    <id column="year_point_id" property="yearPointId" jdbcType="CHAR" />
+    <result column="company_id" property="companyId" jdbcType="CHAR" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="year_name" property="yearName" jdbcType="CHAR" />
+    <result column="year_date" property="yearDate" jdbcType="DATE" />
+    <result column="register_date" property="registerDate" jdbcType="DATE" />
+    <result column="register_person" property="registerPerson" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="home_show" property="homeShow" jdbcType="CHAR" />
+    <result column="home_show_time" property="homeShowTime" jdbcType="TIMESTAMP" />
+    <result column="home_show_start_date" property="homeShowStartDate" jdbcType="DATE" />
+    <result column="home_show_end_date" property="homeShowEndDate" jdbcType="DATE" />
+    <result column="release_id" property="releaseId" jdbcType="CHAR" />
+    <result column="release_name" property="releaseName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    year_point_id, company_id, company_name, year_name, year_date, 
+    register_date, register_person, content, home_show, home_show_time, 
+    home_show_start_date, home_show_end_date, release_id, release_name, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_brand_year_point
+    where year_point_id = #{yearPointId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_brand_year_point
+    where year_point_id = #{yearPointId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzBrandYearPoint" >
+    insert into zj_tz_brand_year_point (year_point_id, company_id, company_name, 
+      year_name, year_date, register_date, 
+      register_person, content, home_show, 
+      home_show_time, home_show_start_date, home_show_end_date, 
+      release_id, release_name, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{yearPointId,jdbcType=CHAR}, #{companyId,jdbcType=CHAR}, #{companyName,jdbcType=VARCHAR}, 
+      #{yearName,jdbcType=CHAR}, #{yearDate,jdbcType=DATE}, #{registerDate,jdbcType=DATE}, 
+      #{registerPerson,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{homeShow,jdbcType=CHAR}, 
+      #{homeShowTime,jdbcType=TIMESTAMP}, #{homeShowStartDate,jdbcType=DATE}, #{homeShowEndDate,jdbcType=DATE}, 
+      #{releaseId,jdbcType=CHAR}, #{releaseName,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzBrandYearPoint" >
+    insert into zj_tz_brand_year_point
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="yearPointId != null" >
+        year_point_id,
+      </if>
+      <if test="companyId != null" >
+        company_id,
+      </if>
+      <if test="companyName != null" >
+        company_name,
+      </if>
+      <if test="yearName != null" >
+        year_name,
+      </if>
+      <if test="yearDate != null" >
+        year_date,
+      </if>
+      <if test="registerDate != null" >
+        register_date,
+      </if>
+      <if test="registerPerson != null" >
+        register_person,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="homeShow != null" >
+        home_show,
+      </if>
+      <if test="homeShowTime != null" >
+        home_show_time,
+      </if>
+      <if test="homeShowStartDate != null" >
+        home_show_start_date,
+      </if>
+      <if test="homeShowEndDate != null" >
+        home_show_end_date,
+      </if>
+      <if test="releaseId != null" >
+        release_id,
+      </if>
+      <if test="releaseName != null" >
+        release_name,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="yearPointId != null" >
+        #{yearPointId,jdbcType=CHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="yearName != null" >
+        #{yearName,jdbcType=CHAR},
+      </if>
+      <if test="yearDate != null" >
+        #{yearDate,jdbcType=DATE},
+      </if>
+      <if test="registerDate != null" >
+        #{registerDate,jdbcType=DATE},
+      </if>
+      <if test="registerPerson != null" >
+        #{registerPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="homeShow != null" >
+        #{homeShow,jdbcType=CHAR},
+      </if>
+      <if test="homeShowTime != null" >
+        #{homeShowTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="homeShowStartDate != null" >
+        #{homeShowStartDate,jdbcType=DATE},
+      </if>
+      <if test="homeShowEndDate != null" >
+        #{homeShowEndDate,jdbcType=DATE},
+      </if>
+      <if test="releaseId != null" >
+        #{releaseId,jdbcType=CHAR},
+      </if>
+      <if test="releaseName != null" >
+        #{releaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzBrandYearPoint" >
+    update zj_tz_brand_year_point
+    <set >
+      <if test="companyId != null" >
+        company_id = #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="companyName != null" >
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="yearName != null" >
+        year_name = #{yearName,jdbcType=CHAR},
+      </if>
+      <if test="yearDate != null" >
+        year_date = #{yearDate,jdbcType=DATE},
+      </if>
+      <if test="registerDate != null" >
+        register_date = #{registerDate,jdbcType=DATE},
+      </if>
+      <if test="registerPerson != null" >
+        register_person = #{registerPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="homeShow != null" >
+        home_show = #{homeShow,jdbcType=CHAR},
+      </if>
+      <if test="homeShowTime != null" >
+        home_show_time = #{homeShowTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="homeShowStartDate != null" >
+        home_show_start_date = #{homeShowStartDate,jdbcType=DATE},
+      </if>
+      <if test="homeShowEndDate != null" >
+        home_show_end_date = #{homeShowEndDate,jdbcType=DATE},
+      </if>
+      <if test="releaseId != null" >
+        release_id = #{releaseId,jdbcType=CHAR},
+      </if>
+      <if test="releaseName != null" >
+        release_name = #{releaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where year_point_id = #{yearPointId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzBrandYearPoint" >
+    update zj_tz_brand_year_point
+    set       company_id = #{companyId,jdbcType=CHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      year_name = #{yearName,jdbcType=CHAR},
+      year_date = #{yearDate,jdbcType=DATE},
+      register_date = #{registerDate,jdbcType=DATE},
+      register_person = #{registerPerson,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      home_show = #{homeShow,jdbcType=CHAR},
+      home_show_time = #{homeShowTime,jdbcType=TIMESTAMP},
+      home_show_start_date = #{homeShowStartDate,jdbcType=DATE},
+      home_show_end_date = #{homeShowEndDate,jdbcType=DATE},
+      release_id = #{releaseId,jdbcType=CHAR},
+      release_name = #{releaseName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where year_point_id = #{yearPointId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzBrandYearPointList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzBrandYearPoint" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_brand_year_point
+    where del_flag = '0'
+    <if test="companyId != null and companyId != ''" >
+     and company_id = #{companyId,jdbcType=CHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and company_name = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="yearName != null and yearName != ''" >
+     and year_name = #{yearName,jdbcType=CHAR}
+    </if>
+    <if test="yearDate != null" >
+     and year_date = #{yearDate,jdbcType=DATE}
+    </if>
+    <if test="registerDate != null" >
+     and register_date = #{registerDate,jdbcType=DATE}
+    </if>
+    <if test="registerPerson != null and registerPerson != ''" >
+     and register_person = #{registerPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="content != null and content != ''" >
+     and content = #{content,jdbcType=VARCHAR}
+    </if>
+    <if test="homeShow != null and homeShow != ''" >
+     and home_show = #{homeShow,jdbcType=CHAR}
+    </if>
+    <if test="homeShowTime != null and homeShowTime != ''" >
+     and home_show_time = #{homeShowTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="homeShowStartDate != null" >
+     and home_show_start_date = #{homeShowStartDate,jdbcType=DATE}
+    </if>
+    <if test="homeShowEndDate != null" >
+     and home_show_end_date = #{homeShowEndDate,jdbcType=DATE}
+    </if>
+    <if test="releaseId != null and releaseId != ''" >
+     and release_id = #{releaseId,jdbcType=CHAR}
+    </if>
+    <if test="releaseName != null and releaseName != ''" >
+     and release_name = #{releaseName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzBrandYearPoint" parameterType="com.apih5.mybatis.pojo.ZjTzBrandYearPoint" >
+    <![CDATA[ 
+        update zj_tz_brand_year_point
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and year_point_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.yearPointId} 
+     </foreach>
+  </delete>
+
+<!-- 扩展 -->
+  <delete id="batchReleaseZjTzBrandYearPoint" parameterType="com.apih5.mybatis.pojo.ZjTzBrandYearPoint" >
+    <![CDATA[ 
+        update zj_tz_brand_year_point
+        set release_id = '1',
+            release_name=#{param2.releaseName},
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and year_point_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.yearPointId} 
+     </foreach>
+  </delete>
+  <delete id="batchRecallZjTzBrandYearPoint" parameterType="com.apih5.mybatis.pojo.ZjTzBrandYearPoint" >
+    <![CDATA[ 
+        update zj_tz_brand_year_point
+        set release_id = '0',
+            home_show =#{param2.homeShow},
+            release_name=#{param2.releaseName},
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and year_point_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.yearPointId} 
+     </foreach>
+  </delete>  
+  <select id="selectZjTzHomeBrandYearPoint" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzBrandYearPoint">
+	  select 
+	    <include refid="Base_Column_List" />
+	    from zj_tz_brand_year_point
+	    where del_flag = '0' and home_show = '1' and release_id = '1'
+	   LIMIT 4
+  </select>
+</mapper>

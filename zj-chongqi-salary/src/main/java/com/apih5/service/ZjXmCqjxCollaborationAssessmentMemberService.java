@@ -1,0 +1,26 @@
+package com.apih5.service;
+
+import java.util.List;
+import com.apih5.framework.entity.ResponseEntity;
+import com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessmentMember;
+
+public interface ZjXmCqjxCollaborationAssessmentMemberService {
+
+    public ResponseEntity getZjXmCqjxCollaborationAssessmentMemberListByCondition(ZjXmCqjxCollaborationAssessmentMember zjXmCqjxCollaborationAssessmentMember);
+    
+    public ResponseEntity getZjXmCqjxCollaborationAssessmentListByUser(ZjXmCqjxCollaborationAssessmentMember zjXmCqjxCollaborationAssessmentMember);
+    
+    public ResponseEntity checkZjXmCqjxCollaborationAssessmentScore(ZjXmCqjxCollaborationAssessmentMember zjXmCqjxCollaborationAssessmentMember);
+
+    public ResponseEntity getZjXmCqjxCollaborationAssessmentMemberDetails(ZjXmCqjxCollaborationAssessmentMember zjXmCqjxCollaborationAssessmentMember);
+    
+    public ResponseEntity getZjXmCqjxCollaborationMemberDetailsNoSelf(ZjXmCqjxCollaborationAssessmentMember zjXmCqjxCollaborationAssessmentMember);
+
+    public ResponseEntity saveZjXmCqjxCollaborationAssessmentMember(ZjXmCqjxCollaborationAssessmentMember zjXmCqjxCollaborationAssessmentMember);
+
+    public ResponseEntity updateZjXmCqjxCollaborationAssessmentMember(ZjXmCqjxCollaborationAssessmentMember zjXmCqjxCollaborationAssessmentMember);
+
+    public ResponseEntity batchDeleteUpdateZjXmCqjxCollaborationAssessmentMember(List<ZjXmCqjxCollaborationAssessmentMember> zjXmCqjxCollaborationAssessmentMemberList);
+
+}
+

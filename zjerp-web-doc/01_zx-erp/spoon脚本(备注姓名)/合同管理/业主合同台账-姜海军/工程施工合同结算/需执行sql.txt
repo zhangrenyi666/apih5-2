@@ -1,0 +1,7 @@
+UPDATE zx_sa_projectsettleaudit zspa INNER JOIN zx_sa_projectworksettle zspw
+ON zspa.billID = zspw.billID
+SET zspw.billID = zspa.id;
+
+UPDATE zx_sa_projectsettleaudit zspa INNER JOIN zx_sa_projectpaysettle zsps
+ON zspa.billID = zsps.billID
+SET zsps.billID = zspa.id;

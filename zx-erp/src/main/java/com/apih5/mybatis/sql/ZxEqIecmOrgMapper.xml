@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqIecmOrgMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqIecmOrg" >
+    <id column="iecmOrgID" property="iecmOrgID" jdbcType="VARCHAR" />
+    <result column="orgType" property="orgType" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="comOrgID" property="comOrgID" jdbcType="VARCHAR" />
+    <result column="bsid" property="bsid" jdbcType="VARCHAR" />
+    <result column="busiID" property="busiID" jdbcType="VARCHAR" />
+    <result column="parentID" property="parentID" jdbcType="VARCHAR" />
+    <result column="orgNO" property="orgNO" jdbcType="VARCHAR" />
+    <result column="orgStatus" property="orgStatus" jdbcType="INTEGER" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="oldBsid" property="oldBsid" jdbcType="VARCHAR" />
+    <result column="isLineOut" property="isLineOut" jdbcType="INTEGER" />
+    <result column="contractStatus" property="contractStatus" jdbcType="VARCHAR" />
+    <result column="orders" property="orders" jdbcType="VARCHAR" />
+    <result column="areaName" property="areaName" jdbcType="VARCHAR" />
+    <result column="projectType" property="projectType" jdbcType="VARCHAR" />
+    <result column="orgCode" property="orgCode" jdbcType="VARCHAR" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="comOrders" property="comOrders" jdbcType="VARCHAR" />
+    <result column="batchNo" property="batchNo" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    iecmOrgID, orgType, orgName, comOrgID, bsid, 
+    busiID, parentID, orgNO, orgStatus, description, 
+    editTime, oldBsid, isLineOut, contractStatus, orders, 
+    areaName, projectType, orgCode, comID, comName, 
+    comOrders, batchNo, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_iecm_Org
+    where iecmOrgID = #{iecmOrgID,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_iecm_Org
+    where iecmOrgID = #{iecmOrgID,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqIecmOrg" >
+    insert into zx_eq_iecm_Org (iecmOrgID, orgType, orgName, 
+      comOrgID, bsid, busiID, 
+      parentID, orgNO, orgStatus, 
+      description, editTime, oldBsid, 
+      isLineOut, contractStatus, orders, 
+      areaName, projectType, orgCode, 
+      comID, comName, comOrders, 
+      batchNo, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{iecmOrgID,jdbcType=VARCHAR}, #{orgType,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, 
+      #{comOrgID,jdbcType=VARCHAR}, #{bsid,jdbcType=VARCHAR}, #{busiID,jdbcType=VARCHAR}, 
+      #{parentID,jdbcType=VARCHAR}, #{orgNO,jdbcType=VARCHAR}, #{orgStatus,jdbcType=INTEGER}, 
+      #{description,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, #{oldBsid,jdbcType=VARCHAR}, 
+      #{isLineOut,jdbcType=INTEGER}, #{contractStatus,jdbcType=VARCHAR}, #{orders,jdbcType=VARCHAR}, 
+      #{areaName,jdbcType=VARCHAR}, #{projectType,jdbcType=VARCHAR}, #{orgCode,jdbcType=VARCHAR}, 
+      #{comID,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, #{comOrders,jdbcType=VARCHAR}, 
+      #{batchNo,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqIecmOrg" >
+    insert into zx_eq_iecm_Org
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="iecmOrgID != null" >
+        iecmOrgID,
+      </if>
+      <if test="orgType != null" >
+        orgType,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="comOrgID != null" >
+        comOrgID,
+      </if>
+      <if test="bsid != null" >
+        bsid,
+      </if>
+      <if test="busiID != null" >
+        busiID,
+      </if>
+      <if test="parentID != null" >
+        parentID,
+      </if>
+      <if test="orgNO != null" >
+        orgNO,
+      </if>
+      <if test="orgStatus != null" >
+        orgStatus,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="oldBsid != null" >
+        oldBsid,
+      </if>
+      <if test="isLineOut != null" >
+        isLineOut,
+      </if>
+      <if test="contractStatus != null" >
+        contractStatus,
+      </if>
+      <if test="orders != null" >
+        orders,
+      </if>
+      <if test="areaName != null" >
+        areaName,
+      </if>
+      <if test="projectType != null" >
+        projectType,
+      </if>
+      <if test="orgCode != null" >
+        orgCode,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="comOrders != null" >
+        comOrders,
+      </if>
+      <if test="batchNo != null" >
+        batchNo,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="iecmOrgID != null" >
+        #{iecmOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgType != null" >
+        #{orgType,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrgID != null" >
+        #{comOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="bsid != null" >
+        #{bsid,jdbcType=VARCHAR},
+      </if>
+      <if test="busiID != null" >
+        #{busiID,jdbcType=VARCHAR},
+      </if>
+      <if test="parentID != null" >
+        #{parentID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgNO != null" >
+        #{orgNO,jdbcType=VARCHAR},
+      </if>
+      <if test="orgStatus != null" >
+        #{orgStatus,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldBsid != null" >
+        #{oldBsid,jdbcType=VARCHAR},
+      </if>
+      <if test="isLineOut != null" >
+        #{isLineOut,jdbcType=INTEGER},
+      </if>
+      <if test="contractStatus != null" >
+        #{contractStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="orders != null" >
+        #{orders,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null" >
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectType != null" >
+        #{projectType,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNo != null" >
+        #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqIecmOrg" >
+    update zx_eq_iecm_Org
+    <set >
+      <if test="orgType != null" >
+        orgType = #{orgType,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrgID != null" >
+        comOrgID = #{comOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="bsid != null" >
+        bsid = #{bsid,jdbcType=VARCHAR},
+      </if>
+      <if test="busiID != null" >
+        busiID = #{busiID,jdbcType=VARCHAR},
+      </if>
+      <if test="parentID != null" >
+        parentID = #{parentID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgNO != null" >
+        orgNO = #{orgNO,jdbcType=VARCHAR},
+      </if>
+      <if test="orgStatus != null" >
+        orgStatus = #{orgStatus,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldBsid != null" >
+        oldBsid = #{oldBsid,jdbcType=VARCHAR},
+      </if>
+      <if test="isLineOut != null" >
+        isLineOut = #{isLineOut,jdbcType=INTEGER},
+      </if>
+      <if test="contractStatus != null" >
+        contractStatus = #{contractStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="orders != null" >
+        orders = #{orders,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null" >
+        areaName = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectType != null" >
+        projectType = #{projectType,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        orgCode = #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        comOrders = #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNo != null" >
+        batchNo = #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where iecmOrgID = #{iecmOrgID,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqIecmOrg" >
+    update zx_eq_iecm_Org
+    set       orgType = #{orgType,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      comOrgID = #{comOrgID,jdbcType=VARCHAR},
+      bsid = #{bsid,jdbcType=VARCHAR},
+      busiID = #{busiID,jdbcType=VARCHAR},
+      parentID = #{parentID,jdbcType=VARCHAR},
+      orgNO = #{orgNO,jdbcType=VARCHAR},
+      orgStatus = #{orgStatus,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      oldBsid = #{oldBsid,jdbcType=VARCHAR},
+      isLineOut = #{isLineOut,jdbcType=INTEGER},
+      contractStatus = #{contractStatus,jdbcType=VARCHAR},
+      orders = #{orders,jdbcType=VARCHAR},
+      areaName = #{areaName,jdbcType=VARCHAR},
+      projectType = #{projectType,jdbcType=VARCHAR},
+      orgCode = #{orgCode,jdbcType=VARCHAR},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      comOrders = #{comOrders,jdbcType=VARCHAR},
+      batchNo = #{batchNo,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where iecmOrgID = #{iecmOrgID,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxEqIecmOrgList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqIecmOrg" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_iecm_Org
+    where del_flag = '0'
+    <if test="iecmOrgID != null and iecmOrgID != ''" >
+     and iecmOrgID = #{iecmOrgID,jdbcType=}
+    </if>
+    <if test="orgType != null and orgType != ''" >
+     and orgType = #{orgType,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="comOrgID != null and comOrgID != ''" >
+     and comOrgID = #{comOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="bsid != null and bsid != ''" >
+     and bsid = #{bsid,jdbcType=VARCHAR}
+    </if>
+    <if test="busiID != null and busiID != ''" >
+     and busiID = #{busiID,jdbcType=VARCHAR}
+    </if>
+    <if test="parentID != null and parentID != ''" >
+     and parentID = #{parentID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgNO != null and orgNO != ''" >
+     and orgNO = #{orgNO,jdbcType=VARCHAR}
+    </if>
+    <if test="orgStatus != null and orgStatus != ''" >
+     and orgStatus = #{orgStatus,jdbcType=INTEGER}
+    </if>
+    <if test="description != null and description != ''" >
+     and description = #{description,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="oldBsid != null and oldBsid != ''" >
+     and oldBsid = #{oldBsid,jdbcType=VARCHAR}
+    </if>
+    <if test="isLineOut != null and isLineOut != ''" >
+     and isLineOut = #{isLineOut,jdbcType=INTEGER}
+    </if>
+    <if test="contractStatus != null and contractStatus != ''" >
+     and contractStatus = #{contractStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="orders != null and orders != ''" >
+     and orders = #{orders,jdbcType=VARCHAR}
+    </if>
+    <if test="areaName != null and areaName != ''" >
+     and areaName = #{areaName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectType != null and projectType != ''" >
+     and projectType = #{projectType,jdbcType=VARCHAR}
+    </if>
+    <if test="orgCode != null and orgCode != ''" >
+     and orgCode = #{orgCode,jdbcType=VARCHAR}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="comOrders != null and comOrders != ''" >
+     and comOrders = #{comOrders,jdbcType=VARCHAR}
+    </if>
+    <if test="batchNo != null and batchNo != ''" >
+     and batchNo = #{batchNo,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqIecmOrg" parameterType="com.apih5.mybatis.pojo.ZxEqIecmOrg" >
+    <![CDATA[ 
+        update zx_eq_iecm_Org
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and iecmOrgID in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.iecmOrgID} 
+     </foreach>
+  </delete>
+</mapper>

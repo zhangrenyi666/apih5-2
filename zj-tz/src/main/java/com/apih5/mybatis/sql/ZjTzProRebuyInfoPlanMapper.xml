@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzProRebuyInfoPlanMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzProRebuyInfoPlan" >
+    <id column="rebuy_info_id" property="rebuyInfoId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="appoint_number" property="appointNumber" jdbcType="INTEGER" />
+    <result column="appoint_amount" property="appointAmount" jdbcType="DECIMAL" />
+    <result column="appoint_date" property="appointDate" jdbcType="DATE" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    rebuy_info_id, project_id, appoint_number, appoint_amount, appoint_date, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_pro_rebuy_info_plan  where del_flag = '0' and 
+     rebuy_info_id = #{rebuyInfoId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_pro_rebuy_info_plan
+    where rebuy_info_id = #{rebuyInfoId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzProRebuyInfoPlan" >
+    insert into zj_tz_pro_rebuy_info_plan (rebuy_info_id, project_id, appoint_number, 
+      appoint_amount, appoint_date, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{rebuyInfoId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{appointNumber,jdbcType=INTEGER}, 
+      #{appointAmount,jdbcType=DECIMAL}, #{appointDate,jdbcType=DATE}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzProRebuyInfoPlan" >
+    insert into zj_tz_pro_rebuy_info_plan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rebuyInfoId != null" >
+        rebuy_info_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="appointNumber != null" >
+        appoint_number,
+      </if>
+      <if test="appointAmount != null" >
+        appoint_amount,
+      </if>
+      <if test="appointDate != null" >
+        appoint_date,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rebuyInfoId != null" >
+        #{rebuyInfoId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="appointNumber != null" >
+        #{appointNumber,jdbcType=INTEGER},
+      </if>
+      <if test="appointAmount != null" >
+        #{appointAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="appointDate != null" >
+        #{appointDate,jdbcType=DATE},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzProRebuyInfoPlan" >
+    update zj_tz_pro_rebuy_info_plan
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="appointNumber != null" >
+        appoint_number = #{appointNumber,jdbcType=INTEGER},
+      </if>
+      <if test="appointAmount != null" >
+        appoint_amount = #{appointAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="appointDate != null" >
+        appoint_date = #{appointDate,jdbcType=DATE},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where rebuy_info_id = #{rebuyInfoId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzProRebuyInfoPlan" >
+    update zj_tz_pro_rebuy_info_plan
+    set       project_id = #{projectId,jdbcType=CHAR},
+      appoint_number = #{appointNumber,jdbcType=INTEGER},
+      appoint_amount = #{appointAmount,jdbcType=DECIMAL},
+      appoint_date = #{appointDate,jdbcType=DATE},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where rebuy_info_id = #{rebuyInfoId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzProRebuyInfoPlanList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzProRebuyInfoPlan" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_pro_rebuy_info_plan
+    where del_flag = '0'
+    <if test="rebuyInfoId != null and rebuyInfoId != ''" >
+     and rebuy_info_id = #{rebuyInfoId,jdbcType=}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="appointNumber != null and appointNumber != ''" >
+     and appoint_number = #{appointNumber,jdbcType=INTEGER}
+    </if>
+    <if test="appointAmount != null and appointAmount != ''" >
+     and appoint_amount = #{appointAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="appointDate != null" >
+     and appoint_date = #{appointDate,jdbcType=DATE}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzProRebuyInfoPlan" parameterType="com.apih5.mybatis.pojo.ZjTzProRebuyInfoPlan" >
+    <![CDATA[ 
+        update zj_tz_pro_rebuy_info_plan
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and rebuy_info_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.rebuyInfoId} 
+     </foreach>
+  </delete>
+</mapper>

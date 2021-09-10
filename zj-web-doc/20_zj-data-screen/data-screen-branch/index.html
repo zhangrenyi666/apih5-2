@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"> 
+    <!-- <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <title>全国地图</title>
+    <link rel="stylesheet" id="style" href="map/style/index.css">
+    <!-- <link rel="stylesheet" id="style" href="map/lib/swiper/swiper.css"> -->
+    <!-- <script src="map/lib/typeArray.js"></script> -->
+
+    <script src="map/lib/excanvas.js"></script>
+    <script src="map/lib/json-js.js"></script>
+    <script src="config.js"></script>
+
+</head>
+
+<body>
+    <div id="container">
+        <!-- 地图 -->
+        <div id="map"></div>
+
+        <!-- 左边 -->
+        <div class="left">
+            <!-- 公司排名 -->
+            <div class="updateTime">更新时间：
+                <span></span>
+            </div>
+
+            <div class="ranking_con">
+                <!-- <div class="tabs">
+                    <span class="item action" name="number">在建项目数</span>
+                    <span class="item" name="balance">在建合同额/万元</span>
+                </div> -->
+                <div id="ranking">
+                    <!-- <div class="tabs">
+                        <span class="item action" name="number">项目个数</span>
+                        <span class="item" name="balance">项目余额</span>
+                    </div> -->
+                </div>
+
+            </div>
+
+            <!-- 数据指标 -->
+            <div id="dataIndex"></div>
+        </div>
+
+        <!-- 右边 -->
+        <div class="right">
+ 
+            <!-- <div class="pos" style="text-align: right">试运行</div> -->
+            <div class="pos" style="text-align: right"></div>
+
+            <!-- 广播 -->
+            <div id="Broadcast">
+                <!-- tab条 -->
+                <div class="nav clearfix">
+                    <span class="item action" id="account" name="account">合同签订</span>
+                    <span class="item" id="signed" name="signed">合同结算</span>
+                    <span class="item" id="storage" name="storage">物资入库</span>
+                    <span class="item" id="supplier" name="supplier">供应商</span>
+                </div>
+                <div class="tabTit">
+                    <!-- <div class="row clearfix">
+                        <div class="col">111</div>
+                        <div class="col">222</div>
+                        <div class="col">333</div>
+                    </div> -->
+                </div>
+                <div class="con">
+                    <!-- <div class="row">
+                        <div class="col">113333333333333331</div>
+                        <div class="col">222</div>
+                        <div class="col">333</div>
+                    </div>  -->
+                </div>
+            </div>
+
+            <!-- 配置 -->
+            <div id="config">
+                <div class="title">资源配置</div>
+                <div class="con clearfix">
+                    <div class="config_left item">
+                        <div class="subtit">主材库存情况（万元）</div>
+                        <ul id="config_left_con">
+                            <!-- <li>
+                                <img src="http://weixin.fheb.cn:99/woaMapCdn/总设备数.png" />钢材：
+                                <span class="num">123457.5</span>
+                            </li>  -->
+                        </ul>
+                    </div>
+                    <div class="config_right item">
+                        <div class="subtit">设备情况（台）</div>
+                        <ul id="config_right_con">
+                            <!-- <li>
+                                    <img src="http://weixin.fheb.cn:99/woaMapCdn/总设备数.png" />钢材：
+                                    <span class="num">123457.5</span>
+                                </li>  -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 智慧工地 -->
+            <!-- <div id="nav">
+                <div class="title">智慧工地</div>
+                <div class="con clearfix">
+                    <div class="item">
+                        <img src="http://weixin.fheb.cn:99/woaMapCdn/总设备数.png" />
+                        <span class="text">视频监控</span>
+                    </div> -
+                </div>
+            </div> -->
+        </div>
+
+        <!-- 顶部 -->
+        <div class="top">
+            <div class="item">
+                <img width="100%" id="manageBtn" src="http://weixin.fheb.cn:99/woaMapCdn/施工.png" />
+            </div>
+            <div class="item logo">
+                <!-- <img width="100%" src="http://weixin.fheb.cn:99/woaMapCdn/logo.png" /> -->
+                <img width="100%" src="./map/img/logobg.png" />
+                <div class="text"></div>
+            </div>
+            <div class="item">
+                <img width="100%" id="investmentBtn" src="http://weixin.fheb.cn:99/woaMapCdn/投资.png" />
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <!-- <div class="bottom" id="bottom">
+            <div class="item" id="highway"></div>
+            <div class="item" id="pathway"></div>
+            <div class="item" id="railway"></div>
+            <div class="item" id="municipal"></div>
+            <div class="item" id="housing"></div>
+            <div class="item" id="tunnel"></div>
+        </div>
+ -->
+
+        <div class="bottom" id="bottom">
+
+            <!-- 底部隐藏按钮 -->
+            <div class="bottomHideBtn">
+                <img width="25px" src="./map/img/hide.png" alt="">
+                <img width="25px" src="./map/img/show.png" style="display: none;" alt="">
+            </div>
+
+            <div class="wrapper">
+                <div class="group">
+                    <div class="item" id="highway"></div>
+                    <div class="item" id="pathway"></div>
+                    <div class="item" id="railway"></div>
+                </div>
+                <div class="group" style="display: none;">
+                    <div class="item" id="municipal"></div>
+                    <div class="item" id="housing"></div>
+                    <div class="item" id="tunnel"></div>
+                </div>
+                <!-- 底部小点 未使用 -->
+                <div class="dot">
+                    <div class="action"></div>
+                    <div></div>
+                </div>
+                <!-- 左右按钮 -->
+                <div class="left_btn bottomBannerBtn" name="left">
+                    <img src="./map/img/left.png" alt="">
+                </div>
+                <div class="right_btn bottomBannerBtn" name="right">
+                    <img src="./map/img/right.png" alt="">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- 外部js -->
+    <script src="map/lib/jquery.min.js"></script>
+    <script src="map/lib/echarts-4.0.4.min.js"></script>
+    <script src="map/lib/china.js"></script>
+    <script src="map/lib/shine.js"></script>
+    <script src="map/lib/layer/2.4/layer.js"></script>
+    <!-- <script src="map/lib/swiper/swiper.min.js"></script> -->
+
+    <script src="map/js/main.js"></script>
+    <script src="map/js/render.js"></script>
+    <script src="map/js/comm.js"></script>
+    <script src="map/js/getData.js"></script>
+    <script src="map/js/index.js"></script>
+    <script src="map/js/action.js"></script>
+</body>
+
+</html>

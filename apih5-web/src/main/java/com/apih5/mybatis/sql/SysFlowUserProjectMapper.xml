@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.SysFlowUserProjectMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.SysFlowUserProject" >
+    <id column="work_id" property="workId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="company_id" property="companyId" jdbcType="CHAR" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="ju_id" property="juId" jdbcType="CHAR" />
+    <result column="ju_name" property="juName" jdbcType="VARCHAR" />
+    <result column="headquarters_id" property="headquartersId" jdbcType="CHAR" />
+    <result column="headquarters_name" property="headquartersName" jdbcType="VARCHAR" />
+    <result column="delegate_id" property="delegateId" jdbcType="CHAR" />
+    <result column="delegate_name" property="delegateName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    work_id, project_id, project_name, company_id, company_name, 
+    ju_id, ju_name, headquarters_id, headquarters_name, delegate_id, 
+    delegate_name, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_flow_user_project
+    where del_flag = '0' and work_id = #{workId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_flow_user_project
+    where work_id = #{workId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.SysFlowUserProject" >
+    insert into sys_flow_user_project (
+    work_id, project_id, project_name, company_id, company_name, 
+    ju_id, ju_name, headquarters_id, headquarters_name, delegate_id, 
+    delegate_name, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{workId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, #{companyId,jdbcType=CHAR}, #{companyName,jdbcType=VARCHAR}, 
+    #{juId,jdbcType=CHAR}, #{juName,jdbcType=VARCHAR}, #{headquartersId,jdbcType=CHAR}, #{headquartersName,jdbcType=VARCHAR}, #{delegateId,jdbcType=CHAR}, 
+    #{delegateName,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+    #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.SysFlowUserProject" >
+    insert into sys_flow_user_project
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="workId != null" >
+        work_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="companyId != null" >
+        company_id,
+      </if>
+      <if test="companyName != null" >
+        company_name,
+      </if>
+      <if test="juId != null" >
+        ju_id,
+      </if>
+      <if test="juName != null" >
+        ju_name,
+      </if>
+      <if test="headquartersId != null" >
+        headquarters_id,
+      </if>
+      <if test="headquartersName != null" >
+        headquarters_name,
+      </if>
+      <if test="delegateId != null" >
+        delegate_id,
+      </if>
+      <if test="delegateName != null" >
+        delegate_name,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="workId != null" >
+        #{workId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="juId != null" >
+        #{juId,jdbcType=CHAR},
+      </if>
+      <if test="juName != null" >
+        #{juName,jdbcType=VARCHAR},
+      </if>
+      <if test="headquartersId != null" >
+        #{headquartersId,jdbcType=CHAR},
+      </if>
+      <if test="headquartersName != null" >
+        #{headquartersName,jdbcType=VARCHAR},
+      </if>
+      <if test="delegateId != null" >
+        #{delegateId,jdbcType=CHAR},
+      </if>
+      <if test="delegateName != null" >
+        #{delegateName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.SysFlowUserProject" >
+    update sys_flow_user_project
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        company_id = #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="companyName != null" >
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="juId != null" >
+        ju_id = #{juId,jdbcType=CHAR},
+      </if>
+      <if test="juName != null" >
+        ju_name = #{juName,jdbcType=VARCHAR},
+      </if>
+      <if test="headquartersId != null" >
+        headquarters_id = #{headquartersId,jdbcType=CHAR},
+      </if>
+      <if test="headquartersName != null" >
+        headquarters_name = #{headquartersName,jdbcType=VARCHAR},
+      </if>
+      <if test="delegateId != null" >
+        delegate_id = #{delegateId,jdbcType=CHAR},
+      </if>
+      <if test="delegateName != null" >
+        delegate_name = #{delegateName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where work_id = #{workId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.SysFlowUserProject" >
+    update sys_flow_user_project set 
+      project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      company_id = #{companyId,jdbcType=CHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      ju_id = #{juId,jdbcType=CHAR},
+      ju_name = #{juName,jdbcType=VARCHAR},
+      headquarters_id = #{headquartersId,jdbcType=CHAR},
+      headquarters_name = #{headquartersName,jdbcType=VARCHAR},
+      delegate_id = #{delegateId,jdbcType=CHAR},
+      delegate_name = #{delegateName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where work_id = #{workId,jdbcType=CHAR}
+  </update>
+  <select id="selectBySysFlowUserProjectList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysFlowUserProject" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_flow_user_project
+    where del_flag = '0'
+    <if test="workId != null and workId != ''" >
+     and work_id = #{workId,jdbcType=CHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and company_id = #{companyId,jdbcType=CHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and company_name = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="juId != null and juId != ''" >
+     and ju_id = #{juId,jdbcType=CHAR}
+    </if>
+    <if test="juName != null and juName != ''" >
+     and ju_name = #{juName,jdbcType=VARCHAR}
+    </if>
+    <if test="headquartersId != null and headquartersId != ''" >
+     and headquarters_id = #{headquartersId,jdbcType=CHAR}
+    </if>
+    <if test="headquartersName != null and headquartersName != ''" >
+     and headquarters_name = #{headquartersName,jdbcType=VARCHAR}
+    </if>
+    <if test="delegateId != null and delegateId != ''" >
+     and delegate_id = #{delegateId,jdbcType=CHAR}
+    </if>
+    <if test="delegateName != null and delegateName != ''" >
+     and delegate_name = #{delegateName,jdbcType=VARCHAR}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateSysFlowUserProject" parameterType="com.apih5.mybatis.pojo.SysFlowUserProject" >
+    <![CDATA[ 
+        update sys_flow_user_project
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and work_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.workId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+</mapper>

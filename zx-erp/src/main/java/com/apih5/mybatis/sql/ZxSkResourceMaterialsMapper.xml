@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkResourceMaterialsMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkResourceMaterials" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="categoryID" property="categoryID" jdbcType="VARCHAR" />
+    <result column="resCode" property="resCode" jdbcType="VARCHAR" />
+    <result column="resName" property="resName" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="tempNo" property="tempNo" jdbcType="VARCHAR" />
+    <result column="resStyle" property="resStyle" jdbcType="VARCHAR" />
+    <result column="bizType" property="bizType" jdbcType="VARCHAR" />
+    <result column="enableFlag" property="enableFlag" jdbcType="VARCHAR" />
+    <result column="orgLevel" property="orgLevel" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="refPrice" property="refPrice" jdbcType="DECIMAL" />
+    <result column="refpriceType" property="refpriceType" jdbcType="VARCHAR" />
+    <result column="isComplex" property="isComplex" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="combProp" property="combProp" jdbcType="VARCHAR" />
+    <result column="sourceCode" property="sourceCode" jdbcType="VARCHAR" />
+    <result column="abcCategory" property="abcCategory" jdbcType="VARCHAR" />
+    <result column="isGroup" property="isGroup" jdbcType="VARCHAR" />
+    <result column="sendTime" property="sendTime" jdbcType="TIMESTAMP" />
+    <result column="isMainMaterial" property="isMainMaterial" jdbcType="VARCHAR" />
+    <result column="isSporadicMaterial" property="isSporadicMaterial" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, categoryID, resCode, resName, unit, 
+    spec, tempNo, resStyle, bizType, enableFlag, 
+    orgLevel, orgID, orgName, refPrice, refpriceType, 
+    isComplex, remark, combProp, sourceCode, abcCategory, 
+    isGroup, sendTime, isMainMaterial, isSporadicMaterial, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_Resource_materials
+    where del_flag = '0' and id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_Resource_materials
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkResourceMaterials" >
+    insert into zx_sk_Resource_materials (id, categoryID, resCode, 
+      resName, unit, spec, 
+      tempNo, resStyle, bizType, 
+      enableFlag, orgLevel, orgID, 
+      orgName, refPrice, refpriceType, 
+      isComplex, remark, combProp, 
+      sourceCode, abcCategory, isGroup, 
+      sendTime, isMainMaterial, isSporadicMaterial, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{categoryID,jdbcType=VARCHAR}, #{resCode,jdbcType=VARCHAR}, 
+      #{resName,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, 
+      #{tempNo,jdbcType=VARCHAR}, #{resStyle,jdbcType=VARCHAR}, #{bizType,jdbcType=VARCHAR}, 
+      #{enableFlag,jdbcType=VARCHAR}, #{orgLevel,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, 
+      #{orgName,jdbcType=VARCHAR}, #{refPrice,jdbcType=DECIMAL}, #{refpriceType,jdbcType=VARCHAR}, 
+      #{isComplex,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{combProp,jdbcType=VARCHAR}, 
+      #{sourceCode,jdbcType=VARCHAR}, #{abcCategory,jdbcType=VARCHAR}, #{isGroup,jdbcType=VARCHAR}, 
+      #{sendTime,jdbcType=TIMESTAMP}, #{isMainMaterial,jdbcType=VARCHAR}, #{isSporadicMaterial,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkResourceMaterials" >
+    insert into zx_sk_Resource_materials
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="categoryID != null" >
+        categoryID,
+      </if>
+      <if test="resCode != null" >
+        resCode,
+      </if>
+      <if test="resName != null" >
+        resName,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="tempNo != null" >
+        tempNo,
+      </if>
+      <if test="resStyle != null" >
+        resStyle,
+      </if>
+      <if test="bizType != null" >
+        bizType,
+      </if>
+      <if test="enableFlag != null" >
+        enableFlag,
+      </if>
+      <if test="orgLevel != null" >
+        orgLevel,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="refPrice != null" >
+        refPrice,
+      </if>
+      <if test="refpriceType != null" >
+        refpriceType,
+      </if>
+      <if test="isComplex != null" >
+        isComplex,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="combProp != null" >
+        combProp,
+      </if>
+      <if test="sourceCode != null" >
+        sourceCode,
+      </if>
+      <if test="abcCategory != null" >
+        abcCategory,
+      </if>
+      <if test="isGroup != null" >
+        isGroup,
+      </if>
+      <if test="sendTime != null" >
+        sendTime,
+      </if>
+      <if test="isMainMaterial != null" >
+        isMainMaterial,
+      </if>
+      <if test="isSporadicMaterial != null" >
+        isSporadicMaterial,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryID != null" >
+        #{categoryID,jdbcType=VARCHAR},
+      </if>
+      <if test="resCode != null" >
+        #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="tempNo != null" >
+        #{tempNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resStyle != null" >
+        #{resStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null" >
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="enableFlag != null" >
+        #{enableFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="orgLevel != null" >
+        #{orgLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="refPrice != null" >
+        #{refPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="refpriceType != null" >
+        #{refpriceType,jdbcType=VARCHAR},
+      </if>
+      <if test="isComplex != null" >
+        #{isComplex,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="combProp != null" >
+        #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceCode != null" >
+        #{sourceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="abcCategory != null" >
+        #{abcCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="isGroup != null" >
+        #{isGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null" >
+        #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isMainMaterial != null" >
+        #{isMainMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="isSporadicMaterial != null" >
+        #{isSporadicMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkResourceMaterials" >
+    update zx_sk_Resource_materials
+    <set >
+      <if test="categoryID != null" >
+        categoryID = #{categoryID,jdbcType=VARCHAR},
+      </if>
+      <if test="resCode != null" >
+        resCode = #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        resName = #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="tempNo != null" >
+        tempNo = #{tempNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resStyle != null" >
+        resStyle = #{resStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null" >
+        bizType = #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="enableFlag != null" >
+        enableFlag = #{enableFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="orgLevel != null" >
+        orgLevel = #{orgLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="refPrice != null" >
+        refPrice = #{refPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="refpriceType != null" >
+        refpriceType = #{refpriceType,jdbcType=VARCHAR},
+      </if>
+      <if test="isComplex != null" >
+        isComplex = #{isComplex,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="combProp != null" >
+        combProp = #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceCode != null" >
+        sourceCode = #{sourceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="abcCategory != null" >
+        abcCategory = #{abcCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="isGroup != null" >
+        isGroup = #{isGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null" >
+        sendTime = #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isMainMaterial != null" >
+        isMainMaterial = #{isMainMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="isSporadicMaterial != null" >
+        isSporadicMaterial = #{isSporadicMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkResourceMaterials" >
+    update zx_sk_Resource_materials
+    set       categoryID = #{categoryID,jdbcType=VARCHAR},
+      resCode = #{resCode,jdbcType=VARCHAR},
+      resName = #{resName,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      tempNo = #{tempNo,jdbcType=VARCHAR},
+      resStyle = #{resStyle,jdbcType=VARCHAR},
+      bizType = #{bizType,jdbcType=VARCHAR},
+      enableFlag = #{enableFlag,jdbcType=VARCHAR},
+      orgLevel = #{orgLevel,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      refPrice = #{refPrice,jdbcType=DECIMAL},
+      refpriceType = #{refpriceType,jdbcType=VARCHAR},
+      isComplex = #{isComplex,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      combProp = #{combProp,jdbcType=VARCHAR},
+      sourceCode = #{sourceCode,jdbcType=VARCHAR},
+      abcCategory = #{abcCategory,jdbcType=VARCHAR},
+      isGroup = #{isGroup,jdbcType=VARCHAR},
+      sendTime = #{sendTime,jdbcType=TIMESTAMP},
+      isMainMaterial = #{isMainMaterial,jdbcType=VARCHAR},
+      isSporadicMaterial = #{isSporadicMaterial,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxSkResourceMaterialsList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkResourceMaterials" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_Resource_materials
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="categoryID != null and categoryID != ''" >
+     and categoryID = #{categoryID,jdbcType=VARCHAR}
+    </if>
+    <if test="resCode != null and resCode != ''" >
+      and resCode like CONCAT('%',CONCAT(#{resCode,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="resName != null and resName != ''" >
+      and resName like CONCAT('%',CONCAT(#{resName,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="unit != null and unit != ''" >
+      and unit like CONCAT('%',CONCAT(#{unit,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="spec != null and spec != ''" >
+      and spec like CONCAT('%',CONCAT(#{spec,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="tempNo != null and tempNo != ''" >
+     and tempNo = #{tempNo,jdbcType=VARCHAR}
+    </if>
+    <if test="resStyle != null and resStyle != ''" >
+     and resStyle = #{resStyle,jdbcType=VARCHAR}
+    </if>
+    <if test="bizType != null and bizType != ''" >
+     and bizType = #{bizType,jdbcType=VARCHAR}
+    </if>
+    <if test="enableFlag != null and enableFlag != ''" >
+     and enableFlag = #{enableFlag,jdbcType=VARCHAR}
+    </if>
+    <if test="orgLevel != null and orgLevel != ''" >
+     and orgLevel = #{orgLevel,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="refPrice != null and refPrice != ''" >
+     and refPrice = #{refPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="refpriceType != null and refpriceType != ''" >
+     and refpriceType = #{refpriceType,jdbcType=VARCHAR}
+    </if>
+    <if test="isComplex != null and isComplex != ''" >
+     and isComplex = #{isComplex,jdbcType=INTEGER}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="combProp != null and combProp != ''" >
+     and combProp = #{combProp,jdbcType=VARCHAR}
+    </if>
+    <if test="sourceCode != null and sourceCode != ''" >
+     and sourceCode = #{sourceCode,jdbcType=VARCHAR}
+    </if>
+    <if test="abcCategory != null and abcCategory != ''" >
+     and abcCategory = #{abcCategory,jdbcType=VARCHAR}
+    </if>
+    <if test="isGroup != null and isGroup != ''" >
+     and isGroup = #{isGroup,jdbcType=VARCHAR}
+    </if>
+    <if test="sendTime != null and sendTime != ''" >
+     and sendTime = #{sendTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="isMainMaterial != null and isMainMaterial != ''" >
+     and isMainMaterial = #{isMainMaterial,jdbcType=VARCHAR}
+    </if>
+    <if test="isSporadicMaterial != null and isSporadicMaterial != ''" >
+     and isSporadicMaterial = #{isSporadicMaterial,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY resCode ASC
+  </select>
+  <delete id="batchDeleteUpdateZxSkResourceMaterials" parameterType="com.apih5.mybatis.pojo.ZxSkResourceMaterials" >
+    <![CDATA[ 
+        update zx_sk_Resource_materials
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+
+  <update id="batchStartUpdateZxSkResourceMaterials" parameterType="com.apih5.mybatis.pojo.ZxSkResourceMaterials">
+    <![CDATA[
+        update zx_sk_resource_materials
+        set isGroup = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in
+     ]]>
+    <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id}
+    </foreach>
+  </update>
+
+  <update id="batchStopUpdateZxSkResourceMaterials" parameterType="com.apih5.mybatis.pojo.ZxSkResourceMaterials">
+    <![CDATA[
+        update zx_sk_resource_materials
+        set isGroup = '0',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in
+     ]]>
+    <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id}
+    </foreach>
+  </update>
+
+  <select id="getZxSkResourceMaterialsListNameJoinNotRevolve" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkResourceMaterials">
+    select
+    <include refid="Base_Column_List" />
+    from zx_sk_Resource_materials
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+      and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="categoryID != null and categoryID != ''" >
+      and categoryID = #{categoryID,jdbcType=VARCHAR}
+    </if>
+    <if test="resCode != null and resCode != ''" >
+      and resCode like CONCAT('%',CONCAT(#{resCode,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="resName != null and resName != ''" >
+      and resName like CONCAT('%',CONCAT(#{resName,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="unit != null and unit != ''" >
+      and unit like CONCAT('%',CONCAT(#{unit,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="spec != null and spec != ''" >
+      and spec like CONCAT('%',CONCAT(#{spec,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="tempNo != null and tempNo != ''" >
+      and tempNo = #{tempNo,jdbcType=VARCHAR}
+    </if>
+    <if test="resStyle != null and resStyle != ''" >
+      and resStyle = #{resStyle,jdbcType=VARCHAR}
+    </if>
+    <if test="bizType != null and bizType != ''" >
+      and bizType = #{bizType,jdbcType=VARCHAR}
+    </if>
+    <if test="enableFlag != null and enableFlag != ''" >
+      and enableFlag = #{enableFlag,jdbcType=VARCHAR}
+    </if>
+    <if test="orgLevel != null and orgLevel != ''" >
+      and orgLevel = #{orgLevel,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+      and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+      and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="refPrice != null and refPrice != ''" >
+      and refPrice = #{refPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="refpriceType != null and refpriceType != ''" >
+      and refpriceType = #{refpriceType,jdbcType=VARCHAR}
+    </if>
+    <if test="isComplex != null and isComplex != ''" >
+      and isComplex = #{isComplex,jdbcType=INTEGER}
+    </if>
+    <if test="remark != null and remark != ''" >
+      and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="combProp != null and combProp != ''" >
+      and combProp = #{combProp,jdbcType=VARCHAR}
+    </if>
+    <if test="sourceCode != null and sourceCode != ''" >
+      and sourceCode = #{sourceCode,jdbcType=VARCHAR}
+    </if>
+    <if test="abcCategory != null and abcCategory != ''" >
+      and abcCategory = #{abcCategory,jdbcType=VARCHAR}
+    </if>
+    <if test="isGroup != null and isGroup != ''" >
+      and isGroup = #{isGroup,jdbcType=VARCHAR}
+    </if>
+    <if test="sendTime != null and sendTime != ''" >
+      and sendTime = #{sendTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="isMainMaterial != null and isMainMaterial != ''" >
+      and isMainMaterial = #{isMainMaterial,jdbcType=VARCHAR}
+    </if>
+    <if test="isSporadicMaterial != null and isSporadicMaterial != ''" >
+      and isSporadicMaterial = #{isSporadicMaterial,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+      and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+      and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    and substring(resCode,1,2) != '15'
+    ORDER BY resCode ASC
+  </select>
+
+
+  <select id="getZxSkResourceMaterialsListNotRevolving" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkResourceMaterials" >
+    select
+    <include refid="Base_Column_List" />
+    from zx_sk_Resource_materials
+    where del_flag = '0' and resCode not like '15%'
+    <if test="id != null and id != ''" >
+      and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="categoryID != null and categoryID != ''" >
+      and categoryID = #{categoryID,jdbcType=VARCHAR}
+    </if>
+    <if test="resCode != null and resCode != ''" >
+      and resCode like CONCAT('%',CONCAT(#{resCode,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="resName != null and resName != ''" >
+      and resName like CONCAT('%',CONCAT(#{resName,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="unit != null and unit != ''" >
+      and unit like CONCAT('%',CONCAT(#{unit,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="spec != null and spec != ''" >
+      and spec like CONCAT('%',CONCAT(#{spec,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="tempNo != null and tempNo != ''" >
+      and tempNo = #{tempNo,jdbcType=VARCHAR}
+    </if>
+    <if test="resStyle != null and resStyle != ''" >
+      and resStyle = #{resStyle,jdbcType=VARCHAR}
+    </if>
+    <if test="bizType != null and bizType != ''" >
+      and bizType = #{bizType,jdbcType=VARCHAR}
+    </if>
+    <if test="enableFlag != null and enableFlag != ''" >
+      and enableFlag = #{enableFlag,jdbcType=VARCHAR}
+    </if>
+    <if test="orgLevel != null and orgLevel != ''" >
+      and orgLevel = #{orgLevel,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+      and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+      and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="refPrice != null and refPrice != ''" >
+      and refPrice = #{refPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="refpriceType != null and refpriceType != ''" >
+      and refpriceType = #{refpriceType,jdbcType=VARCHAR}
+    </if>
+    <if test="isComplex != null and isComplex != ''" >
+      and isComplex = #{isComplex,jdbcType=INTEGER}
+    </if>
+    <if test="remark != null and remark != ''" >
+      and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="combProp != null and combProp != ''" >
+      and combProp = #{combProp,jdbcType=VARCHAR}
+    </if>
+    <if test="sourceCode != null and sourceCode != ''" >
+      and sourceCode = #{sourceCode,jdbcType=VARCHAR}
+    </if>
+    <if test="abcCategory != null and abcCategory != ''" >
+      and abcCategory = #{abcCategory,jdbcType=VARCHAR}
+    </if>
+    <if test="isGroup != null and isGroup != ''" >
+      and isGroup = #{isGroup,jdbcType=VARCHAR}
+    </if>
+    <if test="sendTime != null and sendTime != ''" >
+      and sendTime = #{sendTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="isMainMaterial != null and isMainMaterial != ''" >
+      and isMainMaterial = #{isMainMaterial,jdbcType=VARCHAR}
+    </if>
+    <if test="isSporadicMaterial != null and isSporadicMaterial != ''" >
+      and isSporadicMaterial = #{isSporadicMaterial,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+      and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+      and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY resCode ASC
+  </select>
+
+
+</mapper>

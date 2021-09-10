@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmJxTaskScoreDetailedMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmJxTaskScoreDetailed" >
+    <id column="detailed_id" property="detailedId" jdbcType="CHAR" />
+    <result column="score_id" property="scoreId" jdbcType="CHAR" />
+    <result column="library_id" property="libraryId" jdbcType="CHAR" />
+    <result column="assessment_id" property="assessmentId" jdbcType="CHAR" />
+    <result column="auditee_key" property="auditeeKey" jdbcType="CHAR" />
+    <result column="auditee_name" property="auditeeName" jdbcType="VARCHAR" />
+    <result column="auditee_dept_id" property="auditeeDeptId" jdbcType="CHAR" />
+    <result column="auditee_dept_name" property="auditeeDeptName" jdbcType="VARCHAR" />
+    <result column="auditee_pro_id" property="auditeeProId" jdbcType="CHAR" />
+    <result column="auditee_pro_name" property="auditeeProName" jdbcType="VARCHAR" />
+    <result column="reviewer_key" property="reviewerKey" jdbcType="CHAR" />
+    <result column="reviewer_name" property="reviewerName" jdbcType="VARCHAR" />
+    <result column="hr_user_key" property="hrUserKey" jdbcType="CHAR" />
+    <result column="hr_name" property="hrName" jdbcType="VARCHAR" />
+    <result column="cost_duty_index" property="costDutyIndex" jdbcType="VARCHAR" />
+    <result column="target_value" property="targetValue" jdbcType="VARCHAR" />
+    <result column="scoring_standard" property="scoringStandard" jdbcType="VARCHAR" />
+    <result column="weight_value" property="weightValue" jdbcType="INTEGER" />
+    <result column="score" property="score" jdbcType="DECIMAL" />
+    <result column="appeal_status" property="appealStatus" jdbcType="CHAR" />
+    <result column="appeal_opinion" property="appealOpinion" jdbcType="VARCHAR" />
+    <result column="hr_opinion" property="hrOpinion" jdbcType="VARCHAR" />
+    <result column="completion" property="completion" jdbcType="VARCHAR" />
+    <result column="superior_opinion" property="superiorOpinion" jdbcType="VARCHAR" />
+    <result column="data_sources" property="dataSources" jdbcType="VARCHAR" />
+    <result column="is_mandatory" property="isMandatory" jdbcType="CHAR" />
+    <result column="is_automatic_scoring" property="isAutomaticScoring" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    detailed_id, score_id, library_id, assessment_id, auditee_key, 
+    auditee_name, auditee_dept_id, auditee_dept_name, auditee_pro_id, auditee_pro_name, 
+    reviewer_key, reviewer_name, hr_user_key, hr_name, cost_duty_index, 
+    target_value, scoring_standard, weight_value, score, appeal_status, 
+    appeal_opinion, hr_opinion, completion, superior_opinion, data_sources, 
+    is_mandatory, is_automatic_scoring, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_task_score_detailed
+    where detailed_id = #{detailedId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_jx_task_score_detailed
+    where detailed_id = #{detailedId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmJxTaskScoreDetailed" >
+    insert into zj_xm_jx_task_score_detailed (detailed_id, score_id, library_id, 
+      assessment_id, auditee_key, auditee_name, 
+      auditee_dept_id, auditee_dept_name, auditee_pro_id, 
+      auditee_pro_name, reviewer_key, reviewer_name, 
+      hr_user_key, hr_name, cost_duty_index, 
+      target_value, scoring_standard, weight_value, 
+      score, appeal_status, appeal_opinion, 
+      hr_opinion, completion, superior_opinion, 
+      data_sources, is_mandatory, is_automatic_scoring, 
+      remarks, sort, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{detailedId,jdbcType=CHAR}, #{scoreId,jdbcType=CHAR}, #{libraryId,jdbcType=CHAR}, 
+      #{assessmentId,jdbcType=CHAR}, #{auditeeKey,jdbcType=CHAR}, #{auditeeName,jdbcType=VARCHAR}, 
+      #{auditeeDeptId,jdbcType=CHAR}, #{auditeeDeptName,jdbcType=VARCHAR}, #{auditeeProId,jdbcType=CHAR}, 
+      #{auditeeProName,jdbcType=VARCHAR}, #{reviewerKey,jdbcType=CHAR}, #{reviewerName,jdbcType=VARCHAR}, 
+      #{hrUserKey,jdbcType=CHAR}, #{hrName,jdbcType=VARCHAR}, #{costDutyIndex,jdbcType=VARCHAR}, 
+      #{targetValue,jdbcType=VARCHAR}, #{scoringStandard,jdbcType=VARCHAR}, #{weightValue,jdbcType=INTEGER}, 
+      #{score,jdbcType=DECIMAL}, #{appealStatus,jdbcType=CHAR}, #{appealOpinion,jdbcType=VARCHAR}, 
+      #{hrOpinion,jdbcType=VARCHAR}, #{completion,jdbcType=VARCHAR}, #{superiorOpinion,jdbcType=VARCHAR}, 
+      #{dataSources,jdbcType=VARCHAR}, #{isMandatory,jdbcType=CHAR}, #{isAutomaticScoring,jdbcType=CHAR}, 
+      #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmJxTaskScoreDetailed" >
+    insert into zj_xm_jx_task_score_detailed
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="detailedId != null" >
+        detailed_id,
+      </if>
+      <if test="scoreId != null" >
+        score_id,
+      </if>
+      <if test="libraryId != null" >
+        library_id,
+      </if>
+      <if test="assessmentId != null" >
+        assessment_id,
+      </if>
+      <if test="auditeeKey != null" >
+        auditee_key,
+      </if>
+      <if test="auditeeName != null" >
+        auditee_name,
+      </if>
+      <if test="auditeeDeptId != null" >
+        auditee_dept_id,
+      </if>
+      <if test="auditeeDeptName != null" >
+        auditee_dept_name,
+      </if>
+      <if test="auditeeProId != null" >
+        auditee_pro_id,
+      </if>
+      <if test="auditeeProName != null" >
+        auditee_pro_name,
+      </if>
+      <if test="reviewerKey != null" >
+        reviewer_key,
+      </if>
+      <if test="reviewerName != null" >
+        reviewer_name,
+      </if>
+      <if test="hrUserKey != null" >
+        hr_user_key,
+      </if>
+      <if test="hrName != null" >
+        hr_name,
+      </if>
+      <if test="costDutyIndex != null" >
+        cost_duty_index,
+      </if>
+      <if test="targetValue != null" >
+        target_value,
+      </if>
+      <if test="scoringStandard != null" >
+        scoring_standard,
+      </if>
+      <if test="weightValue != null" >
+        weight_value,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="appealStatus != null" >
+        appeal_status,
+      </if>
+      <if test="appealOpinion != null" >
+        appeal_opinion,
+      </if>
+      <if test="hrOpinion != null" >
+        hr_opinion,
+      </if>
+      <if test="completion != null" >
+        completion,
+      </if>
+      <if test="superiorOpinion != null" >
+        superior_opinion,
+      </if>
+      <if test="dataSources != null" >
+        data_sources,
+      </if>
+      <if test="isMandatory != null" >
+        is_mandatory,
+      </if>
+      <if test="isAutomaticScoring != null" >
+        is_automatic_scoring,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="detailedId != null" >
+        #{detailedId,jdbcType=CHAR},
+      </if>
+      <if test="scoreId != null" >
+        #{scoreId,jdbcType=CHAR},
+      </if>
+      <if test="libraryId != null" >
+        #{libraryId,jdbcType=CHAR},
+      </if>
+      <if test="assessmentId != null" >
+        #{assessmentId,jdbcType=CHAR},
+      </if>
+      <if test="auditeeKey != null" >
+        #{auditeeKey,jdbcType=CHAR},
+      </if>
+      <if test="auditeeName != null" >
+        #{auditeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditeeDeptId != null" >
+        #{auditeeDeptId,jdbcType=CHAR},
+      </if>
+      <if test="auditeeDeptName != null" >
+        #{auditeeDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditeeProId != null" >
+        #{auditeeProId,jdbcType=CHAR},
+      </if>
+      <if test="auditeeProName != null" >
+        #{auditeeProName,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewerKey != null" >
+        #{reviewerKey,jdbcType=CHAR},
+      </if>
+      <if test="reviewerName != null" >
+        #{reviewerName,jdbcType=VARCHAR},
+      </if>
+      <if test="hrUserKey != null" >
+        #{hrUserKey,jdbcType=CHAR},
+      </if>
+      <if test="hrName != null" >
+        #{hrName,jdbcType=VARCHAR},
+      </if>
+      <if test="costDutyIndex != null" >
+        #{costDutyIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="targetValue != null" >
+        #{targetValue,jdbcType=VARCHAR},
+      </if>
+      <if test="scoringStandard != null" >
+        #{scoringStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="weightValue != null" >
+        #{weightValue,jdbcType=INTEGER},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="appealStatus != null" >
+        #{appealStatus,jdbcType=CHAR},
+      </if>
+      <if test="appealOpinion != null" >
+        #{appealOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="hrOpinion != null" >
+        #{hrOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="completion != null" >
+        #{completion,jdbcType=VARCHAR},
+      </if>
+      <if test="superiorOpinion != null" >
+        #{superiorOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSources != null" >
+        #{dataSources,jdbcType=VARCHAR},
+      </if>
+      <if test="isMandatory != null" >
+        #{isMandatory,jdbcType=CHAR},
+      </if>
+      <if test="isAutomaticScoring != null" >
+        #{isAutomaticScoring,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmJxTaskScoreDetailed" >
+    update zj_xm_jx_task_score_detailed
+    <set >
+      <if test="scoreId != null" >
+        score_id = #{scoreId,jdbcType=CHAR},
+      </if>
+      <if test="libraryId != null" >
+        library_id = #{libraryId,jdbcType=CHAR},
+      </if>
+      <if test="assessmentId != null" >
+        assessment_id = #{assessmentId,jdbcType=CHAR},
+      </if>
+      <if test="auditeeKey != null" >
+        auditee_key = #{auditeeKey,jdbcType=CHAR},
+      </if>
+      <if test="auditeeName != null" >
+        auditee_name = #{auditeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditeeDeptId != null" >
+        auditee_dept_id = #{auditeeDeptId,jdbcType=CHAR},
+      </if>
+      <if test="auditeeDeptName != null" >
+        auditee_dept_name = #{auditeeDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditeeProId != null" >
+        auditee_pro_id = #{auditeeProId,jdbcType=CHAR},
+      </if>
+      <if test="auditeeProName != null" >
+        auditee_pro_name = #{auditeeProName,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewerKey != null" >
+        reviewer_key = #{reviewerKey,jdbcType=CHAR},
+      </if>
+      <if test="reviewerName != null" >
+        reviewer_name = #{reviewerName,jdbcType=VARCHAR},
+      </if>
+      <if test="hrUserKey != null" >
+        hr_user_key = #{hrUserKey,jdbcType=CHAR},
+      </if>
+      <if test="hrName != null" >
+        hr_name = #{hrName,jdbcType=VARCHAR},
+      </if>
+      <if test="costDutyIndex != null" >
+        cost_duty_index = #{costDutyIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="targetValue != null" >
+        target_value = #{targetValue,jdbcType=VARCHAR},
+      </if>
+      <if test="scoringStandard != null" >
+        scoring_standard = #{scoringStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="weightValue != null" >
+        weight_value = #{weightValue,jdbcType=INTEGER},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="appealStatus != null" >
+        appeal_status = #{appealStatus,jdbcType=CHAR},
+      </if>
+      <if test="appealOpinion != null" >
+        appeal_opinion = #{appealOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="hrOpinion != null" >
+        hr_opinion = #{hrOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="completion != null" >
+        completion = #{completion,jdbcType=VARCHAR},
+      </if>
+      <if test="superiorOpinion != null" >
+        superior_opinion = #{superiorOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSources != null" >
+        data_sources = #{dataSources,jdbcType=VARCHAR},
+      </if>
+      <if test="isMandatory != null" >
+        is_mandatory = #{isMandatory,jdbcType=CHAR},
+      </if>
+      <if test="isAutomaticScoring != null" >
+        is_automatic_scoring = #{isAutomaticScoring,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where detailed_id = #{detailedId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmJxTaskScoreDetailed" >
+    update zj_xm_jx_task_score_detailed
+    set       score_id = #{scoreId,jdbcType=CHAR},
+      library_id = #{libraryId,jdbcType=CHAR},
+      assessment_id = #{assessmentId,jdbcType=CHAR},
+      auditee_key = #{auditeeKey,jdbcType=CHAR},
+      auditee_name = #{auditeeName,jdbcType=VARCHAR},
+      auditee_dept_id = #{auditeeDeptId,jdbcType=CHAR},
+      auditee_dept_name = #{auditeeDeptName,jdbcType=VARCHAR},
+      auditee_pro_id = #{auditeeProId,jdbcType=CHAR},
+      auditee_pro_name = #{auditeeProName,jdbcType=VARCHAR},
+      reviewer_key = #{reviewerKey,jdbcType=CHAR},
+      reviewer_name = #{reviewerName,jdbcType=VARCHAR},
+      hr_user_key = #{hrUserKey,jdbcType=CHAR},
+      hr_name = #{hrName,jdbcType=VARCHAR},
+      cost_duty_index = #{costDutyIndex,jdbcType=VARCHAR},
+      target_value = #{targetValue,jdbcType=VARCHAR},
+      scoring_standard = #{scoringStandard,jdbcType=VARCHAR},
+      weight_value = #{weightValue,jdbcType=INTEGER},
+      score = #{score,jdbcType=DECIMAL},
+      appeal_status = #{appealStatus,jdbcType=CHAR},
+      appeal_opinion = #{appealOpinion,jdbcType=VARCHAR},
+      hr_opinion = #{hrOpinion,jdbcType=VARCHAR},
+      completion = #{completion,jdbcType=VARCHAR},
+      superior_opinion = #{superiorOpinion,jdbcType=VARCHAR},
+      data_sources = #{dataSources,jdbcType=VARCHAR},
+      is_mandatory = #{isMandatory,jdbcType=CHAR},
+      is_automatic_scoring = #{isAutomaticScoring,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where detailed_id = #{detailedId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmJxTaskScoreDetailedList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxTaskScoreDetailed" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_task_score_detailed
+    where del_flag = '0'
+    <if test="scoreId != null and scoreId != ''" >
+     and score_id = #{scoreId,jdbcType=CHAR}
+    </if>
+    <if test="libraryId != null and libraryId != ''" >
+     and library_id = #{libraryId,jdbcType=CHAR}
+    </if>
+    <if test="assessmentId != null and assessmentId != ''" >
+     and assessment_id = #{assessmentId,jdbcType=CHAR}
+    </if>
+    <if test="auditeeKey != null and auditeeKey != ''" >
+     and auditee_key = #{auditeeKey,jdbcType=CHAR}
+    </if>
+    <if test="auditeeName != null and auditeeName != ''" >
+     and auditee_name = #{auditeeName,jdbcType=VARCHAR}
+    </if>
+    <if test="auditeeDeptId != null and auditeeDeptId != ''" >
+     and auditee_dept_id = #{auditeeDeptId,jdbcType=CHAR}
+    </if>
+    <if test="auditeeDeptName != null and auditeeDeptName != ''" >
+     and auditee_dept_name = #{auditeeDeptName,jdbcType=VARCHAR}
+    </if>
+    <if test="auditeeProId != null and auditeeProId != ''" >
+     and auditee_pro_id = #{auditeeProId,jdbcType=CHAR}
+    </if>
+    <if test="auditeeProName != null and auditeeProName != ''" >
+     and auditee_pro_name = #{auditeeProName,jdbcType=VARCHAR}
+    </if>
+    <if test="reviewerKey != null and reviewerKey != ''" >
+     and reviewer_key = #{reviewerKey,jdbcType=CHAR}
+    </if>
+    <if test="reviewerName != null and reviewerName != ''" >
+     and reviewer_name = #{reviewerName,jdbcType=VARCHAR}
+    </if>
+    <if test="hrUserKey != null and hrUserKey != ''" >
+     and hr_user_key = #{hrUserKey,jdbcType=CHAR}
+    </if>
+    <if test="hrName != null and hrName != ''" >
+     and hr_name = #{hrName,jdbcType=VARCHAR}
+    </if>
+    <if test="costDutyIndex != null and costDutyIndex != ''" >
+     and cost_duty_index = #{costDutyIndex,jdbcType=VARCHAR}
+    </if>
+    <if test="targetValue != null and targetValue != ''" >
+     and target_value = #{targetValue,jdbcType=VARCHAR}
+    </if>
+    <if test="scoringStandard != null and scoringStandard != ''" >
+     and scoring_standard = #{scoringStandard,jdbcType=VARCHAR}
+    </if>
+    <if test="weightValue != null and weightValue != ''" >
+     and weight_value = #{weightValue,jdbcType=INTEGER}
+    </if>
+    <if test="score != null and score != ''" >
+     and score = #{score,jdbcType=DECIMAL}
+    </if>
+    <if test="appealStatus != null and appealStatus != ''" >
+     and appeal_status = #{appealStatus,jdbcType=CHAR}
+    </if>
+    <if test="appealOpinion != null and appealOpinion != ''" >
+     and appeal_opinion = #{appealOpinion,jdbcType=VARCHAR}
+    </if>
+    <if test="hrOpinion != null and hrOpinion != ''" >
+     and hr_opinion = #{hrOpinion,jdbcType=VARCHAR}
+    </if>
+    <if test="completion != null and completion != ''" >
+     and completion = #{completion,jdbcType=VARCHAR}
+    </if>
+    <if test="superiorOpinion != null and superiorOpinion != ''" >
+     and superior_opinion = #{superiorOpinion,jdbcType=VARCHAR}
+    </if>
+    <if test="dataSources != null and dataSources != ''" >
+     and data_sources = #{dataSources,jdbcType=VARCHAR}
+    </if>
+    <if test="isMandatory != null and isMandatory != ''" >
+     and is_mandatory = #{isMandatory,jdbcType=CHAR}
+    </if>
+    <if test="isAutomaticScoring != null and isAutomaticScoring != ''" >
+     and is_automatic_scoring = #{isAutomaticScoring,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmJxTaskScoreDetailed" parameterType="com.apih5.mybatis.pojo.ZjXmJxTaskScoreDetailed" >
+    <![CDATA[ 
+        update zj_xm_jx_task_score_detailed
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and detailed_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.detailedId} 
+     </foreach>
+  </delete>
+  
+  <insert id ="batchInsertZjXmJxTaskScoreDetailed" parameterType="java.util.List" >
+      insert into zj_xm_jx_task_score_detailed (detailed_id, score_id, library_id, 
+      assessment_id, auditee_key, auditee_name, 
+      auditee_dept_id, auditee_dept_name, auditee_pro_id, 
+      auditee_pro_name, reviewer_key, reviewer_name, 
+      hr_user_key, hr_name, cost_duty_index, 
+      target_value, scoring_standard, weight_value, 
+      score, appeal_status, appeal_opinion, 
+      hr_opinion, completion, superior_opinion, 
+      data_sources, is_mandatory, is_automatic_scoring, 
+      remarks, sort, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values 
+      <foreach collection ="list" item="item" index= "index" separator=",">
+     (
+     #{item.detailedId,jdbcType=CHAR}, #{item.scoreId,jdbcType=CHAR}, #{item.libraryId,jdbcType=CHAR}, 
+      #{item.assessmentId,jdbcType=CHAR}, #{item.auditeeKey,jdbcType=CHAR}, #{item.auditeeName,jdbcType=VARCHAR}, 
+      #{item.auditeeDeptId,jdbcType=CHAR}, #{item.auditeeDeptName,jdbcType=VARCHAR}, #{item.auditeeProId,jdbcType=CHAR}, 
+      #{item.auditeeProName,jdbcType=VARCHAR}, #{item.reviewerKey,jdbcType=CHAR}, #{item.reviewerName,jdbcType=VARCHAR}, 
+      #{item.hrUserKey,jdbcType=CHAR}, #{item.hrName,jdbcType=VARCHAR}, #{item.costDutyIndex,jdbcType=VARCHAR}, 
+      #{item.targetValue,jdbcType=VARCHAR}, #{item.scoringStandard,jdbcType=VARCHAR}, #{item.weightValue,jdbcType=INTEGER}, 
+      #{item.score,jdbcType=DECIMAL}, #{item.appealStatus,jdbcType=CHAR}, #{item.appealOpinion,jdbcType=VARCHAR}, 
+      #{item.hrOpinion,jdbcType=VARCHAR}, #{item.completion,jdbcType=VARCHAR}, #{item.superiorOpinion,jdbcType=VARCHAR}, 
+      #{item.dataSources,jdbcType=VARCHAR}, #{item.isMandatory,jdbcType=CHAR}, #{item.isAutomaticScoring,jdbcType=CHAR}, 
+      #{item.remarks,jdbcType=VARCHAR}, #{item.sort,jdbcType=INTEGER}, #{item.delFlag,jdbcType=CHAR}, 
+      #{item.createTime,jdbcType=TIMESTAMP}, #{item.createUser,jdbcType=CHAR}, #{item.createUserName,jdbcType=VARCHAR}, 
+      #{item.modifyTime,jdbcType=TIMESTAMP}, #{item.modifyUser,jdbcType=CHAR}, #{item.modifyUserName,jdbcType=VARCHAR}
+      )
+     </foreach >
+  </insert>
+  
+  <update id="batchUpdateZjXmJxTaskScoreDetailedOpinionByAuditee" parameterType="java.util.List">
+          <foreach collection="list" item="item" index="index" open="" close="" separator=";" >  
+                update zj_xm_jx_task_score_detailed
+                <set>
+                   <if test="item.appealStatus != null and item.appealStatus != ''" >
+                     appeal_status = #{item.appealStatus,jdbcType=CHAR},
+                   </if>
+                   <if test="item.appealOpinion != null and item.appealOpinion != ''" >
+                     appeal_opinion = #{item.appealOpinion,jdbcType=VARCHAR},
+                   </if>
+                   <!-- <if test="item.hrOpinion != null and item.hrOpinion != ''" >
+                     hr_opinion = #{item.hrOpinion,jdbcType=VARCHAR},
+                   </if> -->
+                </set>  
+               where detailed_id = #{item.detailedId,jdbcType=CHAR}
+         </foreach>  
+  </update>  
+  
+    <update id="batchUpdateZjXmJxTaskScoreDetailedCompletion" parameterType="java.util.List">
+          <foreach collection="list" item="item" index="index" open="" close="" separator=";" >  
+                update zj_xm_jx_task_score_detailed
+                <set>
+                   <!-- <if test="item.reviewerKey != null and item.reviewerKey != ''" >
+                     reviewer_key = #{item.reviewerKey,jdbcType=CHAR},
+                   </if>
+                   <if test="item.reviewerName != null and item.reviewerName != ''" >
+                     reviewer_name = #{item.reviewerName,jdbcType=VARCHAR},
+                   </if> -->
+                   <!-- <if test="item.completion != null and item.completion != ''" > -->
+                     completion = #{item.completion,jdbcType=VARCHAR},
+                   <!-- </if> -->
+                </set>  
+               where detailed_id = #{item.detailedId,jdbcType=CHAR}
+         </foreach>  
+  </update>  
+  
+  <update id="batchUpdateZjXmJxTaskScoreDetailedByLeader" parameterType="java.util.List">
+          <foreach collection="list" item="item" index="index" open="" close="" separator=";" >  
+                update zj_xm_jx_task_score_detailed
+                <set>
+                   <if test="item.score != null and item.score != ''" >
+                     score = #{item.score,jdbcType=DECIMAL},
+                   </if>
+                   <if test="item.superiorOpinion != null and item.superiorOpinion != ''" >
+                     superior_opinion = #{item.superiorOpinion,jdbcType=VARCHAR},
+                   </if>
+                   del_flag = '0',
+                </set>  
+               where detailed_id = #{item.detailedId,jdbcType=CHAR}
+         </foreach>  
+  </update>  
+  
+   <update id="batchClearZjXmJxTaskScoreDetailedByLeader" parameterType="com.apih5.mybatis.pojo.ZjXmJxTaskScoreDetailed" >
+         update zj_xm_jx_task_score_detailed
+                <set>
+                     score = null,
+                     superior_opinion = '',
+                     appeal_status = '0'
+                </set>  
+         where del_flag = '0'
+           and is_automatic_scoring = '0'
+           <!-- and score_id = #{scoreId,jdbcType=CHAR} -->
+           and score_id in
+         <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.scoreId} 
+         </foreach>
+   </update>
+  
+  <update id="batchUpdateZjXmJxTaskScoreDetailedZero" parameterType="java.util.List">
+       update zj_xm_jx_task_score_detailed
+                <set>
+                     score = 0,
+                     superior_opinion = '',
+                </set>  
+               where score_id in
+            <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.scoreId} 
+           </foreach>
+  </update>  
+  
+   <select id="getZjXmJxTaskScoreDetailedListByHR" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxTaskScoreDetailed" >
+    select 
+         t_det.*,
+         t_asst.year_month as yearMonth
+    from zj_xm_jx_task_score_detailed t_det inner join zj_xm_jx_monthly_assessment t_asst
+                                            on t_det.assessment_id = t_asst.assessment_id
+    where t_det.del_flag = '0' and t_asst.del_flag = '0'
+      and t_det.appeal_status != '0'
+      and t_det.appeal_status != ''
+    <if test="scoreId != null and scoreId != ''" >
+     and t_det.score_id = #{scoreId,jdbcType=CHAR}
+    </if>
+    <if test="libraryId != null and libraryId != ''" >
+     and t_det.library_id = #{libraryId,jdbcType=CHAR}
+    </if>
+    <if test="assessmentId != null and assessmentId != ''" >
+     and t_det.assessment_id = #{assessmentId,jdbcType=CHAR}
+    </if>
+    <if test="auditeeKey != null and auditeeKey != ''" >
+     and t_det.auditee_key = #{auditeeKey,jdbcType=CHAR}
+    </if>
+    <if test="auditeeName != null and auditeeName != ''" >
+     and t_det.auditee_name = #{auditeeName,jdbcType=VARCHAR}
+    </if>
+    <if test="auditeeDeptId != null and auditeeDeptId != ''" >
+     and t_det.auditee_dept_id = #{auditeeDeptId,jdbcType=CHAR}
+    </if>
+    <if test="auditeeDeptName != null and auditeeDeptName != ''" >
+     and t_det.auditee_dept_name = #{auditeeDeptName,jdbcType=VARCHAR}
+    </if>
+    <if test="auditeeProId != null and auditeeProId != ''" >
+     and t_det.auditee_pro_id = #{auditeeProId,jdbcType=CHAR}
+    </if>
+    <if test="auditeeProName != null and auditeeProName != ''" >
+     and t_det.auditee_pro_name = #{auditeeProName,jdbcType=VARCHAR}
+    </if>
+    <if test="reviewerKey != null and reviewerKey != ''" >
+     and t_det.reviewer_key = #{reviewerKey,jdbcType=CHAR}
+    </if>
+    <if test="reviewerName != null and reviewerName != ''" >
+     and t_det.reviewer_name = #{reviewerName,jdbcType=VARCHAR}
+    </if>
+    <if test="hrUserKey != null and hrUserKey != ''" >
+     and t_det.hr_user_key = #{hrUserKey,jdbcType=CHAR}
+    </if>
+    <if test="hrName != null and hrName != ''" >
+     and t_det.hr_name = #{hrName,jdbcType=VARCHAR}
+    </if>
+    <if test="costDutyIndex != null and costDutyIndex != ''" >
+     and t_det.cost_duty_index = #{costDutyIndex,jdbcType=VARCHAR}
+    </if>
+    <if test="targetValue != null and targetValue != ''" >
+     and t_det.target_value = #{targetValue,jdbcType=VARCHAR}
+    </if>
+    <if test="scoringStandard != null and scoringStandard != ''" >
+     and t_det.scoring_standard = #{scoringStandard,jdbcType=VARCHAR}
+    </if>
+    <if test="weightValue != null and weightValue != ''" >
+     and t_det.weight_value = #{weightValue,jdbcType=INTEGER}
+    </if>
+    <if test="score != null and score != ''" >
+     and t_det.score = #{score,jdbcType=DECIMAL}
+    </if>
+ <!--    <if test="appealStatus != null and appealStatus != ''" >
+     and t_det.appeal_status = #{appealStatus,jdbcType=CHAR}
+    </if> -->
+    <if test="appealOpinion != null and appealOpinion != ''" >
+     and t_det.appeal_opinion = #{appealOpinion,jdbcType=VARCHAR}
+    </if>
+    <if test="hrOpinion != null and hrOpinion != ''" >
+     and t_det.hr_opinion = #{hrOpinion,jdbcType=VARCHAR}
+    </if>
+    <if test="completion != null and completion != ''" >
+     and t_det.completion = #{completion,jdbcType=VARCHAR}
+    </if>
+    <if test="superiorOpinion != null and superiorOpinion != ''" >
+     and t_det.superior_opinion = #{superiorOpinion,jdbcType=VARCHAR}
+    </if>
+    <if test="dataSources != null and dataSources != ''" >
+     and t_det.data_sources = #{dataSources,jdbcType=VARCHAR}
+    </if>
+    <if test="isMandatory != null and isMandatory != ''" >
+     and t_det.is_mandatory = #{isMandatory,jdbcType=CHAR}
+    </if>
+    <if test="isAutomaticScoring != null and isAutomaticScoring != ''" >
+     and t_det.is_automatic_scoring = #{isAutomaticScoring,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and t_det.remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  
+  
+  <select id="getZjXmJxTaskScoreDetailedTaskExcel" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxTaskScoreDetailed" >
+   SELECT t1.detailed_id, t1.auditee_name, t2.auditee_id_number AS idNumber,
+          t1.cost_duty_index, t1.weight_value, 
+          t1.score, t2.score as taskScore,
+          t3.`year_month` as yearMonth
+          FROM `zj_xm_jx_task_score_detailed`  t1 
+                INNER JOIN  zj_xm_jx_assessment_user_score t2 
+                            ON t1.score_id = t2.score_id
+                INNER JOIN  zj_xm_jx_monthly_assessment  t3
+                            ON t2.assessment_id = t3.assessment_id
+         WHERE  t1.del_flag = '0' AND t2.del_flag = '0'
+           AND  t3.del_flag = '0'
+    <if test="scoreId != null and scoreId != ''" >
+     and t1.score_id = #{scoreId,jdbcType=CHAR}
+    </if>
+    <if test="assessmentId != null and assessmentId != ''" >
+     and t1.assessment_id = #{assessmentId,jdbcType=CHAR}
+    </if>
+    <if test="auditeeDeptId != null and auditeeDeptId != ''" >
+     and t1.auditee_dept_id = #{auditeeDeptId,jdbcType=CHAR}
+    </if>
+    <if test="auditeeDeptName != null and auditeeDeptName != ''" >
+     and t1.auditee_dept_name = #{auditeeDeptName,jdbcType=VARCHAR}
+    </if>
+    <if test="auditeeProId != null and auditeeProId != ''" >
+     and t1.auditee_pro_id = #{auditeeProId,jdbcType=CHAR}
+    </if>
+    <if test="auditeeProName != null and auditeeProName != ''" >
+     and t1.auditee_pro_name = #{auditeeProName,jdbcType=VARCHAR}
+    </if>
+    <if test="yearMonth != null" >
+     and date_format(t3.`year_month`, '%Y-%m') = date_format(#{yearMonth,jdbcType=TIMESTAMP},'%Y-%m')
+    </if>
+    ORDER BY t1.auditee_key
+  </select>
+
+</mapper>

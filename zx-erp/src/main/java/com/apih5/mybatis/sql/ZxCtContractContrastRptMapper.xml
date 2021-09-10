@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCtContractContrastRptMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCtContractContrastRpt" >
+    <id column="zxCtContractContrastRptId" property="zxCtContractContrastRptId" jdbcType="CHAR" />
+    <result column="firstName" property="firstName" jdbcType="VARCHAR" />
+    <result column="contractNo" property="contractNo" jdbcType="VARCHAR" />
+    <result column="customerName" property="customerName" jdbcType="VARCHAR" />
+    <result column="secondName" property="secondName" jdbcType="VARCHAR" />
+    <result column="workType" property="workType" jdbcType="VARCHAR" />
+    <result column="workNo" property="workNo" jdbcType="VARCHAR" />
+    <result column="workName" property="workName" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="qty" property="qty" jdbcType="DECIMAL" />
+    <result column="contractSum" property="contractSum" jdbcType="DECIMAL" />
+    <result column="inPrice" property="inPrice" jdbcType="DECIMAL" />
+    <result column="inQty" property="inQty" jdbcType="DECIMAL" />
+    <result column="inAmt" property="inAmt" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="contractNo" property="contractNo" jdbcType="VARCHAR" />
+    <result column="supplyUnit" property="supplyUnit" jdbcType="VARCHAR" />
+    <result column="resTypeID" property="resTypeID" jdbcType="VARCHAR" />
+    <result column="resID" property="resID" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxCtContractContrastRptId, firstName, contractNo, customerName, secondName, 
+    workType, workNo, workName, spec, unit, 
+    price, qty, contractSum, inPrice, inQty, 
+    inAmt, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_contractContrastRpt
+    where del_flag = '0' and zxCtContractContrastRptId = #{zxCtContractContrastRptId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_ct_contractContrastRpt
+    where zxCtContractContrastRptId = #{zxCtContractContrastRptId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCtContractContrastRpt" >
+    insert into zx_ct_contractContrastRpt (
+    zxCtContractContrastRptId, firstName, contractNo, customerName, secondName, 
+    workType, workNo, workName, spec, unit, 
+    price, qty, contractSum, inPrice, inQty, 
+    inAmt, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxCtContractContrastRptId,jdbcType=CHAR}, #{firstName,jdbcType=VARCHAR}, #{contractNo,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, #{secondName,jdbcType=VARCHAR}, 
+    #{workType,jdbcType=VARCHAR}, #{workNo,jdbcType=VARCHAR}, #{workName,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, 
+    #{price,jdbcType=DECIMAL}, #{qty,jdbcType=DECIMAL}, #{contractSum,jdbcType=DECIMAL}, #{inPrice,jdbcType=DECIMAL}, #{inQty,jdbcType=DECIMAL}, 
+    #{inAmt,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+    #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCtContractContrastRpt" >
+    insert into zx_ct_contractContrastRpt
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxCtContractContrastRptId != null" >
+        zxCtContractContrastRptId,
+      </if>
+      <if test="firstName != null" >
+        firstName,
+      </if>
+      <if test="contractNo != null" >
+        contractNo,
+      </if>
+      <if test="customerName != null" >
+        customerName,
+      </if>
+      <if test="secondName != null" >
+        secondName,
+      </if>
+      <if test="workType != null" >
+        workType,
+      </if>
+      <if test="workNo != null" >
+        workNo,
+      </if>
+      <if test="workName != null" >
+        workName,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="qty != null" >
+        qty,
+      </if>
+      <if test="contractSum != null" >
+        contractSum,
+      </if>
+      <if test="inPrice != null" >
+        inPrice,
+      </if>
+      <if test="inQty != null" >
+        inQty,
+      </if>
+      <if test="inAmt != null" >
+        inAmt,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxCtContractContrastRptId != null" >
+        #{zxCtContractContrastRptId,jdbcType=CHAR},
+      </if>
+      <if test="firstName != null" >
+        #{firstName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null" >
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondName != null" >
+        #{secondName,jdbcType=VARCHAR},
+      </if>
+      <if test="workType != null" >
+        #{workType,jdbcType=VARCHAR},
+      </if>
+      <if test="workNo != null" >
+        #{workNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workName != null" >
+        #{workName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="qty != null" >
+        #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="contractSum != null" >
+        #{contractSum,jdbcType=DECIMAL},
+      </if>
+      <if test="inPrice != null" >
+        #{inPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="inQty != null" >
+        #{inQty,jdbcType=DECIMAL},
+      </if>
+      <if test="inAmt != null" >
+        #{inAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCtContractContrastRpt" >
+    update zx_ct_contractContrastRpt
+    <set >
+      <if test="firstName != null" >
+        firstName = #{firstName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null" >
+        contractNo = #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        customerName = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondName != null" >
+        secondName = #{secondName,jdbcType=VARCHAR},
+      </if>
+      <if test="workType != null" >
+        workType = #{workType,jdbcType=VARCHAR},
+      </if>
+      <if test="workNo != null" >
+        workNo = #{workNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workName != null" >
+        workName = #{workName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="qty != null" >
+        qty = #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="contractSum != null" >
+        contractSum = #{contractSum,jdbcType=DECIMAL},
+      </if>
+      <if test="inPrice != null" >
+        inPrice = #{inPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="inQty != null" >
+        inQty = #{inQty,jdbcType=DECIMAL},
+      </if>
+      <if test="inAmt != null" >
+        inAmt = #{inAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxCtContractContrastRptId = #{zxCtContractContrastRptId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCtContractContrastRpt" >
+    update zx_ct_contractContrastRpt set 
+      firstName = #{firstName,jdbcType=VARCHAR},
+      contractNo = #{contractNo,jdbcType=VARCHAR},
+      customerName = #{customerName,jdbcType=VARCHAR},
+      secondName = #{secondName,jdbcType=VARCHAR},
+      workType = #{workType,jdbcType=VARCHAR},
+      workNo = #{workNo,jdbcType=VARCHAR},
+      workName = #{workName,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      qty = #{qty,jdbcType=DECIMAL},
+      contractSum = #{contractSum,jdbcType=DECIMAL},
+      inPrice = #{inPrice,jdbcType=DECIMAL},
+      inQty = #{inQty,jdbcType=DECIMAL},
+      inAmt = #{inAmt,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxCtContractContrastRptId = #{zxCtContractContrastRptId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxCtContractContrastRptList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtContractContrastRpt" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_contractContrastRpt
+    where del_flag = '0'
+    <if test="zxCtContractContrastRptId != null and zxCtContractContrastRptId != ''" >
+     and zxCtContractContrastRptId = #{zxCtContractContrastRptId,jdbcType=CHAR}
+    </if>
+    <if test="firstName != null and firstName != ''" >
+     and firstName = #{firstName,jdbcType=VARCHAR}
+    </if>
+    <if test="contractNo != null and contractNo != ''" >
+     and contractNo = #{contractNo,jdbcType=VARCHAR}
+    </if>
+    <if test="customerName != null and customerName != ''" >
+     and customerName = #{customerName,jdbcType=VARCHAR}
+    </if>
+    <if test="secondName != null and secondName != ''" >
+     and secondName = #{secondName,jdbcType=VARCHAR}
+    </if>
+    <if test="workType != null and workType != ''" >
+     and workType = #{workType,jdbcType=VARCHAR}
+    </if>
+    <if test="workNo != null and workNo != ''" >
+     and workNo = #{workNo,jdbcType=VARCHAR}
+    </if>
+    <if test="workName != null and workName != ''" >
+     and workName = #{workName,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="unit != null and unit != ''" >
+     and unit = #{unit,jdbcType=VARCHAR}
+    </if>
+    <if test="price != null and price != ''" >
+     and price = #{price,jdbcType=DECIMAL}
+    </if>
+    <if test="qty != null and qty != ''" >
+     and qty = #{qty,jdbcType=DECIMAL}
+    </if>
+    <if test="contractSum != null and contractSum != ''" >
+     and contractSum = #{contractSum,jdbcType=DECIMAL}
+    </if>
+    <if test="inPrice != null and inPrice != ''" >
+     and inPrice = #{inPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="inQty != null and inQty != ''" >
+     and inQty = #{inQty,jdbcType=DECIMAL}
+    </if>
+    <if test="inAmt != null and inAmt != ''" >
+     and inAmt = #{inAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxCtContractContrastRpt" parameterType="com.apih5.mybatis.pojo.ZxCtContractContrastRpt" >
+    <![CDATA[ 
+        update zx_ct_contractContrastRpt
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxCtContractContrastRptId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxCtContractContrastRptId} 
+     </foreach>
+  </delete>
+   <select id="selectZxCtContractContrastRpt" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtContractContrastRpt" >
+   select c.firstName,c.contractNo,o2.customerName as secondName,
+       ci.workType,ci.workNo,ci.workName,ci.spec,ci.unit,
+       case when ifnull(ca.canum,0) = 0 then ci.price else ci.changePrice end as price,
+       case when ifnull(ca.canum,0) = 0 then ci.qty else ci.changeQty end as qty,
+       case when ifnull(ca.canum,0) = 0 then ci.contractSum else ci.changeContractSum end as contractSum,
+       ifnull(st.price,0) as inPrice,ifnull(st.inQty,0) as inQty,ifnull(st.inAmt,0) as inAmt
+from zx_ct_supplies_contr_shop_list ci
+inner join zx_ct_supplies_contract c on ci.contractID = c.zx_ct_supplies_contract_ID and c.contractType = 'P5'
+left join sys_project o1 on c.firstId = o1.project_id
+left join zx_cr_customernew o2 on c.secondID = o2.zx_cr_customernew_ID
+left join (
+    select a.contractID,a.workID,COUNT(1) as canum 
+    from zx_ct_supplies_contr_apply_shop_list a
+         inner join zx_ct_supplies_contr_apply b on a.pp5 = b.apply_id
+    where b.status = '1'
+    group by a.contractID,a.workID
+) ca on c.zx_ct_supplies_contract_ID = ca.contractID and ci.workID = ca.workID
+left join (
+    select st.contractNo,sti.resID,sum(sti.inQty) as inQty,sum(sti.inAmt) as inAmt,
+           round(case when sum(sti.inQty) = 0 then 0 else sum(sti.inAmt)/sum(sti.inQty) end,2) as price  
+    from zx_sk_StockTransItem sti
+    inner join zx_sk_StockTransfer st on sti.billID = st.id
+    where st.billType in (11,12) and st.billStatus = '已审核' and ifnull(st.contractNo,'') != ''
+    group by st.contractNo,sti.resID
+) st on c.zx_ct_supplies_contract_ID = st.contractNo and ci.workID = st.resID
+where (c.contractNo like '%'||#{contractNo,jdbcType=VARCHAR}||'%' or c.contractName like '%'||#{contractNo,jdbcType=VARCHAR}||'%')
+and o2.customerName like '%'||#{supplyUnit,jdbcType=VARCHAR}||'%'
+and (ci.workTypeID = #{resTypeID,jdbcType=VARCHAR} or #{resTypeID,jdbcType=VARCHAR} is null or #{resTypeID,jdbcType=VARCHAR} = '')
+and (ci.workID = #{resID,jdbcType=VARCHAR} or #{resID,jdbcType=VARCHAR} is null or #{resID,jdbcType=VARCHAR} = '')
+order by c.firstId,c.secondID,ci.workTypeID,ci.workID
+   </select>
+</mapper>

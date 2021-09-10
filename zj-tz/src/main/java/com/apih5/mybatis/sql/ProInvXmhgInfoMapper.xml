@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ProInvXmhgInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ProInvXmhgInfo" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="inv_htinfo_id" property="invHtinfoId" jdbcType="CHAR" />
+    <result column="hgxy_date" property="hgxyDate" jdbcType="TIMESTAMP" />
+    <result column="hgxy_money" property="hgxyMoney" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, inv_htinfo_id, hgxy_date, hgxy_money
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from del_flag = '0' and pro_inv_xmhg_info
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from pro_inv_xmhg_info
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ProInvXmhgInfo" >
+    insert into pro_inv_xmhg_info (id, inv_htinfo_id, hgxy_date, 
+      hgxy_money
+      )
+    values (#{id,jdbcType=CHAR}, #{invHtinfoId,jdbcType=CHAR}, #{hgxyDate,jdbcType=TIMESTAMP}, 
+      #{hgxyMoney,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ProInvXmhgInfo" >
+    insert into pro_inv_xmhg_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="invHtinfoId != null" >
+        inv_htinfo_id,
+      </if>
+      <if test="hgxyDate != null" >
+        hgxy_date,
+      </if>
+      <if test="hgxyMoney != null" >
+        hgxy_money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="invHtinfoId != null" >
+        #{invHtinfoId,jdbcType=CHAR},
+      </if>
+      <if test="hgxyDate != null" >
+        #{hgxyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hgxyMoney != null" >
+        #{hgxyMoney,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ProInvXmhgInfo" >
+    update pro_inv_xmhg_info
+    <set >
+      <if test="invHtinfoId != null" >
+        inv_htinfo_id = #{invHtinfoId,jdbcType=CHAR},
+      </if>
+      <if test="hgxyDate != null" >
+        hgxy_date = #{hgxyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hgxyMoney != null" >
+        hgxy_money = #{hgxyMoney,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ProInvXmhgInfo" >
+    update pro_inv_xmhg_info
+    set       inv_htinfo_id = #{invHtinfoId,jdbcType=CHAR},
+      hgxy_date = #{hgxyDate,jdbcType=TIMESTAMP},
+      hgxy_money = #{hgxyMoney,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByProInvXmhgInfoList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ProInvXmhgInfo" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_inv_xmhg_info
+    where 1 = 1
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=}
+    </if>
+    <if test="invHtinfoId != null and invHtinfoId != ''" >
+     and inv_htinfo_id = #{invHtinfoId,jdbcType=CHAR}
+    </if>
+    <if test="hgxyDate != null and hgxyDate != ''" >
+     and hgxy_date = #{hgxyDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="hgxyMoney != null and hgxyMoney != ''" >
+     and hgxy_money = #{hgxyMoney,jdbcType=DECIMAL}
+    </if>
+    ORDER BY hgxy_date ASC 
+  </select>
+  <delete id="batchDeleteUpdateProInvXmhgInfo" parameterType="com.apih5.mybatis.pojo.ProInvXmhgInfo" >
+    <![CDATA[ 
+        update pro_inv_xmhg_info
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

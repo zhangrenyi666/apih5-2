@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzDesignChangeStatisticsMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzDesignChangeStatistics" >
+    <id column="design_change_statistics_id" property="designChangeStatisticsId" jdbcType="CHAR" />
+    <result column="design_change_id" property="designChangeId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="subproject_info_id" property="subprojectInfoId" jdbcType="CHAR" />
+    <result column="subproject_name" property="subprojectName" jdbcType="VARCHAR" />
+    <result column="ext_a1" property="extA1" jdbcType="INTEGER" />
+    <result column="ext_a2" property="extA2" jdbcType="DECIMAL" />
+    <result column="ext_a3" property="extA3" jdbcType="INTEGER" />
+    <result column="ext_a4" property="extA4" jdbcType="DECIMAL" />
+    <result column="ext_a5" property="extA5" jdbcType="INTEGER" />
+    <result column="ext_a6" property="extA6" jdbcType="DECIMAL" />
+    <result column="ext_a7" property="extA7" jdbcType="INTEGER" />
+    <result column="ext_a8" property="extA8" jdbcType="INTEGER" />
+    <result column="ext_b1" property="extB1" jdbcType="INTEGER" />
+    <result column="ext_b2" property="extB2" jdbcType="DECIMAL" />
+    <result column="ext_b3" property="extB3" jdbcType="INTEGER" />
+    <result column="ext_b4" property="extB4" jdbcType="DECIMAL" />
+    <result column="ext_b5" property="extB5" jdbcType="INTEGER" />
+    <result column="ext_b6" property="extB6" jdbcType="DECIMAL" />
+    <result column="ext_b7" property="extB7" jdbcType="INTEGER" />
+    <result column="ext_b8" property="extB8" jdbcType="INTEGER" />
+    <result column="ext_c11" property="extC11" jdbcType="INTEGER" />
+    <result column="ext_c12" property="extC12" jdbcType="DECIMAL" />
+    <result column="ext_c13" property="extC13" jdbcType="INTEGER" />
+    <result column="ext_c14" property="extC14" jdbcType="DECIMAL" />
+    <result column="ext_c15" property="extC15" jdbcType="INTEGER" />
+    <result column="ext_c16" property="extC16" jdbcType="INTEGER" />
+    <result column="ext_c21" property="extC21" jdbcType="INTEGER" />
+    <result column="ext_c22" property="extC22" jdbcType="DECIMAL" />
+    <result column="ext_c23" property="extC23" jdbcType="INTEGER" />
+    <result column="ext_c24" property="extC24" jdbcType="INTEGER" />
+    <result column="ext_d11" property="extD11" jdbcType="INTEGER" />
+    <result column="ext_d12" property="extD12" jdbcType="DECIMAL" />
+    <result column="ext_d13" property="extD13" jdbcType="INTEGER" />
+    <result column="ext_d14" property="extD14" jdbcType="DECIMAL" />
+    <result column="ext_d15" property="extD15" jdbcType="INTEGER" />
+    <result column="ext_d16" property="extD16" jdbcType="INTEGER" />
+    <result column="ext_d21" property="extD21" jdbcType="INTEGER" />
+    <result column="ext_d22" property="extD22" jdbcType="DECIMAL" />
+    <result column="ext_d23" property="extD23" jdbcType="INTEGER" />
+    <result column="ext_all1" property="extAll1" jdbcType="INTEGER" />
+    <result column="ext_all2" property="extAll2" jdbcType="DECIMAL" />
+    <result column="ext_all3" property="extAll3" jdbcType="INTEGER" />
+    <result column="ext_all4" property="extAll4" jdbcType="DECIMAL" />
+    <result column="ext_all5" property="extAll5" jdbcType="INTEGER" />
+    <result column="ext_all6" property="extAll6" jdbcType="DECIMAL" />
+    <result column="ext_all7" property="extAll7" jdbcType="INTEGER" />
+    <result column="ext_all8" property="extAll8" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="release_id" property="releaseId" jdbcType="CHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    design_change_statistics_id, design_change_id, project_id, project_name, subproject_info_id, 
+    subproject_name, ext_a1, ext_a2, ext_a3, ext_a4, 
+    ext_a5, ext_a6, ext_a7, ext_a8, ext_b1, 
+    ext_b2, ext_b3, ext_b4, ext_b5, ext_b6, 
+    ext_b7, ext_b8, ext_c11, ext_c12, ext_c13, 
+    ext_c14, ext_c15, ext_c16, ext_c21, ext_c22, 
+    ext_c23, ext_c24, ext_d11, ext_d12, ext_d13, 
+    ext_d14, ext_d15, ext_d16, ext_d21, ext_d22, 
+    ext_d23, ext_all1, ext_all2, ext_all3, ext_all4, 
+    ext_all5, ext_all6, ext_all7, ext_all8, remarks, release_id,
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_design_change_statistics
+    where design_change_statistics_id = #{designChangeStatisticsId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_design_change_statistics
+    where design_change_statistics_id = #{designChangeStatisticsId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzDesignChangeStatistics" >
+    insert into zj_tz_design_change_statistics (design_change_statistics_id, design_change_id, project_id, 
+      project_name, subproject_info_id, subproject_name, 
+      ext_a1, ext_a2, ext_a3, 
+      ext_a4, ext_a5, ext_a6, 
+      ext_a7, ext_a8, ext_b1, 
+      ext_b2, ext_b3, ext_b4, 
+      ext_b5, ext_b6, ext_b7, 
+      ext_b8, ext_c11, ext_c12, 
+      ext_c13, ext_c14, ext_c15, 
+      ext_c16, ext_c21, ext_c22, 
+      ext_c23, ext_c24, ext_d11, 
+      ext_d12, ext_d13, ext_d14, 
+      ext_d15, ext_d16, ext_d21, 
+      ext_d22, ext_d23, ext_all1, 
+      ext_all2, ext_all3, ext_all4, 
+      ext_all5, ext_all6, ext_all7, 
+      ext_all8, remarks, del_flag, release_id,
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{designChangeStatisticsId,jdbcType=CHAR}, #{designChangeId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{subprojectInfoId,jdbcType=CHAR}, #{subprojectName,jdbcType=VARCHAR}, 
+      #{extA1,jdbcType=INTEGER}, #{extA2,jdbcType=DECIMAL}, #{extA3,jdbcType=INTEGER}, 
+      #{extA4,jdbcType=DECIMAL}, #{extA5,jdbcType=INTEGER}, #{extA6,jdbcType=DECIMAL}, 
+      #{extA7,jdbcType=INTEGER}, #{extA8,jdbcType=INTEGER}, #{extB1,jdbcType=INTEGER}, 
+      #{extB2,jdbcType=DECIMAL}, #{extB3,jdbcType=INTEGER}, #{extB4,jdbcType=DECIMAL}, 
+      #{extB5,jdbcType=INTEGER}, #{extB6,jdbcType=DECIMAL}, #{extB7,jdbcType=INTEGER}, 
+      #{extB8,jdbcType=INTEGER}, #{extC11,jdbcType=INTEGER}, #{extC12,jdbcType=DECIMAL}, 
+      #{extC13,jdbcType=INTEGER}, #{extC14,jdbcType=DECIMAL}, #{extC15,jdbcType=INTEGER}, 
+      #{extC16,jdbcType=INTEGER}, #{extC21,jdbcType=INTEGER}, #{extC22,jdbcType=DECIMAL}, 
+      #{extC23,jdbcType=INTEGER}, #{extC24,jdbcType=INTEGER}, #{extD11,jdbcType=INTEGER}, 
+      #{extD12,jdbcType=DECIMAL}, #{extD13,jdbcType=INTEGER}, #{extD14,jdbcType=DECIMAL}, 
+      #{extD15,jdbcType=INTEGER}, #{extD16,jdbcType=INTEGER}, #{extD21,jdbcType=INTEGER}, 
+      #{extD22,jdbcType=DECIMAL}, #{extD23,jdbcType=INTEGER}, #{extAll1,jdbcType=INTEGER}, 
+      #{extAll2,jdbcType=DECIMAL}, #{extAll3,jdbcType=INTEGER}, #{extAll4,jdbcType=DECIMAL}, 
+      #{extAll5,jdbcType=INTEGER}, #{extAll6,jdbcType=DECIMAL}, #{extAll7,jdbcType=INTEGER}, 
+      #{extAll8,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, #{releaseId,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzDesignChangeStatistics" >
+    insert into zj_tz_design_change_statistics
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="designChangeStatisticsId != null" >
+        design_change_statistics_id,
+      </if>
+      <if test="designChangeId != null" >
+        design_change_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="subprojectInfoId != null" >
+        subproject_info_id,
+      </if>
+      <if test="subprojectName != null" >
+        subproject_name,
+      </if>
+      <if test="extA1 != null" >
+        ext_a1,
+      </if>
+      <if test="extA2 != null" >
+        ext_a2,
+      </if>
+      <if test="extA3 != null" >
+        ext_a3,
+      </if>
+      <if test="extA4 != null" >
+        ext_a4,
+      </if>
+      <if test="extA5 != null" >
+        ext_a5,
+      </if>
+      <if test="extA6 != null" >
+        ext_a6,
+      </if>
+      <if test="extA7 != null" >
+        ext_a7,
+      </if>
+      <if test="extA8 != null" >
+        ext_a8,
+      </if>
+      <if test="extB1 != null" >
+        ext_b1,
+      </if>
+      <if test="extB2 != null" >
+        ext_b2,
+      </if>
+      <if test="extB3 != null" >
+        ext_b3,
+      </if>
+      <if test="extB4 != null" >
+        ext_b4,
+      </if>
+      <if test="extB5 != null" >
+        ext_b5,
+      </if>
+      <if test="extB6 != null" >
+        ext_b6,
+      </if>
+      <if test="extB7 != null" >
+        ext_b7,
+      </if>
+      <if test="extB8 != null" >
+        ext_b8,
+      </if>
+      <if test="extC11 != null" >
+        ext_c11,
+      </if>
+      <if test="extC12 != null" >
+        ext_c12,
+      </if>
+      <if test="extC13 != null" >
+        ext_c13,
+      </if>
+      <if test="extC14 != null" >
+        ext_c14,
+      </if>
+      <if test="extC15 != null" >
+        ext_c15,
+      </if>
+      <if test="extC16 != null" >
+        ext_c16,
+      </if>
+      <if test="extC21 != null" >
+        ext_c21,
+      </if>
+      <if test="extC22 != null" >
+        ext_c22,
+      </if>
+      <if test="extC23 != null" >
+        ext_c23,
+      </if>
+      <if test="extC24 != null" >
+        ext_c24,
+      </if>
+      <if test="extD11 != null" >
+        ext_d11,
+      </if>
+      <if test="extD12 != null" >
+        ext_d12,
+      </if>
+      <if test="extD13 != null" >
+        ext_d13,
+      </if>
+      <if test="extD14 != null" >
+        ext_d14,
+      </if>
+      <if test="extD15 != null" >
+        ext_d15,
+      </if>
+      <if test="extD16 != null" >
+        ext_d16,
+      </if>
+      <if test="extD21 != null" >
+        ext_d21,
+      </if>
+      <if test="extD22 != null" >
+        ext_d22,
+      </if>
+      <if test="extD23 != null" >
+        ext_d23,
+      </if>
+      <if test="extAll1 != null" >
+        ext_all1,
+      </if>
+      <if test="extAll2 != null" >
+        ext_all2,
+      </if>
+      <if test="extAll3 != null" >
+        ext_all3,
+      </if>
+      <if test="extAll4 != null" >
+        ext_all4,
+      </if>
+      <if test="extAll5 != null" >
+        ext_all5,
+      </if>
+      <if test="extAll6 != null" >
+        ext_all6,
+      </if>
+      <if test="extAll7 != null" >
+        ext_all7,
+      </if>
+      <if test="extAll8 != null" >
+        ext_all8,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="releaseId != null" >
+        release_id,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="designChangeStatisticsId != null" >
+        #{designChangeStatisticsId,jdbcType=CHAR},
+      </if>
+      <if test="designChangeId != null" >
+        #{designChangeId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectInfoId != null" >
+        #{subprojectInfoId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectName != null" >
+        #{subprojectName,jdbcType=VARCHAR},
+      </if>
+      <if test="extA1 != null" >
+        #{extA1,jdbcType=INTEGER},
+      </if>
+      <if test="extA2 != null" >
+        #{extA2,jdbcType=DECIMAL},
+      </if>
+      <if test="extA3 != null" >
+        #{extA3,jdbcType=INTEGER},
+      </if>
+      <if test="extA4 != null" >
+        #{extA4,jdbcType=DECIMAL},
+      </if>
+      <if test="extA5 != null" >
+        #{extA5,jdbcType=INTEGER},
+      </if>
+      <if test="extA6 != null" >
+        #{extA6,jdbcType=DECIMAL},
+      </if>
+      <if test="extA7 != null" >
+        #{extA7,jdbcType=INTEGER},
+      </if>
+      <if test="extA8 != null" >
+        #{extA8,jdbcType=INTEGER},
+      </if>
+      <if test="extB1 != null" >
+        #{extB1,jdbcType=INTEGER},
+      </if>
+      <if test="extB2 != null" >
+        #{extB2,jdbcType=DECIMAL},
+      </if>
+      <if test="extB3 != null" >
+        #{extB3,jdbcType=INTEGER},
+      </if>
+      <if test="extB4 != null" >
+        #{extB4,jdbcType=DECIMAL},
+      </if>
+      <if test="extB5 != null" >
+        #{extB5,jdbcType=INTEGER},
+      </if>
+      <if test="extB6 != null" >
+        #{extB6,jdbcType=DECIMAL},
+      </if>
+      <if test="extB7 != null" >
+        #{extB7,jdbcType=INTEGER},
+      </if>
+      <if test="extB8 != null" >
+        #{extB8,jdbcType=INTEGER},
+      </if>
+      <if test="extC11 != null" >
+        #{extC11,jdbcType=INTEGER},
+      </if>
+      <if test="extC12 != null" >
+        #{extC12,jdbcType=DECIMAL},
+      </if>
+      <if test="extC13 != null" >
+        #{extC13,jdbcType=INTEGER},
+      </if>
+      <if test="extC14 != null" >
+        #{extC14,jdbcType=DECIMAL},
+      </if>
+      <if test="extC15 != null" >
+        #{extC15,jdbcType=INTEGER},
+      </if>
+      <if test="extC16 != null" >
+        #{extC16,jdbcType=INTEGER},
+      </if>
+      <if test="extC21 != null" >
+        #{extC21,jdbcType=INTEGER},
+      </if>
+      <if test="extC22 != null" >
+        #{extC22,jdbcType=DECIMAL},
+      </if>
+      <if test="extC23 != null" >
+        #{extC23,jdbcType=INTEGER},
+      </if>
+      <if test="extC24 != null" >
+        #{extC24,jdbcType=INTEGER},
+      </if>
+      <if test="extD11 != null" >
+        #{extD11,jdbcType=INTEGER},
+      </if>
+      <if test="extD12 != null" >
+        #{extD12,jdbcType=DECIMAL},
+      </if>
+      <if test="extD13 != null" >
+        #{extD13,jdbcType=INTEGER},
+      </if>
+      <if test="extD14 != null" >
+        #{extD14,jdbcType=DECIMAL},
+      </if>
+      <if test="extD15 != null" >
+        #{extD15,jdbcType=INTEGER},
+      </if>
+      <if test="extD16 != null" >
+        #{extD16,jdbcType=INTEGER},
+      </if>
+      <if test="extD21 != null" >
+        #{extD21,jdbcType=INTEGER},
+      </if>
+      <if test="extD22 != null" >
+        #{extD22,jdbcType=DECIMAL},
+      </if>
+      <if test="extD23 != null" >
+        #{extD23,jdbcType=INTEGER},
+      </if>
+      <if test="extAll1 != null" >
+        #{extAll1,jdbcType=INTEGER},
+      </if>
+      <if test="extAll2 != null" >
+        #{extAll2,jdbcType=DECIMAL},
+      </if>
+      <if test="extAll3 != null" >
+        #{extAll3,jdbcType=INTEGER},
+      </if>
+      <if test="extAll4 != null" >
+        #{extAll4,jdbcType=DECIMAL},
+      </if>
+      <if test="extAll5 != null" >
+        #{extAll5,jdbcType=INTEGER},
+      </if>
+      <if test="extAll6 != null" >
+        #{extAll6,jdbcType=DECIMAL},
+      </if>
+      <if test="extAll7 != null" >
+        #{extAll7,jdbcType=INTEGER},
+      </if>
+      <if test="extAll8 != null" >
+        #{extAll8,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseId != null" >
+        #{releaseId,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzDesignChangeStatistics" >
+    update zj_tz_design_change_statistics
+    <set >
+      <if test="designChangeId != null" >
+        design_change_id = #{designChangeId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectInfoId != null" >
+        subproject_info_id = #{subprojectInfoId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectName != null" >
+        subproject_name = #{subprojectName,jdbcType=VARCHAR},
+      </if>
+      <if test="extA1 != null" >
+        ext_a1 = #{extA1,jdbcType=INTEGER},
+      </if>
+      <if test="extA2 != null" >
+        ext_a2 = #{extA2,jdbcType=DECIMAL},
+      </if>
+      <if test="extA3 != null" >
+        ext_a3 = #{extA3,jdbcType=INTEGER},
+      </if>
+      <if test="extA4 != null" >
+        ext_a4 = #{extA4,jdbcType=DECIMAL},
+      </if>
+      <if test="extA5 != null" >
+        ext_a5 = #{extA5,jdbcType=INTEGER},
+      </if>
+      <if test="extA6 != null" >
+        ext_a6 = #{extA6,jdbcType=DECIMAL},
+      </if>
+      <if test="extA7 != null" >
+        ext_a7 = #{extA7,jdbcType=INTEGER},
+      </if>
+      <if test="extA8 != null" >
+        ext_a8 = #{extA8,jdbcType=INTEGER},
+      </if>
+      <if test="extB1 != null" >
+        ext_b1 = #{extB1,jdbcType=INTEGER},
+      </if>
+      <if test="extB2 != null" >
+        ext_b2 = #{extB2,jdbcType=DECIMAL},
+      </if>
+      <if test="extB3 != null" >
+        ext_b3 = #{extB3,jdbcType=INTEGER},
+      </if>
+      <if test="extB4 != null" >
+        ext_b4 = #{extB4,jdbcType=DECIMAL},
+      </if>
+      <if test="extB5 != null" >
+        ext_b5 = #{extB5,jdbcType=INTEGER},
+      </if>
+      <if test="extB6 != null" >
+        ext_b6 = #{extB6,jdbcType=DECIMAL},
+      </if>
+      <if test="extB7 != null" >
+        ext_b7 = #{extB7,jdbcType=INTEGER},
+      </if>
+      <if test="extB8 != null" >
+        ext_b8 = #{extB8,jdbcType=INTEGER},
+      </if>
+      <if test="extC11 != null" >
+        ext_c11 = #{extC11,jdbcType=INTEGER},
+      </if>
+      <if test="extC12 != null" >
+        ext_c12 = #{extC12,jdbcType=DECIMAL},
+      </if>
+      <if test="extC13 != null" >
+        ext_c13 = #{extC13,jdbcType=INTEGER},
+      </if>
+      <if test="extC14 != null" >
+        ext_c14 = #{extC14,jdbcType=DECIMAL},
+      </if>
+      <if test="extC15 != null" >
+        ext_c15 = #{extC15,jdbcType=INTEGER},
+      </if>
+      <if test="extC16 != null" >
+        ext_c16 = #{extC16,jdbcType=INTEGER},
+      </if>
+      <if test="extC21 != null" >
+        ext_c21 = #{extC21,jdbcType=INTEGER},
+      </if>
+      <if test="extC22 != null" >
+        ext_c22 = #{extC22,jdbcType=DECIMAL},
+      </if>
+      <if test="extC23 != null" >
+        ext_c23 = #{extC23,jdbcType=INTEGER},
+      </if>
+      <if test="extC24 != null" >
+        ext_c24 = #{extC24,jdbcType=INTEGER},
+      </if>
+      <if test="extD11 != null" >
+        ext_d11 = #{extD11,jdbcType=INTEGER},
+      </if>
+      <if test="extD12 != null" >
+        ext_d12 = #{extD12,jdbcType=DECIMAL},
+      </if>
+      <if test="extD13 != null" >
+        ext_d13 = #{extD13,jdbcType=INTEGER},
+      </if>
+      <if test="extD14 != null" >
+        ext_d14 = #{extD14,jdbcType=DECIMAL},
+      </if>
+      <if test="extD15 != null" >
+        ext_d15 = #{extD15,jdbcType=INTEGER},
+      </if>
+      <if test="extD16 != null" >
+        ext_d16 = #{extD16,jdbcType=INTEGER},
+      </if>
+      <if test="extD21 != null" >
+        ext_d21 = #{extD21,jdbcType=INTEGER},
+      </if>
+      <if test="extD22 != null" >
+        ext_d22 = #{extD22,jdbcType=DECIMAL},
+      </if>
+      <if test="extD23 != null" >
+        ext_d23 = #{extD23,jdbcType=INTEGER},
+      </if>
+      <if test="extAll1 != null" >
+        ext_all1 = #{extAll1,jdbcType=INTEGER},
+      </if>
+      <if test="extAll2 != null" >
+        ext_all2 = #{extAll2,jdbcType=DECIMAL},
+      </if>
+      <if test="extAll3 != null" >
+        ext_all3 = #{extAll3,jdbcType=INTEGER},
+      </if>
+      <if test="extAll4 != null" >
+        ext_all4 = #{extAll4,jdbcType=DECIMAL},
+      </if>
+      <if test="extAll5 != null" >
+        ext_all5 = #{extAll5,jdbcType=INTEGER},
+      </if>
+      <if test="extAll6 != null" >
+        ext_all6 = #{extAll6,jdbcType=DECIMAL},
+      </if>
+      <if test="extAll7 != null" >
+        ext_all7 = #{extAll7,jdbcType=INTEGER},
+      </if>
+      <if test="extAll8 != null" >
+        ext_all8 = #{extAll8,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseId != null" >
+        release_id = #{releaseId,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where design_change_statistics_id = #{designChangeStatisticsId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzDesignChangeStatistics" >
+    update zj_tz_design_change_statistics
+    set       design_change_id = #{designChangeId,jdbcType=CHAR},
+      project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      subproject_info_id = #{subprojectInfoId,jdbcType=CHAR},
+      subproject_name = #{subprojectName,jdbcType=VARCHAR},
+      ext_a1 = #{extA1,jdbcType=INTEGER},
+      ext_a2 = #{extA2,jdbcType=DECIMAL},
+      ext_a3 = #{extA3,jdbcType=INTEGER},
+      ext_a4 = #{extA4,jdbcType=DECIMAL},
+      ext_a5 = #{extA5,jdbcType=INTEGER},
+      ext_a6 = #{extA6,jdbcType=DECIMAL},
+      ext_a7 = #{extA7,jdbcType=INTEGER},
+      ext_a8 = #{extA8,jdbcType=INTEGER},
+      ext_b1 = #{extB1,jdbcType=INTEGER},
+      ext_b2 = #{extB2,jdbcType=DECIMAL},
+      ext_b3 = #{extB3,jdbcType=INTEGER},
+      ext_b4 = #{extB4,jdbcType=DECIMAL},
+      ext_b5 = #{extB5,jdbcType=INTEGER},
+      ext_b6 = #{extB6,jdbcType=DECIMAL},
+      ext_b7 = #{extB7,jdbcType=INTEGER},
+      ext_b8 = #{extB8,jdbcType=INTEGER},
+      ext_c11 = #{extC11,jdbcType=INTEGER},
+      ext_c12 = #{extC12,jdbcType=DECIMAL},
+      ext_c13 = #{extC13,jdbcType=INTEGER},
+      ext_c14 = #{extC14,jdbcType=DECIMAL},
+      ext_c15 = #{extC15,jdbcType=INTEGER},
+      ext_c16 = #{extC16,jdbcType=INTEGER},
+      ext_c21 = #{extC21,jdbcType=INTEGER},
+      ext_c22 = #{extC22,jdbcType=DECIMAL},
+      ext_c23 = #{extC23,jdbcType=INTEGER},
+      ext_c24 = #{extC24,jdbcType=INTEGER},
+      ext_d11 = #{extD11,jdbcType=INTEGER},
+      ext_d12 = #{extD12,jdbcType=DECIMAL},
+      ext_d13 = #{extD13,jdbcType=INTEGER},
+      ext_d14 = #{extD14,jdbcType=DECIMAL},
+      ext_d15 = #{extD15,jdbcType=INTEGER},
+      ext_d16 = #{extD16,jdbcType=INTEGER},
+      ext_d21 = #{extD21,jdbcType=INTEGER},
+      ext_d22 = #{extD22,jdbcType=DECIMAL},
+      ext_d23 = #{extD23,jdbcType=INTEGER},
+      ext_all1 = #{extAll1,jdbcType=INTEGER},
+      ext_all2 = #{extAll2,jdbcType=DECIMAL},
+      ext_all3 = #{extAll3,jdbcType=INTEGER},
+      ext_all4 = #{extAll4,jdbcType=DECIMAL},
+      ext_all5 = #{extAll5,jdbcType=INTEGER},
+      ext_all6 = #{extAll6,jdbcType=DECIMAL},
+      ext_all7 = #{extAll7,jdbcType=INTEGER},
+      ext_all8 = #{extAll8,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      release_id = #{releaseId,jdbcType=CHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where design_change_statistics_id = #{designChangeStatisticsId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzDesignChangeStatisticsList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzDesignChangeStatistics" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_design_change_statistics
+    where del_flag = '0'
+    <if test="designChangeId != null and designChangeId != ''" >
+     and design_change_id = #{designChangeId,jdbcType=CHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="subprojectInfoId != null and subprojectInfoId != ''" >
+     and subproject_info_id = #{subprojectInfoId,jdbcType=CHAR}
+    </if>
+    <if test="subprojectName != null and subprojectName != ''" >
+     and subproject_name = #{subprojectName,jdbcType=VARCHAR}
+    </if>
+    <if test="extA1 != null and extA1 != ''" >
+     and ext_a1 = #{extA1,jdbcType=INTEGER}
+    </if>
+    <if test="extA2 != null and extA2 != ''" >
+     and ext_a2 = #{extA2,jdbcType=DECIMAL}
+    </if>
+    <if test="extA3 != null and extA3 != ''" >
+     and ext_a3 = #{extA3,jdbcType=INTEGER}
+    </if>
+    <if test="extA4 != null and extA4 != ''" >
+     and ext_a4 = #{extA4,jdbcType=DECIMAL}
+    </if>
+    <if test="extA5 != null and extA5 != ''" >
+     and ext_a5 = #{extA5,jdbcType=INTEGER}
+    </if>
+    <if test="extA6 != null and extA6 != ''" >
+     and ext_a6 = #{extA6,jdbcType=DECIMAL}
+    </if>
+    <if test="extA7 != null and extA7 != ''" >
+     and ext_a7 = #{extA7,jdbcType=INTEGER}
+    </if>
+    <if test="extA8 != null and extA8 != ''" >
+     and ext_a8 = #{extA8,jdbcType=INTEGER}
+    </if>
+    <if test="extB1 != null and extB1 != ''" >
+     and ext_b1 = #{extB1,jdbcType=INTEGER}
+    </if>
+    <if test="extB2 != null and extB2 != ''" >
+     and ext_b2 = #{extB2,jdbcType=DECIMAL}
+    </if>
+    <if test="extB3 != null and extB3 != ''" >
+     and ext_b3 = #{extB3,jdbcType=INTEGER}
+    </if>
+    <if test="extB4 != null and extB4 != ''" >
+     and ext_b4 = #{extB4,jdbcType=DECIMAL}
+    </if>
+    <if test="extB5 != null and extB5 != ''" >
+     and ext_b5 = #{extB5,jdbcType=INTEGER}
+    </if>
+    <if test="extB6 != null and extB6 != ''" >
+     and ext_b6 = #{extB6,jdbcType=DECIMAL}
+    </if>
+    <if test="extB7 != null and extB7 != ''" >
+     and ext_b7 = #{extB7,jdbcType=INTEGER}
+    </if>
+    <if test="extB8 != null and extB8 != ''" >
+     and ext_b8 = #{extB8,jdbcType=INTEGER}
+    </if>
+    <if test="extC11 != null and extC11 != ''" >
+     and ext_c11 = #{extC11,jdbcType=INTEGER}
+    </if>
+    <if test="extC12 != null and extC12 != ''" >
+     and ext_c12 = #{extC12,jdbcType=DECIMAL}
+    </if>
+    <if test="extC13 != null and extC13 != ''" >
+     and ext_c13 = #{extC13,jdbcType=INTEGER}
+    </if>
+    <if test="extC14 != null and extC14 != ''" >
+     and ext_c14 = #{extC14,jdbcType=DECIMAL}
+    </if>
+    <if test="extC15 != null and extC15 != ''" >
+     and ext_c15 = #{extC15,jdbcType=INTEGER}
+    </if>
+    <if test="extC16 != null and extC16 != ''" >
+     and ext_c16 = #{extC16,jdbcType=INTEGER}
+    </if>
+    <if test="extC21 != null and extC21 != ''" >
+     and ext_c21 = #{extC21,jdbcType=INTEGER}
+    </if>
+    <if test="extC22 != null and extC22 != ''" >
+     and ext_c22 = #{extC22,jdbcType=DECIMAL}
+    </if>
+    <if test="extC23 != null and extC23 != ''" >
+     and ext_c23 = #{extC23,jdbcType=INTEGER}
+    </if>
+    <if test="extC24 != null and extC24 != ''" >
+     and ext_c24 = #{extC24,jdbcType=INTEGER}
+    </if>
+    <if test="extD11 != null and extD11 != ''" >
+     and ext_d11 = #{extD11,jdbcType=INTEGER}
+    </if>
+    <if test="extD12 != null and extD12 != ''" >
+     and ext_d12 = #{extD12,jdbcType=DECIMAL}
+    </if>
+    <if test="extD13 != null and extD13 != ''" >
+     and ext_d13 = #{extD13,jdbcType=INTEGER}
+    </if>
+    <if test="extD14 != null and extD14 != ''" >
+     and ext_d14 = #{extD14,jdbcType=DECIMAL}
+    </if>
+    <if test="extD15 != null and extD15 != ''" >
+     and ext_d15 = #{extD15,jdbcType=INTEGER}
+    </if>
+    <if test="extD16 != null and extD16 != ''" >
+     and ext_d16 = #{extD16,jdbcType=INTEGER}
+    </if>
+    <if test="extD21 != null and extD21 != ''" >
+     and ext_d21 = #{extD21,jdbcType=INTEGER}
+    </if>
+    <if test="extD22 != null and extD22 != ''" >
+     and ext_d22 = #{extD22,jdbcType=DECIMAL}
+    </if>
+    <if test="extD23 != null and extD23 != ''" >
+     and ext_d23 = #{extD23,jdbcType=INTEGER}
+    </if>
+    <if test="extAll1 != null and extAll1 != ''" >
+     and ext_all1 = #{extAll1,jdbcType=INTEGER}
+    </if>
+    <if test="extAll2 != null and extAll2 != ''" >
+     and ext_all2 = #{extAll2,jdbcType=DECIMAL}
+    </if>
+    <if test="extAll3 != null and extAll3 != ''" >
+     and ext_all3 = #{extAll3,jdbcType=INTEGER}
+    </if>
+    <if test="extAll4 != null and extAll4 != ''" >
+     and ext_all4 = #{extAll4,jdbcType=DECIMAL}
+    </if>
+    <if test="extAll5 != null and extAll5 != ''" >
+     and ext_all5 = #{extAll5,jdbcType=INTEGER}
+    </if>
+    <if test="extAll6 != null and extAll6 != ''" >
+     and ext_all6 = #{extAll6,jdbcType=DECIMAL}
+    </if>
+    <if test="extAll7 != null and extAll7 != ''" >
+     and ext_all7 = #{extAll7,jdbcType=INTEGER}
+    </if>
+    <if test="extAll8 != null and extAll8 != ''" >
+     and ext_all8 = #{extAll8,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="releaseId != null and releaseId != ''" >
+     and release_id = #{releaseId,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzDesignChangeStatistics" parameterType="com.apih5.mybatis.pojo.ZjTzDesignChangeStatistics" >
+    <![CDATA[ 
+        update zj_tz_design_change_statistics
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and design_change_statistics_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.designChangeStatisticsId} 
+     </foreach>
+  </delete>
+</mapper>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzEmployeeProfessionalMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzEmployeeProfessional" >
+    <id column="professional_id" property="professionalId" jdbcType="CHAR" />
+    <result column="employee_info_id" property="employeeInfoId" jdbcType="CHAR" />
+    <result column="professional_name_id" property="professionalNameId" jdbcType="CHAR" />
+    <result column="professional_level_id" property="professionalLevelId" jdbcType="CHAR" />
+    <result column="get_time" property="getTime" jdbcType="DATE" />
+    <result column="get_way_id" property="getWayId" jdbcType="CHAR" />
+    <result column="app_unit" property="appUnit" jdbcType="VARCHAR" />
+    <result column="engage_professional_name" property="engageProfessionalName" jdbcType="VARCHAR" />
+    <result column="engage_start_time" property="engageStartTime" jdbcType="DATE" />
+    <result column="engage_end_time" property="engageEndTime" jdbcType="DATE" />
+    <result column="professional_flag" property="professionalFlag" jdbcType="CHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    professional_id, employee_info_id, professional_name_id, professional_level_id, get_time, 
+    get_way_id, app_unit, engage_professional_name, engage_start_time, engage_end_time, 
+    professional_flag, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_employee_professional
+    where professional_id = #{professionalId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_employee_professional
+    where professional_id = #{professionalId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeProfessional" >
+    insert into zj_tz_employee_professional (professional_id, employee_info_id, professional_name_id, 
+      professional_level_id, get_time, get_way_id, 
+      app_unit, engage_professional_name, engage_start_time, 
+      engage_end_time, professional_flag, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{professionalId,jdbcType=CHAR}, #{employeeInfoId,jdbcType=CHAR}, #{professionalNameId,jdbcType=CHAR}, 
+      #{professionalLevelId,jdbcType=CHAR}, #{getTime,jdbcType=DATE}, #{getWayId,jdbcType=CHAR}, 
+      #{appUnit,jdbcType=VARCHAR}, #{engageProfessionalName,jdbcType=VARCHAR}, #{engageStartTime,jdbcType=DATE}, 
+      #{engageEndTime,jdbcType=DATE}, #{professionalFlag,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeProfessional" >
+    insert into zj_tz_employee_professional
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="professionalId != null" >
+        professional_id,
+      </if>
+      <if test="employeeInfoId != null" >
+        employee_info_id,
+      </if>
+      <if test="professionalNameId != null" >
+        professional_name_id,
+      </if>
+      <if test="professionalLevelId != null" >
+        professional_level_id,
+      </if>
+      <if test="getTime != null" >
+        get_time,
+      </if>
+      <if test="getWayId != null" >
+        get_way_id,
+      </if>
+      <if test="appUnit != null" >
+        app_unit,
+      </if>
+      <if test="engageProfessionalName != null" >
+        engage_professional_name,
+      </if>
+      <if test="engageStartTime != null" >
+        engage_start_time,
+      </if>
+      <if test="engageEndTime != null" >
+        engage_end_time,
+      </if>
+      <if test="professionalFlag != null" >
+        professional_flag,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="professionalId != null" >
+        #{professionalId,jdbcType=CHAR},
+      </if>
+      <if test="employeeInfoId != null" >
+        #{employeeInfoId,jdbcType=CHAR},
+      </if>
+      <if test="professionalNameId != null" >
+        #{professionalNameId,jdbcType=CHAR},
+      </if>
+      <if test="professionalLevelId != null" >
+        #{professionalLevelId,jdbcType=CHAR},
+      </if>
+      <if test="getTime != null" >
+        #{getTime,jdbcType=DATE},
+      </if>
+      <if test="getWayId != null" >
+        #{getWayId,jdbcType=CHAR},
+      </if>
+      <if test="appUnit != null" >
+        #{appUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="engageProfessionalName != null" >
+        #{engageProfessionalName,jdbcType=VARCHAR},
+      </if>
+      <if test="engageStartTime != null" >
+        #{engageStartTime,jdbcType=DATE},
+      </if>
+      <if test="engageEndTime != null" >
+        #{engageEndTime,jdbcType=DATE},
+      </if>
+      <if test="professionalFlag != null" >
+        #{professionalFlag,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeProfessional" >
+    update zj_tz_employee_professional
+    <set >
+      <if test="employeeInfoId != null" >
+        employee_info_id = #{employeeInfoId,jdbcType=CHAR},
+      </if>
+      <if test="professionalNameId != null" >
+        professional_name_id = #{professionalNameId,jdbcType=CHAR},
+      </if>
+      <if test="professionalLevelId != null" >
+        professional_level_id = #{professionalLevelId,jdbcType=CHAR},
+      </if>
+      <if test="getTime != null" >
+        get_time = #{getTime,jdbcType=DATE},
+      </if>
+      <if test="getWayId != null" >
+        get_way_id = #{getWayId,jdbcType=CHAR},
+      </if>
+      <if test="appUnit != null" >
+        app_unit = #{appUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="engageProfessionalName != null" >
+        engage_professional_name = #{engageProfessionalName,jdbcType=VARCHAR},
+      </if>
+      <if test="engageStartTime != null" >
+        engage_start_time = #{engageStartTime,jdbcType=DATE},
+      </if>
+      <if test="engageEndTime != null" >
+        engage_end_time = #{engageEndTime,jdbcType=DATE},
+      </if>
+      <if test="professionalFlag != null" >
+        professional_flag = #{professionalFlag,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where professional_id = #{professionalId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeProfessional" >
+    update zj_tz_employee_professional
+    set       employee_info_id = #{employeeInfoId,jdbcType=CHAR},
+      professional_name_id = #{professionalNameId,jdbcType=CHAR},
+      professional_level_id = #{professionalLevelId,jdbcType=CHAR},
+      get_time = #{getTime,jdbcType=DATE},
+      get_way_id = #{getWayId,jdbcType=CHAR},
+      app_unit = #{appUnit,jdbcType=VARCHAR},
+      engage_professional_name = #{engageProfessionalName,jdbcType=VARCHAR},
+      engage_start_time = #{engageStartTime,jdbcType=DATE},
+      engage_end_time = #{engageEndTime,jdbcType=DATE},
+      professional_flag = #{professionalFlag,jdbcType=CHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where professional_id = #{professionalId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzEmployeeProfessionalList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeProfessional" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_employee_professional
+    where del_flag = '0'
+    <if test="employeeInfoId != null and employeeInfoId != ''" >
+     and employee_info_id = #{employeeInfoId,jdbcType=CHAR}
+    </if>
+    <if test="professionalNameId != null and professionalNameId != ''" >
+     and professional_name_id = #{professionalNameId,jdbcType=CHAR}
+    </if>
+    <if test="professionalLevelId != null and professionalLevelId != ''" >
+     and professional_level_id = #{professionalLevelId,jdbcType=CHAR}
+    </if>
+    <if test="getTime != null" >
+     and get_time = #{getTime,jdbcType=DATE}
+    </if>
+    <if test="getWayId != null and getWayId != ''" >
+     and get_way_id = #{getWayId,jdbcType=CHAR}
+    </if>
+    <if test="appUnit != null and appUnit != ''" >
+     and app_unit = #{appUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="engageProfessionalName != null and engageProfessionalName != ''" >
+     and engage_professional_name = #{engageProfessionalName,jdbcType=VARCHAR}
+    </if>
+    <if test="engageStartTime != null" >
+     and engage_start_time = #{engageStartTime,jdbcType=DATE}
+    </if>
+    <if test="engageEndTime != null" >
+     and engage_end_time = #{engageEndTime,jdbcType=DATE}
+    </if>
+    <if test="professionalFlag != null and professionalFlag != ''" >
+     and professional_flag = #{professionalFlag,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzEmployeeProfessional" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeProfessional" >
+    <![CDATA[ 
+        update zj_tz_employee_professional
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and professional_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.professionalId} 
+     </foreach>
+  </delete>
+</mapper>

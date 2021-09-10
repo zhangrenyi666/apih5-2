@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSaProjectPaySettleMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSaProjectPaySettle" >
+    <id column="project_pay_settle_id" property="projectPaySettleId" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="contractID" property="contractID" jdbcType="VARCHAR" />
+    <result column="billID" property="billID" jdbcType="VARCHAR" />
+    <result column="thisAmt" property="thisAmt" jdbcType="DECIMAL" />
+    <result column="totalAmt" property="totalAmt" jdbcType="DECIMAL" />
+    <result column="upAmt" property="upAmt" jdbcType="DECIMAL" />
+    <result column="materialAmt" property="materialAmt" jdbcType="DECIMAL" />
+    <result column="upMaterialAmt" property="upMaterialAmt" jdbcType="DECIMAL" />
+    <result column="machineAmt" property="machineAmt" jdbcType="DECIMAL" />
+    <result column="upMachineAmt" property="upMachineAmt" jdbcType="DECIMAL" />
+    <result column="tempAmt" property="tempAmt" jdbcType="DECIMAL" />
+    <result column="upTempAmt" property="upTempAmt" jdbcType="DECIMAL" />
+    <result column="fineAmt" property="fineAmt" jdbcType="DECIMAL" />
+    <result column="upFineAmt" property="upFineAmt" jdbcType="DECIMAL" />
+    <result column="recoupAmt" property="recoupAmt" jdbcType="DECIMAL" />
+    <result column="upRecoupAmt" property="upRecoupAmt" jdbcType="DECIMAL" />
+    <result column="otherAmt" property="otherAmt" jdbcType="DECIMAL" />
+    <result column="upOtherAmt" property="upOtherAmt" jdbcType="DECIMAL" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="comOrders" property="comOrders" jdbcType="VARCHAR" />
+    <result column="thisAmtNoTax" property="thisAmtNoTax" jdbcType="DECIMAL" />
+    <result column="thisAmtTax" property="thisAmtTax" jdbcType="DECIMAL" />
+    <result column="taxRate" property="taxRate" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    project_pay_settle_id, orgID, orgName, contractID, billID, 
+    thisAmt, totalAmt, upAmt, materialAmt, upMaterialAmt, 
+    machineAmt, upMachineAmt, tempAmt, upTempAmt, fineAmt, 
+    upFineAmt, recoupAmt, upRecoupAmt, otherAmt, upOtherAmt, 
+    editTime, period, comID, comName, comOrders, 
+    thisAmtNoTax, thisAmtTax, taxRate, remark, sort, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sa_ProjectPaySettle
+    where del_flag = '0' and project_pay_settle_id = #{projectPaySettleId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sa_ProjectPaySettle
+    where project_pay_settle_id = #{projectPaySettleId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSaProjectPaySettle" >
+    insert into zx_sa_ProjectPaySettle (
+    project_pay_settle_id, orgID, orgName, contractID, billID, 
+    thisAmt, totalAmt, upAmt, materialAmt, upMaterialAmt, 
+    machineAmt, upMachineAmt, tempAmt, upTempAmt, fineAmt, 
+    upFineAmt, recoupAmt, upRecoupAmt, otherAmt, upOtherAmt, 
+    editTime, period, comID, comName, comOrders, 
+    thisAmtNoTax, thisAmtTax, taxRate, remark, sort, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+      )
+    values (
+      #{projectPaySettleId,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, #{contractID,jdbcType=VARCHAR}, #{billID,jdbcType=VARCHAR}, 
+    #{thisAmt,jdbcType=DECIMAL}, #{totalAmt,jdbcType=DECIMAL}, #{upAmt,jdbcType=DECIMAL}, #{materialAmt,jdbcType=DECIMAL}, #{upMaterialAmt,jdbcType=DECIMAL}, 
+    #{machineAmt,jdbcType=DECIMAL}, #{upMachineAmt,jdbcType=DECIMAL}, #{tempAmt,jdbcType=DECIMAL}, #{upTempAmt,jdbcType=DECIMAL}, #{fineAmt,jdbcType=DECIMAL}, 
+    #{upFineAmt,jdbcType=DECIMAL}, #{recoupAmt,jdbcType=DECIMAL}, #{upRecoupAmt,jdbcType=DECIMAL}, #{otherAmt,jdbcType=DECIMAL}, #{upOtherAmt,jdbcType=DECIMAL}, 
+    #{editTime,jdbcType=TIMESTAMP}, #{period,jdbcType=VARCHAR}, #{comID,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, #{comOrders,jdbcType=VARCHAR}, 
+    #{thisAmtNoTax,jdbcType=DECIMAL}, #{thisAmtTax,jdbcType=DECIMAL}, #{taxRate,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+    #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+    #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSaProjectPaySettle" >
+    insert into zx_sa_ProjectPaySettle
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="projectPaySettleId != null" >
+        project_pay_settle_id,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="contractID != null" >
+        contractID,
+      </if>
+      <if test="billID != null" >
+        billID,
+      </if>
+      <if test="thisAmt != null" >
+        thisAmt,
+      </if>
+      <if test="totalAmt != null" >
+        totalAmt,
+      </if>
+      <if test="upAmt != null" >
+        upAmt,
+      </if>
+      <if test="materialAmt != null" >
+        materialAmt,
+      </if>
+      <if test="upMaterialAmt != null" >
+        upMaterialAmt,
+      </if>
+      <if test="machineAmt != null" >
+        machineAmt,
+      </if>
+      <if test="upMachineAmt != null" >
+        upMachineAmt,
+      </if>
+      <if test="tempAmt != null" >
+        tempAmt,
+      </if>
+      <if test="upTempAmt != null" >
+        upTempAmt,
+      </if>
+      <if test="fineAmt != null" >
+        fineAmt,
+      </if>
+      <if test="upFineAmt != null" >
+        upFineAmt,
+      </if>
+      <if test="recoupAmt != null" >
+        recoupAmt,
+      </if>
+      <if test="upRecoupAmt != null" >
+        upRecoupAmt,
+      </if>
+      <if test="otherAmt != null" >
+        otherAmt,
+      </if>
+      <if test="upOtherAmt != null" >
+        upOtherAmt,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="period != null" >
+        period,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="comOrders != null" >
+        comOrders,
+      </if>
+      <if test="thisAmtNoTax != null" >
+        thisAmtNoTax,
+      </if>
+      <if test="thisAmtTax != null" >
+        thisAmtTax,
+      </if>
+      <if test="taxRate != null" >
+        taxRate,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="projectPaySettleId != null" >
+        #{projectPaySettleId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractID != null" >
+        #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="billID != null" >
+        #{billID,jdbcType=VARCHAR},
+      </if>
+      <if test="thisAmt != null" >
+        #{thisAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmt != null" >
+        #{totalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upAmt != null" >
+        #{upAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="materialAmt != null" >
+        #{materialAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upMaterialAmt != null" >
+        #{upMaterialAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="machineAmt != null" >
+        #{machineAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upMachineAmt != null" >
+        #{upMachineAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="tempAmt != null" >
+        #{tempAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upTempAmt != null" >
+        #{upTempAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="fineAmt != null" >
+        #{fineAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upFineAmt != null" >
+        #{upFineAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="recoupAmt != null" >
+        #{recoupAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upRecoupAmt != null" >
+        #{upRecoupAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="otherAmt != null" >
+        #{otherAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upOtherAmt != null" >
+        #{upOtherAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="period != null" >
+        #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="thisAmtNoTax != null" >
+        #{thisAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmtTax != null" >
+        #{thisAmtTax,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRate != null" >
+        #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSaProjectPaySettle" >
+    update zx_sa_ProjectPaySettle
+    <set >
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractID != null" >
+        contractID = #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="billID != null" >
+        billID = #{billID,jdbcType=VARCHAR},
+      </if>
+      <if test="thisAmt != null" >
+        thisAmt = #{thisAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmt != null" >
+        totalAmt = #{totalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upAmt != null" >
+        upAmt = #{upAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="materialAmt != null" >
+        materialAmt = #{materialAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upMaterialAmt != null" >
+        upMaterialAmt = #{upMaterialAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="machineAmt != null" >
+        machineAmt = #{machineAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upMachineAmt != null" >
+        upMachineAmt = #{upMachineAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="tempAmt != null" >
+        tempAmt = #{tempAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upTempAmt != null" >
+        upTempAmt = #{upTempAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="fineAmt != null" >
+        fineAmt = #{fineAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upFineAmt != null" >
+        upFineAmt = #{upFineAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="recoupAmt != null" >
+        recoupAmt = #{recoupAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upRecoupAmt != null" >
+        upRecoupAmt = #{upRecoupAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="otherAmt != null" >
+        otherAmt = #{otherAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upOtherAmt != null" >
+        upOtherAmt = #{upOtherAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="period != null" >
+        period = #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        comOrders = #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="thisAmtNoTax != null" >
+        thisAmtNoTax = #{thisAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmtTax != null" >
+        thisAmtTax = #{thisAmtTax,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRate != null" >
+        taxRate = #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where project_pay_settle_id = #{projectPaySettleId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSaProjectPaySettle" >
+    update zx_sa_ProjectPaySettle set 
+      orgID = #{orgID,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      contractID = #{contractID,jdbcType=VARCHAR},
+      billID = #{billID,jdbcType=VARCHAR},
+      thisAmt = #{thisAmt,jdbcType=DECIMAL},
+      totalAmt = #{totalAmt,jdbcType=DECIMAL},
+      upAmt = #{upAmt,jdbcType=DECIMAL},
+      materialAmt = #{materialAmt,jdbcType=DECIMAL},
+      upMaterialAmt = #{upMaterialAmt,jdbcType=DECIMAL},
+      machineAmt = #{machineAmt,jdbcType=DECIMAL},
+      upMachineAmt = #{upMachineAmt,jdbcType=DECIMAL},
+      tempAmt = #{tempAmt,jdbcType=DECIMAL},
+      upTempAmt = #{upTempAmt,jdbcType=DECIMAL},
+      fineAmt = #{fineAmt,jdbcType=DECIMAL},
+      upFineAmt = #{upFineAmt,jdbcType=DECIMAL},
+      recoupAmt = #{recoupAmt,jdbcType=DECIMAL},
+      upRecoupAmt = #{upRecoupAmt,jdbcType=DECIMAL},
+      otherAmt = #{otherAmt,jdbcType=DECIMAL},
+      upOtherAmt = #{upOtherAmt,jdbcType=DECIMAL},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      period = #{period,jdbcType=VARCHAR},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      comOrders = #{comOrders,jdbcType=VARCHAR},
+      thisAmtNoTax = #{thisAmtNoTax,jdbcType=DECIMAL},
+      thisAmtTax = #{thisAmtTax,jdbcType=DECIMAL},
+      taxRate = #{taxRate,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where project_pay_settle_id = #{projectPaySettleId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxSaProjectPaySettleList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSaProjectPaySettle" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sa_ProjectPaySettle
+    where del_flag = '0'
+    <if test="projectPaySettleId != null and projectPaySettleId != ''" >
+     and project_pay_settle_id = #{projectPaySettleId,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="contractID != null and contractID != ''" >
+     and contractID = #{contractID,jdbcType=VARCHAR}
+    </if>
+    <if test="billID != null and billID != ''" >
+     and billID = #{billID,jdbcType=VARCHAR}
+    </if>
+    <if test="thisAmt != null and thisAmt != ''" >
+     and thisAmt = #{thisAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="totalAmt != null and totalAmt != ''" >
+     and totalAmt = #{totalAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="upAmt != null and upAmt != ''" >
+     and upAmt = #{upAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="materialAmt != null and materialAmt != ''" >
+     and materialAmt = #{materialAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="upMaterialAmt != null and upMaterialAmt != ''" >
+     and upMaterialAmt = #{upMaterialAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="machineAmt != null and machineAmt != ''" >
+     and machineAmt = #{machineAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="upMachineAmt != null and upMachineAmt != ''" >
+     and upMachineAmt = #{upMachineAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="tempAmt != null and tempAmt != ''" >
+     and tempAmt = #{tempAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="upTempAmt != null and upTempAmt != ''" >
+     and upTempAmt = #{upTempAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="fineAmt != null and fineAmt != ''" >
+     and fineAmt = #{fineAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="upFineAmt != null and upFineAmt != ''" >
+     and upFineAmt = #{upFineAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="recoupAmt != null and recoupAmt != ''" >
+     and recoupAmt = #{recoupAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="upRecoupAmt != null and upRecoupAmt != ''" >
+     and upRecoupAmt = #{upRecoupAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="otherAmt != null and otherAmt != ''" >
+     and otherAmt = #{otherAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="upOtherAmt != null and upOtherAmt != ''" >
+     and upOtherAmt = #{upOtherAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="period != null and period != ''" >
+     and period = #{period,jdbcType=VARCHAR}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="comOrders != null and comOrders != ''" >
+     and comOrders = #{comOrders,jdbcType=VARCHAR}
+    </if>
+    <if test="thisAmtNoTax != null and thisAmtNoTax != ''" >
+     and thisAmtNoTax = #{thisAmtNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="thisAmtTax != null and thisAmtTax != ''" >
+     and thisAmtTax = #{thisAmtTax,jdbcType=DECIMAL}
+    </if>
+    <if test="taxRate != null and taxRate != ''" >
+     and taxRate = #{taxRate,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSaProjectPaySettle" parameterType="com.apih5.mybatis.pojo.ZxSaProjectPaySettle" >
+    <![CDATA[ 
+        update zx_sa_ProjectPaySettle
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and project_pay_settle_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.projectPaySettleId} 
+     </foreach>
+  </delete>
+  
+	<select id="getUpZxSaProjectPaySettle" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSaProjectPaySettle" >
+		SELECT
+			<include refid="Base_Column_List" /> 
+		FROM
+			( 
+				SELECT 
+					<include refid="Base_Column_List" />  
+				FROM zx_sa_projectpaysettle 
+				WHERE del_flag = '0' 
+				AND contractID = #{contractID,jdbcType=VARCHAR} 
+				AND period &lt; #{period,jdbcType=VARCHAR}
+				ORDER BY period 
+				DESC LIMIT 1 
+			) AS zsp
+	</select>
+</mapper>

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzThousandDeductMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzThousandDeduct" >
+    <id column="thousand_deduct_id" property="thousandDeductId" jdbcType="CHAR" />
+    <result column="thousand_check_id" property="thousandCheckId" jdbcType="CHAR" />
+    <result column="thousand_check_base_id" property="thousandCheckBaseId" jdbcType="CHAR" />
+    <result column="eval_pro" property="evalPro" jdbcType="VARCHAR" />
+    <result column="eval_index" property="evalIndex" jdbcType="VARCHAR" />
+    <result column="eval_content" property="evalContent" jdbcType="VARCHAR" />
+    <result column="score" property="score" jdbcType="DECIMAL" />
+    <result column="actual_score" property="actualScore" jdbcType="DECIMAL" />
+    <result column="deduct" property="deduct" jdbcType="DECIMAL" />
+    <result column="deduct_desc" property="deductDesc" jdbcType="VARCHAR" />
+    <result column="order_flag" property="orderFlag" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    thousand_deduct_id, thousand_check_id, thousand_check_base_id, eval_pro, eval_index, 
+    eval_content, score, actual_score, deduct, deduct_desc, 
+    order_flag, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_thousand_deduct
+    where thousand_deduct_id = #{thousandDeductId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_thousand_deduct
+    where thousand_deduct_id = #{thousandDeductId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzThousandDeduct" >
+    insert into zj_tz_thousand_deduct (thousand_deduct_id, thousand_check_id, thousand_check_base_id, 
+      eval_pro, eval_index, eval_content, 
+      score, actual_score, deduct, 
+      deduct_desc, order_flag, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{thousandDeductId,jdbcType=CHAR}, #{thousandCheckId,jdbcType=CHAR}, #{thousandCheckBaseId,jdbcType=CHAR}, 
+      #{evalPro,jdbcType=VARCHAR}, #{evalIndex,jdbcType=VARCHAR}, #{evalContent,jdbcType=VARCHAR}, 
+      #{score,jdbcType=DECIMAL}, #{actualScore,jdbcType=DECIMAL}, #{deduct,jdbcType=DECIMAL}, 
+      #{deductDesc,jdbcType=VARCHAR}, #{orderFlag,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzThousandDeduct" >
+    insert into zj_tz_thousand_deduct
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="thousandDeductId != null" >
+        thousand_deduct_id,
+      </if>
+      <if test="thousandCheckId != null" >
+        thousand_check_id,
+      </if>
+      <if test="thousandCheckBaseId != null" >
+        thousand_check_base_id,
+      </if>
+      <if test="evalPro != null" >
+        eval_pro,
+      </if>
+      <if test="evalIndex != null" >
+        eval_index,
+      </if>
+      <if test="evalContent != null" >
+        eval_content,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="actualScore != null" >
+        actual_score,
+      </if>
+      <if test="deduct != null" >
+        deduct,
+      </if>
+      <if test="deductDesc != null" >
+        deduct_desc,
+      </if>
+      <if test="orderFlag != null" >
+        order_flag,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="thousandDeductId != null" >
+        #{thousandDeductId,jdbcType=CHAR},
+      </if>
+      <if test="thousandCheckId != null" >
+        #{thousandCheckId,jdbcType=CHAR},
+      </if>
+      <if test="thousandCheckBaseId != null" >
+        #{thousandCheckBaseId,jdbcType=CHAR},
+      </if>
+      <if test="evalPro != null" >
+        #{evalPro,jdbcType=VARCHAR},
+      </if>
+      <if test="evalIndex != null" >
+        #{evalIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="evalContent != null" >
+        #{evalContent,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="actualScore != null" >
+        #{actualScore,jdbcType=DECIMAL},
+      </if>
+      <if test="deduct != null" >
+        #{deduct,jdbcType=DECIMAL},
+      </if>
+      <if test="deductDesc != null" >
+        #{deductDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="orderFlag != null" >
+        #{orderFlag,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzThousandDeduct" >
+    update zj_tz_thousand_deduct
+    <set >
+      <if test="thousandCheckId != null" >
+        thousand_check_id = #{thousandCheckId,jdbcType=CHAR},
+      </if>
+      <if test="thousandCheckBaseId != null" >
+        thousand_check_base_id = #{thousandCheckBaseId,jdbcType=CHAR},
+      </if>
+      <if test="evalPro != null" >
+        eval_pro = #{evalPro,jdbcType=VARCHAR},
+      </if>
+      <if test="evalIndex != null" >
+        eval_index = #{evalIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="evalContent != null" >
+        eval_content = #{evalContent,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="actualScore != null" >
+        actual_score = #{actualScore,jdbcType=DECIMAL},
+      </if>
+      <if test="deduct != null" >
+        deduct = #{deduct,jdbcType=DECIMAL},
+      </if>
+      <if test="deductDesc != null" >
+        deduct_desc = #{deductDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="orderFlag != null" >
+        order_flag = #{orderFlag,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where thousand_deduct_id = #{thousandDeductId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzThousandDeduct" >
+    update zj_tz_thousand_deduct
+    set       thousand_check_id = #{thousandCheckId,jdbcType=CHAR},
+      thousand_check_base_id = #{thousandCheckBaseId,jdbcType=CHAR},
+      eval_pro = #{evalPro,jdbcType=VARCHAR},
+      eval_index = #{evalIndex,jdbcType=VARCHAR},
+      eval_content = #{evalContent,jdbcType=VARCHAR},
+      score = #{score,jdbcType=DECIMAL},
+      actual_score = #{actualScore,jdbcType=DECIMAL},
+      deduct = #{deduct,jdbcType=DECIMAL},
+      deduct_desc = #{deductDesc,jdbcType=VARCHAR},
+      order_flag = #{orderFlag,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where thousand_deduct_id = #{thousandDeductId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzThousandDeductList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzThousandDeduct" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_thousand_deduct
+    where del_flag = '0'
+    <if test="thousandCheckId != null and thousandCheckId != ''" >
+     and thousand_check_id = #{thousandCheckId,jdbcType=CHAR}
+    </if>
+    <if test="thousandCheckBaseId != null and thousandCheckBaseId != ''" >
+     and thousand_check_base_id = #{thousandCheckBaseId,jdbcType=CHAR}
+    </if>
+    <if test="evalPro != null and evalPro != ''" >
+     and eval_pro = #{evalPro,jdbcType=VARCHAR}
+    </if>
+    <if test="evalIndex != null and evalIndex != ''" >
+     and eval_index = #{evalIndex,jdbcType=VARCHAR}
+    </if>
+    <if test="evalContent != null and evalContent != ''" >
+     and eval_content = #{evalContent,jdbcType=VARCHAR}
+    </if>
+    <if test="score != null and score != ''" >
+     and score = #{score,jdbcType=DECIMAL}
+    </if>
+    <if test="actualScore != null and actualScore != ''" >
+     and actual_score = #{actualScore,jdbcType=DECIMAL}
+    </if>
+    <if test="deduct != null and deduct != ''" >
+     and deduct = #{deduct,jdbcType=DECIMAL}
+    </if>
+    <if test="deductDesc != null and deductDesc != ''" >
+     and deduct_desc = #{deductDesc,jdbcType=VARCHAR}
+    </if>
+    <if test="orderFlag != null and orderFlag != ''" >
+     and order_flag = #{orderFlag,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="groupByFlagCodePid != null and groupByFlagCodePid != ''" >
+     GROUP BY thousand_check_base_id
+    </if>
+    ORDER BY order_flag ASC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzThousandDeduct" parameterType="com.apih5.mybatis.pojo.ZjTzThousandDeduct" >
+    <![CDATA[ 
+        update zj_tz_thousand_deduct
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and thousand_deduct_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.thousandDeductId} 
+     </foreach>
+  </delete>
+</mapper>

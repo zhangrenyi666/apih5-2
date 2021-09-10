@@ -1,0 +1,926 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkStockTransferRptNewMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkStockTransferRptNew" >
+    <id column="zxSkStockTransferRptNewId" property="zxSkStockTransferRptNewId" jdbcType="CHAR" />
+    <result column="num" property="num" jdbcType="VARCHAR" />
+    <result column="resName" property="resName" jdbcType="VARCHAR" />
+    <result column="resType" property="resType" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="qcinQty" property="qcinQty" jdbcType="DECIMAL" />
+    <result column="qcinAmt" property="qcinAmt" jdbcType="DECIMAL" />
+    <result column="c4Qty" property="c4Qty" jdbcType="DECIMAL" />
+    <result column="c4Amt" property="c4Amt" jdbcType="DECIMAL" />
+    <result column="c1Qty" property="c1Qty" jdbcType="DECIMAL" />
+    <result column="c1Amt" property="c1Amt" jdbcType="DECIMAL" />
+    <result column="f3outQty" property="f3outQty" jdbcType="DECIMAL" />
+    <result column="f3outAmt" property="f3outAmt" jdbcType="DECIMAL" />
+    <result column="s1" property="s1" jdbcType="VARCHAR" />
+    <result column="s2" property="s2" jdbcType="VARCHAR" />
+    <result column="s3" property="s3" jdbcType="DECIMAL" />
+    <result column="curQty" property="curQty" jdbcType="DECIMAL" />
+    <result column="curAmt" property="curAmt" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxSkStockTransferRptNewId, Num, resName, resType, spec, 
+    unit, qcinQty, qcinAmt, c4Qty, c4Amt, 
+    c1Qty, c1Amt, f3outQty, f3outAmt, s1, 
+    s2, s3, curQty, curAmt, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_stockTransferRptNew
+    where del_flag = '0' and zxSkStockTransferRptNewId = #{zxSkStockTransferRptNewId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_stockTransferRptNew
+    where zxSkStockTransferRptNewId = #{zxSkStockTransferRptNewId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferRptNew" >
+    insert into zx_sk_stockTransferRptNew (
+    zxSkStockTransferRptNewId, Num, resName, resType, spec, 
+    unit, qcinQty, qcinAmt, c4Qty, c4Amt, 
+    c1Qty, c1Amt, f3outQty, f3outAmt, s1, 
+    s2, s3, curQty, curAmt, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxSkStockTransferRptNewId,jdbcType=CHAR}, #{Num,jdbcType=VARCHAR}, #{resName,jdbcType=VARCHAR}, #{resType,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, 
+    #{unit,jdbcType=VARCHAR}, #{qcinQty,jdbcType=DECIMAL}, #{qcinAmt,jdbcType=DECIMAL}, #{c4Qty,jdbcType=DECIMAL}, #{c4Amt,jdbcType=DECIMAL}, 
+    #{c1Qty,jdbcType=DECIMAL}, #{c1Amt,jdbcType=DECIMAL}, #{f3outQty,jdbcType=DECIMAL}, #{f3outAmt,jdbcType=DECIMAL}, #{s1,jdbcType=VARCHAR}, 
+    #{s2,jdbcType=VARCHAR}, #{s3,jdbcType=DECIMAL}, #{curQty,jdbcType=DECIMAL}, #{curAmt,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, 
+    #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+    #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferRptNew" >
+    insert into zx_sk_stockTransferRptNew
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSkStockTransferRptNewId != null" >
+        zxSkStockTransferRptNewId,
+      </if>
+      <if test="Num != null" >
+        Num,
+      </if>
+      <if test="resName != null" >
+        resName,
+      </if>
+      <if test="resType != null" >
+        resType,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="qcinQty != null" >
+        qcinQty,
+      </if>
+      <if test="qcinAmt != null" >
+        qcinAmt,
+      </if>
+      <if test="c4Qty != null" >
+        c4Qty,
+      </if>
+      <if test="c4Amt != null" >
+        c4Amt,
+      </if>
+      <if test="c1Qty != null" >
+        c1Qty,
+      </if>
+      <if test="c1Amt != null" >
+        c1Amt,
+      </if>
+      <if test="f3outQty != null" >
+        f3outQty,
+      </if>
+      <if test="f3outAmt != null" >
+        f3outAmt,
+      </if>
+      <if test="s1 != null" >
+        s1,
+      </if>
+      <if test="s2 != null" >
+        s2,
+      </if>
+      <if test="s3 != null" >
+        s3,
+      </if>
+      <if test="curQty != null" >
+        curQty,
+      </if>
+      <if test="curAmt != null" >
+        curAmt,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSkStockTransferRptNewId != null" >
+        #{zxSkStockTransferRptNewId,jdbcType=CHAR},
+      </if>
+      <if test="Num != null" >
+        #{Num,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="resType != null" >
+        #{resType,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="qcinQty != null" >
+        #{qcinQty,jdbcType=DECIMAL},
+      </if>
+      <if test="qcinAmt != null" >
+        #{qcinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="c4Qty != null" >
+        #{c4Qty,jdbcType=DECIMAL},
+      </if>
+      <if test="c4Amt != null" >
+        #{c4Amt,jdbcType=DECIMAL},
+      </if>
+      <if test="c1Qty != null" >
+        #{c1Qty,jdbcType=DECIMAL},
+      </if>
+      <if test="c1Amt != null" >
+        #{c1Amt,jdbcType=DECIMAL},
+      </if>
+      <if test="f3outQty != null" >
+        #{f3outQty,jdbcType=DECIMAL},
+      </if>
+      <if test="f3outAmt != null" >
+        #{f3outAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="s1 != null" >
+        #{s1,jdbcType=VARCHAR},
+      </if>
+      <if test="s2 != null" >
+        #{s2,jdbcType=VARCHAR},
+      </if>
+      <if test="s3 != null" >
+        #{s3,jdbcType=DECIMAL},
+      </if>
+      <if test="curQty != null" >
+        #{curQty,jdbcType=DECIMAL},
+      </if>
+      <if test="curAmt != null" >
+        #{curAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferRptNew" >
+    update zx_sk_stockTransferRptNew
+    <set >
+      <if test="Num != null" >
+        Num = #{Num,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        resName = #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="resType != null" >
+        resType = #{resType,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="qcinQty != null" >
+        qcinQty = #{qcinQty,jdbcType=DECIMAL},
+      </if>
+      <if test="qcinAmt != null" >
+        qcinAmt = #{qcinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="c4Qty != null" >
+        c4Qty = #{c4Qty,jdbcType=DECIMAL},
+      </if>
+      <if test="c4Amt != null" >
+        c4Amt = #{c4Amt,jdbcType=DECIMAL},
+      </if>
+      <if test="c1Qty != null" >
+        c1Qty = #{c1Qty,jdbcType=DECIMAL},
+      </if>
+      <if test="c1Amt != null" >
+        c1Amt = #{c1Amt,jdbcType=DECIMAL},
+      </if>
+      <if test="f3outQty != null" >
+        f3outQty = #{f3outQty,jdbcType=DECIMAL},
+      </if>
+      <if test="f3outAmt != null" >
+        f3outAmt = #{f3outAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="s1 != null" >
+        s1 = #{s1,jdbcType=VARCHAR},
+      </if>
+      <if test="s2 != null" >
+        s2 = #{s2,jdbcType=VARCHAR},
+      </if>
+      <if test="s3 != null" >
+        s3 = #{s3,jdbcType=DECIMAL},
+      </if>
+      <if test="curQty != null" >
+        curQty = #{curQty,jdbcType=DECIMAL},
+      </if>
+      <if test="curAmt != null" >
+        curAmt = #{curAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxSkStockTransferRptNewId = #{zxSkStockTransferRptNewId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferRptNew" >
+    update zx_sk_stockTransferRptNew set 
+      Num = #{Num,jdbcType=VARCHAR},
+      resName = #{resName,jdbcType=VARCHAR},
+      resType = #{resType,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      qcinQty = #{qcinQty,jdbcType=DECIMAL},
+      qcinAmt = #{qcinAmt,jdbcType=DECIMAL},
+      c4Qty = #{c4Qty,jdbcType=DECIMAL},
+      c4Amt = #{c4Amt,jdbcType=DECIMAL},
+      c1Qty = #{c1Qty,jdbcType=DECIMAL},
+      c1Amt = #{c1Amt,jdbcType=DECIMAL},
+      f3outQty = #{f3outQty,jdbcType=DECIMAL},
+      f3outAmt = #{f3outAmt,jdbcType=DECIMAL},
+      s1 = #{s1,jdbcType=VARCHAR},
+      s2 = #{s2,jdbcType=VARCHAR},
+      s3 = #{s3,jdbcType=DECIMAL},
+      curQty = #{curQty,jdbcType=DECIMAL},
+      curAmt = #{curAmt,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSkStockTransferRptNewId = #{zxSkStockTransferRptNewId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSkStockTransferRptNewList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferRptNew" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_stockTransferRptNew
+    where del_flag = '0'
+    <if test="zxSkStockTransferRptNewId != null and zxSkStockTransferRptNewId != ''" >
+     and zxSkStockTransferRptNewId = #{zxSkStockTransferRptNewId,jdbcType=CHAR}
+    </if>
+    <if test="Num != null and Num != ''" >
+     and Num = #{Num,jdbcType=VARCHAR}
+    </if>
+    <if test="resName != null and resName != ''" >
+     and resName = #{resName,jdbcType=VARCHAR}
+    </if>
+    <if test="resType != null and resType != ''" >
+     and resType = #{resType,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="unit != null and unit != ''" >
+     and unit = #{unit,jdbcType=VARCHAR}
+    </if>
+    <if test="qcinQty != null and qcinQty != ''" >
+     and qcinQty = #{qcinQty,jdbcType=DECIMAL}
+    </if>
+    <if test="qcinAmt != null and qcinAmt != ''" >
+     and qcinAmt = #{qcinAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="c4Qty != null and c4Qty != ''" >
+     and c4Qty = #{c4Qty,jdbcType=DECIMAL}
+    </if>
+    <if test="c4Amt != null and c4Amt != ''" >
+     and c4Amt = #{c4Amt,jdbcType=DECIMAL}
+    </if>
+    <if test="c1Qty != null and c1Qty != ''" >
+     and c1Qty = #{c1Qty,jdbcType=DECIMAL}
+    </if>
+    <if test="c1Amt != null and c1Amt != ''" >
+     and c1Amt = #{c1Amt,jdbcType=DECIMAL}
+    </if>
+    <if test="f3outQty != null and f3outQty != ''" >
+     and f3outQty = #{f3outQty,jdbcType=DECIMAL}
+    </if>
+    <if test="f3outAmt != null and f3outAmt != ''" >
+     and f3outAmt = #{f3outAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="s1 != null and s1 != ''" >
+     and s1 = #{s1,jdbcType=VARCHAR}
+    </if>
+    <if test="s2 != null and s2 != ''" >
+     and s2 = #{s2,jdbcType=VARCHAR}
+    </if>
+    <if test="s3 != null and s3 != ''" >
+     and s3 = #{s3,jdbcType=DECIMAL}
+    </if>
+    <if test="curQty != null and curQty != ''" >
+     and curQty = #{curQty,jdbcType=DECIMAL}
+    </if>
+    <if test="curAmt != null and curAmt != ''" >
+     and curAmt = #{curAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkStockTransferRptNew" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferRptNew" >
+    <![CDATA[ 
+        update zx_sk_stockTransferRptNew
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSkStockTransferRptNewId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSkStockTransferRptNewId} 
+     </foreach>
+  </delete>
+  <select id="selectZxSkStockTransferRptNew" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferRptNew" >
+  DROP TABLE IF EXISTS temp_ieskStockTransferRptNew;
+create table temp_ieskStockTransferRptNew
+select tab.ID,tab.resName,tab.resCode,tab.categoryID,tab.spec,tab.unit,res.bsid,res.catCode
+       
+       ,ifnull(st.qcinQty,0) as qcinQty,ifnull(st.qcinAmt,0) as qcinAmt
+       ,ifnull(st.c4Qty,0) as c4Qty,ifnull(st.c4Amt,0) as c4Amt                                      
+       ,ifnull(st.c1Qty,0) as c1Qty,ifnull(st.c1Amt,0) as c1Amt
+       ,ifnull(st.f3outQty,0) as f3outQty,ifnull(st.f3outAmt,0) as f3outAmt
+        ,ifnull(st.qcinQty,0) + ifnull(st.c4Qty,0) - ifnull(st.f3outQty,0) as curQty
+       ,ifnull(st.qcinAmt,0) + ifnull(st.c4Amt,0) - ifnull(st.f3outAmt,0) as curAmt
+from Zx_Sk_Resource_Materials tab 
+left join zx_sk_rescategory_materials res on tab.categoryID = res.ID and res.resStyle='mt'
+left join (
+  select sti.resID,
+         sum(case when st.busDate &lt; #{beginDate,jdbcType=TIMESTAMP} then (ifnull(sti.inQty,0) - ifnull(sti.outQty,0)) else 0 end) as qcinQty,
+         sum(case when st.busDate &lt; #{beginDate,jdbcType=TIMESTAMP} then (ifnull(sti.inAmt,0) - ifnull(sti.outAmt,0)) else 0 end) as qcinAmt,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType=11 and st.materialSource='0002' then sti.inQty else 0 end) as c1Qty,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType=11 and st.materialSource='0002' then sti.inAmt else 0 end) as c1Amt,
+         
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and ((st.billType=11 and st.materialSource='0001') or st.billType=12) then sti.inQty else 0 end) as c2Qty,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and ((st.billType=11 and st.materialSource='0001') or st.billType=12) then sti.inAmt else 0 end) as c2Amt,
+         
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and ((st.billType=11 and st.materialSource in ('0003','0004')) or st.billType=18) then sti.inQty else 0 end) as c3Qty,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and ((st.billType=11 and st.materialSource in ('0003','0004')) or st.billType=18) then sti.inAmt else 0 end) as c3Amt,
+         
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and ((st.billType=11 and st.materialSource in ('0002','0001','0004','0003')) or st.billType in ('12','18')) then sti.inQty else 0 end) as c4Qty,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and ((st.billType=11 and st.materialSource in ('0002','0001','0004','0003')) or st.billType in ('12','18')) then sti.inAmt else 0 end) as c4Amt,
+         
+         sum(case when st.busDate between #{firstDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and ((st.billType=11 and st.materialSource in ('0002','0001','0004','0003')) or st.billType in ('12','18')) then sti.inQty else 0 end) as yQty,
+         sum(case when st.busDate between #{firstDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and ((st.billType=11 and st.materialSource in ('0002','0001','0004','0003')) or st.billType in ('12','18')) then sti.inAmt else 0 end) as yAmt,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType in ('21','22') then ifnull(sti.outQty,0) else 0 end) as f1outQty,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType in ('21','22') then ifnull(sti.outAmt,0) else 0 end) as f1outAmt,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType in ('16','17','24','30','33','45') then ifnull(sti.outQty,0) else 0 end) as f2outQty,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType in ('16','17','24','30','33','45') then ifnull(sti.outAmt,0) else 0 end) as f2outAmt,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType in ('21','22','16','17','24','30','33','45') then ifnull(sti.outQty,0) else 0 end) as f3outQty,
+         sum(case when st.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType in ('21','22','16','17','24','30','33','45') then ifnull(sti.outAmt,0) else 0 end) as f3outAmt,
+         sum(case when st.busDate between #{firstDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType in ('21','22','16','17','24','30','33','45') then ifnull(sti.outQty,0) else 0 end) as youtQty,
+         sum(case when st.busDate between #{firstDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} and st.billType in ('21','22','16','17','24','30','33','45') then ifnull(sti.outAmt,0) else 0 end) as youtAmt
+  from zx_sk_StockTransItem sti
+  inner join zx_sk_StockTransfer st on st.id = sti.billID
+  where st.billStatus='已审核' and st.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} 
+    and st.billType in ('11','12','18','16','17','21','22','24','30','33','45')
+  group by sti.resid 
+) st on tab.id = st.resid;
+
+
+select tt.Num,tt.resName,tt.resType,tt.spec,tt.unit
+       ,round(ifnull(tt.qcinQty,0),3) as qcinQty,round(ifnull(tt.qcinAmt,0)/10000,4) as qcinAmt 
+       ,round(ifnull(tt.c4Qty,0),3) as c4Qty,round(ifnull(tt.c4Amt,0)/10000,4) as c4Amt
+       ,round(ifnull(tt.c1Qty,0),3) as c1Qty,round(ifnull(tt.c1Amt,0)/10000,4) as c1Amt
+       ,'' as s1,'' as s2
+       ,round(ifnull(tt.f3outQty,0),3) as f3outQty,round(ifnull(tt.f3outAmt,0)/10000,4) as f3outAmt
+       
+       ,0 as s3
+       ,round(ifnull(tt.curQty,0),3) as curQty,round(ifnull(tt.curAmt,0)/10000,4) as curAmt
+from (
+
+  select '01' as Num,'钢材' as resName,'一级编码01包含的所有物资' resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t
+  where t.bsid like '00020001%' and t.resCode like '01%'
+  union all 
+
+  select '其中:' as Num,'钢筋' as resName,'二级编码0101（钢材）' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020001%' and t.resCode like '0101%'
+  union all
+
+  select '其中:' as Num,'钢绞线' as resName,'三级编码010602（钢绞线）' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020001%' and t.resCode like '010602%'
+  union all 
+
+  select '其中:' as Num,'型钢' as resName,'二级编码0102（型材）' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020001%' and t.resCode like '0102' || '%'
+  union all 
+
+  select '其中:' as Num,'板材和管材' as resName,'二级编码0103（板材）、0104（管材）' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020001%' and (t.resCode like '0103%' or t.resCode like '0104%')   
+  union all 
+
+  select '其中:' as Num,'其他钢材' as resName,'二级编码0105（钢轨）、二级编码0106中除三级编码010602外的所有物资、0199（其他钢材）' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020001%' 
+        and t.resCode not like '0101' || '%'
+        and t.resCode not like '0102' || '%' 
+        and t.resCode not like '0103' || '%' 
+        and t.resCode not like '0104' || '%' 
+        and t.resCode not like '010602%'
+  union all 
+
+  select '02' as Num,'水泥及其制品' as resName,'一级编码02包含的所有物资' as resType,'-' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020002%'
+  union all
+
+  select '其中:' as Num,'水泥32.5' as resName,'二级编码（0201、0202、0203）条件下，规格型号筛选“32.5”' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020002%' and (t.resCode like '0201%' or t.resCode like '0202%' or t.resCode like '0203%') and t.spec like '%32.5%'
+  union all
+
+  select '其中:' as Num,'水泥42.5' as resName,'二级编码（0201、0202、0203）条件下，规格型号筛选“32.5”' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020002%' and (t.resCode like '0201%' or t.resCode like '0202%' or t.resCode like '0203%') and t.spec like '%42.5%'
+  union all
+
+  select '其中:' as Num,'水泥52.5' as resName,'二级编码（0201、0202、0203）条件下，规格型号筛选“52.5”' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020002%' and (t.resCode like '0201%' or t.resCode like '0202%' or t.resCode like '0203%') and t.spec like '%52.5%'
+  union all
+
+  select '其中:' as Num,'混凝土（商砼）' as resName,'三级编码020402（混凝土）' as resType,'m3' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020002%' and t.resCode like '020402%'
+  union all
+
+  select '其中:' as Num,'其他水泥制品' as resName,'二级编码0204条件下，除三级编码020402类以外的所有物资' as resType,'' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020002%' and t.resCode like '0204%' and t.resCode not like '020402%'
+  union all 
+
+  select '03' as Num,'沥青及其制品' as resName,'一级编码03包含的所有物资' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020003%'
+  union all
+
+  select '其中:' as Num,'沥青' as resName,'二级编码0301、0302、0303、0304' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020003%' and (t.resCode like '0301%' or t.resCode like '0302%' or t.resCode like '0303%' or t.resCode like '0304%')
+  union all 
+
+  select '其中:' as Num,'沥青混凝土' as resName,'二级编码0305' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020003%' and t.resCode like '0305%'
+  union all 
+
+  select '04','燃润料' as resName,'一级编码04包含的所有物资' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020004%'
+  union all
+  select '其中:','柴油' as resName,'三级编码040102' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020004%' and t.resCode like '040102' || '%'
+  union all
+
+  select '其中:','汽油' as resName,'三级编码040101' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty)/1000 as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty)/1000 as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty)/1000 as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty)/1000 as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty)/1000 as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020004%' and t.resCode like '040101' || '%'
+  union all
+
+  select '其中:','其他油（脂）' as resName,'一级编码04条件下，除柴油汽油外的物资累计和' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020004%' and t.resCode like '04' || '%' and t.resCode not like '040101' || '%' and t.resCode not like '040102' || '%'
+  union all
+  select '05','地材' as resName,'一级编码09包含的所有物资' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020009%' and t.resCode like '09%'
+  union all
+  select '其中:','碎石（石粉、片石、块石等）' as resName,'二级编码0901（石料）条件下，计量单位为“t"的所有物资' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020009%' and t.resCode like '0901%' and t.unit='t'
+  union all
+  select '其中:','砂(含机制砂)' as resName,'二级编码0908（砂）' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020009%' and t.resCode like '0908%'
+  union all
+  select '其中:','粉煤灰、矿粉' as resName,'二级编码0903（矿渣粉）、0906（粉煤灰）' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where  t.bsid like '00020009%' and (t.resCode like '0903%' or t.resCode like '0906%')
+  union all
+  select '06','专用材料及工器具' as resName,'一级编码12、14包含的所有物资' as resType,'' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where (t.bsid like '00020012%' and t.resCode like '12%') or (t.bsid like '00020014%' and t.resCode like '14%')
+  union all
+  select '其中:','伸缩装置' as resName,'二级编码1202（伸缩装置）条件下，计量单位为“m"的所有物资' as resType,'米' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020012%' and t.resCode like '1202%' and t.unit='m'
+  union all
+  select '其中:','支座及其附件（橡胶、钢等）' as resName,'二级编码1201（支座及其附件）' as resType,'套' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020012%' and t.resCode like '1201%'
+  union all
+  select '其中:','锚具（圆、方、边等）' as resName,'二级编码1204（锚具）条件下，120408（锚具用波纹管）、120409（锚杆）除外' as resType,'孔' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020012%' and t.resCode like '1204%' and t.resCode not like '120408%' and t.resCode not like '120409%'
+  union all
+  select '其中:','土工合成材料（布、格栅等）' as resName,'二级编码1207（土工合成材料）条件下，计量单位为“m2"的所有物资' as resType,'m2' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020012%' and t.resCode like '1207%' and t.unit = 'm2'
+  union all
+  select '其中:','止排水材料' as resName,'二级编码1208（止排水材料）' as resType,'m2' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020012%' and t.resCode like '1208%'
+  union all
+  select '其中:','护栏、护网及屏障' as resName,'二级编码1209（护栏、护网及屏障）' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where  t.bsid like '00020012%' and t.resCode like '1209%'
+  union all
+  select '其中:','防水材料（地面、屋面、桥面、隧道等）' as resName,'二级编码1115（高分子防水卷材、高聚物防水卷材、沥青类防水卷材、防水板）' as resType,'m2' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020012%' and t.resCode like '121115%'
+    union all
+  select '其中:','锚杆' as resName,'三级编码120409（锚杆）条件下，计量单位为"m"的所有物资' as resType,'米' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020012%' and t.resCode like '120409%' and t.unit='m'
+    union all
+  select '其中:','其他专用材料' as resName,'二级编码物资（1203、1205、1211、1212、1213、1214、1215、1216、1217、1218、1219、1220、1221、1222、1223、1299）、二级编码（1207）下不按“m2"计量的所有物资、三级编码（120408）、三级编码（120409）下不按“m"计量的所有物资' as resType,'' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020012%' and (t.resCode like '1203%'
+         or t.resCode like '1205%'
+         or t.resCode like '121%'
+         or t.resCode like '1220%'
+         or t.resCode like '1221%'
+         or t.resCode like '1222%'
+         or t.resCode like '1223%'
+         or t.resCode like '1299%'
+         or (t.resCode like '1221%' and t.unit!='m2')
+         or (t.resCode like '120408%' and t.unit!='m')
+         or (t.resCode like '120409%' and t.unit!='m')
+         )
+      union all
+  select '07','化轻、标准件及电工产品' as resName,'一级编码10、05包含的所有物资' as resType,'' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where (t.bsid like '00020010%' and t.resCode like '10%') or (t.bsid like '00020005%' and t.resCode like '05%')
+  union all
+  select '其中:','外加剂 （减水剂、压浆料等）' as resName,'二级编码1003（外加剂）' as resType,'吨' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020010%' and t.resCode like '1003%'
+  union all
+  select '其中:','电线电缆' as resName,'二级编码0501（电线电缆）' as resType,'米' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,SUM(t.c4Qty) as c4Qty,SUM(t.c4Amt) as c4Amt
+         ,SUM(t.c1Qty) as c1Qty,SUM(t.c1Amt) as c1Amt
+         ,SUM(t.f3outQty) as f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,sum(t.curQty) as curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020005%' and t.resCode like '0501%'
+  union all
+  select '其中:','其他机电类产品' as resName,'二级编码0502（电工产品）' as resType,'' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020005%' and t.resCode like '0502%'  
+  union all
+  select '8','陆上设备配件及机具' as resName,'二级编码1301（配件）包含的物资' as resType,'万元' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020013%' and t.resCode like '1301%' 
+  union all
+  select '09' as Num,'水上设备配件及机具' as resName,'' as resType,'万元' as spec,'万元' as unit,0 qcinQty,0 qcinAmt,0 c4Qty,0 c4Amt,0 c1Qty,0 c1Amt,0 f3outQty,0 f3outAmt,0 curQty,0 curAmt
+  union all
+  select '10','其他金属材料' as resName,'一级编码07包含的所有物资' as resType,'万元' as spec,'万元' as unit
+         ,sum(t.qcinQty) as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020007%'
+  union all
+  select '11','木材及竹木制品' as resName,'一级编码08包含的所有物资' as resType,'万元' as spec,'万元' as unit
+         ,0 as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020008%'
+  union all 
+  select '12','建筑装饰材料' as resName,'一级编码11包含的所有物资' as resType,'万元' as spec,'万元' as unit
+         ,0 as qcinQty,SUM(t.qcinAmt) as qcinAmt
+         ,0 c4Qty,SUM(t.c4Amt) as c4Amt
+         ,0 c1Qty,SUM(t.c1Amt) as c1Amt
+         ,0 f3outQty,SUM(t.f3outAmt) as f3outAmt
+         ,0 curQty,SUM(t.curAmt) as curAmt
+  from temp_ieskStockTransferRptNew t 
+  where t.bsid like '00020011%'
+) tt
+  </select>
+</mapper>

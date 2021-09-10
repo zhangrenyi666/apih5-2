@@ -1,0 +1,35 @@
+package com.apih5.service;
+
+import java.util.List;
+import com.apih5.framework.entity.ResponseEntity;
+import com.apih5.mybatis.pojo.ZjLzehSafetyInspectionManagement;
+
+public interface ZjLzehSafetyInspectionManagementService {
+
+    public ResponseEntity getZjLzehSafetyInspectionManagementListByCondition(ZjLzehSafetyInspectionManagement zjLzehSafetyInspectionManagement);
+
+    public ResponseEntity getZjLzehSafetyInspectionManagementDetails(ZjLzehSafetyInspectionManagement zjLzehSafetyInspectionManagement);
+
+    public ResponseEntity saveZjLzehSafetyInspectionManagement(ZjLzehSafetyInspectionManagement zjLzehSafetyInspectionManagement);
+
+    public ResponseEntity updateZjLzehSafetyInspectionManagement(ZjLzehSafetyInspectionManagement zjLzehSafetyInspectionManagement);
+
+    public ResponseEntity batchDeleteUpdateZjLzehSafetyInspectionManagement(List<ZjLzehSafetyInspectionManagement> zjLzehSafetyInspectionManagementList);
+
+    public ResponseEntity getZjLzehSafetyInspectionManagementBySumDangerType(ZjLzehSafetyInspectionManagement zjLzehSafetyInspectionManagement);
+    
+    public ResponseEntity getZjLzehSafetyInspectionManagementBySumDangerLevel(ZjLzehSafetyInspectionManagement zjLzehSafetyInspectionManagement); 
+
+    public ResponseEntity getZjLzehSafetyInspectionManagementBySumTroubleLevel(ZjLzehSafetyInspectionManagement zjLzehSafetyInspectionManagement);
+
+	public ResponseEntity getZjLzehDataCenterDynamicInfo(ZjLzehSafetyInspectionManagement zjLzehSafetyInspectionManagement);
+
+	public ResponseEntity exportZjLzehQualityRectificatReply(ZjLzehSafetyInspectionManagement zjLzehSafetyInspectionManagement);
+
+	public ResponseEntity exportZjLzehQualityRectificatSheet(ZjLzehSafetyInspectionManagement zjLzehSafetyInspectionManagement);
+
+	public ResponseEntity exportZjLzehHiddenDangerRectificatReply(ZjLzehSafetyInspectionManagement zjLzehSafetyInspectionManagement);
+
+	public ResponseEntity exportZjLzehHiddenDangerRectificatInstructBook(ZjLzehSafetyInspectionManagement zjLzehSafetyInspectionManagement); 
+}
+

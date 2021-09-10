@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="format-detection" content="telephone=no,email=no,address=no"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="../plugins/bootstrap/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="../plugins/bootstrap/bootstrap/css/font-awesome.css" />
+    <link rel="stylesheet" href="../plugins/jquery/jquery-ui/css/jquery-ui.css" />
+    <link rel="stylesheet" href="../plugins/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" href="../plugins/bootstrap/ace/css/ace-fonts.css" />
+    <link rel="stylesheet" href="../plugins/bootstrap/ace/css/ace.css" class="ace-main-stylesheet main-stylesheet" id="main-ace-style" />
+    <!-- 低版本IE样式 -->
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="../plugins/bootstrap/ace/css/ace-part2.css" class="ace-main-stylesheet" />
+    <link rel="stylesheet" href="../plugins/bootstrap/ace/css/ace-ie.css" />
+    <![endif]-->
+
+    <link rel="stylesheet" href="../assets/common/css/horizon.base.css" />
+    <!-- 网站LOGO -->
+    <link rel="icon" type="image/png" href="../assets/common/img/favicon.png" />
+    <!--[if lte IE 8]>
+    <script src="../plugins/old-browser/html5shiv.js"></script>
+    <script src="../plugins/old-browser/respond.js"></script>
+    <![endif]-->
+</head>
+<body class="no-skin hidden-sidebar2">
+	<div class="flowPic">
+
+	</div>
+	<script src="../plugins/jquery/jquery-base/jquery.js"></script>
+    <script src="../assets/common/js/horizon.base.js"></script>
+    <script src="../assets/common/js/horizon.flowchart.min.js" ></script>
+	<script>
+        var workId=horizon['tools'].getQueryString("workId");
+		var code=horizon['tools'].getQueryString("code");
+        $('.flowPic').horizonFlowChart($.extend(true, {
+            url: horizon.tools.formatUrl('/flowchart/data'),
+            downloadUrl: horizon.tools.formatUrl('/flowchart/download'),
+            dataParam: {
+                //流程ID
+                //flowId: 'test',
+                //流程实例ID
+                workId: workId,
+				code: code
+            },
+            iconType: 'font-awesome',
+            tools: {
+                status: true,
+                exportImg: true,
+                dynamicDemo: true
+            },
+            fnNodeClick: function(node, historys) {
+                console.log(node)
+            },
+            fnAfterSuccess: function(data) {
+                console.log(data);
+            }
+        }, horizon.tools.getFlowchartOption()));
+	</script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmSalaryOfficeSalaryMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmSalaryOfficeSalary" >
+    <id column="salary_id" property="salaryId" jdbcType="CHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="year_month" property="yearMonth" jdbcType="TIMESTAMP" />
+    <result column="total_amount" property="totalAmount" jdbcType="DECIMAL" />
+    <result column="opinion_field1" property="opinionField1" jdbcType="VARCHAR" />
+    <result column="opinion_field2" property="opinionField2" jdbcType="VARCHAR" />
+    <result column="opinion_field3" property="opinionField3" jdbcType="VARCHAR" />
+    <result column="opinion_field4" property="opinionField4" jdbcType="VARCHAR" />
+    <result column="opinion_field5" property="opinionField5" jdbcType="VARCHAR" />
+    <result column="apih5_flow_id" property="apih5FlowId" jdbcType="CHAR" />
+    <result column="work_id" property="workId" jdbcType="CHAR" />
+    <result column="apih5_flow_status" property="apih5FlowStatus" jdbcType="CHAR" />
+    <result column="apih5_flow_node_status" property="apih5FlowNodeStatus" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    salary_id, title, year_month, total_amount, opinion_field1, 
+    opinion_field2, opinion_field3, opinion_field4, opinion_field5, apih5_flow_id, 
+    work_id, apih5_flow_status, apih5_flow_node_status, remarks, sort, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_office_salary
+    where salary_id = #{salaryId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_salary_office_salary
+    where salary_id = #{salaryId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryOfficeSalary" >
+    insert into zj_xm_salary_office_salary (salary_id, title, year_month, 
+      total_amount, opinion_field1, opinion_field2, 
+      opinion_field3, opinion_field4, opinion_field5, 
+      apih5_flow_id, work_id, apih5_flow_status, 
+      apih5_flow_node_status, remarks, sort, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{salaryId,jdbcType=CHAR}, #{title,jdbcType=VARCHAR}, #{yearMonth,jdbcType=TIMESTAMP}, 
+      #{totalAmount,jdbcType=DECIMAL}, #{opinionField1,jdbcType=VARCHAR}, #{opinionField2,jdbcType=VARCHAR}, 
+      #{opinionField3,jdbcType=VARCHAR}, #{opinionField4,jdbcType=VARCHAR}, #{opinionField5,jdbcType=VARCHAR}, 
+      #{apih5FlowId,jdbcType=CHAR}, #{workId,jdbcType=CHAR}, #{apih5FlowStatus,jdbcType=CHAR}, 
+      #{apih5FlowNodeStatus,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryOfficeSalary" >
+    insert into zj_xm_salary_office_salary
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="salaryId != null" >
+        salary_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="yearMonth != null" >
+        year_month,
+      </if>
+      <if test="totalAmount != null" >
+        total_amount,
+      </if>
+      <if test="opinionField1 != null" >
+        opinion_field1,
+      </if>
+      <if test="opinionField2 != null" >
+        opinion_field2,
+      </if>
+      <if test="opinionField3 != null" >
+        opinion_field3,
+      </if>
+      <if test="opinionField4 != null" >
+        opinion_field4,
+      </if>
+      <if test="opinionField5 != null" >
+        opinion_field5,
+      </if>
+      <if test="apih5FlowId != null" >
+        apih5_flow_id,
+      </if>
+      <if test="workId != null" >
+        work_id,
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status,
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        apih5_flow_node_status,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="salaryId != null" >
+        #{salaryId,jdbcType=CHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="yearMonth != null" >
+        #{yearMonth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalAmount != null" >
+        #{totalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="opinionField1 != null" >
+        #{opinionField1,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField2 != null" >
+        #{opinionField2,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField3 != null" >
+        #{opinionField3,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField4 != null" >
+        #{opinionField4,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField5 != null" >
+        #{opinionField5,jdbcType=VARCHAR},
+      </if>
+      <if test="apih5FlowId != null" >
+        #{apih5FlowId,jdbcType=CHAR},
+      </if>
+      <if test="workId != null" >
+        #{workId,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        #{apih5FlowStatus,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        #{apih5FlowNodeStatus,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryOfficeSalary" >
+    update zj_xm_salary_office_salary
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="yearMonth != null" >
+        year_month = #{yearMonth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalAmount != null" >
+        total_amount = #{totalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="opinionField1 != null" >
+        opinion_field1 = #{opinionField1,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField2 != null" >
+        opinion_field2 = #{opinionField2,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField3 != null" >
+        opinion_field3 = #{opinionField3,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField4 != null" >
+        opinion_field4 = #{opinionField4,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField5 != null" >
+        opinion_field5 = #{opinionField5,jdbcType=VARCHAR},
+      </if>
+      <if test="apih5FlowId != null" >
+        apih5_flow_id = #{apih5FlowId,jdbcType=CHAR},
+      </if>
+      <if test="workId != null" >
+        work_id = #{workId,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where salary_id = #{salaryId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryOfficeSalary" >
+    update zj_xm_salary_office_salary
+    set       title = #{title,jdbcType=VARCHAR},
+      year_month = #{yearMonth,jdbcType=TIMESTAMP},
+      total_amount = #{totalAmount,jdbcType=DECIMAL},
+      opinion_field1 = #{opinionField1,jdbcType=VARCHAR},
+      opinion_field2 = #{opinionField2,jdbcType=VARCHAR},
+      opinion_field3 = #{opinionField3,jdbcType=VARCHAR},
+      opinion_field4 = #{opinionField4,jdbcType=VARCHAR},
+      opinion_field5 = #{opinionField5,jdbcType=VARCHAR},
+      apih5_flow_id = #{apih5FlowId,jdbcType=CHAR},
+      work_id = #{workId,jdbcType=CHAR},
+      apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR},
+      apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where salary_id = #{salaryId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmSalaryOfficeSalaryList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryOfficeSalary" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_office_salary
+    where del_flag = '0'
+    <if test="title != null and title != ''" >
+     and title = #{title,jdbcType=VARCHAR}
+    </if>
+    <if test="yearMonth != null and yearMonth != ''" >
+     and year_month = #{yearMonth,jdbcType=TIMESTAMP}
+    </if>
+    <if test="totalAmount != null and totalAmount != ''" >
+     and total_amount = #{totalAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="opinionField1 != null and opinionField1 != ''" >
+     and opinion_field1 = #{opinionField1,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField2 != null and opinionField2 != ''" >
+     and opinion_field2 = #{opinionField2,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField3 != null and opinionField3 != ''" >
+     and opinion_field3 = #{opinionField3,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField4 != null and opinionField4 != ''" >
+     and opinion_field4 = #{opinionField4,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField5 != null and opinionField5 != ''" >
+     and opinion_field5 = #{opinionField5,jdbcType=VARCHAR}
+    </if>
+    <if test="apih5FlowId != null and apih5FlowId != ''" >
+     and apih5_flow_id = #{apih5FlowId,jdbcType=CHAR}
+    </if>
+    <if test="workId != null and workId != ''" >
+     and work_id = #{workId,jdbcType=CHAR}
+    </if>
+    <if test="apih5FlowStatus != null and apih5FlowStatus != ''" >
+     and apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR}
+    </if>
+    <if test="apih5FlowNodeStatus != null and apih5FlowNodeStatus != ''" >
+     and apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmSalaryOfficeSalary" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryOfficeSalary" >
+    <![CDATA[ 
+        update zj_xm_salary_office_salary
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and salary_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.salaryId} 
+     </foreach>
+  </delete>
+</mapper>

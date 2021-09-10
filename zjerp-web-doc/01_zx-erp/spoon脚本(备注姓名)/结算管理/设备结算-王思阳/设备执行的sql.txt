@@ -1,0 +1,114 @@
+
+-- 设备台账
+UPDATE 
+zx_eq_equip t 
+set t.mainpower=REPLACE(t.mainpower,'KW',''),
+   t.mainpower=REPLACE(t.mainpower,'kw',''),
+   t.mainpower=REPLACE(t.mainpower,'-',''),
+   t.mainpower=REPLACE(t.mainpower,'无',''),
+   t.mainpower=REPLACE(t.mainpower,'',''),
+   t.mainpower=REPLACE(t.mainpower,' ',''),
+   t.vicepower=REPLACE(t.mainpower,'KW',''),
+   t.vicepower=REPLACE(t.mainpower,'kw',''),
+   t.vicepower=REPLACE(t.mainpower,'',''),
+   t.vicepower=REPLACE(t.mainpower,' ',''),
+   t.vicepower=REPLACE(t.mainpower,'-',''),
+   t.vicepower=REPLACE(t.mainpower,'无',''),
+   t.power=REPLACE(t.mainpower,'KW',''),
+   t.power=REPLACE(t.mainpower,'kw',''),
+   t.power=REPLACE(t.mainpower,'-',''),
+   t.power=REPLACE(t.mainpower,'',''),
+   t.power=REPLACE(t.mainpower,' ',''),
+   t.power=REPLACE(t.mainpower,'无','');
+
+UPDATE 
+zx_eq_equip t 
+set
+ t.mainpower='0'
+WHERE mainpower LIKE CONCAT('%', '*','%') OR mainpower LIKE CONCAT('%', '/','%');
+
+UPDATE 
+zx_eq_equip t 
+set
+ t.vicepower='0'
+WHERE vicepower LIKE CONCAT('%', '*','%') OR vicepower LIKE CONCAT('%', '/','%');
+UPDATE 
+zx_eq_equip t 
+set
+ t.power='0'
+WHERE power LIKE CONCAT('%', '*','%') OR power LIKE CONCAT('%', '/','%');
+UPDATE 
+zx_eq_equip t 
+set
+ t.power='0'
+WHERE power = '';
+UPDATE 
+zx_eq_equip t 
+set
+ t.vicepower='0'
+WHERE vicepower = '';
+UPDATE 
+zx_eq_equip t 
+set
+ t.mainpower='0'
+WHERE mainpower = '';
+
+
+-- 购置记录
+UPDATE 
+zx_eq_purrecord t 
+set t.mainpower=REPLACE(t.mainpower,'KW',''),
+  t.mainpower=REPLACE(t.mainpower,'kw',''),
+   t.mainpower=REPLACE(t.mainpower,'-',''),
+   t.mainpower=REPLACE(t.mainpower,'无',''),
+   t.mainpower=REPLACE(t.mainpower,'',''),
+   t.mainpower=REPLACE(t.mainpower,' ',''),
+   t.vicepower=REPLACE(t.mainpower,'KW',''),
+   t.vicepower=REPLACE(t.mainpower,'kw',''),
+   t.vicepower=REPLACE(t.mainpower,'',''),
+   t.vicepower=REPLACE(t.mainpower,' ',''),
+   t.vicepower=REPLACE(t.mainpower,'-',''),
+   t.vicepower=REPLACE(t.mainpower,'无',''),
+   t.power=REPLACE(t.mainpower,'KW',''),
+   t.power=REPLACE(t.mainpower,'kw',''),
+   t.power=REPLACE(t.mainpower,'-',''),
+   t.power=REPLACE(t.mainpower,'',''),
+   t.power=REPLACE(t.mainpower,' ',''),
+   t.power=REPLACE(t.mainpower,'无','');
+
+UPDATE 
+zx_eq_purrecord t 
+set
+ t.mainpower='0'
+WHERE mainpower LIKE CONCAT('%', '*','%') OR mainpower LIKE CONCAT('%', '/','%') OR mainpower = '';
+
+UPDATE 
+zx_eq_purrecord t 
+set
+ t.vicepower='0'
+WHERE vicepower LIKE CONCAT('%', '*','%') OR vicepower LIKE CONCAT('%', '/','%')  OR vicepower = '';
+UPDATE 
+zx_eq_purrecord t 
+set
+ t.power='0'
+WHERE power LIKE CONCAT('%', '*','%') OR power LIKE CONCAT('%', '/','%')  OR power = '';
+
+UPDATE 
+zx_eq_purrecord t 
+set
+ t.power='0'
+WHERE power = '';
+UPDATE 
+zx_eq_purrecord t 
+set
+ t.vicepower='0'
+WHERE vicepower = '';
+UPDATE 
+zx_eq_purrecord t 
+set
+ t.mainpower='0'
+WHERE mainpower = '';
+
+
+
+

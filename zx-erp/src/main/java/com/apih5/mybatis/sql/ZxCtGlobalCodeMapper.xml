@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCtGlobalCodeMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCtGlobalCode" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="categoryID" property="categoryID" jdbcType="VARCHAR" />
+    <result column="globalCode" property="globalCode" jdbcType="VARCHAR" />
+    <result column="globalDesc" property="globalDesc" jdbcType="VARCHAR" />
+    <result column="enable" property="enable" jdbcType="CHAR" />
+    <result column="selected" property="selected" jdbcType="CHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="percentage" property="percentage" jdbcType="VARCHAR" />
+    <result column="pp1" property="pp1" jdbcType="VARCHAR" />
+    <result column="pp2" property="pp2" jdbcType="VARCHAR" />
+    <result column="pp3" property="pp3" jdbcType="VARCHAR" />
+    <result column="pp4" property="pp4" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, categoryID, globalCode, globalDesc, enable, 
+    selected, remark, editTime, percentage, pp1, 
+    pp2, pp3, pp4, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_GlobalCode
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_ct_GlobalCode
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCtGlobalCode" >
+    insert into zx_ct_GlobalCode (id, categoryID, globalCode, 
+      globalDesc, enable, selected, 
+      remark, editTime, percentage, 
+      pp1, pp2, pp3, 
+      pp4, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{categoryID,jdbcType=VARCHAR}, #{globalCode,jdbcType=VARCHAR}, 
+      #{globalDesc,jdbcType=VARCHAR}, #{enable,jdbcType=CHAR}, #{selected,jdbcType=CHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, #{percentage,jdbcType=VARCHAR}, 
+      #{pp1,jdbcType=VARCHAR}, #{pp2,jdbcType=VARCHAR}, #{pp3,jdbcType=VARCHAR}, 
+      #{pp4,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCtGlobalCode" >
+    insert into zx_ct_GlobalCode
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="categoryID != null" >
+        categoryID,
+      </if>
+      <if test="globalCode != null" >
+        globalCode,
+      </if>
+      <if test="globalDesc != null" >
+        globalDesc,
+      </if>
+      <if test="enable != null" >
+        enable,
+      </if>
+      <if test="selected != null" >
+        selected,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="percentage != null" >
+        percentage,
+      </if>
+      <if test="pp1 != null" >
+        pp1,
+      </if>
+      <if test="pp2 != null" >
+        pp2,
+      </if>
+      <if test="pp3 != null" >
+        pp3,
+      </if>
+      <if test="pp4 != null" >
+        pp4,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryID != null" >
+        #{categoryID,jdbcType=VARCHAR},
+      </if>
+      <if test="globalCode != null" >
+        #{globalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="globalDesc != null" >
+        #{globalDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null" >
+        #{enable,jdbcType=CHAR},
+      </if>
+      <if test="selected != null" >
+        #{selected,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="percentage != null" >
+        #{percentage,jdbcType=VARCHAR},
+      </if>
+      <if test="pp1 != null" >
+        #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2 != null" >
+        #{pp2,jdbcType=VARCHAR},
+      </if>
+      <if test="pp3 != null" >
+        #{pp3,jdbcType=VARCHAR},
+      </if>
+      <if test="pp4 != null" >
+        #{pp4,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCtGlobalCode" >
+    update zx_ct_GlobalCode
+    <set >
+      <if test="categoryID != null" >
+        categoryID = #{categoryID,jdbcType=VARCHAR},
+      </if>
+      <if test="globalCode != null" >
+        globalCode = #{globalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="globalDesc != null" >
+        globalDesc = #{globalDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null" >
+        enable = #{enable,jdbcType=CHAR},
+      </if>
+      <if test="selected != null" >
+        selected = #{selected,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="percentage != null" >
+        percentage = #{percentage,jdbcType=VARCHAR},
+      </if>
+      <if test="pp1 != null" >
+        pp1 = #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2 != null" >
+        pp2 = #{pp2,jdbcType=VARCHAR},
+      </if>
+      <if test="pp3 != null" >
+        pp3 = #{pp3,jdbcType=VARCHAR},
+      </if>
+      <if test="pp4 != null" >
+        pp4 = #{pp4,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCtGlobalCode" >
+    update zx_ct_GlobalCode
+    set       categoryID = #{categoryID,jdbcType=VARCHAR},
+      globalCode = #{globalCode,jdbcType=VARCHAR},
+      globalDesc = #{globalDesc,jdbcType=VARCHAR},
+      enable = #{enable,jdbcType=CHAR},
+      selected = #{selected,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      percentage = #{percentage,jdbcType=VARCHAR},
+      pp1 = #{pp1,jdbcType=VARCHAR},
+      pp2 = #{pp2,jdbcType=VARCHAR},
+      pp3 = #{pp3,jdbcType=VARCHAR},
+      pp4 = #{pp4,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxCtGlobalCodeList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtGlobalCode" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_GlobalCode
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=}
+    </if>
+    <if test="categoryID != null and categoryID != ''" >
+     and categoryID = #{categoryID,jdbcType=VARCHAR}
+    </if>
+    <if test="globalCode != null and globalCode != ''" >
+     and globalCode = #{globalCode,jdbcType=VARCHAR}
+    </if>
+    <if test="globalDesc != null and globalDesc != ''" >
+     and globalDesc = #{globalDesc,jdbcType=VARCHAR}
+    </if>
+    <if test="enable != null and enable != ''" >
+     and enable = #{enable,jdbcType=CHAR}
+    </if>
+    <if test="selected != null and selected != ''" >
+     and selected = #{selected,jdbcType=CHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="percentage != null and percentage != ''" >
+     and percentage = #{percentage,jdbcType=VARCHAR}
+    </if>
+    <if test="pp1 != null and pp1 != ''" >
+     and pp1 = #{pp1,jdbcType=VARCHAR}
+    </if>
+    <if test="pp2 != null and pp2 != ''" >
+     and pp2 = #{pp2,jdbcType=VARCHAR}
+    </if>
+    <if test="pp3 != null and pp3 != ''" >
+     and pp3 = #{pp3,jdbcType=VARCHAR}
+    </if>
+    <if test="pp4 != null and pp4 != ''" >
+     and pp4 = #{pp4,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxCtGlobalCode" parameterType="com.apih5.mybatis.pojo.ZxCtGlobalCode" >
+    <![CDATA[ 
+        update zx_ct_GlobalCode
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

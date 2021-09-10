@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzDesignChangeRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzDesignChangeRecord" >
+    <id column="design_change_record_id" property="designChangeRecordId" jdbcType="CHAR" />
+    <result column="design_change_id" property="designChangeId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="subproject_info_id" property="subprojectInfoId" jdbcType="CHAR" />
+    <result column="subproject_name" property="subprojectName" jdbcType="VARCHAR" />
+    <result column="design_stage_id" property="designStageId" jdbcType="CHAR" />
+    <result column="design_stage_name" property="designStageName" jdbcType="VARCHAR" />
+    <result column="design_change_number" property="designChangeNumber" jdbcType="VARCHAR" />
+    <result column="design_change_name" property="designChangeName" jdbcType="VARCHAR" />
+    <result column="change_level_id" property="changeLevelId" jdbcType="CHAR" />
+    <result column="change_level_name" property="changeLevelName" jdbcType="VARCHAR" />
+    <result column="change_nature_id" property="changeNatureId" jdbcType="CHAR" />
+    <result column="change_nature_name" property="changeNatureName" jdbcType="VARCHAR" />
+    <result column="dynamic_id" property="dynamicId" jdbcType="CHAR" />
+    <result column="dynamic_name" property="dynamicName" jdbcType="VARCHAR" />
+    <result column="change_amount" property="changeAmount" jdbcType="DECIMAL" />
+    <result column="change_date" property="changeDate" jdbcType="DATE" />
+    <result column="inner_check_id" property="innerCheckId" jdbcType="CHAR" />
+    <result column="inner_check_name" property="innerCheckName" jdbcType="VARCHAR" />
+    <result column="legal_id" property="legalId" jdbcType="CHAR" />
+    <result column="legal_name" property="legalName" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="status_id" property="statusId" jdbcType="CHAR" />
+    <result column="status_name" property="statusName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    design_change_record_id, design_change_id, project_id, project_name, subproject_info_id, 
+    subproject_name, design_stage_id, design_stage_name, design_change_number, design_change_name, 
+    change_level_id, change_level_name, change_nature_id, change_nature_name, dynamic_id, 
+    dynamic_name, change_amount, change_date, inner_check_id, inner_check_name, 
+    legal_id, legal_name, content, remarks, status_id, 
+    status_name, renew1,  renew2, renew3, renew4, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_design_change_record
+    where design_change_record_id = #{designChangeRecordId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_design_change_record
+    where design_change_record_id = #{designChangeRecordId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzDesignChangeRecord" >
+    insert into zj_tz_design_change_record (design_change_record_id, design_change_id, project_id, 
+      project_name, subproject_info_id, subproject_name, 
+      design_stage_id, design_stage_name, design_change_number, 
+      design_change_name, change_level_id, change_level_name, 
+      change_nature_id, change_nature_name, dynamic_id, 
+      dynamic_name, change_amount, change_date, 
+      inner_check_id, inner_check_name, legal_id, 
+      legal_name, content, remarks, 
+      status_id, status_name, renew1, renew2, renew3, renew4, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{designChangeRecordId,jdbcType=CHAR}, #{designChangeId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{subprojectInfoId,jdbcType=CHAR}, #{subprojectName,jdbcType=VARCHAR}, 
+      #{designStageId,jdbcType=CHAR}, #{designStageName,jdbcType=VARCHAR}, #{designChangeNumber,jdbcType=VARCHAR}, 
+      #{designChangeName,jdbcType=VARCHAR}, #{changeLevelId,jdbcType=CHAR}, #{changeLevelName,jdbcType=VARCHAR}, 
+      #{changeNatureId,jdbcType=CHAR}, #{changeNatureName,jdbcType=VARCHAR}, #{dynamicId,jdbcType=CHAR}, 
+      #{dynamicName,jdbcType=VARCHAR}, #{changeAmount,jdbcType=DECIMAL}, #{changeDate,jdbcType=DATE}, 
+      #{innerCheckId,jdbcType=CHAR}, #{innerCheckName,jdbcType=VARCHAR}, #{legalId,jdbcType=CHAR}, 
+      #{legalName,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{statusId,jdbcType=CHAR}, #{statusName,jdbcType=VARCHAR}, 
+      #{renew1,jdbcType=CHAR},#{renew2,jdbcType=CHAR},#{renew3,jdbcType=CHAR},#{renew4,jdbcType=CHAR},#{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzDesignChangeRecord" >
+    insert into zj_tz_design_change_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="designChangeRecordId != null" >
+        design_change_record_id,
+      </if>
+      <if test="designChangeId != null" >
+        design_change_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="subprojectInfoId != null" >
+        subproject_info_id,
+      </if>
+      <if test="subprojectName != null" >
+        subproject_name,
+      </if>
+      <if test="designStageId != null" >
+        design_stage_id,
+      </if>
+      <if test="designStageName != null" >
+        design_stage_name,
+      </if>
+      <if test="designChangeNumber != null" >
+        design_change_number,
+      </if>
+      <if test="designChangeName != null" >
+        design_change_name,
+      </if>
+      <if test="changeLevelId != null" >
+        change_level_id,
+      </if>
+      <if test="changeLevelName != null" >
+        change_level_name,
+      </if>
+      <if test="changeNatureId != null" >
+        change_nature_id,
+      </if>
+      <if test="changeNatureName != null" >
+        change_nature_name,
+      </if>
+      <if test="dynamicId != null" >
+        dynamic_id,
+      </if>
+      <if test="dynamicName != null" >
+        dynamic_name,
+      </if>
+      <if test="changeAmount != null" >
+        change_amount,
+      </if>
+      <if test="changeDate != null" >
+        change_date,
+      </if>
+      <if test="innerCheckId != null" >
+        inner_check_id,
+      </if>
+      <if test="innerCheckName != null" >
+        inner_check_name,
+      </if>
+      <if test="legalId != null" >
+        legal_id,
+      </if>
+      <if test="legalName != null" >
+        legal_name,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="statusId != null" >
+        status_id,
+      </if>
+      <if test="statusName != null" >
+        status_name,
+      </if>
+      <if test="renew1 != null" >
+        renew1,
+      </if>
+      <if test="renew2 != null" >
+        renew2,
+      </if>
+      <if test="renew3 != null" >
+        renew3,
+      </if>
+      <if test="renew4 != null" >
+        renew4,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="designChangeRecordId != null" >
+        #{designChangeRecordId,jdbcType=CHAR},
+      </if>
+      <if test="designChangeId != null" >
+        #{designChangeId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectInfoId != null" >
+        #{subprojectInfoId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectName != null" >
+        #{subprojectName,jdbcType=VARCHAR},
+      </if>
+      <if test="designStageId != null" >
+        #{designStageId,jdbcType=CHAR},
+      </if>
+      <if test="designStageName != null" >
+        #{designStageName,jdbcType=VARCHAR},
+      </if>
+      <if test="designChangeNumber != null" >
+        #{designChangeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="designChangeName != null" >
+        #{designChangeName,jdbcType=VARCHAR},
+      </if>
+      <if test="changeLevelId != null" >
+        #{changeLevelId,jdbcType=CHAR},
+      </if>
+      <if test="changeLevelName != null" >
+        #{changeLevelName,jdbcType=VARCHAR},
+      </if>
+      <if test="changeNatureId != null" >
+        #{changeNatureId,jdbcType=CHAR},
+      </if>
+      <if test="changeNatureName != null" >
+        #{changeNatureName,jdbcType=VARCHAR},
+      </if>
+      <if test="dynamicId != null" >
+        #{dynamicId,jdbcType=CHAR},
+      </if>
+      <if test="dynamicName != null" >
+        #{dynamicName,jdbcType=VARCHAR},
+      </if>
+      <if test="changeAmount != null" >
+        #{changeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="changeDate != null" >
+        #{changeDate,jdbcType=DATE},
+      </if>
+      <if test="innerCheckId != null" >
+        #{innerCheckId,jdbcType=CHAR},
+      </if>
+      <if test="innerCheckName != null" >
+        #{innerCheckName,jdbcType=VARCHAR},
+      </if>
+      <if test="legalId != null" >
+        #{legalId,jdbcType=CHAR},
+      </if>
+      <if test="legalName != null" >
+        #{legalName,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="statusId != null" >
+        #{statusId,jdbcType=CHAR},
+      </if>
+      <if test="statusName != null" >
+        #{statusName,jdbcType=VARCHAR},
+      </if>
+      <if test="renew1 != null" >
+        #{renew1,jdbcType=CHAR},
+      </if>
+      <if test="renew2 != null" >
+        #{renew2,jdbcType=CHAR},
+      </if>
+      <if test="renew3 != null" >
+        #{renew3,jdbcType=CHAR},
+      </if>
+      <if test="renew4 != null" >
+        #{renew4,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzDesignChangeRecord" >
+    update zj_tz_design_change_record
+    <set >
+      <if test="designChangeId != null" >
+        design_change_id = #{designChangeId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectInfoId != null" >
+        subproject_info_id = #{subprojectInfoId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectName != null" >
+        subproject_name = #{subprojectName,jdbcType=VARCHAR},
+      </if>
+      <if test="designStageId != null" >
+        design_stage_id = #{designStageId,jdbcType=CHAR},
+      </if>
+      <if test="designStageName != null" >
+        design_stage_name = #{designStageName,jdbcType=VARCHAR},
+      </if>
+      <if test="designChangeNumber != null" >
+        design_change_number = #{designChangeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="designChangeName != null" >
+        design_change_name = #{designChangeName,jdbcType=VARCHAR},
+      </if>
+      <if test="changeLevelId != null" >
+        change_level_id = #{changeLevelId,jdbcType=CHAR},
+      </if>
+      <if test="changeLevelName != null" >
+        change_level_name = #{changeLevelName,jdbcType=VARCHAR},
+      </if>
+      <if test="changeNatureId != null" >
+        change_nature_id = #{changeNatureId,jdbcType=CHAR},
+      </if>
+      <if test="changeNatureName != null" >
+        change_nature_name = #{changeNatureName,jdbcType=VARCHAR},
+      </if>
+      <if test="dynamicId != null" >
+        dynamic_id = #{dynamicId,jdbcType=CHAR},
+      </if>
+      <if test="dynamicName != null" >
+        dynamic_name = #{dynamicName,jdbcType=VARCHAR},
+      </if>
+      <if test="changeAmount != null" >
+        change_amount = #{changeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="changeDate != null" >
+        change_date = #{changeDate,jdbcType=DATE},
+      </if>
+      <if test="innerCheckId != null" >
+        inner_check_id = #{innerCheckId,jdbcType=CHAR},
+      </if>
+      <if test="innerCheckName != null" >
+        inner_check_name = #{innerCheckName,jdbcType=VARCHAR},
+      </if>
+      <if test="legalId != null" >
+        legal_id = #{legalId,jdbcType=CHAR},
+      </if>
+      <if test="legalName != null" >
+        legal_name = #{legalName,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="statusId != null" >
+        status_id = #{statusId,jdbcType=CHAR},
+      </if>
+      <if test="statusName != null" >
+        status_name = #{statusName,jdbcType=VARCHAR},
+      </if>
+      <if test="renew1 != null" >
+        renew1 = #{renew1,jdbcType=CHAR},
+      </if>
+      <if test="renew2 != null" >
+        renew2 = #{renew2,jdbcType=CHAR},
+      </if>
+      <if test="renew3 != null" >
+        renew3 = #{renew3,jdbcType=CHAR},
+      </if>
+      <if test="renew4 != null" >
+        renew4 = #{renew4,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where design_change_record_id = #{designChangeRecordId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzDesignChangeRecord" >
+    update zj_tz_design_change_record
+    set       design_change_id = #{designChangeId,jdbcType=CHAR},
+      project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      subproject_info_id = #{subprojectInfoId,jdbcType=CHAR},
+      subproject_name = #{subprojectName,jdbcType=VARCHAR},
+      design_stage_id = #{designStageId,jdbcType=CHAR},
+      design_stage_name = #{designStageName,jdbcType=VARCHAR},
+      design_change_number = #{designChangeNumber,jdbcType=VARCHAR},
+      design_change_name = #{designChangeName,jdbcType=VARCHAR},
+      change_level_id = #{changeLevelId,jdbcType=CHAR},
+      change_level_name = #{changeLevelName,jdbcType=VARCHAR},
+      change_nature_id = #{changeNatureId,jdbcType=CHAR},
+      change_nature_name = #{changeNatureName,jdbcType=VARCHAR},
+      dynamic_id = #{dynamicId,jdbcType=CHAR},
+      dynamic_name = #{dynamicName,jdbcType=VARCHAR},
+      change_amount = #{changeAmount,jdbcType=DECIMAL},
+      change_date = #{changeDate,jdbcType=DATE},
+      inner_check_id = #{innerCheckId,jdbcType=CHAR},
+      inner_check_name = #{innerCheckName,jdbcType=VARCHAR},
+      legal_id = #{legalId,jdbcType=CHAR},
+      legal_name = #{legalName,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      status_id = #{statusId,jdbcType=CHAR},
+      status_name = #{statusName,jdbcType=VARCHAR},
+      renew1 = #{renew1,jdbcType=CHAR},
+      renew2 = #{renew2,jdbcType=CHAR},
+      renew3 = #{renew3,jdbcType=CHAR},
+      renew4 = #{renew4,jdbcType=CHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where design_change_record_id = #{designChangeRecordId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzDesignChangeRecordList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzDesignChangeRecord" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_design_change_record
+    where del_flag = '0'
+    <if test="designChangeRecordId != null and designChangeRecordId != ''" >
+     and design_change_record_id = #{designChangeRecordId,jdbcType=}
+    </if>
+    <if test="designChangeId != null and designChangeId != ''" >
+     and design_change_id = #{designChangeId,jdbcType=CHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="subprojectInfoId != null and subprojectInfoId != ''" >
+     and subproject_info_id = #{subprojectInfoId,jdbcType=CHAR}
+    </if>
+    <if test="subprojectName != null and subprojectName != ''" >
+     and subproject_name = #{subprojectName,jdbcType=VARCHAR}
+    </if>
+    <if test="designStageId != null and designStageId != ''" >
+     and design_stage_id = #{designStageId,jdbcType=CHAR}
+    </if>
+    <if test="designStageName != null and designStageName != ''" >
+     and design_stage_name = #{designStageName,jdbcType=VARCHAR}
+    </if>
+    <if test="designChangeNumber != null and designChangeNumber != ''" >
+     and design_change_number = #{designChangeNumber,jdbcType=VARCHAR}
+    </if>
+    <if test="designChangeName != null and designChangeName != ''" >
+     and design_change_name = #{designChangeName,jdbcType=VARCHAR}
+    </if>
+    <if test="changeLevelId != null and changeLevelId != ''" >
+     and change_level_id = #{changeLevelId,jdbcType=CHAR}
+    </if>
+    <if test="changeLevelName != null and changeLevelName != ''" >
+     and change_level_name = #{changeLevelName,jdbcType=VARCHAR}
+    </if>
+    <if test="changeNatureId != null and changeNatureId != ''" >
+     and change_nature_id = #{changeNatureId,jdbcType=CHAR}
+    </if>
+    <if test="changeNatureName != null and changeNatureName != ''" >
+     and change_nature_name = #{changeNatureName,jdbcType=VARCHAR}
+    </if>
+    <if test="dynamicId != null and dynamicId != ''" >
+     and dynamic_id = #{dynamicId,jdbcType=CHAR}
+    </if>
+    <if test="dynamicName != null and dynamicName != ''" >
+     and dynamic_name = #{dynamicName,jdbcType=VARCHAR}
+    </if>
+    <if test="changeAmount != null and changeAmount != ''" >
+     and change_amount = #{changeAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="changeDate != null" >
+     and change_date = #{changeDate,jdbcType=DATE}
+    </if>
+    <if test="innerCheckId != null and innerCheckId != ''" >
+     and inner_check_id = #{innerCheckId,jdbcType=CHAR}
+    </if>
+    <if test="innerCheckName != null and innerCheckName != ''" >
+     and inner_check_name = #{innerCheckName,jdbcType=VARCHAR}
+    </if>
+    <if test="legalId != null and legalId != ''" >
+     and legal_id = #{legalId,jdbcType=CHAR}
+    </if>
+    <if test="legalName != null and legalName != ''" >
+     and legal_name = #{legalName,jdbcType=VARCHAR}
+    </if>
+    <if test="content != null and content != ''" >
+     and content = #{content,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="statusId != null and statusId != ''" >
+     and status_id = #{statusId,jdbcType=CHAR}
+    </if>
+    <if test="statusName != null and statusName != ''" >
+     and status_name = #{statusName,jdbcType=VARCHAR}
+    </if>
+    <if test="renew1 != null and renew1 != ''" >
+     and renew1 = #{renew1,jdbcType=CHAR}
+    </if>
+    <if test="renew2 != null and renew2 != ''" >
+     and renew2 = #{renew2,jdbcType=CHAR}
+    </if>
+    <if test="renew3 != null and renew3 != ''" >
+     and renew3 = #{renew3,jdbcType=CHAR}
+    </if>
+    <if test="renew4 != null and renew4 != ''" >
+     and renew4 = #{renew4,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="ext1Flag1 != null and ext1Flag1 != ''" >
+     and status_id IN ('0','1','2') 
+    </if>
+    <if test="ext1Flag2 != null and ext1Flag2 != ''" >
+     and status_id IN ('1','2','3') 
+    </if>
+    <if test="ext1Flag3 != null and ext1Flag3 != ''" >
+     and status_id IN ('1','2') 
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzDesignChangeRecord" parameterType="com.apih5.mybatis.pojo.ZjTzDesignChangeRecord" >
+    <![CDATA[ 
+        update zj_tz_design_change_record
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and design_change_record_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.designChangeRecordId} 
+     </foreach>
+  </delete>
+  
+  <delete id="batchRecallZjTzDesignChangeRecord" parameterType="com.apih5.mybatis.pojo.ZjTzDesignChangeRecord" >
+    <![CDATA[ 
+        update zj_tz_design_change_record
+        set status_id = #{param2.statusId},
+            status_name=#{param2.statusName},
+            renew1 = #{param2.renew1},
+            renew2 = #{param2.renew2},
+            renew3 = #{param2.renew3},
+            renew4 = #{param2.renew4},
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and design_change_record_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.designChangeRecordId} 
+     </foreach>
+  </delete>
+</mapper>

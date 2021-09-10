@@ -1,0 +1,528 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>选择部门列表</title>
+    <meta name="keywords" content="多级下拉菜单, jquery插件" />
+    <meta name="description" content="选择部门" />
+    <!--<link rel="stylesheet" type="text/css" href="../css/main.css" />-->
+    <link rel="stylesheet" type="text/css" href="../css/selectMember.css" />
+    <script type="text/javascript" src="../lib/jquery/1.9.1/jquery.js"></script>
+    <script type="text/javascript" src="../lib/multi_menu/accordion.js"></script>
+    <script type="text/javascript" src="../lib/action-sheet/action-sheet.js"></script>
+    <script type="text/javascript" src="../lib/layer_mobile/layer.js"></script>
+    <script src="../js/login.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".nav").accordion({
+                accordion: false,
+                speed: 500,
+                closedSign: '[+]',
+                openedSign: '[-]'
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="header">
+        <!-- 显示选择的列表 -->
+        <div class="showResult">
+            <ul id="itemList"></ul>
+        </div>
+        <!-- 成员列表 -->
+        <div class="showMember" style="display: none">
+            <ul id="selectMember">
+                <!--<li>-->
+                <!--<label>-->
+                <!--<input class="checkbox" type="checkbox" name="checkboxBtn" id='all' value='all' onclick="checkBox($(this))" />-->
+                <!--<p class="text">全部</p>-->
+                <!--</label>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<label>-->
+                <!--<input class="checkbox" type="checkbox" name="checkboxBtn" id='m00001' value='all' onclick="checkBox($(this))" />-->
+                <!--<p class="text">甲员工</p>-->
+                <!--</label>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<label>-->
+                <!--<input class="checkbox" type="checkbox" name="checkboxBtn" id='m00002' value='all' onclick="checkBox($(this))" />-->
+                <!--<p class="text">乙员工</p>-->
+                <!--</label>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<label>-->
+                <!--<input class="checkbox" type="checkbox" name="checkboxBtn" id='m00003' value='all' onclick="checkBox($(this))" />-->
+                <!--<p class="text">丙员工</p>-->
+                <!--</label>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+    <div id="main">
+        <div class="demo">
+            <!-- 部门列表 -->
+            <ul class="nav" id="selectDepartment"></ul>
+        </div>
+    </div>
+    <div class="footer">
+        <div id="screenBtn" style="display: block">
+            <a href="javascript:void(0)" title="已筛选成员" class="btn" onclick="confirm()">确定</a>
+            <a href="javascript:void(0)" title="取消选择" class="btn" onclick="cancel()">取消</a>
+        </div>
+        <div id="memberBtn" style="display: none">
+            <a href="javascript:void(0)" title="已选择成员" class="show-btn" onclick="showMember()">显示选择的成员</a>
+        </div>
+    </div>
+
+    <script type="application/javascript">
+
+
+        window.login(function () {
+
+
+
+
+            var departmentListData = [];// 总数据(部门列表数据)
+            var memberListData = [];// 总数据(成员列表数据)
+            var meberSwitch = false;// 为true时显示成员列表，为false时显示所选中筛选出的成员
+            var fData = [];// 第一级数据
+            var sData = [];// 第二级数据
+            var tData = [];// 第三级数据
+            var foData = [];// 第四级数据
+            var selectDepartmentList = "";// 使用部门（后）
+            var selectMemberList = "";// 使用者（后）
+            // 页面刷新加载方法
+            window.onload = function () {
+                selectDepartmentList = noNull(JSON.parse(localStorage.getItem("selectDepartmentList2")));// 使用部门（后）
+                selectMemberList = noNull(JSON.parse(localStorage.getItem("selectMemberList2")));// 使用部门（后）
+                if (selectMemberList != "") {
+                    var $str = "";
+                    $.each(selectMemberList, function (i, item) {
+                        $str += '<li name=' + item.userid + ' value=' + item.name + ' data-orgid=' + item.orgId + ' data-pid=' + item.pId + '>',
+                            $str += '<p class="text">' + item.name + '</p>',
+                            $str += '<img class="img" onclick="clearItem($(this))" name=' + item.id + ' value=' + item.name + ' src="../img/close.png" />',
+                            $str += '</li>'
+                    });
+                    $("#itemList").append($str);
+                }
+                queryDepartment();// 选择部门查询
+            };
+
+            // 查询部门列表
+            function queryDepartment() {
+                $.ajax({
+                    url: API + 'getDepartment',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: JSON.stringify({}),
+                    timeout: timeout,
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json; charset=utf-8',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    success: function (rel) {
+                        if (rel.code === '3003' || rel.code === '3004') {
+                            //重新获取code登录
+                            window.reset();
+                        }
+                        if (rel.success == true) {
+                            departmentListData = noNull(rel.data);// 详情数据
+                            loopList();
+                            if ($(".showResult").height() > 132 && 365 > $(".showResult").height()) {
+                                $("#main").css("margin-top", '260px');
+                            } else if ($(".showResult").height() >= 365) {
+                                $("#main").css("margin-top", '400px');
+                            } else {
+                                $("#main").css("margin-top", '170px');
+                            }
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                })
+            }
+
+            // 查询成员列表
+            function queryMemberList(dom) {
+                var checkArr = [];
+                $("#itemList li").each(function (i, item) {
+                    checkArr[i] = {
+                        id: noNull(item.attributes[0].value),
+                        name: noNull(item.attributes[1].value)
+                    }
+                });
+                meberSwitch = true;
+                if (meberSwitch) {
+                    $(".showResult").attr("style", "display: none");// 隐藏筛选出的成员
+                    $(".showMember").attr("style", "display: block");// 显示成员列表
+                    $("#screenBtn").attr("style", "display: none");// 隐藏已筛选成员列表
+                    $("#memberBtn").attr("style", "display: block");// 显示已选择成员列表
+                    $("#selectDepartment").attr("style", "padding-bottom:60px");
+                }
+                var departmentId = dom.attr("id");// 部门ID
+                var orgId = dom.attr("data-orgid");// 部门orgId
+                var params = {
+                    id: departmentId,
+                    orgId: orgId
+                }
+                $.ajax({
+                    url: API + 'getMember',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: JSON.stringify(params),
+                    timeout: timeout,
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json; charset=utf-8',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    success: function (rel) {
+                        memberListData = noNull(rel.data);// 详情数据
+                        if (rel.success == true) {
+                            $("#main").css("margin-top", '400px');
+                            if (memberListData != "") {
+                                loopMemberList(checkArr);
+                            } else {
+                                $("#selectMember li").remove();
+                                $("#main").css("margin-top", '170px')
+                            }
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                })
+            }
+
+            // 循环遍历部门列表
+            function loopList() {
+                // 获取一级列表数据
+                if (departmentListData != "") {
+                    for (var i = 0, j = 0; i <= departmentListData.length - 1; i++) {
+                        if (noNull(departmentListData[i].parentid) == "") {
+                            fData[j] = {
+                                id: departmentListData[i].id,
+                                name: departmentListData[i].name,
+                                order: departmentListData[i].order,
+                                orgId: departmentListData[i].orgId,
+                                parentid: departmentListData[i].parentid
+                            }
+                            j++;
+                        }
+                    }
+                }
+                // 循环插入一级列表 并 获取二级列表数据
+                if (noNull(fData) != "") {
+                    var selectState = false;// 为true时则显示有下一级，false则没有
+                    var $str = "";
+                    $("#selectDepartment li").remove();
+                    // 循环插入 一级列表
+                    $.each(fData, function (i, item) {
+                        $str += '<li>',
+                            $str += '<a href="javascript:void(0)">',
+                            $str += '<input class="checkbox" type="radio" name="radioBtn" id=' + item.id + ' data-orgId=' + item.orgId + ' value=' + item.name + ' onclick="queryMemberList($(this))" />',
+                            $str += '<p class="text">' + item.name + '</p>',
+                            $str += '</a>',
+                            $str += '<ul id="fData' + item.id + '">',
+                            $str += '</ul>',
+                            $str += '</li>'
+                    });
+                    $("#selectDepartment").append($str);
+                    // 获取二级列表数据
+                    for (var i = 0, j = 0; i <= fData.length - 1; i++) {
+                        for (var k = 0; k <= departmentListData.length - 1; k++) {
+                            if (noNull(fData[i].id) == noNull(departmentListData[k].parentid)) {
+                                selectState = true;// 为true时则显示有下一级，false则没有
+                                sData[j] = {
+                                    id: departmentListData[k].id,
+                                    name: departmentListData[k].name,
+                                    order: departmentListData[k].order,
+                                    orgId: departmentListData[k].orgId,
+                                    parentid: departmentListData[k].parentid
+                                }
+                                j++;
+                            }
+                        }
+                        if (selectState == false) {
+                            $("#fData" + fData[i].id).remove();// 删除一级展开项
+                        }
+                    }
+                }
+                // 循环插入二级列表 并 获取三级列表数据
+                if (noNull(sData) != "") {
+                    var selectState = false;// 为true时则显示有下一级，false则没有
+                    // 循环插入 二级列表
+                    $.each(sData, function (i, item) {
+                        var $str = "";
+                        $str += '<li>',
+                            $str += '<a href="javascript:void(0)">',
+                            $str += '<input class="checkbox" type="radio" name="radioBtn" id=' + item.id + ' data-orgId=' + item.orgId + ' value=' + item.name + ' onclick="queryMemberList($(this))" />',
+                            $str += '<p class="text">' + item.name + '</p>',
+                            $str += '</a>',
+                            $str += '<ul id="sData' + item.id + '">',
+                            $str += '</ul>',
+                            $str += '</li>'
+                        $.each(fData, function (j, param) {
+                            if (noNull(param.id) == noNull(item.parentid)) {
+                                $("#fData" + param.id).append($str);// 传入一级列表
+                            }
+                        })
+                    });
+                    // 获取三级列表数据
+                    for (var i = 0, j = 0; i <= sData.length - 1; i++) {
+                        for (var k = 0; k <= departmentListData.length - 1; k++) {
+                            if (noNull(sData[i].id) == noNull(departmentListData[k].parentid)) {
+                                selectState = true;// 为true时则显示有下一级，false则没有
+                                tData[j] = {
+                                    id: departmentListData[k].id,
+                                    name: departmentListData[k].name,
+                                    order: departmentListData[k].order,
+                                    orgId: departmentListData[k].orgId,
+                                    parentid: departmentListData[k].parentid
+                                }
+                                j++;
+                            }
+                        }
+                        if (selectState == false) {
+                            $("#sData" + sData[i].id).remove();// 删除二级展开项
+                        }
+                        selectState = false;// 为true时则显示有下一级，false则没有
+                    }
+                }
+                // 循环插入三级列表 并 获取四级列表数据
+                if (noNull(tData) != "") {
+                    var selectState = false;// 为true时则显示有下一级，false则没有
+                    // 循环插入 三级列表
+                    $.each(tData, function (i, item) {
+                        var $str = "";
+                        $str += '<li>',
+                            $str += '<a href="javascript:void(0)">',
+                            $str += '<input class="checkbox" type="radio" name="radioBtn" id=' + item.id + ' data-orgId=' + item.orgId + ' value=' + item.name + ' onclick="queryMemberList($(this))" />',
+                            $str += '<p class="text">' + item.name + '</p>',
+                            $str += '</a>',
+                            $str += '<ul id="tData' + item.id + '">',
+                            $str += '</ul>',
+                            $str += '</li>'
+                        $.each(sData, function (j, param) {
+                            if (noNull(param.id) == noNull(item.parentid)) {
+                                $("#sData" + param.id).append($str);// 传入二级列表
+                            }
+                        })
+                    });
+                    // 获取四级列表数据
+                    for (var i = 0, j = 0; i <= tData.length - 1; i++) {
+                        for (var k = 0; k <= departmentListData.length - 1; k++) {
+                            if (noNull(tData[i].id) == noNull(departmentListData[k].parentid)) {
+                                selectState = true;// 为true时则显示有下一级，false则没有
+                                foData[j] = {
+                                    id: departmentListData[k].id,
+                                    name: departmentListData[k].name,
+                                    order: departmentListData[k].order,
+                                    orgId: departmentListData[k].orgId,
+                                    parentid: departmentListData[k].parentid
+                                }
+                                j++;
+                            }
+                        }
+                        if (selectState == false) {
+                            $("#tData" + tData[i].id).remove();// 删除三级展开项
+                        }
+                        selectState = false;// 为true时则显示有下一级，false则没有
+                    }
+                }
+                // 循环插入四级列表(四级为最后一级无展开项)
+                if (noNull(foData) != "") {
+                    // 循环插入 四级列表
+                    $.each(foData, function (i, item) {
+                        var $str = "";
+                        $str += '<li>',
+                            $str += '<a href="javascript:void(0)">',
+                            $str += '<input class="checkbox" type="radio" name="radioBtn" id=' + item.id + ' data-orgId=' + item.orgId + ' value=' + item.name + ' onclick="queryMemberList($(this))" />',
+                            $str += '<p class="text">' + item.name + '</p>',
+                            $str += '</a>',
+                            $str += '</li>'
+                        $.each(tData, function (j, param) {
+                            if (noNull(param.id) == noNull(item.parentid)) {
+                                $("#tData" + param.id).append($str);// 传入三级列表
+                            }
+                        })
+                    });
+                }
+                $(".nav").accordion({
+                    accordion: false,
+                    speed: 500,
+                    closedSign: '[+]',
+                    openedSign: '[-]'
+                });
+            }
+
+            // 循环遍历成员列表
+            function loopMemberList(checkArr) {
+                $("#selectMember li").remove();
+                var $str = "";
+                $str += '<li>',
+                    $str += '<label>',
+                    $str += '<input class="checkbox" type="checkbox" name="checkboxBtn" id="allCheck" value="allCheck" onclick="allCheck($(this))" />',
+                    $str += '<p class="text">全部</p>',
+                    $str += '</label>',
+                    $str += '</li>'
+                // 循环插入
+                $.each(memberListData, function (i, item) {
+                    $str += '<li>',
+                        $str += '<label>',
+                        $str += '<input class="checkbox" type="checkbox" name="checkboxBtn" id=' + item.userid + ' data-orgid=' + item.orgId + ' value=' + item.name + ' onclick="checkBox($(this))" />',
+                        $str += '<p class="text">' + item.name + '</p>',
+                        $str += '</label>',
+                        $str += '</li>'
+                });
+                $("#selectMember").append($str);
+                if (checkArr != "") {
+                    // 判断是否存在筛选中的成员
+                    $.each(memberListData, function (i, item) {
+                        $.each(checkArr, function (j, param) {
+                            if (param.id == item.userid) {
+                                $("#" + item.userid)[0].checked = true;
+                            }
+                        });
+                    });
+                }
+                $.each(memberListData, function (i, item) {
+                    var state = $("#" + item.userid)[0].checked;
+                    if (state) {
+                        $("#allCheck")[0].checked = true;
+                    } else {
+                        $("#allCheck")[0].checked = false;
+                    }
+
+                })
+            }
+
+            // 清除选中项
+            function clearItem(dom) {
+                //var departmentId = dom[0].name;
+                //$("#" + departmentId).get(0).checked = !($("#" + departmentId).is(':checked'));
+                dom.parent().remove();//删除可见范围中选中项
+
+                if ($(".showResult").height() > 132 && 365 > $(".showResult").height()) {
+                    $("#main").css("margin-top", '260px');
+                } else if ($(".showResult").height() >= 365) {
+                    $("#main").css("margin-top", '400px');
+                } else {
+                    $("#main").css("margin-top", '170px');
+                }
+            }
+
+            // 点击触发CheckBox
+            function checkBox(dom) {
+                var departmentId = dom[0].id;// 部门ID
+                var departmentName = dom[0].value;// 部门名称
+                var departmentOrgId = dom.attr("data-orgid");// 部门orgId
+                if (dom[0].checked == true) {
+                    var $str = "";
+                    $str += '<li name=' + departmentId + ' value=' + departmentName + ' data-orgid=' + departmentOrgId + '>',
+                        $str += '<p class="text">' + departmentName + '</p>',
+                        $str += '<img class="img" onclick="clearItem($(this))" name=' + departmentId + ' value=' + departmentName + ' src="../img/close.png" />',
+                        $str += '</li>'
+                    $("#itemList").append($str);
+                } else {
+                    $("#itemList li[name=" + departmentId + "]").remove();
+                }
+            }
+
+            // 显示已选中成员
+            function showMember() {
+                $(".showResult").attr("style", "display: block");// 显示筛选出的成员
+                $(".showMember").attr("style", "display: none");// 隐藏成员列表
+                $("#screenBtn").attr("style", "display: block");// 显示已筛选成员列表
+                $("#memberBtn").attr("style", "display: none");// 隐藏已选择成员列表
+                $("#selectDepartment").attr("style", "padding-bottom: 0px");
+
+                if ($(".showResult").height() > 132 && 365 > $(".showResult").height()) {
+                    $("#main").css("margin-top", '260px')
+                } else if ($(".showResult").height() >= 365) {
+                    $("#main").css("margin-top", '400px')
+                } else {
+                    $("#main").css("margin-top", '170px');
+                }
+            }
+
+            // 全选or全不选
+            function allCheck(dom) {
+                $('input[name="checkboxBtn"]').prop('checked', dom.prop('checked'));// 全部选中
+                var checkArr = [];// 筛选出的成员列表
+                $("#itemList li").each(function (i, item) {
+                    checkArr[i] = {
+                        id: noNull(item.attributes[0].value),
+                        name: noNull(item.attributes[1].value)
+                    }
+                });
+                // 判断是否存在筛选中的成员
+                $.each(memberListData, function (i, item) {
+                    var checkState = true;// 为true时，则表示筛选列表没有此项，可以传入
+                    var memberId = noNull(item.userid);// 成员ID
+                    var memberName = noNull(item.name);// 成员名称
+                    var memberOrgId = noNull(item.orgId);// 成员orgId
+                    // 未选中时则都清除
+                    if (dom.prop('checked') == false) {
+                        $("#itemList li[name=" + memberId + "]").remove();
+                    }
+                    $.each(checkArr, function (j, param) {
+                        // 未选中时则都清除
+                        if (dom.prop('checked') == true) {
+                            // 有一次相等 则表示筛选的成员列表已重复 不必传入
+                            if (param.id == item.userid) {
+                                checkState = false;
+                            }
+                        }
+                    });
+                    if (checkState && dom.prop('checked')) {
+                        var $str = "";
+                        $str += '<li name=' + memberId + ' value=' + memberName + ' data-orgid=' + memberOrgId + '>',
+                            $str += '<p class="text">' + memberName + '</p>',
+                            $str += '<img class="img" onclick="clearItem($(this))" name=' + memberId + ' value=' + memberName + ' src="../img/close.png" />',
+                            $str += '</li>'
+                        $("#itemList").append($str);
+                    }
+                });
+            }
+
+            // 确定
+            function confirm() {
+                var checkArr = [];// 筛选出的部门列表
+                var selectDepartmentList = noNull(JSON.parse(localStorage.getItem("selectDepartmentList2")));// 使用部门（后）
+                $("#itemList li").each(function (i, item) {
+                    checkArr[i] = {
+                        userid: noNull(item.attributes[0].value),
+                        name: noNull(item.attributes[1].value),
+                        orgId: noNull(item.attributes[2].value)
+                    }
+                });
+                localStorage.setItem("selectMemberList", JSON.stringify(checkArr));// 将筛选出的 成员列表数据 传入 临时储存
+                localStorage.setItem("selectDepartmentList", JSON.stringify(selectDepartmentList));// 将筛选出的 部门列表数据 传入 临时储存
+                localStorage.setItem("refreshState", false);// 为true时，则刷新数据，false则不刷新
+                window.history.back();
+            }
+
+            // 取消
+            function cancel() {
+                localStorage.setItem("selectDepartmentList", JSON.stringify(selectDepartmentList));// 将筛选出的 部门列表数据 传入 临时储存
+                localStorage.setItem("selectMemberList", JSON.stringify(selectMemberList));// 将筛选出的 成员列表数据 传入 临时储存
+                localStorage.setItem("refreshState", false);// 为true时，则刷新数据，false则不刷新
+                window.history.back();
+            }
+
+
+        })
+
+
+
+    </script>
+</body>
+
+</html>

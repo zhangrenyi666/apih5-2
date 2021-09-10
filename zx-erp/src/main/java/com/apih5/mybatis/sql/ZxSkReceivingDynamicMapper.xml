@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkReceivingDynamicMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkReceivingDynamic" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="busDate" property="busDate" jdbcType="TIMESTAMP" />
+    <result column="resCode" property="resCode" jdbcType="VARCHAR" />
+    <result column="resName" property="resName" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="resUnit" property="resUnit" jdbcType="VARCHAR" />
+    <result column="voucherNo" property="voucherNo" jdbcType="VARCHAR" />
+    <result column="outOrgName" property="outOrgName" jdbcType="VARCHAR" />
+    <result column="inPrice" property="inPrice" jdbcType="DECIMAL" />
+    <result column="serQty" property="serQty" jdbcType="DECIMAL" />
+    <result column="orsQty" property="orsQty" jdbcType="DECIMAL" />
+    <result column="otrQty" property="otrQty" jdbcType="DECIMAL" />
+    <result column="obuQty" property="obuQty" jdbcType="DECIMAL" />
+    <result column="ocsQty" property="ocsQty" jdbcType="DECIMAL" />
+    <result column="allInQty" property="allInQty" jdbcType="DECIMAL" />
+    <result column="allInAmt" property="allInAmt" jdbcType="DECIMAL" />
+    <result column="oswQty" property="oswQty" jdbcType="DECIMAL" />
+    <result column="trsQty" property="trsQty" jdbcType="DECIMAL" />
+    <result column="otsQty" property="otsQty" jdbcType="DECIMAL" />
+    <result column="otkQty" property="otkQty" jdbcType="DECIMAL" />
+    <result column="allOutQty" property="allOutQty" jdbcType="DECIMAL" />
+    <result column="oswPrice" property="oswPrice" jdbcType="DECIMAL" />
+    <result column="allOutAmt" property="allOutAmt" jdbcType="DECIMAL" />
+    <result column="vinoutQty" property="vinoutQty" jdbcType="DECIMAL" />
+    <result column="vinoutAmt" property="vinoutAmt" jdbcType="DECIMAL" />
+    <result column="lastQty" property="lastQty" jdbcType="DECIMAL" />
+    <result column="lastPrice" property="lastPrice" jdbcType="DECIMAL" />
+    <result column="lastAmt" property="lastAmt" jdbcType="DECIMAL" />
+    <result column="beginDate" property="beginDate" jdbcType="TIMESTAMP" />
+    <result column="endDate" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="resID" property="resID" jdbcType="VARCHAR" />
+    <result column="resTypeID" property="resTypeID" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, busDate, resCode, resName, spec, 
+    resUnit, voucherNo, outOrgName, inPrice, serQty, 
+    orsQty, otrQty, obuQty, ocsQty, allInQty, 
+    allInAmt, oswQty, trsQty, otsQty, otkQty, 
+    allOutQty, oswPrice, allOutAmt, vinoutQty, vinoutAmt, 
+    lastQty, lastPrice, lastAmt, beginDate, endDate, 
+    orgID, resID, resTypeID, remarks, sort, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_receivingDynamic
+    where del_flag = '0' and id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_receivingDynamic
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkReceivingDynamic" >
+    insert into zx_sk_receivingDynamic (
+    id, busDate, resCode, resName, spec, 
+    resUnit, voucherNo, outOrgName, inPrice, serQty, 
+    orsQty, otrQty, obuQty, ocsQty, allInQty, 
+    allInAmt, oswQty, trsQty, otsQty, otkQty, 
+    allOutQty, oswPrice, allOutAmt, vinoutQty, vinoutAmt, 
+    lastQty, lastPrice, lastAmt, beginDate, endDate, 
+    orgID, resID, resTypeID, remarks, sort, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+      )
+    values (
+      #{id,jdbcType=VARCHAR}, #{busDate,jdbcType=TIMESTAMP}, #{resCode,jdbcType=VARCHAR}, #{resName,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, 
+    #{resUnit,jdbcType=VARCHAR}, #{voucherNo,jdbcType=VARCHAR}, #{outOrgName,jdbcType=VARCHAR}, #{inPrice,jdbcType=DECIMAL}, #{serQty,jdbcType=DECIMAL}, 
+    #{orsQty,jdbcType=DECIMAL}, #{otrQty,jdbcType=DECIMAL}, #{obuQty,jdbcType=DECIMAL}, #{ocsQty,jdbcType=DECIMAL}, #{allInQty,jdbcType=DECIMAL}, 
+    #{allInAmt,jdbcType=DECIMAL}, #{oswQty,jdbcType=DECIMAL}, #{trsQty,jdbcType=DECIMAL}, #{otsQty,jdbcType=DECIMAL}, #{otkQty,jdbcType=DECIMAL}, 
+    #{allOutQty,jdbcType=DECIMAL}, #{oswPrice,jdbcType=DECIMAL}, #{allOutAmt,jdbcType=DECIMAL}, #{vinoutQty,jdbcType=DECIMAL}, #{vinoutAmt,jdbcType=DECIMAL}, 
+    #{lastQty,jdbcType=DECIMAL}, #{lastPrice,jdbcType=DECIMAL}, #{lastAmt,jdbcType=DECIMAL}, #{beginDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP}, 
+    #{orgID,jdbcType=VARCHAR}, #{resID,jdbcType=VARCHAR}, #{resTypeID,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+    #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+    #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkReceivingDynamic" >
+    insert into zx_sk_receivingDynamic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="busDate != null" >
+        busDate,
+      </if>
+      <if test="resCode != null" >
+        resCode,
+      </if>
+      <if test="resName != null" >
+        resName,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="resUnit != null" >
+        resUnit,
+      </if>
+      <if test="voucherNo != null" >
+        voucherNo,
+      </if>
+      <if test="outOrgName != null" >
+        outOrgName,
+      </if>
+      <if test="inPrice != null" >
+        inPrice,
+      </if>
+      <if test="serQty != null" >
+        serQty,
+      </if>
+      <if test="orsQty != null" >
+        orsQty,
+      </if>
+      <if test="otrQty != null" >
+        otrQty,
+      </if>
+      <if test="obuQty != null" >
+        obuQty,
+      </if>
+      <if test="ocsQty != null" >
+        ocsQty,
+      </if>
+      <if test="allInQty != null" >
+        allInQty,
+      </if>
+      <if test="allInAmt != null" >
+        allInAmt,
+      </if>
+      <if test="oswQty != null" >
+        oswQty,
+      </if>
+      <if test="trsQty != null" >
+        trsQty,
+      </if>
+      <if test="otsQty != null" >
+        otsQty,
+      </if>
+      <if test="otkQty != null" >
+        otkQty,
+      </if>
+      <if test="allOutQty != null" >
+        allOutQty,
+      </if>
+      <if test="oswPrice != null" >
+        oswPrice,
+      </if>
+      <if test="allOutAmt != null" >
+        allOutAmt,
+      </if>
+      <if test="vinoutQty != null" >
+        vinoutQty,
+      </if>
+      <if test="vinoutAmt != null" >
+        vinoutAmt,
+      </if>
+      <if test="lastQty != null" >
+        lastQty,
+      </if>
+      <if test="lastPrice != null" >
+        lastPrice,
+      </if>
+      <if test="lastAmt != null" >
+        lastAmt,
+      </if>
+      <if test="beginDate != null" >
+        beginDate,
+      </if>
+      <if test="endDate != null" >
+        endDate,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="resID != null" >
+        resID,
+      </if>
+      <if test="resTypeID != null" >
+        resTypeID,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="busDate != null" >
+        #{busDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resCode != null" >
+        #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="resUnit != null" >
+        #{resUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="voucherNo != null" >
+        #{voucherNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgName != null" >
+        #{outOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="inPrice != null" >
+        #{inPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="serQty != null" >
+        #{serQty,jdbcType=DECIMAL},
+      </if>
+      <if test="orsQty != null" >
+        #{orsQty,jdbcType=DECIMAL},
+      </if>
+      <if test="otrQty != null" >
+        #{otrQty,jdbcType=DECIMAL},
+      </if>
+      <if test="obuQty != null" >
+        #{obuQty,jdbcType=DECIMAL},
+      </if>
+      <if test="ocsQty != null" >
+        #{ocsQty,jdbcType=DECIMAL},
+      </if>
+      <if test="allInQty != null" >
+        #{allInQty,jdbcType=DECIMAL},
+      </if>
+      <if test="allInAmt != null" >
+        #{allInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="oswQty != null" >
+        #{oswQty,jdbcType=DECIMAL},
+      </if>
+      <if test="trsQty != null" >
+        #{trsQty,jdbcType=DECIMAL},
+      </if>
+      <if test="otsQty != null" >
+        #{otsQty,jdbcType=DECIMAL},
+      </if>
+      <if test="otkQty != null" >
+        #{otkQty,jdbcType=DECIMAL},
+      </if>
+      <if test="allOutQty != null" >
+        #{allOutQty,jdbcType=DECIMAL},
+      </if>
+      <if test="oswPrice != null" >
+        #{oswPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="allOutAmt != null" >
+        #{allOutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="vinoutQty != null" >
+        #{vinoutQty,jdbcType=DECIMAL},
+      </if>
+      <if test="vinoutAmt != null" >
+        #{vinoutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="lastQty != null" >
+        #{lastQty,jdbcType=DECIMAL},
+      </if>
+      <if test="lastPrice != null" >
+        #{lastPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="lastAmt != null" >
+        #{lastAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="beginDate != null" >
+        #{beginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="resID != null" >
+        #{resID,jdbcType=VARCHAR},
+      </if>
+      <if test="resTypeID != null" >
+        #{resTypeID,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkReceivingDynamic" >
+    update zx_sk_receivingDynamic
+    <set >
+      <if test="busDate != null" >
+        busDate = #{busDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resCode != null" >
+        resCode = #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        resName = #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="resUnit != null" >
+        resUnit = #{resUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="voucherNo != null" >
+        voucherNo = #{voucherNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgName != null" >
+        outOrgName = #{outOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="inPrice != null" >
+        inPrice = #{inPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="serQty != null" >
+        serQty = #{serQty,jdbcType=DECIMAL},
+      </if>
+      <if test="orsQty != null" >
+        orsQty = #{orsQty,jdbcType=DECIMAL},
+      </if>
+      <if test="otrQty != null" >
+        otrQty = #{otrQty,jdbcType=DECIMAL},
+      </if>
+      <if test="obuQty != null" >
+        obuQty = #{obuQty,jdbcType=DECIMAL},
+      </if>
+      <if test="ocsQty != null" >
+        ocsQty = #{ocsQty,jdbcType=DECIMAL},
+      </if>
+      <if test="allInQty != null" >
+        allInQty = #{allInQty,jdbcType=DECIMAL},
+      </if>
+      <if test="allInAmt != null" >
+        allInAmt = #{allInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="oswQty != null" >
+        oswQty = #{oswQty,jdbcType=DECIMAL},
+      </if>
+      <if test="trsQty != null" >
+        trsQty = #{trsQty,jdbcType=DECIMAL},
+      </if>
+      <if test="otsQty != null" >
+        otsQty = #{otsQty,jdbcType=DECIMAL},
+      </if>
+      <if test="otkQty != null" >
+        otkQty = #{otkQty,jdbcType=DECIMAL},
+      </if>
+      <if test="allOutQty != null" >
+        allOutQty = #{allOutQty,jdbcType=DECIMAL},
+      </if>
+      <if test="oswPrice != null" >
+        oswPrice = #{oswPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="allOutAmt != null" >
+        allOutAmt = #{allOutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="vinoutQty != null" >
+        vinoutQty = #{vinoutQty,jdbcType=DECIMAL},
+      </if>
+      <if test="vinoutAmt != null" >
+        vinoutAmt = #{vinoutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="lastQty != null" >
+        lastQty = #{lastQty,jdbcType=DECIMAL},
+      </if>
+      <if test="lastPrice != null" >
+        lastPrice = #{lastPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="lastAmt != null" >
+        lastAmt = #{lastAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="beginDate != null" >
+        beginDate = #{beginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        endDate = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="resID != null" >
+        resID = #{resID,jdbcType=VARCHAR},
+      </if>
+      <if test="resTypeID != null" >
+        resTypeID = #{resTypeID,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkReceivingDynamic" >
+    update zx_sk_receivingDynamic set 
+      busDate = #{busDate,jdbcType=TIMESTAMP},
+      resCode = #{resCode,jdbcType=VARCHAR},
+      resName = #{resName,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      resUnit = #{resUnit,jdbcType=VARCHAR},
+      voucherNo = #{voucherNo,jdbcType=VARCHAR},
+      outOrgName = #{outOrgName,jdbcType=VARCHAR},
+      inPrice = #{inPrice,jdbcType=DECIMAL},
+      serQty = #{serQty,jdbcType=DECIMAL},
+      orsQty = #{orsQty,jdbcType=DECIMAL},
+      otrQty = #{otrQty,jdbcType=DECIMAL},
+      obuQty = #{obuQty,jdbcType=DECIMAL},
+      ocsQty = #{ocsQty,jdbcType=DECIMAL},
+      allInQty = #{allInQty,jdbcType=DECIMAL},
+      allInAmt = #{allInAmt,jdbcType=DECIMAL},
+      oswQty = #{oswQty,jdbcType=DECIMAL},
+      trsQty = #{trsQty,jdbcType=DECIMAL},
+      otsQty = #{otsQty,jdbcType=DECIMAL},
+      otkQty = #{otkQty,jdbcType=DECIMAL},
+      allOutQty = #{allOutQty,jdbcType=DECIMAL},
+      oswPrice = #{oswPrice,jdbcType=DECIMAL},
+      allOutAmt = #{allOutAmt,jdbcType=DECIMAL},
+      vinoutQty = #{vinoutQty,jdbcType=DECIMAL},
+      vinoutAmt = #{vinoutAmt,jdbcType=DECIMAL},
+      lastQty = #{lastQty,jdbcType=DECIMAL},
+      lastPrice = #{lastPrice,jdbcType=DECIMAL},
+      lastAmt = #{lastAmt,jdbcType=DECIMAL},
+      beginDate = #{beginDate,jdbcType=TIMESTAMP},
+      endDate = #{endDate,jdbcType=TIMESTAMP},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      resID = #{resID,jdbcType=VARCHAR},
+      resTypeID = #{resTypeID,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxSkReceivingDynamicList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkReceivingDynamic" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_receivingDynamic
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="busDate != null and busDate != ''" >
+     and busDate = #{busDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="resCode != null and resCode != ''" >
+     and resCode = #{resCode,jdbcType=VARCHAR}
+    </if>
+    <if test="resName != null and resName != ''" >
+     and resName = #{resName,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="resUnit != null and resUnit != ''" >
+     and resUnit = #{resUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="voucherNo != null and voucherNo != ''" >
+     and voucherNo = #{voucherNo,jdbcType=VARCHAR}
+    </if>
+    <if test="outOrgName != null and outOrgName != ''" >
+     and outOrgName = #{outOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="inPrice != null and inPrice != ''" >
+     and inPrice = #{inPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="serQty != null and serQty != ''" >
+     and serQty = #{serQty,jdbcType=DECIMAL}
+    </if>
+    <if test="orsQty != null and orsQty != ''" >
+     and orsQty = #{orsQty,jdbcType=DECIMAL}
+    </if>
+    <if test="otrQty != null and otrQty != ''" >
+     and otrQty = #{otrQty,jdbcType=DECIMAL}
+    </if>
+    <if test="obuQty != null and obuQty != ''" >
+     and obuQty = #{obuQty,jdbcType=DECIMAL}
+    </if>
+    <if test="ocsQty != null and ocsQty != ''" >
+     and ocsQty = #{ocsQty,jdbcType=DECIMAL}
+    </if>
+    <if test="allInQty != null and allInQty != ''" >
+     and allInQty = #{allInQty,jdbcType=DECIMAL}
+    </if>
+    <if test="allInAmt != null and allInAmt != ''" >
+     and allInAmt = #{allInAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="oswQty != null and oswQty != ''" >
+     and oswQty = #{oswQty,jdbcType=DECIMAL}
+    </if>
+    <if test="trsQty != null and trsQty != ''" >
+     and trsQty = #{trsQty,jdbcType=DECIMAL}
+    </if>
+    <if test="otsQty != null and otsQty != ''" >
+     and otsQty = #{otsQty,jdbcType=DECIMAL}
+    </if>
+    <if test="otkQty != null and otkQty != ''" >
+     and otkQty = #{otkQty,jdbcType=DECIMAL}
+    </if>
+    <if test="allOutQty != null and allOutQty != ''" >
+     and allOutQty = #{allOutQty,jdbcType=DECIMAL}
+    </if>
+    <if test="oswPrice != null and oswPrice != ''" >
+     and oswPrice = #{oswPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="allOutAmt != null and allOutAmt != ''" >
+     and allOutAmt = #{allOutAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="vinoutQty != null and vinoutQty != ''" >
+     and vinoutQty = #{vinoutQty,jdbcType=DECIMAL}
+    </if>
+    <if test="vinoutAmt != null and vinoutAmt != ''" >
+     and vinoutAmt = #{vinoutAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="lastQty != null and lastQty != ''" >
+     and lastQty = #{lastQty,jdbcType=DECIMAL}
+    </if>
+    <if test="lastPrice != null and lastPrice != ''" >
+     and lastPrice = #{lastPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="lastAmt != null and lastAmt != ''" >
+     and lastAmt = #{lastAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="beginDate != null and beginDate != ''" >
+     and beginDate = #{beginDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="endDate != null and endDate != ''" >
+     and endDate = #{endDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="resID != null and resID != ''" >
+     and resID = #{resID,jdbcType=VARCHAR}
+    </if>
+    <if test="resTypeID != null and resTypeID != ''" >
+     and resTypeID = #{resTypeID,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkReceivingDynamic" parameterType="com.apih5.mybatis.pojo.ZxSkReceivingDynamic" >
+    <![CDATA[ 
+        update zx_sk_receivingDynamic
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+</mapper>

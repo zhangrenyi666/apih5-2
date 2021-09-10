@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqUseEquipMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqUseEquip" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="ownerOrgID" property="ownerOrgID" jdbcType="VARCHAR" />
+    <result column="ownerOrg" property="ownerOrg" jdbcType="VARCHAR" />
+    <result column="equipCbsID" property="equipCbsID" jdbcType="VARCHAR" />
+    <result column="equipMuID" property="equipMuID" jdbcType="VARCHAR" />
+    <result column="useOrgId" property="useOrgId" jdbcType="VARCHAR" />
+    <result column="useOrg" property="useOrg" jdbcType="VARCHAR" />
+    <result column="locality" property="locality" jdbcType="VARCHAR" />
+    <result column="resCatalog" property="resCatalog" jdbcType="VARCHAR" />
+    <result column="resCatalogID" property="resCatalogID" jdbcType="VARCHAR" />
+    <result column="refEquipID" property="refEquipID" jdbcType="VARCHAR" />
+    <result column="equipNo" property="equipNo" jdbcType="VARCHAR" />
+    <result column="equipName" property="equipName" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="brandName" property="brandName" jdbcType="VARCHAR" />
+    <result column="measureUnit" property="measureUnit" jdbcType="VARCHAR" />
+    <result column="origin" property="origin" jdbcType="VARCHAR" />
+    <result column="equipType" property="equipType" jdbcType="VARCHAR" />
+    <result column="powerValue" property="powerValue" jdbcType="DECIMAL" />
+    <result column="powerUnit" property="powerUnit" jdbcType="VARCHAR" />
+    <result column="motoAbility" property="motoAbility" jdbcType="DECIMAL" />
+    <result column="abilityUnit" property="abilityUnit" jdbcType="VARCHAR" />
+    <result column="fuelExpendUnit" property="fuelExpendUnit" jdbcType="VARCHAR" />
+    <result column="unitFuelExpend" property="unitFuelExpend" jdbcType="DECIMAL" />
+    <result column="operater" property="operater" jdbcType="VARCHAR" />
+    <result column="technicalPosition" property="technicalPosition" jdbcType="VARCHAR" />
+    <result column="useStatus" property="useStatus" jdbcType="VARCHAR" />
+    <result column="inDate" property="inDate" jdbcType="TIMESTAMP" />
+    <result column="outDate" property="outDate" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="planNo" property="planNo" jdbcType="VARCHAR" />
+    <result column="regdate" property="regdate" jdbcType="TIMESTAMP" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, ownerOrgID, ownerOrg, equipCbsID, equipMuID, 
+    useOrgId, useOrg, locality, resCatalog, resCatalogID, 
+    refEquipID, equipNo, equipName, spec, model, 
+    brandName, measureUnit, origin, equipType, powerValue, 
+    powerUnit, motoAbility, abilityUnit, fuelExpendUnit, unitFuelExpend, 
+    operater, technicalPosition, useStatus, inDate, outDate, 
+    remark, planNo, regdate, comID, comName, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />,
+        (SELECT factory FROM zx_eq_equip AS t WHERE id= refEquipID) AS factory
+    from zx_eq_UseEquip
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_UseEquip
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqUseEquip" >
+    insert into zx_eq_UseEquip (id, ownerOrgID, ownerOrg, 
+      equipCbsID, equipMuID, useOrgId, 
+      useOrg, locality, resCatalog, 
+      resCatalogID, refEquipID, equipNo, 
+      equipName, spec, model, 
+      brandName, measureUnit, origin, 
+      equipType, powerValue, powerUnit, 
+      motoAbility, abilityUnit, fuelExpendUnit, 
+      unitFuelExpend, operater, technicalPosition, 
+      useStatus, inDate, outDate, 
+      remark, planNo, regdate, 
+      comID, comName, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{ownerOrgID,jdbcType=VARCHAR}, #{ownerOrg,jdbcType=VARCHAR}, 
+      #{equipCbsID,jdbcType=VARCHAR}, #{equipMuID,jdbcType=VARCHAR}, #{useOrgId,jdbcType=VARCHAR}, 
+      #{useOrg,jdbcType=VARCHAR}, #{locality,jdbcType=VARCHAR}, #{resCatalog,jdbcType=VARCHAR}, 
+      #{resCatalogID,jdbcType=VARCHAR}, #{refEquipID,jdbcType=VARCHAR}, #{equipNo,jdbcType=VARCHAR}, 
+      #{equipName,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, 
+      #{brandName,jdbcType=VARCHAR}, #{measureUnit,jdbcType=VARCHAR}, #{origin,jdbcType=VARCHAR}, 
+      #{equipType,jdbcType=VARCHAR}, #{powerValue,jdbcType=DECIMAL}, #{powerUnit,jdbcType=VARCHAR}, 
+      #{motoAbility,jdbcType=DECIMAL}, #{abilityUnit,jdbcType=VARCHAR}, #{fuelExpendUnit,jdbcType=VARCHAR}, 
+      #{unitFuelExpend,jdbcType=DECIMAL}, #{operater,jdbcType=VARCHAR}, #{technicalPosition,jdbcType=VARCHAR}, 
+      #{useStatus,jdbcType=VARCHAR}, #{inDate,jdbcType=TIMESTAMP}, #{outDate,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}, #{planNo,jdbcType=VARCHAR}, #{regdate,jdbcType=TIMESTAMP}, 
+      #{comID,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqUseEquip" >
+    insert into zx_eq_UseEquip
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="ownerOrgID != null" >
+        ownerOrgID,
+      </if>
+      <if test="ownerOrg != null" >
+        ownerOrg,
+      </if>
+      <if test="equipCbsID != null" >
+        equipCbsID,
+      </if>
+      <if test="equipMuID != null" >
+        equipMuID,
+      </if>
+      <if test="useOrgId != null" >
+        useOrgId,
+      </if>
+      <if test="useOrg != null" >
+        useOrg,
+      </if>
+      <if test="locality != null" >
+        locality,
+      </if>
+      <if test="resCatalog != null" >
+        resCatalog,
+      </if>
+      <if test="resCatalogID != null" >
+        resCatalogID,
+      </if>
+      <if test="refEquipID != null" >
+        refEquipID,
+      </if>
+      <if test="equipNo != null" >
+        equipNo,
+      </if>
+      <if test="equipName != null" >
+        equipName,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="brandName != null" >
+        brandName,
+      </if>
+      <if test="measureUnit != null" >
+        measureUnit,
+      </if>
+      <if test="origin != null" >
+        origin,
+      </if>
+      <if test="equipType != null" >
+        equipType,
+      </if>
+      <if test="powerValue != null" >
+        powerValue,
+      </if>
+      <if test="powerUnit != null" >
+        powerUnit,
+      </if>
+      <if test="motoAbility != null" >
+        motoAbility,
+      </if>
+      <if test="abilityUnit != null" >
+        abilityUnit,
+      </if>
+      <if test="fuelExpendUnit != null" >
+        fuelExpendUnit,
+      </if>
+      <if test="unitFuelExpend != null" >
+        unitFuelExpend,
+      </if>
+      <if test="operater != null" >
+        operater,
+      </if>
+      <if test="technicalPosition != null" >
+        technicalPosition,
+      </if>
+      <if test="useStatus != null" >
+        useStatus,
+      </if>
+      <if test="inDate != null" >
+        inDate,
+      </if>
+      <if test="outDate != null" >
+        outDate,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="planNo != null" >
+        planNo,
+      </if>
+      <if test="regdate != null" >
+        regdate,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerOrgID != null" >
+        #{ownerOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerOrg != null" >
+        #{ownerOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="equipCbsID != null" >
+        #{equipCbsID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipMuID != null" >
+        #{equipMuID,jdbcType=VARCHAR},
+      </if>
+      <if test="useOrgId != null" >
+        #{useOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="useOrg != null" >
+        #{useOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="locality != null" >
+        #{locality,jdbcType=VARCHAR},
+      </if>
+      <if test="resCatalog != null" >
+        #{resCatalog,jdbcType=VARCHAR},
+      </if>
+      <if test="resCatalogID != null" >
+        #{resCatalogID,jdbcType=VARCHAR},
+      </if>
+      <if test="refEquipID != null" >
+        #{refEquipID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipNo != null" >
+        #{equipNo,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="brandName != null" >
+        #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="measureUnit != null" >
+        #{measureUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="origin != null" >
+        #{origin,jdbcType=VARCHAR},
+      </if>
+      <if test="equipType != null" >
+        #{equipType,jdbcType=VARCHAR},
+      </if>
+      <if test="powerValue != null" >
+        #{powerValue,jdbcType=DECIMAL},
+      </if>
+      <if test="powerUnit != null" >
+        #{powerUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="motoAbility != null" >
+        #{motoAbility,jdbcType=DECIMAL},
+      </if>
+      <if test="abilityUnit != null" >
+        #{abilityUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="fuelExpendUnit != null" >
+        #{fuelExpendUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="unitFuelExpend != null" >
+        #{unitFuelExpend,jdbcType=DECIMAL},
+      </if>
+      <if test="operater != null" >
+        #{operater,jdbcType=VARCHAR},
+      </if>
+      <if test="technicalPosition != null" >
+        #{technicalPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="useStatus != null" >
+        #{useStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="inDate != null" >
+        #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outDate != null" >
+        #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="planNo != null" >
+        #{planNo,jdbcType=VARCHAR},
+      </if>
+      <if test="regdate != null" >
+        #{regdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqUseEquip" >
+    update zx_eq_UseEquip
+    <set >
+      <if test="ownerOrgID != null" >
+        ownerOrgID = #{ownerOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerOrg != null" >
+        ownerOrg = #{ownerOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="equipCbsID != null" >
+        equipCbsID = #{equipCbsID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipMuID != null" >
+        equipMuID = #{equipMuID,jdbcType=VARCHAR},
+      </if>
+      <if test="useOrgId != null" >
+        useOrgId = #{useOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="useOrg != null" >
+        useOrg = #{useOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="locality != null" >
+        locality = #{locality,jdbcType=VARCHAR},
+      </if>
+      <if test="resCatalog != null" >
+        resCatalog = #{resCatalog,jdbcType=VARCHAR},
+      </if>
+      <if test="resCatalogID != null" >
+        resCatalogID = #{resCatalogID,jdbcType=VARCHAR},
+      </if>
+      <if test="refEquipID != null" >
+        refEquipID = #{refEquipID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipNo != null" >
+        equipNo = #{equipNo,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        equipName = #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="brandName != null" >
+        brandName = #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="measureUnit != null" >
+        measureUnit = #{measureUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="origin != null" >
+        origin = #{origin,jdbcType=VARCHAR},
+      </if>
+      <if test="equipType != null" >
+        equipType = #{equipType,jdbcType=VARCHAR},
+      </if>
+      <if test="powerValue != null" >
+        powerValue = #{powerValue,jdbcType=DECIMAL},
+      </if>
+      <if test="powerUnit != null" >
+        powerUnit = #{powerUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="motoAbility != null" >
+        motoAbility = #{motoAbility,jdbcType=DECIMAL},
+      </if>
+      <if test="abilityUnit != null" >
+        abilityUnit = #{abilityUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="fuelExpendUnit != null" >
+        fuelExpendUnit = #{fuelExpendUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="unitFuelExpend != null" >
+        unitFuelExpend = #{unitFuelExpend,jdbcType=DECIMAL},
+      </if>
+      <if test="operater != null" >
+        operater = #{operater,jdbcType=VARCHAR},
+      </if>
+      <if test="technicalPosition != null" >
+        technicalPosition = #{technicalPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="useStatus != null" >
+        useStatus = #{useStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="inDate != null" >
+        inDate = #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outDate != null" >
+        outDate = #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="planNo != null" >
+        planNo = #{planNo,jdbcType=VARCHAR},
+      </if>
+      <if test="regdate != null" >
+        regdate = #{regdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqUseEquip" >
+    update zx_eq_UseEquip
+    set       ownerOrgID = #{ownerOrgID,jdbcType=VARCHAR},
+      ownerOrg = #{ownerOrg,jdbcType=VARCHAR},
+      equipCbsID = #{equipCbsID,jdbcType=VARCHAR},
+      equipMuID = #{equipMuID,jdbcType=VARCHAR},
+      useOrgId = #{useOrgId,jdbcType=VARCHAR},
+      useOrg = #{useOrg,jdbcType=VARCHAR},
+      locality = #{locality,jdbcType=VARCHAR},
+      resCatalog = #{resCatalog,jdbcType=VARCHAR},
+      resCatalogID = #{resCatalogID,jdbcType=VARCHAR},
+      refEquipID = #{refEquipID,jdbcType=VARCHAR},
+      equipNo = #{equipNo,jdbcType=VARCHAR},
+      equipName = #{equipName,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      brandName = #{brandName,jdbcType=VARCHAR},
+      measureUnit = #{measureUnit,jdbcType=VARCHAR},
+      origin = #{origin,jdbcType=VARCHAR},
+      equipType = #{equipType,jdbcType=VARCHAR},
+      powerValue = #{powerValue,jdbcType=DECIMAL},
+      powerUnit = #{powerUnit,jdbcType=VARCHAR},
+      motoAbility = #{motoAbility,jdbcType=DECIMAL},
+      abilityUnit = #{abilityUnit,jdbcType=VARCHAR},
+      fuelExpendUnit = #{fuelExpendUnit,jdbcType=VARCHAR},
+      unitFuelExpend = #{unitFuelExpend,jdbcType=DECIMAL},
+      operater = #{operater,jdbcType=VARCHAR},
+      technicalPosition = #{technicalPosition,jdbcType=VARCHAR},
+      useStatus = #{useStatus,jdbcType=VARCHAR},
+      inDate = #{inDate,jdbcType=TIMESTAMP},
+      outDate = #{outDate,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      planNo = #{planNo,jdbcType=VARCHAR},
+      regdate = #{regdate,jdbcType=TIMESTAMP},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxEqUseEquipList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqUseEquip" >
+    select 
+    <include refid="Base_Column_List" />,
+    (SELECT outFactoryDate FROM zx_eq_equip AS t WHERE id= refEquipID) AS outFactoryDate,
+    (SELECT factory FROM zx_eq_equip AS t WHERE id= refEquipID) AS factory,
+    (SELECT orginalValue FROM zx_eq_equip AS t WHERE id= refEquipID) AS orginalValue
+    from zx_eq_UseEquip
+    where del_flag = '0'
+    <if test="ownerOrgID != null and ownerOrgID != ''" >
+     and ownerOrgID = #{ownerOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="ownerOrg != null and ownerOrg != ''" >
+     and ownerOrg = #{ownerOrg,jdbcType=VARCHAR}
+    </if>
+    <if test="equipCbsID != null and equipCbsID != ''" >
+     and equipCbsID = #{equipCbsID,jdbcType=VARCHAR}
+    </if>
+    <if test="equipMuID != null and equipMuID != ''" >
+     and equipMuID = #{equipMuID,jdbcType=VARCHAR}
+    </if>
+    <if test="useOrgId != null and useOrgId != ''" >
+     and useOrgId = #{useOrgId,jdbcType=VARCHAR}
+    </if>
+    <if test="useOrg != null and useOrg != ''" >
+     and useOrg = #{useOrg,jdbcType=VARCHAR}
+    </if>
+    <if test="locality != null and locality != ''" >
+     and locality = #{locality,jdbcType=VARCHAR}
+    </if>
+    <if test="resCatalog != null and resCatalog != ''" >
+     and resCatalog = #{resCatalog,jdbcType=VARCHAR}
+    </if>
+    <if test="resCatalogID != null and resCatalogID != ''" >
+     and resCatalogID = #{resCatalogID,jdbcType=VARCHAR}
+    </if>
+    <if test="refEquipID != null and refEquipID != ''" >
+     and refEquipID = #{refEquipID,jdbcType=VARCHAR}
+    </if>
+    <if test="equipNo != null and equipNo != ''" >
+     and equipNo = #{equipNo,jdbcType=VARCHAR}
+    </if>
+    <if test="equipName != null and equipName != ''" >
+     and equipName = #{equipName,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="model != null and model != ''" >
+     and model = #{model,jdbcType=VARCHAR}
+    </if>
+    <if test="brandName != null and brandName != ''" >
+     and brandName = #{brandName,jdbcType=VARCHAR}
+    </if>
+    <if test="measureUnit != null and measureUnit != ''" >
+     and measureUnit = #{measureUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="origin != null and origin != ''" >
+     and origin = #{origin,jdbcType=VARCHAR}
+    </if>
+    <if test="equipType != null and equipType != ''" >
+     and equipType = #{equipType,jdbcType=VARCHAR}
+    </if>
+    <if test="powerValue != null and powerValue != ''" >
+     and powerValue = #{powerValue,jdbcType=DECIMAL}
+    </if>
+    <if test="powerUnit != null and powerUnit != ''" >
+     and powerUnit = #{powerUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="motoAbility != null and motoAbility != ''" >
+     and motoAbility = #{motoAbility,jdbcType=DECIMAL}
+    </if>
+    <if test="abilityUnit != null and abilityUnit != ''" >
+     and abilityUnit = #{abilityUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="fuelExpendUnit != null and fuelExpendUnit != ''" >
+     and fuelExpendUnit = #{fuelExpendUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="unitFuelExpend != null and unitFuelExpend != ''" >
+     and unitFuelExpend = #{unitFuelExpend,jdbcType=DECIMAL}
+    </if>
+    <if test="operater != null and operater != ''" >
+     and operater = #{operater,jdbcType=VARCHAR}
+    </if>
+    <if test="technicalPosition != null and technicalPosition != ''" >
+     and technicalPosition = #{technicalPosition,jdbcType=VARCHAR}
+    </if>
+    <if test="useStatus != null and useStatus != ''" >
+     and useStatus = #{useStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="inDate != null and inDate != ''" >
+     and inDate = #{inDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="outDate != null and outDate != ''" >
+     and outDate = #{outDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="planNo != null and planNo != ''" >
+     and planNo = #{planNo,jdbcType=VARCHAR}
+    </if>
+    <if test="regdate != null and regdate != ''" >
+     and regdate = #{regdate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqUseEquip" parameterType="com.apih5.mybatis.pojo.ZxEqUseEquip" >
+    <![CDATA[ 
+        update zx_eq_UseEquip
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

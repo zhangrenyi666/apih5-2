@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSfHazardRoomAttMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSfHazardRoomAtt" >
+    <id column="zxSfHazardRoomAttId" property="zxSfHazardRoomAttId" jdbcType="CHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="itemID" property="itemID" jdbcType="VARCHAR" />
+    <result column="parentID" property="parentID" jdbcType="VARCHAR" />
+    <result column="attName" property="attName" jdbcType="VARCHAR" />
+    <result column="dee" property="dee" jdbcType="DECIMAL" />
+    <result column="cee" property="cee" jdbcType="DECIMAL" />
+    <result column="bee" property="bee" jdbcType="DECIMAL" />
+    <result column="lee" property="lee" jdbcType="DECIMAL" />
+    <result column="riskLevel" property="riskLevel" jdbcType="VARCHAR" />
+    <result column="isGroup" property="isGroup" jdbcType="VARCHAR" />
+    <result column="proArea" property="proArea" jdbcType="VARCHAR" />
+    <result column="doing" property="doing" jdbcType="VARCHAR" />
+    <result column="riskFactors" property="riskFactors" jdbcType="VARCHAR" />
+    <result column="accident" property="accident" jdbcType="VARCHAR" />
+    <result column="preparedby" property="preparedby" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="companyName" property="companyName" jdbcType="VARCHAR" />
+    <result column="companyId" property="companyId" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxSfHazardRoomAttId, orgID, type, editTime, itemID, 
+    parentID, attName, dee, cee, bee, 
+    lee, riskLevel, isGroup, proArea, doing, 
+    riskFactors, accident, preparedby, orgName, companyName, 
+    companyId, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sf_hazardRoomAtt
+    where del_flag = '0' and zxSfHazardRoomAttId = #{zxSfHazardRoomAttId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sf_hazardRoomAtt
+    where zxSfHazardRoomAttId = #{zxSfHazardRoomAttId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSfHazardRoomAtt" >
+    insert into zx_sf_hazardRoomAtt (
+    zxSfHazardRoomAttId, orgID, type, editTime, itemID, 
+    parentID, attName, dee, cee, bee, 
+    lee, riskLevel, isGroup, proArea, doing, 
+    riskFactors, accident, preparedby, orgName, companyName, 
+    companyId, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxSfHazardRoomAttId,jdbcType=CHAR}, #{orgID,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, #{itemID,jdbcType=VARCHAR}, 
+    #{parentID,jdbcType=VARCHAR}, #{attName,jdbcType=VARCHAR}, #{dee,jdbcType=DECIMAL}, #{cee,jdbcType=DECIMAL}, #{bee,jdbcType=DECIMAL}, 
+    #{lee,jdbcType=DECIMAL}, #{riskLevel,jdbcType=VARCHAR}, #{isGroup,jdbcType=VARCHAR}, #{proArea,jdbcType=VARCHAR}, #{doing,jdbcType=VARCHAR}, 
+    #{riskFactors,jdbcType=VARCHAR}, #{accident,jdbcType=VARCHAR}, #{preparedby,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, 
+    #{companyId,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+    #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSfHazardRoomAtt" >
+    insert into zx_sf_hazardRoomAtt
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSfHazardRoomAttId != null" >
+        zxSfHazardRoomAttId,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="itemID != null" >
+        itemID,
+      </if>
+      <if test="parentID != null" >
+        parentID,
+      </if>
+      <if test="attName != null" >
+        attName,
+      </if>
+      <if test="dee != null" >
+        dee,
+      </if>
+      <if test="cee != null" >
+        cee,
+      </if>
+      <if test="bee != null" >
+        bee,
+      </if>
+      <if test="lee != null" >
+        lee,
+      </if>
+      <if test="riskLevel != null" >
+        riskLevel,
+      </if>
+      <if test="isGroup != null" >
+        isGroup,
+      </if>
+      <if test="proArea != null" >
+        proArea,
+      </if>
+      <if test="doing != null" >
+        doing,
+      </if>
+      <if test="riskFactors != null" >
+        riskFactors,
+      </if>
+      <if test="accident != null" >
+        accident,
+      </if>
+      <if test="preparedby != null" >
+        preparedby,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="companyName != null" >
+        companyName,
+      </if>
+      <if test="companyId != null" >
+        companyId,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSfHazardRoomAttId != null" >
+        #{zxSfHazardRoomAttId,jdbcType=CHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="itemID != null" >
+        #{itemID,jdbcType=VARCHAR},
+      </if>
+      <if test="parentID != null" >
+        #{parentID,jdbcType=VARCHAR},
+      </if>
+      <if test="attName != null" >
+        #{attName,jdbcType=VARCHAR},
+      </if>
+      <if test="dee != null" >
+        #{dee,jdbcType=DECIMAL},
+      </if>
+      <if test="cee != null" >
+        #{cee,jdbcType=DECIMAL},
+      </if>
+      <if test="bee != null" >
+        #{bee,jdbcType=DECIMAL},
+      </if>
+      <if test="lee != null" >
+        #{lee,jdbcType=DECIMAL},
+      </if>
+      <if test="riskLevel != null" >
+        #{riskLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="isGroup != null" >
+        #{isGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="proArea != null" >
+        #{proArea,jdbcType=VARCHAR},
+      </if>
+      <if test="doing != null" >
+        #{doing,jdbcType=VARCHAR},
+      </if>
+      <if test="riskFactors != null" >
+        #{riskFactors,jdbcType=VARCHAR},
+      </if>
+      <if test="accident != null" >
+        #{accident,jdbcType=VARCHAR},
+      </if>
+      <if test="preparedby != null" >
+        #{preparedby,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSfHazardRoomAtt" >
+    update zx_sf_hazardRoomAtt
+    <set >
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="itemID != null" >
+        itemID = #{itemID,jdbcType=VARCHAR},
+      </if>
+      <if test="parentID != null" >
+        parentID = #{parentID,jdbcType=VARCHAR},
+      </if>
+      <if test="attName != null" >
+        attName = #{attName,jdbcType=VARCHAR},
+      </if>
+      <if test="dee != null" >
+        dee = #{dee,jdbcType=DECIMAL},
+      </if>
+      <if test="cee != null" >
+        cee = #{cee,jdbcType=DECIMAL},
+      </if>
+      <if test="bee != null" >
+        bee = #{bee,jdbcType=DECIMAL},
+      </if>
+      <if test="lee != null" >
+        lee = #{lee,jdbcType=DECIMAL},
+      </if>
+      <if test="riskLevel != null" >
+        riskLevel = #{riskLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="isGroup != null" >
+        isGroup = #{isGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="proArea != null" >
+        proArea = #{proArea,jdbcType=VARCHAR},
+      </if>
+      <if test="doing != null" >
+        doing = #{doing,jdbcType=VARCHAR},
+      </if>
+      <if test="riskFactors != null" >
+        riskFactors = #{riskFactors,jdbcType=VARCHAR},
+      </if>
+      <if test="accident != null" >
+        accident = #{accident,jdbcType=VARCHAR},
+      </if>
+      <if test="preparedby != null" >
+        preparedby = #{preparedby,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        companyName = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        companyId = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxSfHazardRoomAttId = #{zxSfHazardRoomAttId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSfHazardRoomAtt" >
+    update zx_sf_hazardRoomAtt set 
+      orgID = #{orgID,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      itemID = #{itemID,jdbcType=VARCHAR},
+      parentID = #{parentID,jdbcType=VARCHAR},
+      attName = #{attName,jdbcType=VARCHAR},
+      dee = #{dee,jdbcType=DECIMAL},
+      cee = #{cee,jdbcType=DECIMAL},
+      bee = #{bee,jdbcType=DECIMAL},
+      lee = #{lee,jdbcType=DECIMAL},
+      riskLevel = #{riskLevel,jdbcType=VARCHAR},
+      isGroup = #{isGroup,jdbcType=VARCHAR},
+      proArea = #{proArea,jdbcType=VARCHAR},
+      doing = #{doing,jdbcType=VARCHAR},
+      riskFactors = #{riskFactors,jdbcType=VARCHAR},
+      accident = #{accident,jdbcType=VARCHAR},
+      preparedby = #{preparedby,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      companyName = #{companyName,jdbcType=VARCHAR},
+      companyId = #{companyId,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSfHazardRoomAttId = #{zxSfHazardRoomAttId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSfHazardRoomAttList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSfHazardRoomAtt" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sf_hazardRoomAtt
+    where del_flag = '0'
+    <if test="zxSfHazardRoomAttId != null and zxSfHazardRoomAttId != ''" >
+     and zxSfHazardRoomAttId = #{zxSfHazardRoomAttId,jdbcType=CHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="type != null and type != ''" >
+     and type = #{type,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="itemID != null and itemID != ''" >
+     and itemID = #{itemID,jdbcType=VARCHAR}
+    </if>
+    <if test="parentID != null and parentID != ''" >
+     and parentID = #{parentID,jdbcType=VARCHAR}
+    </if>
+    <if test="attName != null and attName != ''" >
+     and attName = #{attName,jdbcType=VARCHAR}
+    </if>
+    <if test="dee != null and dee != ''" >
+     and dee = #{dee,jdbcType=DECIMAL}
+    </if>
+    <if test="cee != null and cee != ''" >
+     and cee = #{cee,jdbcType=DECIMAL}
+    </if>
+    <if test="bee != null and bee != ''" >
+     and bee = #{bee,jdbcType=DECIMAL}
+    </if>
+    <if test="lee != null and lee != ''" >
+     and lee = #{lee,jdbcType=DECIMAL}
+    </if>
+    <if test="riskLevel != null and riskLevel != ''" >
+     and riskLevel = #{riskLevel,jdbcType=VARCHAR}
+    </if>
+    <if test="isGroup != null and isGroup != ''" >
+     and isGroup = #{isGroup,jdbcType=VARCHAR}
+    </if>
+    <if test="proArea != null and proArea != ''" >
+     and proArea = #{proArea,jdbcType=VARCHAR}
+    </if>
+    <if test="doing != null and doing != ''" >
+     and doing = #{doing,jdbcType=VARCHAR}
+    </if>
+    <if test="riskFactors != null and riskFactors != ''" >
+     and riskFactors = #{riskFactors,jdbcType=VARCHAR}
+    </if>
+    <if test="accident != null and accident != ''" >
+     and accident = #{accident,jdbcType=VARCHAR}
+    </if>
+    <if test="preparedby != null and preparedby != ''" >
+     and preparedby = #{preparedby,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and companyName = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and companyId = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSfHazardRoomAtt" parameterType="com.apih5.mybatis.pojo.ZxSfHazardRoomAtt" >
+    <![CDATA[ 
+        update zx_sf_hazardRoomAtt
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSfHazardRoomAttId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSfHazardRoomAttId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+  <select id="selectByZxSfHazardRoomProArea" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSfHazardRoomAtt" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sf_hazardRoomAtt
+    where del_flag = '0'
+     and parentId = "-1"
+    ORDER BY modify_time DESC 
+  </select>
+  <select id="selectByZxSfHazardRoomProDoing" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSfHazardRoomAtt" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sf_hazardRoomAtt
+    where del_flag = '0'
+    <if test="parentID != null and parentID != ''" >
+     and parentID = #{parentID,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+
+  <select id="exportForm" resultMap="BaseResultMap">
+   SELECT
+    zxSfHazardRoomAttId,
+	@rownum := @rownum + 1 AS xuhao,
+    orgName,
+	proArea,
+	doing,
+	riskFactors,
+	accident,
+	dee,
+	cee,
+	bee,
+	riskLevel
+
+FROM
+	( SELECT @rownum := 0 ) r,
+	zx_sf_hazardroomatt
+
+    where del_flag='0'
+    <if test="orgID != null and orgID != ''" >
+      and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="riskLevel != null and riskLevel != '' " >
+      and riskLevel = #{riskLevel,jdbcType=VARCHAR}
+    </if>
+  </select>
+
+  <select id="exportFormCom" resultMap="BaseResultMap">
+    SELECT
+    zxSfHazardRoomAttId,
+	@rownum := @rownum + 1 AS xuhao,
+	orgName,
+	proArea,
+	doing,
+	riskFactors,
+	accident,
+	dee,
+	cee,
+	bee,
+	lee,
+	riskLevel,
+    companyId,
+    companyName
+FROM
+	( SELECT @rownum := 0 ) r,
+	zx_sf_hazardroomatt
+    where del_flag='0'
+    <if test="companyId != null and companyId != ''" >
+      and companyId = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="riskLevel != null and riskLevel != '' " >
+      and riskLevel = #{riskLevel,jdbcType=VARCHAR}
+    </if>
+  </select>
+
+</mapper>

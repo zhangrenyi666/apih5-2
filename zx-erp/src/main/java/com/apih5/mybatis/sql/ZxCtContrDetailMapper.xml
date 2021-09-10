@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCtContrDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCtContrDetail" >
+    <id column="contr_detail_id" property="contrDetailId" jdbcType="VARCHAR" />
+    <result column="contractID" property="contractID" jdbcType="VARCHAR" />
+    <result column="projType" property="projType" jdbcType="VARCHAR" />
+    <result column="projQuality" property="projQuality" jdbcType="VARCHAR" />
+    <result column="ename" property="ename" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="length" property="length" jdbcType="VARCHAR" />
+    <result column="qdMoney" property="qdMoney" jdbcType="DECIMAL" />
+    <result column="jrgMoney" property="jrgMoney" jdbcType="DECIMAL" />
+    <result column="zdMoney" property="zdMoney" jdbcType="DECIMAL" />
+    <result column="forergnCurrencyType" property="forergnCurrencyType" jdbcType="VARCHAR" />
+    <result column="forergnCurrencyProportion" property="forergnCurrencyProportion" jdbcType="VARCHAR" />
+    <result column="forergnCurrencyExchangeRate" property="forergnCurrencyExchangeRate" jdbcType="DECIMAL" />
+    <result column="driveways" property="driveways" jdbcType="INTEGER" />
+    <result column="roadLevel" property="roadLevel" jdbcType="VARCHAR" />
+    <result column="dyyfkMoney" property="dyyfkMoney" jdbcType="DECIMAL" />
+    <result column="dyyfkqkdMoney" property="dyyfkqkdMoney" jdbcType="DECIMAL" />
+    <result column="khdyyfkPercent" property="khdyyfkPercent" jdbcType="DECIMAL" />
+    <result column="dyyfkqekhdMoney" property="dyyfkqekhdMoney" jdbcType="DECIMAL" />
+    <result column="clyfkPercent" property="clyfkPercent" jdbcType="DECIMAL" />
+    <result column="clyfkxeMoney" property="clyfkxeMoney" jdbcType="DECIMAL" />
+    <result column="clkhkblPercent" property="clkhkblPercent" jdbcType="DECIMAL" />
+    <result column="ckklxPercent" property="ckklxPercent" jdbcType="DECIMAL" />
+    <result column="ckklxxeMoney" property="ckklxxeMoney" jdbcType="DECIMAL" />
+    <result column="wyjxeMoney" property="wyjxeMoney" jdbcType="DECIMAL" />
+    <result column="cpjexeMoney" property="cpjexeMoney" jdbcType="DECIMAL" />
+    <result column="bljqkdMoney" property="bljqkdMoney" jdbcType="DECIMAL" />
+    <result column="ljkbljxeMoney" property="ljkbljxeMoney" jdbcType="DECIMAL" />
+    <result column="bljblPercent" property="bljblPercent" jdbcType="DECIMAL" />
+    <result column="adjustIndx" property="adjustIndx" jdbcType="INTEGER" />
+    <result column="projDetail" property="projDetail" jdbcType="VARCHAR" />
+    <result column="ownerNodeDeys" property="ownerNodeDeys" jdbcType="VARCHAR" />
+    <result column="ownerSpecialClause" property="ownerSpecialClause" jdbcType="VARCHAR" />
+    <result column="projPersonTotal" property="projPersonTotal" jdbcType="VARCHAR" />
+    <result column="projOtherPerson" property="projOtherPerson" jdbcType="VARCHAR" />
+    <result column="isHistory" property="isHistory" jdbcType="CHAR" />
+    <result column="combProp" property="combProp" jdbcType="VARCHAR" />
+    <result column="pp1" property="pp1" jdbcType="VARCHAR" />
+    <result column="pp2" property="pp2" jdbcType="VARCHAR" />
+    <result column="pp3" property="pp3" jdbcType="VARCHAR" />
+    <result column="pp4" property="pp4" jdbcType="VARCHAR" />
+    <result column="pp5" property="pp5" jdbcType="VARCHAR" />
+    <result column="pp6" property="pp6" jdbcType="VARCHAR" />
+    <result column="pp7" property="pp7" jdbcType="VARCHAR" />
+    <result column="pp8" property="pp8" jdbcType="VARCHAR" />
+    <result column="pp9" property="pp9" jdbcType="VARCHAR" />
+    <result column="pp10" property="pp10" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="projFea" property="projFea" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    contr_detail_id, contractID, projType, projQuality, ename, 
+    location, area, length, qdMoney, jrgMoney, 
+    zdMoney, forergnCurrencyType, forergnCurrencyProportion, forergnCurrencyExchangeRate, driveways, 
+    roadLevel, dyyfkMoney, dyyfkqkdMoney, khdyyfkPercent, dyyfkqekhdMoney, 
+    clyfkPercent, clyfkxeMoney, clkhkblPercent, ckklxPercent, ckklxxeMoney, 
+    wyjxeMoney, cpjexeMoney, bljqkdMoney, ljkbljxeMoney, bljblPercent, 
+    adjustIndx, projDetail, ownerNodeDeys, ownerSpecialClause, projPersonTotal, 
+    projOtherPerson, isHistory, combProp, pp1, pp2, 
+    pp3, pp4, pp5, pp6, pp7, 
+    pp8, pp9, pp10, editTime, country, 
+    projFea, remark, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_ContrDetail
+    where del_flag = '0' and contr_detail_id = #{contrDetailId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_ct_ContrDetail
+    where contr_detail_id = #{contrDetailId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCtContrDetail" >
+    insert into zx_ct_ContrDetail (
+    contr_detail_id, contractID, projType, projQuality, ename, 
+    location, area, length, qdMoney, jrgMoney, 
+    zdMoney, forergnCurrencyType, forergnCurrencyProportion, forergnCurrencyExchangeRate, driveways, 
+    roadLevel, dyyfkMoney, dyyfkqkdMoney, khdyyfkPercent, dyyfkqekhdMoney, 
+    clyfkPercent, clyfkxeMoney, clkhkblPercent, ckklxPercent, ckklxxeMoney, 
+    wyjxeMoney, cpjexeMoney, bljqkdMoney, ljkbljxeMoney, bljblPercent, 
+    adjustIndx, projDetail, ownerNodeDeys, ownerSpecialClause, projPersonTotal, 
+    projOtherPerson, isHistory, combProp, pp1, pp2, 
+    pp3, pp4, pp5, pp6, pp7, 
+    pp8, pp9, pp10, editTime, country, 
+    projFea, remark, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{contrDetailId,jdbcType=VARCHAR}, #{contractID,jdbcType=VARCHAR}, #{projType,jdbcType=VARCHAR}, #{projQuality,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, 
+    #{location,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{length,jdbcType=VARCHAR}, #{qdMoney,jdbcType=DECIMAL}, #{jrgMoney,jdbcType=DECIMAL}, 
+    #{zdMoney,jdbcType=DECIMAL}, #{forergnCurrencyType,jdbcType=VARCHAR}, #{forergnCurrencyProportion,jdbcType=VARCHAR}, #{forergnCurrencyExchangeRate,jdbcType=DECIMAL}, #{driveways,jdbcType=INTEGER}, 
+    #{roadLevel,jdbcType=VARCHAR}, #{dyyfkMoney,jdbcType=DECIMAL}, #{dyyfkqkdMoney,jdbcType=DECIMAL}, #{khdyyfkPercent,jdbcType=DECIMAL}, #{dyyfkqekhdMoney,jdbcType=DECIMAL}, 
+    #{clyfkPercent,jdbcType=DECIMAL}, #{clyfkxeMoney,jdbcType=DECIMAL}, #{clkhkblPercent,jdbcType=DECIMAL}, #{ckklxPercent,jdbcType=DECIMAL}, #{ckklxxeMoney,jdbcType=DECIMAL}, 
+    #{wyjxeMoney,jdbcType=DECIMAL}, #{cpjexeMoney,jdbcType=DECIMAL}, #{bljqkdMoney,jdbcType=DECIMAL}, #{ljkbljxeMoney,jdbcType=DECIMAL}, #{bljblPercent,jdbcType=DECIMAL}, 
+    #{adjustIndx,jdbcType=INTEGER}, #{projDetail,jdbcType=VARCHAR}, #{ownerNodeDeys,jdbcType=VARCHAR}, #{ownerSpecialClause,jdbcType=VARCHAR}, #{projPersonTotal,jdbcType=VARCHAR}, 
+    #{projOtherPerson,jdbcType=VARCHAR}, #{isHistory,jdbcType=CHAR}, #{combProp,jdbcType=VARCHAR}, #{pp1,jdbcType=VARCHAR}, #{pp2,jdbcType=VARCHAR}, 
+    #{pp3,jdbcType=VARCHAR}, #{pp4,jdbcType=VARCHAR}, #{pp5,jdbcType=VARCHAR}, #{pp6,jdbcType=VARCHAR}, #{pp7,jdbcType=VARCHAR}, 
+    #{pp8,jdbcType=VARCHAR}, #{pp9,jdbcType=VARCHAR}, #{pp10,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, #{country,jdbcType=VARCHAR}, 
+    #{projFea,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+    #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCtContrDetail" >
+    insert into zx_ct_ContrDetail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="contrDetailId != null" >
+        contr_detail_id,
+      </if>
+      <if test="contractID != null" >
+        contractID,
+      </if>
+      <if test="projType != null" >
+        projType,
+      </if>
+      <if test="projQuality != null" >
+        projQuality,
+      </if>
+      <if test="ename != null" >
+        ename,
+      </if>
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="length != null" >
+        length,
+      </if>
+      <if test="qdMoney != null" >
+        qdMoney,
+      </if>
+      <if test="jrgMoney != null" >
+        jrgMoney,
+      </if>
+      <if test="zdMoney != null" >
+        zdMoney,
+      </if>
+      <if test="forergnCurrencyType != null" >
+        forergnCurrencyType,
+      </if>
+      <if test="forergnCurrencyProportion != null" >
+        forergnCurrencyProportion,
+      </if>
+      <if test="forergnCurrencyExchangeRate != null" >
+        forergnCurrencyExchangeRate,
+      </if>
+      <if test="driveways != null" >
+        driveways,
+      </if>
+      <if test="roadLevel != null" >
+        roadLevel,
+      </if>
+      <if test="dyyfkMoney != null" >
+        dyyfkMoney,
+      </if>
+      <if test="dyyfkqkdMoney != null" >
+        dyyfkqkdMoney,
+      </if>
+      <if test="khdyyfkPercent != null" >
+        khdyyfkPercent,
+      </if>
+      <if test="dyyfkqekhdMoney != null" >
+        dyyfkqekhdMoney,
+      </if>
+      <if test="clyfkPercent != null" >
+        clyfkPercent,
+      </if>
+      <if test="clyfkxeMoney != null" >
+        clyfkxeMoney,
+      </if>
+      <if test="clkhkblPercent != null" >
+        clkhkblPercent,
+      </if>
+      <if test="ckklxPercent != null" >
+        ckklxPercent,
+      </if>
+      <if test="ckklxxeMoney != null" >
+        ckklxxeMoney,
+      </if>
+      <if test="wyjxeMoney != null" >
+        wyjxeMoney,
+      </if>
+      <if test="cpjexeMoney != null" >
+        cpjexeMoney,
+      </if>
+      <if test="bljqkdMoney != null" >
+        bljqkdMoney,
+      </if>
+      <if test="ljkbljxeMoney != null" >
+        ljkbljxeMoney,
+      </if>
+      <if test="bljblPercent != null" >
+        bljblPercent,
+      </if>
+      <if test="adjustIndx != null" >
+        adjustIndx,
+      </if>
+      <if test="projDetail != null" >
+        projDetail,
+      </if>
+      <if test="ownerNodeDeys != null" >
+        ownerNodeDeys,
+      </if>
+      <if test="ownerSpecialClause != null" >
+        ownerSpecialClause,
+      </if>
+      <if test="projPersonTotal != null" >
+        projPersonTotal,
+      </if>
+      <if test="projOtherPerson != null" >
+        projOtherPerson,
+      </if>
+      <if test="isHistory != null" >
+        isHistory,
+      </if>
+      <if test="combProp != null" >
+        combProp,
+      </if>
+      <if test="pp1 != null" >
+        pp1,
+      </if>
+      <if test="pp2 != null" >
+        pp2,
+      </if>
+      <if test="pp3 != null" >
+        pp3,
+      </if>
+      <if test="pp4 != null" >
+        pp4,
+      </if>
+      <if test="pp5 != null" >
+        pp5,
+      </if>
+      <if test="pp6 != null" >
+        pp6,
+      </if>
+      <if test="pp7 != null" >
+        pp7,
+      </if>
+      <if test="pp8 != null" >
+        pp8,
+      </if>
+      <if test="pp9 != null" >
+        pp9,
+      </if>
+      <if test="pp10 != null" >
+        pp10,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="projFea != null" >
+        projFea,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="contrDetailId != null" >
+        #{contrDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="contractID != null" >
+        #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="projType != null" >
+        #{projType,jdbcType=VARCHAR},
+      </if>
+      <if test="projQuality != null" >
+        #{projQuality,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null" >
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="length != null" >
+        #{length,jdbcType=VARCHAR},
+      </if>
+      <if test="qdMoney != null" >
+        #{qdMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="jrgMoney != null" >
+        #{jrgMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="zdMoney != null" >
+        #{zdMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="forergnCurrencyType != null" >
+        #{forergnCurrencyType,jdbcType=VARCHAR},
+      </if>
+      <if test="forergnCurrencyProportion != null" >
+        #{forergnCurrencyProportion,jdbcType=VARCHAR},
+      </if>
+      <if test="forergnCurrencyExchangeRate != null" >
+        #{forergnCurrencyExchangeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="driveways != null" >
+        #{driveways,jdbcType=INTEGER},
+      </if>
+      <if test="roadLevel != null" >
+        #{roadLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="dyyfkMoney != null" >
+        #{dyyfkMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="dyyfkqkdMoney != null" >
+        #{dyyfkqkdMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="khdyyfkPercent != null" >
+        #{khdyyfkPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="dyyfkqekhdMoney != null" >
+        #{dyyfkqekhdMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="clyfkPercent != null" >
+        #{clyfkPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="clyfkxeMoney != null" >
+        #{clyfkxeMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="clkhkblPercent != null" >
+        #{clkhkblPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="ckklxPercent != null" >
+        #{ckklxPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="ckklxxeMoney != null" >
+        #{ckklxxeMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="wyjxeMoney != null" >
+        #{wyjxeMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="cpjexeMoney != null" >
+        #{cpjexeMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bljqkdMoney != null" >
+        #{bljqkdMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="ljkbljxeMoney != null" >
+        #{ljkbljxeMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bljblPercent != null" >
+        #{bljblPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="adjustIndx != null" >
+        #{adjustIndx,jdbcType=INTEGER},
+      </if>
+      <if test="projDetail != null" >
+        #{projDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerNodeDeys != null" >
+        #{ownerNodeDeys,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerSpecialClause != null" >
+        #{ownerSpecialClause,jdbcType=VARCHAR},
+      </if>
+      <if test="projPersonTotal != null" >
+        #{projPersonTotal,jdbcType=VARCHAR},
+      </if>
+      <if test="projOtherPerson != null" >
+        #{projOtherPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="isHistory != null" >
+        #{isHistory,jdbcType=CHAR},
+      </if>
+      <if test="combProp != null" >
+        #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="pp1 != null" >
+        #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2 != null" >
+        #{pp2,jdbcType=VARCHAR},
+      </if>
+      <if test="pp3 != null" >
+        #{pp3,jdbcType=VARCHAR},
+      </if>
+      <if test="pp4 != null" >
+        #{pp4,jdbcType=VARCHAR},
+      </if>
+      <if test="pp5 != null" >
+        #{pp5,jdbcType=VARCHAR},
+      </if>
+      <if test="pp6 != null" >
+        #{pp6,jdbcType=VARCHAR},
+      </if>
+      <if test="pp7 != null" >
+        #{pp7,jdbcType=VARCHAR},
+      </if>
+      <if test="pp8 != null" >
+        #{pp8,jdbcType=VARCHAR},
+      </if>
+      <if test="pp9 != null" >
+        #{pp9,jdbcType=VARCHAR},
+      </if>
+      <if test="pp10 != null" >
+        #{pp10,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="projFea != null" >
+        #{projFea,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCtContrDetail" >
+    update zx_ct_ContrDetail
+    <set >
+      <if test="contractID != null" >
+        contractID = #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="projType != null" >
+        projType = #{projType,jdbcType=VARCHAR},
+      </if>
+      <if test="projQuality != null" >
+        projQuality = #{projQuality,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null" >
+        ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="length != null" >
+        length = #{length,jdbcType=VARCHAR},
+      </if>
+      <if test="qdMoney != null" >
+        qdMoney = #{qdMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="jrgMoney != null" >
+        jrgMoney = #{jrgMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="zdMoney != null" >
+        zdMoney = #{zdMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="forergnCurrencyType != null" >
+        forergnCurrencyType = #{forergnCurrencyType,jdbcType=VARCHAR},
+      </if>
+      <if test="forergnCurrencyProportion != null" >
+        forergnCurrencyProportion = #{forergnCurrencyProportion,jdbcType=VARCHAR},
+      </if>
+      <if test="forergnCurrencyExchangeRate != null" >
+        forergnCurrencyExchangeRate = #{forergnCurrencyExchangeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="driveways != null" >
+        driveways = #{driveways,jdbcType=INTEGER},
+      </if>
+      <if test="roadLevel != null" >
+        roadLevel = #{roadLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="dyyfkMoney != null" >
+        dyyfkMoney = #{dyyfkMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="dyyfkqkdMoney != null" >
+        dyyfkqkdMoney = #{dyyfkqkdMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="khdyyfkPercent != null" >
+        khdyyfkPercent = #{khdyyfkPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="dyyfkqekhdMoney != null" >
+        dyyfkqekhdMoney = #{dyyfkqekhdMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="clyfkPercent != null" >
+        clyfkPercent = #{clyfkPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="clyfkxeMoney != null" >
+        clyfkxeMoney = #{clyfkxeMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="clkhkblPercent != null" >
+        clkhkblPercent = #{clkhkblPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="ckklxPercent != null" >
+        ckklxPercent = #{ckklxPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="ckklxxeMoney != null" >
+        ckklxxeMoney = #{ckklxxeMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="wyjxeMoney != null" >
+        wyjxeMoney = #{wyjxeMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="cpjexeMoney != null" >
+        cpjexeMoney = #{cpjexeMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bljqkdMoney != null" >
+        bljqkdMoney = #{bljqkdMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="ljkbljxeMoney != null" >
+        ljkbljxeMoney = #{ljkbljxeMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bljblPercent != null" >
+        bljblPercent = #{bljblPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="adjustIndx != null" >
+        adjustIndx = #{adjustIndx,jdbcType=INTEGER},
+      </if>
+      <if test="projDetail != null" >
+        projDetail = #{projDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerNodeDeys != null" >
+        ownerNodeDeys = #{ownerNodeDeys,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerSpecialClause != null" >
+        ownerSpecialClause = #{ownerSpecialClause,jdbcType=VARCHAR},
+      </if>
+      <if test="projPersonTotal != null" >
+        projPersonTotal = #{projPersonTotal,jdbcType=VARCHAR},
+      </if>
+      <if test="projOtherPerson != null" >
+        projOtherPerson = #{projOtherPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="isHistory != null" >
+        isHistory = #{isHistory,jdbcType=CHAR},
+      </if>
+      <if test="combProp != null" >
+        combProp = #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="pp1 != null" >
+        pp1 = #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2 != null" >
+        pp2 = #{pp2,jdbcType=VARCHAR},
+      </if>
+      <if test="pp3 != null" >
+        pp3 = #{pp3,jdbcType=VARCHAR},
+      </if>
+      <if test="pp4 != null" >
+        pp4 = #{pp4,jdbcType=VARCHAR},
+      </if>
+      <if test="pp5 != null" >
+        pp5 = #{pp5,jdbcType=VARCHAR},
+      </if>
+      <if test="pp6 != null" >
+        pp6 = #{pp6,jdbcType=VARCHAR},
+      </if>
+      <if test="pp7 != null" >
+        pp7 = #{pp7,jdbcType=VARCHAR},
+      </if>
+      <if test="pp8 != null" >
+        pp8 = #{pp8,jdbcType=VARCHAR},
+      </if>
+      <if test="pp9 != null" >
+        pp9 = #{pp9,jdbcType=VARCHAR},
+      </if>
+      <if test="pp10 != null" >
+        pp10 = #{pp10,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="projFea != null" >
+        projFea = #{projFea,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where contr_detail_id = #{contrDetailId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCtContrDetail" >
+    update zx_ct_ContrDetail set 
+      contractID = #{contractID,jdbcType=VARCHAR},
+      projType = #{projType,jdbcType=VARCHAR},
+      projQuality = #{projQuality,jdbcType=VARCHAR},
+      ename = #{ename,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      length = #{length,jdbcType=VARCHAR},
+      qdMoney = #{qdMoney,jdbcType=DECIMAL},
+      jrgMoney = #{jrgMoney,jdbcType=DECIMAL},
+      zdMoney = #{zdMoney,jdbcType=DECIMAL},
+      forergnCurrencyType = #{forergnCurrencyType,jdbcType=VARCHAR},
+      forergnCurrencyProportion = #{forergnCurrencyProportion,jdbcType=VARCHAR},
+      forergnCurrencyExchangeRate = #{forergnCurrencyExchangeRate,jdbcType=DECIMAL},
+      driveways = #{driveways,jdbcType=INTEGER},
+      roadLevel = #{roadLevel,jdbcType=VARCHAR},
+      dyyfkMoney = #{dyyfkMoney,jdbcType=DECIMAL},
+      dyyfkqkdMoney = #{dyyfkqkdMoney,jdbcType=DECIMAL},
+      khdyyfkPercent = #{khdyyfkPercent,jdbcType=DECIMAL},
+      dyyfkqekhdMoney = #{dyyfkqekhdMoney,jdbcType=DECIMAL},
+      clyfkPercent = #{clyfkPercent,jdbcType=DECIMAL},
+      clyfkxeMoney = #{clyfkxeMoney,jdbcType=DECIMAL},
+      clkhkblPercent = #{clkhkblPercent,jdbcType=DECIMAL},
+      ckklxPercent = #{ckklxPercent,jdbcType=DECIMAL},
+      ckklxxeMoney = #{ckklxxeMoney,jdbcType=DECIMAL},
+      wyjxeMoney = #{wyjxeMoney,jdbcType=DECIMAL},
+      cpjexeMoney = #{cpjexeMoney,jdbcType=DECIMAL},
+      bljqkdMoney = #{bljqkdMoney,jdbcType=DECIMAL},
+      ljkbljxeMoney = #{ljkbljxeMoney,jdbcType=DECIMAL},
+      bljblPercent = #{bljblPercent,jdbcType=DECIMAL},
+      adjustIndx = #{adjustIndx,jdbcType=INTEGER},
+      projDetail = #{projDetail,jdbcType=VARCHAR},
+      ownerNodeDeys = #{ownerNodeDeys,jdbcType=VARCHAR},
+      ownerSpecialClause = #{ownerSpecialClause,jdbcType=VARCHAR},
+      projPersonTotal = #{projPersonTotal,jdbcType=VARCHAR},
+      projOtherPerson = #{projOtherPerson,jdbcType=VARCHAR},
+      isHistory = #{isHistory,jdbcType=CHAR},
+      combProp = #{combProp,jdbcType=VARCHAR},
+      pp1 = #{pp1,jdbcType=VARCHAR},
+      pp2 = #{pp2,jdbcType=VARCHAR},
+      pp3 = #{pp3,jdbcType=VARCHAR},
+      pp4 = #{pp4,jdbcType=VARCHAR},
+      pp5 = #{pp5,jdbcType=VARCHAR},
+      pp6 = #{pp6,jdbcType=VARCHAR},
+      pp7 = #{pp7,jdbcType=VARCHAR},
+      pp8 = #{pp8,jdbcType=VARCHAR},
+      pp9 = #{pp9,jdbcType=VARCHAR},
+      pp10 = #{pp10,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      country = #{country,jdbcType=VARCHAR},
+      projFea = #{projFea,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where contr_detail_id = #{contrDetailId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxCtContrDetailList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtContrDetail" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_ContrDetail
+    where del_flag = '0'
+    <if test="contrDetailId != null and contrDetailId != ''" >
+     and contr_detail_id = #{contrDetailId,jdbcType=VARCHAR}
+    </if>
+    <if test="contractID != null and contractID != ''" >
+     and contractID = #{contractID,jdbcType=VARCHAR}
+    </if>
+    <if test="projType != null and projType != ''" >
+     and projType = #{projType,jdbcType=VARCHAR}
+    </if>
+    <if test="projQuality != null and projQuality != ''" >
+     and projQuality = #{projQuality,jdbcType=VARCHAR}
+    </if>
+    <if test="ename != null and ename != ''" >
+     and ename = #{ename,jdbcType=VARCHAR}
+    </if>
+    <if test="location != null and location != ''" >
+     and location = #{location,jdbcType=VARCHAR}
+    </if>
+    <if test="area != null and area != ''" >
+     and area = #{area,jdbcType=VARCHAR}
+    </if>
+    <if test="length != null and length != ''" >
+     and length = #{length,jdbcType=VARCHAR}
+    </if>
+    <if test="qdMoney != null and qdMoney != ''" >
+     and qdMoney = #{qdMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="jrgMoney != null and jrgMoney != ''" >
+     and jrgMoney = #{jrgMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="zdMoney != null and zdMoney != ''" >
+     and zdMoney = #{zdMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="forergnCurrencyType != null and forergnCurrencyType != ''" >
+     and forergnCurrencyType = #{forergnCurrencyType,jdbcType=VARCHAR}
+    </if>
+    <if test="forergnCurrencyProportion != null and forergnCurrencyProportion != ''" >
+     and forergnCurrencyProportion = #{forergnCurrencyProportion,jdbcType=VARCHAR}
+    </if>
+    <if test="forergnCurrencyExchangeRate != null and forergnCurrencyExchangeRate != ''" >
+     and forergnCurrencyExchangeRate = #{forergnCurrencyExchangeRate,jdbcType=DECIMAL}
+    </if>
+    <if test="driveways != null and driveways != ''" >
+     and driveways = #{driveways,jdbcType=INTEGER}
+    </if>
+    <if test="roadLevel != null and roadLevel != ''" >
+     and roadLevel = #{roadLevel,jdbcType=VARCHAR}
+    </if>
+    <if test="dyyfkMoney != null and dyyfkMoney != ''" >
+     and dyyfkMoney = #{dyyfkMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="dyyfkqkdMoney != null and dyyfkqkdMoney != ''" >
+     and dyyfkqkdMoney = #{dyyfkqkdMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="khdyyfkPercent != null and khdyyfkPercent != ''" >
+     and khdyyfkPercent = #{khdyyfkPercent,jdbcType=DECIMAL}
+    </if>
+    <if test="dyyfkqekhdMoney != null and dyyfkqekhdMoney != ''" >
+     and dyyfkqekhdMoney = #{dyyfkqekhdMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="clyfkPercent != null and clyfkPercent != ''" >
+     and clyfkPercent = #{clyfkPercent,jdbcType=DECIMAL}
+    </if>
+    <if test="clyfkxeMoney != null and clyfkxeMoney != ''" >
+     and clyfkxeMoney = #{clyfkxeMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="clkhkblPercent != null and clkhkblPercent != ''" >
+     and clkhkblPercent = #{clkhkblPercent,jdbcType=DECIMAL}
+    </if>
+    <if test="ckklxPercent != null and ckklxPercent != ''" >
+     and ckklxPercent = #{ckklxPercent,jdbcType=DECIMAL}
+    </if>
+    <if test="ckklxxeMoney != null and ckklxxeMoney != ''" >
+     and ckklxxeMoney = #{ckklxxeMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="wyjxeMoney != null and wyjxeMoney != ''" >
+     and wyjxeMoney = #{wyjxeMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="cpjexeMoney != null and cpjexeMoney != ''" >
+     and cpjexeMoney = #{cpjexeMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="bljqkdMoney != null and bljqkdMoney != ''" >
+     and bljqkdMoney = #{bljqkdMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="ljkbljxeMoney != null and ljkbljxeMoney != ''" >
+     and ljkbljxeMoney = #{ljkbljxeMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="bljblPercent != null and bljblPercent != ''" >
+     and bljblPercent = #{bljblPercent,jdbcType=DECIMAL}
+    </if>
+    <if test="adjustIndx != null and adjustIndx != ''" >
+     and adjustIndx = #{adjustIndx,jdbcType=INTEGER}
+    </if>
+    <if test="projDetail != null and projDetail != ''" >
+     and projDetail = #{projDetail,jdbcType=VARCHAR}
+    </if>
+    <if test="ownerNodeDeys != null and ownerNodeDeys != ''" >
+     and ownerNodeDeys = #{ownerNodeDeys,jdbcType=VARCHAR}
+    </if>
+    <if test="ownerSpecialClause != null and ownerSpecialClause != ''" >
+     and ownerSpecialClause = #{ownerSpecialClause,jdbcType=VARCHAR}
+    </if>
+    <if test="projPersonTotal != null and projPersonTotal != ''" >
+     and projPersonTotal = #{projPersonTotal,jdbcType=VARCHAR}
+    </if>
+    <if test="projOtherPerson != null and projOtherPerson != ''" >
+     and projOtherPerson = #{projOtherPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="isHistory != null and isHistory != ''" >
+     and isHistory = #{isHistory,jdbcType=CHAR}
+    </if>
+    <if test="combProp != null and combProp != ''" >
+     and combProp = #{combProp,jdbcType=VARCHAR}
+    </if>
+    <if test="pp1 != null and pp1 != ''" >
+     and pp1 = #{pp1,jdbcType=VARCHAR}
+    </if>
+    <if test="pp2 != null and pp2 != ''" >
+     and pp2 = #{pp2,jdbcType=VARCHAR}
+    </if>
+    <if test="pp3 != null and pp3 != ''" >
+     and pp3 = #{pp3,jdbcType=VARCHAR}
+    </if>
+    <if test="pp4 != null and pp4 != ''" >
+     and pp4 = #{pp4,jdbcType=VARCHAR}
+    </if>
+    <if test="pp5 != null and pp5 != ''" >
+     and pp5 = #{pp5,jdbcType=VARCHAR}
+    </if>
+    <if test="pp6 != null and pp6 != ''" >
+     and pp6 = #{pp6,jdbcType=VARCHAR}
+    </if>
+    <if test="pp7 != null and pp7 != ''" >
+     and pp7 = #{pp7,jdbcType=VARCHAR}
+    </if>
+    <if test="pp8 != null and pp8 != ''" >
+     and pp8 = #{pp8,jdbcType=VARCHAR}
+    </if>
+    <if test="pp9 != null and pp9 != ''" >
+     and pp9 = #{pp9,jdbcType=VARCHAR}
+    </if>
+    <if test="pp10 != null and pp10 != ''" >
+     and pp10 = #{pp10,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="country != null and country != ''" >
+     and country = #{country,jdbcType=VARCHAR}
+    </if>
+    <if test="projFea != null and projFea != ''" >
+     and projFea = #{projFea,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxCtContrDetail" parameterType="com.apih5.mybatis.pojo.ZxCtContrDetail" >
+    <![CDATA[ 
+        update zx_ct_ContrDetail
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and contr_detail_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.contrDetailId} 
+     </foreach>
+  </delete>
+</mapper>

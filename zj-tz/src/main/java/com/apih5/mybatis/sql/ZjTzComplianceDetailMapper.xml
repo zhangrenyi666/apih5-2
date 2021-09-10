@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzComplianceDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzComplianceDetail" >
+    <id column="compliance_detail_id" property="complianceDetailId" jdbcType="CHAR" />
+    <result column="compliance_deal_id" property="complianceDealId" jdbcType="CHAR" />
+    <result column="num" property="num" jdbcType="CHAR" />
+    <result column="compliance_banse_name" property="complianceBanseName" jdbcType="VARCHAR" />
+    <result column="deal_flag" property="dealFlag" jdbcType="CHAR" />
+    <result column="should_finish_date" property="shouldFinishDate" jdbcType="DATE" />
+    <result column="approval_date" property="approvalDate" jdbcType="DATE" />
+    <result column="deal_situation" property="dealSituation" jdbcType="CHAR" />
+    <result column="lock_flag" property="lockFlag" jdbcType="CHAR" />
+    <result column="add_flag" property="addFlag" jdbcType="CHAR" />
+    <result column="approval_should_finish_date" property="approvalShouldFinishDate" jdbcType="DATE" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    compliance_detail_id, compliance_deal_id, num, compliance_banse_name, deal_flag, 
+    should_finish_date, approval_date, deal_situation, lock_flag, add_flag, approval_should_finish_date, bz,
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_compliance_detail
+    where compliance_detail_id = #{complianceDetailId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_compliance_detail
+    where compliance_detail_id = #{complianceDetailId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzComplianceDetail" >
+    insert into zj_tz_compliance_detail (compliance_detail_id, compliance_deal_id, num, 
+      compliance_banse_name, deal_flag, should_finish_date, 
+      approval_date, deal_situation, lock_flag, 
+      add_flag, approval_should_finish_date, bz, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{complianceDetailId,jdbcType=CHAR}, #{complianceDealId,jdbcType=CHAR}, #{num,jdbcType=CHAR}, 
+      #{complianceBanseName,jdbcType=VARCHAR}, #{dealFlag,jdbcType=CHAR}, #{shouldFinishDate,jdbcType=DATE}, 
+      #{approvalDate,jdbcType=DATE}, #{dealSituation,jdbcType=CHAR}, #{lockFlag,jdbcType=CHAR}, 
+      #{addFlag,jdbcType=CHAR}, #{approvalShouldFinishDate,jdbcType=DATE}, #{bz,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzComplianceDetail" >
+    insert into zj_tz_compliance_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="complianceDetailId != null" >
+        compliance_detail_id,
+      </if>
+      <if test="complianceDealId != null" >
+        compliance_deal_id,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="complianceBanseName != null" >
+        compliance_banse_name,
+      </if>
+      <if test="dealFlag != null" >
+        deal_flag,
+      </if>
+      <if test="shouldFinishDate != null" >
+        should_finish_date,
+      </if>
+      <if test="approvalDate != null" >
+        approval_date,
+      </if>
+      <if test="dealSituation != null" >
+        deal_situation,
+      </if>
+      <if test="lockFlag != null" >
+        lock_flag,
+      </if>
+      <if test="addFlag != null" >
+        add_flag,
+      </if>
+      <if test="approvalShouldFinishDate != null" >
+        approval_should_finish_date,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="complianceDetailId != null" >
+        #{complianceDetailId,jdbcType=CHAR},
+      </if>
+      <if test="complianceDealId != null" >
+        #{complianceDealId,jdbcType=CHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=CHAR},
+      </if>
+      <if test="complianceBanseName != null" >
+        #{complianceBanseName,jdbcType=VARCHAR},
+      </if>
+      <if test="dealFlag != null" >
+        #{dealFlag,jdbcType=CHAR},
+      </if>
+      <if test="shouldFinishDate != null" >
+        #{shouldFinishDate,jdbcType=DATE},
+      </if>
+      <if test="approvalDate != null" >
+        #{approvalDate,jdbcType=DATE},
+      </if>
+      <if test="dealSituation != null" >
+        #{dealSituation,jdbcType=CHAR},
+      </if>
+      <if test="lockFlag != null" >
+        #{lockFlag,jdbcType=CHAR},
+      </if>
+      <if test="addFlag != null" >
+        #{addFlag,jdbcType=CHAR},
+      </if>
+      <if test="approvalShouldFinishDate != null" >
+        #{approvalShouldFinishDate,jdbcType=DATE},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzComplianceDetail" >
+    update zj_tz_compliance_detail
+    <set >
+      <if test="complianceDealId != null" >
+        compliance_deal_id = #{complianceDealId,jdbcType=CHAR},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=CHAR},
+      </if>
+      <if test="complianceBanseName != null" >
+        compliance_banse_name = #{complianceBanseName,jdbcType=VARCHAR},
+      </if>
+      <if test="dealFlag != null" >
+        deal_flag = #{dealFlag,jdbcType=CHAR},
+      </if>
+      <if test="shouldFinishDate != null" >
+        should_finish_date = #{shouldFinishDate,jdbcType=DATE},
+      </if>
+      <if test="approvalDate != null" >
+        approval_date = #{approvalDate,jdbcType=DATE},
+      </if>
+      <if test="dealSituation != null" >
+        deal_situation = #{dealSituation,jdbcType=CHAR},
+      </if>
+      <if test="lockFlag != null" >
+        lock_flag = #{lockFlag,jdbcType=CHAR},
+      </if>
+      <if test="addFlag != null" >
+        add_flag = #{addFlag,jdbcType=CHAR},
+      </if>
+      <if test="approvalShouldFinishDate != null" >
+        approval_should_finish_date = #{approvalShouldFinishDate,jdbcType=DATE},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where compliance_detail_id = #{complianceDetailId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzComplianceDetail" >
+    update zj_tz_compliance_detail
+    set       compliance_deal_id = #{complianceDealId,jdbcType=CHAR},
+      num = #{num,jdbcType=CHAR},
+      compliance_banse_name = #{complianceBanseName,jdbcType=VARCHAR},
+      deal_flag = #{dealFlag,jdbcType=CHAR},
+      should_finish_date = #{shouldFinishDate,jdbcType=DATE},
+      approval_date = #{approvalDate,jdbcType=DATE},
+      deal_situation = #{dealSituation,jdbcType=CHAR},
+      lock_flag = #{lockFlag,jdbcType=CHAR},
+      add_flag = #{addFlag,jdbcType=CHAR},
+      approval_should_finish_date = #{approvalShouldFinishDate,jdbcType=DATE},
+      bz = #{bz,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where compliance_detail_id = #{complianceDetailId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzComplianceDetailList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzComplianceDetail" >
+    select 
+    <include refid="Base_Column_List" />,
+    (SELECT company_name FROM zj_tz_pro_manage t2 WHERE t2.del_flag = '0' AND t2.project_id = (SELECT project_id FROM zj_tz_compliance_deal AS t3 WHERE t3.del_flag = '0' AND t3.compliance_deal_id = #{complianceDealId,jdbcType=CHAR})) AS companyName,
+	(SELECT project_short_name FROM zj_tz_pro_manage t2 WHERE t2.del_flag = '0' AND t2.project_id = (SELECT project_id FROM zj_tz_compliance_deal AS t3 WHERE t3.del_flag = '0' AND t3.compliance_deal_id = #{complianceDealId,jdbcType=CHAR})) AS projectShortName,
+	(SELECT project_name FROM zj_tz_pro_manage t2 WHERE t2.del_flag = '0' AND t2.project_id = (SELECT project_id FROM zj_tz_compliance_deal AS t3 WHERE t3.del_flag = '0' AND t3.compliance_deal_id = #{complianceDealId,jdbcType=CHAR})) AS projectName,
+	(SELECT subproject_name FROM zj_tz_compliance_deal AS t3 WHERE t3.del_flag = '0' AND t3.compliance_deal_id = #{complianceDealId,jdbcType=CHAR}) AS subprojectName
+    from zj_tz_compliance_detail
+    where del_flag = '0'
+    <if test="complianceDetailId != null and complianceDetailId != ''" >
+     and compliance_detail_id = #{complianceDetailId,jdbcType=CHAR}
+    </if>
+    <if test="complianceDealId != null and complianceDealId != ''" >
+     and compliance_deal_id = #{complianceDealId,jdbcType=CHAR}
+    </if>
+    <if test="num != null and num != ''" >
+     and num = #{num,jdbcType=CHAR}
+    </if>
+    <if test="complianceBanseName != null and complianceBanseName != ''" >
+     and compliance_banse_name = #{complianceBanseName,jdbcType=VARCHAR}
+    </if>
+    <if test="dealFlag != null and dealFlag != ''" >
+     and deal_flag = #{dealFlag,jdbcType=CHAR}
+    </if>
+    <if test="shouldFinishDate != null" >
+     and should_finish_date = #{shouldFinishDate,jdbcType=DATE}
+    </if>
+    <if test="approvalDate != null" >
+     and approval_date = #{approvalDate,jdbcType=DATE}
+    </if>
+    <if test="dealSituation != null and dealSituation != ''" >
+     and deal_situation = #{dealSituation,jdbcType=CHAR}
+    </if>
+    <if test="lockFlag != null and lockFlag != ''" >
+     and lock_flag = #{lockFlag,jdbcType=CHAR}
+    </if>
+    <if test="addFlag != null and addFlag != ''" >
+     and add_flag = #{addFlag,jdbcType=CHAR}
+    </if>
+    <if test="approvalShouldFinishDate != null" >
+     and approval_should_finish_date = #{approvalShouldFinishDate,jdbcType=DATE}
+    </if>
+    <if test="bz != null and bz != ''" >
+     and bz = #{bz,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY CAST(num AS DECIMAL) 
+  </select>
+  <delete id="batchDeleteUpdateZjTzComplianceDetail" parameterType="com.apih5.mybatis.pojo.ZjTzComplianceDetail" >
+    <![CDATA[ 
+        update zj_tz_compliance_detail
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and compliance_detail_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.complianceDetailId} 
+     </foreach>
+  </delete>
+  
+   <select id="uReportZjTzComplianceDetailList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzComplianceDetail" >
+ SELECT tt.companyName,tt. sort1,tt.proNo,tt.proTypeName,tt.company2, tt.projectName,tt.subprojectName, max(tt.e1) as e1,max(tt.e2) as e2,max(tt.e3) as e3,max(tt.e4) as e4,max(tt.e5) as e5,max(tt.e6) as e6,max(tt.e7) as e7,max(tt.e8) as e8 from (
+  SELECT 
+(SELECT company_name FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_compliance_deal AS t WHERE t.del_flag = '0' AND t.compliance_deal_id = t1.compliance_deal_id) ) AS companyName,
+(SELECT sort1 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_compliance_deal AS t WHERE t.del_flag = '0' AND t.compliance_deal_id = t1.compliance_deal_id) ) AS sort1,
+(SELECT pro_no FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_compliance_deal AS t WHERE t.del_flag = '0' AND t.compliance_deal_id = t1.compliance_deal_id) ) AS proNo,
+(SELECT pro_type_name FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_compliance_deal AS t WHERE t.del_flag = '0' AND t.compliance_deal_id = t1.compliance_deal_id) ) AS proTypeName,
+ DATE_FORMAT((SELECT company2 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_compliance_deal AS t WHERE t.del_flag = '0' AND t.compliance_deal_id = t1.compliance_deal_id) ),'%Y/%m/%d') AS company2,
+(SELECT project_name FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_compliance_deal AS t WHERE t.del_flag = '0' AND t.compliance_deal_id = t1.compliance_deal_id)) AS projectName,
+(SELECT subproject_name FROM zj_tz_compliance_deal AS t WHERE t.del_flag = '0' AND t.compliance_deal_id = t1.compliance_deal_id) AS subprojectName,
+
+    DATE_FORMAT( CASE 
+     WHEN compliance_banse_name = '工程可行性研究报告' THEN
+          approval_date
+      END,'%Y/%m/%d')
+ AS e1,
+
+      DATE_FORMAT( CASE 
+     WHEN compliance_banse_name = '工可批复或项目核准' THEN
+          approval_date
+      END,'%Y/%m/%d')
+ AS e2,
+
+     DATE_FORMAT(CASE 
+     WHEN compliance_banse_name = '初设批复' THEN
+          approval_date
+      END,'%Y/%m/%d')
+ AS e3,
+
+      DATE_FORMAT(CASE 
+     WHEN compliance_banse_name = '施工图设计批复' THEN
+          approval_date
+      END,'%Y/%m/%d')
+ AS e4,
+
+      DATE_FORMAT(CASE 
+     WHEN compliance_banse_name = '用地批复' THEN
+          approval_date
+      END,'%Y/%m/%d')
+ AS e5,
+
+      DATE_FORMAT(CASE 
+     WHEN compliance_banse_name = '施工许可证' THEN
+          approval_date
+      END,'%Y/%m/%d')
+ AS e6,
+
+      DATE_FORMAT(CASE 
+     WHEN compliance_banse_name = '融资协议' THEN
+          approval_date
+      END,'%Y/%m/%d')
+ AS e7,
+ 
+ DATE_FORMAT(CASE 
+     WHEN compliance_banse_name = '环评批复' THEN
+          approval_date
+      END,'%Y/%m/%d')
+ AS e8
+
+FROM
+	zj_tz_compliance_detail AS t1
+WHERE
+	del_flag = '0'
+and num in ('001','002','003','004','005','006','007','008')
+
+    <if test="projectId != null and projectId != ''" >
+     and (SELECT project_id FROM zj_tz_compliance_deal AS t WHERE t.del_flag = '0' AND t.compliance_deal_id = t1.compliance_deal_id ) = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     and (SELECT project_id FROM zj_tz_compliance_deal AS t WHERE t.del_flag = '0' AND t.compliance_deal_id = t1.compliance_deal_id ) in (${projectIdSql})
+    </if>
+
+
+) tt
+  GROUP BY tt.projectName,tt.subprojectName
+  ORDER BY CAST(tt.sort1 AS DECIMAL),tt.proNo
+
+  </select>
+</mapper>

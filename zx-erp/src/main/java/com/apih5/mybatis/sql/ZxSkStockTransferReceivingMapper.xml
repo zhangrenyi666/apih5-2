@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkStockTransferReceivingMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkStockTransferReceiving" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="whOrgID" property="whOrgID" jdbcType="VARCHAR" />
+    <result column="outOrgID" property="outOrgID" jdbcType="VARCHAR" />
+    <result column="inOrgID" property="inOrgID" jdbcType="VARCHAR" />
+    <result column="bizType" property="bizType" jdbcType="VARCHAR" />
+    <result column="billNo" property="billNo" jdbcType="VARCHAR" />
+    <result column="materialSource" property="materialSource" jdbcType="VARCHAR" />
+    <result column="purpose" property="purpose" jdbcType="VARCHAR" />
+    <result column="busDate" property="busDate" jdbcType="DATE" />
+    <result column="outOrgName" property="outOrgName" jdbcType="VARCHAR" />
+    <result column="inOrgName" property="inOrgName" jdbcType="VARCHAR" />
+    <result column="totalAmt" property="totalAmt" jdbcType="DECIMAL" />
+    <result column="outtransactor" property="outtransactor" jdbcType="VARCHAR" />
+    <result column="intransactor" property="intransactor" jdbcType="VARCHAR" />
+    <result column="waretransactor" property="waretransactor" jdbcType="VARCHAR" />
+    <result column="buyer" property="buyer" jdbcType="VARCHAR" />
+    <result column="consignee" property="consignee" jdbcType="VARCHAR" />
+    <result column="auditor" property="auditor" jdbcType="VARCHAR" />
+    <result column="voucherNo" property="voucherNo" jdbcType="VARCHAR" />
+    <result column="contractNo" property="contractNo" jdbcType="VARCHAR" />
+    <result column="invoiceNo" property="invoiceNo" jdbcType="VARCHAR" />
+    <result column="billType" property="billType" jdbcType="INTEGER" />
+    <result column="billFlag" property="billFlag" jdbcType="VARCHAR" />
+    <result column="billStatus" property="billStatus" jdbcType="VARCHAR" />
+    <result column="reporter" property="reporter" jdbcType="VARCHAR" />
+    <result column="deductAmtType" property="deductAmtType" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="combProp" property="combProp" jdbcType="VARCHAR" />
+    <result column="purchaseContractID" property="purchaseContractID" jdbcType="VARCHAR" />
+    <result column="purchaseContract" property="purchaseContract" jdbcType="VARCHAR" />
+    <result column="LoginOrgID" property="loginOrgID" jdbcType="VARCHAR" />
+    <result column="resourceID" property="resourceID" jdbcType="VARCHAR" />
+    <result column="resourceName" property="resourceName" jdbcType="VARCHAR" />
+    <result column="cbsID" property="cbsID" jdbcType="VARCHAR" />
+    <result column="cbsName" property="cbsName" jdbcType="VARCHAR" />
+    <result column="invoiceNum" property="invoiceNum" jdbcType="DECIMAL" />
+    <result column="outOrgType" property="outOrgType" jdbcType="VARCHAR" />
+    <result column="purchType" property="purchType" jdbcType="VARCHAR" />
+    <result column="taxRate" property="taxRate" jdbcType="VARCHAR" />
+    <result column="isDeduct" property="isDeduct" jdbcType="VARCHAR" />
+    <result column="warehouseName" property="warehouseName" jdbcType="VARCHAR" />
+    <result column="orNotPrecollecte" property="orNotPrecollecte" jdbcType="VARCHAR" />
+    <result column="companyId" property="companyId" jdbcType="VARCHAR" />
+    <result column="companyName" property="companyName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, orgID, whOrgID, outOrgID, inOrgID, 
+    bizType, billNo, materialSource, purpose, busDate, 
+    outOrgName, inOrgName, totalAmt, outtransactor, intransactor, 
+    waretransactor, buyer, consignee, auditor, voucherNo, 
+    contractNo, invoiceNo, billType, billFlag, billStatus, 
+    reporter, deductAmtType, remark, combProp, purchaseContractID, 
+    purchaseContract, LoginOrgID, resourceID, resourceName, cbsID, 
+    cbsName, invoiceNum, outOrgType, purchType, taxRate, 
+    isDeduct, warehouseName, orNotPrecollecte, companyId, companyName, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_stockTransfer_receiving
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_stockTransfer_receiving
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferReceiving" >
+    insert into zx_sk_stockTransfer_receiving (id, orgID, whOrgID, 
+      outOrgID, inOrgID, bizType, 
+      billNo, materialSource, purpose, 
+      busDate, outOrgName, inOrgName, 
+      totalAmt, outtransactor, intransactor, 
+      waretransactor, buyer, consignee, 
+      auditor, voucherNo, contractNo, 
+      invoiceNo, billType, billFlag, 
+      billStatus, reporter, deductAmtType, 
+      remark, combProp, purchaseContractID, 
+      purchaseContract, LoginOrgID, resourceID, 
+      resourceName, cbsID, cbsName, 
+      invoiceNum, outOrgType, purchType, 
+      taxRate, isDeduct, warehouseName, 
+      orNotPrecollecte, companyId, companyName, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, #{whOrgID,jdbcType=VARCHAR}, 
+      #{outOrgID,jdbcType=VARCHAR}, #{inOrgID,jdbcType=VARCHAR}, #{bizType,jdbcType=VARCHAR}, 
+      #{billNo,jdbcType=VARCHAR}, #{materialSource,jdbcType=VARCHAR}, #{purpose,jdbcType=VARCHAR}, 
+      #{busDate,jdbcType=DATE}, #{outOrgName,jdbcType=VARCHAR}, #{inOrgName,jdbcType=VARCHAR}, 
+      #{totalAmt,jdbcType=DECIMAL}, #{outtransactor,jdbcType=VARCHAR}, #{intransactor,jdbcType=VARCHAR}, 
+      #{waretransactor,jdbcType=VARCHAR}, #{buyer,jdbcType=VARCHAR}, #{consignee,jdbcType=VARCHAR}, 
+      #{auditor,jdbcType=VARCHAR}, #{voucherNo,jdbcType=VARCHAR}, #{contractNo,jdbcType=VARCHAR}, 
+      #{invoiceNo,jdbcType=VARCHAR}, #{billType,jdbcType=INTEGER}, #{billFlag,jdbcType=VARCHAR}, 
+      #{billStatus,jdbcType=VARCHAR}, #{reporter,jdbcType=VARCHAR}, #{deductAmtType,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{combProp,jdbcType=VARCHAR}, #{purchaseContractID,jdbcType=VARCHAR}, 
+      #{purchaseContract,jdbcType=VARCHAR}, #{loginOrgID,jdbcType=VARCHAR}, #{resourceID,jdbcType=VARCHAR}, 
+      #{resourceName,jdbcType=VARCHAR}, #{cbsID,jdbcType=VARCHAR}, #{cbsName,jdbcType=VARCHAR}, 
+      #{invoiceNum,jdbcType=DECIMAL}, #{outOrgType,jdbcType=VARCHAR}, #{purchType,jdbcType=VARCHAR}, 
+      #{taxRate,jdbcType=VARCHAR}, #{isDeduct,jdbcType=VARCHAR}, #{warehouseName,jdbcType=VARCHAR}, 
+      #{orNotPrecollecte,jdbcType=VARCHAR}, #{companyId,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferReceiving" >
+    insert into zx_sk_stockTransfer_receiving
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="whOrgID != null" >
+        whOrgID,
+      </if>
+      <if test="outOrgID != null" >
+        outOrgID,
+      </if>
+      <if test="inOrgID != null" >
+        inOrgID,
+      </if>
+      <if test="bizType != null" >
+        bizType,
+      </if>
+      <if test="billNo != null" >
+        billNo,
+      </if>
+      <if test="materialSource != null" >
+        materialSource,
+      </if>
+      <if test="purpose != null" >
+        purpose,
+      </if>
+      <if test="busDate != null" >
+        busDate,
+      </if>
+      <if test="outOrgName != null" >
+        outOrgName,
+      </if>
+      <if test="inOrgName != null" >
+        inOrgName,
+      </if>
+      <if test="totalAmt != null" >
+        totalAmt,
+      </if>
+      <if test="outtransactor != null" >
+        outtransactor,
+      </if>
+      <if test="intransactor != null" >
+        intransactor,
+      </if>
+      <if test="waretransactor != null" >
+        waretransactor,
+      </if>
+      <if test="buyer != null" >
+        buyer,
+      </if>
+      <if test="consignee != null" >
+        consignee,
+      </if>
+      <if test="auditor != null" >
+        auditor,
+      </if>
+      <if test="voucherNo != null" >
+        voucherNo,
+      </if>
+      <if test="contractNo != null" >
+        contractNo,
+      </if>
+      <if test="invoiceNo != null" >
+        invoiceNo,
+      </if>
+      <if test="billType != null" >
+        billType,
+      </if>
+      <if test="billFlag != null" >
+        billFlag,
+      </if>
+      <if test="billStatus != null" >
+        billStatus,
+      </if>
+      <if test="reporter != null" >
+        reporter,
+      </if>
+      <if test="deductAmtType != null" >
+        deductAmtType,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="combProp != null" >
+        combProp,
+      </if>
+      <if test="purchaseContractID != null" >
+        purchaseContractID,
+      </if>
+      <if test="purchaseContract != null" >
+        purchaseContract,
+      </if>
+      <if test="loginOrgID != null" >
+        LoginOrgID,
+      </if>
+      <if test="resourceID != null" >
+        resourceID,
+      </if>
+      <if test="resourceName != null" >
+        resourceName,
+      </if>
+      <if test="cbsID != null" >
+        cbsID,
+      </if>
+      <if test="cbsName != null" >
+        cbsName,
+      </if>
+      <if test="invoiceNum != null" >
+        invoiceNum,
+      </if>
+      <if test="outOrgType != null" >
+        outOrgType,
+      </if>
+      <if test="purchType != null" >
+        purchType,
+      </if>
+      <if test="taxRate != null" >
+        taxRate,
+      </if>
+      <if test="isDeduct != null" >
+        isDeduct,
+      </if>
+      <if test="warehouseName != null" >
+        warehouseName,
+      </if>
+      <if test="orNotPrecollecte != null" >
+        orNotPrecollecte,
+      </if>
+      <if test="companyId != null" >
+        companyId,
+      </if>
+      <if test="companyName != null" >
+        companyName,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="whOrgID != null" >
+        #{whOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgID != null" >
+        #{outOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="inOrgID != null" >
+        #{inOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null" >
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null" >
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="materialSource != null" >
+        #{materialSource,jdbcType=VARCHAR},
+      </if>
+      <if test="purpose != null" >
+        #{purpose,jdbcType=VARCHAR},
+      </if>
+      <if test="busDate != null" >
+        #{busDate,jdbcType=DATE},
+      </if>
+      <if test="outOrgName != null" >
+        #{outOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="inOrgName != null" >
+        #{inOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAmt != null" >
+        #{totalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="outtransactor != null" >
+        #{outtransactor,jdbcType=VARCHAR},
+      </if>
+      <if test="intransactor != null" >
+        #{intransactor,jdbcType=VARCHAR},
+      </if>
+      <if test="waretransactor != null" >
+        #{waretransactor,jdbcType=VARCHAR},
+      </if>
+      <if test="buyer != null" >
+        #{buyer,jdbcType=VARCHAR},
+      </if>
+      <if test="consignee != null" >
+        #{consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null" >
+        #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="voucherNo != null" >
+        #{voucherNo,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null" >
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNo != null" >
+        #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="billType != null" >
+        #{billType,jdbcType=INTEGER},
+      </if>
+      <if test="billFlag != null" >
+        #{billFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="billStatus != null" >
+        #{billStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="reporter != null" >
+        #{reporter,jdbcType=VARCHAR},
+      </if>
+      <if test="deductAmtType != null" >
+        #{deductAmtType,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="combProp != null" >
+        #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseContractID != null" >
+        #{purchaseContractID,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseContract != null" >
+        #{purchaseContract,jdbcType=VARCHAR},
+      </if>
+      <if test="loginOrgID != null" >
+        #{loginOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceID != null" >
+        #{resourceID,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceName != null" >
+        #{resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="cbsID != null" >
+        #{cbsID,jdbcType=VARCHAR},
+      </if>
+      <if test="cbsName != null" >
+        #{cbsName,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNum != null" >
+        #{invoiceNum,jdbcType=DECIMAL},
+      </if>
+      <if test="outOrgType != null" >
+        #{outOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="purchType != null" >
+        #{purchType,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRate != null" >
+        #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeduct != null" >
+        #{isDeduct,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseName != null" >
+        #{warehouseName,jdbcType=VARCHAR},
+      </if>
+      <if test="orNotPrecollecte != null" >
+        #{orNotPrecollecte,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferReceiving" >
+    update zx_sk_stockTransfer_receiving
+    <set >
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="whOrgID != null" >
+        whOrgID = #{whOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgID != null" >
+        outOrgID = #{outOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="inOrgID != null" >
+        inOrgID = #{inOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null" >
+        bizType = #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null" >
+        billNo = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="materialSource != null" >
+        materialSource = #{materialSource,jdbcType=VARCHAR},
+      </if>
+      <if test="purpose != null" >
+        purpose = #{purpose,jdbcType=VARCHAR},
+      </if>
+      <if test="busDate != null" >
+        busDate = #{busDate,jdbcType=DATE},
+      </if>
+      <if test="outOrgName != null" >
+        outOrgName = #{outOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="inOrgName != null" >
+        inOrgName = #{inOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAmt != null" >
+        totalAmt = #{totalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="outtransactor != null" >
+        outtransactor = #{outtransactor,jdbcType=VARCHAR},
+      </if>
+      <if test="intransactor != null" >
+        intransactor = #{intransactor,jdbcType=VARCHAR},
+      </if>
+      <if test="waretransactor != null" >
+        waretransactor = #{waretransactor,jdbcType=VARCHAR},
+      </if>
+      <if test="buyer != null" >
+        buyer = #{buyer,jdbcType=VARCHAR},
+      </if>
+      <if test="consignee != null" >
+        consignee = #{consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null" >
+        auditor = #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="voucherNo != null" >
+        voucherNo = #{voucherNo,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null" >
+        contractNo = #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNo != null" >
+        invoiceNo = #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="billType != null" >
+        billType = #{billType,jdbcType=INTEGER},
+      </if>
+      <if test="billFlag != null" >
+        billFlag = #{billFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="billStatus != null" >
+        billStatus = #{billStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="reporter != null" >
+        reporter = #{reporter,jdbcType=VARCHAR},
+      </if>
+      <if test="deductAmtType != null" >
+        deductAmtType = #{deductAmtType,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="combProp != null" >
+        combProp = #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseContractID != null" >
+        purchaseContractID = #{purchaseContractID,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseContract != null" >
+        purchaseContract = #{purchaseContract,jdbcType=VARCHAR},
+      </if>
+      <if test="loginOrgID != null" >
+        LoginOrgID = #{loginOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceID != null" >
+        resourceID = #{resourceID,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceName != null" >
+        resourceName = #{resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="cbsID != null" >
+        cbsID = #{cbsID,jdbcType=VARCHAR},
+      </if>
+      <if test="cbsName != null" >
+        cbsName = #{cbsName,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNum != null" >
+        invoiceNum = #{invoiceNum,jdbcType=DECIMAL},
+      </if>
+      <if test="outOrgType != null" >
+        outOrgType = #{outOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="purchType != null" >
+        purchType = #{purchType,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRate != null" >
+        taxRate = #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeduct != null" >
+        isDeduct = #{isDeduct,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseName != null" >
+        warehouseName = #{warehouseName,jdbcType=VARCHAR},
+      </if>
+      <if test="orNotPrecollecte != null" >
+        orNotPrecollecte = #{orNotPrecollecte,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        companyId = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        companyName = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferReceiving" >
+    update zx_sk_stockTransfer_receiving
+    set       orgID = #{orgID,jdbcType=VARCHAR},
+      whOrgID = #{whOrgID,jdbcType=VARCHAR},
+      outOrgID = #{outOrgID,jdbcType=VARCHAR},
+      inOrgID = #{inOrgID,jdbcType=VARCHAR},
+      bizType = #{bizType,jdbcType=VARCHAR},
+      billNo = #{billNo,jdbcType=VARCHAR},
+      materialSource = #{materialSource,jdbcType=VARCHAR},
+      purpose = #{purpose,jdbcType=VARCHAR},
+      busDate = #{busDate,jdbcType=DATE},
+      outOrgName = #{outOrgName,jdbcType=VARCHAR},
+      inOrgName = #{inOrgName,jdbcType=VARCHAR},
+      totalAmt = #{totalAmt,jdbcType=DECIMAL},
+      outtransactor = #{outtransactor,jdbcType=VARCHAR},
+      intransactor = #{intransactor,jdbcType=VARCHAR},
+      waretransactor = #{waretransactor,jdbcType=VARCHAR},
+      buyer = #{buyer,jdbcType=VARCHAR},
+      consignee = #{consignee,jdbcType=VARCHAR},
+      auditor = #{auditor,jdbcType=VARCHAR},
+      voucherNo = #{voucherNo,jdbcType=VARCHAR},
+      contractNo = #{contractNo,jdbcType=VARCHAR},
+      invoiceNo = #{invoiceNo,jdbcType=VARCHAR},
+      billType = #{billType,jdbcType=INTEGER},
+      billFlag = #{billFlag,jdbcType=VARCHAR},
+      billStatus = #{billStatus,jdbcType=VARCHAR},
+      reporter = #{reporter,jdbcType=VARCHAR},
+      deductAmtType = #{deductAmtType,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      combProp = #{combProp,jdbcType=VARCHAR},
+      purchaseContractID = #{purchaseContractID,jdbcType=VARCHAR},
+      purchaseContract = #{purchaseContract,jdbcType=VARCHAR},
+      LoginOrgID = #{loginOrgID,jdbcType=VARCHAR},
+      resourceID = #{resourceID,jdbcType=VARCHAR},
+      resourceName = #{resourceName,jdbcType=VARCHAR},
+      cbsID = #{cbsID,jdbcType=VARCHAR},
+      cbsName = #{cbsName,jdbcType=VARCHAR},
+      invoiceNum = #{invoiceNum,jdbcType=DECIMAL},
+      outOrgType = #{outOrgType,jdbcType=VARCHAR},
+      purchType = #{purchType,jdbcType=VARCHAR},
+      taxRate = #{taxRate,jdbcType=VARCHAR},
+      isDeduct = #{isDeduct,jdbcType=VARCHAR},
+      warehouseName = #{warehouseName,jdbcType=VARCHAR},
+      orNotPrecollecte = #{orNotPrecollecte,jdbcType=VARCHAR},
+      companyId = #{companyId,jdbcType=VARCHAR},
+      companyName = #{companyName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxSkStockTransferReceivingList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferReceiving" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_stockTransfer_receiving
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="whOrgID != null and whOrgID != ''" >
+     and whOrgID = #{whOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="outOrgID != null and outOrgID != ''" >
+     and outOrgID = #{outOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="inOrgID != null and inOrgID != ''" >
+     and inOrgID = #{inOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="bizType != null and bizType != ''" >
+     and bizType = #{bizType,jdbcType=VARCHAR}
+    </if>
+    <if test="billNo != null and billNo != ''" >
+     and billNo like CONCAT('%',CONCAT(#{billNo,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="materialSource != null and materialSource != ''" >
+     and materialSource = #{materialSource,jdbcType=VARCHAR}
+    </if>
+    <if test="purpose != null and purpose != ''" >
+     and purpose = #{purpose,jdbcType=VARCHAR}
+    </if>
+    <if test="timeList != null" >
+     and busDate BETWEEN
+      <foreach collection="timeList" index="index" item="item" separator="AND">
+        DATE_FORMAT(#{item},"%Y-%m-%d")
+      </foreach>
+    </if>
+    <if test="outOrgName != null and outOrgName != ''" >
+     and outOrgName = #{outOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="inOrgName != null and inOrgName != ''" >
+     and inOrgName = #{inOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="amtList != null" >
+      and totalAmt BETWEEN
+      <foreach collection="amtList" index="index" item="item" separator="AND">
+       #{item}
+      </foreach>
+    </if>
+    <if test="outtransactor != null and outtransactor != ''" >
+     and outtransactor = #{outtransactor,jdbcType=VARCHAR}
+    </if>
+    <if test="intransactor != null and intransactor != ''" >
+     and intransactor = #{intransactor,jdbcType=VARCHAR}
+    </if>
+    <if test="waretransactor != null and waretransactor != ''" >
+     and waretransactor = #{waretransactor,jdbcType=VARCHAR}
+    </if>
+    <if test="buyer != null and buyer != ''" >
+     and buyer = #{buyer,jdbcType=VARCHAR}
+    </if>
+    <if test="consignee != null and consignee != ''" >
+     and consignee = #{consignee,jdbcType=VARCHAR}
+    </if>
+    <if test="auditor != null and auditor != ''" >
+     and auditor = #{auditor,jdbcType=VARCHAR}
+    </if>
+    <if test="voucherNo != null and voucherNo != ''" >
+     and voucherNo = #{voucherNo,jdbcType=VARCHAR}
+    </if>
+    <if test="contractNo != null and contractNo != ''" >
+     and contractNo = #{contractNo,jdbcType=VARCHAR}
+    </if>
+    <if test="invoiceNo != null and invoiceNo != ''" >
+     and invoiceNo = #{invoiceNo,jdbcType=VARCHAR}
+    </if>
+    <if test="billType != null and billType != ''" >
+     and billType = #{billType,jdbcType=INTEGER}
+    </if>
+    <if test="billFlag != null and billFlag != ''" >
+     and billFlag = #{billFlag,jdbcType=VARCHAR}
+    </if>
+    <if test="billStatus != null and billStatus != ''" >
+     and billStatus = #{billStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="reporter != null and reporter != ''" >
+     and reporter = #{reporter,jdbcType=VARCHAR}
+    </if>
+    <if test="deductAmtType != null and deductAmtType != ''" >
+     and deductAmtType = #{deductAmtType,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="combProp != null and combProp != ''" >
+     and combProp = #{combProp,jdbcType=VARCHAR}
+    </if>
+    <if test="purchaseContractID != null and purchaseContractID != ''" >
+     and purchaseContractID = #{purchaseContractID,jdbcType=VARCHAR}
+    </if>
+    <if test="purchaseContract != null and purchaseContract != ''" >
+     and purchaseContract = #{purchaseContract,jdbcType=VARCHAR}
+    </if>
+    <if test="loginOrgID != null and loginOrgID != ''" >
+     and LoginOrgID = #{loginOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceID != null and resourceID != ''" >
+     and resourceID = #{resourceID,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceName != null and resourceName != ''" >
+     and resourceName = #{resourceName,jdbcType=VARCHAR}
+    </if>
+    <if test="cbsID != null and cbsID != ''" >
+     and cbsID = #{cbsID,jdbcType=VARCHAR}
+    </if>
+    <if test="cbsName != null and cbsName != ''" >
+     and cbsName = #{cbsName,jdbcType=VARCHAR}
+    </if>
+    <if test="invoiceNum != null and invoiceNum != ''" >
+     and invoiceNum = #{invoiceNum,jdbcType=DECIMAL}
+    </if>
+    <if test="outOrgType != null and outOrgType != ''" >
+     and outOrgType = #{outOrgType,jdbcType=VARCHAR}
+    </if>
+    <if test="purchType != null and purchType != ''" >
+     and purchType = #{purchType,jdbcType=VARCHAR}
+    </if>
+    <if test="taxRate != null and taxRate != ''" >
+     and taxRate = #{taxRate,jdbcType=VARCHAR}
+    </if>
+    <if test="isDeduct != null and isDeduct != ''" >
+     and isDeduct = #{isDeduct,jdbcType=VARCHAR}
+    </if>
+    <if test="warehouseName != null and warehouseName != ''" >
+     and warehouseName = #{warehouseName,jdbcType=VARCHAR}
+    </if>
+    <if test="orNotPrecollecte != null and orNotPrecollecte != ''" >
+     and orNotPrecollecte = #{orNotPrecollecte,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and companyId = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and companyName = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkStockTransferReceiving" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferReceiving" >
+    <![CDATA[ 
+        update zx_sk_stockTransfer_receiving
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+  <update id="checkZxSkStockTransferReceiving" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferReceiving">
+     update zx_sk_stockTransfer_receiving
+      set   billStatus=#{billStatus},
+      modify_time=#{modifyTime,jdbcType=TIMESTAMP},
+      modify_user=#{modifyUser},
+      modify_user_name=#{modifyUserName}
+      where del_flag = '0' and id = #{id}
+  </update>
+  <select id="getZxSkStockTransferReceivingCount" parameterType="java.lang.String" resultType="int">
+    select count(*) from zx_sk_stockTransfer_receiving where billNo like CONCAT('%',CONCAT(#{date},'%')) and substring(billNo,1,2) != '[冲' and inOrgID = #{orgID}
+  </select>
+
+  <select id="selectByZxSkStockTransferReceivingListByPrimaryNo" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferReceiving">
+    select
+    <include refid="Base_Column_List" />
+    from zx_sk_stockTransfer_receiving
+    where del_flag = '0' and billNo = #{billNo,jdbcType=VARCHAR}
+    ORDER BY modify_time DESC
+  </select>
+  <select id="getZxSkStockTransferReceivingByContractNoList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferReceiving" >
+    select
+    <include refid="Base_Column_List" />
+    from zx_sk_stockTransfer_receiving
+    where del_flag = '0'
+    and billStatus = '1'
+    and purchaseContractID = #{purchaseContractID}
+    and DATE_FORMAT(busDate,"%Y-%m") = #{time}
+  </select>
+
+  <select id="selectOrderAll" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkStockTransferReceiving">
+    select
+    main.id,
+    billNo,
+    '收料单' as bizType,
+    busDate,
+    purchaseContractID,
+    contractNo,
+    purchaseContract
+    from zx_sk_stockTransfer_receiving as main
+			left join zx_sk_stockTransItem_receiving as item
+			on main.id = item.billID
+    where main.del_flag = '0'
+		and item.del_flag = '0'
+    and main.billStatus = '1'
+    and main.busDate between #{startTime,jdbcType=DATE} and #{endTime,jdbcType=DATE}
+    and main.inOrgID = #{inOrgID,jdbcType=VARCHAR}
+    and main.outOrgID = #{outOrgID,jdbcType=VARCHAR}
+    and main.totalAmt > 0
+    and main.purchaseContractID = #{purchaseContractID,jdbcType=VARCHAR}
+    and item.settlementStatus = '0'
+    GROUP BY main.id
+    union all
+    select
+    main.id,
+    billNo,
+    '退货单' as bizType,
+    busDate,
+    '' as purchaseContractID,
+    '' as contractNo,
+    '' as purchaseContract
+    from zx_sk_StockTransfer_sales_return as main
+			left join zx_sk_StockTransItem_sales_return as item
+				on main.id = item.billID
+    where main.del_flag = '0'
+		and item.del_flag = '0'
+    and main.billStatus = '1'
+    and main.busDate between #{startTime,jdbcType=DATE} and #{endTime,jdbcType=DATE}
+    and main.inOrgID = #{inOrgID,jdbcType=VARCHAR}
+    and main.outOrgID = #{outOrgID,jdbcType=VARCHAR}
+    and item.settlementStatus = '0'
+    GROUP BY main.id
+    union all
+    select
+    main.id,
+    billNo,
+    '周转材入库单' as bizType,
+    busDate,
+    contractID as purchaseContractID,
+    '' as contractNo,
+    contractName as purchaseContract
+     from zx_sk_turnoverIn as main
+			left join zx_sk_turnoverinitem as item
+				on main.id = item.billID
+     where main.del_flag = '0'
+		 and item.del_flag = '0'
+    and main.status = '1'
+    and main.busDate between #{startTime,jdbcType=DATE} and #{endTime,jdbcType=DATE}
+    and main.orgID = #{inOrgID,jdbcType=VARCHAR}
+    and main.outOrgID = #{outOrgID,jdbcType=VARCHAR}
+    and main.contractID = #{purchaseContractID,jdbcType=VARCHAR}
+    and item.settlementStatus = '0'
+    GROUP BY main.id
+    union all
+    select
+    main.id,
+    billNo,
+    '周转材退货单' as bizType,
+    busDate,
+    '' as purchaseContractID,
+    '' as contractNo,
+    '' as purchaseContract
+     from zx_sk_returns as main
+				left join zx_sk_returnsitem as item
+					on main.id = item.billID
+     where main.del_flag = '0'
+		and item.del_flag = '0'
+    and main.status = '1'
+    and main.busDate between #{startTime,jdbcType=DATE} and #{endTime,jdbcType=DATE}
+    and main.orgID = #{inOrgID,jdbcType=VARCHAR}
+    and main.outOrgID = #{outOrgID,jdbcType=VARCHAR}
+    and item.settlementStatus = '0'
+    GROUP BY main.id
+  </select>
+
+
+</mapper>

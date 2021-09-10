@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqExternalEquipmentUsageMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqExternalEquipmentUsage" >
+    <id column="zxEqExternalEquipmentUsageId" property="zxEqExternalEquipmentUsageId" jdbcType="CHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="projectName" property="projectName" jdbcType="VARCHAR" />
+    <result column="equipName" property="equipName" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="power" property="power" jdbcType="VARCHAR" />
+    <result column="outfactory" property="outfactory" jdbcType="VARCHAR" />
+    <result column="outfactoryDate" property="outfactoryDate" jdbcType="TIMESTAMP" />
+    <result column="orginalValue" property="orginalValue" jdbcType="DECIMAL" />
+    <result column="place" property="place" jdbcType="VARCHAR" />
+    <result column="leaseLimit" property="leaseLimit" jdbcType="TIMESTAMP" />
+    <result column="master" property="master" jdbcType="VARCHAR" />
+    <result column="leaseprice" property="leaseprice" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="beginPeriod" property="beginPeriod" jdbcType="TIMESTAMP" />
+    <result column="endPeriod" property="endPeriod" jdbcType="TIMESTAMP" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxEqExternalEquipmentUsageId, orgName, projectName, equipName, model, 
+    spec, power, outfactory, outfactoryDate, orginalValue, 
+    place, leaseLimit, master, leaseprice, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_externalEquipmentUsage
+    where del_flag = '0' and zxEqExternalEquipmentUsageId = #{zxEqExternalEquipmentUsageId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_externalEquipmentUsage
+    where zxEqExternalEquipmentUsageId = #{zxEqExternalEquipmentUsageId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqExternalEquipmentUsage" >
+    insert into zx_eq_externalEquipmentUsage (
+    zxEqExternalEquipmentUsageId, orgName, projectName, equipName, model, 
+    spec, power, outfactory, outfactoryDate, orginalValue, 
+    place, leaseLimit, master, leaseprice, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxEqExternalEquipmentUsageId,jdbcType=CHAR}, #{orgName,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, #{equipName,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, 
+    #{spec,jdbcType=VARCHAR}, #{power,jdbcType=VARCHAR}, #{outfactory,jdbcType=VARCHAR}, #{outfactoryDate,jdbcType=TIMESTAMP}, #{orginalValue,jdbcType=DECIMAL}, 
+    #{place,jdbcType=VARCHAR}, #{leaseLimit,jdbcType=TIMESTAMP}, #{master,jdbcType=VARCHAR}, #{leaseprice,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, 
+    #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+    #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqExternalEquipmentUsage" >
+    insert into zx_eq_externalEquipmentUsage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxEqExternalEquipmentUsageId != null" >
+        zxEqExternalEquipmentUsageId,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="projectName != null" >
+        projectName,
+      </if>
+      <if test="equipName != null" >
+        equipName,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="power != null" >
+        power,
+      </if>
+      <if test="outfactory != null" >
+        outfactory,
+      </if>
+      <if test="outfactoryDate != null" >
+        outfactoryDate,
+      </if>
+      <if test="orginalValue != null" >
+        orginalValue,
+      </if>
+      <if test="place != null" >
+        place,
+      </if>
+      <if test="leaseLimit != null" >
+        leaseLimit,
+      </if>
+      <if test="master != null" >
+        master,
+      </if>
+      <if test="leaseprice != null" >
+        leaseprice,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxEqExternalEquipmentUsageId != null" >
+        #{zxEqExternalEquipmentUsageId,jdbcType=CHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="power != null" >
+        #{power,jdbcType=VARCHAR},
+      </if>
+      <if test="outfactory != null" >
+        #{outfactory,jdbcType=VARCHAR},
+      </if>
+      <if test="outfactoryDate != null" >
+        #{outfactoryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orginalValue != null" >
+        #{orginalValue,jdbcType=DECIMAL},
+      </if>
+      <if test="place != null" >
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseLimit != null" >
+        #{leaseLimit,jdbcType=TIMESTAMP},
+      </if>
+      <if test="master != null" >
+        #{master,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseprice != null" >
+        #{leaseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqExternalEquipmentUsage" >
+    update zx_eq_externalEquipmentUsage
+    <set >
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        projectName = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        equipName = #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="power != null" >
+        power = #{power,jdbcType=VARCHAR},
+      </if>
+      <if test="outfactory != null" >
+        outfactory = #{outfactory,jdbcType=VARCHAR},
+      </if>
+      <if test="outfactoryDate != null" >
+        outfactoryDate = #{outfactoryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orginalValue != null" >
+        orginalValue = #{orginalValue,jdbcType=DECIMAL},
+      </if>
+      <if test="place != null" >
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseLimit != null" >
+        leaseLimit = #{leaseLimit,jdbcType=TIMESTAMP},
+      </if>
+      <if test="master != null" >
+        master = #{master,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseprice != null" >
+        leaseprice = #{leaseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxEqExternalEquipmentUsageId = #{zxEqExternalEquipmentUsageId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqExternalEquipmentUsage" >
+    update zx_eq_externalEquipmentUsage set 
+      orgName = #{orgName,jdbcType=VARCHAR},
+      projectName = #{projectName,jdbcType=VARCHAR},
+      equipName = #{equipName,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      power = #{power,jdbcType=VARCHAR},
+      outfactory = #{outfactory,jdbcType=VARCHAR},
+      outfactoryDate = #{outfactoryDate,jdbcType=TIMESTAMP},
+      orginalValue = #{orginalValue,jdbcType=DECIMAL},
+      place = #{place,jdbcType=VARCHAR},
+      leaseLimit = #{leaseLimit,jdbcType=TIMESTAMP},
+      master = #{master,jdbcType=VARCHAR},
+      leaseprice = #{leaseprice,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxEqExternalEquipmentUsageId = #{zxEqExternalEquipmentUsageId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxEqExternalEquipmentUsageList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqExternalEquipmentUsage" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_externalEquipmentUsage
+    where del_flag = '0'
+    <if test="zxEqExternalEquipmentUsageId != null and zxEqExternalEquipmentUsageId != ''" >
+     and zxEqExternalEquipmentUsageId = #{zxEqExternalEquipmentUsageId,jdbcType=CHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and projectName = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="equipName != null and equipName != ''" >
+     and equipName = #{equipName,jdbcType=VARCHAR}
+    </if>
+    <if test="model != null and model != ''" >
+     and model = #{model,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="power != null and power != ''" >
+     and power = #{power,jdbcType=VARCHAR}
+    </if>
+    <if test="outfactory != null and outfactory != ''" >
+     and outfactory = #{outfactory,jdbcType=VARCHAR}
+    </if>
+    <if test="outfactoryDate != null and outfactoryDate != ''" >
+     and outfactoryDate = #{outfactoryDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="orginalValue != null and orginalValue != ''" >
+     and orginalValue = #{orginalValue,jdbcType=DECIMAL}
+    </if>
+    <if test="place != null and place != ''" >
+     and place = #{place,jdbcType=VARCHAR}
+    </if>
+    <if test="leaseLimit != null and leaseLimit != ''" >
+     and leaseLimit = #{leaseLimit,jdbcType=TIMESTAMP}
+    </if>
+    <if test="master != null and master != ''" >
+     and master = #{master,jdbcType=VARCHAR}
+    </if>
+    <if test="leaseprice != null and leaseprice != ''" >
+     and leaseprice = #{leaseprice,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqExternalEquipmentUsage" parameterType="com.apih5.mybatis.pojo.ZxEqExternalEquipmentUsage" >
+    <![CDATA[ 
+        update zx_eq_externalEquipmentUsage
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxEqExternalEquipmentUsageId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxEqExternalEquipmentUsageId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+  <select id="selectZxEqExternalEquipmentUsage" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqExternalEquipmentUsage" >
+  select 
+       (select o.company_name from sys_project o where o.project_id=#{orgID,jdbcType=VARCHAR}) as orgName,
+       io1.project_Name projectName, 
+       oe.equipName,oe.model,oe.spec,oe.power,oe.outfactory,
+       DATE_FORMAT(oe.outfactoryDate,'%Y%m%d') outfactoryDate,
+       orginalValue,
+       oe.place,oe.leaseLimit,
+       DATE_FORMAT(oe.inDate,'%Y%m%d') as inDate,
+       DATE_FORMAT(oe.outDate,'%Y%m%d') as outDate,
+       oe.leaseprice,
+       (select project_Name from sys_project where project_ID=oe.supplierID)+'/'+(CASE when oe.operator='' then '-' else oe.operator end) as master
+       ,oe.remark as remarks
+       ,case when isnum(oe.leaseLimit)=1 and isnum(oe.leaseprice)=1
+       then oe.leaseLimit*oe.leaseprice else 0 end as leaseAmt
+from zx_eq_OuterEquip oe 
+INNER JOIN sys_project io1 ON io1.project_ID = oe.orgID
+left JOIN
+(
+	SELECT re.outerEquipID,re.orgID,rei.qty,rei.mile,rei.actualQty
+	FROM zx_eq_RentOutEqRecord re  INNER JOIN
+	zx_eq_RentOutEqRecordItem rei  on rei.billID=re.ID 	
+	WHERE DATE_FORMAT(useDate,'%Y%m')&lt;=#{beginPeriod,jdbcType=TIMESTAMP}
+	AND DATE_FORMAT(useDate,'%Y%m')&gt;=#{endPeriod,jdbcType=TIMESTAMP}
+)t ON t.outerEquipID=oe.ID AND t.orgID = oe.orgID
+where (io1.project_ID = #{orgID,jdbcType=VARCHAR} or io1.company_ID = #{orgID,jdbcType=VARCHAR})
+group by oe.equipName,oe.model,oe.spec,oe.power,oe.outfactory
+,oe.outfactoryDate,orginalValue,oe.place,oe.leaseLimit,oe.leaseprice,oe.supplierID,oe.contrItem,oe.operator,io1.project_name,oe.inDate,oe.outDate
+,oe.remark
+  </select>
+</mapper>

@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzSizeControlMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzSizeControl" >
+    <id column="size_control_id" property="sizeControlId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="subproject_info_id" property="subprojectInfoId" jdbcType="CHAR" />
+    <result column="subproject_name" property="subprojectName" jdbcType="VARCHAR" />
+    <result column="change_number" property="changeNumber" jdbcType="INTEGER" />
+    <result column="change_property_id" property="changePropertyId" jdbcType="CHAR" />
+    <result column="change_property_name" property="changePropertyName" jdbcType="VARCHAR" />
+    <result column="amount1" property="amount1" jdbcType="DECIMAL" />
+    <result column="amount2" property="amount2" jdbcType="DECIMAL" />
+    <result column="amount3" property="amount3" jdbcType="DECIMAL" />
+    <result column="second_negotiate_id" property="secondNegotiateId" jdbcType="CHAR" />
+    <result column="second_negotiate_name" property="secondNegotiateName" jdbcType="VARCHAR" />
+    <result column="scheme" property="scheme" jdbcType="VARCHAR" />
+    <result column="third_reply_id" property="thirdReplyId" jdbcType="CHAR" />
+    <result column="third_reply_name" property="thirdReplyName" jdbcType="VARCHAR" />
+    <result column="local_gov_id" property="localGovId" jdbcType="CHAR" />
+    <result column="local_gov_name" property="localGovName" jdbcType="VARCHAR" />
+    <result column="ju_id" property="juId" jdbcType="CHAR" />
+    <result column="ju_name" property="juName" jdbcType="VARCHAR" />
+    <result column="china_id" property="chinaId" jdbcType="CHAR" />
+    <result column="china_name" property="chinaName" jdbcType="VARCHAR" />
+    <result column="register_date" property="registerDate" jdbcType="DATE" />
+    <result column="registrant" property="registrant" jdbcType="VARCHAR" />
+    <result column="zero_change_property_id" property="zeroChangePropertyId" jdbcType="CHAR" />
+    <result column="zero_change_property_name" property="zeroChangePropertyName" jdbcType="VARCHAR" />
+    <result column="zero_amount1" property="zeroAmount1" jdbcType="DECIMAL" />
+    <result column="zero_amount2" property="zeroAmount2" jdbcType="DECIMAL" />
+    <result column="zero_amount3" property="zeroAmount3" jdbcType="DECIMAL" />
+    <result column="last_change_property_id" property="lastChangePropertyId" jdbcType="CHAR" />
+    <result column="last_change_property_name" property="lastChangePropertyName" jdbcType="VARCHAR" />
+    <result column="last_amount1" property="lastAmount1" jdbcType="DECIMAL" />
+    <result column="last_amount2" property="lastAmount2" jdbcType="DECIMAL" />
+    <result column="last_amount3" property="lastAmount3" jdbcType="DECIMAL" />
+    <result column="add_flag" property="addFlag" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="renew1" property="renew1" jdbcType="CHAR" />
+    <result column="renew2" property="renew2" jdbcType="CHAR" />
+    <result column="renew3" property="renew3" jdbcType="CHAR" />
+    <result column="renew4" property="renew4" jdbcType="CHAR" />
+    <result column="size_control_subject" property="sizeControlSubject" jdbcType="CHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    size_control_id, project_id, subproject_info_id, subproject_name, change_number, 
+    change_property_id, change_property_name, amount1, amount2, amount3, 
+    second_negotiate_id, second_negotiate_name, scheme, third_reply_id, third_reply_name, 
+    local_gov_id, local_gov_name, ju_id, ju_name, china_id, 
+    china_name, register_date, registrant, zero_change_property_id, zero_change_property_name, 
+    zero_amount1, zero_amount2, zero_amount3, last_change_property_id, last_change_property_name, 
+    last_amount1, last_amount2, last_amount3, add_flag, remarks, renew1, renew2, renew3, renew4, size_control_subject,
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    t.*,
+    (SELECT project_name FROM zj_tz_pro_manage AS tt WHERE tt.del_flag = '0' AND tt.project_id = t.project_id) AS projectName,
+    t1.contract_condition_id AS contractConditionId,
+    t1.register_date AS registerDate1, 
+    t1.registrant AS registrant1, 
+    t1.invest_id AS investId, 
+    t1.invest_name AS investName, 
+    t1.ju_share AS juShare, 
+    t1.ju_id AS juId1, 
+    t1.ju_name AS juName1, 
+    t1.zcb_id AS zcbId, 
+    t1.zcb_name AS zcbName, 
+    t1.zcb_share AS zcbShare, 
+    t1.ext1 AS ext1, 
+    t1.ext2 AS ext2, 
+    t1.ext3 AS ext3
+    from zj_tz_size_control AS t
+    LEFT JOIN zj_tz_contract_condition AS t1 ON t1.size_control_id = t.size_control_id AND t1.del_flag = '0' 
+    where t.size_control_id = #{sizeControlId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_size_control
+    where size_control_id = #{sizeControlId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzSizeControl" >
+    insert into zj_tz_size_control (size_control_id, project_id, subproject_info_id, 
+      subproject_name, change_number, change_property_id, 
+      change_property_name, amount1, amount2, 
+      amount3, second_negotiate_id, second_negotiate_name, 
+      scheme, third_reply_id, third_reply_name, 
+      local_gov_id, local_gov_name, ju_id, 
+      ju_name, china_id, china_name, 
+      register_date, registrant, zero_change_property_id, 
+      zero_change_property_name, zero_amount1, zero_amount2, 
+      zero_amount3, last_change_property_id, last_change_property_name, 
+      last_amount1, last_amount2, last_amount3, 
+      add_flag, remarks, renew1, renew2, renew3, renew4, size_control_subject, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{sizeControlId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{subprojectInfoId,jdbcType=CHAR}, 
+      #{subprojectName,jdbcType=VARCHAR}, #{changeNumber,jdbcType=INTEGER}, #{changePropertyId,jdbcType=CHAR}, 
+      #{changePropertyName,jdbcType=VARCHAR}, #{amount1,jdbcType=DECIMAL}, #{amount2,jdbcType=DECIMAL}, 
+      #{amount3,jdbcType=DECIMAL}, #{secondNegotiateId,jdbcType=CHAR}, #{secondNegotiateName,jdbcType=VARCHAR}, 
+      #{scheme,jdbcType=VARCHAR}, #{thirdReplyId,jdbcType=CHAR}, #{thirdReplyName,jdbcType=VARCHAR}, 
+      #{localGovId,jdbcType=CHAR}, #{localGovName,jdbcType=VARCHAR}, #{juId,jdbcType=CHAR}, 
+      #{juName,jdbcType=VARCHAR}, #{chinaId,jdbcType=CHAR}, #{chinaName,jdbcType=VARCHAR}, 
+      #{registerDate,jdbcType=DATE}, #{registrant,jdbcType=VARCHAR}, #{zeroChangePropertyId,jdbcType=CHAR}, 
+      #{zeroChangePropertyName,jdbcType=VARCHAR}, #{zeroAmount1,jdbcType=DECIMAL}, #{zeroAmount2,jdbcType=DECIMAL}, 
+      #{zeroAmount3,jdbcType=DECIMAL}, #{lastChangePropertyId,jdbcType=CHAR}, #{lastChangePropertyName,jdbcType=VARCHAR}, 
+      #{lastAmount1,jdbcType=DECIMAL}, #{lastAmount2,jdbcType=DECIMAL}, #{lastAmount3,jdbcType=DECIMAL}, 
+      #{addFlag,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, #{renew1,jdbcType=CHAR}, #{renew2,jdbcType=CHAR}, #{renew3,jdbcType=CHAR},
+      #{renew4,jdbcType=CHAR}, #{sizeControlSubject,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzSizeControl" >
+    insert into zj_tz_size_control
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sizeControlId != null" >
+        size_control_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="subprojectInfoId != null" >
+        subproject_info_id,
+      </if>
+      <if test="subprojectName != null" >
+        subproject_name,
+      </if>
+      <if test="changeNumber != null" >
+        change_number,
+      </if>
+      <if test="changePropertyId != null" >
+        change_property_id,
+      </if>
+      <if test="changePropertyName != null" >
+        change_property_name,
+      </if>
+      <if test="amount1 != null" >
+        amount1,
+      </if>
+      <if test="amount2 != null" >
+        amount2,
+      </if>
+      <if test="amount3 != null" >
+        amount3,
+      </if>
+      <if test="secondNegotiateId != null" >
+        second_negotiate_id,
+      </if>
+      <if test="secondNegotiateName != null" >
+        second_negotiate_name,
+      </if>
+      <if test="scheme != null" >
+        scheme,
+      </if>
+      <if test="thirdReplyId != null" >
+        third_reply_id,
+      </if>
+      <if test="thirdReplyName != null" >
+        third_reply_name,
+      </if>
+      <if test="localGovId != null" >
+        local_gov_id,
+      </if>
+      <if test="localGovName != null" >
+        local_gov_name,
+      </if>
+      <if test="juId != null" >
+        ju_id,
+      </if>
+      <if test="juName != null" >
+        ju_name,
+      </if>
+      <if test="chinaId != null" >
+        china_id,
+      </if>
+      <if test="chinaName != null" >
+        china_name,
+      </if>
+      <if test="registerDate != null" >
+        register_date,
+      </if>
+      <if test="registrant != null" >
+        registrant,
+      </if>
+      <if test="zeroChangePropertyId != null" >
+        zero_change_property_id,
+      </if>
+      <if test="zeroChangePropertyName != null" >
+        zero_change_property_name,
+      </if>
+      <if test="zeroAmount1 != null" >
+        zero_amount1,
+      </if>
+      <if test="zeroAmount2 != null" >
+        zero_amount2,
+      </if>
+      <if test="zeroAmount3 != null" >
+        zero_amount3,
+      </if>
+      <if test="lastChangePropertyId != null" >
+        last_change_property_id,
+      </if>
+      <if test="lastChangePropertyName != null" >
+        last_change_property_name,
+      </if>
+      <if test="lastAmount1 != null" >
+        last_amount1,
+      </if>
+      <if test="lastAmount2 != null" >
+        last_amount2,
+      </if>
+      <if test="lastAmount3 != null" >
+        last_amount3,
+      </if>
+      <if test="addFlag != null" >
+        add_flag,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="renew1 != null" >
+        renew1,
+      </if>
+      <if test="renew2 != null" >
+        renew2,
+      </if>
+      <if test="renew3 != null" >
+        renew3,
+      </if>
+      <if test="renew4 != null" >
+        renew4,
+      </if>
+      <if test="sizeControlSubject != null" >
+        size_control_subject,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sizeControlId != null" >
+        #{sizeControlId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectInfoId != null" >
+        #{subprojectInfoId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectName != null" >
+        #{subprojectName,jdbcType=VARCHAR},
+      </if>
+      <if test="changeNumber != null" >
+        #{changeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="changePropertyId != null" >
+        #{changePropertyId,jdbcType=CHAR},
+      </if>
+      <if test="changePropertyName != null" >
+        #{changePropertyName,jdbcType=VARCHAR},
+      </if>
+      <if test="amount1 != null" >
+        #{amount1,jdbcType=DECIMAL},
+      </if>
+      <if test="amount2 != null" >
+        #{amount2,jdbcType=DECIMAL},
+      </if>
+      <if test="amount3 != null" >
+        #{amount3,jdbcType=DECIMAL},
+      </if>
+      <if test="secondNegotiateId != null" >
+        #{secondNegotiateId,jdbcType=CHAR},
+      </if>
+      <if test="secondNegotiateName != null" >
+        #{secondNegotiateName,jdbcType=VARCHAR},
+      </if>
+      <if test="scheme != null" >
+        #{scheme,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdReplyId != null" >
+        #{thirdReplyId,jdbcType=CHAR},
+      </if>
+      <if test="thirdReplyName != null" >
+        #{thirdReplyName,jdbcType=VARCHAR},
+      </if>
+      <if test="localGovId != null" >
+        #{localGovId,jdbcType=CHAR},
+      </if>
+      <if test="localGovName != null" >
+        #{localGovName,jdbcType=VARCHAR},
+      </if>
+      <if test="juId != null" >
+        #{juId,jdbcType=CHAR},
+      </if>
+      <if test="juName != null" >
+        #{juName,jdbcType=VARCHAR},
+      </if>
+      <if test="chinaId != null" >
+        #{chinaId,jdbcType=CHAR},
+      </if>
+      <if test="chinaName != null" >
+        #{chinaName,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null" >
+        #{registerDate,jdbcType=DATE},
+      </if>
+      <if test="registrant != null" >
+        #{registrant,jdbcType=VARCHAR},
+      </if>
+      <if test="zeroChangePropertyId != null" >
+        #{zeroChangePropertyId,jdbcType=CHAR},
+      </if>
+      <if test="zeroChangePropertyName != null" >
+        #{zeroChangePropertyName,jdbcType=VARCHAR},
+      </if>
+      <if test="zeroAmount1 != null" >
+        #{zeroAmount1,jdbcType=DECIMAL},
+      </if>
+      <if test="zeroAmount2 != null" >
+        #{zeroAmount2,jdbcType=DECIMAL},
+      </if>
+      <if test="zeroAmount3 != null" >
+        #{zeroAmount3,jdbcType=DECIMAL},
+      </if>
+      <if test="lastChangePropertyId != null" >
+        #{lastChangePropertyId,jdbcType=CHAR},
+      </if>
+      <if test="lastChangePropertyName != null" >
+        #{lastChangePropertyName,jdbcType=VARCHAR},
+      </if>
+      <if test="lastAmount1 != null" >
+        #{lastAmount1,jdbcType=DECIMAL},
+      </if>
+      <if test="lastAmount2 != null" >
+        #{lastAmount2,jdbcType=DECIMAL},
+      </if>
+      <if test="lastAmount3 != null" >
+        #{lastAmount3,jdbcType=DECIMAL},
+      </if>
+      <if test="addFlag != null" >
+        #{addFlag,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="renew1 != null" >
+        #{renew1,jdbcType=CHAR},
+      </if>
+      <if test="renew2 != null" >
+        #{renew2,jdbcType=CHAR},
+      </if>
+      <if test="renew3 != null" >
+        #{renew3,jdbcType=CHAR},
+      </if>
+      <if test="renew4 != null" >
+        #{renew4,jdbcType=CHAR},
+      </if>
+      <if test="sizeControlSubject != null" >
+        #{sizeControlSubject,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzSizeControl" >
+    update zj_tz_size_control
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectInfoId != null" >
+        subproject_info_id = #{subprojectInfoId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectName != null" >
+        subproject_name = #{subprojectName,jdbcType=VARCHAR},
+      </if>
+      <if test="changeNumber != null" >
+        change_number = #{changeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="changePropertyId != null" >
+        change_property_id = #{changePropertyId,jdbcType=CHAR},
+      </if>
+      <if test="changePropertyName != null" >
+        change_property_name = #{changePropertyName,jdbcType=VARCHAR},
+      </if>
+      <if test="amount1 != null" >
+        amount1 = #{amount1,jdbcType=DECIMAL},
+      </if>
+      <if test="amount2 != null" >
+        amount2 = #{amount2,jdbcType=DECIMAL},
+      </if>
+      <if test="amount3 != null" >
+        amount3 = #{amount3,jdbcType=DECIMAL},
+      </if>
+      <if test="secondNegotiateId != null" >
+        second_negotiate_id = #{secondNegotiateId,jdbcType=CHAR},
+      </if>
+      <if test="secondNegotiateName != null" >
+        second_negotiate_name = #{secondNegotiateName,jdbcType=VARCHAR},
+      </if>
+      <if test="scheme != null" >
+        scheme = #{scheme,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdReplyId != null" >
+        third_reply_id = #{thirdReplyId,jdbcType=CHAR},
+      </if>
+      <if test="thirdReplyName != null" >
+        third_reply_name = #{thirdReplyName,jdbcType=VARCHAR},
+      </if>
+      <if test="localGovId != null" >
+        local_gov_id = #{localGovId,jdbcType=CHAR},
+      </if>
+      <if test="localGovName != null" >
+        local_gov_name = #{localGovName,jdbcType=VARCHAR},
+      </if>
+      <if test="juId != null" >
+        ju_id = #{juId,jdbcType=CHAR},
+      </if>
+      <if test="juName != null" >
+        ju_name = #{juName,jdbcType=VARCHAR},
+      </if>
+      <if test="chinaId != null" >
+        china_id = #{chinaId,jdbcType=CHAR},
+      </if>
+      <if test="chinaName != null" >
+        china_name = #{chinaName,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null" >
+        register_date = #{registerDate,jdbcType=DATE},
+      </if>
+      <if test="registrant != null" >
+        registrant = #{registrant,jdbcType=VARCHAR},
+      </if>
+      <if test="zeroChangePropertyId != null" >
+        zero_change_property_id = #{zeroChangePropertyId,jdbcType=CHAR},
+      </if>
+      <if test="zeroChangePropertyName != null" >
+        zero_change_property_name = #{zeroChangePropertyName,jdbcType=VARCHAR},
+      </if>
+      <if test="zeroAmount1 != null" >
+        zero_amount1 = #{zeroAmount1,jdbcType=DECIMAL},
+      </if>
+      <if test="zeroAmount2 != null" >
+        zero_amount2 = #{zeroAmount2,jdbcType=DECIMAL},
+      </if>
+      <if test="zeroAmount3 != null" >
+        zero_amount3 = #{zeroAmount3,jdbcType=DECIMAL},
+      </if>
+      <if test="lastChangePropertyId != null" >
+        last_change_property_id = #{lastChangePropertyId,jdbcType=CHAR},
+      </if>
+      <if test="lastChangePropertyName != null" >
+        last_change_property_name = #{lastChangePropertyName,jdbcType=VARCHAR},
+      </if>
+      <if test="lastAmount1 != null" >
+        last_amount1 = #{lastAmount1,jdbcType=DECIMAL},
+      </if>
+      <if test="lastAmount2 != null" >
+        last_amount2 = #{lastAmount2,jdbcType=DECIMAL},
+      </if>
+      <if test="lastAmount3 != null" >
+        last_amount3 = #{lastAmount3,jdbcType=DECIMAL},
+      </if>
+      <if test="addFlag != null" >
+        add_flag = #{addFlag,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="renew1 != null" >
+        renew1 = #{renew1,jdbcType=CHAR},
+      </if>
+      <if test="renew2 != null" >
+        renew2 = #{renew2,jdbcType=CHAR},
+      </if>
+      <if test="renew3 != null" >
+        renew3 = #{renew3,jdbcType=CHAR},
+      </if>
+      <if test="renew4 != null" >
+        renew4 = #{renew4,jdbcType=CHAR},
+      </if>
+      <if test="sizeControlSubject != null" >
+        size_control_subject = #{sizeControlSubject,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where size_control_id = #{sizeControlId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzSizeControl" >
+    update zj_tz_size_control
+    set       project_id = #{projectId,jdbcType=CHAR},
+      subproject_info_id = #{subprojectInfoId,jdbcType=CHAR},
+      subproject_name = #{subprojectName,jdbcType=VARCHAR},
+      change_number = #{changeNumber,jdbcType=INTEGER},
+      change_property_id = #{changePropertyId,jdbcType=CHAR},
+      change_property_name = #{changePropertyName,jdbcType=VARCHAR},
+      amount1 = #{amount1,jdbcType=DECIMAL},
+      amount2 = #{amount2,jdbcType=DECIMAL},
+      amount3 = #{amount3,jdbcType=DECIMAL},
+      second_negotiate_id = #{secondNegotiateId,jdbcType=CHAR},
+      second_negotiate_name = #{secondNegotiateName,jdbcType=VARCHAR},
+      scheme = #{scheme,jdbcType=VARCHAR},
+      third_reply_id = #{thirdReplyId,jdbcType=CHAR},
+      third_reply_name = #{thirdReplyName,jdbcType=VARCHAR},
+      local_gov_id = #{localGovId,jdbcType=CHAR},
+      local_gov_name = #{localGovName,jdbcType=VARCHAR},
+      ju_id = #{juId,jdbcType=CHAR},
+      ju_name = #{juName,jdbcType=VARCHAR},
+      china_id = #{chinaId,jdbcType=CHAR},
+      china_name = #{chinaName,jdbcType=VARCHAR},
+      register_date = #{registerDate,jdbcType=DATE},
+      registrant = #{registrant,jdbcType=VARCHAR},
+      zero_change_property_id = #{zeroChangePropertyId,jdbcType=CHAR},
+      zero_change_property_name = #{zeroChangePropertyName,jdbcType=VARCHAR},
+      zero_amount1 = #{zeroAmount1,jdbcType=DECIMAL},
+      zero_amount2 = #{zeroAmount2,jdbcType=DECIMAL},
+      zero_amount3 = #{zeroAmount3,jdbcType=DECIMAL},
+      last_change_property_id = #{lastChangePropertyId,jdbcType=CHAR},
+      last_change_property_name = #{lastChangePropertyName,jdbcType=VARCHAR},
+      last_amount1 = #{lastAmount1,jdbcType=DECIMAL},
+      last_amount2 = #{lastAmount2,jdbcType=DECIMAL},
+      last_amount3 = #{lastAmount3,jdbcType=DECIMAL},
+      add_flag = #{addFlag,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      renew1 = #{renew1,jdbcType=CHAR},
+      renew2 = #{renew2,jdbcType=CHAR},
+      renew3 = #{renew3,jdbcType=CHAR},
+      renew4 = #{renew4,jdbcType=CHAR},
+      size_control_subject = #{sizeControlSubject,jdbcType=CHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where size_control_id = #{sizeControlId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzSizeControlList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzSizeControl" >
+    select 
+    t.*,
+    (SELECT project_name FROM zj_tz_pro_manage AS tt WHERE tt.del_flag = '0' AND tt.project_id = t.project_id) AS projectName,
+    t1.contract_condition_id AS contractConditionId,
+    t1.register_date AS registerDate1, 
+    t1.registrant AS registrant1, 
+    t1.invest_id AS investId, 
+    t1.invest_name AS investName, 
+    t1.ju_share AS juShare, 
+    t1.ju_id AS juId1, 
+    t1.ju_name AS juName1, 
+    t1.zcb_id AS zcbId, 
+    t1.zcb_name AS zcbName, 
+    t1.zcb_share AS zcbShare, 
+    t1.ext1 AS ext1, 
+    t1.ext2 AS ext2, 
+    t1.ext3 AS ext3
+    from zj_tz_size_control AS t
+    LEFT JOIN zj_tz_contract_condition AS t1 ON t1.size_control_id = t.size_control_id AND t1.del_flag = '0' 
+    where t.del_flag = '0'
+    <if test="projectId != null and projectId != ''" >
+     and t.project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     and t.project_id in (${projectIdSql})
+    </if>
+    <if test="subprojectInfoId != null and subprojectInfoId != ''" >
+     and t.subproject_info_id = #{subprojectInfoId,jdbcType=CHAR}
+    </if>
+    <if test="subprojectName != null and subprojectName != ''" >
+     and t.subproject_name = #{subprojectName,jdbcType=VARCHAR}
+    </if>
+    <if test="changeNumber != null and changeNumber != ''" >
+     and change_number = #{changeNumber,jdbcType=INTEGER}
+    </if>
+    <if test="changePropertyId != null and changePropertyId != ''" >
+     and change_property_id = #{changePropertyId,jdbcType=CHAR}
+    </if>
+    <if test="changePropertyName != null and changePropertyName != ''" >
+     and change_property_name = #{changePropertyName,jdbcType=VARCHAR}
+    </if>
+    <if test="amount1 != null and amount1 != ''" >
+     and amount1 = #{amount1,jdbcType=DECIMAL}
+    </if>
+    <if test="amount2 != null and amount2 != ''" >
+     and amount2 = #{amount2,jdbcType=DECIMAL}
+    </if>
+    <if test="amount3 != null and amount3 != ''" >
+     and amount3 = #{amount3,jdbcType=DECIMAL}
+    </if>
+    <if test="secondNegotiateId != null and secondNegotiateId != ''" >
+     and second_negotiate_id = #{secondNegotiateId,jdbcType=CHAR}
+    </if>
+    <if test="secondNegotiateName != null and secondNegotiateName != ''" >
+     and second_negotiate_name = #{secondNegotiateName,jdbcType=VARCHAR}
+    </if>
+    <if test="scheme != null and scheme != ''" >
+     and scheme = #{scheme,jdbcType=VARCHAR}
+    </if>
+    <if test="thirdReplyId != null and thirdReplyId != ''" >
+     and third_reply_id = #{thirdReplyId,jdbcType=CHAR}
+    </if>
+    <if test="thirdReplyName != null and thirdReplyName != ''" >
+     and third_reply_name = #{thirdReplyName,jdbcType=VARCHAR}
+    </if>
+    <if test="localGovId != null and localGovId != ''" >
+     and local_gov_id = #{localGovId,jdbcType=CHAR}
+    </if>
+    <if test="localGovName != null and localGovName != ''" >
+     and local_gov_name = #{localGovName,jdbcType=VARCHAR}
+    </if>
+    <if test="juId != null and juId != ''" >
+     and t.ju_id = #{juId,jdbcType=CHAR}
+    </if>
+    <if test="juName != null and juName != ''" >
+     and t.ju_name = #{juName,jdbcType=VARCHAR}
+    </if>
+    <if test="chinaId != null and chinaId != ''" >
+     and china_id = #{chinaId,jdbcType=CHAR}
+    </if>
+    <if test="chinaName != null and chinaName != ''" >
+     and china_name = #{chinaName,jdbcType=VARCHAR}
+    </if>
+    <if test="registerDate != null" >
+     and t.register_date = #{registerDate,jdbcType=DATE}
+    </if>
+    <if test="registrant != null and registrant != ''" >
+     and t.registrant = #{registrant,jdbcType=VARCHAR}
+    </if>
+    <if test="zeroChangePropertyId != null and zeroChangePropertyId != ''" >
+     and zero_change_property_id = #{zeroChangePropertyId,jdbcType=CHAR}
+    </if>
+    <if test="zeroChangePropertyName != null and zeroChangePropertyName != ''" >
+     and zero_change_property_name = #{zeroChangePropertyName,jdbcType=VARCHAR}
+    </if>
+    <if test="zeroAmount1 != null and zeroAmount1 != ''" >
+     and zero_amount1 = #{zeroAmount1,jdbcType=DECIMAL}
+    </if>
+    <if test="zeroAmount2 != null and zeroAmount2 != ''" >
+     and zero_amount2 = #{zeroAmount2,jdbcType=DECIMAL}
+    </if>
+    <if test="zeroAmount3 != null and zeroAmount3 != ''" >
+     and zero_amount3 = #{zeroAmount3,jdbcType=DECIMAL}
+    </if>
+    <if test="lastChangePropertyId != null and lastChangePropertyId != ''" >
+     and last_change_property_id = #{lastChangePropertyId,jdbcType=CHAR}
+    </if>
+    <if test="lastChangePropertyName != null and lastChangePropertyName != ''" >
+     and last_change_property_name = #{lastChangePropertyName,jdbcType=VARCHAR}
+    </if>
+    <if test="lastAmount1 != null and lastAmount1 != ''" >
+     and last_amount1 = #{lastAmount1,jdbcType=DECIMAL}
+    </if>
+    <if test="lastAmount2 != null and lastAmount2 != ''" >
+     and last_amount2 = #{lastAmount2,jdbcType=DECIMAL}
+    </if>
+    <if test="lastAmount3 != null and lastAmount3 != ''" >
+     and last_amount3 = #{lastAmount3,jdbcType=DECIMAL}
+    </if>
+    <if test="addFlag != null and addFlag != ''" >
+     and add_flag = #{addFlag,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="renew1 != null and renew1 != ''" >
+     and renew1 = #{renew1,jdbcType=CHAR}
+    </if>
+    <if test="renew2 != null and renew2 != ''" >
+     and renew2 = #{renew2,jdbcType=CHAR}
+    </if>
+    <if test="renew3 != null and renew3 != ''" >
+     and renew3 = #{renew3,jdbcType=CHAR}
+    </if>
+    <if test="renew4 != null and renew4 != ''" >
+     and renew4 = #{renew4,jdbcType=CHAR}
+    </if>
+    <if test="sizeControlSubject != null and sizeControlSubject != ''" >
+     and size_control_subject = #{sizeControlSubject,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and t.create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and t.modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY CASE renew4 WHEN '0' then 0 else 1 END, t.modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzSizeControl" parameterType="com.apih5.mybatis.pojo.ZjTzSizeControl" >
+    <![CDATA[ 
+        update zj_tz_size_control
+        set del_flag = '1',
+            renew1 = #{param2.renew1},
+            renew2 = #{param2.renew2},
+            renew3 = #{param2.renew3},
+            renew4 = #{param2.renew4},
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and size_control_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.sizeControlId} 
+     </foreach>
+  </delete>
+</mapper>

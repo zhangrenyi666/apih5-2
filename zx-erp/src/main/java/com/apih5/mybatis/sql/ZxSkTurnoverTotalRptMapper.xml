@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkTurnoverTotalRptMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkTurnoverTotalRpt" >
+    <id column="zxSkTurnoverTotalRptId" property="zxSkTurnoverTotalRptId" jdbcType="CHAR" />
+    <result column="resCode" property="resCode" jdbcType="VARCHAR" />
+    <result column="resName" property="resName" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="resUnit" property="resUnit" jdbcType="VARCHAR" />
+    <result column="inPrice" property="inPrice" jdbcType="VARCHAR" />
+    <result column="lastQty" property="lastQty" jdbcType="DECIMAL" />
+    <result column="lastInAmt" property="lastInAmt" jdbcType="DECIMAL" />
+    <result column="lastremainAmt" property="lastremainAmt" jdbcType="DECIMAL" />
+    <result column="inQtya" property="inQtya" jdbcType="DECIMAL" />
+    <result column="inQty" property="inQty" jdbcType="DECIMAL" />
+    <result column="inAmta" property="inAmta" jdbcType="DECIMAL" />
+    <result column="inAmt" property="inAmt" jdbcType="DECIMAL" />
+    <result column="shareAmt" property="shareAmt" jdbcType="DECIMAL" />
+    <result column="shareAmts" property="shareAmts" jdbcType="DECIMAL" />
+    <result column="shareAmtTotal" property="shareAmtTotal" jdbcType="DECIMAL" />
+    <result column="thisDiscQty" property="thisDiscQty" jdbcType="DECIMAL" />
+    <result column="allOutQty" property="allOutQty" jdbcType="DECIMAL" />
+    <result column="totalOutQty" property="totalOutQty" jdbcType="DECIMAL" />
+    <result column="thisBuyAmt" property="thisBuyAmt" jdbcType="DECIMAL" />
+    <result column="thisCurrentAmt" property="thisCurrentAmt" jdbcType="DECIMAL" />
+    <result column="allBuyAmt" property="allBuyAmt" jdbcType="DECIMAL" />
+    <result column="allCurrentAmt" property="allCurrentAmt" jdbcType="DECIMAL" />
+    <result column="totalBuyAmt" property="totalBuyAmt" jdbcType="DECIMAL" />
+    <result column="totalCurrentAmt" property="totalCurrentAmt" jdbcType="DECIMAL" />
+    <result column="thisBadQty" property="thisBadQty" jdbcType="DECIMAL" />
+    <result column="allDiscQty" property="allDiscQty" jdbcType="DECIMAL" />
+    <result column="totalDiscQty" property="totalDiscQty" jdbcType="DECIMAL" />
+    <result column="thisOrigAmt" property="thisOrigAmt" jdbcType="DECIMAL" />
+    <result column="thisRemainAmt" property="thisRemainAmt" jdbcType="DECIMAL" />
+    <result column="allOrigAmt" property="allOrigAmt" jdbcType="DECIMAL" />
+    <result column="allRemainAmt" property="allRemainAmt" jdbcType="DECIMAL" />
+    <result column="totalOrigAmt" property="totalOrigAmt" jdbcType="DECIMAL" />
+    <result column="totalRemainAmt" property="totalRemainAmt" jdbcType="DECIMAL" />
+    <result column="thisQty" property="thisQty" jdbcType="DECIMAL" />
+    <result column="inUse" property="inUse" jdbcType="DECIMAL" />
+    <result column="atUse" property="atUse" jdbcType="DECIMAL" />
+    <result column="thisInAmt" property="thisInAmt" jdbcType="DECIMAL" />
+    <result column="thisBadAmt" property="thisBadAmt" jdbcType="DECIMAL" />
+    <result column="orgName" property="orgName" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="resID" property="resID" jdbcType="VARCHAR" />
+    <result column="beginMonth" property="beginMonth" jdbcType="VARCHAR" />
+    <result column="endMonth" property="endMonth" jdbcType="VARCHAR" />
+    <result column="beginDate" property="beginDate" jdbcType="TIMESTAMP" />
+    <result column="endDate" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="yearBeginDate" property="yearBeginDate" jdbcType="TIMESTAMP" />
+    <result column="isFinish" property="isFinish" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxSkTurnoverTotalRptId, resCode, resName, spec, resUnit, 
+    inPrice, lastQty, lastInAmt, lastremainAmt, inQtya, 
+    inQty, inAmta, inAmt, shareAmt, shareAmts, 
+    shareAmtTotal, thisDiscQty, allOutQty, totalOutQty, thisBuyAmt, 
+    thisCurrentAmt, allBuyAmt, allCurrentAmt, totalBuyAmt, totalCurrentAmt, 
+    thisBadQty, allDiscQty, totalDiscQty, thisOrigAmt, thisRemainAmt, 
+    allOrigAmt, allRemainAmt, totalOrigAmt, totalRemainAmt, thisQty, 
+    inUse, atUse, thisInAmt, thisBadAmt, orgName, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_turnoverTotalRpt
+    where del_flag = '0' and zxSkTurnoverTotalRptId = #{zxSkTurnoverTotalRptId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_turnoverTotalRpt
+    where zxSkTurnoverTotalRptId = #{zxSkTurnoverTotalRptId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverTotalRpt" >
+    insert into zx_sk_turnoverTotalRpt (
+    zxSkTurnoverTotalRptId, resCode, resName, spec, resUnit, 
+    inPrice, lastQty, lastInAmt, lastremainAmt, inQtya, 
+    inQty, inAmta, inAmt, shareAmt, shareAmts, 
+    shareAmtTotal, thisDiscQty, allOutQty, totalOutQty, thisBuyAmt, 
+    thisCurrentAmt, allBuyAmt, allCurrentAmt, totalBuyAmt, totalCurrentAmt, 
+    thisBadQty, allDiscQty, totalDiscQty, thisOrigAmt, thisRemainAmt, 
+    allOrigAmt, allRemainAmt, totalOrigAmt, totalRemainAmt, thisQty, 
+    inUse, atUse, thisInAmt, thisBadAmt, orgName, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxSkTurnoverTotalRptId,jdbcType=CHAR}, #{resCode,jdbcType=VARCHAR}, #{resName,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, #{resUnit,jdbcType=VARCHAR}, 
+    #{inPrice,jdbcType=VARCHAR}, #{lastQty,jdbcType=DECIMAL}, #{lastInAmt,jdbcType=DECIMAL}, #{lastremainAmt,jdbcType=DECIMAL}, #{inQtya,jdbcType=DECIMAL}, 
+    #{inQty,jdbcType=DECIMAL}, #{inAmta,jdbcType=DECIMAL}, #{inAmt,jdbcType=DECIMAL}, #{shareAmt,jdbcType=DECIMAL}, #{shareAmts,jdbcType=DECIMAL}, 
+    #{shareAmtTotal,jdbcType=DECIMAL}, #{thisDiscQty,jdbcType=DECIMAL}, #{allOutQty,jdbcType=DECIMAL}, #{totalOutQty,jdbcType=DECIMAL}, #{thisBuyAmt,jdbcType=DECIMAL}, 
+    #{thisCurrentAmt,jdbcType=DECIMAL}, #{allBuyAmt,jdbcType=DECIMAL}, #{allCurrentAmt,jdbcType=DECIMAL}, #{totalBuyAmt,jdbcType=DECIMAL}, #{totalCurrentAmt,jdbcType=DECIMAL}, 
+    #{thisBadQty,jdbcType=DECIMAL}, #{allDiscQty,jdbcType=DECIMAL}, #{totalDiscQty,jdbcType=DECIMAL}, #{thisOrigAmt,jdbcType=DECIMAL}, #{thisRemainAmt,jdbcType=DECIMAL}, 
+    #{allOrigAmt,jdbcType=DECIMAL}, #{allRemainAmt,jdbcType=DECIMAL}, #{totalOrigAmt,jdbcType=DECIMAL}, #{totalRemainAmt,jdbcType=DECIMAL}, #{thisQty,jdbcType=DECIMAL}, 
+    #{inUse,jdbcType=DECIMAL}, #{atUse,jdbcType=DECIMAL}, #{thisInAmt,jdbcType=DECIMAL}, #{thisBadAmt,jdbcType=DECIMAL}, #{orgName,jdbcType=DECIMAL}, 
+    #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+    #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverTotalRpt" >
+    insert into zx_sk_turnoverTotalRpt
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSkTurnoverTotalRptId != null" >
+        zxSkTurnoverTotalRptId,
+      </if>
+      <if test="resCode != null" >
+        resCode,
+      </if>
+      <if test="resName != null" >
+        resName,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="resUnit != null" >
+        resUnit,
+      </if>
+      <if test="inPrice != null" >
+        inPrice,
+      </if>
+      <if test="lastQty != null" >
+        lastQty,
+      </if>
+      <if test="lastInAmt != null" >
+        lastInAmt,
+      </if>
+      <if test="lastremainAmt != null" >
+        lastremainAmt,
+      </if>
+      <if test="inQtya != null" >
+        inQtya,
+      </if>
+      <if test="inQty != null" >
+        inQty,
+      </if>
+      <if test="inAmta != null" >
+        inAmta,
+      </if>
+      <if test="inAmt != null" >
+        inAmt,
+      </if>
+      <if test="shareAmt != null" >
+        shareAmt,
+      </if>
+      <if test="shareAmts != null" >
+        shareAmts,
+      </if>
+      <if test="shareAmtTotal != null" >
+        shareAmtTotal,
+      </if>
+      <if test="thisDiscQty != null" >
+        thisDiscQty,
+      </if>
+      <if test="allOutQty != null" >
+        allOutQty,
+      </if>
+      <if test="totalOutQty != null" >
+        totalOutQty,
+      </if>
+      <if test="thisBuyAmt != null" >
+        thisBuyAmt,
+      </if>
+      <if test="thisCurrentAmt != null" >
+        thisCurrentAmt,
+      </if>
+      <if test="allBuyAmt != null" >
+        allBuyAmt,
+      </if>
+      <if test="allCurrentAmt != null" >
+        allCurrentAmt,
+      </if>
+      <if test="totalBuyAmt != null" >
+        totalBuyAmt,
+      </if>
+      <if test="totalCurrentAmt != null" >
+        totalCurrentAmt,
+      </if>
+      <if test="thisBadQty != null" >
+        thisBadQty,
+      </if>
+      <if test="allDiscQty != null" >
+        allDiscQty,
+      </if>
+      <if test="totalDiscQty != null" >
+        totalDiscQty,
+      </if>
+      <if test="thisOrigAmt != null" >
+        thisOrigAmt,
+      </if>
+      <if test="thisRemainAmt != null" >
+        thisRemainAmt,
+      </if>
+      <if test="allOrigAmt != null" >
+        allOrigAmt,
+      </if>
+      <if test="allRemainAmt != null" >
+        allRemainAmt,
+      </if>
+      <if test="totalOrigAmt != null" >
+        totalOrigAmt,
+      </if>
+      <if test="totalRemainAmt != null" >
+        totalRemainAmt,
+      </if>
+      <if test="thisQty != null" >
+        thisQty,
+      </if>
+      <if test="inUse != null" >
+        inUse,
+      </if>
+      <if test="atUse != null" >
+        atUse,
+      </if>
+      <if test="thisInAmt != null" >
+        thisInAmt,
+      </if>
+      <if test="thisBadAmt != null" >
+        thisBadAmt,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSkTurnoverTotalRptId != null" >
+        #{zxSkTurnoverTotalRptId,jdbcType=CHAR},
+      </if>
+      <if test="resCode != null" >
+        #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="resUnit != null" >
+        #{resUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="inPrice != null" >
+        #{inPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="lastQty != null" >
+        #{lastQty,jdbcType=DECIMAL},
+      </if>
+      <if test="lastInAmt != null" >
+        #{lastInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="lastremainAmt != null" >
+        #{lastremainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inQtya != null" >
+        #{inQtya,jdbcType=DECIMAL},
+      </if>
+      <if test="inQty != null" >
+        #{inQty,jdbcType=DECIMAL},
+      </if>
+      <if test="inAmta != null" >
+        #{inAmta,jdbcType=DECIMAL},
+      </if>
+      <if test="inAmt != null" >
+        #{inAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="shareAmt != null" >
+        #{shareAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="shareAmts != null" >
+        #{shareAmts,jdbcType=DECIMAL},
+      </if>
+      <if test="shareAmtTotal != null" >
+        #{shareAmtTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="thisDiscQty != null" >
+        #{thisDiscQty,jdbcType=DECIMAL},
+      </if>
+      <if test="allOutQty != null" >
+        #{allOutQty,jdbcType=DECIMAL},
+      </if>
+      <if test="totalOutQty != null" >
+        #{totalOutQty,jdbcType=DECIMAL},
+      </if>
+      <if test="thisBuyAmt != null" >
+        #{thisBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisCurrentAmt != null" >
+        #{thisCurrentAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="allBuyAmt != null" >
+        #{allBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="allCurrentAmt != null" >
+        #{allCurrentAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalBuyAmt != null" >
+        #{totalBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalCurrentAmt != null" >
+        #{totalCurrentAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisBadQty != null" >
+        #{thisBadQty,jdbcType=DECIMAL},
+      </if>
+      <if test="allDiscQty != null" >
+        #{allDiscQty,jdbcType=DECIMAL},
+      </if>
+      <if test="totalDiscQty != null" >
+        #{totalDiscQty,jdbcType=DECIMAL},
+      </if>
+      <if test="thisOrigAmt != null" >
+        #{thisOrigAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisRemainAmt != null" >
+        #{thisRemainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="allOrigAmt != null" >
+        #{allOrigAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="allRemainAmt != null" >
+        #{allRemainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalOrigAmt != null" >
+        #{totalOrigAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalRemainAmt != null" >
+        #{totalRemainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisQty != null" >
+        #{thisQty,jdbcType=DECIMAL},
+      </if>
+      <if test="inUse != null" >
+        #{inUse,jdbcType=DECIMAL},
+      </if>
+      <if test="atUse != null" >
+        #{atUse,jdbcType=DECIMAL},
+      </if>
+      <if test="thisInAmt != null" >
+        #{thisInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisBadAmt != null" >
+        #{thisBadAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverTotalRpt" >
+    update zx_sk_turnoverTotalRpt
+    <set >
+      <if test="resCode != null" >
+        resCode = #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        resName = #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="resUnit != null" >
+        resUnit = #{resUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="inPrice != null" >
+        inPrice = #{inPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="lastQty != null" >
+        lastQty = #{lastQty,jdbcType=DECIMAL},
+      </if>
+      <if test="lastInAmt != null" >
+        lastInAmt = #{lastInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="lastremainAmt != null" >
+        lastremainAmt = #{lastremainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inQtya != null" >
+        inQtya = #{inQtya,jdbcType=DECIMAL},
+      </if>
+      <if test="inQty != null" >
+        inQty = #{inQty,jdbcType=DECIMAL},
+      </if>
+      <if test="inAmta != null" >
+        inAmta = #{inAmta,jdbcType=DECIMAL},
+      </if>
+      <if test="inAmt != null" >
+        inAmt = #{inAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="shareAmt != null" >
+        shareAmt = #{shareAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="shareAmts != null" >
+        shareAmts = #{shareAmts,jdbcType=DECIMAL},
+      </if>
+      <if test="shareAmtTotal != null" >
+        shareAmtTotal = #{shareAmtTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="thisDiscQty != null" >
+        thisDiscQty = #{thisDiscQty,jdbcType=DECIMAL},
+      </if>
+      <if test="allOutQty != null" >
+        allOutQty = #{allOutQty,jdbcType=DECIMAL},
+      </if>
+      <if test="totalOutQty != null" >
+        totalOutQty = #{totalOutQty,jdbcType=DECIMAL},
+      </if>
+      <if test="thisBuyAmt != null" >
+        thisBuyAmt = #{thisBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisCurrentAmt != null" >
+        thisCurrentAmt = #{thisCurrentAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="allBuyAmt != null" >
+        allBuyAmt = #{allBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="allCurrentAmt != null" >
+        allCurrentAmt = #{allCurrentAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalBuyAmt != null" >
+        totalBuyAmt = #{totalBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalCurrentAmt != null" >
+        totalCurrentAmt = #{totalCurrentAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisBadQty != null" >
+        thisBadQty = #{thisBadQty,jdbcType=DECIMAL},
+      </if>
+      <if test="allDiscQty != null" >
+        allDiscQty = #{allDiscQty,jdbcType=DECIMAL},
+      </if>
+      <if test="totalDiscQty != null" >
+        totalDiscQty = #{totalDiscQty,jdbcType=DECIMAL},
+      </if>
+      <if test="thisOrigAmt != null" >
+        thisOrigAmt = #{thisOrigAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisRemainAmt != null" >
+        thisRemainAmt = #{thisRemainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="allOrigAmt != null" >
+        allOrigAmt = #{allOrigAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="allRemainAmt != null" >
+        allRemainAmt = #{allRemainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalOrigAmt != null" >
+        totalOrigAmt = #{totalOrigAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalRemainAmt != null" >
+        totalRemainAmt = #{totalRemainAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisQty != null" >
+        thisQty = #{thisQty,jdbcType=DECIMAL},
+      </if>
+      <if test="inUse != null" >
+        inUse = #{inUse,jdbcType=DECIMAL},
+      </if>
+      <if test="atUse != null" >
+        atUse = #{atUse,jdbcType=DECIMAL},
+      </if>
+      <if test="thisInAmt != null" >
+        thisInAmt = #{thisInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisBadAmt != null" >
+        thisBadAmt = #{thisBadAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxSkTurnoverTotalRptId = #{zxSkTurnoverTotalRptId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverTotalRpt" >
+    update zx_sk_turnoverTotalRpt set 
+      resCode = #{resCode,jdbcType=VARCHAR},
+      resName = #{resName,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      resUnit = #{resUnit,jdbcType=VARCHAR},
+      inPrice = #{inPrice,jdbcType=VARCHAR},
+      lastQty = #{lastQty,jdbcType=DECIMAL},
+      lastInAmt = #{lastInAmt,jdbcType=DECIMAL},
+      lastremainAmt = #{lastremainAmt,jdbcType=DECIMAL},
+      inQtya = #{inQtya,jdbcType=DECIMAL},
+      inQty = #{inQty,jdbcType=DECIMAL},
+      inAmta = #{inAmta,jdbcType=DECIMAL},
+      inAmt = #{inAmt,jdbcType=DECIMAL},
+      shareAmt = #{shareAmt,jdbcType=DECIMAL},
+      shareAmts = #{shareAmts,jdbcType=DECIMAL},
+      shareAmtTotal = #{shareAmtTotal,jdbcType=DECIMAL},
+      thisDiscQty = #{thisDiscQty,jdbcType=DECIMAL},
+      allOutQty = #{allOutQty,jdbcType=DECIMAL},
+      totalOutQty = #{totalOutQty,jdbcType=DECIMAL},
+      thisBuyAmt = #{thisBuyAmt,jdbcType=DECIMAL},
+      thisCurrentAmt = #{thisCurrentAmt,jdbcType=DECIMAL},
+      allBuyAmt = #{allBuyAmt,jdbcType=DECIMAL},
+      allCurrentAmt = #{allCurrentAmt,jdbcType=DECIMAL},
+      totalBuyAmt = #{totalBuyAmt,jdbcType=DECIMAL},
+      totalCurrentAmt = #{totalCurrentAmt,jdbcType=DECIMAL},
+      thisBadQty = #{thisBadQty,jdbcType=DECIMAL},
+      allDiscQty = #{allDiscQty,jdbcType=DECIMAL},
+      totalDiscQty = #{totalDiscQty,jdbcType=DECIMAL},
+      thisOrigAmt = #{thisOrigAmt,jdbcType=DECIMAL},
+      thisRemainAmt = #{thisRemainAmt,jdbcType=DECIMAL},
+      allOrigAmt = #{allOrigAmt,jdbcType=DECIMAL},
+      allRemainAmt = #{allRemainAmt,jdbcType=DECIMAL},
+      totalOrigAmt = #{totalOrigAmt,jdbcType=DECIMAL},
+      totalRemainAmt = #{totalRemainAmt,jdbcType=DECIMAL},
+      thisQty = #{thisQty,jdbcType=DECIMAL},
+      inUse = #{inUse,jdbcType=DECIMAL},
+      atUse = #{atUse,jdbcType=DECIMAL},
+      thisInAmt = #{thisInAmt,jdbcType=DECIMAL},
+      thisBadAmt = #{thisBadAmt,jdbcType=DECIMAL},
+      orgName = #{orgName,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSkTurnoverTotalRptId = #{zxSkTurnoverTotalRptId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSkTurnoverTotalRptList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverTotalRpt" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_turnoverTotalRpt
+    where del_flag = '0'
+    <if test="zxSkTurnoverTotalRptId != null and zxSkTurnoverTotalRptId != ''" >
+     and zxSkTurnoverTotalRptId = #{zxSkTurnoverTotalRptId,jdbcType=CHAR}
+    </if>
+    <if test="resCode != null and resCode != ''" >
+     and resCode = #{resCode,jdbcType=VARCHAR}
+    </if>
+    <if test="resName != null and resName != ''" >
+     and resName = #{resName,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="resUnit != null and resUnit != ''" >
+     and resUnit = #{resUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="inPrice != null and inPrice != ''" >
+     and inPrice = #{inPrice,jdbcType=VARCHAR}
+    </if>
+    <if test="lastQty != null and lastQty != ''" >
+     and lastQty = #{lastQty,jdbcType=DECIMAL}
+    </if>
+    <if test="lastInAmt != null and lastInAmt != ''" >
+     and lastInAmt = #{lastInAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="lastremainAmt != null and lastremainAmt != ''" >
+     and lastremainAmt = #{lastremainAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="inQtya != null and inQtya != ''" >
+     and inQtya = #{inQtya,jdbcType=DECIMAL}
+    </if>
+    <if test="inQty != null and inQty != ''" >
+     and inQty = #{inQty,jdbcType=DECIMAL}
+    </if>
+    <if test="inAmta != null and inAmta != ''" >
+     and inAmta = #{inAmta,jdbcType=DECIMAL}
+    </if>
+    <if test="inAmt != null and inAmt != ''" >
+     and inAmt = #{inAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="shareAmt != null and shareAmt != ''" >
+     and shareAmt = #{shareAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="shareAmts != null and shareAmts != ''" >
+     and shareAmts = #{shareAmts,jdbcType=DECIMAL}
+    </if>
+    <if test="shareAmtTotal != null and shareAmtTotal != ''" >
+     and shareAmtTotal = #{shareAmtTotal,jdbcType=DECIMAL}
+    </if>
+    <if test="thisDiscQty != null and thisDiscQty != ''" >
+     and thisDiscQty = #{thisDiscQty,jdbcType=DECIMAL}
+    </if>
+    <if test="allOutQty != null and allOutQty != ''" >
+     and allOutQty = #{allOutQty,jdbcType=DECIMAL}
+    </if>
+    <if test="totalOutQty != null and totalOutQty != ''" >
+     and totalOutQty = #{totalOutQty,jdbcType=DECIMAL}
+    </if>
+    <if test="thisBuyAmt != null and thisBuyAmt != ''" >
+     and thisBuyAmt = #{thisBuyAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="thisCurrentAmt != null and thisCurrentAmt != ''" >
+     and thisCurrentAmt = #{thisCurrentAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="allBuyAmt != null and allBuyAmt != ''" >
+     and allBuyAmt = #{allBuyAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="allCurrentAmt != null and allCurrentAmt != ''" >
+     and allCurrentAmt = #{allCurrentAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="totalBuyAmt != null and totalBuyAmt != ''" >
+     and totalBuyAmt = #{totalBuyAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="totalCurrentAmt != null and totalCurrentAmt != ''" >
+     and totalCurrentAmt = #{totalCurrentAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="thisBadQty != null and thisBadQty != ''" >
+     and thisBadQty = #{thisBadQty,jdbcType=DECIMAL}
+    </if>
+    <if test="allDiscQty != null and allDiscQty != ''" >
+     and allDiscQty = #{allDiscQty,jdbcType=DECIMAL}
+    </if>
+    <if test="totalDiscQty != null and totalDiscQty != ''" >
+     and totalDiscQty = #{totalDiscQty,jdbcType=DECIMAL}
+    </if>
+    <if test="thisOrigAmt != null and thisOrigAmt != ''" >
+     and thisOrigAmt = #{thisOrigAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="thisRemainAmt != null and thisRemainAmt != ''" >
+     and thisRemainAmt = #{thisRemainAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="allOrigAmt != null and allOrigAmt != ''" >
+     and allOrigAmt = #{allOrigAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="allRemainAmt != null and allRemainAmt != ''" >
+     and allRemainAmt = #{allRemainAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="totalOrigAmt != null and totalOrigAmt != ''" >
+     and totalOrigAmt = #{totalOrigAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="totalRemainAmt != null and totalRemainAmt != ''" >
+     and totalRemainAmt = #{totalRemainAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="thisQty != null and thisQty != ''" >
+     and thisQty = #{thisQty,jdbcType=DECIMAL}
+    </if>
+    <if test="inUse != null and inUse != ''" >
+     and inUse = #{inUse,jdbcType=DECIMAL}
+    </if>
+    <if test="atUse != null and atUse != ''" >
+     and atUse = #{atUse,jdbcType=DECIMAL}
+    </if>
+    <if test="thisInAmt != null and thisInAmt != ''" >
+     and thisInAmt = #{thisInAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="thisBadAmt != null and thisBadAmt != ''" >
+     and thisBadAmt = #{thisBadAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkTurnoverTotalRpt" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverTotalRpt" >
+    <![CDATA[ 
+        update zx_sk_turnoverTotalRpt
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSkTurnoverTotalRptId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSkTurnoverTotalRptId} 
+     </foreach>
+  </delete>
+  <select id="selectZxSkTurnoverTotalRpt" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverTotalRpt" >
+  select 
+       
+       isti.resCode,isti.resName,isti.spec,isti.resUnit,isti.inPrice,
+      
+       round(ifnull(sy.lastQty,0),3) as lastQty, round(ifnull(sy.lastInAmt,0),2) as lastInAmt,round(ifnull(sy.lastremainAmt,0),2) as lastremainAmt,
+       round(ifnull(sy.inQtya,0),3) as inQtya,
+       round(ifnull(sy.inQty,0),3) as inQty,
+       round(ifnull(sy.inAmta,0),2) as inAmta,
+       round(ifnull(sy.inAmt,0),2) as inAmt,
+       round(ifnull(sy.shareAmt,0),2) as shareAmt, round(ifnull(sy.shareAmts,0),2) as shareAmts, round(ifnull(sy.shareAmtTotal,0),2) as shareAmtTotal,
+       round(ifnull(sy.thisDiscQty,0),3) as thisDiscQty, round(ifnull(sy.allOutQty,0),3) as allOutQty, round(ifnull(sy.totalOutQty,0),3) as totalOutQty,
+       round(ifnull(sy.thisBuyAmt,0),2) as thisBuyAmt, round(ifnull(sy.thisCurrentAmt,0),2) as thisCurrentAmt,
+       round(ifnull(sy.allBuyAmt,0),2) as allBuyAmt, round(ifnull(sy.allCurrentAmt,0),2) as allCurrentAmt,
+       round(ifnull(sy.totalBuyAmt,0),2) as totalBuyAmt, round(ifnull(sy.thisCurrentAmt,0),2) as totalCurrentAmt,
+       round(ifnull(sy.thisBadQty,0),3) as thisBadQty, round(ifnull(sy.allDiscQty,0),3) as allDiscQty, round(ifnull(sy.totalDiscQty,0),3) as totalDiscQty,
+       round(ifnull(sy.thisOrigAmt,0),2) as thisOrigAmt, round(ifnull(sy.thisRemainAmt,0),2) as thisRemainAmt,
+       round(ifnull(sy.allOrigAmt,0),2) as allOrigAmt, round(ifnull(sy.allRemainAmt,0),2) as allRemainAmt,
+       round(ifnull(sy.totalOrigAmt,0),2) as totalOrigAmt, round(ifnull(sy.totalRemainAmt,0),2) as totalRemainAmt,
+       round(ifnull(sy.thisQty,0),3) as thisQty, 
+       round(ifnull(sy.thisQty,0)-ifnull(aa.noReturnQty,0),3) as inUse,round(ifnull(aa.noReturnQty,0),3) as atUse,
+       round(ifnull(sy.thisInAmt,0),2) as thisInAmt,round(ifnull(sy.thisBadAmt,0),2) as thisBadAmt,
+	   sp.department_name as orgName
+from zx_sk_TurnoverInItem isti
+inner join zx_sk_TurnoverIn ist on isti.billID=ist.ID
+inner join sys_project sp on sp.project_id = ist.orgID and (sp.project_id = #{orgID,jdbcType=VARCHAR} or sp.company_id = #{orgID,jdbcType=VARCHAR})
+left join (
+    select c.batchNo,
+           sum(case when c.busDate &lt; #{yearBeginDate,jdbcType=TIMESTAMP} then c.originalQty else 0 end) as lastQty,
+           sum(case when c.busDate &lt; #{yearBeginDate,jdbcType=TIMESTAMP} then c.originalAmt else 0 end) as lastInAmt,
+           sum(case when c.busDate &lt; #{yearBeginDate,jdbcType=TIMESTAMP} then c.remainAmt else 0 end) as lastremainAmt,
+           sum(case when (c.billType='入库' or c.billType='退货') and c.busDate between #{yearBeginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then c.originalQty else 0 end) as inQty,
+           sum(case when (c.billType='入库' or c.billType='退货') and c.busDate between #{yearBeginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then c.originalAmt else 0 end) as inAmt,
+           sum(case when (c.billType='入库' or c.billType='退货') and c.busDate between #{yearBeginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then c.remainAmt else 0 end) as remainAmt,
+           sum(case when (c.billType='入库' or c.billType='退货') and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then c.originalQty else 0 end) as inQtya,
+           sum(case when (c.billType='入库' or c.billType='退货') and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then c.originalAmt else 0 end) as inAmta,
+           sum(case when c.billType in ('摊销','入库') and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then c.shareAmt else 0 end) as shareAmt,
+           sum(case when c.billType in ('摊销','入库') and c.busDate between #{yearBeginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then c.shareAmt else 0 end) as shareAmts,
+           sum(case when c.billType in ('摊销','入库') and c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} then c.shareAmt else 0 end) as shareAmtTotal,
+           sum(case when c.billType='调拨' and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.originalQty else 0 end) as thisDiscQty,
+           sum(case when c.billType='调拨' and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.originalAmt else 0 end) as thisBuyAmt,
+           sum(case when c.billType='调拨' and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.remainAmt else 0 end) as thisCurrentAmt,
+           sum(case when c.billType='调拨' and c.busDate between #{yearBeginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.originalQty else 0 end) as allOutQty,
+           sum(case when c.billType='调拨' and c.busDate between #{yearBeginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.originalAmt else 0 end) as allBuyAmt,
+           sum(case when c.billType='调拨' and c.busDate between #{yearBeginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.remainAmt else 0 end) as allCurrentAmt,
+           sum(case when c.billType='调拨' and c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} then -c.originalQty else 0 end) as totalOutQty,
+           sum(case when c.billType='调拨' and c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} then -c.originalAmt else 0 end) as totalBuyAmt,
+           sum(case when c.billType='调拨' and c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} then -c.remainAmt else 0 end) as totalCurrentAmt,
+           sum(case when c.billType='报废' and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.originalQty else 0 end) as thisBadQty,
+           sum(case when c.billType='报废' and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.originalAmt else 0 end) as thisOrigAmt,
+           sum(case when c.billType='报废' and c.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.remainAmt else 0 end) as thisRemainAmt,
+           sum(case when c.billType='报废' and c.busDate between #{yearBeginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.originalQty else 0 end) as allDiscQty,
+           sum(case when c.billType='报废' and c.busDate between #{yearBeginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.originalAmt else 0 end) as allOrigAmt,
+           sum(case when c.billType='报废' and c.busDate between #{yearBeginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.remainAmt else 0 end) as allRemainAmt,
+           sum(case when c.billType='报废' and c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} then -c.originalQty else 0 end) as totalDiscQty,
+           sum(case when c.billType='报废' and c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} then -c.originalAmt else 0 end) as totalOrigAmt,
+           sum(case when c.billType='报废' and c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP}	 then -c.remainAmt else 0 end) as totalRemainAmt,
+           sum(case when c.billType='退货' and c.busDate between #{yearBeginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.originalQty else 0 end) as allReturnQty,
+           sum(case when c.billType='退货' and c.busDate between #{yearBeginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.originalAmt else 0 end) as allReturnOrigAmt,
+           sum(case when c.billType='退货' and c.busDate between #{yearBeginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP} then -c.remainAmt else 0 end) as allReturnRemaAmt,
+           sum(case when c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} then c.originalQty else 0 end) as thisQty,
+           sum(case when c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} then c.originalAmt else 0 end) as thisInAmt,
+           sum(case when c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} then c.remainAmt else 0 end) as thisBadAmt
+    from view_zx_sk_turnoverstock c
+    left join zx_ct_contract ic on ic.orgID=c.orgID
+    where (#{isFinish,jdbcType=VARCHAR}=0 or (#{isFinish,jdbcType=VARCHAR}=1 and ic.contractStatus =3) or (#{isFinish,jdbcType=VARCHAR}=2 and ic.contractStatus in ('1','2')))
+      and c.busDate &lt;= #{endDate,jdbcType=TIMESTAMP}
+    group by c.batchNo
+) sy on isti.ID=sy.batchNo
+left join (
+    select itoi.batchNo,sum(ifnull(itoi.outQty,0)-ifnull(itoi.hasReturnQty,0)) as noReturnQty
+	from zx_sk_TurnoverOutItem itoi 
+	inner join zx_sk_TurnoverOut ito on itoi.billID = ito.ID
+	where ito.status='已审核' and ito.busDate&lt;=#{endDate,jdbcType=TIMESTAMP}
+	group by itoi.batchNo
+) aa on isti.ID=aa.batchNo
+where  ist.busDate &lt;= #{endDate,jdbcType=TIMESTAMP} and (isti.resID=#{resID,jdbcType=VARCHAR} or #{resID,jdbcType=VARCHAR}='')
+  and ifnull(resCode,'')!=''
+order by isti.resCode
+  </select>
+</mapper>

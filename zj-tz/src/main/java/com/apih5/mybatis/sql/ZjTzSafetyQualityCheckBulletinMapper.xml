@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzSafetyQualityCheckBulletinMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzSafetyQualityCheckBulletin" >
+    <id column="check_bulletin_id" property="checkBulletinId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="subprojects_id" property="subprojectsId" jdbcType="VARCHAR" />
+    <result column="subprojects_name" property="subprojectsName" jdbcType="VARCHAR" />
+    <result column="check_bulletin_title" property="checkBulletinTitle" jdbcType="VARCHAR" />
+    <result column="check_bulletin_content" property="checkBulletinContent" jdbcType="VARCHAR" />
+    <result column="check_unit" property="checkUnit" jdbcType="VARCHAR" />
+    <result column="check_rectification_implementation" property="checkRectificationImplementation" jdbcType="VARCHAR" />
+    <result column="check_date" property="checkDate" jdbcType="TIMESTAMP" />
+    <result column="check_bulletin_date" property="checkBulletinDate" jdbcType="TIMESTAMP" />
+    <result column="check_bulletin_user" property="checkBulletinUser" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    check_bulletin_id, project_id, project_name, subprojects_id, subprojects_name, 
+    check_bulletin_title, check_bulletin_content, check_unit, check_rectification_implementation, check_date, 
+    check_bulletin_date, check_bulletin_user, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_qhse_safety_quality_check_bulletin
+    where check_bulletin_id = #{checkBulletinId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_qhse_safety_quality_check_bulletin
+    where check_bulletin_id = #{checkBulletinId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzSafetyQualityCheckBulletin" >
+    insert into zj_tz_qhse_safety_quality_check_bulletin (check_bulletin_id, project_id, project_name, 
+      subprojects_id, subprojects_name, check_bulletin_title, 
+      check_bulletin_content, check_unit, check_rectification_implementation, 
+      check_date, check_bulletin_date, check_bulletin_user, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{checkBulletinId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, 
+      #{subprojectsId,jdbcType=VARCHAR}, #{subprojectsName,jdbcType=VARCHAR}, #{checkBulletinTitle,jdbcType=VARCHAR}, 
+      #{checkBulletinContent,jdbcType=VARCHAR}, #{checkUnit,jdbcType=VARCHAR}, #{checkRectificationImplementation,jdbcType=VARCHAR}, 
+      #{checkDate,jdbcType=TIMESTAMP}, #{checkBulletinDate,jdbcType=TIMESTAMP}, #{checkBulletinUser,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzSafetyQualityCheckBulletin" >
+    insert into zj_tz_qhse_safety_quality_check_bulletin
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="checkBulletinId != null" >
+        check_bulletin_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="subprojectsId != null" >
+        subprojects_id,
+      </if>
+      <if test="subprojectsName != null" >
+        subprojects_name,
+      </if>
+      <if test="checkBulletinTitle != null" >
+        check_bulletin_title,
+      </if>
+      <if test="checkBulletinContent != null" >
+        check_bulletin_content,
+      </if>
+      <if test="checkUnit != null" >
+        check_unit,
+      </if>
+      <if test="checkRectificationImplementation != null" >
+        check_rectification_implementation,
+      </if>
+      <if test="checkDate != null" >
+        check_date,
+      </if>
+      <if test="checkBulletinDate != null" >
+        check_bulletin_date,
+      </if>
+      <if test="checkBulletinUser != null" >
+        check_bulletin_user,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="checkBulletinId != null" >
+        #{checkBulletinId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectsId != null" >
+        #{subprojectsId,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectsName != null" >
+        #{subprojectsName,jdbcType=VARCHAR},
+      </if>
+      <if test="checkBulletinTitle != null" >
+        #{checkBulletinTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="checkBulletinContent != null" >
+        #{checkBulletinContent,jdbcType=VARCHAR},
+      </if>
+      <if test="checkUnit != null" >
+        #{checkUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="checkRectificationImplementation != null" >
+        #{checkRectificationImplementation,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != null" >
+        #{checkDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkBulletinDate != null" >
+        #{checkBulletinDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkBulletinUser != null" >
+        #{checkBulletinUser,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzSafetyQualityCheckBulletin" >
+    update zj_tz_qhse_safety_quality_check_bulletin
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectsId != null" >
+        subprojects_id = #{subprojectsId,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectsName != null" >
+        subprojects_name = #{subprojectsName,jdbcType=VARCHAR},
+      </if>
+      <if test="checkBulletinTitle != null" >
+        check_bulletin_title = #{checkBulletinTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="checkBulletinContent != null" >
+        check_bulletin_content = #{checkBulletinContent,jdbcType=VARCHAR},
+      </if>
+      <if test="checkUnit != null" >
+        check_unit = #{checkUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="checkRectificationImplementation != null" >
+        check_rectification_implementation = #{checkRectificationImplementation,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != null" >
+        check_date = #{checkDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkBulletinDate != null" >
+        check_bulletin_date = #{checkBulletinDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkBulletinUser != null" >
+        check_bulletin_user = #{checkBulletinUser,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where check_bulletin_id = #{checkBulletinId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzSafetyQualityCheckBulletin" >
+    update zj_tz_qhse_safety_quality_check_bulletin
+    set       project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      subprojects_id = #{subprojectsId,jdbcType=VARCHAR},
+      subprojects_name = #{subprojectsName,jdbcType=VARCHAR},
+      check_bulletin_title = #{checkBulletinTitle,jdbcType=VARCHAR},
+      check_bulletin_content = #{checkBulletinContent,jdbcType=VARCHAR},
+      check_unit = #{checkUnit,jdbcType=VARCHAR},
+      check_rectification_implementation = #{checkRectificationImplementation,jdbcType=VARCHAR},
+      check_date = #{checkDate,jdbcType=TIMESTAMP},
+      check_bulletin_date = #{checkBulletinDate,jdbcType=TIMESTAMP},
+      check_bulletin_user = #{checkBulletinUser,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where check_bulletin_id = #{checkBulletinId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzSafetyQualityCheckBulletinList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzSafetyQualityCheckBulletin" >
+    select 
+    zj_tz_qhse_safety_quality_check_bulletin.check_bulletin_id, zj_tz_qhse_safety_quality_check_bulletin.project_id, zj_tz_pro_manage.project_name, 
+    zj_tz_qhse_safety_quality_check_bulletin.subprojects_id, zj_tz_qhse_safety_quality_check_bulletin.subprojects_name, zj_tz_qhse_safety_quality_check_bulletin.check_bulletin_title, 
+    zj_tz_qhse_safety_quality_check_bulletin.check_bulletin_content, zj_tz_qhse_safety_quality_check_bulletin.check_unit, zj_tz_qhse_safety_quality_check_bulletin.check_rectification_implementation, 
+    zj_tz_qhse_safety_quality_check_bulletin.check_date, zj_tz_qhse_safety_quality_check_bulletin.check_bulletin_date, zj_tz_qhse_safety_quality_check_bulletin.check_bulletin_user, 
+    zj_tz_qhse_safety_quality_check_bulletin.del_flag, zj_tz_qhse_safety_quality_check_bulletin.create_time, zj_tz_qhse_safety_quality_check_bulletin.create_user, 
+    zj_tz_qhse_safety_quality_check_bulletin.create_user_name, zj_tz_qhse_safety_quality_check_bulletin.modify_time, zj_tz_qhse_safety_quality_check_bulletin.modify_user, 
+    zj_tz_qhse_safety_quality_check_bulletin.modify_user_name
+    from zj_tz_qhse_safety_quality_check_bulletin left join zj_tz_pro_manage on zj_tz_pro_manage.project_id = zj_tz_qhse_safety_quality_check_bulletin.project_id and zj_tz_pro_manage.del_flag = '0'
+    where zj_tz_qhse_safety_quality_check_bulletin.del_flag = '0'
+    <if test="projectId != null and projectId != ''" >
+     and zj_tz_qhse_safety_quality_check_bulletin.project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     and zj_tz_qhse_safety_quality_check_bulletin.project_id in (${projectIdSql})
+    </if>     
+    <if test="projectName != null and projectName != ''" >
+     and zj_tz_pro_manage.project_name like CONCAT('%', #{projectName,jdbcType=VARCHAR}, '%')     
+    </if>
+    <if test="subprojectsId != null and subprojectsId != ''" >
+     and zj_tz_qhse_safety_quality_check_bulletin.subprojects_id = #{subprojectsId,jdbcType=VARCHAR}
+    </if>
+    <if test="subprojectsName != null and subprojectsName != ''" >
+     and zj_tz_qhse_safety_quality_check_bulletin.subprojects_name = #{subprojectsName,jdbcType=VARCHAR}
+    </if>
+    <if test="checkBulletinTitle != null and checkBulletinTitle != ''" >
+     <!-- and check_bulletin_title = #{checkBulletinTitle,jdbcType=VARCHAR} -->
+     and zj_tz_qhse_safety_quality_check_bulletin.check_bulletin_title like CONCAT('%', #{checkBulletinTitle,jdbcType=VARCHAR}, '%')          
+    </if>
+    <if test="checkBulletinContent != null and checkBulletinContent != ''" >
+     and zj_tz_qhse_safety_quality_check_bulletin.check_bulletin_content = #{checkBulletinContent,jdbcType=VARCHAR}
+    </if>
+    <if test="checkUnit != null and checkUnit != ''" >
+     and zj_tz_qhse_safety_quality_check_bulletin.check_unit = #{checkUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="checkRectificationImplementation != null and checkRectificationImplementation != ''" >
+     and zj_tz_qhse_safety_quality_check_bulletin.check_rectification_implementation = #{checkRectificationImplementation,jdbcType=VARCHAR}
+    </if>
+    <if test="checkDate != null" >
+     and zj_tz_qhse_safety_quality_check_bulletin.check_date = #{checkDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="checkBulletinDate != null" >
+     and zj_tz_qhse_safety_quality_check_bulletin.check_bulletin_date = #{checkBulletinDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="checkBulletinUser != null and checkBulletinUser != ''" >
+     and zj_tz_qhse_safety_quality_check_bulletin.check_bulletin_user = #{checkBulletinUser,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and zj_tz_qhse_safety_quality_check_bulletin.create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and zj_tz_qhse_safety_quality_check_bulletin.modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY zj_tz_qhse_safety_quality_check_bulletin.modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzSafetyQualityCheckBulletin" parameterType="com.apih5.mybatis.pojo.ZjTzSafetyQualityCheckBulletin" >
+    <![CDATA[ 
+        update zj_tz_qhse_safety_quality_check_bulletin
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and check_bulletin_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.checkBulletinId} 
+     </foreach>
+  </delete>
+</mapper>

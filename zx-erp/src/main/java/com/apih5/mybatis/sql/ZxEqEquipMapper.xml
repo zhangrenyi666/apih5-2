@@ -1,0 +1,1781 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqEquipMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqEquip" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="purRecordID" property="purRecordID" jdbcType="VARCHAR" />
+    <result column="abcType" property="abcType" jdbcType="VARCHAR" />
+    <result column="resCatalogID" property="resCatalogID" jdbcType="VARCHAR" />
+    <result column="isWorkEquip" property="isWorkEquip" jdbcType="VARCHAR" />
+    <result column="isMadeinChina" property="isMadeinChina" jdbcType="VARCHAR" />
+    <result column="financeNo" property="financeNo" jdbcType="VARCHAR" />
+    <result column="useOrgID" property="useOrgID" jdbcType="VARCHAR" />
+    <result column="useOrgName" property="useOrgName" jdbcType="VARCHAR" />
+    <result column="purDate" property="purDate" jdbcType="TIMESTAMP" />
+    <result column="usePlace" property="usePlace" jdbcType="VARCHAR" />
+    <result column="ownerOrgId" property="ownerOrgId" jdbcType="VARCHAR" />
+    <result column="ownerOrgName" property="ownerOrgName" jdbcType="VARCHAR" />
+    <result column="manageOrgID" property="manageOrgID" jdbcType="VARCHAR" />
+    <result column="equipName" property="equipName" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="power" property="power" jdbcType="DECIMAL" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="viceserial" property="viceserial" jdbcType="VARCHAR" />
+    <result column="downfactory" property="downfactory" jdbcType="VARCHAR" />
+    <result column="viceoutfactory" property="viceoutfactory" jdbcType="TIMESTAMP" />
+    <result column="vicepower" property="vicepower" jdbcType="DECIMAL" />
+    <result column="vicespec" property="vicespec" jdbcType="VARCHAR" />
+    <result column="viceFactory" property="viceFactory" jdbcType="VARCHAR" />
+    <result column="mainpower" property="mainpower" jdbcType="DECIMAL" />
+    <result column="mainoutfactory" property="mainoutfactory" jdbcType="TIMESTAMP" />
+    <result column="mainserial" property="mainserial" jdbcType="VARCHAR" />
+    <result column="mainspec" property="mainspec" jdbcType="VARCHAR" />
+    <result column="mainFactory" property="mainFactory" jdbcType="VARCHAR" />
+    <result column="downspec" property="downspec" jdbcType="VARCHAR" />
+    <result column="downserial" property="downserial" jdbcType="VARCHAR" />
+    <result column="downoutfactory" property="downoutfactory" jdbcType="TIMESTAMP" />
+    <result column="heightlong" property="heightlong" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="VARCHAR" />
+    <result column="orginalValue" property="orginalValue" jdbcType="DECIMAL" />
+    <result column="depreImportmonth" property="depreImportmonth" jdbcType="VARCHAR" />
+    <result column="leftValue" property="leftValue" jdbcType="DECIMAL" />
+    <result column="fobPrice" property="fobPrice" jdbcType="DECIMAL" />
+    <result column="fobAmount" property="fobAmount" jdbcType="DECIMAL" />
+    <result column="discountAmount" property="discountAmount" jdbcType="DECIMAL" />
+    <result column="acceptanceDate" property="acceptanceDate" jdbcType="TIMESTAMP" />
+    <result column="passNo" property="passNo" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="outFactoryDate" property="outFactoryDate" jdbcType="TIMESTAMP" />
+    <result column="outFactorySerial" property="outFactorySerial" jdbcType="VARCHAR" />
+    <result column="isimportant" property="isimportant" jdbcType="VARCHAR" />
+    <result column="changeDate" property="changeDate" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="actualDepreAmt" property="actualDepreAmt" jdbcType="DECIMAL" />
+    <result column="regdate" property="regdate" jdbcType="TIMESTAMP" />
+    <result column="depreciation_month" property="depreciationMonth" jdbcType="INTEGER" />
+    <result column="depreciation" property="depreciation" jdbcType="VARCHAR" />
+    <result column="equipNo" property="equipNo" jdbcType="VARCHAR" />
+    <result column="factory" property="factory" jdbcType="VARCHAR" />
+    <result column="checkStatus" property="checkStatus" jdbcType="VARCHAR" />
+    <result column="isDelete" property="isDelete" jdbcType="VARCHAR" />
+    <result column="mainPowerStr" property="mainPowerStr" jdbcType="VARCHAR" />
+    <result column="vicePowerStr" property="vicePowerStr" jdbcType="VARCHAR" />
+    <result column="planNo" property="planNo" jdbcType="VARCHAR" />
+    <result column="plancode" property="plancode" jdbcType="VARCHAR" />
+    <result column="attachmentID" property="attachmentID" jdbcType="VARCHAR" />
+    <result column="isXianzhi" property="isXianzhi" jdbcType="VARCHAR" />
+    <result column="qrcode_name" property="qrcodeName" jdbcType="VARCHAR" />
+    <result column="qrcode_url" property="qrcodeUrl" jdbcType="VARCHAR" />
+    <result column="qrcode_content" property="qrcodeContent" jdbcType="VARCHAR" />
+    <result column="qrcode_down_url" property="qrcodeDownUrl" jdbcType="VARCHAR" />
+    <result column="company_id" property="companyId" jdbcType="VARCHAR" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, purRecordID, abcType, resCatalogID, isWorkEquip, 
+    isMadeinChina, financeNo, useOrgID, useOrgName, purDate, 
+    usePlace, ownerOrgId, ownerOrgName, manageOrgID, equipName, 
+    spec, model, power, source, viceserial, 
+    downfactory, viceoutfactory, vicepower, vicespec, viceFactory, 
+    mainpower, mainoutfactory, mainserial, mainspec, mainFactory, 
+    downspec, downserial, downoutfactory, heightlong, weight, 
+    orginalValue, depreImportmonth, leftValue, fobPrice, fobAmount, 
+    discountAmount, acceptanceDate, passNo, status, outFactoryDate, 
+    outFactorySerial, isimportant, changeDate, remark, actualDepreAmt, 
+    regdate, depreciation_month, depreciation, equipNo, factory, 
+    checkStatus, isDelete, mainPowerStr, vicePowerStr, planNo, 
+    plancode, attachmentID, isXianzhi, qrcode_name, qrcode_url, 
+    qrcode_content, qrcode_down_url, company_id, company_name, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_Equip
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_Equip
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqEquip" >
+    insert into zx_eq_Equip (id, purRecordID, abcType, 
+      resCatalogID, isWorkEquip, isMadeinChina, 
+      financeNo, useOrgID, useOrgName, 
+      purDate, usePlace, ownerOrgId, 
+      ownerOrgName, manageOrgID, equipName, 
+      spec, model, power, 
+      source, viceserial, downfactory, 
+      viceoutfactory, vicepower, vicespec, 
+      viceFactory, mainpower, mainoutfactory, 
+      mainserial, mainspec, mainFactory, 
+      downspec, downserial, downoutfactory, 
+      heightlong, weight, orginalValue, 
+      depreImportmonth, leftValue, fobPrice, 
+      fobAmount, discountAmount, acceptanceDate, 
+      passNo, status, outFactoryDate, 
+      outFactorySerial, isimportant, changeDate, 
+      remark, actualDepreAmt, regdate, 
+      depreciation_month, depreciation, equipNo, 
+      factory, checkStatus, isDelete, 
+      mainPowerStr, vicePowerStr, planNo, 
+      plancode, attachmentID, isXianzhi, 
+      qrcode_name, qrcode_url, qrcode_content, 
+      qrcode_down_url, company_id, company_name, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{purRecordID,jdbcType=VARCHAR}, #{abcType,jdbcType=VARCHAR}, 
+      #{resCatalogID,jdbcType=VARCHAR}, #{isWorkEquip,jdbcType=VARCHAR}, #{isMadeinChina,jdbcType=VARCHAR}, 
+      #{financeNo,jdbcType=VARCHAR}, #{useOrgID,jdbcType=VARCHAR}, #{useOrgName,jdbcType=VARCHAR}, 
+      #{purDate,jdbcType=TIMESTAMP}, #{usePlace,jdbcType=VARCHAR}, #{ownerOrgId,jdbcType=VARCHAR}, 
+      #{ownerOrgName,jdbcType=VARCHAR}, #{manageOrgID,jdbcType=VARCHAR}, #{equipName,jdbcType=VARCHAR}, 
+      #{spec,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{power,jdbcType=DECIMAL}, 
+      #{source,jdbcType=VARCHAR}, #{viceserial,jdbcType=VARCHAR}, #{downfactory,jdbcType=VARCHAR}, 
+      #{viceoutfactory,jdbcType=TIMESTAMP}, #{vicepower,jdbcType=DECIMAL}, #{vicespec,jdbcType=VARCHAR}, 
+      #{viceFactory,jdbcType=VARCHAR}, #{mainpower,jdbcType=DECIMAL}, #{mainoutfactory,jdbcType=TIMESTAMP}, 
+      #{mainserial,jdbcType=VARCHAR}, #{mainspec,jdbcType=VARCHAR}, #{mainFactory,jdbcType=VARCHAR}, 
+      #{downspec,jdbcType=VARCHAR}, #{downserial,jdbcType=VARCHAR}, #{downoutfactory,jdbcType=TIMESTAMP}, 
+      #{heightlong,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, #{orginalValue,jdbcType=DECIMAL}, 
+      #{depreImportmonth,jdbcType=VARCHAR}, #{leftValue,jdbcType=DECIMAL}, #{fobPrice,jdbcType=DECIMAL}, 
+      #{fobAmount,jdbcType=DECIMAL}, #{discountAmount,jdbcType=DECIMAL}, #{acceptanceDate,jdbcType=TIMESTAMP}, 
+      #{passNo,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{outFactoryDate,jdbcType=TIMESTAMP}, 
+      #{outFactorySerial,jdbcType=VARCHAR}, #{isimportant,jdbcType=VARCHAR}, #{changeDate,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}, #{actualDepreAmt,jdbcType=DECIMAL}, #{regdate,jdbcType=TIMESTAMP}, 
+      #{depreciationMonth,jdbcType=INTEGER}, #{depreciation,jdbcType=VARCHAR}, #{equipNo,jdbcType=VARCHAR}, 
+      #{factory,jdbcType=VARCHAR}, #{checkStatus,jdbcType=VARCHAR}, #{isDelete,jdbcType=VARCHAR}, 
+      #{mainPowerStr,jdbcType=VARCHAR}, #{vicePowerStr,jdbcType=VARCHAR}, #{planNo,jdbcType=VARCHAR}, 
+      #{plancode,jdbcType=VARCHAR}, #{attachmentID,jdbcType=VARCHAR}, #{isXianzhi,jdbcType=VARCHAR}, 
+      #{qrcodeName,jdbcType=VARCHAR}, #{qrcodeUrl,jdbcType=VARCHAR}, #{qrcodeContent,jdbcType=VARCHAR}, 
+      #{qrcodeDownUrl,jdbcType=VARCHAR}, #{companyId,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqEquip" >
+    insert into zx_eq_Equip
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="purRecordID != null" >
+        purRecordID,
+      </if>
+      <if test="abcType != null" >
+        abcType,
+      </if>
+      <if test="resCatalogID != null" >
+        resCatalogID,
+      </if>
+      <if test="isWorkEquip != null" >
+        isWorkEquip,
+      </if>
+      <if test="isMadeinChina != null" >
+        isMadeinChina,
+      </if>
+      <if test="financeNo != null" >
+        financeNo,
+      </if>
+      <if test="useOrgID != null" >
+        useOrgID,
+      </if>
+      <if test="useOrgName != null" >
+        useOrgName,
+      </if>
+      <if test="purDate != null" >
+        purDate,
+      </if>
+      <if test="usePlace != null" >
+        usePlace,
+      </if>
+      <if test="ownerOrgId != null" >
+        ownerOrgId,
+      </if>
+      <if test="ownerOrgName != null" >
+        ownerOrgName,
+      </if>
+      <if test="manageOrgID != null" >
+        manageOrgID,
+      </if>
+      <if test="equipName != null" >
+        equipName,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="power != null" >
+        power,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="viceserial != null" >
+        viceserial,
+      </if>
+      <if test="downfactory != null" >
+        downfactory,
+      </if>
+      <if test="viceoutfactory != null" >
+        viceoutfactory,
+      </if>
+      <if test="vicepower != null" >
+        vicepower,
+      </if>
+      <if test="vicespec != null" >
+        vicespec,
+      </if>
+      <if test="viceFactory != null" >
+        viceFactory,
+      </if>
+      <if test="mainpower != null" >
+        mainpower,
+      </if>
+      <if test="mainoutfactory != null" >
+        mainoutfactory,
+      </if>
+      <if test="mainserial != null" >
+        mainserial,
+      </if>
+      <if test="mainspec != null" >
+        mainspec,
+      </if>
+      <if test="mainFactory != null" >
+        mainFactory,
+      </if>
+      <if test="downspec != null" >
+        downspec,
+      </if>
+      <if test="downserial != null" >
+        downserial,
+      </if>
+      <if test="downoutfactory != null" >
+        downoutfactory,
+      </if>
+      <if test="heightlong != null" >
+        heightlong,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="orginalValue != null" >
+        orginalValue,
+      </if>
+      <if test="depreImportmonth != null" >
+        depreImportmonth,
+      </if>
+      <if test="leftValue != null" >
+        leftValue,
+      </if>
+      <if test="fobPrice != null" >
+        fobPrice,
+      </if>
+      <if test="fobAmount != null" >
+        fobAmount,
+      </if>
+      <if test="discountAmount != null" >
+        discountAmount,
+      </if>
+      <if test="acceptanceDate != null" >
+        acceptanceDate,
+      </if>
+      <if test="passNo != null" >
+        passNo,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="outFactoryDate != null" >
+        outFactoryDate,
+      </if>
+      <if test="outFactorySerial != null" >
+        outFactorySerial,
+      </if>
+      <if test="isimportant != null" >
+        isimportant,
+      </if>
+      <if test="changeDate != null" >
+        changeDate,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="actualDepreAmt != null" >
+        actualDepreAmt,
+      </if>
+      <if test="regdate != null" >
+        regdate,
+      </if>
+      <if test="depreciationMonth != null" >
+        depreciation_month,
+      </if>
+      <if test="depreciation != null" >
+        depreciation,
+      </if>
+      <if test="equipNo != null" >
+        equipNo,
+      </if>
+      <if test="factory != null" >
+        factory,
+      </if>
+      <if test="checkStatus != null" >
+        checkStatus,
+      </if>
+      <if test="isDelete != null" >
+        isDelete,
+      </if>
+      <if test="mainPowerStr != null" >
+        mainPowerStr,
+      </if>
+      <if test="vicePowerStr != null" >
+        vicePowerStr,
+      </if>
+      <if test="planNo != null" >
+        planNo,
+      </if>
+      <if test="plancode != null" >
+        plancode,
+      </if>
+      <if test="attachmentID != null" >
+        attachmentID,
+      </if>
+      <if test="isXianzhi != null" >
+        isXianzhi,
+      </if>
+      <if test="qrcodeName != null" >
+        qrcode_name,
+      </if>
+      <if test="qrcodeUrl != null" >
+        qrcode_url,
+      </if>
+      <if test="qrcodeContent != null" >
+        qrcode_content,
+      </if>
+      <if test="qrcodeDownUrl != null" >
+        qrcode_down_url,
+      </if>
+      <if test="companyId != null" >
+        company_id,
+      </if>
+      <if test="companyName != null" >
+        company_name,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="purRecordID != null" >
+        #{purRecordID,jdbcType=VARCHAR},
+      </if>
+      <if test="abcType != null" >
+        #{abcType,jdbcType=VARCHAR},
+      </if>
+      <if test="resCatalogID != null" >
+        #{resCatalogID,jdbcType=VARCHAR},
+      </if>
+      <if test="isWorkEquip != null" >
+        #{isWorkEquip,jdbcType=VARCHAR},
+      </if>
+      <if test="isMadeinChina != null" >
+        #{isMadeinChina,jdbcType=VARCHAR},
+      </if>
+      <if test="financeNo != null" >
+        #{financeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="useOrgID != null" >
+        #{useOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="useOrgName != null" >
+        #{useOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="purDate != null" >
+        #{purDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usePlace != null" >
+        #{usePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerOrgId != null" >
+        #{ownerOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerOrgName != null" >
+        #{ownerOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="manageOrgID != null" >
+        #{manageOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="power != null" >
+        #{power,jdbcType=DECIMAL},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="viceserial != null" >
+        #{viceserial,jdbcType=VARCHAR},
+      </if>
+      <if test="downfactory != null" >
+        #{downfactory,jdbcType=VARCHAR},
+      </if>
+      <if test="viceoutfactory != null" >
+        #{viceoutfactory,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vicepower != null" >
+        #{vicepower,jdbcType=DECIMAL},
+      </if>
+      <if test="vicespec != null" >
+        #{vicespec,jdbcType=VARCHAR},
+      </if>
+      <if test="viceFactory != null" >
+        #{viceFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpower != null" >
+        #{mainpower,jdbcType=DECIMAL},
+      </if>
+      <if test="mainoutfactory != null" >
+        #{mainoutfactory,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mainserial != null" >
+        #{mainserial,jdbcType=VARCHAR},
+      </if>
+      <if test="mainspec != null" >
+        #{mainspec,jdbcType=VARCHAR},
+      </if>
+      <if test="mainFactory != null" >
+        #{mainFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="downspec != null" >
+        #{downspec,jdbcType=VARCHAR},
+      </if>
+      <if test="downserial != null" >
+        #{downserial,jdbcType=VARCHAR},
+      </if>
+      <if test="downoutfactory != null" >
+        #{downoutfactory,jdbcType=TIMESTAMP},
+      </if>
+      <if test="heightlong != null" >
+        #{heightlong,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="orginalValue != null" >
+        #{orginalValue,jdbcType=DECIMAL},
+      </if>
+      <if test="depreImportmonth != null" >
+        #{depreImportmonth,jdbcType=VARCHAR},
+      </if>
+      <if test="leftValue != null" >
+        #{leftValue,jdbcType=DECIMAL},
+      </if>
+      <if test="fobPrice != null" >
+        #{fobPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="fobAmount != null" >
+        #{fobAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="discountAmount != null" >
+        #{discountAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptanceDate != null" >
+        #{acceptanceDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="passNo != null" >
+        #{passNo,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="outFactoryDate != null" >
+        #{outFactoryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outFactorySerial != null" >
+        #{outFactorySerial,jdbcType=VARCHAR},
+      </if>
+      <if test="isimportant != null" >
+        #{isimportant,jdbcType=VARCHAR},
+      </if>
+      <if test="changeDate != null" >
+        #{changeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="actualDepreAmt != null" >
+        #{actualDepreAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="regdate != null" >
+        #{regdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="depreciationMonth != null" >
+        #{depreciationMonth,jdbcType=INTEGER},
+      </if>
+      <if test="depreciation != null" >
+        #{depreciation,jdbcType=VARCHAR},
+      </if>
+      <if test="equipNo != null" >
+        #{equipNo,jdbcType=VARCHAR},
+      </if>
+      <if test="factory != null" >
+        #{factory,jdbcType=VARCHAR},
+      </if>
+      <if test="checkStatus != null" >
+        #{checkStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="mainPowerStr != null" >
+        #{mainPowerStr,jdbcType=VARCHAR},
+      </if>
+      <if test="vicePowerStr != null" >
+        #{vicePowerStr,jdbcType=VARCHAR},
+      </if>
+      <if test="planNo != null" >
+        #{planNo,jdbcType=VARCHAR},
+      </if>
+      <if test="plancode != null" >
+        #{plancode,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentID != null" >
+        #{attachmentID,jdbcType=VARCHAR},
+      </if>
+      <if test="isXianzhi != null" >
+        #{isXianzhi,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcodeName != null" >
+        #{qrcodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcodeUrl != null" >
+        #{qrcodeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcodeContent != null" >
+        #{qrcodeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcodeDownUrl != null" >
+        #{qrcodeDownUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqEquip" >
+    update zx_eq_Equip
+    <set >
+      <if test="purRecordID != null" >
+        purRecordID = #{purRecordID,jdbcType=VARCHAR},
+      </if>
+      <if test="abcType != null" >
+        abcType = #{abcType,jdbcType=VARCHAR},
+      </if>
+      <if test="resCatalogID != null" >
+        resCatalogID = #{resCatalogID,jdbcType=VARCHAR},
+      </if>
+      <if test="isWorkEquip != null" >
+        isWorkEquip = #{isWorkEquip,jdbcType=VARCHAR},
+      </if>
+      <if test="isMadeinChina != null" >
+        isMadeinChina = #{isMadeinChina,jdbcType=VARCHAR},
+      </if>
+      <if test="financeNo != null" >
+        financeNo = #{financeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="useOrgID != null" >
+        useOrgID = #{useOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="useOrgName != null" >
+        useOrgName = #{useOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="purDate != null" >
+        purDate = #{purDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usePlace != null" >
+        usePlace = #{usePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerOrgId != null" >
+        ownerOrgId = #{ownerOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerOrgName != null" >
+        ownerOrgName = #{ownerOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="manageOrgID != null" >
+        manageOrgID = #{manageOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        equipName = #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="power != null" >
+        power = #{power,jdbcType=DECIMAL},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="viceserial != null" >
+        viceserial = #{viceserial,jdbcType=VARCHAR},
+      </if>
+      <if test="downfactory != null" >
+        downfactory = #{downfactory,jdbcType=VARCHAR},
+      </if>
+      <if test="viceoutfactory != null" >
+        viceoutfactory = #{viceoutfactory,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vicepower != null" >
+        vicepower = #{vicepower,jdbcType=DECIMAL},
+      </if>
+      <if test="vicespec != null" >
+        vicespec = #{vicespec,jdbcType=VARCHAR},
+      </if>
+      <if test="viceFactory != null" >
+        viceFactory = #{viceFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpower != null" >
+        mainpower = #{mainpower,jdbcType=DECIMAL},
+      </if>
+      <if test="mainoutfactory != null" >
+        mainoutfactory = #{mainoutfactory,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mainserial != null" >
+        mainserial = #{mainserial,jdbcType=VARCHAR},
+      </if>
+      <if test="mainspec != null" >
+        mainspec = #{mainspec,jdbcType=VARCHAR},
+      </if>
+      <if test="mainFactory != null" >
+        mainFactory = #{mainFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="downspec != null" >
+        downspec = #{downspec,jdbcType=VARCHAR},
+      </if>
+      <if test="downserial != null" >
+        downserial = #{downserial,jdbcType=VARCHAR},
+      </if>
+      <if test="downoutfactory != null" >
+        downoutfactory = #{downoutfactory,jdbcType=TIMESTAMP},
+      </if>
+      <if test="heightlong != null" >
+        heightlong = #{heightlong,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="orginalValue != null" >
+        orginalValue = #{orginalValue,jdbcType=DECIMAL},
+      </if>
+      <if test="depreImportmonth != null" >
+        depreImportmonth = #{depreImportmonth,jdbcType=VARCHAR},
+      </if>
+      <if test="leftValue != null" >
+        leftValue = #{leftValue,jdbcType=DECIMAL},
+      </if>
+      <if test="fobPrice != null" >
+        fobPrice = #{fobPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="fobAmount != null" >
+        fobAmount = #{fobAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="discountAmount != null" >
+        discountAmount = #{discountAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptanceDate != null" >
+        acceptanceDate = #{acceptanceDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="passNo != null" >
+        passNo = #{passNo,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="outFactoryDate != null" >
+        outFactoryDate = #{outFactoryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outFactorySerial != null" >
+        outFactorySerial = #{outFactorySerial,jdbcType=VARCHAR},
+      </if>
+      <if test="isimportant != null" >
+        isimportant = #{isimportant,jdbcType=VARCHAR},
+      </if>
+      <if test="changeDate != null" >
+        changeDate = #{changeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="actualDepreAmt != null" >
+        actualDepreAmt = #{actualDepreAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="regdate != null" >
+        regdate = #{regdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="depreciationMonth != null" >
+        depreciation_month = #{depreciationMonth,jdbcType=INTEGER},
+      </if>
+      <if test="depreciation != null" >
+        depreciation = #{depreciation,jdbcType=VARCHAR},
+      </if>
+      <if test="equipNo != null" >
+        equipNo = #{equipNo,jdbcType=VARCHAR},
+      </if>
+      <if test="factory != null" >
+        factory = #{factory,jdbcType=VARCHAR},
+      </if>
+      <if test="checkStatus != null" >
+        checkStatus = #{checkStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        isDelete = #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="mainPowerStr != null" >
+        mainPowerStr = #{mainPowerStr,jdbcType=VARCHAR},
+      </if>
+      <if test="vicePowerStr != null" >
+        vicePowerStr = #{vicePowerStr,jdbcType=VARCHAR},
+      </if>
+      <if test="planNo != null" >
+        planNo = #{planNo,jdbcType=VARCHAR},
+      </if>
+      <if test="plancode != null" >
+        plancode = #{plancode,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentID != null" >
+        attachmentID = #{attachmentID,jdbcType=VARCHAR},
+      </if>
+      <if test="isXianzhi != null" >
+        isXianzhi = #{isXianzhi,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcodeName != null" >
+        qrcode_name = #{qrcodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcodeUrl != null" >
+        qrcode_url = #{qrcodeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcodeContent != null" >
+        qrcode_content = #{qrcodeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcodeDownUrl != null" >
+        qrcode_down_url = #{qrcodeDownUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        company_id = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqEquip" >
+    update zx_eq_Equip
+    set       purRecordID = #{purRecordID,jdbcType=VARCHAR},
+      abcType = #{abcType,jdbcType=VARCHAR},
+      resCatalogID = #{resCatalogID,jdbcType=VARCHAR},
+      isWorkEquip = #{isWorkEquip,jdbcType=VARCHAR},
+      isMadeinChina = #{isMadeinChina,jdbcType=VARCHAR},
+      financeNo = #{financeNo,jdbcType=VARCHAR},
+      useOrgID = #{useOrgID,jdbcType=VARCHAR},
+      useOrgName = #{useOrgName,jdbcType=VARCHAR},
+      purDate = #{purDate,jdbcType=TIMESTAMP},
+      usePlace = #{usePlace,jdbcType=VARCHAR},
+      ownerOrgId = #{ownerOrgId,jdbcType=VARCHAR},
+      ownerOrgName = #{ownerOrgName,jdbcType=VARCHAR},
+      manageOrgID = #{manageOrgID,jdbcType=VARCHAR},
+      equipName = #{equipName,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      power = #{power,jdbcType=DECIMAL},
+      source = #{source,jdbcType=VARCHAR},
+      viceserial = #{viceserial,jdbcType=VARCHAR},
+      downfactory = #{downfactory,jdbcType=VARCHAR},
+      viceoutfactory = #{viceoutfactory,jdbcType=TIMESTAMP},
+      vicepower = #{vicepower,jdbcType=DECIMAL},
+      vicespec = #{vicespec,jdbcType=VARCHAR},
+      viceFactory = #{viceFactory,jdbcType=VARCHAR},
+      mainpower = #{mainpower,jdbcType=DECIMAL},
+      mainoutfactory = #{mainoutfactory,jdbcType=TIMESTAMP},
+      mainserial = #{mainserial,jdbcType=VARCHAR},
+      mainspec = #{mainspec,jdbcType=VARCHAR},
+      mainFactory = #{mainFactory,jdbcType=VARCHAR},
+      downspec = #{downspec,jdbcType=VARCHAR},
+      downserial = #{downserial,jdbcType=VARCHAR},
+      downoutfactory = #{downoutfactory,jdbcType=TIMESTAMP},
+      heightlong = #{heightlong,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=VARCHAR},
+      orginalValue = #{orginalValue,jdbcType=DECIMAL},
+      depreImportmonth = #{depreImportmonth,jdbcType=VARCHAR},
+      leftValue = #{leftValue,jdbcType=DECIMAL},
+      fobPrice = #{fobPrice,jdbcType=DECIMAL},
+      fobAmount = #{fobAmount,jdbcType=DECIMAL},
+      discountAmount = #{discountAmount,jdbcType=DECIMAL},
+      acceptanceDate = #{acceptanceDate,jdbcType=TIMESTAMP},
+      passNo = #{passNo,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      outFactoryDate = #{outFactoryDate,jdbcType=TIMESTAMP},
+      outFactorySerial = #{outFactorySerial,jdbcType=VARCHAR},
+      isimportant = #{isimportant,jdbcType=VARCHAR},
+      changeDate = #{changeDate,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      actualDepreAmt = #{actualDepreAmt,jdbcType=DECIMAL},
+      regdate = #{regdate,jdbcType=TIMESTAMP},
+      depreciation_month = #{depreciationMonth,jdbcType=INTEGER},
+      depreciation = #{depreciation,jdbcType=VARCHAR},
+      equipNo = #{equipNo,jdbcType=VARCHAR},
+      factory = #{factory,jdbcType=VARCHAR},
+      checkStatus = #{checkStatus,jdbcType=VARCHAR},
+      isDelete = #{isDelete,jdbcType=VARCHAR},
+      mainPowerStr = #{mainPowerStr,jdbcType=VARCHAR},
+      vicePowerStr = #{vicePowerStr,jdbcType=VARCHAR},
+      planNo = #{planNo,jdbcType=VARCHAR},
+      plancode = #{plancode,jdbcType=VARCHAR},
+      attachmentID = #{attachmentID,jdbcType=VARCHAR},
+      isXianzhi = #{isXianzhi,jdbcType=VARCHAR},
+      qrcode_name = #{qrcodeName,jdbcType=VARCHAR},
+      qrcode_url = #{qrcodeUrl,jdbcType=VARCHAR},
+      qrcode_content = #{qrcodeContent,jdbcType=VARCHAR},
+      qrcode_down_url = #{qrcodeDownUrl,jdbcType=VARCHAR},
+      company_id = #{companyId,jdbcType=VARCHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxEqEquipList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEquip" >
+    select 
+    e.*,
+    (SELECT financeOrginalValue FROM zx_eq_equipdepreciationitem AS d WHERE d.equipID = e.id ORDER BY create_time DESC LIMIT 1)AS financeOrginalValue
+    from zx_eq_Equip AS e
+    where e.del_flag = '0'
+    <if test="purRecordID != null and purRecordID != ''" >
+     and purRecordID = #{purRecordID,jdbcType=VARCHAR}
+    </if>
+    <if test="abcType != null and abcType != ''" >
+     and abcType = #{abcType,jdbcType=VARCHAR}
+    </if>
+    <if test="resCatalogID != null and resCatalogID != ''" >
+     and resCatalogID = #{resCatalogID,jdbcType=VARCHAR}
+    </if>
+    <if test="isWorkEquip != null and isWorkEquip != ''" >
+     and isWorkEquip = #{isWorkEquip,jdbcType=VARCHAR}
+    </if>
+    <if test="isMadeinChina != null and isMadeinChina != ''" >
+     and isMadeinChina = #{isMadeinChina,jdbcType=VARCHAR}
+    </if>
+    <if test="financeNo != null and financeNo != ''" >
+     and financeNo = #{financeNo,jdbcType=VARCHAR}
+    </if>
+    <if test="useOrgID != null and useOrgID != ''" >
+     and e.useOrgID = #{useOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="useOrgName != null and useOrgName != ''" >
+     and e.useOrgName = #{useOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="purDate != null and purDate != ''" >
+     and purDate = #{purDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="usePlace != null and usePlace != ''" >
+     and usePlace = #{usePlace,jdbcType=VARCHAR}
+    </if>
+    <if test="ownerOrgId != null and ownerOrgId != ''" >
+     and e.ownerOrgId = #{ownerOrgId,jdbcType=VARCHAR}
+    </if>
+    <if test="ownerOrgName != null and ownerOrgName != ''" >
+     and ownerOrgName = #{ownerOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="manageOrgID != null and manageOrgID != ''" >
+     and manageOrgID = #{manageOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="equipName != null and equipName != ''" >
+     and equipName = #{equipName,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="model != null and model != ''" >
+     and model = #{model,jdbcType=VARCHAR}
+    </if>
+    <if test="power != null and power != ''" >
+     and power = #{power,jdbcType=DECIMAL}
+    </if>
+    <if test="source != null and source != ''" >
+     and source = #{source,jdbcType=VARCHAR}
+    </if>
+    <if test="viceserial != null and viceserial != ''" >
+     and viceserial = #{viceserial,jdbcType=VARCHAR}
+    </if>
+    <if test="downfactory != null and downfactory != ''" >
+     and downfactory = #{downfactory,jdbcType=VARCHAR}
+    </if>
+    <if test="viceoutfactory != null and viceoutfactory != ''" >
+     and viceoutfactory = #{viceoutfactory,jdbcType=TIMESTAMP}
+    </if>
+    <if test="vicepower != null and vicepower != ''" >
+     and vicepower = #{vicepower,jdbcType=DECIMAL}
+    </if>
+    <if test="vicespec != null and vicespec != ''" >
+     and vicespec = #{vicespec,jdbcType=VARCHAR}
+    </if>
+    <if test="viceFactory != null and viceFactory != ''" >
+     and viceFactory = #{viceFactory,jdbcType=VARCHAR}
+    </if>
+    <if test="mainpower != null and mainpower != ''" >
+     and mainpower = #{mainpower,jdbcType=DECIMAL}
+    </if>
+    <if test="mainoutfactory != null and mainoutfactory != ''" >
+     and mainoutfactory = #{mainoutfactory,jdbcType=TIMESTAMP}
+    </if>
+    <if test="mainserial != null and mainserial != ''" >
+     and mainserial = #{mainserial,jdbcType=VARCHAR}
+    </if>
+    <if test="mainspec != null and mainspec != ''" >
+     and mainspec = #{mainspec,jdbcType=VARCHAR}
+    </if>
+    <if test="mainFactory != null and mainFactory != ''" >
+     and mainFactory = #{mainFactory,jdbcType=VARCHAR}
+    </if>
+    <if test="downspec != null and downspec != ''" >
+     and downspec = #{downspec,jdbcType=VARCHAR}
+    </if>
+    <if test="downserial != null and downserial != ''" >
+     and downserial = #{downserial,jdbcType=VARCHAR}
+    </if>
+    <if test="downoutfactory != null and downoutfactory != ''" >
+     and downoutfactory = #{downoutfactory,jdbcType=TIMESTAMP}
+    </if>
+    <if test="heightlong != null and heightlong != ''" >
+     and heightlong = #{heightlong,jdbcType=VARCHAR}
+    </if>
+    <if test="weight != null and weight != ''" >
+     and weight = #{weight,jdbcType=VARCHAR}
+    </if>
+    <if test="orginalValue != null and orginalValue != ''" >
+     and orginalValue = #{orginalValue,jdbcType=DECIMAL}
+    </if>
+    <if test="depreImportmonth != null and depreImportmonth != ''" >
+     and depreImportmonth = #{depreImportmonth,jdbcType=VARCHAR}
+    </if>
+    <if test="leftValue != null" >
+     and leftValue = #{leftValue,jdbcType=DECIMAL}
+    </if>
+    <if test="fobPrice != null and fobPrice != ''" >
+     and fobPrice = #{fobPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="fobAmount != null and fobAmount != ''" >
+     and fobAmount = #{fobAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="discountAmount != null and discountAmount != ''" >
+     and discountAmount = #{discountAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="acceptanceDate != null and acceptanceDate != ''" >
+     and acceptanceDate = #{acceptanceDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="passNo != null and passNo != ''" >
+     and passNo = #{passNo,jdbcType=VARCHAR}
+    </if>
+    <if test="status != null and status != ''" >
+     and status = #{status,jdbcType=VARCHAR}
+    </if>
+    <if test="outFactoryDate != null and outFactoryDate != ''" >
+     and outFactoryDate = #{outFactoryDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="outFactorySerial != null and outFactorySerial != ''" >
+     and outFactorySerial = #{outFactorySerial,jdbcType=VARCHAR}
+    </if>
+    <if test="isimportant != null and isimportant != ''" >
+     and isimportant = #{isimportant,jdbcType=VARCHAR}
+    </if>
+    <if test="changeDate != null and changeDate != ''" >
+     and changeDate = #{changeDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="actualDepreAmt != null and actualDepreAmt != ''" >
+     and actualDepreAmt = #{actualDepreAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="regdate != null and regdate != ''" >
+     and regdate = #{regdate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="depreciationMonth != null and depreciationMonth != ''" >
+     and depreciation_month = #{depreciationMonth,jdbcType=INTEGER}
+    </if>
+    <if test="depreciation != null and depreciation != ''" >
+     and depreciation = #{depreciation,jdbcType=VARCHAR}
+    </if>
+    <if test="equipNo != null and equipNo != ''" >
+     and equipNo = #{equipNo,jdbcType=VARCHAR}
+    </if>
+    <if test="factory != null and factory != ''" >
+     and factory = #{factory,jdbcType=VARCHAR}
+    </if>
+    <if test="checkStatus != null and checkStatus != ''" >
+     and checkStatus = #{checkStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="isDelete != null and isDelete != ''" >
+     and isDelete = #{isDelete,jdbcType=VARCHAR}
+    </if>
+    <if test="mainPowerStr != null and mainPowerStr != ''" >
+     and mainPowerStr = #{mainPowerStr,jdbcType=VARCHAR}
+    </if>
+    <if test="vicePowerStr != null and vicePowerStr != ''" >
+     and vicePowerStr = #{vicePowerStr,jdbcType=VARCHAR}
+    </if>
+    <if test="planNo != null and planNo != ''" >
+     and planNo = #{planNo,jdbcType=VARCHAR}
+    </if>
+    <if test="plancode != null and plancode != ''" >
+     and plancode = #{plancode,jdbcType=VARCHAR}
+    </if>
+    <if test="attachmentID != null and attachmentID != ''" >
+     and attachmentID = #{attachmentID,jdbcType=VARCHAR}
+    </if>
+    <if test="isXianzhi != null and isXianzhi != ''" >
+     and isXianzhi = #{isXianzhi,jdbcType=VARCHAR}
+    </if>
+    <if test="qrcodeName != null and qrcodeName != ''" >
+     and qrcode_name = #{qrcodeName,jdbcType=VARCHAR}
+    </if>
+    <if test="qrcodeUrl != null and qrcodeUrl != ''" >
+     and qrcode_url = #{qrcodeUrl,jdbcType=VARCHAR}
+    </if>
+    <if test="qrcodeContent != null and qrcodeContent != ''" >
+     and qrcode_content = #{qrcodeContent,jdbcType=VARCHAR}
+    </if>
+    <if test="qrcodeDownUrl != null and qrcodeDownUrl != ''" >
+     and qrcode_down_url = #{qrcodeDownUrl,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and company_id = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and company_name = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="statusFlag != null and statusFlag != ''" >
+     and (status = '' OR status IS NULL)
+    </if>
+    <if test="statusFlagForMoveUseOrg != null and statusFlagForMoveUseOrg != ''" >
+     and (status = '' OR status IS NULL)
+    </if>
+    ORDER BY e.modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqEquip" parameterType="com.apih5.mybatis.pojo.ZxEqEquip" >
+    <![CDATA[ 
+        update zx_eq_Equip
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+   <!-- 扩展 -->
+   
+  
+   <select id="ureportAddZxEqEquipTotalList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEquip" >
+    select 
+    e.*,
+    DATE_FORMAT(e.outFactoryDate,'%Y-%m-%d') AS outFactoryDateStr,
+    DATE_FORMAT(e.purDate,'%Y-%m-%d') AS purDateStr,
+    DATE_FORMAT(e.purDate,'%Y') AS purDateYearStr,
+    DATE_FORMAT(e.acceptanceDate,'%Y-%m-%d') AS acceptanceDateStr,
+    (SELECT globalCode FROM zx_eq_globalcode AS code1 WHERE del_flag = '0' AND e.abcType = code1.id) AS abcTypeName
+    from zx_eq_Equip AS e
+    where e.del_flag = '0'
+     <if test="selectTypeFlag != null and selectTypeFlag != ''" >
+     and e.useOrgID = #{useOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="useOrgID != null and useOrgID != ''" >
+     and e.resCatalogID = '12138a1-48bb470057699-a3167ea40244430759aa9cd9147cff13'
+    </if>
+    <if test="purDate != null" >
+     and purDate = #{purDate,jdbcType=TIMESTAMP}
+    </if>
+     <if test="purDateStart != null" >
+     and purDate &gt;= #{purDateStart}
+    </if>
+    <if test="purDateEnd != null" >
+     and purDate &lt;= #{purDateEnd}
+    </if>
+    ORDER BY e.modify_time DESC 
+  </select>
+   
+  <select id="getZxEqEquipListForReport" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEquip" >
+    select 
+    e.*,
+    DATE_FORMAT(e.downoutfactory,'%Y-%m-%d') AS downoutfactoryStr,
+    DATE_FORMAT(e.outFactoryDate,'%Y-%m-%d') AS outFactoryDateStr,
+    DATE_FORMAT(e.acceptanceDate,'%Y-%m-%d') AS acceptanceDateStr,
+    DATE_FORMAT(e.viceoutfactory,'%Y-%m-%d') AS viceoutfactoryStr,
+    DATE_FORMAT(e.mainoutfactory,'%Y-%m-%d') AS mainoutfactoryStr,
+    (SELECT globalCode FROM zx_eq_globalcode AS code1 WHERE del_flag = '0' AND e.abcType = code1.id) AS abcTypeName
+    from zx_eq_Equip AS e
+    where del_flag = '0'
+    <if test="purRecordID != null and purRecordID != ''" >
+     and purRecordID = #{purRecordID,jdbcType=VARCHAR}
+    </if>
+    <if test="abcType != null and abcType != ''" >
+     and abcType = #{abcType,jdbcType=VARCHAR}
+    </if>
+    <if test="resCatalogID != null and resCatalogID != ''" >
+     and resCatalogID = #{resCatalogID,jdbcType=VARCHAR}
+    </if>
+    <if test="isWorkEquip != null and isWorkEquip != ''" >
+     and isWorkEquip = #{isWorkEquip,jdbcType=VARCHAR}
+    </if>
+    <if test="isMadeinChina != null and isMadeinChina != ''" >
+     and isMadeinChina = #{isMadeinChina,jdbcType=VARCHAR}
+    </if>
+    <if test="financeNo != null and financeNo != ''" >
+     and financeNo = #{financeNo,jdbcType=VARCHAR}
+    </if>
+    <if test="useOrgID != null and useOrgID != ''" >
+     and useOrgID = #{useOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="purDate != null and purDate != ''" >
+     and purDate = #{purDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="usePlace != null and usePlace != ''" >
+     and usePlace = #{usePlace,jdbcType=VARCHAR}
+    </if>
+    <if test="ownerOrgId != null and ownerOrgId != ''" >
+     and ownerOrgId = #{ownerOrgId,jdbcType=VARCHAR}
+    </if>
+    <if test="manageOrgID != null and manageOrgID != ''" >
+     and manageOrgID = #{manageOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="equipName != null and equipName != ''" >
+     and equipName = #{equipName,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="model != null and model != ''" >
+     and model = #{model,jdbcType=VARCHAR}
+    </if>
+    <if test="power != null and power != ''" >
+     and power = #{power,jdbcType=DECIMAL}
+    </if>
+    <if test="source != null and source != ''" >
+     and source = #{source,jdbcType=VARCHAR}
+    </if>
+    <if test="viceserial != null and viceserial != ''" >
+     and viceserial = #{viceserial,jdbcType=VARCHAR}
+    </if>
+    <if test="downfactory != null and downfactory != ''" >
+     and downfactory = #{downfactory,jdbcType=VARCHAR}
+    </if>
+    <if test="viceoutfactory != null and viceoutfactory != ''" >
+     and viceoutfactory = #{viceoutfactory,jdbcType=TIMESTAMP}
+    </if>
+    <if test="vicepower != null and vicepower != ''" >
+     and vicepower = #{vicepower,jdbcType=DECIMAL}
+    </if>
+    <if test="vicespec != null and vicespec != ''" >
+     and vicespec = #{vicespec,jdbcType=VARCHAR}
+    </if>
+    <if test="viceFactory != null and viceFactory != ''" >
+     and viceFactory = #{viceFactory,jdbcType=VARCHAR}
+    </if>
+    <if test="mainpower != null and mainpower != ''" >
+     and mainpower = #{mainpower,jdbcType=DECIMAL}
+    </if>
+    <if test="mainoutfactory != null and mainoutfactory != ''" >
+     and mainoutfactory = #{mainoutfactory,jdbcType=TIMESTAMP}
+    </if>
+    <if test="mainserial != null and mainserial != ''" >
+     and mainserial = #{mainserial,jdbcType=VARCHAR}
+    </if>
+    <if test="mainspec != null and mainspec != ''" >
+     and mainspec = #{mainspec,jdbcType=VARCHAR}
+    </if>
+    <if test="mainFactory != null and mainFactory != ''" >
+     and mainFactory = #{mainFactory,jdbcType=VARCHAR}
+    </if>
+    <if test="downspec != null and downspec != ''" >
+     and downspec = #{downspec,jdbcType=VARCHAR}
+    </if>
+    <if test="downserial != null and downserial != ''" >
+     and downserial = #{downserial,jdbcType=VARCHAR}
+    </if>
+    <if test="downoutfactory != null and downoutfactory != ''" >
+     and downoutfactory = #{downoutfactory,jdbcType=TIMESTAMP}
+    </if>
+    <if test="heightlong != null and heightlong != ''" >
+     and heightlong = #{heightlong,jdbcType=VARCHAR}
+    </if>
+    <if test="weight != null and weight != ''" >
+     and weight = #{weight,jdbcType=VARCHAR}
+    </if>
+    <if test="orginalValue != null" >
+     and orginalValue &lt;= #{orginalValue,jdbcType=DECIMAL}
+    </if>
+    <if test="depreImportmonth != null and depreImportmonth != ''" >
+     and depreImportmonth = #{depreImportmonth,jdbcType=VARCHAR}
+    </if>
+    <if test="leftValue != null and leftValue != ''" >
+     and leftValue = #{leftValue,jdbcType=DECIMAL}
+    </if>
+    <if test="fobPrice != null and fobPrice != ''" >
+     and fobPrice = #{fobPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="fobAmount != null and fobAmount != ''" >
+     and fobAmount = #{fobAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="discountAmount != null and discountAmount != ''" >
+     and discountAmount = #{discountAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="acceptanceDate != null" >
+     and acceptanceDate &lt;= #{acceptanceDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="passNo != null and passNo != ''" >
+     and passNo = #{passNo,jdbcType=VARCHAR}
+    </if>
+    <if test="status != null and status != ''" >
+     and status = #{status,jdbcType=VARCHAR}
+    </if>
+    <if test="outFactoryDate != null and outFactoryDate != ''" >
+     and outFactoryDate = #{outFactoryDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="outFactorySerial != null and outFactorySerial != ''" >
+     and outFactorySerial = #{outFactorySerial,jdbcType=VARCHAR}
+    </if>
+    <if test="isimportant != null and isimportant != ''" >
+     and isimportant = #{isimportant,jdbcType=VARCHAR}
+    </if>
+    <if test="changeDate != null and changeDate != ''" >
+     and changeDate = #{changeDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="actualDepreAmt != null and actualDepreAmt != ''" >
+     and actualDepreAmt = #{actualDepreAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="equipNo != null and equipNo != ''" >
+     and equipNo = #{equipNo,jdbcType=VARCHAR}
+    </if>
+    <if test="factory != null and factory != ''" >
+     and factory = #{factory,jdbcType=VARCHAR}
+    </if>
+    <if test="checkStatus != null and checkStatus != ''" >
+     and checkStatus = #{checkStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="isDelete != null and isDelete != ''" >
+     and isDelete = #{isDelete,jdbcType=VARCHAR}
+    </if>
+    <if test="mainPowerStr != null and mainPowerStr != ''" >
+     and mainPowerStr = #{mainPowerStr,jdbcType=VARCHAR}
+    </if>
+    <if test="vicePowerStr != null and vicePowerStr != ''" >
+     and vicePowerStr = #{vicePowerStr,jdbcType=VARCHAR}
+    </if>
+    <if test="regdate != null and regdate != ''" >
+     and regdate = #{regdate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="planNo != null and planNo != ''" >
+     and planNo = #{planNo,jdbcType=VARCHAR}
+    </if>
+    <if test="plancode != null and plancode != ''" >
+     and plancode = #{plancode,jdbcType=VARCHAR}
+    </if>
+    <if test="attachmentID != null and attachmentID != ''" >
+     and attachmentID = #{attachmentID,jdbcType=VARCHAR}
+    </if>
+    <if test="isXianzhi != null and isXianzhi != ''" >
+     and isXianzhi = #{isXianzhi,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <!-- 扩展2 -->
+  <select id="getZxEqEquipListForReportIdle" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEquip" >
+    select 
+    e.*,
+    DATE_FORMAT(e.downoutfactory,'%Y-%m-%d') AS downoutfactoryStr,
+    DATE_FORMAT(e.outFactoryDate,'%Y-%m-%d') AS outFactoryDateStr,
+    DATE_FORMAT(e.acceptanceDate,'%Y-%m-%d') AS acceptanceDateStr,
+    DATE_FORMAT(e.viceoutfactory,'%Y-%m-%d') AS viceoutfactoryStr,
+    DATE_FORMAT(e.mainoutfactory,'%Y-%m-%d') AS mainoutfactoryStr,
+    DATE_FORMAT(e.downoutfactory,'%Y-%m-%d') AS downoutfactoryStr,
+    (SELECT globalCode FROM zx_eq_globalcode AS code1 WHERE del_flag = '0' AND e.abcType = code1.id) AS abcTypeName
+    from zx_eq_Equip AS e
+    where del_flag = '0'
+    <if test="purRecordID != null and purRecordID != ''" >
+     and purRecordID = #{purRecordID,jdbcType=VARCHAR}
+    </if>
+    <if test="abcType != null and abcType != ''" >
+     and abcType = #{abcType,jdbcType=VARCHAR}
+    </if>
+    <if test="resCatalogID != null and resCatalogID != ''" >
+     and resCatalogID = #{resCatalogID,jdbcType=VARCHAR}
+    </if>
+    <if test="isWorkEquip != null and isWorkEquip != ''" >
+     and isWorkEquip = #{isWorkEquip,jdbcType=VARCHAR}
+    </if>
+    <if test="isMadeinChina != null and isMadeinChina != ''" >
+     and isMadeinChina = #{isMadeinChina,jdbcType=VARCHAR}
+    </if>
+    <if test="financeNo != null and financeNo != ''" >
+     and financeNo = #{financeNo,jdbcType=VARCHAR}
+    </if>
+    <if test="useOrgID != null and useOrgID != ''" >
+     and useOrgID = #{useOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="purDate != null and purDate != ''" >
+     and purDate = #{purDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="usePlace != null and usePlace != ''" >
+     and usePlace = #{usePlace,jdbcType=VARCHAR}
+    </if>
+    <if test="ownerOrgId != null and ownerOrgId != ''" >
+     and ownerOrgId = #{ownerOrgId,jdbcType=VARCHAR}
+    </if>
+    <if test="manageOrgID != null and manageOrgID != ''" >
+     and manageOrgID = #{manageOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="equipName != null and equipName != ''" >
+     and equipName = #{equipName,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="model != null and model != ''" >
+     and model = #{model,jdbcType=VARCHAR}
+    </if>
+    <if test="power != null and power != ''" >
+     and power = #{power,jdbcType=DECIMAL}
+    </if>
+    <if test="source != null and source != ''" >
+     and source = #{source,jdbcType=VARCHAR}
+    </if>
+    <if test="viceserial != null and viceserial != ''" >
+     and viceserial = #{viceserial,jdbcType=VARCHAR}
+    </if>
+    <if test="downfactory != null and downfactory != ''" >
+     and downfactory = #{downfactory,jdbcType=VARCHAR}
+    </if>
+    <if test="viceoutfactory != null and viceoutfactory != ''" >
+     and viceoutfactory = #{viceoutfactory,jdbcType=TIMESTAMP}
+    </if>
+    <if test="vicepower != null and vicepower != ''" >
+     and vicepower = #{vicepower,jdbcType=DECIMAL}
+    </if>
+    <if test="vicespec != null and vicespec != ''" >
+     and vicespec = #{vicespec,jdbcType=VARCHAR}
+    </if>
+    <if test="viceFactory != null and viceFactory != ''" >
+     and viceFactory = #{viceFactory,jdbcType=VARCHAR}
+    </if>
+    <if test="mainpower != null and mainpower != ''" >
+     and mainpower = #{mainpower,jdbcType=DECIMAL}
+    </if>
+    <if test="mainoutfactory != null and mainoutfactory != ''" >
+     and mainoutfactory = #{mainoutfactory,jdbcType=TIMESTAMP}
+    </if>
+    <if test="mainserial != null and mainserial != ''" >
+     and mainserial = #{mainserial,jdbcType=VARCHAR}
+    </if>
+    <if test="mainspec != null and mainspec != ''" >
+     and mainspec = #{mainspec,jdbcType=VARCHAR}
+    </if>
+    <if test="mainFactory != null and mainFactory != ''" >
+     and mainFactory = #{mainFactory,jdbcType=VARCHAR}
+    </if>
+    <if test="downspec != null and downspec != ''" >
+     and downspec = #{downspec,jdbcType=VARCHAR}
+    </if>
+    <if test="downserial != null and downserial != ''" >
+     and downserial = #{downserial,jdbcType=VARCHAR}
+    </if>
+    <if test="downoutfactory != null and downoutfactory != ''" >
+     and downoutfactory = #{downoutfactory,jdbcType=TIMESTAMP}
+    </if>
+    <if test="heightlong != null and heightlong != ''" >
+     and heightlong = #{heightlong,jdbcType=VARCHAR}
+    </if>
+    <if test="weight != null and weight != ''" >
+     and weight = #{weight,jdbcType=VARCHAR}
+    </if>
+    <if test="orginalValue != null and orginalValue != ''" >
+     and orginalValue = #{orginalValue,jdbcType=DECIMAL}
+    </if>
+    <if test="depreImportmonth != null and depreImportmonth != ''" >
+     and depreImportmonth = #{depreImportmonth,jdbcType=VARCHAR}
+    </if>
+    <if test="leftValue != null and leftValue != ''" >
+     and leftValue = #{leftValue,jdbcType=DECIMAL}
+    </if>
+    <if test="fobPrice != null and fobPrice != ''" >
+     and fobPrice = #{fobPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="fobAmount != null and fobAmount != ''" >
+     and fobAmount = #{fobAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="discountAmount != null and discountAmount != ''" >
+     and discountAmount = #{discountAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="acceptanceDate != null and acceptanceDate != ''" >
+     and acceptanceDate = #{acceptanceDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="passNo != null and passNo != ''" >
+     and passNo = #{passNo,jdbcType=VARCHAR}
+    </if>
+    <if test="status != null and status != ''" >
+     and status = #{status,jdbcType=VARCHAR}
+    </if>
+    <if test="outFactoryDate != null and outFactoryDate != ''" >
+     and outFactoryDate = #{outFactoryDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="outFactorySerial != null and outFactorySerial != ''" >
+     and outFactorySerial = #{outFactorySerial,jdbcType=VARCHAR}
+    </if>
+    <if test="isimportant != null and isimportant != ''" >
+     and isimportant = #{isimportant,jdbcType=VARCHAR}
+    </if>
+    <if test="changeDate != null and changeDate != ''" >
+     and changeDate = #{changeDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="actualDepreAmt != null and actualDepreAmt != ''" >
+     and actualDepreAmt = #{actualDepreAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="equipNo != null and equipNo != ''" >
+     and equipNo = #{equipNo,jdbcType=VARCHAR}
+    </if>
+    <if test="factory != null and factory != ''" >
+     and factory = #{factory,jdbcType=VARCHAR}
+    </if>
+    <if test="checkStatus != null and checkStatus != ''" >
+     and checkStatus = #{checkStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="isDelete != null and isDelete != ''" >
+     and isDelete = #{isDelete,jdbcType=VARCHAR}
+    </if>
+    <if test="mainPowerStr != null and mainPowerStr != ''" >
+     and mainPowerStr = #{mainPowerStr,jdbcType=VARCHAR}
+    </if>
+    <if test="vicePowerStr != null and vicePowerStr != ''" >
+     and vicePowerStr = #{vicePowerStr,jdbcType=VARCHAR}
+    </if>
+    <if test="regdate != null and regdate != ''" >
+     and regdate = #{regdate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="planNo != null and planNo != ''" >
+     and planNo = #{planNo,jdbcType=VARCHAR}
+    </if>
+    <if test="plancode != null and plancode != ''" >
+     and plancode = #{plancode,jdbcType=VARCHAR}
+    </if>
+    <if test="attachmentID != null and attachmentID != ''" >
+     and attachmentID = #{attachmentID,jdbcType=VARCHAR}
+    </if>
+    <if test="isXianzhi != null and isXianzhi != ''" >
+     and isXianzhi = #{isXianzhi,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <select id="getZxEqEquipListVehicleForReport" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEquip" >
+    select
+    <!-- 所属单位 -->
+    (select department_name from sys_department where department_id=e.ownerOrgID) ownerOrgName,
+    <!-- 设备类型 -->
+    e.abcType,
+    <!-- 机械名称 -->
+    e.equipName,
+    <!-- 型号 -->
+    e.model,
+    <!-- 规格 -->
+    e.spec,
+    <!-- 总功率(KW) -->
+    e.power,
+    <!-- 国产总值(元) -->
+    e.orginalValue as orginalValue,
+    <!-- 国产余值(元) -->
+    e.leftValue as leftValue,
+    <!-- 国家厂家 -->
+    e.factory,
+    <!-- 来源 -->
+    case when e.source=1 then '自购' when e.source=2 then '租赁' when e.source=3 then '协作队伍自带' end as source,
+    <!-- 验收时间 -->
+    DATE_FORMAT(e.acceptanceDate,'%Y-%m-%d') as acceptanceDateStr,
+    <!-- 出厂日期验收时间 -->
+    DATE_FORMAT(e.outFactoryDate,'%Y-%m-%d') as outFactoryDateStr,
+    <!-- 出厂系列号 -->
+    e.outFactorySerial,
+    <!-- 主机厂牌 -->
+    e.mainFactory,
+    <!-- 主机型号 -->
+    e.mainspec,
+    <!--主机功率(KW) mainpower改成mainpowerStr可输入字符edit by wenjw 2018.11.6 -->
+    e.mainpowerStr,
+    <!-- 主机系列号 -->
+    e.mainserial,
+    <!-- 主机出厂期 -->
+    DATE_FORMAT(e.mainoutfactory,'%Y-%m-%d') as mainoutfactoryStr,
+    <!-- 付机厂牌 -->
+    e.viceFactory,
+    <!-- 付机型号 -->
+    e.vicespec,
+    <!-- 付机功率 -->
+    e.vicepowerStr,
+    <!-- 付机出厂期 -->
+    DATE_FORMAT(e.viceoutfactory,'%Y-%m-%d') as viceoutfactoryStr,
+    <!-- 底盘厂家 -->
+    e.downfactory,
+    <!-- 底盘型式 -->
+    e.downspec,
+    <!-- 底盘系列号 -->
+    e.downserial,
+    <!-- 底出厂年月 -->
+    DATE_FORMAT(e.viceoutfactory,'%Y-%m-%d') as downoutfactoryStr,
+    <!-- 外形尺寸 -->
+    e.heightlong,
+    <!-- 自重(t) -->
+    e.weight,
+    <!-- 使用单位 -->
+    (select department_name from sys_department where department_id=e.useOrgID) useOrgID,
+    <!-- 国产或出口 -->
+    e.isMadeinChina,
+    <!-- 设备管理编号 -->
+    e.equipNo,
+    <!-- 财务固定资产编号 -->
+    e.financeNo,
+    <!-- 车辆牌照号 -->
+    e.passNo,
+    <!-- 备注 -->
+    e.remark
+    from zx_eq_Equip as e
+    left join sys_department o on o.department_ID = e.ownerOrgID
+    where ifnull(e.resCatalogID,'') like ('%' || #{resCatalogID,jdbcType=VARCHAR} || '%')
+    and ifnull(e.equipName,'') like ('%' || #{equipName,jdbcType=VARCHAR} || '%')
+    and ifnull(e.usePlace,'') like ('%' || #{usePlace,jdbcType=VARCHAR} || '%')
+    and (e.acceptanceDate is null or e.acceptanceDate &lt;= #{acceptanceDate,jdbcType=TIMESTAMP} )
+    and e.orginalValue &lt;= #{orginalValue,jdbcType=DECIMAL}
+    and ifnull(e.isMadeinChina,'') like ('%' || #{isMadeinChina,jdbcType=VARCHAR} || '%')
+    and ifnull(e.status,'') not in ('报废','转让外部单位')
+    and (e.useOrgID=#{useOrgID,jdbcType=VARCHAR} or #{useOrgID,jdbcType=VARCHAR}='' or #{useOrgID,jdbcType=VARCHAR} is null)
+    and e.abcType like '%'||#{abcType,jdbcType=VARCHAR}||'%'
+    and e.equipName in ('大客车','小轿车','吉普车','旅行车','载重汽车')
+    order by o.sort,ltrim(e.equipNo)
+  </select>
+  <select id="getZxEqEquipListMechanicsForReport" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEquip" >
+    select
+    <!-- 所属单位 -->
+    (select department_name from sys_department where department_id=e.ownerOrgID) ownerOrgName,
+    <!-- 设备类型 -->
+    e.abcType,
+    <!-- 机械名称 -->
+    e.equipName,
+    <!-- 型号 -->
+    e.model,
+    <!-- 规格 -->
+    e.spec,
+    <!-- 总功率(KW) -->
+    e.power,
+    <!-- 国产总值(元) -->
+    e.orginalValue as orginalValue,
+    <!-- 国产余值(元) -->
+    e.leftValue as leftValue,
+    <!-- 国家厂家 -->
+    e.factory,
+    <!-- 来源 -->
+    case when e.source=1 then '自购' when e.source=2 then '租赁' when e.source=3 then '协作队伍自带' end as source,
+    <!-- 验收时间 -->
+    DATE_FORMAT(e.acceptanceDate,'%Y-%m-%d') as acceptanceDateStr,
+    <!-- 出厂日期验收时间 -->
+    DATE_FORMAT(e.outFactoryDate,'%Y-%m-%d') as outFactoryDateStr,
+    <!-- 出厂系列号 -->
+    e.outFactorySerial,
+    <!-- 主机厂牌 -->
+    e.mainFactory,
+    <!-- 主机型号 -->
+    e.mainspec,
+    <!--主机功率(KW) mainpower改成mainpowerStr可输入字符edit by wenjw 2018.11.6 -->
+    e.mainpowerStr,
+    <!-- 主机系列号 -->
+    e.mainserial,
+    <!-- 主机出厂期 -->
+    DATE_FORMAT(e.mainoutfactory,'%Y-%m-%d') as mainoutfactoryStr,
+    <!-- 付机厂牌 -->
+    e.viceFactory,
+    <!-- 付机型号 -->
+    e.vicespec,
+    <!-- 付机功率 -->
+    e.vicepowerStr,
+    <!-- 付机出厂期 -->
+    DATE_FORMAT(e.viceoutfactory,'%Y-%m-%d') as viceoutfactoryStr,
+    <!-- 底盘厂家 -->
+    e.downfactory,
+    <!-- 底盘型式 -->
+    e.downspec,
+    <!-- 底盘系列号 -->
+    e.downserial,
+    <!-- 底出厂年月 -->
+    DATE_FORMAT(e.viceoutfactory,'%Y-%m-%d') as downoutfactoryStr,
+    <!-- 外形尺寸 -->
+    e.heightlong,
+    <!-- 自重(t) -->
+    e.weight,
+    <!-- 使用单位 -->
+    (select department_name from sys_department where department_id=e.useOrgID) useOrgID,
+    <!-- 国产或出口 -->
+    e.isMadeinChina,
+    <!-- 设备管理编号 -->
+    e.equipNo,
+    <!-- 财务固定资产编号 -->
+    e.financeNo,
+    <!-- 车辆牌照号 -->
+    e.passNo,
+    <!-- 备注 -->
+    e.remark
+    from zx_eq_Equip as e
+    left join sys_department o on o.department_ID = e.ownerOrgID
+    where ifnull(e.resCatalogID,'') like ('%' || #{resCatalogID,jdbcType=VARCHAR} || '%')
+    and ifnull(e.equipName,'') like ('%' || #{equipName,jdbcType=VARCHAR} || '%')
+    and ifnull(e.usePlace,'') like ('%' || #{usePlace,jdbcType=VARCHAR} || '%')
+    and (e.acceptanceDate is null or e.acceptanceDate &lt;= #{acceptanceDate,jdbcType=TIMESTAMP} )
+    and e.orginalValue &lt;= #{orginalValue,jdbcType=DECIMAL}
+    and ifnull(e.isMadeinChina,'') like ('%' || #{isMadeinChina,jdbcType=VARCHAR} || '%')
+    and ifnull(e.status,'') not in ('报废','转让外部单位')
+    and (e.useOrgID=#{useOrgID,jdbcType=VARCHAR} or #{useOrgID,jdbcType=VARCHAR}='' or #{useOrgID,jdbcType=VARCHAR} is null)
+    and e.abcType like '%'||#{abcType,jdbcType=VARCHAR}||'%'
+    and e.equipName not in ('大客车','小轿车','吉普车','旅行车','载重汽车')
+    order by o.sort,ltrim(e.equipNo)
+  </select>
+
+  <select id="ziYouCLForm" resultMap="BaseResultMap">
+    select
+		(select o.department_name from sys_department o where o.department_ID = ie.ownerOrgID) as ownerOrgName,
+		(select o.project_name from sys_project o where o.project_id = ie.useOrgID) as useOrgName,ie.manageOrgID,
+		ie.equipNo,ie.equipName,ie.model,ie.spec,ie.factory,DATE_FORMAT(ie.outFactoryDate,'%Y%m%d') as outFactoryDate,
+		DATE_FORMAT(ie.acceptanceDate,'%Y%m%d') as acceptanceDate,
+		ie.orginalValue,ie.leftValue,
+		ie.passNo,
+		ie.remark
+		from zx_eq_equip ie
+		inner join sys_project sp on sp.project_id = ie.ownerOrgID and (sp.project_id = #{orgID,jdbcType=VARCHAR} or sp.company_id = #{orgID,jdbcType=VARCHAR})
+        where ie.purDate between #{beginDate,jdbcType=VARCHAR} and #{endDate,jdbcType=VARCHAR}
+        and ie.equipNo like '%'|| #{equipNo,jdbcType=VARCHAR}||'%'
+        and ie.equipName like '%'||#{equipName,jdbcType=VARCHAR}||'%'
+        and ie.useOrgID like '%'||#{useOrgID,jdbcType=VARCHAR}||'%'
+        and ie.resCatalogID = (select ID from zx_eq_rescategory_materials where catName = '运输机械')
+  </select>
+</mapper>

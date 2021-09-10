@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.SysFrequentContactsMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.SysFrequentContacts" >
+    <id column="frequent_contacts_id" property="frequentContactsId" jdbcType="CHAR" />
+    <result column="login_user_key" property="loginUserKey" jdbcType="CHAR" />
+    <result column="user_key" property="userKey" jdbcType="CHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="identity_card" property="identityCard" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="CHAR" />
+    <result column="department_id" property="departmentId" jdbcType="VARCHAR" />
+    <result column="department_name" property="departmentName" jdbcType="VARCHAR" />
+    <result column="show_department_name" property="showDepartmentName" jdbcType="VARCHAR" />
+    <result column="expiration_date" property="expirationDate" jdbcType="TIMESTAMP" />
+    <result column="count" property="count" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    frequent_contacts_id, login_user_key, user_key, user_id, real_name, 
+    mobile, identity_card, gender, department_id, department_name,
+    show_department_name, expiration_date, count, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_frequent_contacts
+    where frequent_contacts_id = #{frequentContactsId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_frequent_contacts
+    where frequent_contacts_id = #{frequentContactsId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.SysFrequentContacts" >
+    insert into sys_frequent_contacts (frequent_contacts_id, login_user_key, user_key, 
+      user_id, real_name, mobile, 
+      identity_card, gender, department_id, department_name,
+      show_department_name, expiration_date, 
+      count, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{frequentContactsId,jdbcType=CHAR}, #{loginUserKey,jdbcType=CHAR}, #{userKey,jdbcType=CHAR}, 
+      #{userId,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{identityCard,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=CHAR}, 
+      #{departmentId,jdbcType=VARCHAR}, 
+      #{departmentName,jdbcType=VARCHAR}, 
+      #{showDepartmentName,jdbcType=VARCHAR}, 
+      #{expirationDate,jdbcType=TIMESTAMP}, 
+      #{count,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.SysFrequentContacts" >
+    insert into sys_frequent_contacts
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="frequentContactsId != null" >
+        frequent_contacts_id,
+      </if>
+      <if test="loginUserKey != null" >
+        login_user_key,
+      </if>
+      <if test="userKey != null" >
+        user_key,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="identityCard != null" >
+        identity_card,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="departmentId != null" >
+        department_id,
+      </if>
+      <if test="departmentName != null" >
+        department_name,
+      </if>
+      <if test="showDepartmentName != null" >
+        show_department_name,
+      </if>
+      <if test="expirationDate != null" >
+        expiration_date,
+      </if>
+      <if test="count != null" >
+        count,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="frequentContactsId != null" >
+        #{frequentContactsId,jdbcType=CHAR},
+      </if>
+      <if test="loginUserKey != null" >
+        #{loginUserKey,jdbcType=CHAR},
+      </if>
+      <if test="userKey != null" >
+        #{userKey,jdbcType=CHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="identityCard != null" >
+        #{identityCard,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=CHAR},
+      </if>
+      <if test="departmentId != null" >
+        #{departmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentName != null" >
+        #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="showDepartmentName != null" >
+        #{showDepartmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="expirationDate != null" >
+        #{expirationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="count != null" >
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.SysFrequentContacts" >
+    update sys_frequent_contacts
+    <set >
+      <if test="loginUserKey != null" >
+        login_user_key = #{loginUserKey,jdbcType=CHAR},
+      </if>
+      <if test="userKey != null" >
+        user_key = #{userKey,jdbcType=CHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="identityCard != null" >
+        identity_card = #{identityCard,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=CHAR},
+      </if>
+      <if test="departmentId != null" >
+        department_id = #{departmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentName != null" >
+        department_name = #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="showDepartmentName != null" >
+        show_department_name = #{showDepartmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="expirationDate != null" >
+        expiration_date = #{expirationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="count != null" >
+        count = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where frequent_contacts_id = #{frequentContactsId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.SysFrequentContacts" >
+    update sys_frequent_contacts
+    set       login_user_key = #{loginUserKey,jdbcType=CHAR},
+      user_key = #{userKey,jdbcType=CHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      identity_card = #{identityCard,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=CHAR},
+      department_id = #{departmentId,jdbcType=VARCHAR},
+      department_name = #{departmentName,jdbcType=VARCHAR},
+      show_department_name = #{showDepartmentName,jdbcType=VARCHAR},
+      expiration_date = #{expirationDate,jdbcType=TIMESTAMP},
+      count = #{count,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where frequent_contacts_id = #{frequentContactsId,jdbcType=CHAR}
+  </update>
+  <select id="selectBySysFrequentContactsList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysFrequentContacts" >
+    select *,
+    user_key as `value`,
+    real_name as label,
+    department_id as valuePid,
+    '2' as type
+    from sys_frequent_contacts
+    where del_flag = '0'
+    <if test="loginUserKey != null and loginUserKey != ''" >
+     and login_user_key = #{loginUserKey,jdbcType=CHAR}
+    </if>
+    <if test="userKey != null and userKey != ''" >
+     and user_key = #{userKey,jdbcType=CHAR}
+    </if>
+    <if test="userId != null and userId != ''" >
+     and user_id = #{userId,jdbcType=VARCHAR}
+    </if>
+    <if test="label != null and label != ''" >
+     and real_name LIKE CONCAT('%', #{label,jdbcType=VARCHAR}, '%') 
+    </if>
+    <if test="mobile != null and mobile != ''" >
+     and mobile = #{mobile,jdbcType=VARCHAR}
+    </if>
+    <if test="identityCard != null and identityCard != ''" >
+     and identity_card = #{identityCard,jdbcType=VARCHAR}
+    </if>
+    <if test="gender != null and gender != ''" >
+     and gender = #{gender,jdbcType=CHAR}
+    </if>
+    <if test="departmentId != null and departmentId != ''" >
+     and department_id = #{departmentId,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentName != null and departmentName != ''" >
+     and department_name = #{departmentName,jdbcType=VARCHAR}
+    </if>
+    <if test="showDepartmentName != null and showDepartmentName != ''" >
+     and show_department_name = #{showDepartmentName,jdbcType=VARCHAR}
+    </if>
+    <if test="expirationDate != null and expirationDate != ''" >
+     and expiration_date = #{expirationDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="count != null" >
+     and count &gt;= #{count,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY create_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateSysFrequentContacts" parameterType="com.apih5.mybatis.pojo.SysFrequentContacts" >
+    <![CDATA[ 
+        update sys_frequent_contacts
+        set del_flag = '1'
+        where del_flag = '0' and frequent_contacts_id in 
+     ]]> 
+     <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.frequentContactsId} 
+     </foreach>
+  </delete>
+  
+  <delete id="deleteSysFrequentContactsByCondition" parameterType="com.apih5.mybatis.pojo.SysFrequentContacts" >
+    delete from sys_frequent_contacts
+    where del_flag = '0' 
+    <if test="loginUserKey != null and loginUserKey != ''" >
+     and login_user_key = #{loginUserKey,jdbcType=CHAR}
+    </if>
+    <!-- <if test="departmentId != null and departmentId != ''" >
+     and department_id = #{departmentId,jdbcType=VARCHAR}
+    </if> -->
+    <if test="sysFrequentContactsList != null and sysFrequentContactsList.size > 0" >
+    and user_key in
+    <!-- <![CDATA[ in  ]]>  -->
+     <foreach collection="sysFrequentContactsList" item = "model" open="(" separator="," close=")">#{model.value} 
+     </foreach>
+    </if>
+  </delete>
+  
+   <delete id="deleteSysFrequentContactsByCondition2" parameterType="java.util.List">
+      <foreach collection="list" item="item" index="index" open="" close="" separator=";" >  
+          delete from sys_frequent_contacts
+            <!--   <set>
+              create_time = #{item.createTime,jdbcType=TIMESTAMP},
+              create_user = #{item.createUser,jdbcType=CHAR},
+              create_user_name = #{item.createUserName,jdbcType=VARCHAR},
+              modify_time = #{item.modifyTime,jdbcType=TIMESTAMP},
+              modify_user = #{item.modifyUser,jdbcType=CHAR},
+              modify_user_name = #{item.modifyUserName,jdbcType=VARCHAR}
+            </set>  --> 
+           where del_flag = '0' 
+           <if test="item.value != null and item.value != ''" >
+             and user_key = #{item.value,jdbcType=CHAR}
+           </if>
+           <if test="item.loginUserKey != null and item.loginUserKey != ''" >
+             and login_user_key = #{item.loginUserKey,jdbcType=CHAR}
+           </if>
+           <if test="item.valuePid != null and item.valuePid != ''" >
+             and department_id = #{item.valuePid,jdbcType=VARCHAR}
+          </if>
+      </foreach>  
+  </delete>
+    
+  <update id="updateContactsCountByCondition" parameterType="com.apih5.mybatis.pojo.SysFrequentContacts" >
+    update sys_frequent_contacts
+    <set >        
+    <if test="count != null" >
+     count = count + #{count,jdbcType=INTEGER},
+    </if>
+    create_user = create_user
+    </set>
+    where del_flag = '0'
+    <if test="loginUserKey != null and loginUserKey != ''" >
+     and login_user_key = #{loginUserKey,jdbcType=CHAR}
+    </if>
+    <if test="userKey != null and userKey != ''" >
+     and user_key = #{userKey,jdbcType=CHAR}
+    </if>
+    <!-- where level_id in
+    <foreach collection="levelIdList" item = "item" open="(" separator="," close=")">#{item} 
+    </foreach> -->
+  </update>
+  
+  <update id="batchUpdateContactsCountByCondition" parameterType="java.util.List">  
+       <foreach collection="list" item="item" index="index" open="" close=";" separator=";">  
+         update sys_frequent_contacts
+                <set>  
+                   count = count + #{item.count,jdbcType=INTEGER}
+                </set>  
+               where del_flag = '0'
+               and login_user_key = #{item.loginUserKey,jdbcType=CHAR}
+               and user_key = #{item.userKey,jdbcType=CHAR}
+       </foreach>        
+   </update>
+  
+  <select id="countSysFrequentContactsList" resultType="int" parameterType="com.apih5.mybatis.pojo.SysFrequentContacts" >
+    select  count(*)
+    from sys_frequent_contacts
+    where del_flag = '0' 
+    <if test="loginUserKey != null and loginUserKey != ''" >
+     and login_user_key = #{loginUserKey,jdbcType=CHAR}
+    </if>
+    <if test="count != null" >
+     and count &gt;= #{count,jdbcType=INTEGER}
+    </if>
+    <if test="userKey != null and userKey != ''" >
+     and user_key = #{userKey,jdbcType=VARCHAR}
+    </if>
+    <if test="sysFrequentContactsList != null and sysFrequentContactsList.size > 0" >
+      and user_key in
+    <foreach collection="sysFrequentContactsList" item = "model" open="(" separator="," close=")">#{model.value} 
+    </foreach>
+    </if>
+  </select>
+  
+  <select id="countSysFrequentContactsList2" resultType="int" parameterType="com.apih5.mybatis.pojo.SysFrequentContacts" >
+    select  count(*)
+    from sys_frequent_contacts
+    where del_flag = '0' 
+    <if test="loginUserKey != null and loginUserKey != ''" >
+     and login_user_key = #{loginUserKey,jdbcType=CHAR}
+    </if>
+    <if test="count != null" >
+     and count &gt;= #{count,jdbcType=INTEGER}
+    </if>
+    <if test="userKey != null and userKey != ''" >
+     and user_key = #{userKey,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentId != null and departmentId != ''" >
+     and department_id = #{departmentId,jdbcType=VARCHAR}
+    </if>
+  </select>
+  
+  <insert id ="batchInsertSysFrequentContacts" parameterType="java.util.List" >
+       insert into sys_frequent_contacts 
+       (frequent_contacts_id, login_user_key, user_key, 
+      user_id, real_name, mobile, 
+      identity_card, gender, department_id, department_name,
+      show_department_name, expiration_date, 
+      count, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values 
+      <foreach collection ="list" item="item" index= "index" separator=",">
+     (
+      #{item.frequentContactsId,jdbcType=CHAR}, #{item.loginUserKey,jdbcType=CHAR}, #{item.userKey,jdbcType=CHAR}, 
+      #{item.userId,jdbcType=VARCHAR}, #{item.realName,jdbcType=VARCHAR}, #{item.mobile,jdbcType=VARCHAR}, 
+      #{item.identityCard,jdbcType=VARCHAR}, 
+      #{item.gender,jdbcType=CHAR}, 
+      #{item.departmentId,jdbcType=VARCHAR}, 
+      #{item.departmentName,jdbcType=VARCHAR}, 
+      #{item.showDepartmentName,jdbcType=VARCHAR}, 
+      #{item.expirationDate,jdbcType=TIMESTAMP}, 
+      #{item.count,jdbcType=INTEGER}, #{item.delFlag,jdbcType=CHAR}, #{item.createTime,jdbcType=TIMESTAMP}, 
+      #{item.createUser,jdbcType=CHAR}, #{item.createUserName,jdbcType=VARCHAR}, #{item.modifyTime,jdbcType=TIMESTAMP}, 
+      #{item.modifyUser,jdbcType=CHAR}, #{item.modifyUserName,jdbcType=VARCHAR}
+      )
+     </foreach >
+  </insert>
+  
+   <select id="getSysUserInfoListByUserKeyList" resultMap="BaseResultMap" parameterType="java.util.List" >
+    select 
+    user_key, user_id, real_name, mobile, gender, identity_card
+    from sys_user
+    where del_flag = '0'
+    <if test="list != null and list.size > 0" >
+      and user_key in
+     <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.value} 
+     </foreach>
+    </if>
+  </select>
+  
+  <select id="getContactsListFromTwHzWorklistDone" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysFrequentContacts" >
+    SELECT t1.login_user_key, t1.user_key, t1.count,
+           t2.user_id, t2.real_name, t2.mobile, t2.identity_card, t2.gender from
+    (SELECT SENDUSERID as login_user_key, AUTH_ID as user_key, SUM(1) as count 
+     FROM tw_hz_worklist_done
+     where SENDUSERID != '' and AUTH_ID != '' 
+     <if test="_parameter.startDate != null and _parameter.endDate != null" >
+      AND SENDTIME <![CDATA[>=]]> date_format(#{_parameter.startDate},'%Y-%m-%d') 
+      AND SENDTIME <![CDATA[<]]>  DATE_ADD(date_format(#{_parameter.endDate},'%Y-%m-%d'),INTERVAL 1 DAY) 
+     </if>
+     GROUP BY SENDUSERID, AUTH_ID) t1 INNER JOIN sys_user t2 on t1.user_key = t2.user_key 
+  </select>
+
+</mapper>

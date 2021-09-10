@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqEquipIntegratedQueryMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqEquipIntegratedQuery" >
+    <id column="zxEqEquipIntegratedQueryId" property="zxEqEquipIntegratedQueryId" jdbcType="CHAR" />
+    <result column="department_name" property="departmentName" jdbcType="VARCHAR" />
+    <result column="department_id" property="departmentId" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="VARCHAR" />
+    <result column="count1" property="count1" jdbcType="DECIMAL" />
+    <result column="orginalValue1" property="orginalValue1" jdbcType="DECIMAL" />
+    <result column="leftValue1" property="leftValue1" jdbcType="DECIMAL" />
+    <result column="count2" property="count2" jdbcType="DECIMAL" />
+    <result column="orginalValue2" property="orginalValue2" jdbcType="DECIMAL" />
+    <result column="leftValue2" property="leftValue2" jdbcType="DECIMAL" />
+    <result column="count3" property="count3" jdbcType="DECIMAL" />
+    <result column="orginalValue3" property="orginalValue3" jdbcType="DECIMAL" />
+    <result column="leftValue3" property="leftValue3" jdbcType="DECIMAL" />
+    <result column="count4" property="count4" jdbcType="DECIMAL" />
+    <result column="orginalValue4" property="orginalValue4" jdbcType="DECIMAL" />
+    <result column="leftValue4" property="leftValue4" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="parentID" property="parentID" jdbcType="VARCHAR" />
+    <result column="periodYear" property="periodYear" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxEqEquipIntegratedQueryId, department_name, department_id, sort, count1, 
+    orginalValue1, leftValue1, count2, orginalValue2, leftValue2, 
+    count3, orginalValue3, leftValue3, count4, orginalValue4, 
+    leftValue4, remarks, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_equipIntegratedQuery
+    where del_flag = '0' and zxEqEquipIntegratedQueryId = #{zxEqEquipIntegratedQueryId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_equipIntegratedQuery
+    where zxEqEquipIntegratedQueryId = #{zxEqEquipIntegratedQueryId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqEquipIntegratedQuery" >
+    insert into zx_eq_equipIntegratedQuery (
+    zxEqEquipIntegratedQueryId, department_name, department_id, sort, count1, 
+    orginalValue1, leftValue1, count2, orginalValue2, leftValue2, 
+    count3, orginalValue3, leftValue3, count4, orginalValue4, 
+    leftValue4, remarks, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxEqEquipIntegratedQueryId,jdbcType=CHAR}, #{departmentName,jdbcType=VARCHAR}, #{departmentId,jdbcType=VARCHAR}, #{sort,jdbcType=VARCHAR}, #{count1,jdbcType=DECIMAL}, 
+    #{orginalValue1,jdbcType=DECIMAL}, #{leftValue1,jdbcType=DECIMAL}, #{count2,jdbcType=DECIMAL}, #{orginalValue2,jdbcType=DECIMAL}, #{leftValue2,jdbcType=DECIMAL}, 
+    #{count3,jdbcType=DECIMAL}, #{orginalValue3,jdbcType=DECIMAL}, #{leftValue3,jdbcType=DECIMAL}, #{count4,jdbcType=DECIMAL}, #{orginalValue4,jdbcType=DECIMAL}, 
+    #{leftValue4,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+    #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqEquipIntegratedQuery" >
+    insert into zx_eq_equipIntegratedQuery
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxEqEquipIntegratedQueryId != null" >
+        zxEqEquipIntegratedQueryId,
+      </if>
+      <if test="departmentName != null" >
+        department_name,
+      </if>
+      <if test="departmentId != null" >
+        department_id,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="count1 != null" >
+        count1,
+      </if>
+      <if test="orginalValue1 != null" >
+        orginalValue1,
+      </if>
+      <if test="leftValue1 != null" >
+        leftValue1,
+      </if>
+      <if test="count2 != null" >
+        count2,
+      </if>
+      <if test="orginalValue2 != null" >
+        orginalValue2,
+      </if>
+      <if test="leftValue2 != null" >
+        leftValue2,
+      </if>
+      <if test="count3 != null" >
+        count3,
+      </if>
+      <if test="orginalValue3 != null" >
+        orginalValue3,
+      </if>
+      <if test="leftValue3 != null" >
+        leftValue3,
+      </if>
+      <if test="count4 != null" >
+        count4,
+      </if>
+      <if test="orginalValue4 != null" >
+        orginalValue4,
+      </if>
+      <if test="leftValue4 != null" >
+        leftValue4,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxEqEquipIntegratedQueryId != null" >
+        #{zxEqEquipIntegratedQueryId,jdbcType=CHAR},
+      </if>
+      <if test="departmentName != null" >
+        #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentId != null" >
+        #{departmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=VARCHAR},
+      </if>
+      <if test="count1 != null" >
+        #{count1,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue1 != null" >
+        #{orginalValue1,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue1 != null" >
+        #{leftValue1,jdbcType=DECIMAL},
+      </if>
+      <if test="count2 != null" >
+        #{count2,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue2 != null" >
+        #{orginalValue2,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue2 != null" >
+        #{leftValue2,jdbcType=DECIMAL},
+      </if>
+      <if test="count3 != null" >
+        #{count3,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue3 != null" >
+        #{orginalValue3,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue3 != null" >
+        #{leftValue3,jdbcType=DECIMAL},
+      </if>
+      <if test="count4 != null" >
+        #{count4,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue4 != null" >
+        #{orginalValue4,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue4 != null" >
+        #{leftValue4,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqEquipIntegratedQuery" >
+    update zx_eq_equipIntegratedQuery
+    <set >
+      <if test="departmentName != null" >
+        department_name = #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentId != null" >
+        department_id = #{departmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=VARCHAR},
+      </if>
+      <if test="count1 != null" >
+        count1 = #{count1,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue1 != null" >
+        orginalValue1 = #{orginalValue1,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue1 != null" >
+        leftValue1 = #{leftValue1,jdbcType=DECIMAL},
+      </if>
+      <if test="count2 != null" >
+        count2 = #{count2,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue2 != null" >
+        orginalValue2 = #{orginalValue2,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue2 != null" >
+        leftValue2 = #{leftValue2,jdbcType=DECIMAL},
+      </if>
+      <if test="count3 != null" >
+        count3 = #{count3,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue3 != null" >
+        orginalValue3 = #{orginalValue3,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue3 != null" >
+        leftValue3 = #{leftValue3,jdbcType=DECIMAL},
+      </if>
+      <if test="count4 != null" >
+        count4 = #{count4,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue4 != null" >
+        orginalValue4 = #{orginalValue4,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue4 != null" >
+        leftValue4 = #{leftValue4,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxEqEquipIntegratedQueryId = #{zxEqEquipIntegratedQueryId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqEquipIntegratedQuery" >
+    update zx_eq_equipIntegratedQuery set 
+      department_name = #{departmentName,jdbcType=VARCHAR},
+      department_id = #{departmentId,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=VARCHAR},
+      count1 = #{count1,jdbcType=DECIMAL},
+      orginalValue1 = #{orginalValue1,jdbcType=DECIMAL},
+      leftValue1 = #{leftValue1,jdbcType=DECIMAL},
+      count2 = #{count2,jdbcType=DECIMAL},
+      orginalValue2 = #{orginalValue2,jdbcType=DECIMAL},
+      leftValue2 = #{leftValue2,jdbcType=DECIMAL},
+      count3 = #{count3,jdbcType=DECIMAL},
+      orginalValue3 = #{orginalValue3,jdbcType=DECIMAL},
+      leftValue3 = #{leftValue3,jdbcType=DECIMAL},
+      count4 = #{count4,jdbcType=DECIMAL},
+      orginalValue4 = #{orginalValue4,jdbcType=DECIMAL},
+      leftValue4 = #{leftValue4,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxEqEquipIntegratedQueryId = #{zxEqEquipIntegratedQueryId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxEqEquipIntegratedQueryList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEquipIntegratedQuery" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_equipIntegratedQuery
+    where del_flag = '0'
+    <if test="zxEqEquipIntegratedQueryId != null and zxEqEquipIntegratedQueryId != ''" >
+     and zxEqEquipIntegratedQueryId = #{zxEqEquipIntegratedQueryId,jdbcType=CHAR}
+    </if>
+    <if test="departmentName != null and departmentName != ''" >
+     and department_name = #{departmentName,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentId != null and departmentId != ''" >
+     and department_id = #{departmentId,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=VARCHAR}
+    </if>
+    <if test="count1 != null and count1 != ''" >
+     and count1 = #{count1,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue1 != null and orginalValue1 != ''" >
+     and orginalValue1 = #{orginalValue1,jdbcType=DECIMAL}
+    </if>
+    <if test="leftValue1 != null and leftValue1 != ''" >
+     and leftValue1 = #{leftValue1,jdbcType=DECIMAL}
+    </if>
+    <if test="count2 != null and count2 != ''" >
+     and count2 = #{count2,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue2 != null and orginalValue2 != ''" >
+     and orginalValue2 = #{orginalValue2,jdbcType=DECIMAL}
+    </if>
+    <if test="leftValue2 != null and leftValue2 != ''" >
+     and leftValue2 = #{leftValue2,jdbcType=DECIMAL}
+    </if>
+    <if test="count3 != null and count3 != ''" >
+     and count3 = #{count3,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue3 != null and orginalValue3 != ''" >
+     and orginalValue3 = #{orginalValue3,jdbcType=DECIMAL}
+    </if>
+    <if test="leftValue3 != null and leftValue3 != ''" >
+     and leftValue3 = #{leftValue3,jdbcType=DECIMAL}
+    </if>
+    <if test="count4 != null and count4 != ''" >
+     and count4 = #{count4,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue4 != null and orginalValue4 != ''" >
+     and orginalValue4 = #{orginalValue4,jdbcType=DECIMAL}
+    </if>
+    <if test="leftValue4 != null and leftValue4 != ''" >
+     and leftValue4 = #{leftValue4,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqEquipIntegratedQuery" parameterType="com.apih5.mybatis.pojo.ZxEqEquipIntegratedQuery" >
+    <![CDATA[ 
+        update zx_eq_equipIntegratedQuery
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxEqEquipIntegratedQueryId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxEqEquipIntegratedQueryId} 
+     </foreach>
+  </delete>
+<select id="selectZxEqEquipIntegratedQuery" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEquipIntegratedQuery" >
+DROP TABLE IF EXISTS datayear;
+create table datayear
+(
+select datayear.* 
+from (
+select e.ID,e.ownerOrgID,e.abcType,
+       e.leftValue as leftValue,
+       e.orginalValue as orginalValue
+from zx_eq_Equip as e
+where DATE_FORMAT(e.regdate,'%Y')&lt;=#{periodYear,jdbcType=VARCHAR}
+  and not exists (select 1 from zx_eq_EquipScrape es where ifnull(es.auditStatus,'')='3' and DATE_FORMAT(es.scrapeDate,'%Y') &lt;= #{periodYear,jdbcType=VARCHAR} and es.equipID=e.ID)
+  and not exists (select 1 from zx_eq_AssetSell s inner join zx_eq_AssetSellItem si on si.masID=s.ID where ifnull(s.auditStatus,'')='4' and DATE_FORMAT(s.busDate,'%Y') &lt;= #{periodYear,jdbcType=VARCHAR} and si.equipID=e.ID)
+union all
+select distinct msi.equipID as ID,ms.outOrgID as ownerOrgID,e.abcType, 
+       e.leftValue as leftValue,
+       e.orginalValue as orginalValue
+from zx_eq_MoveSupervisorItem msi 
+inner join zx_eq_MoveSupervisor ms on msi.masID=ms.ID
+inner join zx_eq_Equip e on msi.equipID=e.ID
+where ms.auditStatus in ('2','4') 
+  and DATE_FORMAT(e.regdate,'%Y') &lt;= #{periodYear,jdbcType=VARCHAR} 
+  and DATE_FORMAT(ms.busDate,'%Y') &gt; #{periodYear,jdbcType=VARCHAR}
+) datayear
+);
+
+SELECT *,#{periodYear,jdbcType=VARCHAR} as periodYear
+FROM 
+(
+SELECT io.sort,io.department_id,io.department_name,#{periodYear,jdbcType=VARCHAR} as periodYear,
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM datayear ie WHERE ie.abcType='A' and ie.ownerOrgID IN (SELECT o1.department_ID FROM sys_department o1 WHERE o1.department_path LIKE io.department_id ||'%')) as count1,
+(SELECT CASE sum(ie.orginalValue) WHEN 0 THEN NULL ELSE sum(ie.orginalValue) END FROM datayear ie WHERE ie.abcType='A' and ie.ownerOrgID IN (SELECT o1.department_ID FROM sys_department o1 WHERE o1.department_path LIKE io.department_id ||'%')) as orginalValue1,
+(SELECT CASE sum(ie.leftValue) WHEN 0 THEN NULL ELSE sum(ie.leftValue) END FROM zx_eq_Equip ie WHERE ie.abcType='A' and ie.ownerOrgID IN (SELECT o1.department_ID FROM sys_department o1 WHERE o1.department_path LIKE io.department_id ||'%')) as leftValue1,
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM datayear ie WHERE ie.abcType='B' and ie.ownerOrgID IN (SELECT o1.department_ID FROM sys_department o1 WHERE o1.department_path LIKE io.department_id ||'%')) as count2,
+(SELECT CASE sum(ie.orginalValue) WHEN 0 THEN NULL ELSE sum(ie.orginalValue) END FROM datayear ie WHERE ie.abcType='B' and ie.ownerOrgID IN (SELECT o1.department_ID FROM sys_department o1 WHERE o1.department_path LIKE io.department_id ||'%')) as orginalValue2,
+(SELECT CASE sum(ie.leftValue) WHEN 0 THEN NULL ELSE sum(ie.leftValue) END FROM datayear ie WHERE ie.abcType='B' and ie.ownerOrgID IN (SELECT o1.department_ID FROM sys_department o1 WHERE o1.department_path LIKE io.department_id ||'%')) as leftValue2,
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM datayear ie WHERE ie.abcType='C' and ie.ownerOrgID IN (SELECT o1.department_ID FROM sys_department o1 WHERE o1.department_path LIKE io.department_id ||'%')) as count3,
+(SELECT CASE sum(ie.orginalValue) WHEN 0 THEN NULL ELSE sum(ie.orginalValue) END FROM datayear ie WHERE ie.abcType='C' and ie.ownerOrgID IN (SELECT o1.department_ID FROM sys_department o1 WHERE o1.department_path LIKE io.department_id ||'%')) as orginalValue3,
+(SELECT CASE sum(ie.leftValue) WHEN 0 THEN NULL ELSE sum(ie.leftValue) END FROM datayear ie WHERE ie.abcType='C' and ie.ownerOrgID IN (SELECT o1.department_ID FROM sys_department o1 WHERE o1.department_path LIKE io.department_id ||'%')) as leftValue3,
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM datayear ie WHERE ie.abcType='D' and ie.ownerOrgID IN (SELECT o1.department_ID FROM sys_department o1 WHERE o1.department_path LIKE io.department_id ||'%')) as count4,
+(SELECT CASE sum(ie.orginalValue) WHEN 0 THEN NULL ELSE sum(ie.orginalValue) END FROM datayear ie WHERE ie.abcType='D' and ie.ownerOrgID IN (SELECT o1.department_ID FROM sys_department o1 WHERE o1.department_path LIKE io.department_id ||'%')) as orginalValue4,
+(SELECT CASE sum(ie.leftValue) WHEN 0 THEN NULL ELSE sum(ie.leftValue) END FROM datayear ie WHERE ie.abcType='D' and ie.ownerOrgID IN (SELECT o1.department_ID FROM sys_department o1 WHERE o1.department_path LIKE io.department_id ||'%')) as leftValue4
+FROM sys_department io
+WHERE io.department_parent_id=#{parentID,jdbcType=VARCHAR}
+GROUP BY io.sort,io.department_id,io.department_name
+)t WHERE count1 IS NOT NULL OR orginalValue1 IS NOT NULL OR leftValue1 IS NOT NULL OR count2 IS NOT NULL OR orginalValue2 IS NOT NULL OR leftValue2 IS NOT NULL
+OR count3 IS NOT NULL OR orginalValue3 IS NOT NULL OR leftValue3 IS NOT NULL
+order by sort
+</select>
+</mapper>

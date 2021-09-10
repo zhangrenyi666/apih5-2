@@ -1,0 +1,25 @@
+package com.apih5.service;
+
+import java.util.List;
+
+import com.apih5.framework.entity.ResponseEntity;
+import com.apih5.mybatis.pojo.ZjXmCqjxProjectDisciplineAssessmentMember;
+
+public interface ZjXmCqjxProjectDisciplineAssessmentMemberService {
+
+    public ResponseEntity getZjXmCqjxProjectDisciplineAssessmentMemberListByCondition(ZjXmCqjxProjectDisciplineAssessmentMember zjXmCqjxProjectDisciplineAssessmentMember);
+
+    public ResponseEntity getZjXmCqjxProjectDisciplineAssessmentMemberDetails(ZjXmCqjxProjectDisciplineAssessmentMember zjXmCqjxProjectDisciplineAssessmentMember);
+
+    public ResponseEntity saveZjXmCqjxProjectDisciplineAssessmentMember(ZjXmCqjxProjectDisciplineAssessmentMember zjXmCqjxProjectDisciplineAssessmentMember);
+
+    public ResponseEntity updateZjXmCqjxProjectDisciplineAssessmentMember(ZjXmCqjxProjectDisciplineAssessmentMember zjXmCqjxProjectDisciplineAssessmentMember);
+
+    public ResponseEntity batchDeleteUpdateZjXmCqjxProjectDisciplineAssessmentMember(List<ZjXmCqjxProjectDisciplineAssessmentMember> zjXmCqjxProjectDisciplineAssessmentMemberList);
+    
+    public ResponseEntity batchAddZjXmCqjxDisciplineAssessmentMember(List<ZjXmCqjxProjectDisciplineAssessmentMember> zjXmCqjxProjectDisciplineAssessmentMemberList);
+    
+    public ResponseEntity zjXmCqjxDisciplineAssessmentSubmit(ZjXmCqjxProjectDisciplineAssessmentMember zjXmCqjxProjectDisciplineAssessmentMember);    
+
+}
+

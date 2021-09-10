@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzInvXmhgqkMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzInvXmhgqk" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="inv_pro_id" property="invProId" jdbcType="CHAR" />
+    <result column="hgq" property="hgq" jdbcType="VARCHAR" />
+    <result column="yshsk" property="yshsk" jdbcType="DECIMAL" />
+    <result column="sjhgsj" property="sjhgsj" jdbcType="TIMESTAMP" />
+    <result column="sjhgje" property="sjhgje" jdbcType="DECIMAL" />
+    <result column="hgje_bq" property="hgjeBq" jdbcType="DECIMAL" />
+    <result column="hgje_hgbl" property="hgjeHgbl" jdbcType="VARCHAR" />
+    <result column="period_type" property="periodType" jdbcType="VARCHAR" />
+    <result column="period_value" property="periodValue" jdbcType="VARCHAR" />
+    <result column="org" property="org" jdbcType="CHAR" />
+    <result column="currency" property="currency" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="DECIMAL" />
+    <result column="create_by" property="createBy" jdbcType="CHAR" />
+    <result column="create_org" property="createOrg" jdbcType="CHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="CHAR" />
+    <result column="update_org" property="updateOrg" jdbcType="CHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="bnlj" property="bnlj" jdbcType="DECIMAL" />
+    <result column="kglj" property="kglj" jdbcType="DECIMAL" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+    <result column="comname" property="comname" jdbcType="VARCHAR" />
+    <result column="pro_category" property="proCategory" jdbcType="VARCHAR" />
+    <result column="pro_name" property="proName" jdbcType="VARCHAR" />
+    <result column="szgq" property="szgq" jdbcType="DECIMAL" />
+    <result column="hgxy_money" property="hgxyMoney" jdbcType="DECIMAL" />
+    <result column="hgxy_date" property="hgxyDate" jdbcType="DATE" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
+    <result column="ztze" property="ztze" jdbcType="DECIMAL" />
+    <result column="pro_num" property="proNum" jdbcType="VARCHAR" />
+    <result column="pro_inv_category" property="proInvCategory" jdbcType="VARCHAR" />
+    <result column="chyhdk" property="chyhdk" jdbcType="DECIMAL" />
+    <result column="chdklx" property="chdklx" jdbcType="DECIMAL" />
+    <result column="chzbj" property="chzbj" jdbcType="DECIMAL" />
+    <result column="zjjz" property="zjjz" jdbcType="DECIMAL" />
+    <result column="qt" property="qt" jdbcType="DECIMAL" />
+    <result column="category_name" property="categoryName" jdbcType="VARCHAR" />
+    <result column="type_name" property="typeName" jdbcType="VARCHAR" />
+    <result column="proId" property="proId" jdbcType="VARCHAR" />
+    <result column="gqbl" property="gqbl" jdbcType="DECIMAL" />
+    <result column="short_name" property="shortName" jdbcType="VARCHAR" />
+    <result column="hte" property="hte" jdbcType="DECIMAL" />
+    <result column="yjhgze" property="yjhgze" jdbcType="DECIMAL" />
+    <result column="klhgbl" property="klhgbl" jdbcType="DECIMAL" />
+    <result column="amount2" property="amount2" jdbcType="DECIMAL" />
+    <result column="wklhgje" property="wklhgje" jdbcType="DECIMAL" />
+    <result column="bnyhg" property="bnyhg" jdbcType="DECIMAL" />
+    <result column="wbnlj" property="wbnlj" jdbcType="DECIMAL" />
+    <result column="n1" property="n1" jdbcType="VARCHAR" />
+    <result column="n2" property="n2" jdbcType="VARCHAR" />
+    <result column="klyhgje" property="klyhgje" jdbcType="DECIMAL" />
+    <result column="firstYear" property="firstYear" jdbcType="INTEGER" />
+    <result column="currentYear" property="currentYear" jdbcType="INTEGER" />
+    <result column="lastYear" property="lastYear" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, inv_pro_id, hgq, yshsk, sjhgsj, 
+    sjhgje, hgje_bq, hgje_hgbl, period_type, period_value, 
+    org, currency, sort, create_by, create_org, 
+    create_date, update_by, update_org, update_date, remarks, 
+    del_flag, bnlj, kglj, bz
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from del_flag = '0' and zj_tz_inv_xmhgqk
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_inv_xmhgqk
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzInvXmhgqk" >
+    insert into zj_tz_inv_xmhgqk (id, inv_pro_id, hgq, 
+      yshsk, sjhgsj, sjhgje, 
+      hgje_bq, hgje_hgbl, period_type, 
+      period_value, org, currency, 
+      sort, create_by, create_org, 
+      create_date, update_by, update_org, 
+      update_date, remarks, del_flag, 
+      bnlj, kglj, bz
+      )
+    values (#{id,jdbcType=CHAR}, #{invProId,jdbcType=CHAR}, #{hgq,jdbcType=VARCHAR}, 
+      #{yshsk,jdbcType=DECIMAL}, #{sjhgsj,jdbcType=TIMESTAMP}, #{sjhgje,jdbcType=DECIMAL}, 
+      #{hgjeBq,jdbcType=DECIMAL}, #{hgjeHgbl,jdbcType=VARCHAR}, #{periodType,jdbcType=VARCHAR}, 
+      #{periodValue,jdbcType=VARCHAR}, #{org,jdbcType=CHAR}, #{currency,jdbcType=VARCHAR}, 
+      #{sort,jdbcType=DECIMAL}, #{createBy,jdbcType=CHAR}, #{createOrg,jdbcType=CHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=CHAR}, #{updateOrg,jdbcType=CHAR}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{bnlj,jdbcType=DECIMAL}, #{kglj,jdbcType=DECIMAL}, #{bz,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzInvXmhgqk" >
+    insert into zj_tz_inv_xmhgqk
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="invProId != null" >
+        inv_pro_id,
+      </if>
+      <if test="hgq != null" >
+        hgq,
+      </if>
+      <if test="yshsk != null" >
+        yshsk,
+      </if>
+      <if test="sjhgsj != null" >
+        sjhgsj,
+      </if>
+      <if test="sjhgje != null" >
+        sjhgje,
+      </if>
+      <if test="hgjeBq != null" >
+        hgje_bq,
+      </if>
+      <if test="hgjeHgbl != null" >
+        hgje_hgbl,
+      </if>
+      <if test="periodType != null" >
+        period_type,
+      </if>
+      <if test="periodValue != null" >
+        period_value,
+      </if>
+      <if test="org != null" >
+        org,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createOrg != null" >
+        create_org,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateOrg != null" >
+        update_org,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="bnlj != null" >
+        bnlj,
+      </if>
+      <if test="kglj != null" >
+        kglj,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="invProId != null" >
+        #{invProId,jdbcType=CHAR},
+      </if>
+      <if test="hgq != null" >
+        #{hgq,jdbcType=VARCHAR},
+      </if>
+      <if test="yshsk != null" >
+        #{yshsk,jdbcType=DECIMAL},
+      </if>
+      <if test="sjhgsj != null" >
+        #{sjhgsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sjhgje != null" >
+        #{sjhgje,jdbcType=DECIMAL},
+      </if>
+      <if test="hgjeBq != null" >
+        #{hgjeBq,jdbcType=DECIMAL},
+      </if>
+      <if test="hgjeHgbl != null" >
+        #{hgjeHgbl,jdbcType=VARCHAR},
+      </if>
+      <if test="periodType != null" >
+        #{periodType,jdbcType=VARCHAR},
+      </if>
+      <if test="periodValue != null" >
+        #{periodValue,jdbcType=VARCHAR},
+      </if>
+      <if test="org != null" >
+        #{org,jdbcType=CHAR},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=DECIMAL},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=CHAR},
+      </if>
+      <if test="createOrg != null" >
+        #{createOrg,jdbcType=CHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=CHAR},
+      </if>
+      <if test="updateOrg != null" >
+        #{updateOrg,jdbcType=CHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="bnlj != null" >
+        #{bnlj,jdbcType=DECIMAL},
+      </if>
+      <if test="kglj != null" >
+        #{kglj,jdbcType=DECIMAL},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzInvXmhgqk" >
+    update zj_tz_inv_xmhgqk
+    <set >
+      <if test="invProId != null" >
+        inv_pro_id = #{invProId,jdbcType=CHAR},
+      </if>
+      <if test="hgq != null" >
+        hgq = #{hgq,jdbcType=VARCHAR},
+      </if>
+      <if test="yshsk != null" >
+        yshsk = #{yshsk,jdbcType=DECIMAL},
+      </if>
+      <if test="sjhgsj != null" >
+        sjhgsj = #{sjhgsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sjhgje != null" >
+        sjhgje = #{sjhgje,jdbcType=DECIMAL},
+      </if>
+      <if test="hgjeBq != null" >
+        hgje_bq = #{hgjeBq,jdbcType=DECIMAL},
+      </if>
+      <if test="hgjeHgbl != null" >
+        hgje_hgbl = #{hgjeHgbl,jdbcType=VARCHAR},
+      </if>
+      <if test="periodType != null" >
+        period_type = #{periodType,jdbcType=VARCHAR},
+      </if>
+      <if test="periodValue != null" >
+        period_value = #{periodValue,jdbcType=VARCHAR},
+      </if>
+      <if test="org != null" >
+        org = #{org,jdbcType=CHAR},
+      </if>
+      <if test="currency != null" >
+        currency = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=DECIMAL},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=CHAR},
+      </if>
+      <if test="createOrg != null" >
+        create_org = #{createOrg,jdbcType=CHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=CHAR},
+      </if>
+      <if test="updateOrg != null" >
+        update_org = #{updateOrg,jdbcType=CHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="bnlj != null" >
+        bnlj = #{bnlj,jdbcType=DECIMAL},
+      </if>
+      <if test="kglj != null" >
+        kglj = #{kglj,jdbcType=DECIMAL},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzInvXmhgqk" >
+    update zj_tz_inv_xmhgqk
+    set       inv_pro_id = #{invProId,jdbcType=CHAR},
+      hgq = #{hgq,jdbcType=VARCHAR},
+      yshsk = #{yshsk,jdbcType=DECIMAL},
+      sjhgsj = #{sjhgsj,jdbcType=TIMESTAMP},
+      sjhgje = #{sjhgje,jdbcType=DECIMAL},
+      hgje_bq = #{hgjeBq,jdbcType=DECIMAL},
+      hgje_hgbl = #{hgjeHgbl,jdbcType=VARCHAR},
+      period_type = #{periodType,jdbcType=VARCHAR},
+      period_value = #{periodValue,jdbcType=VARCHAR},
+      org = #{org,jdbcType=CHAR},
+      currency = #{currency,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=DECIMAL},
+      create_by = #{createBy,jdbcType=CHAR},
+      create_org = #{createOrg,jdbcType=CHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=CHAR},
+      update_org = #{updateOrg,jdbcType=CHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      bnlj = #{bnlj,jdbcType=DECIMAL},
+      kglj = #{kglj,jdbcType=DECIMAL},
+      bz = #{bz,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzInvXmhgqkList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzInvXmhgqk" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_inv_xmhgqk
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=}
+    </if>
+    <if test="invProId != null and invProId != ''" >
+     and inv_pro_id = #{invProId,jdbcType=CHAR}
+    </if>
+    <if test="hgq != null and hgq != ''" >
+     and hgq = #{hgq,jdbcType=VARCHAR}
+    </if>
+    <if test="yshsk != null and yshsk != ''" >
+     and yshsk = #{yshsk,jdbcType=DECIMAL}
+    </if>
+    <if test="sjhgsj != null and sjhgsj != ''" >
+     and sjhgsj = #{sjhgsj,jdbcType=TIMESTAMP}
+    </if>
+    <if test="sjhgje != null and sjhgje != ''" >
+     and sjhgje = #{sjhgje,jdbcType=DECIMAL}
+    </if>
+    <if test="hgjeBq != null and hgjeBq != ''" >
+     and hgje_bq = #{hgjeBq,jdbcType=DECIMAL}
+    </if>
+    <if test="hgjeHgbl != null and hgjeHgbl != ''" >
+     and hgje_hgbl = #{hgjeHgbl,jdbcType=VARCHAR}
+    </if>
+    <if test="periodType != null and periodType != ''" >
+     and period_type = #{periodType,jdbcType=VARCHAR}
+    </if>
+    <if test="periodValue != null and periodValue != ''" >
+     and period_value = #{periodValue,jdbcType=VARCHAR}
+    </if>
+    <if test="org != null and org != ''" >
+     and org = #{org,jdbcType=CHAR}
+    </if>
+    <if test="currency != null and currency != ''" >
+     and currency = #{currency,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=DECIMAL}
+    </if>
+    <if test="createBy != null and createBy != ''" >
+     and create_by = #{createBy,jdbcType=CHAR}
+    </if>
+    <if test="createOrg != null and createOrg != ''" >
+     and create_org = #{createOrg,jdbcType=CHAR}
+    </if>
+    <if test="createDate != null and createDate != ''" >
+     and create_date = #{createDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updateBy != null and updateBy != ''" >
+     and update_by = #{updateBy,jdbcType=CHAR}
+    </if>
+    <if test="updateOrg != null and updateOrg != ''" >
+     and update_org = #{updateOrg,jdbcType=CHAR}
+    </if>
+    <if test="updateDate != null and updateDate != ''" >
+     and update_date = #{updateDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="bnlj != null and bnlj != ''" >
+     and bnlj = #{bnlj,jdbcType=DECIMAL}
+    </if>
+    <if test="kglj != null and kglj != ''" >
+     and kglj = #{kglj,jdbcType=DECIMAL}
+    </if>
+    <if test="bz != null and bz != ''" >
+     and bz = #{bz,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzInvXmhgqk" parameterType="com.apih5.mybatis.pojo.ZjTzInvXmhgqk" >
+    <![CDATA[ 
+        update zj_tz_inv_xmhgqk
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+  <select id="selectZjTzInvXmhgqkMonthlyReportListByPeriodValue" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzInvXmhgqk">
+  	SELECT
+		t1.id,
+		t3.project_id AS proId,
+		t5.pro_no AS pro_num,
+		t5.project_name AS pro_name,
+		t5.company_name AS comname,
+		(SELECT d.label FROM sys_dict d INNER JOIN sys_dict_category c ON c.id = d.category_id and  c.del_flag = '0' 
+		INNER JOIN pro_inv_basic b ON b.pro_category = d.value and b.del_flag = '0'
+		where  d.del_flag = '0' AND c.category_code = 'XMLX'AND b.project_id = t3.project_id ) AS type_name,
+				
+		(SELECT  d.label FROM sys_dict  d inner join  sys_dict_category c  on c.id = d.category_id  and  c.del_flag = '0' 
+		inner join  pro_inv_basic b  on b.gclb = d.value and  b.del_flag = '0'
+		where  d.del_flag = '0'  and  c.category_code = 'XM_GXLB' AND b.project_id = t3.project_id) AS category_name,
+		t5.amount1 AS ztze,
+		t2.szgq,
+		(SELECT SUM(pi.hgxy_money)  FROM pro_inv_xmhg_info pi WHERE pi.inv_htinfo_id = t4.id ) AS hgxy_money,
+		(SELECT DATE_FORMAT( min( pi.hgxy_date ), '%Y-%m-%d' ) FROM pro_inv_xmhg_info pi WHERE pi.inv_htinfo_id = t4.id ) AS hgxy_date,
+		PERIOD_DIFF(#{periodValue},(select  DATE_FORMAT(min(pi.hgxy_date), '%Y%m')  from pro_inv_xmhg_info pi where pi.inv_htinfo_id=t4.id)) AS ljhgq,
+		t1.*,
+		CASE t7.category WHEN '1.0' THEN	t7.money ELSE 0 END chyhdk,
+		CASE t7.category WHEN '2.0' THEN	t7.money ELSE 0 END chdklx,
+		CASE t7.category WHEN '3.0' THEN	t7.money ELSE 0 END chzbj,
+		CASE t7.category WHEN '4.0' THEN	t7.money ELSE 0 END zjjz,
+		CASE t7.category WHEN '5.0' THEN	t7.money ELSE 0 END qt
+	FROM
+		pro_inv_xmhgqk t1
+	INNER JOIN pro_inv_com_inf t2 ON t2.inv_pro_id = t1.inv_pro_id and t2.del_flag = '0'
+	INNER JOIN pro_inv_basic t3 ON t3.id = t1.inv_pro_id and t3.del_flag = '0'
+	INNER JOIN pro_inv_ht_info t4 ON t4.inv_pro_id = t1.inv_pro_id and t4.del_flag = '0'
+	INNER JOIN zj_tz_pro_manage t5 ON t5.project_id = t3.project_id and t5.del_flag = '0'
+	LEFT JOIN pro_inv_xmhg_info t6 ON t6.inv_htinfo_id = t4.id AND DATE_FORMAT(t6.hgxy_date,'%Y%m') = #{periodValue}
+	LEFT JOIN pro_inv_xmhgqk_hgljsyqk t7 ON t7.xmhgqk_id = t1.id
+	<where>
+		t1.del_flag = '0'
+		<if test="periodValue != null and periodValue != ''">
+		 and t1.period_value = #{periodValue}
+		</if>
+		<if test="proId != null and proId != ''" >
+	     and t3.project_id = #{proId,jdbcType=CHAR}
+	    </if>
+	     <if test="projectId != null and projectId != ''" >
+	     and t3.project_id = #{projectId,jdbcType=CHAR}
+	    </if>
+	    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+	     and t3.project_id in (${projectIdSql})
+	    </if>
+	</where>
+	ORDER BY CAST(sort1 AS DECIMAL),pro_no
+  </select>
+  
+  <select id="selectZjTzInvXmhgqkMonthlyReportListBasicData"  resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzInvXmhgqk">
+	SELECT
+		t3.id,
+		t4.project_id AS proId,
+		t4.pro_no AS pro_num,
+		t4.company_name AS comname,
+		t4.project_name AS pro_name,
+		t3.create_date,
+		t3.period_value 
+	FROM
+		zj_tz_pro_manage t4
+		INNER JOIN pro_inv_basic t1 ON t1.project_id = t4.project_id
+		INNER JOIN pro_inv_com_inf t2 ON t2.inv_pro_id = t1.id
+		INNER JOIN pro_inv_xmhgqk t3 ON t3.inv_pro_id = t1.id 
+	<where>
+		t4.del_flag = '0'
+		<if test="projectId != null and projectId != ''" >
+	     and t4.project_id = #{projectId}
+	    </if>
+	    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+	     and t4.project_id in (${projectIdSql})
+	    </if>
+	</where>
+	ORDER BY t3.period_value DESC
+  </select>
+  <!-- 回购数据 -->
+  <select id="selectHomeChartHgData" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzInvXmhgqk">
+	SELECT
+		t3.project_id,
+		t3.project_short_name short_name,
+		t3.company_name comname,
+		(
+			SELECT
+				SUM( TABLE1.hte ) 
+			FROM
+				(
+				(
+			SELECT
+				t4.project_id,
+				IFNULL( t1.bcjaf_money, 0 ) + IFNULL( t1.bcjlf_money, 0 ) + IFNULL( t1.bczcf_money, 0 ) + IFNULL( t1.bcglf_money, 0 ) + IFNULL( t1.bcccsjf_money, 0 ) + IFNULL( t1.bcoth_money, 0 ) AS hte 
+			FROM
+				pro_inv_bgbcxy t1
+				INNER JOIN pro_inv_ht_info t2 ON t2.id = t1.inv_htinfo_id 
+				AND t2.del_flag = '0'
+				INNER JOIN pro_inv_basic t3 ON t3.id = t2.inv_pro_id 
+				AND t3.del_flag = '0'
+				INNER JOIN zj_tz_pro_manage t4 ON t4.project_id = t3.project_id 
+				AND t4.del_flag = '0' 
+				AND t4.project_type = '0' 
+			<where>
+			t1.del_flag = '0'
+			<if test="projectId != null and projectId != ''" >
+	 		AND t4.project_id = #{projectId} 
+			</if>
+			<if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+	     	AND t4.project_id in (${projectIdSql})
+	    	</if>
+			<if test="periodValue != null and periodValue != ''">
+	 		AND DATE_FORMAT( t1.bcxyqd_date, '%Y%m' ) &lt;= #{periodValue}
+			</if>
+			</where>
+				) UNION ALL
+				(
+			SELECT
+				t4.project_id,
+				IFNULL( t2.ztze, 0 ) AS hte 
+			FROM
+				pro_inv_ht_info t2
+				INNER JOIN pro_inv_basic t3 ON t3.id = t2.inv_pro_id 
+				AND t3.del_flag = '0'
+				INNER JOIN zj_tz_pro_manage t4 ON t4.project_id = t3.project_id 
+				AND t4.del_flag = '0' 
+				AND t4.project_type = '0' 
+			<where>
+			t2.del_flag = '0'
+			<if test="projectId != null and projectId != ''" >
+	 		AND t4.project_id = #{projectId} 
+			</if>
+			<if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+	     	AND t4.project_id in (${projectIdSql})
+	    	</if>
+			<if test="periodValue != null and periodValue != ''">
+	 		AND DATE_FORMAT( t2.htqd_date, '%Y%m' ) &lt;= #{periodValue} 
+			</if>
+			</where>
+				) 
+				) AS TABLE1
+			WHERE TABLE1.project_id = t3.project_id ) AS hte,
+		
+		IFNULL((SELECT TRUNCATE(IFNULL(SUM(IFNULL(appoint_amount,0)),0)/10000,2)   FROM zj_tz_pro_rebuy_info_plan 
+		WHERE del_flag = '0' and project_id = t3.project_id
+		<if test="periodValue != null and periodValue != '' ">
+		and DATE_FORMAT(appoint_date,'%Y%m') &lt;= #{periodValue}
+		</if>
+		),0)  AS yjhgze, 
+		
+		IFNULL((SELECT TRUNCATE(IFNULL(SUM(IFNULL(hgje,0)),0)/10000,2) FROM pro_inv_xmhgqk_mx tab1 
+		LEFT JOIN pro_inv_xmhgqk tab2 ON tab2.id = tab1.hgqk_id and tab2.del_flag = '0' 
+		LEFT JOIN pro_inv_basic tab3 ON tab3.id = tab2.inv_pro_id and tab3.del_flag = '0' 
+		WHERE tab3.project_id = t3.project_id
+		<if test="periodValue != null and periodValue != '' ">
+		and tab2.period_value &lt;= #{periodValue}
+		</if>
+		),0) AS sjhgje,
+		
+		IFNULL((SELECT IFNULL(SUM(IFNULL(hgje,0)),0) FROM pro_inv_xmhgqk_mx tab1 
+		LEFT JOIN pro_inv_xmhgqk tab2 ON tab2.id = tab1.hgqk_id and tab2.del_flag = '0' 
+		LEFT JOIN pro_inv_basic tab3 ON tab3.id = tab2.inv_pro_id and tab3.del_flag = '0' 
+		WHERE tab3.project_id = t3.project_id
+		<if test="periodValue != null and periodValue != '' ">
+		and tab2.period_value &lt;= #{periodValue}
+		</if> 
+		),0)/
+		IFNULL((SELECT IFNULL(SUM(IFNULL(appoint_amount,0)),0)   FROM zj_tz_pro_rebuy_info_plan 
+		WHERE del_flag = '0' and project_id = t3.project_id
+		<if test="periodValue != null and periodValue != '' ">
+		and DATE_FORMAT(appoint_date,'%Y%m') &lt;= #{periodValue}
+		</if>
+		),0) AS klhgbl,
+	
+		IFNULL((SELECT TRUNCATE ( IFNULL(SUM(IFNULL(appoint_amount,0)),0) / 10000, 2 ) FROM zj_tz_pro_rebuy_info_plan tb6 
+		WHERE tb6.del_flag = '0' and tb6.project_id = t3.project_id 
+			<if test="periodValue != null and periodValue != ''">
+				and SUBSTR(appoint_date, 1 , 4) = YEAR(STR_TO_DATE(#{periodValue},'%Y%m'))
+			</if>
+		),0) AS bnyhg,
+		
+		IFNULL((SELECT TRUNCATE(IFNULL(SUM(IFNULL(hgje,0)),0)/10000,2)   FROM pro_inv_xmhgqk_mx tab1 
+		LEFT JOIN pro_inv_xmhgqk tab2 ON tab2.id = tab1.hgqk_id and tab2.del_flag = '0' 
+		LEFT JOIN pro_inv_basic tab3 ON tab3.id = tab2.inv_pro_id and tab3.del_flag = '0' 
+		WHERE tab3.project_id = t3.project_id and SUBSTR(tab2.period_value,1,4)  = YEAR(STR_TO_DATE(#{periodValue},'%Y%m')) ),0) AS bnlj,
+		
+		IFNULL((SELECT TRUNCATE(IFNULL(SUM(IFNULL(hgje,0)),0)/10000,2) FROM pro_inv_xmhgqk_mx tab1 
+		LEFT JOIN pro_inv_xmhgqk tab2 ON tab2.id = tab1.hgqk_id and tab2.del_flag = '0' 
+		LEFT JOIN pro_inv_basic tab3 ON tab3.id = tab2.inv_pro_id and tab3.del_flag = '0' 
+		WHERE tab3.project_id = t3.project_id 
+		<if test="periodValue != null and periodValue != ''">
+		and tab2.period_value = #{periodValue}
+		</if>
+		),0) AS hgje_bq 
+		FROM
+		zj_tz_pro_manage t3 
+	<where>
+		t3.del_flag = '0' and t3.project_type = '0' and (t3.pro_process_id = '4' or t3.pro_process_id = '6') 
+		<if test="projectId != null and projectId != ''">
+			and t3.project_id = #{projectId}
+		</if>
+		<if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     		and t3.project_id in (${projectIdSql})
+    	</if>
+		<if test="comname != null and comname != ''">
+			and t3.company_name = #{comname}
+		</if>
+	</where>
+	ORDER BY CAST(t3.sort1 AS DECIMAL),t3.pro_no
+  </select>
+  <!--回购页-回购情况 -->
+  <select id="selectHgPageHgStatus" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzInvXmhgqk">
+  	SELECT
+		t3.project_id,
+		IFNULL((SELECT TRUNCATE(IFNULL(SUM(IFNULL(appoint_amount,0)),0)/10000,2)   FROM zj_tz_pro_rebuy_info_plan 
+		<where>
+		del_flag = '0'
+		<if test="projectId != null and projectId != ''">
+		and project_id = #{projectId}
+		</if>
+		</where>),0) AS yjhgze,
+		
+		IFNULL((SELECT TRUNCATE(IFNULL(SUM(IFNULL(hgje,0)),0)/10000,2) FROM pro_inv_xmhgqk_mx tab1 
+		LEFT JOIN pro_inv_xmhgqk tab2 ON tab2.id = tab1.hgqk_id and tab2.del_flag = '0' 
+		LEFT JOIN pro_inv_basic tab3 ON tab3.id = tab2.inv_pro_id and tab3.del_flag = '0' 
+		<where>
+		<if test="projectId != null and projectId != ''">
+		tab3.project_id = #{projectId}
+		</if>
+		</where>
+		),0) AS sjhgje,
+		
+		IFNULL((SELECT TRUNCATE(IFNULL(SUM(IFNULL(appoint_amount,0)),0)/10000,2)   FROM zj_tz_pro_rebuy_info_plan 
+		<where>
+		del_flag = '0'
+		<if test="projectId != null and projectId != ''">
+		and project_id = #{projectId}
+		</if>
+		</where>),0) -
+		IFNULL((SELECT TRUNCATE(IFNULL(SUM(IFNULL(hgje,0)),0)/10000,2) FROM pro_inv_xmhgqk_mx tab1 
+		LEFT JOIN pro_inv_xmhgqk tab2 ON tab2.id = tab1.hgqk_id and tab2.del_flag = '0' 
+		LEFT JOIN pro_inv_basic tab3 ON tab3.id = tab2.inv_pro_id and tab3.del_flag = '0' 
+		<where>
+		<if test="projectId != null and projectId != ''">
+		tab3.project_id = #{projectId}
+		</if>
+		</where>
+		),0)  AS wklhgje,
+		
+		IFNULL((SELECT TRUNCATE ( IFNULL(SUM(IFNULL(appoint_amount,0)),0) / 10000, 2 ) FROM zj_tz_pro_rebuy_info_plan tb6 
+		<where>
+		tb6.del_flag = '0' and DATE_FORMAT(appoint_date,'%Y') = YEAR(NOW())
+		<if test="projectId != null and projectId != ''">
+		and tb6.project_id = #{projectId} 
+		</if>
+		</where>
+		),0) AS bnyhg,
+		
+		IFNULL((SELECT TRUNCATE(IFNULL(SUM(IFNULL(hgje,0)),0)/10000,2)   FROM pro_inv_xmhgqk_mx tab1 
+		LEFT JOIN pro_inv_xmhgqk tab2 ON tab2.id = tab1.hgqk_id and tab2.del_flag = '0' 
+		LEFT JOIN pro_inv_basic tab3 ON tab3.id = tab2.inv_pro_id and tab3.del_flag = '0' 
+		<where>
+		<if test="projectId != null and projectId != ''">
+		tab3.project_id = #{projectId}
+		</if>
+		and SUBSTR(tab2.period_value,1,4)  = YEAR(DATE_SUB(curdate(), INTERVAL 1 MONTH))
+		</where>),0) AS bnlj,
+		
+		IFNULL((SELECT TRUNCATE ( IFNULL(SUM(IFNULL(appoint_amount,0)),0) / 10000, 2 ) FROM zj_tz_pro_rebuy_info_plan tb6 
+		<where>
+		tb6.del_flag = '0' and DATE_FORMAT(appoint_date,'%Y') = YEAR(NOW())
+		<if test="projectId != null and projectId != ''">
+		and tb6.project_id = #{projectId} 
+		</if>
+		</where>
+		),0) - 
+		IFNULL((SELECT TRUNCATE(IFNULL(SUM(IFNULL(hgje,0)),0)/10000,2)   FROM pro_inv_xmhgqk_mx tab1 
+		LEFT JOIN pro_inv_xmhgqk tab2 ON tab2.id = tab1.hgqk_id and tab2.del_flag = '0' 
+		LEFT JOIN pro_inv_basic tab3 ON tab3.id = tab2.inv_pro_id and tab3.del_flag = '0' 
+		<where>
+		<if test="projectId != null and projectId != ''">
+		tab3.project_id = #{projectId}
+		</if>
+		and SUBSTR(tab2.period_value,1,4)  = YEAR(DATE_SUB(curdate(), INTERVAL 1 MONTH))
+		</where>),0)  AS wbnlj 
+	FROM
+		zj_tz_pro_manage t3 
+	<where> 
+		t3.del_flag = '0' and t3.project_type = '0'
+		<if test="proProcessId != null and proProcessId != ''">	
+		and t3.pro_process_id = #{proProcessId}
+		</if>
+		<if test="projectId != null and projectId != ''">
+		and t3.project_id = #{projectId}
+		</if>
+	</where>
+  </select>
+  <select id="selectHgPageTrendDataByYearBn" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzInvXmhgqk">
+  	SELECT
+		t3.project_id,
+		IFNULL((SELECT TRUNCATE ( IFNULL(SUM(IFNULL(appoint_amount,0)),0) / 10000, 2 ) FROM zj_tz_pro_rebuy_info_plan tb6 
+		<where>
+		tb6.del_flag = '0' 
+		<if test="periodValue != null and periodValue != ''">
+		and DATE_FORMAT(appoint_date,'%Y') = #{periodValue}
+		</if>
+		<if test="projectId != null and projectId != ''">
+		and tb6.project_id = #{projectId} 
+		</if>
+		</where>
+		),0) AS bnyhg,
+		
+		IFNULL((SELECT TRUNCATE(IFNULL(SUM(IFNULL(hgje,0)),0)/10000,2)   FROM pro_inv_xmhgqk_mx tab1 
+		LEFT JOIN pro_inv_xmhgqk tab2 ON tab2.id = tab1.hgqk_id and tab2.del_flag = '0' 
+		LEFT JOIN pro_inv_basic tab3 ON tab3.id = tab2.inv_pro_id and tab3.del_flag = '0' 
+		<where>
+		<if test="periodValue != null and periodValue != ''">
+		and SUBSTR(tab2.period_value,1,4) = #{periodValue}
+		</if>
+		<if test="projectId != null and projectId != ''">
+		and tab3.project_id = #{projectId}
+		</if>
+		</where>),0) AS bnlj
+	FROM
+		zj_tz_pro_manage t3
+	<where>
+		t3.del_flag = '0' and t3.project_type = '0'
+		<if test="projectId != null and projectId != ''">
+		and t3.project_id = #{projectId} 
+		</if>
+	</where>
+  </select>
+  <select id="selectHgPageTrendDataByYearKl" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzInvXmhgqk">
+  	SELECT
+		t3.project_id,
+		IFNULL((SELECT TRUNCATE ( IFNULL(SUM(IFNULL(appoint_amount,0)),0) / 10000, 2 ) FROM zj_tz_pro_rebuy_info_plan tb6 
+		<where>
+		tb6.del_flag = '0' 
+		<if test="periodValue != null and periodValue != ''">
+		and DATE_FORMAT(appoint_date,'%Y') &lt;= #{periodValue}
+		</if>
+		<if test="projectId != null and projectId != ''">
+		and tb6.project_id = #{projectId} 
+		</if>
+		</where>
+		),0) AS yjhgze,
+		
+		IFNULL((SELECT TRUNCATE(IFNULL(SUM(IFNULL(hgje,0)),0)/10000,2)   FROM pro_inv_xmhgqk_mx tab1 
+		LEFT JOIN pro_inv_xmhgqk tab2 ON tab2.id = tab1.hgqk_id and tab2.del_flag = '0' 
+		LEFT JOIN pro_inv_basic tab3 ON tab3.id = tab2.inv_pro_id and tab3.del_flag = '0' 
+		<where>
+		<if test="periodValue != null and periodValue != ''">
+		and SUBSTR(tab2.period_value,1,4) &lt;= #{periodValue}
+		</if>
+		<if test="projectId != null and projectId != ''">
+		and tab3.project_id = #{projectId}
+		</if>
+		</where>),0) AS sjhgje
+	FROM
+		zj_tz_pro_manage t3
+	<where>
+		t3.del_flag = '0' and t3.project_type = '0'
+		<if test="projectId != null and projectId != ''">
+		and t3.project_id = #{projectId} 
+		</if>
+	</where>
+  </select>
+  <select id="selectHgPageCurrentPeriod" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzInvXmhgqk">
+  	SELECT
+  		t1.project_id,
+		CASE
+		
+		WHEN ( ISNULL( t1.run_date2 ) = 1 ) || ( LENGTH( trim( t1.run_date2 ) ) = 0 ) THEN
+		0 
+		WHEN ( ISNULL( t1.run_period ) = 1 ) || ( LENGTH( trim( t1.run_period ) ) = 0 ) THEN
+		0 ELSE 1 
+		END AS firstYear,
+	CASE
+			
+			WHEN ( ISNULL( t1.run_date2 ) = 1 ) || ( LENGTH( trim( t1.run_date2 ) ) = 0 ) THEN
+			0 
+			WHEN ( ISNULL( t1.run_period ) = 1 ) || ( LENGTH( trim( t1.run_period ) ) = 0 ) THEN
+			0 ELSE TIMESTAMPDIFF( YEAR, t1.run_date2, NOW( ) ) + 1 
+		END AS currentYear,
+	CASE
+			
+			WHEN ( ISNULL( t1.run_date2 ) = 1 ) || ( LENGTH( trim( t1.run_date2 ) ) = 0 ) THEN
+			0 
+			WHEN ( ISNULL( t1.run_period ) = 1 ) || ( LENGTH( trim( t1.run_period ) ) = 0 ) THEN
+			0 ELSE t1.run_period
+		END AS lastYear 
+	FROM
+		zj_tz_pro_manage t1 
+	<where>
+		t1.del_flag = '0' and t1.project_type = '0'
+		<if test="proProcessId != null and proProcessId != ''">
+		and t1.pro_process_id = #{proProcessId}
+		</if>
+		<if test="projectId != null and projectId != ''">
+		and t1.project_id = #{projectId}
+		</if>
+	</where>
+  </select>
+</mapper>

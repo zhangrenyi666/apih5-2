@@ -1,0 +1,1452 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmJxQuarterlyProjectDetailsMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmJxQuarterlyProjectDetails" >
+    <id column="details_id" property="detailsId" jdbcType="CHAR" />
+    <result column="assessment_id" property="assessmentId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="manager_key" property="managerKey" jdbcType="CHAR" />
+    <result column="manager_name" property="managerName" jdbcType="VARCHAR" />
+    <result column="actual_status" property="actualStatus" jdbcType="CHAR" />
+    <result column="actual_status_name" property="actualStatusName" jdbcType="VARCHAR" />
+    <result column="actual_type" property="actualType" jdbcType="CHAR" />
+    <result column="actual_type_name" property="actualTypeName" jdbcType="VARCHAR" />
+    <result column="actual_score" property="actualScore" jdbcType="DECIMAL" />
+    <result column="library_id" property="libraryId" jdbcType="CHAR" />
+    <result column="dept_id" property="deptId" jdbcType="CHAR" />
+    <result column="dept_name" property="deptName" jdbcType="VARCHAR" />
+    <result column="project_status" property="projectStatus" jdbcType="CHAR" />
+    <result column="project_status_name" property="projectStatusName" jdbcType="VARCHAR" />
+    <result column="project_type" property="projectType" jdbcType="CHAR" />
+    <result column="project_type_name" property="projectTypeName" jdbcType="VARCHAR" />
+    <result column="library_title" property="libraryTitle" jdbcType="VARCHAR" />
+    <result column="library_content" property="libraryContent" jdbcType="VARCHAR" />
+    <result column="person_liable_key" property="personLiableKey" jdbcType="CHAR" />
+    <result column="person_liable_name" property="personLiableName" jdbcType="VARCHAR" />
+    <result column="is_fixed_score" property="isFixedScore" jdbcType="CHAR" />
+    <result column="score" property="score" jdbcType="DECIMAL" />
+    <result column="lower_limit_score" property="lowerLimitScore" jdbcType="DECIMAL" />
+    <result column="upper_limit_score" property="upperLimitScore" jdbcType="DECIMAL" />
+    <result column="is_closed" property="isClosed" jdbcType="CHAR" />
+    <result column="confirm_status" property="confirmStatus" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    details_id, assessment_id, project_id, project_name, manager_key, 
+    manager_name, actual_status, actual_status_name,
+    actual_type, actual_type_name, actual_score,
+    library_id, dept_id, dept_name, project_status, project_status_name, 
+    project_type, project_type_name, library_title, library_content, person_liable_key, 
+    person_liable_name, is_fixed_score, score, lower_limit_score, upper_limit_score, 
+    is_closed, confirm_status, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_quarterly_project_details
+    where del_flag = '0' and details_id = #{detailsId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_jx_quarterly_project_details
+    where details_id = #{detailsId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyProjectDetails" >
+    insert into zj_xm_jx_quarterly_project_details (
+    details_id, assessment_id, project_id, project_name, manager_key, 
+    manager_name, actual_status, actual_status_name,
+    actual_type, actual_type_name, actual_score,
+    library_id, dept_id, dept_name, project_status, project_status_name, 
+    project_type, project_type_name, library_title, library_content, person_liable_key, 
+    person_liable_name, is_fixed_score, score, lower_limit_score, upper_limit_score, 
+    is_closed, confirm_status, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{detailsId,jdbcType=CHAR}, #{assessmentId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, #{managerKey,jdbcType=CHAR}, 
+    #{managerName,jdbcType=VARCHAR}, 
+    #{actualStatus,jdbcType=CHAR}, 
+    #{actualStatusName,jdbcType=VARCHAR}, 
+    #{actualType,jdbcType=CHAR}, 
+    #{actualTypeName,jdbcType=VARCHAR}, 
+    #{actualScore,jdbcType=DECIMAL}, 
+    #{libraryId,jdbcType=CHAR}, 
+    #{deptId,jdbcType=CHAR}, 
+    #{deptName,jdbcType=VARCHAR}, #{projectStatus,jdbcType=CHAR}, #{projectStatusName,jdbcType=VARCHAR}, 
+    #{projectType,jdbcType=CHAR}, #{projectTypeName,jdbcType=VARCHAR}, #{libraryTitle,jdbcType=VARCHAR}, #{libraryContent,jdbcType=VARCHAR}, #{personLiableKey,jdbcType=CHAR}, 
+    #{personLiableName,jdbcType=VARCHAR}, #{isFixedScore,jdbcType=CHAR}, #{score,jdbcType=DECIMAL}, #{lowerLimitScore,jdbcType=DECIMAL}, #{upperLimitScore,jdbcType=DECIMAL}, 
+    #{isClosed,jdbcType=CHAR}, #{confirmStatus,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyProjectDetails" >
+    insert into zj_xm_jx_quarterly_project_details
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="detailsId != null" >
+        details_id,
+      </if>
+      <if test="assessmentId != null" >
+        assessment_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="managerKey != null" >
+        manager_key,
+      </if>
+      <if test="managerName != null" >
+        manager_name,
+      </if>
+      <if test="actualStatus != null" >
+        actual_status,
+      </if>
+      <if test="actualStatusName != null" >
+        actual_status_name,
+      </if>
+      <if test="actualType != null" >
+        actual_type,
+      </if>
+      <if test="actualTypeName != null" >
+        actual_type_name,
+      </if>
+      <if test="actualScore != null" >
+        actual_score,
+      </if>
+      <if test="libraryId != null" >
+        library_id,
+      </if>
+      <if test="deptId != null" >
+        dept_id,
+      </if>
+      <if test="deptName != null" >
+        dept_name,
+      </if>
+      <if test="projectStatus != null" >
+        project_status,
+      </if>
+      <if test="projectStatusName != null" >
+        project_status_name,
+      </if>
+      <if test="projectType != null" >
+        project_type,
+      </if>
+      <if test="projectTypeName != null" >
+        project_type_name,
+      </if>
+      <if test="libraryTitle != null" >
+        library_title,
+      </if>
+      <if test="libraryContent != null" >
+        library_content,
+      </if>
+      <if test="personLiableKey != null" >
+        person_liable_key,
+      </if>
+      <if test="personLiableName != null" >
+        person_liable_name,
+      </if>
+      <if test="isFixedScore != null" >
+        is_fixed_score,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="lowerLimitScore != null" >
+        lower_limit_score,
+      </if>
+      <if test="upperLimitScore != null" >
+        upper_limit_score,
+      </if>
+      <if test="isClosed != null" >
+        is_closed,
+      </if>
+      <if test="confirmStatus != null" >
+        confirm_status,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="detailsId != null" >
+        #{detailsId,jdbcType=CHAR},
+      </if>
+      <if test="assessmentId != null" >
+        #{assessmentId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="managerKey != null" >
+        #{managerKey,jdbcType=CHAR},
+      </if>
+      <if test="managerName != null" >
+        #{managerName,jdbcType=VARCHAR},
+      </if>
+      <if test="actualStatus != null" >
+        #{actualStatus,jdbcType=CHAR},
+      </if>
+      <if test="actualStatusName != null" >
+        #{actualStatusName,jdbcType=VARCHAR},
+      </if>
+      <if test="actualType != null" >
+        #{actualType,jdbcType=CHAR},
+      </if>
+      <if test="actualTypeName != null" >
+        #{actualTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="actualScore != null" >
+        #{actualScore,jdbcType=DECIMAL},
+      </if>
+      <if test="libraryId != null" >
+        #{libraryId,jdbcType=CHAR},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=CHAR},
+      </if>
+      <if test="deptName != null" >
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectStatus != null" >
+        #{projectStatus,jdbcType=CHAR},
+      </if>
+      <if test="projectStatusName != null" >
+        #{projectStatusName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectType != null" >
+        #{projectType,jdbcType=CHAR},
+      </if>
+      <if test="projectTypeName != null" >
+        #{projectTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="libraryTitle != null" >
+        #{libraryTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="libraryContent != null" >
+        #{libraryContent,jdbcType=VARCHAR},
+      </if>
+      <if test="personLiableKey != null" >
+        #{personLiableKey,jdbcType=CHAR},
+      </if>
+      <if test="personLiableName != null" >
+        #{personLiableName,jdbcType=VARCHAR},
+      </if>
+      <if test="isFixedScore != null" >
+        #{isFixedScore,jdbcType=CHAR},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="lowerLimitScore != null" >
+        #{lowerLimitScore,jdbcType=DECIMAL},
+      </if>
+      <if test="upperLimitScore != null" >
+        #{upperLimitScore,jdbcType=DECIMAL},
+      </if>
+      <if test="isClosed != null" >
+        #{isClosed,jdbcType=CHAR},
+      </if>
+      <if test="confirmStatus != null" >
+        #{confirmStatus,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyProjectDetails" >
+    update zj_xm_jx_quarterly_project_details
+    <set >
+      <if test="assessmentId != null" >
+        assessment_id = #{assessmentId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="managerKey != null" >
+        manager_key = #{managerKey,jdbcType=CHAR},
+      </if>
+      <if test="managerName != null" >
+        manager_name = #{managerName,jdbcType=VARCHAR},
+      </if>
+      <if test="actualStatus != null" >
+        actual_status = #{actualStatus,jdbcType=CHAR},
+      </if>
+      <if test="actualStatusName != null" >
+        actual_status_name = #{actualStatusName,jdbcType=VARCHAR},
+      </if>
+      <if test="actualType != null" >
+        actual_type = #{actualType,jdbcType=CHAR},
+      </if>
+      <if test="actualTypeName != null" >
+        actual_type_name = #{actualTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="actualScore != null" >
+        actual_score = #{actualScore,jdbcType=DECIMAL},
+      </if>
+      <if test="libraryId != null" >
+        library_id = #{libraryId,jdbcType=CHAR},
+      </if>
+      <if test="deptId != null" >
+        dept_id = #{deptId,jdbcType=CHAR},
+      </if>
+      <if test="deptName != null" >
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectStatus != null" >
+        project_status = #{projectStatus,jdbcType=CHAR},
+      </if>
+      <if test="projectStatusName != null" >
+        project_status_name = #{projectStatusName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectType != null" >
+        project_type = #{projectType,jdbcType=CHAR},
+      </if>
+      <if test="projectTypeName != null" >
+        project_type_name = #{projectTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="libraryTitle != null" >
+        library_title = #{libraryTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="libraryContent != null" >
+        library_content = #{libraryContent,jdbcType=VARCHAR},
+      </if>
+      <if test="personLiableKey != null" >
+        person_liable_key = #{personLiableKey,jdbcType=CHAR},
+      </if>
+      <if test="personLiableName != null" >
+        person_liable_name = #{personLiableName,jdbcType=VARCHAR},
+      </if>
+      <if test="isFixedScore != null" >
+        is_fixed_score = #{isFixedScore,jdbcType=CHAR},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="lowerLimitScore != null" >
+        lower_limit_score = #{lowerLimitScore,jdbcType=DECIMAL},
+      </if>
+      <if test="upperLimitScore != null" >
+        upper_limit_score = #{upperLimitScore,jdbcType=DECIMAL},
+      </if>
+      <if test="isClosed != null" >
+        is_closed = #{isClosed,jdbcType=CHAR},
+      </if>
+      <if test="confirmStatus != null" >
+        confirm_status = #{confirmStatus,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where details_id = #{detailsId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyProjectDetails" >
+    update zj_xm_jx_quarterly_project_details set 
+      assessment_id = #{assessmentId,jdbcType=CHAR},
+      project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      manager_key = #{managerKey,jdbcType=CHAR},
+      manager_name = #{managerName,jdbcType=VARCHAR},
+      actual_status = #{actualStatus,jdbcType=CHAR},
+      actual_status_name = #{actualStatusName,jdbcType=VARCHAR},
+      actual_type = #{actualType,jdbcType=CHAR},
+      actual_type_name = #{actualTypeName,jdbcType=VARCHAR},
+      actual_score = #{actualScore,jdbcType=DECIMAL},
+      library_id = #{libraryId,jdbcType=CHAR},
+      dept_id = #{deptId,jdbcType=CHAR},
+      dept_name = #{deptName,jdbcType=VARCHAR},
+      project_status = #{projectStatus,jdbcType=CHAR},
+      project_status_name = #{projectStatusName,jdbcType=VARCHAR},
+      project_type = #{projectType,jdbcType=CHAR},
+      project_type_name = #{projectTypeName,jdbcType=VARCHAR},
+      library_title = #{libraryTitle,jdbcType=VARCHAR},
+      library_content = #{libraryContent,jdbcType=VARCHAR},
+      person_liable_key = #{personLiableKey,jdbcType=CHAR},
+      person_liable_name = #{personLiableName,jdbcType=VARCHAR},
+      is_fixed_score = #{isFixedScore,jdbcType=CHAR},
+      score = #{score,jdbcType=DECIMAL},
+      lower_limit_score = #{lowerLimitScore,jdbcType=DECIMAL},
+      upper_limit_score = #{upperLimitScore,jdbcType=DECIMAL},
+      is_closed = #{isClosed,jdbcType=CHAR},
+      confirm_status = #{confirmStatus,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where details_id = #{detailsId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmJxQuarterlyProjectDetailsList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyProjectDetails" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_quarterly_project_details
+    where del_flag = '0'
+    <if test="detailsId != null and detailsId != ''" >
+     and details_id = #{detailsId,jdbcType=CHAR}
+    </if>
+    <if test="assessmentId != null and assessmentId != ''" >
+     and assessment_id = #{assessmentId,jdbcType=CHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="managerKey != null and managerKey != ''" >
+     and manager_key = #{managerKey,jdbcType=CHAR}
+    </if>
+    <if test="managerName != null and managerName != ''" >
+     and manager_name = #{managerName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualStatus != null and actualStatus != ''" >
+     and actual_status = #{actualStatus,jdbcType=CHAR}
+    </if>
+    <if test="actualStatusName != null and actualStatusName != ''" >
+     and actual_status_name = #{actualStatusName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualType != null and actualType != ''" >
+     and actual_type = #{actualType,jdbcType=CHAR}
+    </if>
+    <if test="actualTypeName != null and actualTypeName != ''" >
+     and actual_type_name = #{actualTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualScore != null and actualScore != ''" >
+     and actual_score = #{actualScore,jdbcType=DECIMAL}
+    </if>
+    <if test="libraryId != null and libraryId != ''" >
+     and library_id = #{libraryId,jdbcType=CHAR}
+    </if>
+    <if test="deptId != null and deptId != ''" >
+     and dept_id = #{deptId,jdbcType=CHAR}
+    </if>
+    <if test="deptName != null and deptName != ''" >
+     and dept_name = #{deptName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectStatus != null and projectStatus != ''" >
+     and project_status = #{projectStatus,jdbcType=CHAR}
+    </if>
+    <if test="projectStatusName != null and projectStatusName != ''" >
+     and project_status_name = #{projectStatusName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectType != null and projectType != ''" >
+     and project_type = #{projectType,jdbcType=CHAR}
+    </if>
+    <if test="projectTypeName != null and projectTypeName != ''" >
+     and project_type_name = #{projectTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="libraryTitle != null and libraryTitle != ''" >
+     and library_title = #{libraryTitle,jdbcType=VARCHAR}
+    </if>
+    <if test="libraryContent != null and libraryContent != ''" >
+     and library_content = #{libraryContent,jdbcType=VARCHAR}
+    </if>
+    <if test="personLiableKey != null and personLiableKey != ''" >
+     and person_liable_key = #{personLiableKey,jdbcType=CHAR}
+    </if>
+    <if test="personLiableName != null and personLiableName != ''" >
+     and person_liable_name = #{personLiableName,jdbcType=VARCHAR}
+    </if>
+    <if test="isFixedScore != null and isFixedScore != ''" >
+     and is_fixed_score = #{isFixedScore,jdbcType=CHAR}
+    </if>
+    <if test="score != null and score != ''" >
+     and score = #{score,jdbcType=DECIMAL}
+    </if>
+    <if test="lowerLimitScore != null and lowerLimitScore != ''" >
+     and lower_limit_score = #{lowerLimitScore,jdbcType=DECIMAL}
+    </if>
+    <if test="upperLimitScore != null and upperLimitScore != ''" >
+     and upper_limit_score = #{upperLimitScore,jdbcType=DECIMAL}
+    </if>
+    <if test="isClosed != null and isClosed != ''" >
+     and is_closed = #{isClosed,jdbcType=CHAR}
+    </if>
+    <if test="confirmStatus != null and confirmStatus != ''" >
+     and confirm_status = #{confirmStatus,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmJxQuarterlyProjectDetails" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyProjectDetails" >
+    <![CDATA[ 
+        update zj_xm_jx_quarterly_project_details
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and details_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.detailsId} 
+     </foreach>
+  </delete>
+  
+    <insert id ="batchInsertZjXmJxQuarterlyProjectDetails" parameterType="java.util.List" >
+     insert into zj_xm_jx_quarterly_project_details (
+    details_id, assessment_id, project_id, project_name, manager_key, 
+    manager_name, actual_status, actual_status_name,
+    actual_type, actual_type_name, actual_score,
+    library_id, dept_id, dept_name, project_status, project_status_name, 
+    project_type, project_type_name, library_title, library_content, person_liable_key, 
+    person_liable_name, is_fixed_score, score, lower_limit_score, upper_limit_score, 
+    is_closed, confirm_status, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values 
+      <foreach collection ="list" item="item" index= "index" separator=",">
+    (
+      #{item.detailsId,jdbcType=CHAR}, #{item.assessmentId,jdbcType=CHAR}, 
+      #{item.projectId,jdbcType=CHAR}, 
+      #{item.projectName,jdbcType=VARCHAR}, #{item.managerKey,jdbcType=CHAR}, 
+      #{item.managerName,jdbcType=VARCHAR}, 
+      #{item.actualStatus,jdbcType=CHAR}, 
+      #{item.actualStatusName,jdbcType=VARCHAR}, 
+      #{item.actualType,jdbcType=CHAR}, 
+      #{item.actualTypeName,jdbcType=VARCHAR}, 
+      #{item.actualScore,jdbcType=DECIMAL}, 
+      #{item.libraryId,jdbcType=CHAR}, 
+      #{item.deptId,jdbcType=CHAR}, 
+      #{item.deptName,jdbcType=VARCHAR},
+      #{item.projectStatus,jdbcType=CHAR}, #{item.projectStatusName,jdbcType=VARCHAR}, 
+      #{item.projectType,jdbcType=CHAR}, #{item.projectTypeName,jdbcType=VARCHAR}, 
+      #{item.libraryTitle,jdbcType=VARCHAR}, #{item.libraryContent,jdbcType=VARCHAR}, 
+      #{item.personLiableKey,jdbcType=CHAR}, 
+      #{item.personLiableName,jdbcType=VARCHAR}, #{item.isFixedScore,jdbcType=CHAR}, 
+      #{item.score,jdbcType=DECIMAL}, #{item.lowerLimitScore,jdbcType=DECIMAL}, #{item.upperLimitScore,jdbcType=DECIMAL}, 
+      #{item.isClosed,jdbcType=CHAR}, #{item.confirmStatus,jdbcType=CHAR}, 
+      #{item.remarks,jdbcType=VARCHAR}, #{item.sort,jdbcType=INTEGER}, #{item.delFlag,jdbcType=CHAR}, 
+      #{item.createTime,jdbcType=TIMESTAMP}, #{item.createUser,jdbcType=CHAR}, 
+      #{item.createUserName,jdbcType=VARCHAR}, #{item.modifyTime,jdbcType=TIMESTAMP}, 
+      #{item.modifyUser,jdbcType=CHAR}, 
+      #{item.modifyUserName,jdbcType=VARCHAR}
+      )
+     </foreach >
+  </insert>
+
+  <update id="batchConfirmZjXmJxQuarterlyProjectDetails" parameterType="java.util.List" >
+    update zj_xm_jx_quarterly_project_details
+    <set>
+        confirm_status = '1',
+    </set> 
+    where del_flag = '0' and details_id in
+    <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.detailsId} 
+    </foreach>
+  </update>
+  
+  <select id="getZjXmJxQuarterlyProjectDetailsByPersonLiable" resultType="java.util.HashMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyProjectDetails" >
+     SELECT  
+          t1.details_id AS detailsId,
+          t1.assessment_id AS assessmentId,
+          t1.project_id AS projectId, 
+          t1.project_name AS projectName, 
+          t1.dept_id AS deptId,
+          t1.dept_name AS deptName,
+          t1.project_status AS projectStatus,
+          t1.project_status_name AS projectStatusName,
+          t1.actual_status AS actualStatus,
+          t1.actual_status_name AS actualStatusName,
+          IFNULL(sum(t1.actual_score),0) AS totalScore,
+          <if test="projectDetailsList != null and projectDetailsList.size > 0">
+             <foreach collection="projectDetailsList " item="item" separator=",">
+                 MAX(CASE t1.library_id WHEN #{item.libraryId} THEN IFNULL(t1.actual_score, t1.actual_score) 
+                              ELSE ''  END ) #{item.libraryId}
+             </foreach>
+             ,
+          </if>
+          t1.manager_key  AS managerKey,
+           t1.manager_name AS managerName
+          FROM `zj_xm_jx_quarterly_project_details`  t1             
+          WHERE t1.del_flag = '0' 
+    <if test="detailsId != null and detailsId != ''" >
+     and t1.details_id = #{detailsId,jdbcType=CHAR}
+    </if>
+    <if test="assessmentId != null and assessmentId != ''" >
+     and t1.assessment_id = #{assessmentId,jdbcType=CHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and t1.project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and t1.project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="managerKey != null and managerKey != ''" >
+     and t1.manager_key = #{managerKey,jdbcType=CHAR}
+    </if>
+    <if test="managerName != null and managerName != ''" >
+     and t1.manager_name = #{managerName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualStatus != null and actualStatus != ''" >
+     and t1.actual_status = #{actualStatus,jdbcType=CHAR}
+    </if>
+    <if test="actualStatusName != null and actualStatusName != ''" >
+     and t1.actual_status_name = #{actualStatusName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualType != null and actualType != ''" >
+     and t1.actual_type = #{actualType,jdbcType=CHAR}
+    </if>
+    <if test="actualTypeName != null and actualTypeName != ''" >
+     and t1.actual_type_name = #{actualTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualScore != null and actualScore != ''" >
+     and t1.actual_score = #{actualScore,jdbcType=DECIMAL}
+    </if>
+    <if test="libraryId != null and libraryId != ''" >
+     and t1.library_id = #{libraryId,jdbcType=CHAR}
+    </if>
+    <if test="deptId != null and deptId != ''" >
+     and t1.dept_id = #{deptId,jdbcType=CHAR}
+    </if>
+    <if test="deptName != null and deptName != ''" >
+     and t1.dept_name = #{deptName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectStatus != null and projectStatus != ''" >
+     and t1.project_status = #{projectStatus,jdbcType=CHAR}
+    </if>
+    <if test="projectStatusName != null and projectStatusName != ''" >
+     and t1.project_status_name = #{projectStatusName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectType != null and projectType != ''" >
+     and t1.project_type = #{projectType,jdbcType=CHAR}
+    </if>
+    <if test="projectTypeName != null and projectTypeName != ''" >
+     and t1.project_type_name = #{projectTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="libraryTitle != null and libraryTitle != ''" >
+     and t1.library_title = #{libraryTitle,jdbcType=VARCHAR}
+    </if>
+    <if test="libraryContent != null and libraryContent != ''" >
+     and t1.library_content = #{libraryContent,jdbcType=VARCHAR}
+    </if>
+    <if test="personLiableKey != null and personLiableKey != ''" >
+     and t1.person_liable_key = #{personLiableKey,jdbcType=CHAR}
+    </if>
+    <if test="personLiableName != null and personLiableName != ''" >
+     and t1.person_liable_name = #{personLiableName,jdbcType=VARCHAR}
+    </if>
+    <if test="isFixedScore != null and isFixedScore != ''" >
+     and t1.is_fixed_score = #{isFixedScore,jdbcType=CHAR}
+    </if>
+    <if test="score != null" >
+     and t1.score = #{score,jdbcType=DECIMAL}
+    </if>
+    <if test="lowerLimitScore != null" >
+     and t1.lower_limit_score = #{lowerLimitScore,jdbcType=DECIMAL}
+    </if>
+    <if test="upperLimitScore != null" >
+     and t1.upper_limit_score = #{upperLimitScore,jdbcType=DECIMAL}
+    </if>
+    <if test="isClosed != null and isClosed != ''" >
+     and t1.is_closed = #{isClosed,jdbcType=CHAR}
+    </if>
+    <if test="confirmStatus != null and confirmStatus != ''" >
+     and t1.confirm_status = #{confirmStatus,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and t1.remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    GROUP BY t1.project_id
+ </select>
+  
+ <update id="batchUpdateZjXmJxQuarterlyProjectDetailsScore" parameterType="java.util.List">
+          <foreach collection="list" item="item" index="index" open="" close="" separator=";" >  
+          update zj_xm_jx_quarterly_project_details
+                <set>
+                   actual_score = #{item.actualScore,jdbcType=DECIMAL},
+                   <!-- del_flag = #{item.delFlag,jdbcType=CHAR},
+                   create_time = #{item.createTime,jdbcType=TIMESTAMP},
+                   create_user = #{item.createUser,jdbcType=CHAR},
+                   create_user_name = #{item.createUserName,jdbcType=VARCHAR}, -->
+                   modify_time = #{item.modifyTime,jdbcType=TIMESTAMP},
+                   modify_user = #{item.modifyUser,jdbcType=CHAR},
+                   modify_user_name = #{item.modifyUserName,jdbcType=VARCHAR}
+                </set>  
+                 where dept_id = #{item.deptId,jdbcType=CHAR}
+                   and project_id = #{item.projectId,jdbcType=CHAR}
+                   and library_id = #{item.libraryId,jdbcType=CHAR}
+                   and assessment_id = #{item.assessmentId,jdbcType=CHAR}
+         </foreach>  
+  </update>
+
+<select id="countZjXmJxQuarterlyProjectDetailsByDept" resultType="java.util.HashMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyProjectDetails" >
+      SELECT (@rankNo := @rankNo+1) AS rankNo,
+              new1.* 
+        FROM  
+     (SELECT  
+          t1.details_id AS detailsId,
+          t1.assessment_id AS assessmentId,
+          t1.project_id AS projectId, 
+          t1.project_name AS projectName, 
+          t1.dept_id AS deptId,
+          t1.dept_name AS deptName,
+          t1.project_status AS projectStatus,
+          t1.project_status_name AS projectStatusName,
+          t1.actual_status AS actualStatus,
+          t1.actual_status_name AS actualStatusName,
+          IFNULL(sum(t1.actual_score),0) AS totalScore,
+          <if test="projectDetailsList != null and projectDetailsList.size > 0">
+             <foreach collection="projectDetailsList " item="item" separator=",">
+                 MAX(CASE t1.library_id WHEN #{item.libraryId} THEN IFNULL(t1.actual_score, '未打分') 
+                              ELSE ''  END ) #{item.libraryId}
+             </foreach>
+             ,
+          </if>
+          t1.manager_key  AS managerKey,
+           t1.manager_name AS managerName
+          FROM `zj_xm_jx_quarterly_project_details`  t1             
+          WHERE t1.del_flag = '0' 
+    <if test="detailsId != null and detailsId != ''" >
+     and t1.details_id = #{detailsId,jdbcType=CHAR}
+    </if>
+    <if test="assessmentId != null and assessmentId != ''" >
+     and t1.assessment_id = #{assessmentId,jdbcType=CHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and t1.project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and t1.project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="managerKey != null and managerKey != ''" >
+     and t1.manager_key = #{managerKey,jdbcType=CHAR}
+    </if>
+    <if test="managerName != null and managerName != ''" >
+     and t1.manager_name = #{managerName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualStatus != null and actualStatus != ''" >
+     and t1.actual_status = #{actualStatus,jdbcType=CHAR}
+    </if>
+    <if test="actualStatusName != null and actualStatusName != ''" >
+     and t1.actual_status_name = #{actualStatusName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualType != null and actualType != ''" >
+     and t1.actual_type = #{actualType,jdbcType=CHAR}
+    </if>
+    <if test="actualTypeName != null and actualTypeName != ''" >
+     and t1.actual_type_name = #{actualTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualScore != null and actualScore != ''" >
+     and t1.actual_score = #{actualScore,jdbcType=DECIMAL}
+    </if>
+    <if test="libraryId != null and libraryId != ''" >
+     and t1.library_id = #{libraryId,jdbcType=CHAR}
+    </if>
+    <if test="deptId != null and deptId != ''" >
+     and t1.dept_id = #{deptId,jdbcType=CHAR}
+    </if>
+    <if test="deptName != null and deptName != ''" >
+     and t1.dept_name = #{deptName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectStatus != null and projectStatus != ''" >
+     and t1.project_status = #{projectStatus,jdbcType=CHAR}
+    </if>
+    <if test="projectStatusName != null and projectStatusName != ''" >
+     and t1.project_status_name = #{projectStatusName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectType != null and projectType != ''" >
+     and t1.project_type = #{projectType,jdbcType=CHAR}
+    </if>
+    <if test="projectTypeName != null and projectTypeName != ''" >
+     and t1.project_type_name = #{projectTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="libraryTitle != null and libraryTitle != ''" >
+     and t1.library_title = #{libraryTitle,jdbcType=VARCHAR}
+    </if>
+    <if test="libraryContent != null and libraryContent != ''" >
+     and t1.library_content = #{libraryContent,jdbcType=VARCHAR}
+    </if>
+    <if test="personLiableKey != null and personLiableKey != ''" >
+     and t1.person_liable_key = #{personLiableKey,jdbcType=CHAR}
+    </if>
+    <if test="personLiableName != null and personLiableName != ''" >
+     and t1.person_liable_name = #{personLiableName,jdbcType=VARCHAR}
+    </if>
+    <if test="isFixedScore != null and isFixedScore != ''" >
+     and t1.is_fixed_score = #{isFixedScore,jdbcType=CHAR}
+    </if>
+    <if test="score != null" >
+     and t1.score = #{score,jdbcType=DECIMAL}
+    </if>
+    <if test="lowerLimitScore != null" >
+     and t1.lower_limit_score = #{lowerLimitScore,jdbcType=DECIMAL}
+    </if>
+    <if test="upperLimitScore != null" >
+     and t1.upper_limit_score = #{upperLimitScore,jdbcType=DECIMAL}
+    </if>
+    <if test="isClosed != null and isClosed != ''" >
+     and t1.is_closed = #{isClosed,jdbcType=CHAR}
+    </if>
+    <if test="confirmStatus != null and confirmStatus != ''" >
+     and t1.confirm_status = #{confirmStatus,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and t1.remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    GROUP BY t1.project_id
+    ) AS new1, (select @rankNo:=0)as new2
+ </select>
+ 
+ <select id="getZjXmJxQuarterlyProjectDetailsDynamicColumn1" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyProjectDetails" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_quarterly_project_details
+    where del_flag = '0'
+    <if test="detailsId != null and detailsId != ''" >
+     and details_id = #{detailsId,jdbcType=CHAR}
+    </if>
+    <if test="assessmentId != null and assessmentId != ''" >
+     and assessment_id = #{assessmentId,jdbcType=CHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="managerKey != null and managerKey != ''" >
+     and manager_key = #{managerKey,jdbcType=CHAR}
+    </if>
+    <if test="managerName != null and managerName != ''" >
+     and manager_name = #{managerName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualStatus != null and actualStatus != ''" >
+     and actual_status = #{actualStatus,jdbcType=CHAR}
+    </if>
+    <if test="actualStatusName != null and actualStatusName != ''" >
+     and actual_status_name = #{actualStatusName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualType != null and actualType != ''" >
+     and actual_type = #{actualType,jdbcType=CHAR}
+    </if>
+    <if test="actualTypeName != null and actualTypeName != ''" >
+     and actual_type_name = #{actualTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualScore != null and actualScore != ''" >
+     and actual_score = #{actualScore,jdbcType=DECIMAL}
+    </if>
+    <if test="libraryId != null and libraryId != ''" >
+     and library_id = #{libraryId,jdbcType=CHAR}
+    </if>
+    <if test="deptId != null and deptId != ''" >
+     and dept_id = #{deptId,jdbcType=CHAR}
+    </if>
+    <if test="deptName != null and deptName != ''" >
+     and dept_name = #{deptName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectStatus != null and projectStatus != ''" >
+     and project_status = #{projectStatus,jdbcType=CHAR}
+    </if>
+    <if test="projectStatusName != null and projectStatusName != ''" >
+     and project_status_name = #{projectStatusName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectType != null and projectType != ''" >
+     and project_type = #{projectType,jdbcType=CHAR}
+    </if>
+    <if test="projectTypeName != null and projectTypeName != ''" >
+     and project_type_name = #{projectTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="libraryTitle != null and libraryTitle != ''" >
+     and library_title = #{libraryTitle,jdbcType=VARCHAR}
+    </if>
+    <if test="libraryContent != null and libraryContent != ''" >
+     and library_content = #{libraryContent,jdbcType=VARCHAR}
+    </if>
+    <if test="personLiableKey != null and personLiableKey != ''" >
+     and person_liable_key = #{personLiableKey,jdbcType=CHAR}
+    </if>
+    <if test="personLiableName != null and personLiableName != ''" >
+     and person_liable_name = #{personLiableName,jdbcType=VARCHAR}
+    </if>
+    <if test="isFixedScore != null and isFixedScore != ''" >
+     and is_fixed_score = #{isFixedScore,jdbcType=CHAR}
+    </if>
+    <if test="score != null and score != ''" >
+     and score = #{score,jdbcType=DECIMAL}
+    </if>
+    <if test="lowerLimitScore != null and lowerLimitScore != ''" >
+     and lower_limit_score = #{lowerLimitScore,jdbcType=DECIMAL}
+    </if>
+    <if test="upperLimitScore != null and upperLimitScore != ''" >
+     and upper_limit_score = #{upperLimitScore,jdbcType=DECIMAL}
+    </if>
+    <if test="isClosed != null and isClosed != ''" >
+     and is_closed = #{isClosed,jdbcType=CHAR}
+    </if>
+    <if test="confirmStatus != null and confirmStatus != ''" >
+     and confirm_status = #{confirmStatus,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    GROUP BY library_id
+    ORDER BY library_content ASC 
+  </select>
+
+
+<select id="countZjXmJxQuarterlyProjectDetailsByWeight" resultType="java.util.HashMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyProjectDetails" >
+    SELECT (@rankNo := @rankNo+1) AS rankNo,
+              new1.* 
+        FROM  
+     (SELECT 
+          deptCount.details_id AS detailsId,
+          deptCount.assessment_id AS assessmentId,
+          deptCount.project_id AS projectId, 
+          deptCount.project_name AS projectName, 
+          deptCount.dept_id AS deptId,
+          deptCount.dept_name AS deptName,
+          deptCount.project_status AS projectStatus,
+          deptCount.project_status_name AS projectStatusName,
+          deptCount.actual_status AS actualStatus,
+          deptCount.actual_status_name AS actualStatusName,
+          SUM(deptCount.deptScore) as totalScore,
+         <if test="projectDetailsList != null and projectDetailsList.size > 0">
+             <foreach collection="projectDetailsList " item="item" separator=",">
+                 MAX(CASE deptCount.dept_name WHEN #{item.deptName} THEN IFNULL(deptCount.deptScore, '未打分') 
+                              ELSE ''  END ) #{item.deptName}
+             </foreach>
+             ,
+          </if>
+     deptCount.manager_key  AS managerKey,
+      deptCount.manager_name AS managerName
+      FROM (
+          SELECT *, SUM(score) AS deptScore
+          FROM zj_xm_jx_quarterly_project_details
+    where del_flag = '0' 
+    <if test="detailsId != null and detailsId != ''" >
+     and details_id = #{detailsId,jdbcType=CHAR}
+    </if>
+    <if test="assessmentId != null and assessmentId != ''" >
+     and assessment_id = #{assessmentId,jdbcType=CHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="managerKey != null and managerKey != ''" >
+     and manager_key = #{managerKey,jdbcType=CHAR}
+    </if>
+    <if test="managerName != null and managerName != ''" >
+     and manager_name = #{managerName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualStatus != null and actualStatus != ''" >
+     and actual_status = #{actualStatus,jdbcType=CHAR}
+    </if>
+    <if test="actualStatusName != null and actualStatusName != ''" >
+     and actual_status_name = #{actualStatusName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualType != null and actualType != ''" >
+     and actual_type = #{actualType,jdbcType=CHAR}
+    </if>
+    <if test="actualTypeName != null and actualTypeName != ''" >
+     and actual_type_name = #{actualTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualScore != null and actualScore != ''" >
+     and actual_score = #{actualScore,jdbcType=DECIMAL}
+    </if>
+    <if test="libraryId != null and libraryId != ''" >
+     and library_id = #{libraryId,jdbcType=CHAR}
+    </if>
+    <if test="deptId != null and deptId != ''" >
+     and dept_id = #{deptId,jdbcType=CHAR}
+    </if>
+    <if test="deptName != null and deptName != ''" >
+     and dept_name = #{deptName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectStatus != null and projectStatus != ''" >
+     and project_status = #{projectStatus,jdbcType=CHAR}
+    </if>
+    <if test="projectStatusName != null and projectStatusName != ''" >
+     and project_status_name = #{projectStatusName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectType != null and projectType != ''" >
+     and project_type = #{projectType,jdbcType=CHAR}
+    </if>
+    <if test="projectTypeName != null and projectTypeName != ''" >
+     and project_type_name = #{projectTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="libraryTitle != null and libraryTitle != ''" >
+     and library_title = #{libraryTitle,jdbcType=VARCHAR}
+    </if>
+    <if test="libraryContent != null and libraryContent != ''" >
+     and library_content = #{libraryContent,jdbcType=VARCHAR}
+    </if>
+    <if test="personLiableKey != null and personLiableKey != ''" >
+     and person_liable_key = #{personLiableKey,jdbcType=CHAR}
+    </if>
+    <if test="personLiableName != null and personLiableName != ''" >
+     and person_liable_name = #{personLiableName,jdbcType=VARCHAR}
+    </if>
+    <if test="isFixedScore != null and isFixedScore != ''" >
+     and is_fixed_score = #{isFixedScore,jdbcType=CHAR}
+    </if>
+    <if test="score != null" >
+     and score = #{score,jdbcType=DECIMAL}
+    </if>
+    <if test="lowerLimitScore != null" >
+     and lower_limit_score = #{lowerLimitScore,jdbcType=DECIMAL}
+    </if>
+    <if test="upperLimitScore != null" >
+     and upper_limit_score = #{upperLimitScore,jdbcType=DECIMAL}
+    </if>
+    <if test="isClosed != null and isClosed != ''" >
+     and is_closed = #{isClosed,jdbcType=CHAR}
+    </if>
+    <if test="confirmStatus != null and confirmStatus != ''" >
+     and confirm_status = #{confirmStatus,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    GROUP BY project_id, dept_id
+    ) as deptCount
+    where deptCount.del_flag = '0' GROUP BY deptCount.project_id
+    ) AS new1, (select @rankNo:=0)as new2
+ </select>
+
+<select id="getZjXmJxQuarterlyProjectDetailsDynamicColumn2" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyProjectDetails" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_quarterly_project_details
+    where del_flag = '0'
+    <if test="detailsId != null and detailsId != ''" >
+     and details_id = #{detailsId,jdbcType=CHAR}
+    </if>
+    <if test="assessmentId != null and assessmentId != ''" >
+     and assessment_id = #{assessmentId,jdbcType=CHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="managerKey != null and managerKey != ''" >
+     and manager_key = #{managerKey,jdbcType=CHAR}
+    </if>
+    <if test="managerName != null and managerName != ''" >
+     and manager_name = #{managerName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualStatus != null and actualStatus != ''" >
+     and actual_status = #{actualStatus,jdbcType=CHAR}
+    </if>
+    <if test="actualStatusName != null and actualStatusName != ''" >
+     and actual_status_name = #{actualStatusName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualType != null and actualType != ''" >
+     and actual_type = #{actualType,jdbcType=CHAR}
+    </if>
+    <if test="actualTypeName != null and actualTypeName != ''" >
+     and actual_type_name = #{actualTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualScore != null and actualScore != ''" >
+     and actual_score = #{actualScore,jdbcType=DECIMAL}
+    </if>
+    <if test="libraryId != null and libraryId != ''" >
+     and library_id = #{libraryId,jdbcType=CHAR}
+    </if>
+    <if test="deptId != null and deptId != ''" >
+     and dept_id = #{deptId,jdbcType=CHAR}
+    </if>
+    <if test="deptName != null and deptName != ''" >
+     and dept_name = #{deptName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectStatus != null and projectStatus != ''" >
+     and project_status = #{projectStatus,jdbcType=CHAR}
+    </if>
+    <if test="projectStatusName != null and projectStatusName != ''" >
+     and project_status_name = #{projectStatusName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectType != null and projectType != ''" >
+     and project_type = #{projectType,jdbcType=CHAR}
+    </if>
+    <if test="projectTypeName != null and projectTypeName != ''" >
+     and project_type_name = #{projectTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="libraryTitle != null and libraryTitle != ''" >
+     and library_title = #{libraryTitle,jdbcType=VARCHAR}
+    </if>
+    <if test="libraryContent != null and libraryContent != ''" >
+     and library_content = #{libraryContent,jdbcType=VARCHAR}
+    </if>
+    <if test="personLiableKey != null and personLiableKey != ''" >
+     and person_liable_key = #{personLiableKey,jdbcType=CHAR}
+    </if>
+    <if test="personLiableName != null and personLiableName != ''" >
+     and person_liable_name = #{personLiableName,jdbcType=VARCHAR}
+    </if>
+    <if test="isFixedScore != null and isFixedScore != ''" >
+     and is_fixed_score = #{isFixedScore,jdbcType=CHAR}
+    </if>
+    <if test="score != null and score != ''" >
+     and score = #{score,jdbcType=DECIMAL}
+    </if>
+    <if test="lowerLimitScore != null and lowerLimitScore != ''" >
+     and lower_limit_score = #{lowerLimitScore,jdbcType=DECIMAL}
+    </if>
+    <if test="upperLimitScore != null and upperLimitScore != ''" >
+     and upper_limit_score = #{upperLimitScore,jdbcType=DECIMAL}
+    </if>
+    <if test="isClosed != null and isClosed != ''" >
+     and is_closed = #{isClosed,jdbcType=CHAR}
+    </if>
+    <if test="confirmStatus != null and confirmStatus != ''" >
+     and confirm_status = #{confirmStatus,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    GROUP BY dept_id
+    ORDER BY dept_name ASC
+  </select>
+  
+  
+  <select id="checkZjXmJxQuarterlyProjectDetailsConfirmStatus" resultType="int" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyProjectDetails" >
+    select 
+          count(1)
+    from zj_xm_jx_quarterly_project_details
+    where del_flag = '0'
+      and confirm_status != '1'
+    <if test="detailsId != null and detailsId != ''" >
+     and details_id = #{detailsId,jdbcType=CHAR}
+    </if>
+    <if test="assessmentId != null and assessmentId != ''" >
+     and assessment_id = #{assessmentId,jdbcType=CHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="managerKey != null and managerKey != ''" >
+     and manager_key = #{managerKey,jdbcType=CHAR}
+    </if>
+    <if test="managerName != null and managerName != ''" >
+     and manager_name = #{managerName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualStatus != null and actualStatus != ''" >
+     and actual_status = #{actualStatus,jdbcType=CHAR}
+    </if>
+    <if test="actualStatusName != null and actualStatusName != ''" >
+     and actual_status_name = #{actualStatusName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualType != null and actualType != ''" >
+     and actual_type = #{actualType,jdbcType=CHAR}
+    </if>
+    <if test="actualTypeName != null and actualTypeName != ''" >
+     and actual_type_name = #{actualTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualScore != null and actualScore != ''" >
+     and actual_score = #{actualScore,jdbcType=DECIMAL}
+    </if>
+    <if test="libraryId != null and libraryId != ''" >
+     and library_id = #{libraryId,jdbcType=CHAR}
+    </if>
+    <if test="deptId != null and deptId != ''" >
+     and dept_id = #{deptId,jdbcType=CHAR}
+    </if>
+    <if test="deptName != null and deptName != ''" >
+     and dept_name = #{deptName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectStatus != null and projectStatus != ''" >
+     and project_status = #{projectStatus,jdbcType=CHAR}
+    </if>
+    <if test="projectStatusName != null and projectStatusName != ''" >
+     and project_status_name = #{projectStatusName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectType != null and projectType != ''" >
+     and project_type = #{projectType,jdbcType=CHAR}
+    </if>
+    <if test="projectTypeName != null and projectTypeName != ''" >
+     and project_type_name = #{projectTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="libraryTitle != null and libraryTitle != ''" >
+     and library_title = #{libraryTitle,jdbcType=VARCHAR}
+    </if>
+    <if test="libraryContent != null and libraryContent != ''" >
+     and library_content = #{libraryContent,jdbcType=VARCHAR}
+    </if>
+    <if test="personLiableKey != null and personLiableKey != ''" >
+     and person_liable_key = #{personLiableKey,jdbcType=CHAR}
+    </if>
+    <if test="personLiableName != null and personLiableName != ''" >
+     and person_liable_name = #{personLiableName,jdbcType=VARCHAR}
+    </if>
+    <if test="isFixedScore != null and isFixedScore != ''" >
+     and is_fixed_score = #{isFixedScore,jdbcType=CHAR}
+    </if>
+    <if test="score != null and score != ''" >
+     and score = #{score,jdbcType=DECIMAL}
+    </if>
+    <if test="lowerLimitScore != null and lowerLimitScore != ''" >
+     and lower_limit_score = #{lowerLimitScore,jdbcType=DECIMAL}
+    </if>
+    <if test="upperLimitScore != null and upperLimitScore != ''" >
+     and upper_limit_score = #{upperLimitScore,jdbcType=DECIMAL}
+    </if>
+    <if test="isClosed != null and isClosed != ''" >
+     and is_closed = #{isClosed,jdbcType=CHAR}
+    </if>
+    <if test="confirmStatus != null and confirmStatus != ''" >
+     and confirm_status = #{confirmStatus,jdbcType=CHAR}
+    </if>
+  </select>
+
+<select id="checkZjXmJxQuarterlyProjectDetailsActualScore" resultType="int" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyProjectDetails" >
+    select 
+          count(1)
+    from zj_xm_jx_quarterly_project_details
+    where del_flag = '0'
+      and actual_score is null
+    <if test="detailsId != null and detailsId != ''" >
+     and details_id = #{detailsId,jdbcType=CHAR}
+    </if>
+    <if test="assessmentId != null and assessmentId != ''" >
+     and assessment_id = #{assessmentId,jdbcType=CHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="managerKey != null and managerKey != ''" >
+     and manager_key = #{managerKey,jdbcType=CHAR}
+    </if>
+    <if test="managerName != null and managerName != ''" >
+     and manager_name = #{managerName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualStatus != null and actualStatus != ''" >
+     and actual_status = #{actualStatus,jdbcType=CHAR}
+    </if>
+    <if test="actualStatusName != null and actualStatusName != ''" >
+     and actual_status_name = #{actualStatusName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualType != null and actualType != ''" >
+     and actual_type = #{actualType,jdbcType=CHAR}
+    </if>
+    <if test="actualTypeName != null and actualTypeName != ''" >
+     and actual_type_name = #{actualTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="actualScore != null and actualScore != ''" >
+     and actual_score = #{actualScore,jdbcType=DECIMAL}
+    </if>
+    <if test="libraryId != null and libraryId != ''" >
+     and library_id = #{libraryId,jdbcType=CHAR}
+    </if>
+    <if test="deptId != null and deptId != ''" >
+     and dept_id = #{deptId,jdbcType=CHAR}
+    </if>
+    <if test="deptName != null and deptName != ''" >
+     and dept_name = #{deptName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectStatus != null and projectStatus != ''" >
+     and project_status = #{projectStatus,jdbcType=CHAR}
+    </if>
+    <if test="projectStatusName != null and projectStatusName != ''" >
+     and project_status_name = #{projectStatusName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectType != null and projectType != ''" >
+     and project_type = #{projectType,jdbcType=CHAR}
+    </if>
+    <if test="projectTypeName != null and projectTypeName != ''" >
+     and project_type_name = #{projectTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="libraryTitle != null and libraryTitle != ''" >
+     and library_title = #{libraryTitle,jdbcType=VARCHAR}
+    </if>
+    <if test="libraryContent != null and libraryContent != ''" >
+     and library_content = #{libraryContent,jdbcType=VARCHAR}
+    </if>
+    <if test="personLiableKey != null and personLiableKey != ''" >
+     and person_liable_key = #{personLiableKey,jdbcType=CHAR}
+    </if>
+    <if test="personLiableName != null and personLiableName != ''" >
+     and person_liable_name = #{personLiableName,jdbcType=VARCHAR}
+    </if>
+    <if test="isFixedScore != null and isFixedScore != ''" >
+     and is_fixed_score = #{isFixedScore,jdbcType=CHAR}
+    </if>
+    <if test="score != null and score != ''" >
+     and score = #{score,jdbcType=DECIMAL}
+    </if>
+    <if test="lowerLimitScore != null and lowerLimitScore != ''" >
+     and lower_limit_score = #{lowerLimitScore,jdbcType=DECIMAL}
+    </if>
+    <if test="upperLimitScore != null and upperLimitScore != ''" >
+     and upper_limit_score = #{upperLimitScore,jdbcType=DECIMAL}
+    </if>
+    <if test="isClosed != null and isClosed != ''" >
+     and is_closed = #{isClosed,jdbcType=CHAR}
+    </if>
+    <if test="confirmStatus != null and confirmStatus != ''" >
+     and confirm_status = #{confirmStatus,jdbcType=CHAR}
+    </if>
+  </select>
+  
+</mapper>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzEmployeeLanguageMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzEmployeeLanguage" >
+    <id column="language_id" property="languageId" jdbcType="CHAR" />
+    <result column="employee_info_id" property="employeeInfoId" jdbcType="CHAR" />
+    <result column="language" property="language" jdbcType="VARCHAR" />
+    <result column="language_proficiency" property="languageProficiency" jdbcType="VARCHAR" />
+    <result column="certificate_name" property="certificateName" jdbcType="VARCHAR" />
+    <result column="get_time" property="getTime" jdbcType="DATE" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    language_id, employee_info_id, language, language_proficiency, certificate_name, 
+    get_time, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_employee_language
+    where language_id = #{languageId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_employee_language
+    where language_id = #{languageId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeLanguage" >
+    insert into zj_tz_employee_language (language_id, employee_info_id, language, 
+      language_proficiency, certificate_name, get_time, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{languageId,jdbcType=CHAR}, #{employeeInfoId,jdbcType=CHAR}, #{language,jdbcType=VARCHAR}, 
+      #{languageProficiency,jdbcType=VARCHAR}, #{certificateName,jdbcType=VARCHAR}, #{getTime,jdbcType=DATE}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeLanguage" >
+    insert into zj_tz_employee_language
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="languageId != null" >
+        language_id,
+      </if>
+      <if test="employeeInfoId != null" >
+        employee_info_id,
+      </if>
+      <if test="language != null" >
+        language,
+      </if>
+      <if test="languageProficiency != null" >
+        language_proficiency,
+      </if>
+      <if test="certificateName != null" >
+        certificate_name,
+      </if>
+      <if test="getTime != null" >
+        get_time,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="languageId != null" >
+        #{languageId,jdbcType=CHAR},
+      </if>
+      <if test="employeeInfoId != null" >
+        #{employeeInfoId,jdbcType=CHAR},
+      </if>
+      <if test="language != null" >
+        #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="languageProficiency != null" >
+        #{languageProficiency,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateName != null" >
+        #{certificateName,jdbcType=VARCHAR},
+      </if>
+      <if test="getTime != null" >
+        #{getTime,jdbcType=DATE},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeLanguage" >
+    update zj_tz_employee_language
+    <set >
+      <if test="employeeInfoId != null" >
+        employee_info_id = #{employeeInfoId,jdbcType=CHAR},
+      </if>
+      <if test="language != null" >
+        language = #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="languageProficiency != null" >
+        language_proficiency = #{languageProficiency,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateName != null" >
+        certificate_name = #{certificateName,jdbcType=VARCHAR},
+      </if>
+      <if test="getTime != null" >
+        get_time = #{getTime,jdbcType=DATE},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where language_id = #{languageId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeLanguage" >
+    update zj_tz_employee_language
+    set       employee_info_id = #{employeeInfoId,jdbcType=CHAR},
+      language = #{language,jdbcType=VARCHAR},
+      language_proficiency = #{languageProficiency,jdbcType=VARCHAR},
+      certificate_name = #{certificateName,jdbcType=VARCHAR},
+      get_time = #{getTime,jdbcType=DATE},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where language_id = #{languageId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzEmployeeLanguageList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeLanguage" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_employee_language
+    where del_flag = '0'
+    <if test="employeeInfoId != null and employeeInfoId != ''" >
+     and employee_info_id = #{employeeInfoId,jdbcType=CHAR}
+    </if>
+    <if test="language != null and language != ''" >
+     and language = #{language,jdbcType=VARCHAR}
+    </if>
+    <if test="languageProficiency != null and languageProficiency != ''" >
+     and language_proficiency = #{languageProficiency,jdbcType=VARCHAR}
+    </if>
+    <if test="certificateName != null and certificateName != ''" >
+     and certificate_name = #{certificateName,jdbcType=VARCHAR}
+    </if>
+    <if test="getTime != null" >
+     and get_time = #{getTime,jdbcType=DATE}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzEmployeeLanguage" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeLanguage" >
+    <![CDATA[ 
+        update zj_tz_employee_language
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and language_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.languageId} 
+     </foreach>
+  </delete>
+</mapper>

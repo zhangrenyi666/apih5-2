@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.SysSequenceMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.framework.entity.SysSequence" >
+    <id column="seq_name" property="seqName" jdbcType="VARCHAR" />
+    <result column="current_val" property="currentVal" jdbcType="INTEGER" />
+    <result column="increment_val" property="incrementVal" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    seq_name, current_val, increment_val
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_sequence
+    where seq_name = #{seqName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_sequence
+    where seq_name = #{seqName,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.framework.entity.SysSequence" >
+    insert into sys_sequence (seq_name, current_val, increment_val
+      )
+    values (#{seqName,jdbcType=VARCHAR}, #{currentVal,jdbcType=INTEGER}, #{incrementVal,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.framework.entity.SysSequence" >
+    insert into sys_sequence
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="seqName != null" >
+        seq_name,
+      </if>
+      <if test="currentVal != null" >
+        current_val,
+      </if>
+      <if test="incrementVal != null" >
+        increment_val,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="seqName != null" >
+        #{seqName,jdbcType=VARCHAR},
+      </if>
+      <if test="currentVal != null" >
+        #{currentVal,jdbcType=INTEGER},
+      </if>
+      <if test="incrementVal != null" >
+        #{incrementVal,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.framework.entity.SysSequence" >
+    update sys_sequence
+    <set >
+      <if test="currentVal != null" >
+        current_val = #{currentVal,jdbcType=INTEGER},
+      </if>
+      <if test="incrementVal != null" >
+        increment_val = #{incrementVal,jdbcType=INTEGER},
+      </if>
+    </set>
+    where seq_name = #{seqName,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.framework.entity.SysSequence" >
+    update sys_sequence
+    set       current_val = #{currentVal,jdbcType=INTEGER},
+      increment_val = #{incrementVal,jdbcType=INTEGER}
+    where seq_name = #{seqName,jdbcType=VARCHAR}
+  </update>
+  <select id="selectBySysSequenceList" resultMap="BaseResultMap" parameterType="com.apih5.framework.entity.SysSequence" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_sequence
+    where del_flag = '0'
+    <if test="currentVal != null and currentVal != ''" >
+     and current_val = #{currentVal,jdbcType=INTEGER}
+    </if>
+    <if test="incrementVal != null and incrementVal != ''" >
+     and increment_val = #{incrementVal,jdbcType=INTEGER}
+    </if>
+    ORDER BY create_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateSysSequence" parameterType="com.apih5.framework.entity.SysSequence" >
+    <![CDATA[ 
+        update sys_sequence
+        set del_flag = '1'
+        where del_flag = '0' and seq_name in 
+     ]]> 
+     <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.seqName} 
+     </foreach>
+  </delete>
+  <select id="selectBySysSequenceTotalNum" resultType="int" parameterType="com.apih5.framework.entity.SysSequence" >
+    select count(*) from sys_sequence
+    where del_flag = '0'
+    <if test="currentVal != null and currentVal != ''" >
+      and current_val = #{currentVal,jdbcType=INTEGER}
+    </if>
+    <if test="incrementVal != null and incrementVal != ''" >
+      and increment_val = #{incrementVal,jdbcType=INTEGER}
+    </if>
+  </select>
+  <select id="selectCurrval" resultType="int" parameterType="com.apih5.framework.entity.SysSequence" >
+   	select sys_currval(#{seqName,jdbcType=VARCHAR});
+  </select>
+  <select id="selectNextval" resultType="int" parameterType="com.apih5.framework.entity.SysSequence" >
+   	select sys_nextval(#{seqName,jdbcType=VARCHAR});
+  </select>
+</mapper>

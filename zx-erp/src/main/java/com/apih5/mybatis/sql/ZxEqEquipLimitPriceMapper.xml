@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqEquipLimitPriceMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqEquipLimitPrice" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="applyNo" property="applyNo" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="period_date" property="periodDate" jdbcType="DATE" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="reporter" property="reporter" jdbcType="VARCHAR" />
+    <result column="reportDate" property="reportDate" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="comOrders" property="comOrders" jdbcType="VARCHAR" />
+    <result column="work_id" property="workId" jdbcType="CHAR" />
+    <result column="apih5_flow_status" property="apih5FlowStatus" jdbcType="CHAR" />
+    <result column="opinion_field1" property="opinionField1" jdbcType="VARCHAR" />
+    <result column="opinion_field2" property="opinionField2" jdbcType="VARCHAR" />
+    <result column="opinion_field3" property="opinionField3" jdbcType="VARCHAR" />
+    <result column="opinion_field4" property="opinionField4" jdbcType="VARCHAR" />
+    <result column="opinion_field5" property="opinionField5" jdbcType="VARCHAR" />
+    <result column="opinion_field6" property="opinionField6" jdbcType="VARCHAR" />
+    <result column="opinion_field7" property="opinionField7" jdbcType="VARCHAR" />
+    <result column="opinion_field8" property="opinionField8" jdbcType="VARCHAR" />
+    <result column="opinion_field9" property="opinionField9" jdbcType="VARCHAR" />
+    <result column="opinion_field10" property="opinionField10" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, applyNo, orgID, orgName, period, 
+    period_date, status, reporter, reportDate, remark, 
+    comID, comName, comOrders, work_id, apih5_flow_status, 
+    opinion_field1, opinion_field2, opinion_field3, opinion_field4, opinion_field5, 
+    opinion_field6, opinion_field7, opinion_field8, opinion_field9, opinion_field10, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_EquipLimitPrice
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_EquipLimitPrice
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqEquipLimitPrice" >
+    insert into zx_eq_EquipLimitPrice (id, applyNo, orgID, 
+      orgName, period, period_date, 
+      status, reporter, reportDate, 
+      remark, comID, comName, 
+      comOrders, work_id, apih5_flow_status, 
+      opinion_field1, opinion_field2, opinion_field3, 
+      opinion_field4, opinion_field5, opinion_field6, 
+      opinion_field7, opinion_field8, opinion_field9, 
+      opinion_field10, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{applyNo,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, 
+      #{orgName,jdbcType=VARCHAR}, #{period,jdbcType=VARCHAR}, #{periodDate,jdbcType=DATE}, 
+      #{status,jdbcType=VARCHAR}, #{reporter,jdbcType=VARCHAR}, #{reportDate,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}, #{comID,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, 
+      #{comOrders,jdbcType=VARCHAR}, #{workId,jdbcType=CHAR}, #{apih5FlowStatus,jdbcType=CHAR}, 
+      #{opinionField1,jdbcType=VARCHAR}, #{opinionField2,jdbcType=VARCHAR}, #{opinionField3,jdbcType=VARCHAR}, 
+      #{opinionField4,jdbcType=VARCHAR}, #{opinionField5,jdbcType=VARCHAR}, #{opinionField6,jdbcType=VARCHAR}, 
+      #{opinionField7,jdbcType=VARCHAR}, #{opinionField8,jdbcType=VARCHAR}, #{opinionField9,jdbcType=VARCHAR}, 
+      #{opinionField10,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqEquipLimitPrice" >
+    insert into zx_eq_EquipLimitPrice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="applyNo != null" >
+        applyNo,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="period != null" >
+        period,
+      </if>
+      <if test="periodDate != null" >
+        period_date,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="reporter != null" >
+        reporter,
+      </if>
+      <if test="reportDate != null" >
+        reportDate,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="comOrders != null" >
+        comOrders,
+      </if>
+      <if test="workId != null" >
+        work_id,
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status,
+      </if>
+      <if test="opinionField1 != null" >
+        opinion_field1,
+      </if>
+      <if test="opinionField2 != null" >
+        opinion_field2,
+      </if>
+      <if test="opinionField3 != null" >
+        opinion_field3,
+      </if>
+      <if test="opinionField4 != null" >
+        opinion_field4,
+      </if>
+      <if test="opinionField5 != null" >
+        opinion_field5,
+      </if>
+      <if test="opinionField6 != null" >
+        opinion_field6,
+      </if>
+      <if test="opinionField7 != null" >
+        opinion_field7,
+      </if>
+      <if test="opinionField8 != null" >
+        opinion_field8,
+      </if>
+      <if test="opinionField9 != null" >
+        opinion_field9,
+      </if>
+      <if test="opinionField10 != null" >
+        opinion_field10,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNo != null" >
+        #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="periodDate != null" >
+        #{periodDate,jdbcType=DATE},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="reporter != null" >
+        #{reporter,jdbcType=VARCHAR},
+      </if>
+      <if test="reportDate != null" >
+        #{reportDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="workId != null" >
+        #{workId,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        #{apih5FlowStatus,jdbcType=CHAR},
+      </if>
+      <if test="opinionField1 != null" >
+        #{opinionField1,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField2 != null" >
+        #{opinionField2,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField3 != null" >
+        #{opinionField3,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField4 != null" >
+        #{opinionField4,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField5 != null" >
+        #{opinionField5,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField6 != null" >
+        #{opinionField6,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField7 != null" >
+        #{opinionField7,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField8 != null" >
+        #{opinionField8,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField9 != null" >
+        #{opinionField9,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField10 != null" >
+        #{opinionField10,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqEquipLimitPrice" >
+    update zx_eq_EquipLimitPrice
+    <set >
+      <if test="applyNo != null" >
+        applyNo = #{applyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        period = #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="periodDate != null" >
+        period_date = #{periodDate,jdbcType=DATE},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="reporter != null" >
+        reporter = #{reporter,jdbcType=VARCHAR},
+      </if>
+      <if test="reportDate != null" >
+        reportDate = #{reportDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        comOrders = #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="workId != null" >
+        work_id = #{workId,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR},
+      </if>
+      <if test="opinionField1 != null" >
+        opinion_field1 = #{opinionField1,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField2 != null" >
+        opinion_field2 = #{opinionField2,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField3 != null" >
+        opinion_field3 = #{opinionField3,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField4 != null" >
+        opinion_field4 = #{opinionField4,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField5 != null" >
+        opinion_field5 = #{opinionField5,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField6 != null" >
+        opinion_field6 = #{opinionField6,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField7 != null" >
+        opinion_field7 = #{opinionField7,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField8 != null" >
+        opinion_field8 = #{opinionField8,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField9 != null" >
+        opinion_field9 = #{opinionField9,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField10 != null" >
+        opinion_field10 = #{opinionField10,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqEquipLimitPrice" >
+    update zx_eq_EquipLimitPrice
+    set       applyNo = #{applyNo,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      period = #{period,jdbcType=VARCHAR},
+      period_date = #{periodDate,jdbcType=DATE},
+      status = #{status,jdbcType=VARCHAR},
+      reporter = #{reporter,jdbcType=VARCHAR},
+      reportDate = #{reportDate,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      comOrders = #{comOrders,jdbcType=VARCHAR},
+      work_id = #{workId,jdbcType=CHAR},
+      apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR},
+      opinion_field1 = #{opinionField1,jdbcType=VARCHAR},
+      opinion_field2 = #{opinionField2,jdbcType=VARCHAR},
+      opinion_field3 = #{opinionField3,jdbcType=VARCHAR},
+      opinion_field4 = #{opinionField4,jdbcType=VARCHAR},
+      opinion_field5 = #{opinionField5,jdbcType=VARCHAR},
+      opinion_field6 = #{opinionField6,jdbcType=VARCHAR},
+      opinion_field7 = #{opinionField7,jdbcType=VARCHAR},
+      opinion_field8 = #{opinionField8,jdbcType=VARCHAR},
+      opinion_field9 = #{opinionField9,jdbcType=VARCHAR},
+      opinion_field10 = #{opinionField10,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxEqEquipLimitPriceList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEquipLimitPrice" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_EquipLimitPrice
+    where del_flag = '0'
+    <if test="applyNo != null and applyNo != ''" >
+     and applyNo LIKE CONCAT('%', #{applyNo},'%')
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName LIKE CONCAT('%', #{orgName},'%')
+    </if>
+    <if test="period != null and period != ''" >
+     and period = #{period,jdbcType=VARCHAR}
+    </if>
+    <if test="periodDate != null" >
+     and period_date = #{periodDate,jdbcType=DATE}
+    </if>
+    <if test="status != null and status != ''" >
+     and status = #{status,jdbcType=VARCHAR}
+    </if>
+    <if test="reporter != null and reporter != ''" >
+     and reporter = #{reporter,jdbcType=VARCHAR}
+    </if>
+    <if test="reportDate != null and reportDate != ''" >
+     and reportDate = #{reportDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="comOrders != null and comOrders != ''" >
+     and comOrders = #{comOrders,jdbcType=VARCHAR}
+    </if>
+    <if test="workId != null and workId != ''" >
+     and work_id = #{workId,jdbcType=CHAR}
+    </if>
+    <if test="apih5FlowStatus != null and apih5FlowStatus != ''" >
+     and apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR}
+    </if>
+    <if test="opinionField1 != null and opinionField1 != ''" >
+     and opinion_field1 = #{opinionField1,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField2 != null and opinionField2 != ''" >
+     and opinion_field2 = #{opinionField2,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField3 != null and opinionField3 != ''" >
+     and opinion_field3 = #{opinionField3,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField4 != null and opinionField4 != ''" >
+     and opinion_field4 = #{opinionField4,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField5 != null and opinionField5 != ''" >
+     and opinion_field5 = #{opinionField5,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField6 != null and opinionField6 != ''" >
+     and opinion_field6 = #{opinionField6,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField7 != null and opinionField7 != ''" >
+     and opinion_field7 = #{opinionField7,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField8 != null and opinionField8 != ''" >
+     and opinion_field8 = #{opinionField8,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField9 != null and opinionField9 != ''" >
+     and opinion_field9 = #{opinionField9,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField10 != null and opinionField10 != ''" >
+     and opinion_field10 = #{opinionField10,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqEquipLimitPrice" parameterType="com.apih5.mybatis.pojo.ZxEqEquipLimitPrice" >
+    <![CDATA[ 
+        update zx_eq_EquipLimitPrice
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+  
+  
+   <select id="selectZxEqEquipLimitPriceVO" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEquipLimitPrice" >
+  SELECT 
+	m.applyNo,
+	m.orgID,
+	m.orgName,
+	m.period,
+	m.status,
+	m.reporter,
+	m.reportDate,
+	m.period_date,
+	m.remark AS mainRemark,
+	rc.catName AS resCatalogName,
+	mi.ID,
+	mi.mainID,
+	mi.resCatalogID,
+	mi.equipID,
+	mi.equipNo,
+	mi.equipName,
+	mi.province,
+	mi.factory,
+	mi.spec,
+	mi.workTime,
+	mi.rentContent,
+	mi.ranyouQingkuang,
+	mi.rentPrice,
+	mi.isDriver,
+	mi.remark AS remarks
+FROM  zx_eq_EquipLimitPrice AS m 
+INNER JOIN zx_eq_EquipLimitPriceItem AS mi ON m.ID = mi.mainID AND mi.del_flag = '0'
+left join zx_eq_rescategory as rc on mi.resCatalogID = rc.ID AND rc.del_flag = '0'
+where m.del_flag = '0'
+    <if test="orgID != null and orgID != ''" >
+     and m.orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="periodDate != null" >
+     and m.period_date = #{periodDate,jdbcType=DATE}
+    </if>
+    <if test="province != null and province != ''" >
+     and mi.province = #{province,jdbcType=VARCHAR}
+    </if>
+    <if test="equipName != null and equipName != ''" >
+     and mi.equipName LIKE CONCAT('%', #{equipName},'%')
+    </if>
+    <if test="rentContent != null and rentContent != ''" >
+     and mi.rentContent = #{rentContent,jdbcType=VARCHAR}
+    </if>
+    <if test="workTime != null and workTime != ''" >
+     and mi.workTime = #{workTime,jdbcType=VARCHAR}
+    </if>
+     ORDER BY m.reportDate DESC 
+  </select>
+  
+  <select id="getZxEqEquipLimitPriceListLess" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEquipLimitPrice" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_EquipLimitPrice
+    where del_flag = '0'
+    <if test="idFlag != null and idFlag != ''" >
+     and id != #{idFlag}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="period != null and period != ''" >
+     and period &gt;= #{period,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  
+  
+</mapper>

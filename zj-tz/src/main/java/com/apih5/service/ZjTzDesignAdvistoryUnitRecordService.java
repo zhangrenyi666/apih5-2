@@ -1,0 +1,37 @@
+package com.apih5.service;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import com.apih5.framework.entity.ResponseEntity;
+import com.apih5.mybatis.pojo.ZjTzDesignAdvistoryUnitRecord;
+
+public interface ZjTzDesignAdvistoryUnitRecordService {
+
+    public ResponseEntity getZjTzDesignAdvistoryUnitRecordListByCondition(ZjTzDesignAdvistoryUnitRecord zjTzDesignAdvistoryUnitRecord);
+
+    public ResponseEntity getZjTzDesignAdvistoryUnitRecordDetails(ZjTzDesignAdvistoryUnitRecord zjTzDesignAdvistoryUnitRecord);
+
+    public ResponseEntity saveZjTzDesignAdvistoryUnitRecord(ZjTzDesignAdvistoryUnitRecord zjTzDesignAdvistoryUnitRecord);
+
+    public ResponseEntity updateZjTzDesignAdvistoryUnitRecord(ZjTzDesignAdvistoryUnitRecord zjTzDesignAdvistoryUnitRecord);
+
+    public ResponseEntity batchDeleteUpdateZjTzDesignAdvistoryUnitRecord(List<ZjTzDesignAdvistoryUnitRecord> zjTzDesignAdvistoryUnitRecordList);
+
+    public ResponseEntity batchReleaseZjTzDesignAdvistoryUnitRecord(List<ZjTzDesignAdvistoryUnitRecord> zjTzDesignAdvistoryUnitRecordList);
+
+	public ResponseEntity batchRecallZjTzDesignAdvistoryUnitRecord(List<ZjTzDesignAdvistoryUnitRecord> zjTzDesignAdvistoryUnitRecordList);
+
+	public ResponseEntity getZjTzDesignAdvistoryUnitRecordAllList(ZjTzDesignAdvistoryUnitRecord zjTzDesignAdvistoryUnitRecord);
+
+	public ResponseEntity evaluateZjTzDesignAdvistoryUnitRecord(ZjTzDesignAdvistoryUnitRecord zjTzDesignAdvistoryUnitRecord);
+
+	public ResponseEntity getZjTzDesignAdvistoryUnitRecordTotalList(ZjTzDesignAdvistoryUnitRecord zjTzDesignAdvistoryUnitRecord);
+
+//	public List<ZjTzDesignAdvistoryUnitRecord> reportZjTzDesignAdvistoryUnitRecordTotalList(ZjTzDesignAdvistoryUnitRecord zjTzDesignAdvistoryUnitRecord);
+	
+	public ResponseEntity reportZjTzDesignAdvistoryUnitRecordTotalList(ZjTzDesignAdvistoryUnitRecord zjTzDesignAdvistoryUnitRecord,HttpServletResponse response);
+	
+	public ResponseEntity checkAndFinishZjTzDesignAdvistoryUnitRecord(ZjTzDesignAdvistoryUnitRecord zjTzDesignAdvistoryUnitRecord);
+}

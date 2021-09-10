@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzCompSupReportMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzCompSupReport" >
+    <id column="comp_sup_report_id" property="compSupReportId" jdbcType="CHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="sup_dept_id" property="supDeptId" jdbcType="CHAR" />
+    <result column="check_date" property="checkDate" jdbcType="DATE" />
+    <result column="sup_class_id" property="supClassId" jdbcType="CHAR" />
+    <result column="sup_class_name" property="supClassName" jdbcType="VARCHAR" />
+    <result column="register_date" property="registerDate" jdbcType="DATE" />
+    <result column="register_person" property="registerPerson" jdbcType="VARCHAR" />
+    <result column="corrective_id" property="correctiveId" jdbcType="CHAR" />
+    <result column="corrective_name" property="correctiveName" jdbcType="VARCHAR" />
+    <result column="content_desc" property="contentDesc" jdbcType="VARCHAR" />
+    <result column="corrective_user_key" property="correctiveUserKey" jdbcType="CHAR" />
+    <result column="corrective_user_name" property="correctiveUserName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    comp_sup_report_id, title, project_id, sup_dept_id, check_date, 
+    sup_class_id, sup_class_name, register_date, register_person, corrective_id, 
+    corrective_name, content_desc, corrective_user_key, corrective_user_name, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_comp_sup_report
+    where comp_sup_report_id = #{compSupReportId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_comp_sup_report
+    where comp_sup_report_id = #{compSupReportId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzCompSupReport" >
+    insert into zj_tz_comp_sup_report (comp_sup_report_id, title, project_id, 
+      sup_dept_id, check_date, sup_class_id, 
+      sup_class_name, register_date, register_person, 
+      corrective_id, corrective_name, content_desc, 
+      corrective_user_key, corrective_user_name, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{compSupReportId,jdbcType=CHAR}, #{title,jdbcType=VARCHAR}, #{projectId,jdbcType=CHAR}, 
+      #{supDeptId,jdbcType=CHAR}, #{checkDate,jdbcType=DATE}, #{supClassId,jdbcType=CHAR}, 
+      #{supClassName,jdbcType=VARCHAR}, #{registerDate,jdbcType=DATE}, #{registerPerson,jdbcType=VARCHAR}, 
+      #{correctiveId,jdbcType=CHAR}, #{correctiveName,jdbcType=VARCHAR}, #{contentDesc,jdbcType=VARCHAR}, 
+      #{correctiveUserKey,jdbcType=CHAR}, #{correctiveUserName,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzCompSupReport" >
+    insert into zj_tz_comp_sup_report
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="compSupReportId != null" >
+        comp_sup_report_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="supDeptId != null" >
+        sup_dept_id,
+      </if>
+      <if test="checkDate != null" >
+        check_date,
+      </if>
+      <if test="supClassId != null" >
+        sup_class_id,
+      </if>
+      <if test="supClassName != null" >
+        sup_class_name,
+      </if>
+      <if test="registerDate != null" >
+        register_date,
+      </if>
+      <if test="registerPerson != null" >
+        register_person,
+      </if>
+      <if test="correctiveId != null" >
+        corrective_id,
+      </if>
+      <if test="correctiveName != null" >
+        corrective_name,
+      </if>
+      <if test="contentDesc != null" >
+        content_desc,
+      </if>
+      <if test="correctiveUserKey != null" >
+        corrective_user_key,
+      </if>
+      <if test="correctiveUserName != null" >
+        corrective_user_name,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="compSupReportId != null" >
+        #{compSupReportId,jdbcType=CHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="supDeptId != null" >
+        #{supDeptId,jdbcType=CHAR},
+      </if>
+      <if test="checkDate != null" >
+        #{checkDate,jdbcType=DATE},
+      </if>
+      <if test="supClassId != null" >
+        #{supClassId,jdbcType=CHAR},
+      </if>
+      <if test="supClassName != null" >
+        #{supClassName,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null" >
+        #{registerDate,jdbcType=DATE},
+      </if>
+      <if test="registerPerson != null" >
+        #{registerPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="correctiveId != null" >
+        #{correctiveId,jdbcType=CHAR},
+      </if>
+      <if test="correctiveName != null" >
+        #{correctiveName,jdbcType=VARCHAR},
+      </if>
+      <if test="contentDesc != null" >
+        #{contentDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="correctiveUserKey != null" >
+        #{correctiveUserKey,jdbcType=CHAR},
+      </if>
+      <if test="correctiveUserName != null" >
+        #{correctiveUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzCompSupReport" >
+    update zj_tz_comp_sup_report
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="supDeptId != null" >
+        sup_dept_id = #{supDeptId,jdbcType=CHAR},
+      </if>
+      <if test="checkDate != null" >
+        check_date = #{checkDate,jdbcType=DATE},
+      </if>
+      <if test="supClassId != null" >
+        sup_class_id = #{supClassId,jdbcType=CHAR},
+      </if>
+      <if test="supClassName != null" >
+        sup_class_name = #{supClassName,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null" >
+        register_date = #{registerDate,jdbcType=DATE},
+      </if>
+      <if test="registerPerson != null" >
+        register_person = #{registerPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="correctiveId != null" >
+        corrective_id = #{correctiveId,jdbcType=CHAR},
+      </if>
+      <if test="correctiveName != null" >
+        corrective_name = #{correctiveName,jdbcType=VARCHAR},
+      </if>
+      <if test="contentDesc != null" >
+        content_desc = #{contentDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="correctiveUserKey != null" >
+        corrective_user_key = #{correctiveUserKey,jdbcType=CHAR},
+      </if>
+      <if test="correctiveUserName != null" >
+        corrective_user_name = #{correctiveUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where comp_sup_report_id = #{compSupReportId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzCompSupReport" >
+    update zj_tz_comp_sup_report
+    set       title = #{title,jdbcType=VARCHAR},
+      project_id = #{projectId,jdbcType=CHAR},
+      sup_dept_id = #{supDeptId,jdbcType=CHAR},
+      check_date = #{checkDate,jdbcType=DATE},
+      sup_class_id = #{supClassId,jdbcType=CHAR},
+      sup_class_name = #{supClassName,jdbcType=VARCHAR},
+      register_date = #{registerDate,jdbcType=DATE},
+      register_person = #{registerPerson,jdbcType=VARCHAR},
+      corrective_id = #{correctiveId,jdbcType=CHAR},
+      corrective_name = #{correctiveName,jdbcType=VARCHAR},
+      content_desc = #{contentDesc,jdbcType=VARCHAR},
+      corrective_user_key = #{correctiveUserKey,jdbcType=CHAR},
+      corrective_user_name = #{correctiveUserName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where comp_sup_report_id = #{compSupReportId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzCompSupReportList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzCompSupReport" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_comp_sup_report
+    where del_flag = '0'
+    <if test="title != null and title != ''" >
+     and title = #{title,jdbcType=VARCHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     and project_id in (${projectIdSql})
+    </if>
+    <if test="supDeptId != null and supDeptId != ''" >
+     and sup_dept_id = #{supDeptId,jdbcType=CHAR}
+    </if>
+    <if test="checkDate != null" >
+     and LEFT(check_date, 10) = LEFT(#{checkDate}, 10)
+    </if>
+    <if test="supClassId != null and supClassId != ''" >
+     and sup_class_id = #{supClassId,jdbcType=CHAR}
+    </if>
+    <if test="supClassName != null and supClassName != ''" >
+     and sup_class_name = #{supClassName,jdbcType=VARCHAR}
+    </if>
+    <if test="registerDate != null" >
+     and register_date = #{registerDate,jdbcType=DATE}
+    </if>
+    <if test="registerPerson != null and registerPerson != ''" >
+     and register_person = #{registerPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="correctiveId != null and correctiveId != ''" >
+     and corrective_id = #{correctiveId,jdbcType=CHAR}
+    </if>
+    <if test="correctiveName != null and correctiveName != ''" >
+     and corrective_name = #{correctiveName,jdbcType=VARCHAR}
+    </if>
+    <if test="contentDesc != null and contentDesc != ''" >
+     and content_desc = #{contentDesc,jdbcType=VARCHAR}
+    </if>
+    <if test="correctiveUserKey != null and correctiveUserKey != ''" >
+     and corrective_user_key = #{correctiveUserKey,jdbcType=CHAR}
+    </if>
+    <if test="correctiveUserName != null and correctiveUserName != ''" >
+     and corrective_user_name = #{correctiveUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="unExt1SeeFlag != null and unExt1SeeFlag != ''" >
+     and corrective_id IN ('1','2')
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzCompSupReport" parameterType="com.apih5.mybatis.pojo.ZjTzCompSupReport" >
+    <![CDATA[ 
+        update zj_tz_comp_sup_report
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and comp_sup_report_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.compSupReportId} 
+     </foreach>
+  </delete>
+   <!-- 扩展 -->
+  <delete id="batchRecallZjTzCompSupReport" parameterType="com.apih5.mybatis.pojo.ZjTzCompSupReport" >
+    <![CDATA[ 
+        update zj_tz_comp_sup_report
+        set corrective_id = '0',
+            corrective_name=#{param2.correctiveName},
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and comp_sup_report_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.compSupReportId} 
+     </foreach>
+  </delete>
+</mapper>

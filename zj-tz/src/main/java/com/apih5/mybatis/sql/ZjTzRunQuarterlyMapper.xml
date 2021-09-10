@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzRunQuarterlyMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzRunQuarterly" >
+    <id column="run_quarterly_id" property="runQuarterlyId" jdbcType="CHAR" />
+    <result column="year_date" property="yearDate" jdbcType="DATE" />
+    <result column="year_str" property="yearStr" jdbcType="VARCHAR" />
+    <result column="quarter" property="quarter" jdbcType="CHAR" />
+    <result column="run_desc" property="runDesc" jdbcType="VARCHAR" />
+    <result column="register_date" property="registerDate" jdbcType="DATE" />
+    <result column="register_person" property="registerPerson" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    run_quarterly_id, year_date, year_str, quarter, run_desc, 
+    register_date, register_person, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_run_quarterly
+    where run_quarterly_id = #{runQuarterlyId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_run_quarterly
+    where run_quarterly_id = #{runQuarterlyId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzRunQuarterly" >
+    insert into zj_tz_run_quarterly (run_quarterly_id, year_date, year_str, 
+      quarter, run_desc, register_date, 
+      register_person, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{runQuarterlyId,jdbcType=CHAR}, #{yearDate,jdbcType=DATE}, #{yearStr,jdbcType=VARCHAR}, 
+      #{quarter,jdbcType=CHAR}, #{runDesc,jdbcType=VARCHAR}, #{registerDate,jdbcType=DATE}, 
+      #{registerPerson,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzRunQuarterly" >
+    insert into zj_tz_run_quarterly
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="runQuarterlyId != null" >
+        run_quarterly_id,
+      </if>
+      <if test="yearDate != null" >
+        year_date,
+      </if>
+      <if test="yearStr != null" >
+        year_str,
+      </if>
+      <if test="quarter != null" >
+        quarter,
+      </if>
+      <if test="runDesc != null" >
+        run_desc,
+      </if>
+      <if test="registerDate != null" >
+        register_date,
+      </if>
+      <if test="registerPerson != null" >
+        register_person,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="runQuarterlyId != null" >
+        #{runQuarterlyId,jdbcType=CHAR},
+      </if>
+      <if test="yearDate != null" >
+        #{yearDate,jdbcType=DATE},
+      </if>
+      <if test="yearStr != null" >
+        #{yearStr,jdbcType=VARCHAR},
+      </if>
+      <if test="quarter != null" >
+        #{quarter,jdbcType=CHAR},
+      </if>
+      <if test="runDesc != null" >
+        #{runDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null" >
+        #{registerDate,jdbcType=DATE},
+      </if>
+      <if test="registerPerson != null" >
+        #{registerPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzRunQuarterly" >
+    update zj_tz_run_quarterly
+    <set >
+      <if test="yearDate != null" >
+        year_date = #{yearDate,jdbcType=DATE},
+      </if>
+      <if test="yearStr != null" >
+        year_str = #{yearStr,jdbcType=VARCHAR},
+      </if>
+      <if test="quarter != null" >
+        quarter = #{quarter,jdbcType=CHAR},
+      </if>
+      <if test="runDesc != null" >
+        run_desc = #{runDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null" >
+        register_date = #{registerDate,jdbcType=DATE},
+      </if>
+      <if test="registerPerson != null" >
+        register_person = #{registerPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where run_quarterly_id = #{runQuarterlyId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzRunQuarterly" >
+    update zj_tz_run_quarterly
+    set       year_date = #{yearDate,jdbcType=DATE},
+      year_str = #{yearStr,jdbcType=VARCHAR},
+      quarter = #{quarter,jdbcType=CHAR},
+      run_desc = #{runDesc,jdbcType=VARCHAR},
+      register_date = #{registerDate,jdbcType=DATE},
+      register_person = #{registerPerson,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where run_quarterly_id = #{runQuarterlyId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzRunQuarterlyList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzRunQuarterly" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_run_quarterly
+    where del_flag = '0'
+    <if test="yearDate != null" >
+     and year_date = #{yearDate,jdbcType=DATE}
+    </if>
+    <if test="yearStr != null and yearStr != ''" >
+     and year_str = #{yearStr,jdbcType=VARCHAR}
+    </if>
+    <if test="quarter != null and quarter != ''" >
+     and quarter = #{quarter,jdbcType=CHAR}
+    </if>
+    <if test="runDesc != null and runDesc != ''" >
+     and run_desc = #{runDesc,jdbcType=VARCHAR}
+    </if>
+    <if test="registerDate != null" >
+     and register_date = #{registerDate,jdbcType=DATE}
+    </if>
+    <if test="registerPerson != null and registerPerson != ''" >
+     and register_person = #{registerPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="sequenceFlag != null and sequenceFlag != ''" >
+     and quarter &gt; #{quarterFlag}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzRunQuarterly" parameterType="com.apih5.mybatis.pojo.ZjTzRunQuarterly" >
+    <![CDATA[ 
+        update zj_tz_run_quarterly
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and run_quarterly_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.runQuarterlyId} 
+     </foreach>
+  </delete>
+</mapper>

@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmJxMonthlyAssessmentMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessment" >
+    <id column="assessment_id" property="assessmentId" jdbcType="CHAR" />
+    <result column="year_month" property="yearMonth" jdbcType="TIMESTAMP" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="assessment_title" property="assessmentTitle" jdbcType="VARCHAR" />
+    <result column="notice_status" property="noticeStatus" jdbcType="CHAR" />
+    <result column="task_status" property="taskStatus" jdbcType="CHAR" />
+    <result column="task_remarks" property="taskRemarks" jdbcType="VARCHAR" />
+    <result column="periphery_status" property="peripheryStatus" jdbcType="CHAR" />
+    <result column="periphery_remarks" property="peripheryRemarks" jdbcType="VARCHAR" />
+    <result column="deputy_peer_weight" property="deputyPeerWeight" jdbcType="INTEGER" />
+    <result column="deputy_subordinate_weight" property="deputySubordinateWeight" jdbcType="INTEGER" />
+    <result column="leader_superior_weight" property="leaderSuperiorWeight" jdbcType="INTEGER" />
+    <result column="leader__peer_weight" property="leaderPeerWeight" jdbcType="INTEGER" />
+    <result column="leader_subordinate_weight" property="leaderSubordinateWeight" jdbcType="INTEGER" />
+    <result column="employee_superior_weight" property="employeeSuperiorWeight" jdbcType="INTEGER" />
+    <result column="employee_peer_weight" property="employeePeerWeight" jdbcType="INTEGER" />
+    <result column="principal_status" property="principalStatus" jdbcType="CHAR" />
+    <result column="principal_remarks" property="principalRemarks" jdbcType="VARCHAR" />
+    <result column="composite_status" property="compositeStatus" jdbcType="CHAR" />
+    <result column="composite_remarks" property="compositeRemarks" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    assessment_id, `year_month`, project_id, project_name, assessment_title, 
+    notice_status, task_status, task_remarks, periphery_status, periphery_remarks, 
+    deputy_peer_weight, deputy_subordinate_weight, leader_superior_weight, leader__peer_weight, leader_subordinate_weight, 
+    employee_superior_weight, employee_peer_weight, principal_status, principal_remarks, composite_status, 
+    composite_remarks, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_monthly_assessment
+    where assessment_id = #{assessmentId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_jx_monthly_assessment
+    where assessment_id = #{assessmentId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessment" >
+    insert into zj_xm_jx_monthly_assessment (assessment_id, `year_month`, project_id, 
+      project_name, assessment_title, notice_status, 
+      task_status, task_remarks, periphery_status, 
+      periphery_remarks, deputy_peer_weight, deputy_subordinate_weight, 
+      leader_superior_weight, leader__peer_weight, leader_subordinate_weight, 
+      employee_superior_weight, employee_peer_weight, principal_status, 
+      principal_remarks, composite_status, composite_remarks, 
+      remarks, sort, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{assessmentId,jdbcType=CHAR}, #{yearMonth,jdbcType=TIMESTAMP}, #{projectId,jdbcType=CHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{assessmentTitle,jdbcType=VARCHAR}, #{noticeStatus,jdbcType=CHAR}, 
+      #{taskStatus,jdbcType=CHAR}, #{taskRemarks,jdbcType=VARCHAR}, #{peripheryStatus,jdbcType=CHAR}, 
+      #{peripheryRemarks,jdbcType=VARCHAR}, #{deputyPeerWeight,jdbcType=INTEGER}, #{deputySubordinateWeight,jdbcType=INTEGER}, 
+      #{leaderSuperiorWeight,jdbcType=INTEGER}, #{leaderPeerWeight,jdbcType=INTEGER}, #{leaderSubordinateWeight,jdbcType=INTEGER}, 
+      #{employeeSuperiorWeight,jdbcType=INTEGER}, #{employeePeerWeight,jdbcType=INTEGER}, #{principalStatus,jdbcType=CHAR}, 
+      #{principalRemarks,jdbcType=VARCHAR}, #{compositeStatus,jdbcType=CHAR}, #{compositeRemarks,jdbcType=VARCHAR}, 
+      #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessment" >
+    insert into zj_xm_jx_monthly_assessment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="assessmentId != null" >
+        assessment_id,
+      </if>
+      <if test="yearMonth != null" >
+        `year_month`,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="assessmentTitle != null" >
+        assessment_title,
+      </if>
+      <if test="noticeStatus != null" >
+        notice_status,
+      </if>
+      <if test="taskStatus != null" >
+        task_status,
+      </if>
+      <if test="taskRemarks != null" >
+        task_remarks,
+      </if>
+      <if test="peripheryStatus != null" >
+        periphery_status,
+      </if>
+      <if test="peripheryRemarks != null" >
+        periphery_remarks,
+      </if>
+      <if test="deputyPeerWeight != null" >
+        deputy_peer_weight,
+      </if>
+      <if test="deputySubordinateWeight != null" >
+        deputy_subordinate_weight,
+      </if>
+      <if test="leaderSuperiorWeight != null" >
+        leader_superior_weight,
+      </if>
+      <if test="leaderPeerWeight != null" >
+        leader__peer_weight,
+      </if>
+      <if test="leaderSubordinateWeight != null" >
+        leader_subordinate_weight,
+      </if>
+      <if test="employeeSuperiorWeight != null" >
+        employee_superior_weight,
+      </if>
+      <if test="employeePeerWeight != null" >
+        employee_peer_weight,
+      </if>
+      <if test="principalStatus != null" >
+        principal_status,
+      </if>
+      <if test="principalRemarks != null" >
+        principal_remarks,
+      </if>
+      <if test="compositeStatus != null" >
+        composite_status,
+      </if>
+      <if test="compositeRemarks != null" >
+        composite_remarks,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="assessmentId != null" >
+        #{assessmentId,jdbcType=CHAR},
+      </if>
+      <if test="yearMonth != null" >
+        #{yearMonth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="assessmentTitle != null" >
+        #{assessmentTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeStatus != null" >
+        #{noticeStatus,jdbcType=CHAR},
+      </if>
+      <if test="taskStatus != null" >
+        #{taskStatus,jdbcType=CHAR},
+      </if>
+      <if test="taskRemarks != null" >
+        #{taskRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="peripheryStatus != null" >
+        #{peripheryStatus,jdbcType=CHAR},
+      </if>
+      <if test="peripheryRemarks != null" >
+        #{peripheryRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="deputyPeerWeight != null" >
+        #{deputyPeerWeight,jdbcType=INTEGER},
+      </if>
+      <if test="deputySubordinateWeight != null" >
+        #{deputySubordinateWeight,jdbcType=INTEGER},
+      </if>
+      <if test="leaderSuperiorWeight != null" >
+        #{leaderSuperiorWeight,jdbcType=INTEGER},
+      </if>
+      <if test="leaderPeerWeight != null" >
+        #{leaderPeerWeight,jdbcType=INTEGER},
+      </if>
+      <if test="leaderSubordinateWeight != null" >
+        #{leaderSubordinateWeight,jdbcType=INTEGER},
+      </if>
+      <if test="employeeSuperiorWeight != null" >
+        #{employeeSuperiorWeight,jdbcType=INTEGER},
+      </if>
+      <if test="employeePeerWeight != null" >
+        #{employeePeerWeight,jdbcType=INTEGER},
+      </if>
+      <if test="principalStatus != null" >
+        #{principalStatus,jdbcType=CHAR},
+      </if>
+      <if test="principalRemarks != null" >
+        #{principalRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="compositeStatus != null" >
+        #{compositeStatus,jdbcType=CHAR},
+      </if>
+      <if test="compositeRemarks != null" >
+        #{compositeRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessment" >
+    update zj_xm_jx_monthly_assessment
+    <set >
+      <if test="yearMonth != null" >
+        `year_month` = #{yearMonth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="assessmentTitle != null" >
+        assessment_title = #{assessmentTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeStatus != null" >
+        notice_status = #{noticeStatus,jdbcType=CHAR},
+      </if>
+      <if test="taskStatus != null" >
+        task_status = #{taskStatus,jdbcType=CHAR},
+      </if>
+      <if test="taskRemarks != null" >
+        task_remarks = #{taskRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="peripheryStatus != null" >
+        periphery_status = #{peripheryStatus,jdbcType=CHAR},
+      </if>
+      <if test="peripheryRemarks != null" >
+        periphery_remarks = #{peripheryRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="deputyPeerWeight != null" >
+        deputy_peer_weight = #{deputyPeerWeight,jdbcType=INTEGER},
+      </if>
+      <if test="deputySubordinateWeight != null" >
+        deputy_subordinate_weight = #{deputySubordinateWeight,jdbcType=INTEGER},
+      </if>
+      <if test="leaderSuperiorWeight != null" >
+        leader_superior_weight = #{leaderSuperiorWeight,jdbcType=INTEGER},
+      </if>
+      <if test="leaderPeerWeight != null" >
+        leader__peer_weight = #{leaderPeerWeight,jdbcType=INTEGER},
+      </if>
+      <if test="leaderSubordinateWeight != null" >
+        leader_subordinate_weight = #{leaderSubordinateWeight,jdbcType=INTEGER},
+      </if>
+      <if test="employeeSuperiorWeight != null" >
+        employee_superior_weight = #{employeeSuperiorWeight,jdbcType=INTEGER},
+      </if>
+      <if test="employeePeerWeight != null" >
+        employee_peer_weight = #{employeePeerWeight,jdbcType=INTEGER},
+      </if>
+      <if test="principalStatus != null" >
+        principal_status = #{principalStatus,jdbcType=CHAR},
+      </if>
+      <if test="principalRemarks != null" >
+        principal_remarks = #{principalRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="compositeStatus != null" >
+        composite_status = #{compositeStatus,jdbcType=CHAR},
+      </if>
+      <if test="compositeRemarks != null" >
+        composite_remarks = #{compositeRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where assessment_id = #{assessmentId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessment" >
+    update zj_xm_jx_monthly_assessment
+    set       `year_month` = #{yearMonth,jdbcType=TIMESTAMP},
+      project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      assessment_title = #{assessmentTitle,jdbcType=VARCHAR},
+      notice_status = #{noticeStatus,jdbcType=CHAR},
+      task_status = #{taskStatus,jdbcType=CHAR},
+      task_remarks = #{taskRemarks,jdbcType=VARCHAR},
+      periphery_status = #{peripheryStatus,jdbcType=CHAR},
+      periphery_remarks = #{peripheryRemarks,jdbcType=VARCHAR},
+      deputy_peer_weight = #{deputyPeerWeight,jdbcType=INTEGER},
+      deputy_subordinate_weight = #{deputySubordinateWeight,jdbcType=INTEGER},
+      leader_superior_weight = #{leaderSuperiorWeight,jdbcType=INTEGER},
+      leader__peer_weight = #{leaderPeerWeight,jdbcType=INTEGER},
+      leader_subordinate_weight = #{leaderSubordinateWeight,jdbcType=INTEGER},
+      employee_superior_weight = #{employeeSuperiorWeight,jdbcType=INTEGER},
+      employee_peer_weight = #{employeePeerWeight,jdbcType=INTEGER},
+      principal_status = #{principalStatus,jdbcType=CHAR},
+      principal_remarks = #{principalRemarks,jdbcType=VARCHAR},
+      composite_status = #{compositeStatus,jdbcType=CHAR},
+      composite_remarks = #{compositeRemarks,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where assessment_id = #{assessmentId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmJxMonthlyAssessmentList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessment" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_monthly_assessment
+    where del_flag = '0'
+    <if test="yearMonth != null" >
+     and date_format(`year_month`, '%Y-%m') = date_format(#{yearMonth,jdbcType=TIMESTAMP},'%Y-%m')
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name like CONCAT('%', #{projectName,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="assessmentTitle != null and assessmentTitle != ''" >
+     and assessment_title like CONCAT('%', #{assessmentTitle,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="noticeStatus != null and noticeStatus != ''" >
+     and notice_status = #{noticeStatus,jdbcType=CHAR}
+    </if>
+    <if test="taskStatus != null and taskStatus != ''" >
+     and task_status = #{taskStatus,jdbcType=CHAR}
+    </if>
+    <if test="taskRemarks != null and taskRemarks != ''" >
+     and task_remarks = #{taskRemarks,jdbcType=VARCHAR}
+    </if>
+    <if test="peripheryStatus != null and peripheryStatus != ''" >
+     and periphery_status = #{peripheryStatus,jdbcType=CHAR}
+    </if>
+    <if test="peripheryRemarks != null and peripheryRemarks != ''" >
+     and periphery_remarks = #{peripheryRemarks,jdbcType=VARCHAR}
+    </if>
+    <if test="deputyPeerWeight != null and deputyPeerWeight != ''" >
+     and deputy_peer_weight = #{deputyPeerWeight,jdbcType=INTEGER}
+    </if>
+    <if test="deputySubordinateWeight != null and deputySubordinateWeight != ''" >
+     and deputy_subordinate_weight = #{deputySubordinateWeight,jdbcType=INTEGER}
+    </if>
+    <if test="leaderSuperiorWeight != null and leaderSuperiorWeight != ''" >
+     and leader_superior_weight = #{leaderSuperiorWeight,jdbcType=INTEGER}
+    </if>
+    <if test="leaderPeerWeight != null and leaderPeerWeight != ''" >
+     and leader__peer_weight = #{leaderPeerWeight,jdbcType=INTEGER}
+    </if>
+    <if test="leaderSubordinateWeight != null and leaderSubordinateWeight != ''" >
+     and leader_subordinate_weight = #{leaderSubordinateWeight,jdbcType=INTEGER}
+    </if>
+    <if test="employeeSuperiorWeight != null and employeeSuperiorWeight != ''" >
+     and employee_superior_weight = #{employeeSuperiorWeight,jdbcType=INTEGER}
+    </if>
+    <if test="employeePeerWeight != null and employeePeerWeight != ''" >
+     and employee_peer_weight = #{employeePeerWeight,jdbcType=INTEGER}
+    </if>
+    <if test="principalStatus != null and principalStatus != ''" >
+     and principal_status = #{principalStatus,jdbcType=CHAR}
+    </if>
+    <if test="principalRemarks != null and principalRemarks != ''" >
+     and principal_remarks = #{principalRemarks,jdbcType=VARCHAR}
+    </if>
+    <if test="compositeStatus != null and compositeStatus != ''" >
+     and composite_status = #{compositeStatus,jdbcType=CHAR}
+    </if>
+    <if test="compositeRemarks != null and compositeRemarks != ''" >
+     and composite_remarks = #{compositeRemarks,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmJxMonthlyAssessment" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessment" >
+    <![CDATA[ 
+        update zj_xm_jx_monthly_assessment
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and assessment_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.assessmentId} 
+     </foreach>
+  </delete>
+  
+  <select id="checkZjXmJxMonthlyAssessmentByCondition" resultType="int" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessment" >
+    select 
+         count(1)
+    from zj_xm_jx_monthly_assessment
+    where del_flag = '0'
+    <if test="yearMonth != null" >
+     and date_format(`year_month`, '%Y-%m') = date_format(#{yearMonth,jdbcType=TIMESTAMP},'%Y-%m')
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+  </select>
+  
+  <select id="getZjXmJxMonthlyAssessmentNewest" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessment" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_monthly_assessment
+    where del_flag = '0'
+    ORDER BY create_time DESC 
+    limit 1
+  </select>
+  
+</mapper>

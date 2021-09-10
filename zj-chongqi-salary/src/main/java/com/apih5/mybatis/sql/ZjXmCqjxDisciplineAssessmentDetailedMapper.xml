@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmCqjxDisciplineAssessmentDetailedMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessmentDetailed" >
+    <id column="discipline_detailed_id" property="disciplineDetailedId" jdbcType="CHAR" />
+    <result column="discipline_id" property="disciplineId" jdbcType="CHAR" />
+    <result column="user_key" property="userKey" jdbcType="CHAR" />
+    <result column="user_name" property="userName" jdbcType="CHAR" />
+    <result column="department_name" property="departmentName" jdbcType="CHAR" />
+    <result column="mobile" property="mobile" jdbcType="CHAR" />
+    <result column="discipline_detailed_score" property="disciplineDetailedScore" jdbcType="CHAR" />
+    <result column="discipline_detailed_content" property="disciplineDetailedContent" jdbcType="CHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    discipline_detailed_id, discipline_id, user_key, user_name, department_name, 
+    mobile, discipline_detailed_score, discipline_detailed_content, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_cqjx_discipline_assessment_detailed
+    where discipline_detailed_id = #{disciplineDetailedId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_cqjx_discipline_assessment_detailed
+    where discipline_detailed_id = #{disciplineDetailedId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessmentDetailed" >
+    insert into zj_xm_cqjx_discipline_assessment_detailed (discipline_detailed_id, discipline_id, user_key, 
+      user_name, department_name, mobile, 
+      discipline_detailed_score, discipline_detailed_content, 
+      del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{disciplineDetailedId,jdbcType=CHAR}, #{disciplineId,jdbcType=CHAR}, #{userKey,jdbcType=CHAR}, 
+      #{userName,jdbcType=CHAR}, #{departmentName,jdbcType=CHAR}, #{mobile,jdbcType=CHAR}, 
+      #{disciplineDetailedScore,jdbcType=CHAR}, #{disciplineDetailedContent,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessmentDetailed" >
+    insert into zj_xm_cqjx_discipline_assessment_detailed
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="disciplineDetailedId != null" >
+        discipline_detailed_id,
+      </if>
+      <if test="disciplineId != null" >
+        discipline_id,
+      </if>
+      <if test="userKey != null" >
+        user_key,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="departmentName != null" >
+        department_name,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="disciplineDetailedScore != null" >
+        discipline_detailed_score,
+      </if>
+      <if test="disciplineDetailedContent != null" >
+        discipline_detailed_content,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="disciplineDetailedId != null" >
+        #{disciplineDetailedId,jdbcType=CHAR},
+      </if>
+      <if test="disciplineId != null" >
+        #{disciplineId,jdbcType=CHAR},
+      </if>
+      <if test="userKey != null" >
+        #{userKey,jdbcType=CHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=CHAR},
+      </if>
+      <if test="departmentName != null" >
+        #{departmentName,jdbcType=CHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=CHAR},
+      </if>
+      <if test="disciplineDetailedScore != null" >
+        #{disciplineDetailedScore,jdbcType=CHAR},
+      </if>
+      <if test="disciplineDetailedContent != null" >
+        #{disciplineDetailedContent,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessmentDetailed" >
+    update zj_xm_cqjx_discipline_assessment_detailed
+    <set >
+      <if test="disciplineId != null" >
+        discipline_id = #{disciplineId,jdbcType=CHAR},
+      </if>
+      <if test="userKey != null" >
+        user_key = #{userKey,jdbcType=CHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=CHAR},
+      </if>
+      <if test="departmentName != null" >
+        department_name = #{departmentName,jdbcType=CHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=CHAR},
+      </if>
+      <if test="disciplineDetailedScore != null" >
+        discipline_detailed_score = #{disciplineDetailedScore,jdbcType=CHAR},
+      </if>
+      <if test="disciplineDetailedContent != null" >
+        discipline_detailed_content = #{disciplineDetailedContent,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where discipline_detailed_id = #{disciplineDetailedId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessmentDetailed" >
+    update zj_xm_cqjx_discipline_assessment_detailed
+    set       discipline_id = #{disciplineId,jdbcType=CHAR},
+      user_key = #{userKey,jdbcType=CHAR},
+      user_name = #{userName,jdbcType=CHAR},
+      department_name = #{departmentName,jdbcType=CHAR},
+      mobile = #{mobile,jdbcType=CHAR},
+      discipline_detailed_score = #{disciplineDetailedScore,jdbcType=CHAR},
+      discipline_detailed_content = #{disciplineDetailedContent,jdbcType=CHAR},      
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where discipline_detailed_id = #{disciplineDetailedId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmCqjxDisciplineAssessmentDetailedList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessmentDetailed" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_cqjx_discipline_assessment_detailed
+    where del_flag = '0'
+    <if test="disciplineId != null and disciplineId != ''" >
+     and discipline_id = #{disciplineId,jdbcType=CHAR}
+    </if>
+    <if test="userKey != null and userKey != ''" >
+     and user_key = #{userKey,jdbcType=CHAR}
+    </if>
+    <if test="userName != null and userName != ''" >
+     and user_name like concat('%', #{userName},'%')
+    </if>
+    <if test="departmentName != null and departmentName != ''" >
+     and department_name like concat('%', #{departmentName},'%')
+    </if>
+    <if test="mobile != null and mobile != ''" >
+     and mobile = #{mobile,jdbcType=CHAR}
+    </if>
+    <if test="disciplineDetailedScore != null and disciplineDetailedScore != ''" >
+     and discipline_detailed_score = #{disciplineDetailedScore,jdbcType=CHAR}
+    </if>
+    <if test="disciplineDetailedContent != null and disciplineDetailedContent != ''" >
+     and discipline_detailed_content = #{disciplineDetailedContent,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmCqjxDisciplineAssessmentDetailed" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessmentDetailed" >
+    <![CDATA[ 
+        update zj_xm_cqjx_discipline_assessment_detailed
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and discipline_detailed_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.disciplineDetailedId} 
+     </foreach>
+  </delete>
+</mapper>

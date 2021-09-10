@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmJxMonthlyAssessmentSummaryMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessmentSummary" >
+    <id column="summary_id" property="summaryId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="dept_id" property="deptId" jdbcType="CHAR" />
+    <result column="dept_name" property="deptName" jdbcType="VARCHAR" />
+    <result column="user_key" property="userKey" jdbcType="CHAR" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="id_number" property="idNumber" jdbcType="VARCHAR" />
+    <result column="position" property="position" jdbcType="CHAR" />
+    <result column="rank_position_type" property="rankPositionType" jdbcType="CHAR" />
+    <result column="last_position_type" property="lastPositionType" jdbcType="CHAR" />
+    <result column="user_type" property="userType" jdbcType="CHAR" />
+    <result column="assessment_id" property="assessmentId" jdbcType="CHAR" />
+    <result column="year_month" property="yearMonth" jdbcType="TIMESTAMP" />
+    <result column="task_score" property="taskScore" jdbcType="DECIMAL" />
+    <result column="periphery_score" property="peripheryScore" jdbcType="DECIMAL" />
+    <result column="principal_score" property="principalScore" jdbcType="DECIMAL" />
+    <result column="composite_score" property="compositeScore" jdbcType="DECIMAL" />
+    <result column="system_score" property="systemScore" jdbcType="DECIMAL" />
+    <result column="total_score" property="totalScore" jdbcType="DECIMAL" />
+    <result column="monthly_last_person" property="monthlyLastPerson" jdbcType="CHAR" />
+    <result column="group_sort" property="groupSort" jdbcType="INTEGER" />
+    <result column="summary_type" property="summaryType" jdbcType="CHAR" />
+    <result column="opinion_field1" property="opinionField1" jdbcType="VARCHAR" />
+    <result column="opinion_field2" property="opinionField2" jdbcType="VARCHAR" />
+    <result column="opinion_field3" property="opinionField3" jdbcType="VARCHAR" />
+    <result column="opinion_field4" property="opinionField4" jdbcType="VARCHAR" />
+    <result column="opinion_field5" property="opinionField5" jdbcType="VARCHAR" />
+    <result column="apih5_flow_id" property="apih5FlowId" jdbcType="CHAR" />
+    <result column="work_id" property="workId" jdbcType="CHAR" />
+    <result column="apih5_flow_status" property="apih5FlowStatus" jdbcType="CHAR" />
+    <result column="apih5_flow_node_status" property="apih5FlowNodeStatus" jdbcType="CHAR" />
+    <result column="monthly_flow_id" property="monthlyFlowId" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    summary_id, project_id, project_name, dept_id, dept_name, 
+    user_key, real_name, id_number, position, rank_position_type, 
+    last_position_type, user_type, assessment_id, `year_month`, task_score, 
+    periphery_score, principal_score, composite_score, system_score, total_score, 
+    monthly_last_person, group_sort, summary_type, opinion_field1, opinion_field2, 
+    opinion_field3, opinion_field4, opinion_field5, apih5_flow_id, work_id, 
+    apih5_flow_status, apih5_flow_node_status, monthly_flow_id,
+    remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_monthly_assessment_summary
+    where summary_id = #{summaryId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_jx_monthly_assessment_summary
+    where summary_id = #{summaryId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessmentSummary" >
+    insert into zj_xm_jx_monthly_assessment_summary (summary_id, project_id, project_name, 
+      dept_id, dept_name, user_key, 
+      real_name, id_number, position, 
+      rank_position_type, last_position_type, user_type, 
+      assessment_id, `year_month`, task_score, 
+      periphery_score, principal_score, composite_score, 
+      system_score, total_score, monthly_last_person, 
+      group_sort, summary_type, opinion_field1, 
+      opinion_field2, opinion_field3, opinion_field4, 
+      opinion_field5, apih5_flow_id, work_id, 
+      apih5_flow_status, apih5_flow_node_status, monthly_flow_id, remarks, 
+      sort, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{summaryId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, 
+      #{deptId,jdbcType=CHAR}, #{deptName,jdbcType=VARCHAR}, #{userKey,jdbcType=CHAR}, 
+      #{realName,jdbcType=VARCHAR}, #{idNumber,jdbcType=VARCHAR}, #{position,jdbcType=CHAR}, 
+      #{rankPositionType,jdbcType=CHAR}, #{lastPositionType,jdbcType=CHAR}, #{userType,jdbcType=CHAR}, 
+      #{assessmentId,jdbcType=CHAR}, #{yearMonth,jdbcType=TIMESTAMP}, #{taskScore,jdbcType=DECIMAL}, 
+      #{peripheryScore,jdbcType=DECIMAL}, #{principalScore,jdbcType=DECIMAL}, #{compositeScore,jdbcType=DECIMAL}, 
+      #{systemScore,jdbcType=DECIMAL}, #{totalScore,jdbcType=DECIMAL}, #{monthlyLastPerson,jdbcType=CHAR}, 
+      #{groupSort,jdbcType=INTEGER}, #{summaryType,jdbcType=CHAR}, #{opinionField1,jdbcType=VARCHAR}, 
+      #{opinionField2,jdbcType=VARCHAR}, #{opinionField3,jdbcType=VARCHAR}, #{opinionField4,jdbcType=VARCHAR}, 
+      #{opinionField5,jdbcType=VARCHAR}, #{apih5FlowId,jdbcType=CHAR}, #{workId,jdbcType=CHAR}, 
+      #{apih5FlowStatus,jdbcType=CHAR}, 
+      #{apih5FlowNodeStatus,jdbcType=CHAR}, 
+      #{monthlyFlowId,jdbcType=CHAR}, 
+      #{remarks,jdbcType=VARCHAR}, 
+      #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessmentSummary" >
+    insert into zj_xm_jx_monthly_assessment_summary
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="summaryId != null" >
+        summary_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="deptId != null" >
+        dept_id,
+      </if>
+      <if test="deptName != null" >
+        dept_name,
+      </if>
+      <if test="userKey != null" >
+        user_key,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="idNumber != null" >
+        id_number,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="rankPositionType != null" >
+        rank_position_type,
+      </if>
+      <if test="lastPositionType != null" >
+        last_position_type,
+      </if>
+      <if test="userType != null" >
+        user_type,
+      </if>
+      <if test="assessmentId != null" >
+        assessment_id,
+      </if>
+      <if test="yearMonth != null" >
+        `year_month`,
+      </if>
+      <if test="taskScore != null" >
+        task_score,
+      </if>
+      <if test="peripheryScore != null" >
+        periphery_score,
+      </if>
+      <if test="principalScore != null" >
+        principal_score,
+      </if>
+      <if test="compositeScore != null" >
+        composite_score,
+      </if>
+      <if test="systemScore != null" >
+        system_score,
+      </if>
+      <if test="totalScore != null" >
+        total_score,
+      </if>
+      <if test="monthlyLastPerson != null" >
+        monthly_last_person,
+      </if>
+      <if test="groupSort != null" >
+        group_sort,
+      </if>
+      <if test="summaryType != null" >
+        summary_type,
+      </if>
+      <if test="opinionField1 != null" >
+        opinion_field1,
+      </if>
+      <if test="opinionField2 != null" >
+        opinion_field2,
+      </if>
+      <if test="opinionField3 != null" >
+        opinion_field3,
+      </if>
+      <if test="opinionField4 != null" >
+        opinion_field4,
+      </if>
+      <if test="opinionField5 != null" >
+        opinion_field5,
+      </if>
+      <if test="apih5FlowId != null" >
+        apih5_flow_id,
+      </if>
+      <if test="workId != null" >
+        work_id,
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status,
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        apih5_flow_node_status,
+      </if>
+      <if test="monthlyFlowId != null" >
+        monthly_flow_id,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="summaryId != null" >
+        #{summaryId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=CHAR},
+      </if>
+      <if test="deptName != null" >
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="userKey != null" >
+        #{userKey,jdbcType=CHAR},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null" >
+        #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=CHAR},
+      </if>
+      <if test="rankPositionType != null" >
+        #{rankPositionType,jdbcType=CHAR},
+      </if>
+      <if test="lastPositionType != null" >
+        #{lastPositionType,jdbcType=CHAR},
+      </if>
+      <if test="userType != null" >
+        #{userType,jdbcType=CHAR},
+      </if>
+      <if test="assessmentId != null" >
+        #{assessmentId,jdbcType=CHAR},
+      </if>
+      <if test="yearMonth != null" >
+        #{yearMonth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="taskScore != null" >
+        #{taskScore,jdbcType=DECIMAL},
+      </if>
+      <if test="peripheryScore != null" >
+        #{peripheryScore,jdbcType=DECIMAL},
+      </if>
+      <if test="principalScore != null" >
+        #{principalScore,jdbcType=DECIMAL},
+      </if>
+      <if test="compositeScore != null" >
+        #{compositeScore,jdbcType=DECIMAL},
+      </if>
+      <if test="systemScore != null" >
+        #{systemScore,jdbcType=DECIMAL},
+      </if>
+      <if test="totalScore != null" >
+        #{totalScore,jdbcType=DECIMAL},
+      </if>
+      <if test="monthlyLastPerson != null" >
+        #{monthlyLastPerson,jdbcType=CHAR},
+      </if>
+      <if test="groupSort != null" >
+        #{groupSort,jdbcType=INTEGER},
+      </if>
+      <if test="summaryType != null" >
+        #{summaryType,jdbcType=CHAR},
+      </if>
+      <if test="opinionField1 != null" >
+        #{opinionField1,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField2 != null" >
+        #{opinionField2,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField3 != null" >
+        #{opinionField3,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField4 != null" >
+        #{opinionField4,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField5 != null" >
+        #{opinionField5,jdbcType=VARCHAR},
+      </if>
+      <if test="apih5FlowId != null" >
+        #{apih5FlowId,jdbcType=CHAR},
+      </if>
+      <if test="workId != null" >
+        #{workId,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        #{apih5FlowStatus,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        #{apih5FlowNodeStatus,jdbcType=CHAR},
+      </if>
+      <if test="monthlyFlowId != null" >
+        #{monthlyFlowId,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessmentSummary" >
+    update zj_xm_jx_monthly_assessment_summary
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null" >
+        dept_id = #{deptId,jdbcType=CHAR},
+      </if>
+      <if test="deptName != null" >
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="userKey != null" >
+        user_key = #{userKey,jdbcType=CHAR},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null" >
+        id_number = #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=CHAR},
+      </if>
+      <if test="rankPositionType != null" >
+        rank_position_type = #{rankPositionType,jdbcType=CHAR},
+      </if>
+      <if test="lastPositionType != null" >
+        last_position_type = #{lastPositionType,jdbcType=CHAR},
+      </if>
+      <if test="userType != null" >
+        user_type = #{userType,jdbcType=CHAR},
+      </if>
+      <if test="assessmentId != null" >
+        assessment_id = #{assessmentId,jdbcType=CHAR},
+      </if>
+      <if test="yearMonth != null" >
+        `year_month` = #{yearMonth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="taskScore != null" >
+        task_score = #{taskScore,jdbcType=DECIMAL},
+      </if>
+      <if test="peripheryScore != null" >
+        periphery_score = #{peripheryScore,jdbcType=DECIMAL},
+      </if>
+      <if test="principalScore != null" >
+        principal_score = #{principalScore,jdbcType=DECIMAL},
+      </if>
+      <if test="compositeScore != null" >
+        composite_score = #{compositeScore,jdbcType=DECIMAL},
+      </if>
+      <if test="systemScore != null" >
+        system_score = #{systemScore,jdbcType=DECIMAL},
+      </if>
+      <if test="totalScore != null" >
+        total_score = #{totalScore,jdbcType=DECIMAL},
+      </if>
+      <if test="monthlyLastPerson != null" >
+        monthly_last_person = #{monthlyLastPerson,jdbcType=CHAR},
+      </if>
+      <if test="groupSort != null" >
+        group_sort = #{groupSort,jdbcType=INTEGER},
+      </if>
+      <if test="summaryType != null" >
+        summary_type = #{summaryType,jdbcType=CHAR},
+      </if>
+      <if test="opinionField1 != null" >
+        opinion_field1 = #{opinionField1,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField2 != null" >
+        opinion_field2 = #{opinionField2,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField3 != null" >
+        opinion_field3 = #{opinionField3,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField4 != null" >
+        opinion_field4 = #{opinionField4,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField5 != null" >
+        opinion_field5 = #{opinionField5,jdbcType=VARCHAR},
+      </if>
+      <if test="apih5FlowId != null" >
+        apih5_flow_id = #{apih5FlowId,jdbcType=CHAR},
+      </if>
+      <if test="workId != null" >
+        work_id = #{workId,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR},
+      </if>
+      <if test="monthlyFlowId != null" >
+        monthly_flow_id = #{monthlyFlowId,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where summary_id = #{summaryId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessmentSummary" >
+    update zj_xm_jx_monthly_assessment_summary
+    set       project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      dept_id = #{deptId,jdbcType=CHAR},
+      dept_name = #{deptName,jdbcType=VARCHAR},
+      user_key = #{userKey,jdbcType=CHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      position = #{position,jdbcType=CHAR},
+      rank_position_type = #{rankPositionType,jdbcType=CHAR},
+      last_position_type = #{lastPositionType,jdbcType=CHAR},
+      user_type = #{userType,jdbcType=CHAR},
+      assessment_id = #{assessmentId,jdbcType=CHAR},
+      `year_month` = #{yearMonth,jdbcType=TIMESTAMP},
+      task_score = #{taskScore,jdbcType=DECIMAL},
+      periphery_score = #{peripheryScore,jdbcType=DECIMAL},
+      principal_score = #{principalScore,jdbcType=DECIMAL},
+      composite_score = #{compositeScore,jdbcType=DECIMAL},
+      system_score = #{systemScore,jdbcType=DECIMAL},
+      total_score = #{totalScore,jdbcType=DECIMAL},
+      monthly_last_person = #{monthlyLastPerson,jdbcType=CHAR},
+      group_sort = #{groupSort,jdbcType=INTEGER},
+      summary_type = #{summaryType,jdbcType=CHAR},
+      opinion_field1 = #{opinionField1,jdbcType=VARCHAR},
+      opinion_field2 = #{opinionField2,jdbcType=VARCHAR},
+      opinion_field3 = #{opinionField3,jdbcType=VARCHAR},
+      opinion_field4 = #{opinionField4,jdbcType=VARCHAR},
+      opinion_field5 = #{opinionField5,jdbcType=VARCHAR},
+      apih5_flow_id = #{apih5FlowId,jdbcType=CHAR},
+      work_id = #{workId,jdbcType=CHAR},
+      apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR},
+      apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR},
+      monthly_flow_id = #{monthlyFlowId,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where summary_id = #{summaryId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmJxMonthlyAssessmentSummaryList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessmentSummary" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_monthly_assessment_summary
+    where del_flag = '0'
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="deptId != null and deptId != ''" >
+     and dept_id = #{deptId,jdbcType=CHAR}
+    </if>
+    <if test="deptName != null and deptName != ''" >
+     and dept_name = #{deptName,jdbcType=VARCHAR}
+    </if>
+    <if test="userKey != null and userKey != ''" >
+     and user_key = #{userKey,jdbcType=CHAR}
+    </if>
+    <if test="realName != null and realName != ''" >
+     and real_name = #{realName,jdbcType=VARCHAR}
+    </if>
+    <if test="idNumber != null and idNumber != ''" >
+     and id_number = #{idNumber,jdbcType=VARCHAR}
+    </if>
+    <if test="position != null and position != ''" >
+     and position = #{position,jdbcType=CHAR}
+    </if>
+    <if test="rankPositionType != null and rankPositionType != ''" >
+     and rank_position_type = #{rankPositionType,jdbcType=CHAR}
+    </if>
+    <if test="lastPositionType != null and lastPositionType != ''" >
+     and last_position_type = #{lastPositionType,jdbcType=CHAR}
+    </if>
+    <if test="userType != null and userType != ''" >
+     and user_type = #{userType,jdbcType=CHAR}
+    </if>
+    <if test="assessmentId != null and assessmentId != ''" >
+     and assessment_id = #{assessmentId,jdbcType=CHAR}
+    </if>
+    <if test="yearMonth != null" >
+     and date_format(`year_month`, '%Y-%m') = date_format(#{yearMonth,jdbcType=TIMESTAMP},'%Y-%m')
+    </if>
+    <if test="taskScore != null and taskScore != ''" >
+     and task_score = #{taskScore,jdbcType=DECIMAL}
+    </if>
+    <if test="peripheryScore != null and peripheryScore != ''" >
+     and periphery_score = #{peripheryScore,jdbcType=DECIMAL}
+    </if>
+    <if test="principalScore != null and principalScore != ''" >
+     and principal_score = #{principalScore,jdbcType=DECIMAL}
+    </if>
+    <if test="compositeScore != null and compositeScore != ''" >
+     and composite_score = #{compositeScore,jdbcType=DECIMAL}
+    </if>
+    <if test="systemScore != null and systemScore != ''" >
+     and system_score = #{systemScore,jdbcType=DECIMAL}
+    </if>
+    <if test="totalScore != null and totalScore != ''" >
+     and total_score = #{totalScore,jdbcType=DECIMAL}
+    </if>
+    <if test="monthlyLastPerson != null and monthlyLastPerson != ''" >
+     and monthly_last_person = #{monthlyLastPerson,jdbcType=CHAR}
+    </if>
+    <if test="groupSort != null and groupSort != ''" >
+     and group_sort = #{groupSort,jdbcType=INTEGER}
+    </if>
+    <if test="summaryType != null and summaryType != ''" >
+     and summary_type = #{summaryType,jdbcType=CHAR}
+    </if>
+    <if test="opinionField1 != null and opinionField1 != ''" >
+     and opinion_field1 = #{opinionField1,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField2 != null and opinionField2 != ''" >
+     and opinion_field2 = #{opinionField2,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField3 != null and opinionField3 != ''" >
+     and opinion_field3 = #{opinionField3,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField4 != null and opinionField4 != ''" >
+     and opinion_field4 = #{opinionField4,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField5 != null and opinionField5 != ''" >
+     and opinion_field5 = #{opinionField5,jdbcType=VARCHAR}
+    </if>
+    <if test="apih5FlowId != null and apih5FlowId != ''" >
+     and apih5_flow_id = #{apih5FlowId,jdbcType=CHAR}
+    </if>
+    <if test="workId != null and workId != ''" >
+     and work_id = #{workId,jdbcType=CHAR}
+    </if>
+    <if test="apih5FlowStatus != null and apih5FlowStatus != ''" >
+     and apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR}
+    </if>
+    <if test="apih5FlowNodeStatus != null and apih5FlowNodeStatus != ''" >
+     and apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR}
+    </if>
+    <if test="monthlyFlowId != null and monthlyFlowId != ''" >
+     and monthly_flow_id = #{monthlyFlowId,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmJxMonthlyAssessmentSummary" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessmentSummary" >
+    <![CDATA[ 
+        update zj_xm_jx_monthly_assessment_summary
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and summary_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.summaryId} 
+     </foreach>
+  </delete>
+  
+  <insert id ="batchInsertZjXmJxMonthlyAssessmentSummary" parameterType="java.util.List" >
+     insert into zj_xm_jx_monthly_assessment_summary 
+     (summary_id, project_id, project_name, 
+      dept_id, dept_name, user_key, 
+      real_name, id_number, position, 
+      rank_position_type, last_position_type, user_type, 
+      assessment_id, `year_month`, task_score, 
+      periphery_score, principal_score, composite_score, 
+      system_score, total_score, monthly_last_person, 
+      group_sort, summary_type, opinion_field1, 
+      opinion_field2, opinion_field3, opinion_field4, 
+      opinion_field5, apih5_flow_id, work_id, 
+      apih5_flow_status, apih5_flow_node_status, monthly_flow_id,
+      remarks, sort, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values 
+      <foreach collection ="list" item="item" index= "index" separator=",">
+     (
+      #{item.summaryId,jdbcType=CHAR}, #{item.projectId,jdbcType=CHAR}, #{item.projectName,jdbcType=VARCHAR}, 
+      #{item.deptId,jdbcType=CHAR}, #{item.deptName,jdbcType=VARCHAR}, #{item.userKey,jdbcType=CHAR}, 
+      #{item.realName,jdbcType=VARCHAR}, #{item.idNumber,jdbcType=VARCHAR}, #{item.position,jdbcType=CHAR}, 
+      #{item.rankPositionType,jdbcType=CHAR}, #{item.lastPositionType,jdbcType=CHAR}, #{item.userType,jdbcType=CHAR}, 
+      #{item.assessmentId,jdbcType=CHAR}, #{item.yearMonth,jdbcType=TIMESTAMP}, #{item.taskScore,jdbcType=DECIMAL}, 
+      #{item.peripheryScore,jdbcType=DECIMAL}, #{item.principalScore,jdbcType=DECIMAL}, #{item.compositeScore,jdbcType=DECIMAL}, 
+      #{item.systemScore,jdbcType=DECIMAL}, #{item.totalScore,jdbcType=DECIMAL}, #{item.monthlyLastPerson,jdbcType=CHAR}, 
+      #{item.groupSort,jdbcType=INTEGER}, #{item.summaryType,jdbcType=CHAR}, #{item.opinionField1,jdbcType=VARCHAR}, 
+      #{item.opinionField2,jdbcType=VARCHAR}, #{item.opinionField3,jdbcType=VARCHAR}, #{item.opinionField4,jdbcType=VARCHAR}, 
+      #{item.opinionField5,jdbcType=VARCHAR}, #{item.apih5FlowId,jdbcType=CHAR}, #{item.workId,jdbcType=CHAR}, 
+      #{item.apih5FlowStatus,jdbcType=CHAR}, 
+      #{item.apih5FlowNodeStatus,jdbcType=CHAR}, 
+      #{item.monthlyFlowId,jdbcType=CHAR}, 
+      #{item.remarks,jdbcType=VARCHAR}, 
+      #{item.sort,jdbcType=INTEGER}, #{item.delFlag,jdbcType=CHAR}, #{item.createTime,jdbcType=TIMESTAMP}, 
+      #{item.createUser,jdbcType=CHAR}, #{item.createUserName,jdbcType=VARCHAR}, #{item.modifyTime,jdbcType=TIMESTAMP}, 
+      #{item.modifyUser,jdbcType=CHAR}, #{item.modifyUserName,jdbcType=VARCHAR}
+      )
+     </foreach>
+  </insert>
+  
+  <delete id="deleteZjXmJxMonthlyAssessmentSummaryByCondition" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessmentSummary" >
+    delete from zj_xm_jx_monthly_assessment_summary
+    where del_flag = '0'  
+    <if test="summaryId != null and summaryId != ''" >
+     and summary_id = #{summaryId,jdbcType=CHAR}
+    </if>
+    <if test="assessmentId != null and assessmentId != ''" >
+     and assessment_id = #{assessmentId,jdbcType=CHAR}
+    </if>
+    <if test="yearMonth != null" >
+     and date_format(`year_month`, '%Y-%m') = date_format(#{yearMonth,jdbcType=TIMESTAMP},'%Y-%m')
+    </if>
+    <if test="summaryType != null and summaryType != ''" >
+     and summary_type = #{summaryType,jdbcType=CHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     AND project_id = #{projectId,jdbcType=CHAR}
+    </if>
+  </delete>
+
+  <select id="getZjXmJxMonthlyAssessmentSummaryListByRank" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessmentSummary" >
+     SELECT 
+        tmp.project_id, tmp.project_name, tmp.dept_id, tmp.dept_name, tmp.user_key, tmp.real_name, tmp.id_number,  
+        tmp.position, tmp.rank_position_type, tmp.last_position_type, tmp.user_type, tmp.assessment_id, tmp.`year_month`, tmp.task_score, 
+        tmp.periphery_score, tmp.principal_score, tmp.composite_score, tmp.system_score, tmp.total_score, tmp.monthly_last_person, 
+        @sort:=@sort+1 AS sort, 
+        IF(@userType=tmp.user_type and @rankPositionType=tmp.rank_position_type, @groupSort:=@groupSort+1, @groupSort:=1) AS group_sort,
+           @userType:=tmp.user_type AS tmpField1, @rankPositionType:=tmp.rank_position_type AS tmpField2
+    FROM 
+         zj_xm_jx_monthly_assessment_summary AS tmp,
+        (SELECT @sort:=0, @groupSort:=0, @userType:=null, @rankPositionType:=null) initNum
+        where tmp.del_flag = '0'
+          AND tmp.summary_type = '0'
+         <if test="projectId != null and projectId != ''" >
+             AND tmp.project_id = #{projectId,jdbcType=CHAR}
+         </if>
+          AND date_format(tmp.`year_month`, '%Y-%m') = date_format(#{yearMonth,jdbcType=TIMESTAMP},'%Y-%m')
+        ORDER BY tmp.user_type, tmp.rank_position_type, tmp.total_score DESC
+  </select>
+
+  <select id="getZjXmJxMonthlyAssessmentSummaryListByLast" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessmentSummary" >     
+   SELECT * , @sort:=@sort+1 AS sort  FROM 
+      (SELECT * FROM 
+        (SELECT 
+        tmp.project_id, tmp.project_name, tmp.dept_id, tmp.dept_name, tmp.user_key, tmp.real_name, tmp.id_number,  
+        tmp.position, tmp.rank_position_type, tmp.last_position_type, tmp.user_type, tmp.assessment_id, tmp.`year_month`, tmp.task_score, 
+        tmp.periphery_score, tmp.principal_score, tmp.composite_score, tmp.system_score, tmp.total_score, tmp.monthly_last_person,
+        IF(@lastPositionType=tmp.last_position_type, @groupSort:=@groupSort+1, @groupSort:=1) AS group_sort,
+           @lastPositionType:=tmp.last_position_type AS tmpField1
+    FROM 
+         zj_xm_jx_monthly_assessment_summary AS tmp,
+        (SELECT @groupSort:=0, @lastPositionType:=null) initNum
+        where tmp.del_flag = '0'
+          AND tmp.summary_type = '0'
+          AND (tmp.user_type = '1' OR tmp.user_type = '2')
+         <if test="projectId != null and projectId != ''" >
+             AND tmp.project_id = #{projectId,jdbcType=CHAR}
+         </if>
+          AND date_format(tmp.`year_month`, '%Y-%m') = date_format(#{yearMonth,jdbcType=TIMESTAMP},'%Y-%m')
+        ORDER BY  tmp.last_position_type, tmp.total_score DESC)AS table1
+   UNION  ALL
+      SELECT * FROM 
+       (SELECT
+        tmp.project_id, tmp.project_name, tmp.dept_id, tmp.dept_name, tmp.user_key, tmp.real_name, tmp.id_number,  
+        tmp.position, tmp.rank_position_type, tmp.last_position_type, tmp.user_type, tmp.assessment_id, tmp.`year_month`, tmp.task_score, 
+        tmp.periphery_score, tmp.principal_score, tmp.composite_score, tmp.system_score, tmp.total_score, tmp.monthly_last_person,
+        @groupSort1:=@groupSort1+1 AS group_sort,
+        tmp.last_position_type AS tmpField1
+    FROM 
+         zj_xm_jx_monthly_assessment_summary AS tmp,
+        (SELECT @groupSort1:=0) initNum1
+        where tmp.del_flag = '0'
+          AND tmp.summary_type = '0'
+          AND tmp.user_type = '3'
+         <if test="projectId != null and projectId != ''" >
+             AND tmp.project_id = #{projectId,jdbcType=CHAR}
+         </if>
+          AND date_format(tmp.`year_month`, '%Y-%m') = date_format(#{yearMonth,jdbcType=TIMESTAMP},'%Y-%m')
+        ORDER BY tmp.total_score DESC) AS table2) as table3,
+        (SELECT @sort:=0) initNum2
+  </select>
+
+  <select id="getZjXmJxMonthlyAssessmentSummaryProjectByMonth" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessmentSummary" >
+      SELECT * FROM `zj_xm_jx_monthly_assessment_summary` 
+                     WHERE del_flag = '0' AND summary_type = '0'
+         AND date_format(`year_month`, '%Y-%m') = date_format(#{yearMonth,jdbcType=TIMESTAMP},'%Y-%m')
+        GROUP BY project_id;
+  </select>
+  
+  <select id="getZjXmJxMonthlyAssessmentSummaryProjectByYear" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessmentSummary" >
+      SELECT * FROM `zj_xm_jx_monthly_assessment_summary` 
+                     WHERE del_flag = '0' AND summary_type = '0'
+         AND YEAR(`year_month`) = YEAR(#{yearMonth,jdbcType=TIMESTAMP})
+        GROUP BY project_id;
+  </select>
+
+</mapper>

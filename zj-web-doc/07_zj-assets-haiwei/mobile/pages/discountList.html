@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+	<meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>折旧记录</title>
+	<link rel="stylesheet" type="text/css" href="../css/discountList.css">
+	<script src="../lib/jquery/1.9.1/jquery.min.js"></script>
+	<script src="../lib/layer_mobile/layer.js"></script>
+	<script src="../js/login.js"></script>
+	<script src="../js/common.js"></script>
+    <script src="../js/main.js"></script>
+</head>
+
+<body>
+	<div class="discountList">
+		<div class="part1">
+			<span class="title">折旧记录</span>
+		</div>
+		<div class="part2">
+			<ul id="dataList">
+			</ul>
+		</div>
+		<div class="footer" style="display: none">
+			<a class="btn" onclick="addRecord()">添加记录</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+
+		window.login(function () {
+
+
+
+			var recordId;// 资产记录ID
+			var dataList;// 折旧记录列表
+
+			// 页面刷新加载方法
+			window.onload = function () {
+				request();
+			}
+
+			// 获取折旧列表传递的参数
+			function request() {
+				var url = location.href;
+				var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+				var paraObj = {};
+				for (i = 0; j = paraString[i]; i++) {
+					paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+				}
+				recordId = noNull(paraObj.id);
+				repairList();// 折旧记录详情查询
+			}
+
+			// 链接详情
+			function listDetail(dom) {
+				var id = dom[0].id;// 记录ID
+				window.location.href = "discountDetail.html?recordid=" + recordId + "&detailid=" + id;
+			}
+
+			// 折旧记录查询
+			function repairList() {
+				var param = {
+					recordid: recordId
+				}
+
+				l.ajax('getWeChatDiscountList', param, function (data, message, success) {
+					if (success) {
+						dataList = noNull(data);// 详情数据
+						loopList();// 遍历折旧列表
+					}
+				})
+
+				// $.ajax({
+				// 	url: API + 'getWeChatZjDiscountList',
+				// 	type: 'POST',
+				// 	dataType: 'json',
+				// 	data: JSON.stringify(param),
+				// 	timeout: timeout,
+				// 	headers: {
+				// 		'Accept': 'application/json',
+				// 		'Content-Type': 'application/json; charset=utf-8',
+				// 		'X-Requested-With': 'XMLHttpRequest'
+				// 	},
+				// 	success: function (rel) {
+				// 		console.log('数据是：', rel)
+				// 		if (rel.success == true) {
+				// 			dataList = noNull(rel.data);// 详情数据
+				// 			loopList();// 遍历折旧列表
+				// 		}
+				// 	},
+				// 	error: function (err) {
+				// 		console.log(err);
+				// 	}
+				// })
+			}
+
+			// 遍历折旧列表
+			function loopList() {
+				var $str = "";
+				if (dataList != "") {
+					$("#dataList li").remove();
+					$.each(dataList, function (i, item) {
+						$str += '<li id=' + item.recordid + ' onclick="listDetail($(this))">',
+							$str += '<div class="left">',
+							$str += '<div class="content1" style="display:none">',
+							$str += '<img src="../img/greenCorrect.png">',
+							$str += '<span class="normalText" style="padding-left: 10px">' + noNull(item.zcmc) + '</span>',// 资产名称
+							$str += '</div>',
+							$str += '<div class="content2">设备折旧记录</div>',
+							$str += '<div class="content3">',
+							$str += '<span class="time">' + dateFormat(new Date(noNull(item.createTime)), "yyyy-MM-dd") + '&nbsp;</span>',// 操作时间
+							$str += '<span class="person">' + noNull(item.createUser) + '</span>',// 操作员
+							$str += '</div>',
+							$str += '</div>',
+							$str += '<div class="right"><img src="../img/right.png"></div>',
+							$str += '</li>'
+					});
+					$("#dataList").append($str);
+				}
+			}
+
+
+
+		})
+
+
+
+	</script>
+</body>
+
+</html>

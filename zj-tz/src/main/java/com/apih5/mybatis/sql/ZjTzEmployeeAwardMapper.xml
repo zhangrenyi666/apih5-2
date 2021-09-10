@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzEmployeeAwardMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzEmployeeAward" >
+    <id column="award_id" property="awardId" jdbcType="CHAR" />
+    <result column="employee_info_id" property="employeeInfoId" jdbcType="CHAR" />
+    <result column="award_time" property="awardTime" jdbcType="DATE" />
+    <result column="award_rank" property="awardRank" jdbcType="VARCHAR" />
+    <result column="award_name" property="awardName" jdbcType="VARCHAR" />
+    <result column="award_reason" property="awardReason" jdbcType="VARCHAR" />
+    <result column="award_app_unit" property="awardAppUnit" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    award_id, employee_info_id, award_time, award_rank, award_name, 
+    award_reason, award_app_unit, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_employee_award
+    where award_id = #{awardId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_employee_award
+    where award_id = #{awardId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeAward" >
+    insert into zj_tz_employee_award (award_id, employee_info_id, award_time, 
+      award_rank, award_name, award_reason, 
+      award_app_unit, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{awardId,jdbcType=CHAR}, #{employeeInfoId,jdbcType=CHAR}, #{awardTime,jdbcType=DATE}, 
+      #{awardRank,jdbcType=VARCHAR}, #{awardName,jdbcType=VARCHAR}, #{awardReason,jdbcType=VARCHAR}, 
+      #{awardAppUnit,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeAward" >
+    insert into zj_tz_employee_award
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="awardId != null" >
+        award_id,
+      </if>
+      <if test="employeeInfoId != null" >
+        employee_info_id,
+      </if>
+      <if test="awardTime != null" >
+        award_time,
+      </if>
+      <if test="awardRank != null" >
+        award_rank,
+      </if>
+      <if test="awardName != null" >
+        award_name,
+      </if>
+      <if test="awardReason != null" >
+        award_reason,
+      </if>
+      <if test="awardAppUnit != null" >
+        award_app_unit,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="awardId != null" >
+        #{awardId,jdbcType=CHAR},
+      </if>
+      <if test="employeeInfoId != null" >
+        #{employeeInfoId,jdbcType=CHAR},
+      </if>
+      <if test="awardTime != null" >
+        #{awardTime,jdbcType=DATE},
+      </if>
+      <if test="awardRank != null" >
+        #{awardRank,jdbcType=VARCHAR},
+      </if>
+      <if test="awardName != null" >
+        #{awardName,jdbcType=VARCHAR},
+      </if>
+      <if test="awardReason != null" >
+        #{awardReason,jdbcType=VARCHAR},
+      </if>
+      <if test="awardAppUnit != null" >
+        #{awardAppUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeAward" >
+    update zj_tz_employee_award
+    <set >
+      <if test="employeeInfoId != null" >
+        employee_info_id = #{employeeInfoId,jdbcType=CHAR},
+      </if>
+      <if test="awardTime != null" >
+        award_time = #{awardTime,jdbcType=DATE},
+      </if>
+      <if test="awardRank != null" >
+        award_rank = #{awardRank,jdbcType=VARCHAR},
+      </if>
+      <if test="awardName != null" >
+        award_name = #{awardName,jdbcType=VARCHAR},
+      </if>
+      <if test="awardReason != null" >
+        award_reason = #{awardReason,jdbcType=VARCHAR},
+      </if>
+      <if test="awardAppUnit != null" >
+        award_app_unit = #{awardAppUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where award_id = #{awardId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeAward" >
+    update zj_tz_employee_award
+    set       employee_info_id = #{employeeInfoId,jdbcType=CHAR},
+      award_time = #{awardTime,jdbcType=DATE},
+      award_rank = #{awardRank,jdbcType=VARCHAR},
+      award_name = #{awardName,jdbcType=VARCHAR},
+      award_reason = #{awardReason,jdbcType=VARCHAR},
+      award_app_unit = #{awardAppUnit,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where award_id = #{awardId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzEmployeeAwardList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeAward" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_employee_award
+    where del_flag = '0'
+    <if test="employeeInfoId != null and employeeInfoId != ''" >
+     and employee_info_id = #{employeeInfoId,jdbcType=CHAR}
+    </if>
+    <if test="awardTime != null" >
+     and award_time = #{awardTime,jdbcType=DATE}
+    </if>
+    <if test="awardRank != null and awardRank != ''" >
+     and award_rank = #{awardRank,jdbcType=VARCHAR}
+    </if>
+    <if test="awardName != null and awardName != ''" >
+     and award_name = #{awardName,jdbcType=VARCHAR}
+    </if>
+    <if test="awardReason != null and awardReason != ''" >
+     and award_reason = #{awardReason,jdbcType=VARCHAR}
+    </if>
+    <if test="awardAppUnit != null and awardAppUnit != ''" >
+     and award_app_unit = #{awardAppUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzEmployeeAward" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeAward" >
+    <![CDATA[ 
+        update zj_tz_employee_award
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and award_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.awardId} 
+     </foreach>
+  </delete>
+</mapper>

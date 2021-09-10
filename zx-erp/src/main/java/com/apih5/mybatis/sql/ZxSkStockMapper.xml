@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkStockMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkStock" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="companyID" property="companyID" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="whOrgID" property="whOrgID" jdbcType="VARCHAR" />
+    <result column="resourceId" property="resourceId" jdbcType="VARCHAR" />
+    <result column="resourceName" property="resourceName" jdbcType="VARCHAR" />
+    <result column="resourceNo" property="resourceNo" jdbcType="VARCHAR" />
+    <result column="resID" property="resID" jdbcType="VARCHAR" />
+    <result column="resCode" property="resCode" jdbcType="VARCHAR" />
+    <result column="resName" property="resName" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="batchNo" property="batchNo" jdbcType="VARCHAR" />
+    <result column="stockQty" property="stockQty" jdbcType="DECIMAL" />
+    <result column="stockPrice" property="stockPrice" jdbcType="DECIMAL" />
+    <result column="stockAmt" property="stockAmt" jdbcType="DECIMAL" />
+    <result column="rentinQty" property="rentinQty" jdbcType="DECIMAL" />
+    <result column="rentoutQty" property="rentoutQty" jdbcType="DECIMAL" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="combProp" property="combProp" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, companyID, orgID, whOrgID, resourceId, 
+    resourceName, resourceNo, resID, resCode, resName, 
+    spec, unit, batchNo, stockQty, stockPrice, 
+    stockAmt, rentinQty, rentoutQty, remark, combProp, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_stock
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_stock
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkStock" >
+    insert into zx_sk_stock (id, companyID, orgID, 
+      whOrgID, resourceId, resourceName, 
+      resourceNo, resID, resCode, 
+      resName, spec, unit, 
+      batchNo, stockQty, stockPrice, 
+      stockAmt, rentinQty, rentoutQty, 
+      remark, combProp, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{companyID,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, 
+      #{whOrgID,jdbcType=VARCHAR}, #{resourceId,jdbcType=VARCHAR}, #{resourceName,jdbcType=VARCHAR}, 
+      #{resourceNo,jdbcType=VARCHAR}, #{resID,jdbcType=VARCHAR}, #{resCode,jdbcType=VARCHAR}, 
+      #{resName,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, 
+      #{batchNo,jdbcType=VARCHAR}, #{stockQty,jdbcType=DECIMAL}, #{stockPrice,jdbcType=DECIMAL}, 
+      #{stockAmt,jdbcType=DECIMAL}, #{rentinQty,jdbcType=DECIMAL}, #{rentoutQty,jdbcType=DECIMAL}, 
+      #{remark,jdbcType=VARCHAR}, #{combProp,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkStock" >
+    insert into zx_sk_stock
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="companyID != null" >
+        companyID,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="whOrgID != null" >
+        whOrgID,
+      </if>
+      <if test="resourceId != null" >
+        resourceId,
+      </if>
+      <if test="resourceName != null" >
+        resourceName,
+      </if>
+      <if test="resourceNo != null" >
+        resourceNo,
+      </if>
+      <if test="resID != null" >
+        resID,
+      </if>
+      <if test="resCode != null" >
+        resCode,
+      </if>
+      <if test="resName != null" >
+        resName,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="batchNo != null" >
+        batchNo,
+      </if>
+      <if test="stockQty != null" >
+        stockQty,
+      </if>
+      <if test="stockPrice != null" >
+        stockPrice,
+      </if>
+      <if test="stockAmt != null" >
+        stockAmt,
+      </if>
+      <if test="rentinQty != null" >
+        rentinQty,
+      </if>
+      <if test="rentoutQty != null" >
+        rentoutQty,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="combProp != null" >
+        combProp,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="companyID != null" >
+        #{companyID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="whOrgID != null" >
+        #{whOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceId != null" >
+        #{resourceId,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceName != null" >
+        #{resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceNo != null" >
+        #{resourceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resID != null" >
+        #{resID,jdbcType=VARCHAR},
+      </if>
+      <if test="resCode != null" >
+        #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNo != null" >
+        #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="stockQty != null" >
+        #{stockQty,jdbcType=DECIMAL},
+      </if>
+      <if test="stockPrice != null" >
+        #{stockPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="stockAmt != null" >
+        #{stockAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="rentinQty != null" >
+        #{rentinQty,jdbcType=DECIMAL},
+      </if>
+      <if test="rentoutQty != null" >
+        #{rentoutQty,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="combProp != null" >
+        #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkStock" >
+    update zx_sk_stock
+    <set >
+      <if test="companyID != null" >
+        companyID = #{companyID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="whOrgID != null" >
+        whOrgID = #{whOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceId != null" >
+        resourceId = #{resourceId,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceName != null" >
+        resourceName = #{resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceNo != null" >
+        resourceNo = #{resourceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resID != null" >
+        resID = #{resID,jdbcType=VARCHAR},
+      </if>
+      <if test="resCode != null" >
+        resCode = #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        resName = #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNo != null" >
+        batchNo = #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="stockQty != null" >
+        stockQty = #{stockQty,jdbcType=DECIMAL},
+      </if>
+      <if test="stockPrice != null" >
+        stockPrice = #{stockPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="stockAmt != null" >
+        stockAmt = #{stockAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="rentinQty != null" >
+        rentinQty = #{rentinQty,jdbcType=DECIMAL},
+      </if>
+      <if test="rentoutQty != null" >
+        rentoutQty = #{rentoutQty,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="combProp != null" >
+        combProp = #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkStock" >
+    update zx_sk_stock
+    set       companyID = #{companyID,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      whOrgID = #{whOrgID,jdbcType=VARCHAR},
+      resourceId = #{resourceId,jdbcType=VARCHAR},
+      resourceName = #{resourceName,jdbcType=VARCHAR},
+      resourceNo = #{resourceNo,jdbcType=VARCHAR},
+      resID = #{resID,jdbcType=VARCHAR},
+      resCode = #{resCode,jdbcType=VARCHAR},
+      resName = #{resName,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      batchNo = #{batchNo,jdbcType=VARCHAR},
+      stockQty = #{stockQty,jdbcType=DECIMAL},
+      stockPrice = #{stockPrice,jdbcType=DECIMAL},
+      stockAmt = #{stockAmt,jdbcType=DECIMAL},
+      rentinQty = #{rentinQty,jdbcType=DECIMAL},
+      rentoutQty = #{rentoutQty,jdbcType=DECIMAL},
+      remark = #{remark,jdbcType=VARCHAR},
+      combProp = #{combProp,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxSkStockList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkStock" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_stock
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="companyID != null and companyID != ''" >
+     and companyID = #{companyID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="whOrgID != null and whOrgID != ''" >
+     and whOrgID = #{whOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceId != null and resourceId != ''" >
+     and resourceId = #{resourceId,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceName != null and resourceName != ''" >
+     and resourceName = #{resourceName,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceNo != null and resourceNo != ''" >
+     and resourceNo = #{resourceNo,jdbcType=VARCHAR}
+    </if>
+    <if test="resID != null and resID != ''" >
+     and resID = #{resID,jdbcType=VARCHAR}
+    </if>
+    <if test="resCode != null and resCode != ''" >
+     and resCode like CONCAT('%',CONCAT(#{resCode,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="resName != null and resName != ''" >
+     and resName like CONCAT('%',CONCAT( #{resName,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="spec != null and spec != ''" >
+      and spec like CONCAT('%',CONCAT(#{spec,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="unit != null and unit != ''" >
+      and unit like CONCAT('%',CONCAT(#{unit,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="batchNo != null and batchNo != ''" >
+     and batchNo = #{batchNo,jdbcType=VARCHAR}
+    </if>
+    <if test="stockQty != null" >
+      and stockQty = #{stockQty,jdbcType=DECIMAL}
+    </if>
+    <if test="stockPrice != null" >
+      and stockPrice = #{stockPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="stockAmt != null" >
+      and stockAmt = #{stockAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="rentinQty != null and rentinQty != ''" >
+     and rentinQty = #{rentinQty,jdbcType=DECIMAL}
+    </if>
+    <if test="rentoutQty != null and rentoutQty != ''" >
+     and rentoutQty = #{rentoutQty,jdbcType=DECIMAL}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="combProp != null and combProp != ''" >
+     and combProp = #{combProp,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY resCode asc
+  </select>
+  <delete id="batchDeleteUpdateZxSkStock" parameterType="com.apih5.mybatis.pojo.ZxSkStock" >
+    <![CDATA[ 
+        update zx_sk_stock
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+
+  <select id="getZxSkStockResCategoryDataList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkStock">
+    select
+    <include refid="Base_Column_List" />
+    from zx_sk_stock
+    where del_flag = '0'
+    <if test="companyID != null and companyID != ''" >
+      and companyID = #{companyID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+      and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="whOrgID != null and whOrgID != ''" >
+      and whOrgID = #{whOrgID,jdbcType=VARCHAR}
+    </if>
+    GROUP BY  resourceId
+  </select>
+  <select id="selectByZxSkStockListNew" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkStock">
+    select
+    <include refid="Base_Column_List" />
+    from zx_sk_stock
+    where del_flag in ('0','1')
+    <if test="id != null and id != ''" >
+      and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="companyID != null and companyID != ''" >
+      and companyID = #{companyID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+      and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="whOrgID != null and whOrgID != ''" >
+      and whOrgID = #{whOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceId != null and resourceId != ''" >
+      and resourceId = #{resourceId,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceName != null and resourceName != ''" >
+      and resourceName = #{resourceName,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceNo != null and resourceNo != ''" >
+      and resourceNo = #{resourceNo,jdbcType=VARCHAR}
+    </if>
+    <if test="resID != null and resID != ''" >
+      and resID = #{resID,jdbcType=VARCHAR}
+    </if>
+    <if test="resCode != null and resCode != ''" >
+      and resCode like CONCAT('%',CONCAT(#{resCode,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="resName != null and resName != ''" >
+      and resName like CONCAT('%',CONCAT( #{resName,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="spec != null and spec != ''" >
+      and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="unit != null and unit != ''" >
+      and unit = #{unit,jdbcType=VARCHAR}
+    </if>
+    <if test="batchNo != null and batchNo != ''" >
+      and batchNo = #{batchNo,jdbcType=VARCHAR}
+    </if>
+    <if test="stockQty != null and stockQty != ''" >
+      and stockQty = #{stockQty,jdbcType=DECIMAL}
+    </if>
+    <if test="stockPrice != null and stockPrice != ''" >
+      and stockPrice = #{stockPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="stockAmt != null and stockAmt != ''" >
+      and stockAmt = #{stockAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="rentinQty != null and rentinQty != ''" >
+      and rentinQty = #{rentinQty,jdbcType=DECIMAL}
+    </if>
+    <if test="rentoutQty != null and rentoutQty != ''" >
+      and rentoutQty = #{rentoutQty,jdbcType=DECIMAL}
+    </if>
+    <if test="remark != null and remark != ''" >
+      and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="combProp != null and combProp != ''" >
+      and combProp = #{combProp,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+      and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+      and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC
+  </select>
+
+
+
+</mapper>
+
+

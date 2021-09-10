@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzImportDocMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzImportDoc" >
+    <id column="import_doc_id" property="importDocId" jdbcType="CHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="symbolNo" property="symbolNo" jdbcType="VARCHAR" />
+    <result column="release_rank_id" property="releaseRankId" jdbcType="CHAR" />
+    <result column="release_rank_name" property="releaseRankName" jdbcType="VARCHAR" />
+    <result column="department_name" property="departmentName" jdbcType="VARCHAR" />
+    <result column="release_date" property="releaseDate" jdbcType="DATE" />
+    <result column="abolish_symbolNo" property="abolishSymbolNo" jdbcType="VARCHAR" />
+    <result column="effective_id" property="effectiveId" jdbcType="CHAR" />
+    <result column="effective_name" property="effectiveName" jdbcType="VARCHAR" />
+    <result column="registered_user" property="registeredUser" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="home_show" property="homeShow" jdbcType="CHAR" />
+    <result column="home_show_time" property="homeShowTime" jdbcType="TIMESTAMP" />
+    <result column="home_show_start_date" property="homeShowStartDate" jdbcType="DATE" />
+    <result column="home_show_end_date" property="homeShowEndDate" jdbcType="DATE" />
+    <result column="release_id" property="releaseId" jdbcType="CHAR" />
+    <result column="release_name" property="releaseName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    import_doc_id, title, symbolNo, release_rank_id, release_rank_name, 
+    department_name, release_date, abolish_symbolNo, effective_id, effective_name, 
+    registered_user, remarks, home_show, home_show_time, home_show_start_date, 
+    home_show_end_date, release_id, release_name, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_import_doc
+    where import_doc_id = #{importDocId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_import_doc
+    where import_doc_id = #{importDocId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzImportDoc" >
+    insert into zj_tz_import_doc (import_doc_id, title, symbolNo, 
+      release_rank_id, release_rank_name, department_name, 
+      release_date, abolish_symbolNo, effective_id, 
+      effective_name, registered_user, remarks, 
+      home_show, home_show_time, home_show_start_date, 
+      home_show_end_date, release_id, release_name, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{importDocId,jdbcType=CHAR}, #{title,jdbcType=VARCHAR}, #{symbolNo,jdbcType=VARCHAR}, 
+      #{releaseRankId,jdbcType=CHAR}, #{releaseRankName,jdbcType=VARCHAR}, #{departmentName,jdbcType=VARCHAR}, 
+      #{releaseDate,jdbcType=DATE}, #{abolishSymbolNo,jdbcType=VARCHAR}, #{effectiveId,jdbcType=CHAR}, 
+      #{effectiveName,jdbcType=VARCHAR}, #{registeredUser,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{homeShow,jdbcType=CHAR}, #{homeShowTime,jdbcType=TIMESTAMP}, #{homeShowStartDate,jdbcType=DATE}, 
+      #{homeShowEndDate,jdbcType=DATE}, #{releaseId,jdbcType=CHAR}, #{releaseName,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzImportDoc" >
+    insert into zj_tz_import_doc
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="importDocId != null" >
+        import_doc_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="symbolNo != null" >
+        symbolNo,
+      </if>
+      <if test="releaseRankId != null" >
+        release_rank_id,
+      </if>
+      <if test="releaseRankName != null" >
+        release_rank_name,
+      </if>
+      <if test="departmentName != null" >
+        department_name,
+      </if>
+      <if test="releaseDate != null" >
+        release_date,
+      </if>
+      <if test="abolishSymbolNo != null" >
+        abolish_symbolNo,
+      </if>
+      <if test="effectiveId != null" >
+        effective_id,
+      </if>
+      <if test="effectiveName != null" >
+        effective_name,
+      </if>
+      <if test="registeredUser != null" >
+        registered_user,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="homeShow != null" >
+        home_show,
+      </if>
+      <if test="homeShowTime != null" >
+        home_show_time,
+      </if>
+      <if test="homeShowStartDate != null" >
+        home_show_start_date,
+      </if>
+      <if test="homeShowEndDate != null" >
+        home_show_end_date,
+      </if>
+      <if test="releaseId != null" >
+        release_id,
+      </if>
+      <if test="releaseName != null" >
+        release_name,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="importDocId != null" >
+        #{importDocId,jdbcType=CHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="symbolNo != null" >
+        #{symbolNo,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseRankId != null" >
+        #{releaseRankId,jdbcType=CHAR},
+      </if>
+      <if test="releaseRankName != null" >
+        #{releaseRankName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentName != null" >
+        #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseDate != null" >
+        #{releaseDate,jdbcType=DATE},
+      </if>
+      <if test="abolishSymbolNo != null" >
+        #{abolishSymbolNo,jdbcType=VARCHAR},
+      </if>
+      <if test="effectiveId != null" >
+        #{effectiveId,jdbcType=CHAR},
+      </if>
+      <if test="effectiveName != null" >
+        #{effectiveName,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredUser != null" >
+        #{registeredUser,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="homeShow != null" >
+        #{homeShow,jdbcType=CHAR},
+      </if>
+      <if test="homeShowTime != null" >
+        #{homeShowTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="homeShowStartDate != null" >
+        #{homeShowStartDate,jdbcType=DATE},
+      </if>
+      <if test="homeShowEndDate != null" >
+        #{homeShowEndDate,jdbcType=DATE},
+      </if>
+      <if test="releaseId != null" >
+        #{releaseId,jdbcType=CHAR},
+      </if>
+      <if test="releaseName != null" >
+        #{releaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzImportDoc" >
+    update zj_tz_import_doc
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="symbolNo != null" >
+        symbolNo = #{symbolNo,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseRankId != null" >
+        release_rank_id = #{releaseRankId,jdbcType=CHAR},
+      </if>
+      <if test="releaseRankName != null" >
+        release_rank_name = #{releaseRankName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentName != null" >
+        department_name = #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseDate != null" >
+        release_date = #{releaseDate,jdbcType=DATE},
+      </if>
+      <if test="abolishSymbolNo != null" >
+        abolish_symbolNo = #{abolishSymbolNo,jdbcType=VARCHAR},
+      </if>
+      <if test="effectiveId != null" >
+        effective_id = #{effectiveId,jdbcType=CHAR},
+      </if>
+      <if test="effectiveName != null" >
+        effective_name = #{effectiveName,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredUser != null" >
+        registered_user = #{registeredUser,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="homeShow != null" >
+        home_show = #{homeShow,jdbcType=CHAR},
+      </if>
+      <if test="homeShowTime != null" >
+        home_show_time = #{homeShowTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="homeShowStartDate != null" >
+        home_show_start_date = #{homeShowStartDate,jdbcType=DATE},
+      </if>
+      <if test="homeShowEndDate != null" >
+        home_show_end_date = #{homeShowEndDate,jdbcType=DATE},
+      </if>
+      <if test="releaseId != null" >
+        release_id = #{releaseId,jdbcType=CHAR},
+      </if>
+      <if test="releaseName != null" >
+        release_name = #{releaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where import_doc_id = #{importDocId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzImportDoc" >
+    update zj_tz_import_doc
+    set       title = #{title,jdbcType=VARCHAR},
+      symbolNo = #{symbolNo,jdbcType=VARCHAR},
+      release_rank_id = #{releaseRankId,jdbcType=CHAR},
+      release_rank_name = #{releaseRankName,jdbcType=VARCHAR},
+      department_name = #{departmentName,jdbcType=VARCHAR},
+      release_date = #{releaseDate,jdbcType=DATE},
+      abolish_symbolNo = #{abolishSymbolNo,jdbcType=VARCHAR},
+      effective_id = #{effectiveId,jdbcType=CHAR},
+      effective_name = #{effectiveName,jdbcType=VARCHAR},
+      registered_user = #{registeredUser,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      home_show = #{homeShow,jdbcType=CHAR},
+      home_show_time = #{homeShowTime,jdbcType=TIMESTAMP},
+      home_show_start_date = #{homeShowStartDate,jdbcType=DATE},
+      home_show_end_date = #{homeShowEndDate,jdbcType=DATE},
+      release_id = #{releaseId,jdbcType=CHAR},
+      release_name = #{releaseName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where import_doc_id = #{importDocId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzImportDocList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzImportDoc" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_import_doc
+    where del_flag = '0'
+    <if test="title != null and title != ''" >
+     and title = #{title,jdbcType=VARCHAR}
+    </if>
+    <if test="symbolNo != null and symbolNo != ''" >
+     and symbolNo = #{symbolNo,jdbcType=VARCHAR}
+    </if>
+    <if test="releaseRankId != null and releaseRankId != ''" >
+     and release_rank_id = #{releaseRankId,jdbcType=CHAR}
+    </if>
+    <if test="releaseRankName != null and releaseRankName != ''" >
+     and release_rank_name = #{releaseRankName,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentName != null and departmentName != ''" >
+     and department_name = #{departmentName,jdbcType=VARCHAR}
+    </if>
+    <if test="releaseDate != null" >
+     and release_date = #{releaseDate,jdbcType=DATE}
+    </if>
+    <if test="abolishSymbolNo != null and abolishSymbolNo != ''" >
+     and abolish_symbolNo = #{abolishSymbolNo,jdbcType=VARCHAR}
+    </if>
+    <if test="effectiveId != null and effectiveId != ''" >
+     and effective_id = #{effectiveId,jdbcType=CHAR}
+    </if>
+    <if test="effectiveName != null and effectiveName != ''" >
+     and effective_name = #{effectiveName,jdbcType=VARCHAR}
+    </if>
+    <if test="registeredUser != null and registeredUser != ''" >
+     and registered_user = #{registeredUser,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="homeShow != null and homeShow != ''" >
+     and home_show = #{homeShow,jdbcType=CHAR}
+    </if>
+    <if test="homeShowTime != null and homeShowTime != ''" >
+     and home_show_time = #{homeShowTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="homeShowStartDate != null" >
+     and home_show_start_date = #{homeShowStartDate,jdbcType=DATE}
+    </if>
+    <if test="homeShowEndDate != null" >
+     and home_show_end_date = #{homeShowEndDate,jdbcType=DATE}
+    </if>
+    <if test="releaseId != null and releaseId != ''" >
+     and release_id = #{releaseId,jdbcType=CHAR}
+    </if>
+    <if test="releaseName != null and releaseName != ''" >
+     and release_name = #{releaseName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzImportDoc" parameterType="com.apih5.mybatis.pojo.ZjTzImportDoc" >
+    <![CDATA[ 
+        update zj_tz_import_doc
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and import_doc_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.importDocId} 
+     </foreach>
+  </delete>
+  
+  <!-- 扩展 -->
+  <delete id="batchDeleteReleaseZjTzImportDoc" parameterType="com.apih5.mybatis.pojo.ZjTzImportDoc" >
+    <![CDATA[ 
+        update zj_tz_import_doc
+        set release_id = '1',
+            release_name=#{param2.releaseName},
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and import_doc_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.importDocId} 
+     </foreach>
+  </delete>
+  <delete id="batchDeleteRecallZjTzImportDoc" parameterType="com.apih5.mybatis.pojo.ZjTzImportDoc" >
+    <![CDATA[ 
+        update zj_tz_import_doc
+        set release_id = '0',
+            home_show =#{param2.homeShow},
+            release_name=#{param2.releaseName},
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and import_doc_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.importDocId} 
+     </foreach>
+  </delete>
+  <select id="selectZjTzHomeImportDoc" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzImportDoc">
+  	 select 
+	    <include refid="Base_Column_List" />
+	    from zj_tz_import_doc
+	    where del_flag = '0' and home_show = '1' and release_id = '1'
+	 LIMIT 4
+  </select>
+</mapper>

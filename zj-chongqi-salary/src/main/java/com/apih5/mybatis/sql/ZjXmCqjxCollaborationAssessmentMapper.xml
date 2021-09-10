@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmCqjxCollaborationAssessmentMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessment" >
+    <id column="collaboration_id" property="collaborationId" jdbcType="CHAR" />
+    <result column="manager_id" property="managerId" jdbcType="CHAR" />
+    <result column="collaboration_state" property="collaborationState" jdbcType="CHAR" />
+    <result column="collaboration_title" property="collaborationTitle" jdbcType="CHAR" />
+    <result column="collaboration_years" property="collaborationYears" jdbcType="TIMESTAMP" />
+    <result column="closing_date" property="closingDate" jdbcType="TIMESTAMP" />
+    <result column="collaboration_quarter" property="collaborationQuarter" jdbcType="CHAR" />
+    <result column="collaboration_remarks" property="collaborationRemarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    collaboration_id, manager_id, collaboration_state, collaboration_title, collaboration_years, 
+    collaboration_quarter, closing_date, collaboration_remarks, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_cqjx_collaboration_assessment
+    where collaboration_id = #{collaborationId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_cqjx_collaboration_assessment
+    where collaboration_id = #{collaborationId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessment" >
+    insert into zj_xm_cqjx_collaboration_assessment (collaboration_id, manager_id, collaboration_state, 
+      collaboration_title, collaboration_years, collaboration_quarter, closing_date,
+      collaboration_remarks, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{collaborationId,jdbcType=CHAR}, #{managerId,jdbcType=CHAR}, #{collaborationState,jdbcType=CHAR}, 
+      #{collaborationTitle,jdbcType=CHAR}, #{collaborationYears,jdbcType=TIMESTAMP}, #{collaborationQuarter,jdbcType=CHAR}, 
+      #{closingDate,jdbcType=TIMESTAMP}, #{collaborationRemarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessment" >
+    insert into zj_xm_cqjx_collaboration_assessment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="collaborationId != null" >
+        collaboration_id,
+      </if>
+      <if test="managerId != null" >
+        manager_id,
+      </if>
+      <if test="collaborationState != null" >
+        collaboration_state,
+      </if>
+      <if test="collaborationTitle != null" >
+        collaboration_title,
+      </if>
+      <if test="collaborationYears != null" >
+        collaboration_years,
+      </if>
+      <if test="collaborationQuarter != null" >
+        collaboration_quarter,
+      </if>
+      <if test="closingDate != null" >
+        closing_date,
+      </if>
+      <if test="collaborationRemarks != null" >
+        collaboration_remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="collaborationId != null" >
+        #{collaborationId,jdbcType=CHAR},
+      </if>
+      <if test="managerId != null" >
+        #{managerId,jdbcType=CHAR},
+      </if>
+      <if test="collaborationState != null" >
+        #{collaborationState,jdbcType=CHAR},
+      </if>
+      <if test="collaborationTitle != null" >
+        #{collaborationTitle,jdbcType=CHAR},
+      </if>
+      <if test="collaborationYears != null" >
+        #{collaborationYears,jdbcType=TIMESTAMP},
+      </if>
+      <if test="collaborationQuarter != null" >
+        #{collaborationQuarter,jdbcType=CHAR},
+      </if>
+      <if test="closingDate != null" >
+        #{closingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="collaborationRemarks != null" >
+        #{collaborationRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessment" >
+    update zj_xm_cqjx_collaboration_assessment
+    <set >
+      <if test="managerId != null" >
+        manager_id = #{managerId,jdbcType=CHAR},
+      </if>
+      <if test="collaborationState != null" >
+        collaboration_state = #{collaborationState,jdbcType=CHAR},
+      </if>
+      <if test="collaborationTitle != null" >
+        collaboration_title = #{collaborationTitle,jdbcType=CHAR},
+      </if>
+      <if test="collaborationYears != null" >
+        collaboration_years = #{collaborationYears,jdbcType=TIMESTAMP},
+      </if>
+      <if test="collaborationQuarter != null" >
+        collaboration_quarter = #{collaborationQuarter,jdbcType=CHAR},
+      </if>
+      <if test="closingDate != null" >
+        closing_date = #{closingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="collaborationRemarks != null" >
+        collaboration_remarks = #{collaborationRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where collaboration_id = #{collaborationId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessment" >
+    update zj_xm_cqjx_collaboration_assessment
+    set       manager_id = #{managerId,jdbcType=CHAR},
+      collaboration_state = #{collaborationState,jdbcType=CHAR},
+      collaboration_title = #{collaborationTitle,jdbcType=CHAR},
+      collaboration_years = #{collaborationYears,jdbcType=TIMESTAMP},
+      collaboration_quarter = #{collaborationQuarter,jdbcType=CHAR},
+      closing_date = #{closingDate,jdbcType=TIMESTAMP},      
+      collaboration_remarks = #{collaborationRemarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where collaboration_id = #{collaborationId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmCqjxCollaborationAssessmentList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessment" >
+    select 
+    <include refid="Base_Column_List" />,
+    (select assessment_type from zj_xm_cqjx_assessment_manage where del_flag = '0' and manager_id = zj_xm_cqjx_collaboration_assessment.manager_id) AS assessmentType
+    from zj_xm_cqjx_collaboration_assessment
+    where del_flag = '0'
+    <if test="managerId != null and managerId != ''" >
+     and manager_id = #{managerId,jdbcType=CHAR}
+    </if>
+    <if test="collaborationState != null and collaborationState != ''" >
+     and collaboration_state = #{collaborationState,jdbcType=CHAR}
+    </if>
+    <if test="collaborationTitle != null and collaborationTitle != ''" >
+     and collaboration_title = #{collaborationTitle,jdbcType=CHAR}
+    </if>
+    <if test="collaborationYears != null" >
+     and collaboration_years = #{collaborationYears,jdbcType=TIMESTAMP}
+    </if>
+    <if test="closingDate != null" >
+     and closing_date = #{closingDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="collaborationQuarter != null and collaborationQuarter != ''" >
+     and collaboration_quarter = #{collaborationQuarter,jdbcType=CHAR}
+    </if>
+    <if test="collaborationRemarks != null and collaborationRemarks != ''" >
+     and collaboration_remarks = #{collaborationRemarks,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmCqjxCollaborationAssessment" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxCollaborationAssessment" >
+    <![CDATA[ 
+        update zj_xm_cqjx_collaboration_assessment
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and collaboration_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.collaborationId} 
+     </foreach>
+  </delete>
+</mapper>

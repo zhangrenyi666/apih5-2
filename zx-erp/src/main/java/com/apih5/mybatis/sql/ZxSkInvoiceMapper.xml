@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkInvoiceMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkInvoice" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="makeoutOrgID" property="makeoutOrgID" jdbcType="VARCHAR" />
+    <result column="invoiceNo" property="invoiceNo" jdbcType="VARCHAR" />
+    <result column="makeoutDate" property="makeoutDate" jdbcType="TIMESTAMP" />
+    <result column="customer" property="customer" jdbcType="VARCHAR" />
+    <result column="amt" property="amt" jdbcType="DECIMAL" />
+    <result column="whOrgID" property="whOrgID" jdbcType="VARCHAR" />
+    <result column="warehouseName" property="warehouseName" jdbcType="VARCHAR" />
+    <result column="outOrgName" property="outOrgName" jdbcType="VARCHAR" />
+    <result column="outOrgID" property="outOrgID" jdbcType="VARCHAR" />
+    <result column="billStatus" property="billStatus" jdbcType="VARCHAR" />
+    <result column="ysdID" property="ysdID" jdbcType="VARCHAR" />
+    <result column="ysdNo" property="ysdNo" jdbcType="VARCHAR" />
+    <result column="receNo" property="receNo" jdbcType="VARCHAR" />
+    <result column="resourceID" property="resourceID" jdbcType="VARCHAR" />
+    <result column="resourceName" property="resourceName" jdbcType="VARCHAR" />
+    <result column="materialSource" property="materialSource" jdbcType="VARCHAR" />
+    <result column="purchType" property="purchType" jdbcType="VARCHAR" />
+    <result column="contractID" property="contractID" jdbcType="VARCHAR" />
+    <result column="contractName" property="contractName" jdbcType="VARCHAR" />
+    <result column="amtTotal" property="amtTotal" jdbcType="DECIMAL" />
+    <result column="makeoutOrgName" property="makeoutOrgName" jdbcType="VARCHAR" />
+    <result column="companyId" property="companyId" jdbcType="VARCHAR" />
+    <result column="companyName" property="companyName" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, orgID, makeoutOrgID, invoiceNo, makeoutDate, 
+    customer, amt, whOrgID, warehouseName, outOrgName, 
+    outOrgID, billStatus, ysdID, ysdNo, receNo, 
+    resourceID, resourceName, materialSource, purchType, contractID, 
+    contractName, amtTotal, makeoutOrgName, companyId, companyName, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_invoice
+    where del_flag = '0' and id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_invoice
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkInvoice" >
+    insert into zx_sk_invoice (
+    id, orgID, makeoutOrgID, invoiceNo, makeoutDate, 
+    customer, amt, whOrgID, warehouseName, outOrgName, 
+    outOrgID, billStatus, ysdID, ysdNo, receNo, 
+    resourceID, resourceName, materialSource, purchType, contractID, 
+    contractName, amtTotal, makeoutOrgName, companyId, companyName, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{id,jdbcType=CHAR}, #{orgID,jdbcType=VARCHAR}, #{makeoutOrgID,jdbcType=VARCHAR}, #{invoiceNo,jdbcType=VARCHAR}, #{makeoutDate,jdbcType=TIMESTAMP}, 
+    #{customer,jdbcType=VARCHAR}, #{amt,jdbcType=DECIMAL}, #{whOrgID,jdbcType=VARCHAR}, #{warehouseName,jdbcType=VARCHAR}, #{outOrgName,jdbcType=VARCHAR}, 
+    #{outOrgID,jdbcType=VARCHAR}, #{billStatus,jdbcType=VARCHAR}, #{ysdID,jdbcType=VARCHAR}, #{ysdNo,jdbcType=VARCHAR}, #{receNo,jdbcType=VARCHAR}, 
+    #{resourceID,jdbcType=VARCHAR}, #{resourceName,jdbcType=VARCHAR}, #{materialSource,jdbcType=VARCHAR}, #{purchType,jdbcType=VARCHAR}, #{contractID,jdbcType=VARCHAR}, 
+    #{contractName,jdbcType=VARCHAR}, #{amtTotal,jdbcType=DECIMAL}, #{makeoutOrgName,jdbcType=VARCHAR}, #{companyId,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, 
+    #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+    #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkInvoice" >
+    insert into zx_sk_invoice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="makeoutOrgID != null" >
+        makeoutOrgID,
+      </if>
+      <if test="invoiceNo != null" >
+        invoiceNo,
+      </if>
+      <if test="makeoutDate != null" >
+        makeoutDate,
+      </if>
+      <if test="customer != null" >
+        customer,
+      </if>
+      <if test="amt != null" >
+        amt,
+      </if>
+      <if test="whOrgID != null" >
+        whOrgID,
+      </if>
+      <if test="warehouseName != null" >
+        warehouseName,
+      </if>
+      <if test="outOrgName != null" >
+        outOrgName,
+      </if>
+      <if test="outOrgID != null" >
+        outOrgID,
+      </if>
+      <if test="billStatus != null" >
+        billStatus,
+      </if>
+      <if test="ysdID != null" >
+        ysdID,
+      </if>
+      <if test="ysdNo != null" >
+        ysdNo,
+      </if>
+      <if test="receNo != null" >
+        receNo,
+      </if>
+      <if test="resourceID != null" >
+        resourceID,
+      </if>
+      <if test="resourceName != null" >
+        resourceName,
+      </if>
+      <if test="materialSource != null" >
+        materialSource,
+      </if>
+      <if test="purchType != null" >
+        purchType,
+      </if>
+      <if test="contractID != null" >
+        contractID,
+      </if>
+      <if test="contractName != null" >
+        contractName,
+      </if>
+      <if test="amtTotal != null" >
+        amtTotal,
+      </if>
+      <if test="makeoutOrgName != null" >
+        makeoutOrgName,
+      </if>
+      <if test="companyId != null" >
+        companyId,
+      </if>
+      <if test="companyName != null" >
+        companyName,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="makeoutOrgID != null" >
+        #{makeoutOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNo != null" >
+        #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="makeoutDate != null" >
+        #{makeoutDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="customer != null" >
+        #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null" >
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="whOrgID != null" >
+        #{whOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseName != null" >
+        #{warehouseName,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgName != null" >
+        #{outOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgID != null" >
+        #{outOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="billStatus != null" >
+        #{billStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="ysdID != null" >
+        #{ysdID,jdbcType=VARCHAR},
+      </if>
+      <if test="ysdNo != null" >
+        #{ysdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="receNo != null" >
+        #{receNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceID != null" >
+        #{resourceID,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceName != null" >
+        #{resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="materialSource != null" >
+        #{materialSource,jdbcType=VARCHAR},
+      </if>
+      <if test="purchType != null" >
+        #{purchType,jdbcType=VARCHAR},
+      </if>
+      <if test="contractID != null" >
+        #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="contractName != null" >
+        #{contractName,jdbcType=VARCHAR},
+      </if>
+      <if test="amtTotal != null" >
+        #{amtTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="makeoutOrgName != null" >
+        #{makeoutOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkInvoice" >
+    update zx_sk_invoice
+    <set >
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="makeoutOrgID != null" >
+        makeoutOrgID = #{makeoutOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNo != null" >
+        invoiceNo = #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="makeoutDate != null" >
+        makeoutDate = #{makeoutDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="customer != null" >
+        customer = #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null" >
+        amt = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="whOrgID != null" >
+        whOrgID = #{whOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseName != null" >
+        warehouseName = #{warehouseName,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgName != null" >
+        outOrgName = #{outOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgID != null" >
+        outOrgID = #{outOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="billStatus != null" >
+        billStatus = #{billStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="ysdID != null" >
+        ysdID = #{ysdID,jdbcType=VARCHAR},
+      </if>
+      <if test="ysdNo != null" >
+        ysdNo = #{ysdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="receNo != null" >
+        receNo = #{receNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceID != null" >
+        resourceID = #{resourceID,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceName != null" >
+        resourceName = #{resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="materialSource != null" >
+        materialSource = #{materialSource,jdbcType=VARCHAR},
+      </if>
+      <if test="purchType != null" >
+        purchType = #{purchType,jdbcType=VARCHAR},
+      </if>
+      <if test="contractID != null" >
+        contractID = #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="contractName != null" >
+        contractName = #{contractName,jdbcType=VARCHAR},
+      </if>
+      <if test="amtTotal != null" >
+        amtTotal = #{amtTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="makeoutOrgName != null" >
+        makeoutOrgName = #{makeoutOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        companyId = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        companyName = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkInvoice" >
+    update zx_sk_invoice set 
+      orgID = #{orgID,jdbcType=VARCHAR},
+      makeoutOrgID = #{makeoutOrgID,jdbcType=VARCHAR},
+      invoiceNo = #{invoiceNo,jdbcType=VARCHAR},
+      makeoutDate = #{makeoutDate,jdbcType=TIMESTAMP},
+      customer = #{customer,jdbcType=VARCHAR},
+      amt = #{amt,jdbcType=DECIMAL},
+      whOrgID = #{whOrgID,jdbcType=VARCHAR},
+      warehouseName = #{warehouseName,jdbcType=VARCHAR},
+      outOrgName = #{outOrgName,jdbcType=VARCHAR},
+      outOrgID = #{outOrgID,jdbcType=VARCHAR},
+      billStatus = #{billStatus,jdbcType=VARCHAR},
+      ysdID = #{ysdID,jdbcType=VARCHAR},
+      ysdNo = #{ysdNo,jdbcType=VARCHAR},
+      receNo = #{receNo,jdbcType=VARCHAR},
+      resourceID = #{resourceID,jdbcType=VARCHAR},
+      resourceName = #{resourceName,jdbcType=VARCHAR},
+      materialSource = #{materialSource,jdbcType=VARCHAR},
+      purchType = #{purchType,jdbcType=VARCHAR},
+      contractID = #{contractID,jdbcType=VARCHAR},
+      contractName = #{contractName,jdbcType=VARCHAR},
+      amtTotal = #{amtTotal,jdbcType=DECIMAL},
+      makeoutOrgName = #{makeoutOrgName,jdbcType=VARCHAR},
+      companyId = #{companyId,jdbcType=VARCHAR},
+      companyName = #{companyName,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSkInvoiceList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkInvoice" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_invoice
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=CHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="makeoutOrgID != null and makeoutOrgID != ''" >
+     and makeoutOrgID = #{makeoutOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="invoiceNo != null and invoiceNo != ''" >
+      and invoiceNo like CONCAT('%',CONCAT(#{invoiceNo,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="makeoutDate != null and makeoutDate != ''" >
+     and makeoutDate = #{makeoutDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="customer != null and customer != ''" >
+     and customer = #{customer,jdbcType=VARCHAR}
+    </if>
+    <if test="amtList != null" >
+      and amt BETWEEN
+      <foreach collection="amtList" index="index" item="item" separator="AND">
+        #{item}
+      </foreach>
+    </if>
+    <if test="whOrgID != null and whOrgID != ''" >
+     and whOrgID = #{whOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="warehouseName != null and warehouseName != ''" >
+     and warehouseName = #{warehouseName,jdbcType=VARCHAR}
+    </if>
+    <if test="outOrgName != null and outOrgName != ''" >
+     and outOrgName = #{outOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="outOrgID != null and outOrgID != ''" >
+     and outOrgID = #{outOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="billStatus != null and billStatus != ''" >
+     and billStatus = #{billStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="ysdID != null and ysdID != ''" >
+     and ysdID = #{ysdID,jdbcType=VARCHAR}
+    </if>
+    <if test="ysdNo != null and ysdNo != ''" >
+     and ysdNo = #{ysdNo,jdbcType=VARCHAR}
+    </if>
+    <if test="receNo != null and receNo != ''" >
+      and receNo like CONCAT('%',CONCAT(#{receNo,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="resourceID != null and resourceID != ''" >
+     and resourceID = #{resourceID,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceName != null and resourceName != ''" >
+     and resourceName = #{resourceName,jdbcType=VARCHAR}
+    </if>
+    <if test="materialSource != null and materialSource != ''" >
+     and materialSource = #{materialSource,jdbcType=VARCHAR}
+    </if>
+    <if test="purchType != null and purchType != ''" >
+     and purchType = #{purchType,jdbcType=VARCHAR}
+    </if>
+    <if test="contractID != null and contractID != ''" >
+     and contractID = #{contractID,jdbcType=VARCHAR}
+    </if>
+    <if test="contractName != null and contractName != ''" >
+     and contractName = #{contractName,jdbcType=VARCHAR}
+    </if>
+    <if test="amtTotal != null and amtTotal != ''" >
+     and amtTotal = #{amtTotal,jdbcType=DECIMAL}
+    </if>
+    <if test="makeoutOrgName != null and makeoutOrgName != ''" >
+     and makeoutOrgName = #{makeoutOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and companyId = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and companyName = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="timeList != null " >
+     and create_time BETWEEN
+      <foreach collection="timeList" index="index" item="item" separator="AND">
+        DATE_FORMAT(#{item},"%Y-%m-%d")
+      </foreach>
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkInvoice" parameterType="com.apih5.mybatis.pojo.ZxSkInvoice" >
+    <![CDATA[ 
+        update zx_sk_invoice
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+
+  <select id="getZxSkInvoiceOutOrg" resultType="com.apih5.mybatis.pojo.ZxSkStockTransferReceiving" parameterType="com.apih5.mybatis.pojo.ZxSkInvoice">
+    select outOrgID,outOrgName
+    from zx_Sk_stockTransfer_receiving
+    where zx_Sk_stockTransfer_receiving.del_flag = 0
+    and zx_Sk_stockTransfer_receiving.billStatus = 1
+    and zx_Sk_stockTransfer_receiving.inOrgID = #{makeoutOrgID}
+    GROUP BY outOrgID
+  </select>
+
+  <select id="getZxSkInvoiceResource" resultType="com.apih5.mybatis.pojo.ZxSkStockTransferReceiving" parameterType="com.apih5.mybatis.pojo.ZxSkInvoice">
+    select resourceID,resourceName
+    from zx_Sk_stockTransfer_receiving
+    where zx_Sk_stockTransfer_receiving.del_flag = 0
+    and zx_Sk_stockTransfer_receiving.billStatus = 1
+    and zx_Sk_stockTransfer_receiving.inOrgID = #{makeoutOrgID}
+    GROUP BY resourceID
+  </select>
+
+  <resultMap id="getZxSkStockTransferReceivingMap" type="com.apih5.mybatis.pojo.ZxSkStockTransferReceiving" autoMapping="true">
+    <id column="receivingId" property="id" />
+    <collection property="zxSkStockTransItemReceivingList" ofType="com.apih5.mybatis.pojo.ZxSkStockTransItemReceiving" autoMapping="true">
+      <id column="itemId" property="id"/>
+      <result column="inFeeTotalNew" property="inFeeTotal"/>
+      <result column="ysFeeTotalNew" property="ysFeeTotal"/>
+      <!--<result column="itemCreateTime" property="createTime"/>-->
+      <!--<result column="itemCreateUser" property="createUser"/>-->
+      <!--<result column="itemCreateUserName" property="createUserName"/>-->
+      <!--<result column="itemModifyTime" property="modifyTime"/>-->
+      <!--<result column="itemModifyUser" property="modifyUser"/>-->
+      <!--<result column="itemModifyUserName" property="modifyUserName"/>-->
+    </collection>
+  </resultMap>
+  <!--inQty                 qty-->
+  <!--inPriceNoTax     unitPriceNoTax-->
+  <!--resAllFeeNoTax  stockAmtNoTax-->
+  <!--resAllFeeTax       stockAmtTax-->
+  <!--inPrice                unitPrice-->
+  <!--resAllFee            	stockAmt-->
+  <!--inAmt            amt-->
+  <!--inAmtAll      amtTotal-->
+  <!--billNo         ysdNo-->
+  <!--billNo    	stockTransBillNo-->
+  <!--isDeduct  isDeduct-->
+  <!--taxRate    taxRate-->
+  <select id="getZxSkInvoiceReceivableOrder" resultMap="getZxSkStockTransferReceivingMap" parameterType="com.apih5.mybatis.pojo.ZxSkInvoice">
+    select
+    zx_sk_stocktransfer_receiving.id as receivingId,
+    zx_sk_stocktransfer_receiving.id as stockTransID,
+    zx_sk_stocktransfer_receiving.billNo as ysdNo,
+    zx_sk_stocktransfer_receiving.billNo as stockTransBillNo,
+--     zx_sk_stocktransfer_receiving.taxRate as taxRate,
+--     zx_sk_stocktransfer_receiving.isDeduct as isDeduct,
+--     zx_sk_stocktransfer_receiving.*,
+    zx_sk_stocktransfer_receiving.whOrgID,
+    zx_sk_stocktransfer_receiving.outOrgID,
+    zx_sk_stocktransfer_receiving.inOrgID,
+    zx_sk_stocktransfer_receiving.billNo,
+    zx_sk_stocktransfer_receiving.materialSource,
+    zx_sk_stocktransfer_receiving.outOrgName,
+    zx_sk_stocktransfer_receiving.inOrgName,
+    zx_sk_stocktransfer_receiving.totalAmt,
+    zx_sk_stocktransfer_receiving.outtransactor,
+    zx_sk_stocktransfer_receiving.waretransactor,
+    zx_sk_stocktransfer_receiving.buyer,
+    zx_sk_stocktransfer_receiving.auditor,
+    zx_sk_stocktransfer_receiving.voucherNo,
+    zx_sk_stocktransfer_receiving.billType,
+    zx_sk_stocktransfer_receiving.billStatus,
+    zx_sk_stocktransfer_receiving.reporter,
+    zx_sk_stocktransfer_receiving.purchaseContractID,
+    zx_sk_stocktransfer_receiving.purchaseContract,
+    zx_sk_stocktransfer_receiving.LoginOrgID,
+    zx_sk_stocktransfer_receiving.resourceID,
+    zx_sk_stocktransfer_receiving.resourceName,
+    zx_sk_stocktransfer_receiving.outOrgType,
+    zx_sk_stocktransfer_receiving.purchType,
+    zx_sk_stocktransfer_receiving.taxRate,
+    zx_sk_stocktransfer_receiving.isDeduct,
+    zx_sk_stocktransfer_receiving.warehouseName,
+    sum(item.inAmtAll) as amtTotal,--
+    sum(item.inAmt) as amt,--
+    sum(item.resAllFee) as stockAmt,--
+    item.inPrice as unitPrice,
+    sum(item.resAllFeeTax) as stockAmtTax, --
+    sum(item.resAllFeeNoTax) as stockAmtNoTax, --
+    item.inPriceNoTax as unitPriceNoTax,
+    sum(item.isOutNumber) - IF(a.qty IS NULL,0.00,a.qty) as qty,
+    sum(item.isOutNumber) - IF(a.qty IS NULL,0.00,a.qty) as oldQty,
+    sum(item.isOutNumber) as tempQty,
+    item.id as itemId,
+    item.id as stockTransItemID,
+    item.spec as resSpec,
+    item.inPrice as oldInPrice,
+    sum(item.inFeeTotal) as inFeeTotalNew,
+    sum(item.ysFeeTotal) as ysFeeTotalNew,
+    sum(item.inAmt) as oldAmt, --
+--     item.remark as itemRemark,
+--     item.del_flag as itemDelFlag,
+--     item.create_time as itemCreateTime,
+--     item.create_user as itemCreateUser,
+--     item.create_user_name as itemCreateUserName,
+--     item.modify_time as itemModifyTime,
+--     item.modify_user as itemModifyUser,
+--     item.modify_user_name as itemModifyUserName,
+    item.*
+     from zx_sk_stocktransfer_receiving
+      left join zx_sk_stocktransItem_receiving as item
+        on zx_sk_stocktransfer_receiving.id = item.billID
+      left join
+        (select zx_sk_invoiceItem.stockTransItemID as stockTransItemID,sum(zx_sk_invoiceItem.qty) as qty,zx_sk_invoiceItem.oldInPrice as oldInPrice
+            from zx_sk_invoice
+              left join zx_sk_invoiceItem
+                on zx_sk_invoice.id = zx_sk_invoiceItem.invoiceID
+              where zx_sk_invoice.del_flag = '0'
+                and zx_sk_invoiceItem.del_flag = '0'
+                and zx_sk_invoice.billStatus = '1'
+                and zx_sk_invoice.whOrgID = #{whOrgID}
+                and zx_sk_invoice.outOrgID = #{outOrgID}
+                and zx_sk_invoice.resourceID = #{resourceID}
+          GROUP BY stockTransItemID,oldInPrice
+        ) as a
+        on item.id = a.stockTransItemID
+          where item.precollecte = '1'
+          and zx_sk_stocktransfer_receiving.billStatus = '1'
+          and zx_sk_stocktransfer_receiving.del_flag = 0
+          and item.del_flag = 0
+          and zx_sk_stocktransfer_receiving.whOrgID = #{whOrgID}
+          and zx_sk_stocktransfer_receiving.outOrgID = #{outOrgID}
+          and zx_sk_stocktransfer_receiving.resourceID = #{resourceID}
+    GROUP BY zx_sk_stocktransfer_receiving.id,item.resID,item.inPrice
+  </select>
+
+  <select id="getZxSkInvoiceQty" parameterType="com.apih5.mybatis.pojo.ZxSkInvoice" resultType="com.apih5.mybatis.pojo.ZxSkStockTransItemReceiving">
+    select
+        zx_sk_stocktransfer_receiving.id as stockTransID,
+        item.resID,
+        sum(item.inQty) - IF(a.qty IS NULL,0.00,a.qty) as qty,
+        item.inPrice as oldInPrice
+          from zx_sk_stocktransfer_receiving
+            left join zx_sk_stocktransItem_receiving as item
+              on zx_sk_stocktransfer_receiving.id = item.billID
+            left join
+              (select zx_sk_invoiceItem.stockTransItemID as stockTransItemID,sum(zx_sk_invoiceItem.qty) as qty,zx_sk_invoiceItem.oldInPrice as oldInPrice
+                from zx_sk_invoice
+                  left join zx_sk_invoiceItem
+                    on zx_sk_invoice.id = zx_sk_invoiceItem.invoiceID
+                  where zx_sk_invoice.del_flag = '0'
+                    and zx_sk_invoiceItem.del_flag = '0'
+                    and zx_sk_invoice.billStatus = '1'
+                    and zx_sk_invoice.whOrgID = #{param2.whOrgID}
+                    and zx_sk_invoice.outOrgID = #{param2.outOrgID}
+                    and zx_sk_invoice.resourceID = #{param2.resourceID}
+              GROUP BY stockTransItemID,oldInPrice
+            ) as a
+              on item.id = a.stockTransItemID
+                where item.precollecte = '1'
+                and zx_sk_stocktransfer_receiving.billStatus = '1'
+                and zx_sk_stocktransfer_receiving.del_flag = 0
+                and item.del_flag = 0
+                and zx_sk_stocktransfer_receiving.whOrgID = #{param2.whOrgID}
+                and zx_sk_stocktransfer_receiving.outOrgID = #{param2.outOrgID}
+                and zx_sk_stocktransfer_receiving.resourceID = #{param2.resourceID}
+                and zx_sk_stocktransfer_receiving.id in
+    <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.stockTransID}
+    </foreach>
+        GROUP BY zx_sk_stocktransfer_receiving.id,item.resID,item.inPrice
+  </select>
+
+
+  <update id="checkZxSkInvoice" parameterType="com.apih5.mybatis.pojo.ZxSkInvoice">
+      update zx_sk_invoice
+        set   billStatus=#{billStatus},
+        modify_time=#{modifyTime,jdbcType=TIMESTAMP},
+        modify_user=#{modifyUser},
+        modify_user_name=#{modifyUserName}
+      where del_flag = '0' and id = #{id}
+  </update>
+
+  <select id="getZxSkInvoiceCount" parameterType="java.lang.String" resultType="int">
+    select count(*) from zx_sk_invoice where receNo like CONCAT('%',CONCAT(#{date},'%')) and makeoutOrgID = #{orgID}
+  </select>
+
+</mapper>

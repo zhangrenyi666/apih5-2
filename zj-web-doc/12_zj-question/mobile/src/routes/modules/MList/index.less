@@ -1,0 +1,86 @@
+@border-radius: 10px;
+@color-white: white;
+@color-lightgray: #efefef;
+@color-gray: #999;
+@color-black: #111;
+@color-blue: #0099dd;
+@color-green: #99cc00;
+@color-yellow: #ffff00;
+@color-orange: #ff9900;
+@color-red: #ff4000; 
+
+.lny {
+    &-List {
+        // height: 100vh;
+        height: 100%;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+         :global(.am-list-body) {
+            background-color: transparent;
+            border-width: 0;
+        }
+         :global(.am-list-body):after {
+            border-width: 0;
+        }
+         :global(.am-pull-to-refresh-content-wrapper) {
+            overflow: inherit
+        }
+        &-item {
+            background: #fff;
+            padding: 0 5px 0 12px;
+            border-left: 4px solid;
+            line-height: 1.2;
+            &-title {
+                font-size: 18px;
+                padding: 7px 7px 7px 0;
+            }
+            &-introduce {
+                padding: 7px 7px 7px 0;
+                font-size: 14px;
+                color: #999;
+            }
+            &-tool {
+                display: flex;
+                padding: 7px 7px 7px 0;
+                border-top: 1px #999 dashed;
+                color: #999;
+                &-span1 {
+                    text-align: left;
+                }
+                &-span2 {
+                    flex: 1;
+                    text-align: right;
+                }
+            }
+        } 
+        :global{
+            .am-list-body::before, .am-list-body::after{
+                background-color: transparent !important;
+            }
+            .am-list-extra{
+                flex-basis: 70% !important;
+                text-align: left !important;
+                padding-top: 0 !important;
+                padding-bottom:  0 !important;
+            }
+            .am-list-item{
+                min-height: 28px !important;
+            }
+        }
+    }   
+}
+
+//底部按钮
+.buttonBtns{
+    width:100%;
+    background: white;
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid @color-lightgray;
+    box-shadow: 0 0 4px 4px fade(@color-lightgray, 20);
+    .am-button {
+        height: 39px;
+        line-height: 39px;
+    }
+}

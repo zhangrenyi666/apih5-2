@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmSalaryContractManagementMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmSalaryContractManagement" >
+    <id column="contract_id" property="contractId" jdbcType="CHAR" />
+    <result column="extension_id" property="extensionId" jdbcType="CHAR" />
+    <result column="contract_no" property="contractNo" jdbcType="VARCHAR" />
+    <result column="signing_date" property="signingDate" jdbcType="TIMESTAMP" />
+    <result column="contract_type" property="contractType" jdbcType="CHAR" />
+    <result column="start_date" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="end_date" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="contract_period" property="contractPeriod" jdbcType="INTEGER" />
+    <result column="probation" property="probation" jdbcType="CHAR" />
+    <result column="signing_type" property="signingType" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    contract_id, extension_id, contract_no, signing_date, contract_type, 
+    start_date, end_date, contract_period, probation, signing_type, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_contract_management
+    where contract_id = #{contractId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_salary_contract_management
+    where contract_id = #{contractId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryContractManagement" >
+    insert into zj_xm_salary_contract_management (contract_id, extension_id, contract_no, 
+      signing_date, contract_type, start_date, 
+      end_date, contract_period, probation, 
+      signing_type, remarks, sort, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{contractId,jdbcType=CHAR}, #{extensionId,jdbcType=CHAR}, #{contractNo,jdbcType=VARCHAR}, 
+      #{signingDate,jdbcType=TIMESTAMP}, #{contractType,jdbcType=CHAR}, #{startDate,jdbcType=TIMESTAMP}, 
+      #{endDate,jdbcType=TIMESTAMP}, #{contractPeriod,jdbcType=INTEGER}, #{probation,jdbcType=CHAR}, 
+      #{signingType,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryContractManagement" >
+    insert into zj_xm_salary_contract_management
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="contractId != null" >
+        contract_id,
+      </if>
+      <if test="extensionId != null" >
+        extension_id,
+      </if>
+      <if test="contractNo != null" >
+        contract_no,
+      </if>
+      <if test="signingDate != null" >
+        signing_date,
+      </if>
+      <if test="contractType != null" >
+        contract_type,
+      </if>
+      <if test="startDate != null" >
+        start_date,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+      <if test="contractPeriod != null" >
+        contract_period,
+      </if>
+      <if test="probation != null" >
+        probation,
+      </if>
+      <if test="signingType != null" >
+        signing_type,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="contractId != null" >
+        #{contractId,jdbcType=CHAR},
+      </if>
+      <if test="extensionId != null" >
+        #{extensionId,jdbcType=CHAR},
+      </if>
+      <if test="contractNo != null" >
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="signingDate != null" >
+        #{signingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contractType != null" >
+        #{contractType,jdbcType=CHAR},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contractPeriod != null" >
+        #{contractPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="probation != null" >
+        #{probation,jdbcType=CHAR},
+      </if>
+      <if test="signingType != null" >
+        #{signingType,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryContractManagement" >
+    update zj_xm_salary_contract_management
+    <set >
+      <if test="extensionId != null" >
+        extension_id = #{extensionId,jdbcType=CHAR},
+      </if>
+      <if test="contractNo != null" >
+        contract_no = #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="signingDate != null" >
+        signing_date = #{signingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contractType != null" >
+        contract_type = #{contractType,jdbcType=CHAR},
+      </if>
+      <if test="startDate != null" >
+        start_date = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contractPeriod != null" >
+        contract_period = #{contractPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="probation != null" >
+        probation = #{probation,jdbcType=CHAR},
+      </if>
+      <if test="signingType != null" >
+        signing_type = #{signingType,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where contract_id = #{contractId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryContractManagement" >
+    update zj_xm_salary_contract_management
+    set       extension_id = #{extensionId,jdbcType=CHAR},
+      contract_no = #{contractNo,jdbcType=VARCHAR},
+      signing_date = #{signingDate,jdbcType=TIMESTAMP},
+      contract_type = #{contractType,jdbcType=CHAR},
+      start_date = #{startDate,jdbcType=TIMESTAMP},
+      end_date = #{endDate,jdbcType=TIMESTAMP},
+      contract_period = #{contractPeriod,jdbcType=INTEGER},
+      probation = #{probation,jdbcType=CHAR},
+      signing_type = #{signingType,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where contract_id = #{contractId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmSalaryContractManagementList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryContractManagement" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_contract_management
+    where del_flag = '0'
+    <if test="extensionId != null and extensionId != ''" >
+     and extension_id = #{extensionId,jdbcType=CHAR}
+    </if>
+    <if test="contractNo != null and contractNo != ''" >
+     and contract_no = #{contractNo,jdbcType=VARCHAR}
+    </if>
+    <if test="signingDate != null and signingDate != ''" >
+     and signing_date = #{signingDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="contractType != null and contractType != ''" >
+     and contract_type = #{contractType,jdbcType=CHAR}
+    </if>
+    <if test="startDate != null and startDate != ''" >
+     and start_date = #{startDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="endDate != null and endDate != ''" >
+     and end_date = #{endDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="contractPeriod != null and contractPeriod != ''" >
+     and contract_period = #{contractPeriod,jdbcType=INTEGER}
+    </if>
+    <if test="probation != null and probation != ''" >
+     and probation = #{probation,jdbcType=CHAR}
+    </if>
+    <if test="signingType != null and signingType != ''" >
+     and signing_type = #{signingType,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY create_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmSalaryContractManagement" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryContractManagement" >
+    <![CDATA[ 
+        update zj_xm_salary_contract_management
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and contract_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.contractId} 
+     </foreach>
+  </delete>
+  
+  <delete id="batchDeleteZjXmSalaryContractManagementByExtensionId" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryContractManagement" >
+    <![CDATA[ 
+        update zj_xm_salary_contract_management
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and extension_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.extensionId} 
+     </foreach>
+  </delete>
+  
+ <select id="getZjXmSalaryContractManagementByExtensionId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_contract_management
+    where extension_id = #{extensionId,jdbcType=CHAR}
+    ORDER BY create_time DESC limit 1
+  </select>
+  
+</mapper>

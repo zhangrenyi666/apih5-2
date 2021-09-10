@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqRentOutEqRecordItemMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqRentOutEqRecordItem" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="billID" property="billID" jdbcType="VARCHAR" />
+    <result column="useDate" property="useDate" jdbcType="TIMESTAMP" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="place" property="place" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="qty" property="qty" jdbcType="DECIMAL" />
+    <result column="mile" property="mile" jdbcType="DECIMAL" />
+    <result column="actualQty" property="actualQty" jdbcType="DECIMAL" />
+    <result column="waitQty" property="waitQty" jdbcType="DECIMAL" />
+    <result column="weatherQty" property="weatherQty" jdbcType="DECIMAL" />
+    <result column="problemQty" property="problemQty" jdbcType="DECIMAL" />
+    <result column="gasQty" property="gasQty" jdbcType="DECIMAL" />
+    <result column="dervQty" property="dervQty" jdbcType="DECIMAL" />
+    <result column="coalQty" property="coalQty" jdbcType="DECIMAL" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="driverName" property="driverName" jdbcType="VARCHAR" />
+    <result column="consumption" property="consumption" jdbcType="DECIMAL" />
+    <result column="calendarNumDay" property="calendarNumDay" jdbcType="DECIMAL" />
+    <result column="wellDays" property="wellDays" jdbcType="DECIMAL" />
+    <result column="runDay" property="runDay" jdbcType="DECIMAL" />
+    <result column="projectName" property="projectName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, billID, useDate, content, place, 
+    unit, qty, mile, actualQty, waitQty, 
+    weatherQty, problemQty, gasQty, dervQty, coalQty, 
+    editTime, driverName, consumption, calendarNumDay, wellDays, 
+    runDay, projectName, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_RentOutEqRecordItem
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_RentOutEqRecordItem
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqRentOutEqRecordItem" >
+    insert into zx_eq_RentOutEqRecordItem (id, billID, useDate, 
+      content, place, unit, 
+      qty, mile, actualQty, 
+      waitQty, weatherQty, problemQty, 
+      gasQty, dervQty, coalQty, 
+      editTime, driverName, consumption, 
+      calendarNumDay, wellDays, runDay, 
+      projectName, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{billID,jdbcType=VARCHAR}, #{useDate,jdbcType=TIMESTAMP}, 
+      #{content,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, 
+      #{qty,jdbcType=DECIMAL}, #{mile,jdbcType=DECIMAL}, #{actualQty,jdbcType=DECIMAL}, 
+      #{waitQty,jdbcType=DECIMAL}, #{weatherQty,jdbcType=DECIMAL}, #{problemQty,jdbcType=DECIMAL}, 
+      #{gasQty,jdbcType=DECIMAL}, #{dervQty,jdbcType=DECIMAL}, #{coalQty,jdbcType=DECIMAL}, 
+      #{editTime,jdbcType=TIMESTAMP}, #{driverName,jdbcType=VARCHAR}, #{consumption,jdbcType=DECIMAL}, 
+      #{calendarNumDay,jdbcType=DECIMAL}, #{wellDays,jdbcType=DECIMAL}, #{runDay,jdbcType=DECIMAL}, 
+      #{projectName,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqRentOutEqRecordItem" >
+    insert into zx_eq_RentOutEqRecordItem
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="billID != null" >
+        billID,
+      </if>
+      <if test="useDate != null" >
+        useDate,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="place != null" >
+        place,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="qty != null" >
+        qty,
+      </if>
+      <if test="mile != null" >
+        mile,
+      </if>
+      <if test="actualQty != null" >
+        actualQty,
+      </if>
+      <if test="waitQty != null" >
+        waitQty,
+      </if>
+      <if test="weatherQty != null" >
+        weatherQty,
+      </if>
+      <if test="problemQty != null" >
+        problemQty,
+      </if>
+      <if test="gasQty != null" >
+        gasQty,
+      </if>
+      <if test="dervQty != null" >
+        dervQty,
+      </if>
+      <if test="coalQty != null" >
+        coalQty,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="driverName != null" >
+        driverName,
+      </if>
+      <if test="consumption != null" >
+        consumption,
+      </if>
+      <if test="calendarNumDay != null" >
+        calendarNumDay,
+      </if>
+      <if test="wellDays != null" >
+        wellDays,
+      </if>
+      <if test="runDay != null" >
+        runDay,
+      </if>
+      <if test="projectName != null" >
+        projectName,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="billID != null" >
+        #{billID,jdbcType=VARCHAR},
+      </if>
+      <if test="useDate != null" >
+        #{useDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null" >
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="qty != null" >
+        #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="mile != null" >
+        #{mile,jdbcType=DECIMAL},
+      </if>
+      <if test="actualQty != null" >
+        #{actualQty,jdbcType=DECIMAL},
+      </if>
+      <if test="waitQty != null" >
+        #{waitQty,jdbcType=DECIMAL},
+      </if>
+      <if test="weatherQty != null" >
+        #{weatherQty,jdbcType=DECIMAL},
+      </if>
+      <if test="problemQty != null" >
+        #{problemQty,jdbcType=DECIMAL},
+      </if>
+      <if test="gasQty != null" >
+        #{gasQty,jdbcType=DECIMAL},
+      </if>
+      <if test="dervQty != null" >
+        #{dervQty,jdbcType=DECIMAL},
+      </if>
+      <if test="coalQty != null" >
+        #{coalQty,jdbcType=DECIMAL},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="driverName != null" >
+        #{driverName,jdbcType=VARCHAR},
+      </if>
+      <if test="consumption != null" >
+        #{consumption,jdbcType=DECIMAL},
+      </if>
+      <if test="calendarNumDay != null" >
+        #{calendarNumDay,jdbcType=DECIMAL},
+      </if>
+      <if test="wellDays != null" >
+        #{wellDays,jdbcType=DECIMAL},
+      </if>
+      <if test="runDay != null" >
+        #{runDay,jdbcType=DECIMAL},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqRentOutEqRecordItem" >
+    update zx_eq_RentOutEqRecordItem
+    <set >
+      <if test="billID != null" >
+        billID = #{billID,jdbcType=VARCHAR},
+      </if>
+      <if test="useDate != null" >
+        useDate = #{useDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null" >
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="qty != null" >
+        qty = #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="mile != null" >
+        mile = #{mile,jdbcType=DECIMAL},
+      </if>
+      <if test="actualQty != null" >
+        actualQty = #{actualQty,jdbcType=DECIMAL},
+      </if>
+      <if test="waitQty != null" >
+        waitQty = #{waitQty,jdbcType=DECIMAL},
+      </if>
+      <if test="weatherQty != null" >
+        weatherQty = #{weatherQty,jdbcType=DECIMAL},
+      </if>
+      <if test="problemQty != null" >
+        problemQty = #{problemQty,jdbcType=DECIMAL},
+      </if>
+      <if test="gasQty != null" >
+        gasQty = #{gasQty,jdbcType=DECIMAL},
+      </if>
+      <if test="dervQty != null" >
+        dervQty = #{dervQty,jdbcType=DECIMAL},
+      </if>
+      <if test="coalQty != null" >
+        coalQty = #{coalQty,jdbcType=DECIMAL},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="driverName != null" >
+        driverName = #{driverName,jdbcType=VARCHAR},
+      </if>
+      <if test="consumption != null" >
+        consumption = #{consumption,jdbcType=DECIMAL},
+      </if>
+      <if test="calendarNumDay != null" >
+        calendarNumDay = #{calendarNumDay,jdbcType=DECIMAL},
+      </if>
+      <if test="wellDays != null" >
+        wellDays = #{wellDays,jdbcType=DECIMAL},
+      </if>
+      <if test="runDay != null" >
+        runDay = #{runDay,jdbcType=DECIMAL},
+      </if>
+      <if test="projectName != null" >
+        projectName = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqRentOutEqRecordItem" >
+    update zx_eq_RentOutEqRecordItem
+    set       billID = #{billID,jdbcType=VARCHAR},
+      useDate = #{useDate,jdbcType=TIMESTAMP},
+      content = #{content,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      qty = #{qty,jdbcType=DECIMAL},
+      mile = #{mile,jdbcType=DECIMAL},
+      actualQty = #{actualQty,jdbcType=DECIMAL},
+      waitQty = #{waitQty,jdbcType=DECIMAL},
+      weatherQty = #{weatherQty,jdbcType=DECIMAL},
+      problemQty = #{problemQty,jdbcType=DECIMAL},
+      gasQty = #{gasQty,jdbcType=DECIMAL},
+      dervQty = #{dervQty,jdbcType=DECIMAL},
+      coalQty = #{coalQty,jdbcType=DECIMAL},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      driverName = #{driverName,jdbcType=VARCHAR},
+      consumption = #{consumption,jdbcType=DECIMAL},
+      calendarNumDay = #{calendarNumDay,jdbcType=DECIMAL},
+      wellDays = #{wellDays,jdbcType=DECIMAL},
+      runDay = #{runDay,jdbcType=DECIMAL},
+      projectName = #{projectName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxEqRentOutEqRecordItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqRentOutEqRecordItem" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_RentOutEqRecordItem
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="billID != null and billID != ''" >
+     and billID = #{billID,jdbcType=VARCHAR}
+    </if>
+    <if test="useDate != null and useDate != ''" >
+     and useDate = #{useDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="content != null and content != ''" >
+     and content = #{content,jdbcType=VARCHAR}
+    </if>
+    <if test="place != null and place != ''" >
+     and place = #{place,jdbcType=VARCHAR}
+    </if>
+    <if test="unit != null and unit != ''" >
+     and unit = #{unit,jdbcType=VARCHAR}
+    </if>
+    <if test="qty != null and qty != ''" >
+     and qty = #{qty,jdbcType=DECIMAL}
+    </if>
+    <if test="mile != null and mile != ''" >
+     and mile = #{mile,jdbcType=DECIMAL}
+    </if>
+    <if test="actualQty != null and actualQty != ''" >
+     and actualQty = #{actualQty,jdbcType=DECIMAL}
+    </if>
+    <if test="waitQty != null and waitQty != ''" >
+     and waitQty = #{waitQty,jdbcType=DECIMAL}
+    </if>
+    <if test="weatherQty != null and weatherQty != ''" >
+     and weatherQty = #{weatherQty,jdbcType=DECIMAL}
+    </if>
+    <if test="problemQty != null and problemQty != ''" >
+     and problemQty = #{problemQty,jdbcType=DECIMAL}
+    </if>
+    <if test="gasQty != null and gasQty != ''" >
+     and gasQty = #{gasQty,jdbcType=DECIMAL}
+    </if>
+    <if test="dervQty != null and dervQty != ''" >
+     and dervQty = #{dervQty,jdbcType=DECIMAL}
+    </if>
+    <if test="coalQty != null and coalQty != ''" >
+     and coalQty = #{coalQty,jdbcType=DECIMAL}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="driverName != null and driverName != ''" >
+     and driverName = #{driverName,jdbcType=VARCHAR}
+    </if>
+    <if test="consumption != null and consumption != ''" >
+     and consumption = #{consumption,jdbcType=DECIMAL}
+    </if>
+    <if test="calendarNumDay != null and calendarNumDay != ''" >
+     and calendarNumDay = #{calendarNumDay,jdbcType=DECIMAL}
+    </if>
+    <if test="wellDays != null and wellDays != ''" >
+     and wellDays = #{wellDays,jdbcType=DECIMAL}
+    </if>
+    <if test="runDay != null and runDay != ''" >
+     and runDay = #{runDay,jdbcType=DECIMAL}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and projectName = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqRentOutEqRecordItem" parameterType="com.apih5.mybatis.pojo.ZxEqRentOutEqRecordItem" >
+    <![CDATA[ 
+        update zx_eq_RentOutEqRecordItem
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

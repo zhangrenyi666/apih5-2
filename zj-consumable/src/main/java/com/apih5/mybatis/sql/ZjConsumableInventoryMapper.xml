@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjConsumableInventoryMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjConsumableInventory" >
+    <id column="inventory_id" property="inventoryId" jdbcType="CHAR" />
+    <result column="set_id" property="setId" jdbcType="CHAR" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="colour" property="colour" jdbcType="VARCHAR" />
+    <result column="now_num" property="nowNum" jdbcType="INTEGER" />
+    <result column="total_in_num" property="totalInNum" jdbcType="INTEGER" />
+    <result column="total_use_num" property="totalUseNum" jdbcType="INTEGER" />
+    <result column="app_num" property="appNum" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    inventory_id, set_id, category, brand, model, 
+    colour, now_num, total_in_num, total_use_num, app_num, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_consumable_inventory
+    where inventory_id = #{inventoryId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_consumable_inventory
+    where inventory_id = #{inventoryId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjConsumableInventory" >
+    insert into zj_consumable_inventory (inventory_id, set_id, category, 
+      brand, model, colour, 
+      now_num, total_in_num, total_use_num, 
+      app_num, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{inventoryId,jdbcType=CHAR}, #{setId,jdbcType=CHAR}, #{category,jdbcType=VARCHAR}, 
+      #{brand,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{colour,jdbcType=VARCHAR}, 
+      #{nowNum,jdbcType=INTEGER}, #{totalInNum,jdbcType=INTEGER}, #{totalUseNum,jdbcType=INTEGER}, 
+      #{appNum,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjConsumableInventory" >
+    insert into zj_consumable_inventory
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="inventoryId != null" >
+        inventory_id,
+      </if>
+      <if test="setId != null" >
+        set_id,
+      </if>
+      <if test="category != null" >
+        category,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="colour != null" >
+        colour,
+      </if>
+      <if test="nowNum != null" >
+        now_num,
+      </if>
+      <if test="totalInNum != null" >
+        total_in_num,
+      </if>
+      <if test="totalUseNum != null" >
+        total_use_num,
+      </if>
+      <if test="appNum != null" >
+        app_num,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="inventoryId != null" >
+        #{inventoryId,jdbcType=CHAR},
+      </if>
+      <if test="setId != null" >
+        #{setId,jdbcType=CHAR},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="colour != null" >
+        #{colour,jdbcType=VARCHAR},
+      </if>
+      <if test="nowNum != null" >
+        #{nowNum,jdbcType=INTEGER},
+      </if>
+      <if test="totalInNum != null" >
+        #{totalInNum,jdbcType=INTEGER},
+      </if>
+      <if test="totalUseNum != null" >
+        #{totalUseNum,jdbcType=INTEGER},
+      </if>
+      <if test="appNum != null" >
+        #{appNum,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjConsumableInventory" >
+    update zj_consumable_inventory
+    <set >
+      <if test="setId != null" >
+        set_id = #{setId,jdbcType=CHAR},
+      </if>
+      <if test="category != null" >
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="colour != null" >
+        colour = #{colour,jdbcType=VARCHAR},
+      </if>
+      <if test="nowNum != null" >
+        now_num = #{nowNum,jdbcType=INTEGER},
+      </if>
+      <if test="totalInNum != null" >
+        total_in_num = #{totalInNum,jdbcType=INTEGER},
+      </if>
+      <if test="totalUseNum != null" >
+        total_use_num = #{totalUseNum,jdbcType=INTEGER},
+      </if>
+      <if test="appNum != null" >
+        app_num = #{appNum,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where inventory_id = #{inventoryId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjConsumableInventory" >
+    update zj_consumable_inventory
+    set       set_id = #{setId,jdbcType=CHAR},
+      category = #{category,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      colour = #{colour,jdbcType=VARCHAR},
+      now_num = #{nowNum,jdbcType=INTEGER},
+      total_in_num = #{totalInNum,jdbcType=INTEGER},
+      total_use_num = #{totalUseNum,jdbcType=INTEGER},
+      app_num = #{appNum,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where inventory_id = #{inventoryId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjConsumableInventoryList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjConsumableInventory" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_consumable_inventory
+    where del_flag = '0'
+    <if test="inventoryId != null and inventoryId != ''" >
+     and inventory_id = #{inventoryId,jdbcType=}
+    </if>
+    <if test="setId != null and setId != ''" >
+     and set_id = #{setId,jdbcType=CHAR}
+    </if>
+    <if test="category != null and category != ''" >
+     and category LIKE CONCAT('%', #{category},'%')
+    </if>
+    <if test="brand != null and brand != ''" >
+     and brand LIKE CONCAT('%', #{brand},'%')
+    </if>
+    <if test="model != null and model != ''" >
+     and model LIKE CONCAT('%', #{model},'%')
+    </if>
+    <if test="colour != null and colour != ''" >
+     and colour LIKE CONCAT('%', #{colour},'%')
+    </if>
+    <if test="nowNum != null and nowNum != ''" >
+     and now_num = #{nowNum,jdbcType=INTEGER}
+    </if>
+    <if test="totalInNum != null and totalInNum != ''" >
+     and total_in_num = #{totalInNum,jdbcType=INTEGER}
+    </if>
+    <if test="totalUseNum != null and totalUseNum != ''" >
+     and total_use_num = #{totalUseNum,jdbcType=INTEGER}
+    </if>
+    <if test="appNum != null and appNum != ''" >
+     and app_num = #{appNum,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="createTime != null" >
+     and LEFT(create_time, 10) = LEFT(#{createTime,jdbcType=TIMESTAMP}, 10)
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjConsumableInventory" parameterType="com.apih5.mybatis.pojo.ZjConsumableInventory" >
+    <![CDATA[ 
+        update zj_consumable_inventory
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and inventory_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.inventoryId} 
+     </foreach>
+  </delete>
+</mapper>

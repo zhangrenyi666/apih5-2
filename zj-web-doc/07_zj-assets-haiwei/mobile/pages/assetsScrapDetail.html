@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>资产报废详情</title>
+    <link rel="stylesheet" type="text/css" href="../css/assetsScrapDetail.css">
+    <link rel="stylesheet" type="text/css" href="../lib/layer_mobile/need/layer.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <script src="../lib/jquery/1.9.1/jquery.min.js"></script>
+    <script src="../lib/layer_mobile/layer.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../lib/ajaxfileupload/ajaxfileupload.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/main.js"></script>
+    <!-- <script src="http://weixin.fheb.cn:90/cdn/public/lny.js" type="text/javascript"></script> -->
+</head>
+<style>
+    .layui-m-layerbtn span {
+        font-size: 28px;
+    }
+
+    .layui-m-layerbtn {
+        height: 67px;
+        line-height: 67px;
+    }
+
+    .footer-btn {
+        position: fixed;
+        width: 640px;
+        height: auto;
+        left: 0px;
+        bottom: 0px;
+        background: #ffffff;
+        z-index: 999;
+    }
+
+    .footer-btn img {
+        display: block;
+        width: 120px;
+        height: 120px;
+        float: right;
+        padding-bottom: 40px;
+        background: #ffffff;
+    }
+
+    .footer-btn .btn {
+        display: block;
+        width: 90%;
+        height: 80px;
+        margin: 35px;
+        line-height: 80px;
+        text-align: center;
+        border-radius: 10px;
+        color: #ffffff;
+        background: #0ebcfb;
+        font-size: 32px;
+    }
+
+    .btn-left {
+        float: left;
+        width: 50%;
+        border-right: 2px #eeeeee solid;
+    }
+
+    .btn-right {
+        width: 49%;
+        float: right;
+    }
+</style>
+
+<body>
+    <div class="assetsScrapDetail">
+        <div class="part1 p-20">
+            <!-- <img src="../img/greenCorrect_128.png"> -->
+            <!-- <div id="checkResult" class="content1 normalText">报废方式</div> -->
+            <div id="checkRecord" class="content2">设备报废记录</div>
+            <div id="checkDate" class="content3">-</div>
+            <div id="checkPerson" class="content4">-</div>
+        </div>
+        <div class="part2">
+            <ul>
+                <li>
+                    <div class="left">
+                        <span class="text">所属大类</span>
+                    </div>
+                    <div class="right">
+                        <span id="sszclx1Name" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">所属小类</span>
+                    </div>
+                    <div class="right">
+                        <span id="sszclx2Name" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">资产名称</span>
+                    </div>
+                    <div class="right">
+                        <span id="zcmc" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">资产原值（元）</span>
+                    </div>
+                    <div class="right">
+                        <span class="text" id="zcyz"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">残值（元）</span>
+                    </div>
+                    <div class="right">
+                        <span id="zccz" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">规定使用年限（年）</span>
+                    </div>
+                    <div class="right">
+                        <span id="synx" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">报废方式</span>
+                    </div>
+                    <div class="right">
+                        <span id="bffsName" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">报废原因</span>
+                    </div>
+                    <div class="right">
+                        <span id="zcxzbfyy" class="text"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">上传图片</span>
+                    </div>
+                    <div class="right">
+                        <div class="uploadFile">
+                            <label for="uploadBtn" name="imageList" class="upload-btn" style="display: none">
+                                <span style="padding-left: 10px;">添加图片</span>
+                                <input id="uploadBtn" class="inputFile" data-filetype="['jpg','jpeg','png','gif']" name="filesName" size="2" type="file"
+                                />
+                            </label>
+                            <span class="require">上传格式要求：["jpg","jpeg","png","gif"]</span>
+                            <ul class="uploadList" style="margin-top: 20px">
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-btn">
+            <div class="btn">
+                <a class="btn-left" onclick="editAssets()">编辑</a>
+                <a class="btn-right" onclick="revokeAssets()">撤销</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        var recordId;// 记录ID
+        var idzo;// 列表里的ID
+
+        window.login(function () {
+
+
+
+            // var code = getUrl('token')
+            // setCookie('code', code, 30)
+            // console.log(code);
+
+            // 页面刷新加载方法
+            window.onload = function () {
+                request();
+            }
+
+            //设置cookie  
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + "; " + expires;
+            }
+            //获取cookie  
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1);
+                    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+                }
+                return "";
+            }
+            function getUrl(k) {//获取地址栏参数，k为键名
+                var m = new RegExp("(^|&)" + k + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(m);
+                if (r != null) return decodeURI(r[2]); return null;
+            };
+
+
+            //获取报废列表传递的参数
+            function request() {
+                var url = location.href;
+                var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+                var paraObj = {};
+                for (i = 0; j = paraString[i]; i++) {
+                    paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+                }
+                recordId = noNull(paraObj.id);
+                id = noNull(paraObj.id);//小ID
+                idzo = noNull(paraObj.idzo);//大ID
+                assetsDetail();// 报废记录详情查询
+            }
+
+            // 报废记录详情查询
+            function assetsDetail() {
+                var param = {
+                    recordid: recordId
+                }
+
+
+                l.ajax('getAssetsScrapDetails', param, function (data, message, success) {
+                    if (success) {
+                        var data = noNull(data);// 详情数据
+                        if (data != "") {
+                            $("#checkResult,#checkResult2,#checkResult3,#bffsName").text(noNull(data.bffsName));// 报废方式
+                            $("#checkDate,#checkDate2").text(dateFormat(new Date(noNull(data.modifyTime)), "yyyy-MM-dd HH:mm:ss"));// 操作时间
+                            $("#checkPerson").text(noNull(data.modifyUser));// 操作人员
+                            $("#sszclx1Name").text(noNull(data.sszclx1Name));// 所属大类
+                            $("#sszclx2Name").text(noNull(data.sszclx2Name));// 所属小类
+                            $("#zcmc").text(noNull(data.zcmc));// 资产名称
+                            $("#zcyz").text(noNull(data.zcyz));// 资产原值
+                            $("#zxjz").text(noNull(data.zxjz));// 资产净值
+                            $("#zccz").text(noNull(data.zccz));// 残值
+                            $("#synx").text(noNull(data.synx));// 规定使用年限
+                            $("#ysynx").text(noNull(data.ysynx));// 已使用年限
+                            $("#ytzj").text(noNull(data.ytzj));// 已提折旧
+                            $("#clxs").text(noNull(data.clxs));// 处理形式
+                            $("#zcxzbfyy").text(noNull(data.zcxzbfyy));// 报废原因
+                            updateUploadList(noNull(data.imageList));// 图片列表
+                        }
+                    }
+                })
+
+
+
+
+            }
+
+            // 遍历图片列表
+            function updateUploadList(uploadList) {
+                //$(".uploadList li").remove();
+                var $str = "";
+                $.each(uploadList, function (i, item) {
+                    $str += '<li style="width: 100%; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" data-href="' + item.fileUrl + '" data-name="' + item.fileName + '">',
+                        $str += '<a href="' + item.fileUrl + '" class="text">' + item.fileName + '</a>',
+                        $str += '</li>'
+                });
+                $(".uploadList").append($str)
+            }
+
+
+
+        })
+
+
+
+        // 撤销
+        function revokeAssets() {
+            layer.open({
+                anim: 'up'
+                , area: ['500px', '300px']
+                , content:
+                    '<div>' +
+                    '<div style="text-align: left;padding-left: 40px;">' +
+                    '<label style="font-size:28px" for="assetsManagement">确定要撤销此数据？</label>' +
+                    '</div>' +
+                    '</div>'
+                , btn: ['确认', '取消']
+                , yes: function (index) {
+                    var currentList = new Array();
+                    currentList[0] = {
+                        recordid: recordId
+                    }
+                    var param = {
+                        recordid: recordId
+                    }
+
+                    l.ajax('revokeAssetsScrap', param, function (data, message, success) {
+                        if (success) {
+                            successMsg('操作成功！', -2, 1500);
+                        }
+                    })
+
+                }
+            });
+        }
+
+        //编辑
+        function editAssets() {
+            window.location.href = "assetsScrapAdd.html?idzo=" + idzo + "&id=" + id + "&state=update"
+        }
+
+    </script>
+</body>
+
+</html>

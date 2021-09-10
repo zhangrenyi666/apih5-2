@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzThreeShareholderBillMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzThreeShareholderBill" >
+    <id column="three_shareholder_bill_id" property="threeShareholderBillId" jdbcType="CHAR" />
+    <result column="three_shareholder_id" property="threeShareholderId" jdbcType="CHAR" />
+    <result column="bill_name" property="billName" jdbcType="VARCHAR" />
+    <result column="result_id" property="resultId" jdbcType="CHAR" />
+    <result column="result_name" property="resultName" jdbcType="VARCHAR" />
+    <result column="other_require" property="otherRequire" jdbcType="VARCHAR" />
+    <result column="specific_desc" property="specificDesc" jdbcType="VARCHAR" />
+    <result column="complete_id" property="completeId" jdbcType="CHAR" />
+    <result column="complete_name" property="completeName" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort_number" property="sortNumber" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    three_shareholder_bill_id, three_shareholder_id, bill_name, result_id, result_name, 
+    other_require, specific_desc, complete_id, complete_name, remarks, 
+    sort_number, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_three_shareholder_bill
+    where three_shareholder_bill_id = #{threeShareholderBillId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_three_shareholder_bill
+    where three_shareholder_bill_id = #{threeShareholderBillId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzThreeShareholderBill" >
+    insert into zj_tz_three_shareholder_bill (three_shareholder_bill_id, three_shareholder_id, bill_name, 
+      result_id, result_name, other_require, 
+      specific_desc, complete_id, complete_name, 
+      remarks, sort_number, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{threeShareholderBillId,jdbcType=CHAR}, #{threeShareholderId,jdbcType=CHAR}, #{billName,jdbcType=VARCHAR}, 
+      #{resultId,jdbcType=CHAR}, #{resultName,jdbcType=VARCHAR}, #{otherRequire,jdbcType=VARCHAR}, 
+      #{specificDesc,jdbcType=VARCHAR}, #{completeId,jdbcType=CHAR}, #{completeName,jdbcType=VARCHAR}, 
+      #{remarks,jdbcType=VARCHAR}, #{sortNumber,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzThreeShareholderBill" >
+    insert into zj_tz_three_shareholder_bill
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="threeShareholderBillId != null" >
+        three_shareholder_bill_id,
+      </if>
+      <if test="threeShareholderId != null" >
+        three_shareholder_id,
+      </if>
+      <if test="billName != null" >
+        bill_name,
+      </if>
+      <if test="resultId != null" >
+        result_id,
+      </if>
+      <if test="resultName != null" >
+        result_name,
+      </if>
+      <if test="otherRequire != null" >
+        other_require,
+      </if>
+      <if test="specificDesc != null" >
+        specific_desc,
+      </if>
+      <if test="completeId != null" >
+        complete_id,
+      </if>
+      <if test="completeName != null" >
+        complete_name,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sortNumber != null" >
+        sort_number,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="threeShareholderBillId != null" >
+        #{threeShareholderBillId,jdbcType=CHAR},
+      </if>
+      <if test="threeShareholderId != null" >
+        #{threeShareholderId,jdbcType=CHAR},
+      </if>
+      <if test="billName != null" >
+        #{billName,jdbcType=VARCHAR},
+      </if>
+      <if test="resultId != null" >
+        #{resultId,jdbcType=CHAR},
+      </if>
+      <if test="resultName != null" >
+        #{resultName,jdbcType=VARCHAR},
+      </if>
+      <if test="otherRequire != null" >
+        #{otherRequire,jdbcType=VARCHAR},
+      </if>
+      <if test="specificDesc != null" >
+        #{specificDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="completeId != null" >
+        #{completeId,jdbcType=CHAR},
+      </if>
+      <if test="completeName != null" >
+        #{completeName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sortNumber != null" >
+        #{sortNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzThreeShareholderBill" >
+    update zj_tz_three_shareholder_bill
+    <set >
+      <if test="threeShareholderId != null" >
+        three_shareholder_id = #{threeShareholderId,jdbcType=CHAR},
+      </if>
+      <if test="billName != null" >
+        bill_name = #{billName,jdbcType=VARCHAR},
+      </if>
+      <if test="resultId != null" >
+        result_id = #{resultId,jdbcType=CHAR},
+      </if>
+      <if test="resultName != null" >
+        result_name = #{resultName,jdbcType=VARCHAR},
+      </if>
+      <if test="otherRequire != null" >
+        other_require = #{otherRequire,jdbcType=VARCHAR},
+      </if>
+      <if test="specificDesc != null" >
+        specific_desc = #{specificDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="completeId != null" >
+        complete_id = #{completeId,jdbcType=CHAR},
+      </if>
+      <if test="completeName != null" >
+        complete_name = #{completeName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sortNumber != null" >
+        sort_number = #{sortNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where three_shareholder_bill_id = #{threeShareholderBillId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzThreeShareholderBill" >
+    update zj_tz_three_shareholder_bill
+    set       three_shareholder_id = #{threeShareholderId,jdbcType=CHAR},
+      bill_name = #{billName,jdbcType=VARCHAR},
+      result_id = #{resultId,jdbcType=CHAR},
+      result_name = #{resultName,jdbcType=VARCHAR},
+      other_require = #{otherRequire,jdbcType=VARCHAR},
+      specific_desc = #{specificDesc,jdbcType=VARCHAR},
+      complete_id = #{completeId,jdbcType=CHAR},
+      complete_name = #{completeName,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort_number = #{sortNumber,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where three_shareholder_bill_id = #{threeShareholderBillId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzThreeShareholderBillList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzThreeShareholderBill" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_three_shareholder_bill
+    where del_flag = '0'
+    <if test="threeShareholderId != null and threeShareholderId != ''" >
+     and three_shareholder_id = #{threeShareholderId,jdbcType=CHAR}
+    </if>
+    <if test="billName != null and billName != ''" >
+     and bill_name = #{billName,jdbcType=VARCHAR}
+    </if>
+    <if test="resultId != null and resultId != ''" >
+     and result_id = #{resultId,jdbcType=CHAR}
+    </if>
+    <if test="resultName != null and resultName != ''" >
+     and result_name = #{resultName,jdbcType=VARCHAR}
+    </if>
+    <if test="otherRequire != null and otherRequire != ''" >
+     and other_require = #{otherRequire,jdbcType=VARCHAR}
+    </if>
+    <if test="specificDesc != null and specificDesc != ''" >
+     and specific_desc = #{specificDesc,jdbcType=VARCHAR}
+    </if>
+    <if test="completeId != null and completeId != ''" >
+     and complete_id = #{completeId,jdbcType=CHAR}
+    </if>
+    <if test="completeName != null and completeName != ''" >
+     and complete_name = #{completeName,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sortNumber != null and sortNumber != ''" >
+     and sort_number = #{sortNumber,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzThreeShareholderBill" parameterType="com.apih5.mybatis.pojo.ZjTzThreeShareholderBill" >
+    <![CDATA[ 
+        update zj_tz_three_shareholder_bill
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and three_shareholder_bill_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.threeShareholderBillId} 
+     </foreach>
+  </delete>
+  
+  <!-- 扩展 -->
+   <select id="ureportZjTzThreeBillListFinish" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzThreeShareholderBill" >
+    SELECT 
+tt.companyName AS companyName,
+tt.projectName AS projectName,
+tt.amount1 AS amount1,
+tt.company3 AS company3,
+tt.company2 AS company2,
+tt.company1 AS company1,
+tt.company7 AS company7,
+
+
+tt.meetNumberName_s AS meetNumberNames,
+tt.meetDate_s AS meetDates,
+tt.meetPlace_s AS meetPlaces,
+tt.resultName_s AS resultNames,
+tt.billName_s AS billNames,
+tt.meetNumberName AS meetNumberName,
+tt.meetDate AS meetDate,
+tt.meetPlace AS meetPlace,
+tt.resultName AS resultName,
+tt.billName AS billName,
+tt.meetNumberName_sup AS meetNumberNamesup,
+tt.meetDate_sup AS meetDatesup,
+tt.meetPlace_sup AS meetPlacesup,
+tt.resultName_sup AS resultNamesup,
+tt.billName_sup AS billNamesup
+FROM
+(
+SELECT
+(SELECT company_name FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_director AS t WHERE t.del_flag = '0' AND t.three_director_id = t1.three_director_id) ) AS companyName,
+(SELECT project_name FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_director AS t WHERE t.del_flag = '0' AND t.three_director_id = t1.three_director_id) ) AS projectName,
+(SELECT amount1 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_director AS t WHERE t.del_flag = '0' AND t.three_director_id = t1.three_director_id) ) AS amount1,
+(SELECT company3 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_director AS t WHERE t.del_flag = '0' AND t.three_director_id = t1.three_director_id) ) AS company3,
+ DATE_FORMAT((SELECT company2 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_director AS t WHERE t.del_flag = '0' AND t.three_director_id = t1.three_director_id) ),'%Y-%m-%d') AS company2,
+(SELECT company1 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_director AS t WHERE t.del_flag = '0' AND t.three_director_id = t1.three_director_id) ) AS company1,
+(SELECT company7 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_director AS t WHERE t.del_flag = '0' AND t.three_director_id = t1.three_director_id) ) AS company7,
+(SELECT meet_number_name FROM zj_tz_three_director AS t WHERE t.del_flag = '0' AND t.three_director_id = t1.three_director_id) AS meetNumberName,
+'' AS meetNumberName_s,
+'' AS meetNumberName_sup,
+DATE_FORMAT((SELECT meet_date FROM zj_tz_three_director AS t WHERE t.del_flag = '0' AND t.three_director_id = t1.three_director_id),'%Y-%m-%d') AS meetDate,
+'' AS meetDate_s,
+'' AS meetDate_sup,
+(SELECT meet_place FROM zj_tz_three_director AS t WHERE t.del_flag = '0' AND t.three_director_id = t1.three_director_id) AS meetPlace,
+'' AS meetPlace_s,
+'' AS meetPlace_sup,
+result_name AS resultName,
+'' AS resultName_s,
+'' AS resultName_sup,
+bill_name AS billName,
+'' AS billName_s,
+'' AS billName_sup
+FROM
+	zj_tz_three_director_bill AS t1
+WHERE t1.del_flag = '0'
+--
+UNION ALL
+SELECT
+(SELECT company_name FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ) AS companyName_s,
+(SELECT project_name FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ) AS projectName_s,
+(SELECT amount1 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ) AS amount1_s,
+(SELECT company3 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ) AS company3_s,
+ DATE_FORMAT((SELECT company2 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ),'%Y-%m-%d') AS company2_s,
+(SELECT company1 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ) AS company1_s,
+(SELECT company7 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ) AS company7_s,
+'' AS meetNumberName,
+(SELECT meet_number_name FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) AS meetNumberName_s,
+'' AS meetNumberName_sup,
+'' AS meetDate,
+DATE_FORMAT((SELECT meet_date FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id),'%Y-%m-%d') AS meetDate_s,
+'' AS meetDate_sup,
+'' AS meetPlace,
+(SELECT meet_place FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) AS meetPlace_s,
+'' AS meetPlace_sup,
+ '' AS resultName,
+result_name AS resultName_s,
+'' AS resultName_sup,
+'' AS billName,
+bill_name AS billName_s,
+'' AS billName_sup
+FROM
+	zj_tz_three_shareholder_bill AS t1
+WHERE t1.del_flag = '0'
+UNION ALL
+SELECT
+(SELECT company_name FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_supervisor AS t WHERE t.del_flag = '0' AND t.three_supervisor_id = t1.three_supervisor_id) ) AS companyName_sup,
+(SELECT project_name FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_supervisor AS t WHERE t.del_flag = '0' AND t.three_supervisor_id = t1.three_supervisor_id) ) AS projectName1_sup,
+(SELECT amount1 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_supervisor AS t WHERE t.del_flag = '0' AND t.three_supervisor_id = t1.three_supervisor_id) ) AS amount1_sup,
+(SELECT company3 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_supervisor AS t WHERE t.del_flag = '0' AND t.three_supervisor_id = t1.three_supervisor_id) ) AS company3_sup,
+ DATE_FORMAT((SELECT company2 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_supervisor AS t WHERE t.del_flag = '0' AND t.three_supervisor_id = t1.three_supervisor_id) ),'%Y-%m-%d') AS company2_sup,
+(SELECT company1 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_supervisor AS t WHERE t.del_flag = '0' AND t.three_supervisor_id = t1.three_supervisor_id) ) AS company1_sup,
+(SELECT company7 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_supervisor AS t WHERE t.del_flag = '0' AND t.three_supervisor_id = t1.three_supervisor_id) ) AS company7_sup,
+'' AS meetNumberName,
+'' AS meetNumberName_s,
+(SELECT meet_number_name FROM zj_tz_three_supervisor AS t WHERE t.del_flag = '0' AND t.three_supervisor_id = t1.three_supervisor_id) AS meetNumberNme_sup,
+'' AS meetDate,
+'' AS meetDate_s,
+DATE_FORMAT((SELECT meet_date FROM zj_tz_three_supervisor AS t WHERE t.del_flag = '0' AND t.three_supervisor_id = t1.three_supervisor_id),'%Y-%m-%d') AS meetDate_sup,
+'' AS meetPlace,
+'' AS meetPlace_s,
+(SELECT meet_place FROM zj_tz_three_supervisor AS t WHERE t.del_flag = '0' AND t.three_supervisor_id = t1.three_supervisor_id) AS meetPlace_sup,
+'' AS billName,
+'' AS billName_s,
+bill_name AS billName_sup,
+'' AS resultName,
+'' AS resultName_s,
+result_name AS resultName_sup
+FROM
+	zj_tz_three_supervisor_bill AS t1
+WHERE t1.del_flag = '0'
+
+) AS tt
+ORDER BY projectName
+  </select>
+
+   <select id="ureportZjTzThreeShareholderBillList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzThreeShareholderBill" >
+   SELECT
+    (SELECT sort1 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ) AS sort1,
+    (SELECT pro_no FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ) AS proNo,
+(SELECT company_name FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ) AS companyName,
+(SELECT project_name FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ) AS projectName,
+(SELECT amount1/10000 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ) AS amount1,
+(SELECT company3 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ) AS company3,
+ DATE_FORMAT((SELECT company2 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ),'%Y-%m-%d') AS company2,
+(SELECT company1 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ) AS company1,
+(SELECT company7 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ) AS company7,
+(SELECT meet_number_name FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) AS meetNumberNameSha,
+(SELECT meet_vote_name FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) AS meetVoteNameSha,
+DATE_FORMAT((SELECT meet_date FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id),'%Y-%m-%d') AS meetDateSha,
+(SELECT meet_place FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) AS meetPlaceSha,
+(SELECT original_name FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) AS originalNameSha,
+result_name AS resultNameSha,
+other_require AS otherRequireSha,
+specific_desc AS specificDescSha,
+remarks AS remarksSha,
+bill_name AS billNameSha
+FROM
+	zj_tz_three_shareholder_bill AS t1
+WHERE t1.del_flag = '0'
+    <if test="projectName != null and projectName != ''" >
+     and (SELECT project_name FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ) = #{projectName}
+    </if>
+    
+    <if test="completeId != null and completeId != ''" >
+     and complete_id = #{completeId,jdbcType=CHAR}
+    </if>
+    <if test="completeName != null and completeName != ''" >
+     and complete_name = #{completeName,jdbcType=VARCHAR}
+    </if>
+     <if test="projectId != null and projectId != ''" >
+     and (SELECT project_id FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ) = #{projectId}
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     and (SELECT project_id FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_three_shareholder AS t WHERE t.del_flag = '0' AND t.three_shareholder_id = t1.three_shareholder_id) ) in (${projectIdSql})
+    </if>
+    <if test="groupByFlag != null and groupByFlag != ''" >
+    GROUP BY projectName
+    </if>
+     ORDER BY CAST(sort1 AS DECIMAL),proNo
+    </select>
+  
+</mapper>

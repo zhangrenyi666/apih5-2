@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmCqjxAssistantRangeMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmCqjxAssistantRange" >
+    <id column="zc_oa_id" property="zcOaId" jdbcType="CHAR" />
+    <result column="other_id" property="otherId" jdbcType="CHAR" />
+    <result column="other_type" property="otherType" jdbcType="CHAR" />
+    <result column="oa_department_member_flag" property="oaDepartmentMemberFlag" jdbcType="CHAR" />
+    <result column="oa_user_id" property="oaUserId" jdbcType="VARCHAR" />
+    <result column="oa_user_Name" property="oaUserName" jdbcType="VARCHAR" />
+    <result column="oa_org_id" property="oaOrgId" jdbcType="VARCHAR" />
+    <result column="oa_org_name" property="oaOrgName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zc_oa_id, other_id, other_type, oa_department_member_flag, oa_user_id, 
+    oa_user_Name, oa_org_id, oa_org_name, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_cqjx_assistant_range
+    where zc_oa_id = #{zcOaId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_cqjx_assistant_range
+    where zc_oa_id = #{zcOaId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxAssistantRange" >
+    insert into zj_xm_cqjx_assistant_range (zc_oa_id, other_id, other_type, 
+      oa_department_member_flag, oa_user_id, oa_user_Name, 
+      oa_org_id, oa_org_name, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{zcOaId,jdbcType=CHAR}, #{otherId,jdbcType=CHAR}, #{otherType,jdbcType=CHAR}, 
+      #{oaDepartmentMemberFlag,jdbcType=CHAR}, #{oaUserId,jdbcType=VARCHAR}, #{oaUserName,jdbcType=VARCHAR}, 
+      #{oaOrgId,jdbcType=VARCHAR}, #{oaOrgName,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxAssistantRange" >
+    insert into zj_xm_cqjx_assistant_range
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zcOaId != null" >
+        zc_oa_id,
+      </if>
+      <if test="otherId != null" >
+        other_id,
+      </if>
+      <if test="otherType != null" >
+        other_type,
+      </if>
+      <if test="oaDepartmentMemberFlag != null" >
+        oa_department_member_flag,
+      </if>
+      <if test="oaUserId != null" >
+        oa_user_id,
+      </if>
+      <if test="oaUserName != null" >
+        oa_user_Name,
+      </if>
+      <if test="oaOrgId != null" >
+        oa_org_id,
+      </if>
+      <if test="oaOrgName != null" >
+        oa_org_name,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zcOaId != null" >
+        #{zcOaId,jdbcType=CHAR},
+      </if>
+      <if test="otherId != null" >
+        #{otherId,jdbcType=CHAR},
+      </if>
+      <if test="otherType != null" >
+        #{otherType,jdbcType=CHAR},
+      </if>
+      <if test="oaDepartmentMemberFlag != null" >
+        #{oaDepartmentMemberFlag,jdbcType=CHAR},
+      </if>
+      <if test="oaUserId != null" >
+        #{oaUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="oaUserName != null" >
+        #{oaUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="oaOrgId != null" >
+        #{oaOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="oaOrgName != null" >
+        #{oaOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxAssistantRange" >
+    update zj_xm_cqjx_assistant_range
+    <set >
+      <if test="otherId != null" >
+        other_id = #{otherId,jdbcType=CHAR},
+      </if>
+      <if test="otherType != null" >
+        other_type = #{otherType,jdbcType=CHAR},
+      </if>
+      <if test="oaDepartmentMemberFlag != null" >
+        oa_department_member_flag = #{oaDepartmentMemberFlag,jdbcType=CHAR},
+      </if>
+      <if test="oaUserId != null" >
+        oa_user_id = #{oaUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="oaUserName != null" >
+        oa_user_Name = #{oaUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="oaOrgId != null" >
+        oa_org_id = #{oaOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="oaOrgName != null" >
+        oa_org_name = #{oaOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zc_oa_id = #{zcOaId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxAssistantRange" >
+    update zj_xm_cqjx_assistant_range
+    set       other_id = #{otherId,jdbcType=CHAR},
+      other_type = #{otherType,jdbcType=CHAR},
+      oa_department_member_flag = #{oaDepartmentMemberFlag,jdbcType=CHAR},
+      oa_user_id = #{oaUserId,jdbcType=VARCHAR},
+      oa_user_Name = #{oaUserName,jdbcType=VARCHAR},
+      oa_org_id = #{oaOrgId,jdbcType=VARCHAR},
+      oa_org_name = #{oaOrgName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zc_oa_id = #{zcOaId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmCqjxAssistantRangeList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxAssistantRange" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_cqjx_assistant_range
+    where del_flag = '0'
+    <if test="otherId != null and otherId != ''" >
+     and other_id = #{otherId,jdbcType=CHAR}
+    </if>
+    <if test="otherType != null and otherType != ''" >
+     and other_type = #{otherType,jdbcType=CHAR}
+    </if>
+    <if test="oaDepartmentMemberFlag != null and oaDepartmentMemberFlag != ''" >
+     and oa_department_member_flag = #{oaDepartmentMemberFlag,jdbcType=CHAR}
+    </if>
+    <if test="oaUserId != null and oaUserId != ''" >
+     and oa_user_id = #{oaUserId,jdbcType=VARCHAR}
+    </if>
+    <if test="oaUserName != null and oaUserName != ''" >
+     and oa_user_Name = #{oaUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="oaOrgId != null and oaOrgId != ''" >
+     and oa_org_id = #{oaOrgId,jdbcType=VARCHAR}
+    </if>
+    <if test="oaOrgName != null and oaOrgName != ''" >
+     and oa_org_name = #{oaOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmCqjxAssistantRange" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxAssistantRange" >
+    <![CDATA[ 
+        update zj_xm_cqjx_assistant_range
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zc_oa_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zcOaId} 
+     </foreach>
+  </delete>
+</mapper>

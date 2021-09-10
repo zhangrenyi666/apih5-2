@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmJxAnnualSummaryFlowMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmJxAnnualSummaryFlow" >
+    <id column="annual_flow_id" property="annualFlowId" jdbcType="CHAR" />
+    <result column="year" property="year" jdbcType="TIMESTAMP" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="dept_id" property="deptId" jdbcType="CHAR" />
+    <result column="dept_name" property="deptName" jdbcType="VARCHAR" />
+    <result column="flow_type" property="flowType" jdbcType="CHAR" />
+    <result column="opinion_field1" property="opinionField1" jdbcType="VARCHAR" />
+    <result column="opinion_field2" property="opinionField2" jdbcType="VARCHAR" />
+    <result column="opinion_field3" property="opinionField3" jdbcType="VARCHAR" />
+    <result column="opinion_field4" property="opinionField4" jdbcType="VARCHAR" />
+    <result column="opinion_field5" property="opinionField5" jdbcType="VARCHAR" />
+    <result column="apih5_flow_id" property="apih5FlowId" jdbcType="CHAR" />
+    <result column="work_id" property="workId" jdbcType="CHAR" />
+    <result column="apih5_flow_status" property="apih5FlowStatus" jdbcType="CHAR" />
+    <result column="apih5_flow_node_status" property="apih5FlowNodeStatus" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    annual_flow_id, `year`, project_id, project_name, dept_id, 
+    dept_name, flow_type, opinion_field1, opinion_field2, opinion_field3, 
+    opinion_field4, opinion_field5, apih5_flow_id, work_id, apih5_flow_status, 
+    apih5_flow_node_status, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_annual_summary_flow
+    where annual_flow_id = #{annualFlowId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_jx_annual_summary_flow
+    where annual_flow_id = #{annualFlowId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmJxAnnualSummaryFlow" >
+    insert into zj_xm_jx_annual_summary_flow (annual_flow_id, `year`, project_id, 
+      project_name, dept_id, dept_name, 
+      flow_type, opinion_field1, opinion_field2, 
+      opinion_field3, opinion_field4, opinion_field5, 
+      apih5_flow_id, work_id, apih5_flow_status, 
+      apih5_flow_node_status, remarks, sort, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{annualFlowId,jdbcType=CHAR}, #{year,jdbcType=TIMESTAMP}, #{projectId,jdbcType=CHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{deptId,jdbcType=CHAR}, #{deptName,jdbcType=VARCHAR}, 
+      #{flowType,jdbcType=CHAR}, #{opinionField1,jdbcType=VARCHAR}, #{opinionField2,jdbcType=VARCHAR}, 
+      #{opinionField3,jdbcType=VARCHAR}, #{opinionField4,jdbcType=VARCHAR}, #{opinionField5,jdbcType=VARCHAR}, 
+      #{apih5FlowId,jdbcType=CHAR}, #{workId,jdbcType=CHAR}, #{apih5FlowStatus,jdbcType=CHAR}, 
+      #{apih5FlowNodeStatus,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmJxAnnualSummaryFlow" >
+    insert into zj_xm_jx_annual_summary_flow
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="annualFlowId != null" >
+        annual_flow_id,
+      </if>
+      <if test="year != null" >
+        `year`,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="deptId != null" >
+        dept_id,
+      </if>
+      <if test="deptName != null" >
+        dept_name,
+      </if>
+      <if test="flowType != null" >
+        flow_type,
+      </if>
+      <if test="opinionField1 != null" >
+        opinion_field1,
+      </if>
+      <if test="opinionField2 != null" >
+        opinion_field2,
+      </if>
+      <if test="opinionField3 != null" >
+        opinion_field3,
+      </if>
+      <if test="opinionField4 != null" >
+        opinion_field4,
+      </if>
+      <if test="opinionField5 != null" >
+        opinion_field5,
+      </if>
+      <if test="apih5FlowId != null" >
+        apih5_flow_id,
+      </if>
+      <if test="workId != null" >
+        work_id,
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status,
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        apih5_flow_node_status,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="annualFlowId != null" >
+        #{annualFlowId,jdbcType=CHAR},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=TIMESTAMP},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=CHAR},
+      </if>
+      <if test="deptName != null" >
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="flowType != null" >
+        #{flowType,jdbcType=CHAR},
+      </if>
+      <if test="opinionField1 != null" >
+        #{opinionField1,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField2 != null" >
+        #{opinionField2,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField3 != null" >
+        #{opinionField3,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField4 != null" >
+        #{opinionField4,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField5 != null" >
+        #{opinionField5,jdbcType=VARCHAR},
+      </if>
+      <if test="apih5FlowId != null" >
+        #{apih5FlowId,jdbcType=CHAR},
+      </if>
+      <if test="workId != null" >
+        #{workId,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        #{apih5FlowStatus,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        #{apih5FlowNodeStatus,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmJxAnnualSummaryFlow" >
+    update zj_xm_jx_annual_summary_flow
+    <set >
+      <if test="year != null" >
+        `year` = #{year,jdbcType=TIMESTAMP},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null" >
+        dept_id = #{deptId,jdbcType=CHAR},
+      </if>
+      <if test="deptName != null" >
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="flowType != null" >
+        flow_type = #{flowType,jdbcType=CHAR},
+      </if>
+      <if test="opinionField1 != null" >
+        opinion_field1 = #{opinionField1,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField2 != null" >
+        opinion_field2 = #{opinionField2,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField3 != null" >
+        opinion_field3 = #{opinionField3,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField4 != null" >
+        opinion_field4 = #{opinionField4,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField5 != null" >
+        opinion_field5 = #{opinionField5,jdbcType=VARCHAR},
+      </if>
+      <if test="apih5FlowId != null" >
+        apih5_flow_id = #{apih5FlowId,jdbcType=CHAR},
+      </if>
+      <if test="workId != null" >
+        work_id = #{workId,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where annual_flow_id = #{annualFlowId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmJxAnnualSummaryFlow" >
+    update zj_xm_jx_annual_summary_flow
+    set       `year` = #{year,jdbcType=TIMESTAMP},
+      project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      dept_id = #{deptId,jdbcType=CHAR},
+      dept_name = #{deptName,jdbcType=VARCHAR},
+      flow_type = #{flowType,jdbcType=CHAR},
+      opinion_field1 = #{opinionField1,jdbcType=VARCHAR},
+      opinion_field2 = #{opinionField2,jdbcType=VARCHAR},
+      opinion_field3 = #{opinionField3,jdbcType=VARCHAR},
+      opinion_field4 = #{opinionField4,jdbcType=VARCHAR},
+      opinion_field5 = #{opinionField5,jdbcType=VARCHAR},
+      apih5_flow_id = #{apih5FlowId,jdbcType=CHAR},
+      work_id = #{workId,jdbcType=CHAR},
+      apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR},
+      apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where annual_flow_id = #{annualFlowId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmJxAnnualSummaryFlowList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxAnnualSummaryFlow" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_annual_summary_flow
+    where del_flag = '0'
+    <if test="year != null" >
+     and YEAR(`year`) = YEAR(#{year,jdbcType=TIMESTAMP})
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="deptId != null and deptId != ''" >
+     and dept_id = #{deptId,jdbcType=CHAR}
+    </if>
+    <if test="deptName != null and deptName != ''" >
+     and dept_name = #{deptName,jdbcType=VARCHAR}
+    </if>
+    <if test="flowType != null and flowType != ''" >
+     and flow_type = #{flowType,jdbcType=CHAR}
+    </if>
+    <if test="opinionField1 != null and opinionField1 != ''" >
+     and opinion_field1 = #{opinionField1,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField2 != null and opinionField2 != ''" >
+     and opinion_field2 = #{opinionField2,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField3 != null and opinionField3 != ''" >
+     and opinion_field3 = #{opinionField3,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField4 != null and opinionField4 != ''" >
+     and opinion_field4 = #{opinionField4,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField5 != null and opinionField5 != ''" >
+     and opinion_field5 = #{opinionField5,jdbcType=VARCHAR}
+    </if>
+    <if test="apih5FlowId != null and apih5FlowId != ''" >
+     and apih5_flow_id = #{apih5FlowId,jdbcType=CHAR}
+    </if>
+    <if test="workId != null and workId != ''" >
+     and work_id = #{workId,jdbcType=CHAR}
+    </if>
+    <if test="apih5FlowStatus != null and apih5FlowStatus != ''" >
+     and apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR}
+    </if>
+    <if test="apih5FlowNodeStatus != null and apih5FlowNodeStatus != ''" >
+     and apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmJxAnnualSummaryFlow" parameterType="com.apih5.mybatis.pojo.ZjXmJxAnnualSummaryFlow" >
+    <![CDATA[ 
+        update zj_xm_jx_annual_summary_flow
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and annual_flow_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.annualFlowId} 
+     </foreach>
+  </delete>
+  
+  <insert id ="batchInsertZjXmJxAnnualSummaryFlow" parameterType="java.util.List" >
+     insert into zj_xm_jx_annual_summary_flow 
+     (
+      annual_flow_id, `year`, project_id, 
+      project_name, dept_id, dept_name, 
+      flow_type, opinion_field1, opinion_field2, 
+      opinion_field3, opinion_field4, opinion_field5, 
+      apih5_flow_id, work_id, apih5_flow_status, 
+      apih5_flow_node_status, remarks, sort, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values
+      <foreach collection ="list" item="item" index= "index" separator=",">
+       (
+       #{item.annualFlowId,jdbcType=CHAR}, #{item.year,jdbcType=TIMESTAMP}, #{item.projectId,jdbcType=CHAR}, 
+       #{item.projectName,jdbcType=VARCHAR}, #{item.deptId,jdbcType=CHAR}, #{item.deptName,jdbcType=VARCHAR}, 
+       #{item.flowType,jdbcType=CHAR}, #{item.opinionField1,jdbcType=VARCHAR}, #{item.opinionField2,jdbcType=VARCHAR}, 
+       #{item.opinionField3,jdbcType=VARCHAR}, #{item.opinionField4,jdbcType=VARCHAR}, #{item.opinionField5,jdbcType=VARCHAR}, 
+       #{item.apih5FlowId,jdbcType=CHAR}, #{item.workId,jdbcType=CHAR}, #{item.apih5FlowStatus,jdbcType=CHAR}, 
+       #{item.apih5FlowNodeStatus,jdbcType=CHAR}, #{item.remarks,jdbcType=VARCHAR}, #{item.sort,jdbcType=INTEGER}, 
+       #{item.delFlag,jdbcType=CHAR}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.createUser,jdbcType=CHAR}, 
+       #{item.createUserName,jdbcType=VARCHAR}, #{item.modifyTime,jdbcType=TIMESTAMP}, #{item.modifyUser,jdbcType=CHAR}, 
+       #{item.modifyUserName,jdbcType=VARCHAR}
+      )
+     </foreach>
+  </insert>
+
+ <delete id="deleteZjXmJxAnnualSummaryFlowByCondition" parameterType="com.apih5.mybatis.pojo.ZjXmJxAnnualSummaryFlow" >
+    delete from zj_xm_jx_annual_summary_flow
+    where del_flag = '0'  
+    <if test="year != null" >
+     <!-- and date_format(`year`, '%Y') = date_format(#{year,jdbcType=TIMESTAMP},'%Y') -->
+     and YEAR(`year`) = YEAR(#{year,jdbcType=TIMESTAMP})
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="flowType != null and flowType != ''" >
+     and flow_type = #{flowType,jdbcType=CHAR}
+    </if>
+  </delete>
+
+</mapper>

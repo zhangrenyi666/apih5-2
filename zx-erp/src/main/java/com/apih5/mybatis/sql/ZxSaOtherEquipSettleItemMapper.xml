@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSaOtherEquipSettleItemMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSaOtherEquipSettleItem" >
+    <id column="zxSaOtherEquipSettleItemId" property="zxSaOtherEquipSettleItemId" jdbcType="CHAR" />
+    <result column="rate" property="rate" jdbcType="DECIMAL" />
+    <result column="thisAmt" property="thisAmt" jdbcType="VARCHAR" />
+    <result column="comOrders" property="comOrders" jdbcType="VARCHAR" />
+    <result column="statisticsId" property="statisticsId" jdbcType="VARCHAR" />
+    <result column="upAmt" property="upAmt" jdbcType="DECIMAL" />
+    <result column="comId" property="comId" jdbcType="VARCHAR" />
+    <result column="zxCtOtherManageId" property="zxCtOtherManageId" jdbcType="VARCHAR" />
+    <result column="statisticsName" property="statisticsName" jdbcType="VARCHAR" />
+    <result column="totalAmt" property="totalAmt" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="statisticsNo" property="statisticsNo" jdbcType="VARCHAR" />
+    <result column="orgId" property="orgId" jdbcType="VARCHAR" />
+    <result column="billNo" property="billNo" jdbcType="VARCHAR" />
+    <result column="statisticsType" property="statisticsType" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="zxSaOtherEquipSettleId" property="zxSaOtherEquipSettleId" jdbcType="VARCHAR" />
+    <result column="zxCtOtherManageAmtRateId" property="zxCtOtherManageAmtRateId" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxSaOtherEquipSettleItemId, rate, thisAmt, comOrders, statisticsId, 
+    upAmt, comId, zxCtOtherManageId, statisticsName, totalAmt, 
+    period, statisticsNo, orgId, billNo, statisticsType, 
+    comName, zxSaOtherEquipSettleId, zxCtOtherManageAmtRateId, remark, sort, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sa_other_equip_settle_item
+    where del_flag = '0' and zxSaOtherEquipSettleItemId = #{zxSaOtherEquipSettleItemId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sa_other_equip_settle_item
+    where zxSaOtherEquipSettleItemId = #{zxSaOtherEquipSettleItemId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipSettleItem" >
+    insert into zx_sa_other_equip_settle_item (
+    zxSaOtherEquipSettleItemId, rate, thisAmt, comOrders, statisticsId, 
+    upAmt, comId, zxCtOtherManageId, statisticsName, totalAmt, 
+    period, statisticsNo, orgId, billNo, statisticsType, 
+    comName, zxSaOtherEquipSettleId, zxCtOtherManageAmtRateId, remark, sort, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+      )
+    values (
+      #{zxSaOtherEquipSettleItemId,jdbcType=CHAR}, #{rate,jdbcType=DECIMAL}, #{thisAmt,jdbcType=VARCHAR}, #{comOrders,jdbcType=VARCHAR}, #{statisticsId,jdbcType=VARCHAR}, 
+    #{upAmt,jdbcType=DECIMAL}, #{comId,jdbcType=VARCHAR}, #{zxCtOtherManageId,jdbcType=VARCHAR}, #{statisticsName,jdbcType=VARCHAR}, #{totalAmt,jdbcType=VARCHAR}, 
+    #{period,jdbcType=VARCHAR}, #{statisticsNo,jdbcType=VARCHAR}, #{orgId,jdbcType=VARCHAR}, #{billNo,jdbcType=VARCHAR}, #{statisticsType,jdbcType=VARCHAR}, 
+    #{comName,jdbcType=VARCHAR}, #{zxSaOtherEquipSettleId,jdbcType=VARCHAR}, #{zxCtOtherManageAmtRateId,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+    #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+    #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipSettleItem" >
+    insert into zx_sa_other_equip_settle_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSaOtherEquipSettleItemId != null" >
+        zxSaOtherEquipSettleItemId,
+      </if>
+      <if test="rate != null" >
+        rate,
+      </if>
+      <if test="thisAmt != null" >
+        thisAmt,
+      </if>
+      <if test="comOrders != null" >
+        comOrders,
+      </if>
+      <if test="statisticsId != null" >
+        statisticsId,
+      </if>
+      <if test="upAmt != null" >
+        upAmt,
+      </if>
+      <if test="comId != null" >
+        comId,
+      </if>
+      <if test="zxCtOtherManageId != null" >
+        zxCtOtherManageId,
+      </if>
+      <if test="statisticsName != null" >
+        statisticsName,
+      </if>
+      <if test="totalAmt != null" >
+        totalAmt,
+      </if>
+      <if test="period != null" >
+        period,
+      </if>
+      <if test="statisticsNo != null" >
+        statisticsNo,
+      </if>
+      <if test="orgId != null" >
+        orgId,
+      </if>
+      <if test="billNo != null" >
+        billNo,
+      </if>
+      <if test="statisticsType != null" >
+        statisticsType,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="zxSaOtherEquipSettleId != null" >
+        zxSaOtherEquipSettleId,
+      </if>
+      <if test="zxCtOtherManageAmtRateId != null" >
+        zxCtOtherManageAmtRateId,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSaOtherEquipSettleItemId != null" >
+        #{zxSaOtherEquipSettleItemId,jdbcType=CHAR},
+      </if>
+      <if test="rate != null" >
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmt != null" >
+        #{thisAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticsId != null" >
+        #{statisticsId,jdbcType=VARCHAR},
+      </if>
+      <if test="upAmt != null" >
+        #{upAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="comId != null" >
+        #{comId,jdbcType=VARCHAR},
+      </if>
+      <if test="zxCtOtherManageId != null" >
+        #{zxCtOtherManageId,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticsName != null" >
+        #{statisticsName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAmt != null" >
+        #{totalAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticsNo != null" >
+        #{statisticsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null" >
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null" >
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticsType != null" >
+        #{statisticsType,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="zxSaOtherEquipSettleId != null" >
+        #{zxSaOtherEquipSettleId,jdbcType=VARCHAR},
+      </if>
+      <if test="zxCtOtherManageAmtRateId != null" >
+        #{zxCtOtherManageAmtRateId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipSettleItem" >
+    update zx_sa_other_equip_settle_item
+    <set >
+      <if test="rate != null" >
+        rate = #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmt != null" >
+        thisAmt = #{thisAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        comOrders = #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticsId != null" >
+        statisticsId = #{statisticsId,jdbcType=VARCHAR},
+      </if>
+      <if test="upAmt != null" >
+        upAmt = #{upAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="comId != null" >
+        comId = #{comId,jdbcType=VARCHAR},
+      </if>
+      <if test="zxCtOtherManageId != null" >
+        zxCtOtherManageId = #{zxCtOtherManageId,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticsName != null" >
+        statisticsName = #{statisticsName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAmt != null" >
+        totalAmt = #{totalAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        period = #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticsNo != null" >
+        statisticsNo = #{statisticsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null" >
+        orgId = #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null" >
+        billNo = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticsType != null" >
+        statisticsType = #{statisticsType,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="zxSaOtherEquipSettleId != null" >
+        zxSaOtherEquipSettleId = #{zxSaOtherEquipSettleId,jdbcType=VARCHAR},
+      </if>
+      <if test="zxCtOtherManageAmtRateId != null" >
+        zxCtOtherManageAmtRateId = #{zxCtOtherManageAmtRateId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxSaOtherEquipSettleItemId = #{zxSaOtherEquipSettleItemId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipSettleItem" >
+    update zx_sa_other_equip_settle_item set 
+      rate = #{rate,jdbcType=DECIMAL},
+      thisAmt = #{thisAmt,jdbcType=VARCHAR},
+      comOrders = #{comOrders,jdbcType=VARCHAR},
+      statisticsId = #{statisticsId,jdbcType=VARCHAR},
+      upAmt = #{upAmt,jdbcType=DECIMAL},
+      comId = #{comId,jdbcType=VARCHAR},
+      zxCtOtherManageId = #{zxCtOtherManageId,jdbcType=VARCHAR},
+      statisticsName = #{statisticsName,jdbcType=VARCHAR},
+      totalAmt = #{totalAmt,jdbcType=VARCHAR},
+      period = #{period,jdbcType=VARCHAR},
+      statisticsNo = #{statisticsNo,jdbcType=VARCHAR},
+      orgId = #{orgId,jdbcType=VARCHAR},
+      billNo = #{billNo,jdbcType=VARCHAR},
+      statisticsType = #{statisticsType,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      zxSaOtherEquipSettleId = #{zxSaOtherEquipSettleId,jdbcType=VARCHAR},
+      zxCtOtherManageAmtRateId = #{zxCtOtherManageAmtRateId,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSaOtherEquipSettleItemId = #{zxSaOtherEquipSettleItemId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSaOtherEquipSettleItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipSettleItem" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sa_other_equip_settle_item
+    where del_flag = '0'
+    <if test="zxSaOtherEquipSettleItemId != null and zxSaOtherEquipSettleItemId != ''" >
+     and zxSaOtherEquipSettleItemId = #{zxSaOtherEquipSettleItemId,jdbcType=CHAR}
+    </if>
+    <if test="rate != null and rate != ''" >
+     and rate = #{rate,jdbcType=DECIMAL}
+    </if>
+    <if test="thisAmt != null and thisAmt != ''" >
+     and thisAmt = #{thisAmt,jdbcType=VARCHAR}
+    </if>
+    <if test="comOrders != null and comOrders != ''" >
+     and comOrders = #{comOrders,jdbcType=VARCHAR}
+    </if>
+    <if test="statisticsId != null and statisticsId != ''" >
+     and statisticsId = #{statisticsId,jdbcType=VARCHAR}
+    </if>
+    <if test="upAmt != null and upAmt != ''" >
+     and upAmt = #{upAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="comId != null and comId != ''" >
+     and comId = #{comId,jdbcType=VARCHAR}
+    </if>
+    <if test="zxCtOtherManageId != null and zxCtOtherManageId != ''" >
+     and zxCtOtherManageId = #{zxCtOtherManageId,jdbcType=VARCHAR}
+    </if>
+    <if test="statisticsName != null and statisticsName != ''" >
+     and statisticsName = #{statisticsName,jdbcType=VARCHAR}
+    </if>
+    <if test="totalAmt != null and totalAmt != ''" >
+     and totalAmt = #{totalAmt,jdbcType=VARCHAR}
+    </if>
+    <if test="period != null and period != ''" >
+     and period = #{period,jdbcType=VARCHAR}
+    </if>
+    <if test="statisticsNo != null and statisticsNo != ''" >
+     and statisticsNo = #{statisticsNo,jdbcType=VARCHAR}
+    </if>
+    <if test="orgId != null and orgId != ''" >
+     and orgId = #{orgId,jdbcType=VARCHAR}
+    </if>
+    <if test="billNo != null and billNo != ''" >
+     and billNo = #{billNo,jdbcType=VARCHAR}
+    </if>
+    <if test="statisticsType != null and statisticsType != ''" >
+     and statisticsType = #{statisticsType,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="zxSaOtherEquipSettleId != null and zxSaOtherEquipSettleId != ''" >
+     and zxSaOtherEquipSettleId = #{zxSaOtherEquipSettleId,jdbcType=VARCHAR}
+    </if>
+    <if test="zxCtOtherManageAmtRateId != null and zxCtOtherManageAmtRateId != ''" >
+     and zxCtOtherManageAmtRateId = #{zxCtOtherManageAmtRateId,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY create_time
+  </select>
+  <delete id="batchDeleteUpdateZxSaOtherEquipSettleItem" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipSettleItem" >
+    <![CDATA[ 
+        update zx_sa_other_equip_settle_item
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSaOtherEquipSettleItemId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSaOtherEquipSettleItemId} 
+     </foreach>
+  </delete>
+
+  <select id="getZxSaOtherEquipSettleItemBeforeTotalList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSaProjectSettleAuditItem" >
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+    zx_sa_other_equip_settle_item
+    WHERE del_flag = '0'
+    AND zxCtOtherManageId = #{zxCtOtherManageId,jdbcType=VARCHAR}
+    ORDER BY create_time, period
+    DESC LIMIT 1
+  </select>
+
+  <select id="selectTotalAmtUpAmt" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipSettleItem" >
+        SELECT
+			(
+				SELECT totalAmt
+				FROM zx_sa_other_equip_settle_item
+				WHERE del_flag = '0'
+				AND zxCtOtherManageId = #{zxCtOtherManageId,jdbcType=VARCHAR}
+				AND period &lt;= #{period,jdbcType=VARCHAR}
+				AND statisticsId = #{statisticsId,jdbcType=VARCHAR}
+				AND statisticsName = #{statisticsName,jdbcType=VARCHAR}
+				ORDER BY create_time DESC
+				LIMIT 1
+			) AS upAmt,
+			(
+				SELECT SUM(thisAmt)
+				FROM zx_sa_other_equip_settle_item
+				WHERE del_flag = '0'
+				AND zxCtOtherManageId = #{zxCtOtherManageId,jdbcType=VARCHAR}
+				AND period &lt;= #{period,jdbcType=VARCHAR}
+				AND statisticsId = #{statisticsId,jdbcType=VARCHAR}
+				AND statisticsName = #{statisticsName,jdbcType=VARCHAR}
+			) AS totalAmt
+	</select>
+</mapper>

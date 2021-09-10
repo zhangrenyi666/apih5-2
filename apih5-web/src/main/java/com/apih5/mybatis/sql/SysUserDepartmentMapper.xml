@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.SysUserDepartmentMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.framework.api.sysdb.entity.SysUserDepartment" >
+    <id column="user_department_id" property="userDepartmentId" jdbcType="CHAR" />
+    <result column="user_key" property="userKey" jdbcType="CHAR" />
+    <result column="department_id" property="departmentId" jdbcType="CHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_department_id, user_key, department_id, del_flag, create_time, 
+    create_user, modify_time, modify_user
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user_department
+    where user_department_id = #{userDepartmentId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_user_department
+    where user_department_id = #{userDepartmentId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.framework.api.sysdb.entity.SysUserDepartment" >
+    insert into sys_user_department (user_department_id, user_key, department_id, 
+      del_flag, create_time, create_user, 
+      modify_time, modify_user
+      )
+    values (#{userDepartmentId,jdbcType=CHAR}, #{userKey,jdbcType=CHAR}, #{departmentId,jdbcType=CHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.framework.api.sysdb.entity.SysUserDepartment" >
+    insert into sys_user_department
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userDepartmentId != null" >
+        user_department_id,
+      </if>
+      <if test="userKey != null" >
+        user_key,
+      </if>
+      <if test="departmentId != null" >
+        department_id,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userDepartmentId != null" >
+        #{userDepartmentId,jdbcType=CHAR},
+      </if>
+      <if test="userKey != null" >
+        #{userKey,jdbcType=CHAR},
+      </if>
+      <if test="departmentId != null" >
+        #{departmentId,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.framework.api.sysdb.entity.SysUserDepartment" >
+    update sys_user_department
+    <set >
+      <if test="userKey != null" >
+        user_key = #{userKey,jdbcType=CHAR},
+      </if>
+      <if test="departmentId != null" >
+        department_id = #{departmentId,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+    </set>
+    where user_department_id = #{userDepartmentId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.framework.api.sysdb.entity.SysUserDepartment" >
+    update sys_user_department
+    set       user_key = #{userKey,jdbcType=CHAR},
+      department_id = #{departmentId,jdbcType=CHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR}
+    where user_department_id = #{userDepartmentId,jdbcType=CHAR}
+  </update>
+  <select id="selectBySysUserDepartmentList" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.SysUserDepartment" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user_department
+    where del_flag = '0'
+    <if test="userKey != null and userKey != ''" >
+     and user_key = #{userKey,jdbcType=CHAR}
+    </if>
+    <if test="departmentId != null and departmentId != ''" >
+     and department_id = #{departmentId,jdbcType=CHAR}
+    </if>
+    ORDER BY create_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateSysUserDepartment" parameterType="com.apih5.framework.api.sysdb.entity.SysUserDepartment" >
+    <![CDATA[ 
+        update sys_user_department
+        set del_flag = '1'
+        where del_flag = '0' and user_department_id in 
+     ]]> 
+     <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.userDepartmentId} 
+     </foreach>
+  </delete>
+  <delete id="batchDeleteUpdateSysUserDepartmentByUserKey" parameterType="com.apih5.framework.api.sysdb.entity.SysUserDepartment" >
+    <![CDATA[ 
+        update sys_user_department
+        set del_flag = '1'
+        where del_flag = '0' and user_key in 
+     ]]> 
+     <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.userKey} 
+     </foreach>
+  </delete>
+  <select id="getRelationByUserKeyAndDepId" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.SysUserDepartment" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user_department
+    where del_flag = '0'
+    <if test="userKey != null and userKey != ''" >
+     and user_key = #{userKey,jdbcType=CHAR}
+    </if>
+    <if test="departmentId != null and departmentId != ''" >
+     and department_id = #{departmentId,jdbcType=CHAR}
+    </if>
+  </select>
+  <select id="selectSysUserDepartmentListBySync" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.SysUserDepartment" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user_department
+    where 1=1
+    <if test="userKey != null and userKey != ''" >
+     and user_key = #{userKey,jdbcType=CHAR}
+    </if>
+    <if test="departmentId != null and departmentId != ''" >
+     and department_id = #{departmentId,jdbcType=CHAR}
+    </if>
+    <if test="modifyTime != null" >
+      and modify_time &gt;= #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+  </select>
+  <!-- 厦门公司多部门处理 -->
+  <delete id="tempDeleteXiaMenZjyjUserDepartment" parameterType="com.apih5.framework.api.sysdb.entity.SysUser" >
+	   	delete from zjyj.base_member_department where user_id = #{userKey,jdbcType=CHAR} 
+  </delete>
+  <delete id="tempDeleteXiaMenUserDepartment" parameterType="com.apih5.framework.api.sysdb.entity.SysUser" >
+	   	delete from sys_user_department where user_key = #{userKey,jdbcType=CHAR} 
+  </delete>
+   <insert id="tempInsertXiaMenZjyjUserDepartment" parameterType="com.apih5.framework.api.sysdb.entity.SysUserDepartment" >
+    insert into zjyj.base_member_department
+     (id,
+      user_id, 
+      department_id, 
+      del_flg, 
+      create_time,
+      create_user,
+      modify_time,
+      modify_user
+      )
+    values (
+      #{userDepartmentId,jdbcType=CHAR}, 
+      #{userKey,jdbcType=CHAR}, 
+      #{departmentId,jdbcType=CHAR}, 
+      #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP},
+      #{createUser,jdbcType=CHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}
+      )
+  </insert>
+  <!-- 厦门公司多部门处理 -->
+</mapper>

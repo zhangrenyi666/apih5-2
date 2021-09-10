@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzThousandCheckMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzThousandCheck" >
+    <id column="thousand_check_id" property="thousandCheckId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="check_date" property="checkDate" jdbcType="DATE" />
+    <result column="check_person" property="checkPerson" jdbcType="VARCHAR" />
+    <result column="pro_score" property="proScore" jdbcType="DECIMAL" />
+    <result column="vote_down_id" property="voteDownId" jdbcType="CHAR" />
+    <result column="vote_down_name" property="voteDownName" jdbcType="CHAR" />
+    <result column="score_total" property="scoreTotal" jdbcType="VARCHAR" />
+    <result column="register_date" property="registerDate" jdbcType="DATE" />
+    <result column="register_person" property="registerPerson" jdbcType="VARCHAR" />
+    <result column="release_id" property="releaseId" jdbcType="CHAR" />
+    <result column="release_name" property="releaseName" jdbcType="VARCHAR" />
+    <result column="add_marks" property="addMarks" jdbcType="DECIMAL" />
+    <result column="add_marks_reason" property="addMarksReason" jdbcType="VARCHAR" />
+    <result column="reduce_marks" property="reduceMarks" jdbcType="DECIMAL" />
+    <result column="reduce_marks_reason" property="reduceMarksReason" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    thousand_check_id, project_id, project_name, check_date, check_person, 
+    pro_score, vote_down_id, vote_down_name, score_total, register_date, 
+    register_person, release_id, release_name, add_marks, add_marks_reason, 
+    reduce_marks, reduce_marks_reason, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_thousand_check
+    where thousand_check_id = #{thousandCheckId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_thousand_check
+    where thousand_check_id = #{thousandCheckId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzThousandCheck" >
+    insert into zj_tz_thousand_check (thousand_check_id, project_id, project_name, 
+      check_date, check_person, pro_score, 
+      vote_down_id, vote_down_name, score_total, 
+      register_date, register_person, release_id, 
+      release_name, add_marks, add_marks_reason, 
+      reduce_marks, reduce_marks_reason, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{thousandCheckId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, 
+      #{checkDate,jdbcType=DATE}, #{checkPerson,jdbcType=VARCHAR}, #{proScore,jdbcType=DECIMAL}, 
+      #{voteDownId,jdbcType=CHAR}, #{voteDownName,jdbcType=CHAR}, #{scoreTotal,jdbcType=VARCHAR}, 
+      #{registerDate,jdbcType=DATE}, #{registerPerson,jdbcType=VARCHAR}, #{releaseId,jdbcType=CHAR}, 
+      #{releaseName,jdbcType=VARCHAR}, #{addMarks,jdbcType=DECIMAL}, #{addMarksReason,jdbcType=VARCHAR}, 
+      #{reduceMarks,jdbcType=DECIMAL}, #{reduceMarksReason,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzThousandCheck" >
+    insert into zj_tz_thousand_check
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="thousandCheckId != null" >
+        thousand_check_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="checkDate != null" >
+        check_date,
+      </if>
+      <if test="checkPerson != null" >
+        check_person,
+      </if>
+      <if test="proScore != null" >
+        pro_score,
+      </if>
+      <if test="voteDownId != null" >
+        vote_down_id,
+      </if>
+      <if test="voteDownName != null" >
+        vote_down_name,
+      </if>
+      <if test="scoreTotal != null" >
+        score_total,
+      </if>
+      <if test="registerDate != null" >
+        register_date,
+      </if>
+      <if test="registerPerson != null" >
+        register_person,
+      </if>
+      <if test="releaseId != null" >
+        release_id,
+      </if>
+      <if test="releaseName != null" >
+        release_name,
+      </if>
+      <if test="addMarks != null" >
+        add_marks,
+      </if>
+      <if test="addMarksReason != null" >
+        add_marks_reason,
+      </if>
+      <if test="reduceMarks != null" >
+        reduce_marks,
+      </if>
+      <if test="reduceMarksReason != null" >
+        reduce_marks_reason,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="thousandCheckId != null" >
+        #{thousandCheckId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != null" >
+        #{checkDate,jdbcType=DATE},
+      </if>
+      <if test="checkPerson != null" >
+        #{checkPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="proScore != null" >
+        #{proScore,jdbcType=DECIMAL},
+      </if>
+      <if test="voteDownId != null" >
+        #{voteDownId,jdbcType=CHAR},
+      </if>
+      <if test="voteDownName != null" >
+        #{voteDownName,jdbcType=CHAR},
+      </if>
+      <if test="scoreTotal != null" >
+        #{scoreTotal,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null" >
+        #{registerDate,jdbcType=DATE},
+      </if>
+      <if test="registerPerson != null" >
+        #{registerPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseId != null" >
+        #{releaseId,jdbcType=CHAR},
+      </if>
+      <if test="releaseName != null" >
+        #{releaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="addMarks != null" >
+        #{addMarks,jdbcType=DECIMAL},
+      </if>
+      <if test="addMarksReason != null" >
+        #{addMarksReason,jdbcType=VARCHAR},
+      </if>
+      <if test="reduceMarks != null" >
+        #{reduceMarks,jdbcType=DECIMAL},
+      </if>
+      <if test="reduceMarksReason != null" >
+        #{reduceMarksReason,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzThousandCheck" >
+    update zj_tz_thousand_check
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != null" >
+        check_date = #{checkDate,jdbcType=DATE},
+      </if>
+      <if test="checkPerson != null" >
+        check_person = #{checkPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="proScore != null" >
+        pro_score = #{proScore,jdbcType=DECIMAL},
+      </if>
+      <if test="voteDownId != null" >
+        vote_down_id = #{voteDownId,jdbcType=CHAR},
+      </if>
+      <if test="voteDownName != null" >
+        vote_down_name = #{voteDownName,jdbcType=CHAR},
+      </if>
+      <if test="scoreTotal != null" >
+        score_total = #{scoreTotal,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null" >
+        register_date = #{registerDate,jdbcType=DATE},
+      </if>
+      <if test="registerPerson != null" >
+        register_person = #{registerPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseId != null" >
+        release_id = #{releaseId,jdbcType=CHAR},
+      </if>
+      <if test="releaseName != null" >
+        release_name = #{releaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="addMarks != null" >
+        add_marks = #{addMarks,jdbcType=DECIMAL},
+      </if>
+      <if test="addMarksReason != null" >
+        add_marks_reason = #{addMarksReason,jdbcType=VARCHAR},
+      </if>
+      <if test="reduceMarks != null" >
+        reduce_marks = #{reduceMarks,jdbcType=DECIMAL},
+      </if>
+      <if test="reduceMarksReason != null" >
+        reduce_marks_reason = #{reduceMarksReason,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where thousand_check_id = #{thousandCheckId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzThousandCheck" >
+    update zj_tz_thousand_check
+    set       project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      check_date = #{checkDate,jdbcType=DATE},
+      check_person = #{checkPerson,jdbcType=VARCHAR},
+      pro_score = #{proScore,jdbcType=DECIMAL},
+      vote_down_id = #{voteDownId,jdbcType=CHAR},
+      vote_down_name = #{voteDownName,jdbcType=CHAR},
+      score_total = #{scoreTotal,jdbcType=VARCHAR},
+      register_date = #{registerDate,jdbcType=DATE},
+      register_person = #{registerPerson,jdbcType=VARCHAR},
+      release_id = #{releaseId,jdbcType=CHAR},
+      release_name = #{releaseName,jdbcType=VARCHAR},
+      add_marks = #{addMarks,jdbcType=DECIMAL},
+      add_marks_reason = #{addMarksReason,jdbcType=VARCHAR},
+      reduce_marks = #{reduceMarks,jdbcType=DECIMAL},
+      reduce_marks_reason = #{reduceMarksReason,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where thousand_check_id = #{thousandCheckId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzThousandCheckList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzThousandCheck" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_thousand_check
+    where del_flag = '0'
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     and project_id in (${projectIdSql})
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="checkDate != null" >
+     and check_date = #{checkDate,jdbcType=DATE}
+    </if>
+    <if test="checkPerson != null and checkPerson != ''" >
+     and check_person = #{checkPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="proScore != null and proScore != ''" >
+     and pro_score = #{proScore,jdbcType=DECIMAL}
+    </if>
+    <if test="voteDownId != null and voteDownId != ''" >
+     and vote_down_id = #{voteDownId,jdbcType=CHAR}
+    </if>
+    <if test="voteDownName != null and voteDownName != ''" >
+     and vote_down_name = #{voteDownName,jdbcType=CHAR}
+    </if>
+    <if test="scoreTotal != null and scoreTotal != ''" >
+     and score_total = #{scoreTotal,jdbcType=VARCHAR}
+    </if>
+    <if test="registerDate != null" >
+     and register_date = #{registerDate,jdbcType=DATE}
+    </if>
+    <if test="registerPerson != null and registerPerson != ''" >
+     and register_person = #{registerPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="releaseId != null and releaseId != ''" >
+     and release_id = #{releaseId,jdbcType=CHAR}
+    </if>
+    <if test="releaseName != null and releaseName != ''" >
+     and release_name = #{releaseName,jdbcType=VARCHAR}
+    </if>
+    <if test="addMarks != null and addMarks != ''" >
+     and add_marks = #{addMarks,jdbcType=DECIMAL}
+    </if>
+    <if test="addMarksReason != null and addMarksReason != ''" >
+     and add_marks_reason = #{addMarksReason,jdbcType=VARCHAR}
+    </if>
+    <if test="reduceMarks != null and reduceMarks != ''" >
+     and reduce_marks = #{reduceMarks,jdbcType=DECIMAL}
+    </if>
+    <if test="reduceMarksReason != null and reduceMarksReason != ''" >
+     and reduce_marks_reason = #{reduceMarksReason,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="unExt1SeeFlag != null and unExt1SeeFlag != ''" >
+     and release_id != ('0')
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzThousandCheck" parameterType="com.apih5.mybatis.pojo.ZjTzThousandCheck" >
+    <![CDATA[ 
+        update zj_tz_thousand_check
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and thousand_check_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.thousandCheckId} 
+     </foreach>
+  </delete>
+  
+   <!-- 扩展 -->
+  <delete id="batchReleaseZjTzThousandCheck" parameterType="com.apih5.mybatis.pojo.ZjTzThousandCheck" >
+    <![CDATA[ 
+        update zj_tz_thousand_check
+        set release_id = '1',
+            release_name=#{param2.releaseName},
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and thousand_check_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.thousandCheckId} 
+     </foreach>
+  </delete>
+   <delete id="batchRecallZjTzThousandCheck" parameterType="com.apih5.mybatis.pojo.ZjTzThousandCheck" >
+    <![CDATA[ 
+        update zj_tz_thousand_check
+        set release_id = '0',
+            release_name=#{param2.releaseName},
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and thousand_check_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.thousandCheckId} 
+     </foreach>
+  </delete>
+</mapper>

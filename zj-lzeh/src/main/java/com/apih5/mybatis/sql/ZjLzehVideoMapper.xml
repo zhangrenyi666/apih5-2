@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjLzehVideoMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjLzehVideo" >
+    <id column="video_id" property="videoId" jdbcType="CHAR" />
+    <result column="order_flag" property="orderFlag" jdbcType="INTEGER" />
+    <result column="large_screen_show" property="largeScreenShow" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    video_id, order_flag, large_screen_show, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_lzeh_video
+    where video_id = #{videoId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_lzeh_video
+    where video_id = #{videoId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjLzehVideo" >
+    insert into zj_lzeh_video (video_id, order_flag, large_screen_show, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{videoId,jdbcType=CHAR}, #{orderFlag,jdbcType=INTEGER}, #{largeScreenShow,jdbcType=INTEGER}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjLzehVideo" >
+    insert into zj_lzeh_video
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="videoId != null" >
+        video_id,
+      </if>
+      <if test="orderFlag != null" >
+        order_flag,
+      </if>
+      <if test="largeScreenShow != null" >
+        large_screen_show,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="videoId != null" >
+        #{videoId,jdbcType=CHAR},
+      </if>
+      <if test="orderFlag != null" >
+        #{orderFlag,jdbcType=INTEGER},
+      </if>
+      <if test="largeScreenShow != null" >
+        #{largeScreenShow,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjLzehVideo" >
+    update zj_lzeh_video
+    <set >
+      <if test="orderFlag != null" >
+        order_flag = #{orderFlag,jdbcType=INTEGER},
+      </if>
+      <if test="largeScreenShow != null" >
+        large_screen_show = #{largeScreenShow,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where video_id = #{videoId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjLzehVideo" >
+    update zj_lzeh_video
+    set       order_flag = #{orderFlag,jdbcType=INTEGER},
+      large_screen_show = #{largeScreenShow,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where video_id = #{videoId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjLzehVideoList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjLzehVideo" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_lzeh_video
+    where del_flag = '0'
+    <if test="orderFlag != null and orderFlag != ''" >
+     and order_flag = #{orderFlag,jdbcType=INTEGER}
+    </if>
+    <if test="largeScreenShow != null and largeScreenShow != ''" >
+     and large_screen_show = #{largeScreenShow,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY order_flag asc
+  </select>
+  <delete id="batchDeleteUpdateZjLzehVideo" parameterType="com.apih5.mybatis.pojo.ZjLzehVideo" >
+    <![CDATA[ 
+        update zj_lzeh_video
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and video_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.videoId} 
+     </foreach>
+  </delete>
+
+
+  <select id="selectByZjLzehVideo" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from zj_lzeh_video
+    where del_flag = '0' and large_screen_show = '1'
+    <if test="orderFlag != null and orderFlag != ''" >
+      and order_flag = #{orderFlag,jdbcType=INTEGER}
+    </if>
+    <if test="largeScreenShow != null and largeScreenShow != ''" >
+      and large_screen_show = #{largeScreenShow,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+      and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+      and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC
+  </select>
+
+  <update id="updateZjLzehVideoValue0" parameterType="com.apih5.mybatis.pojo.ZjLzehVideo" >
+    update zj_lzeh_video
+    set large_screen_show = 0
+  </update>
+
+  <update id="updateZjLzehVideoValue1" parameterType="com.apih5.mybatis.pojo.ZjLzehVideo" >
+    update zj_lzeh_video
+    set large_screen_show = 1
+    where video_id = #{videoId}
+  </update>
+
+</mapper>

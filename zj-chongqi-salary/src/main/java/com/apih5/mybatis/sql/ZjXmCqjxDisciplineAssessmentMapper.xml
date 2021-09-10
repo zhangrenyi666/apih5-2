@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmCqjxDisciplineAssessmentMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessment" >
+    <id column="discipline_id" property="disciplineId" jdbcType="CHAR" />
+    <result column="manager_id" property="managerId" jdbcType="CHAR" />
+    <result column="discipline_state" property="disciplineState" jdbcType="CHAR" />
+    <result column="discipline_title" property="disciplineTitle" jdbcType="CHAR" />
+    <result column="discipline_years" property="disciplineYears" jdbcType="TIMESTAMP" />
+    <result column="discipline_quarter" property="disciplineQuarter" jdbcType="CHAR" />
+    <result column="discipline_remarks" property="disciplineRemarks" jdbcType="VARCHAR" />
+    <result column="dept_head_id" property="deptHeadId" jdbcType="VARCHAR" />
+    <result column="dept_head_option" property="deptHeadOption" jdbcType="VARCHAR" />
+    <result column="executive_leader_id" property="executiveLeaderId" jdbcType="VARCHAR" />
+    <result column="executive_leader_option" property="executiveLeaderOption" jdbcType="VARCHAR" />                
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    discipline_id, manager_id, discipline_state, discipline_title, discipline_years, 
+    discipline_quarter, dept_head_id, dept_head_option, executive_leader_id, executive_leader_option, 
+    discipline_remarks, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectZjXmCqjxDisciplineLeaderTodoCount" resultType="java.lang.Integer" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessment" >
+    select 
+      count(*)
+       FROM zj_xm_cqjx_discipline_assessment
+       left join zj_xm_cqjx_discipline_assistant_leader_approval on executive_id = discipline_id
+       WHERE zj_xm_cqjx_discipline_assessment.del_flag = '0'      
+			 and zj_xm_cqjx_discipline_assistant_leader_approval.del_flag = '0'      
+    <if test="createUser != null and createUser != ''" >
+     and zj_xm_cqjx_discipline_assessment.create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="deptHeadId != null and deptHeadId != ''" >
+	 and zj_xm_cqjx_discipline_assistant_leader_approval.leader_id = #{deptHeadId,jdbcType=CHAR}
+	 and zj_xm_cqjx_discipline_assistant_leader_approval.approval_flag = "1"    
+    </if>
+     and discipline_state IN 
+     <foreach collection="disciplineList" item = "model" open="(" separator="," close=")">#{model.disciplineState} 
+     </foreach>     
+  </select>     
+  <select id="selectZjXmCqjxDisciplineLeaderHasTodoCount" resultType="java.lang.Integer" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessment" >
+  	SELECT
+      count(*)  	
+	FROM
+		zj_xm_cqjx_discipline_assessment t1 
+	LEFT JOIN zj_xm_cqjx_discipline_assistant_leader_approval t2 ON t2.executive_id = t1.discipline_id
+	AND t2.del_flag = '0'
+	WHERE t1.del_flag = '0'
+	AND t2.approval_flag IN ('2','3','4','5')
+		<if test="createUser != null and createUser != ''">
+	AND t2.leader_id =  #{createUser,jdbcType=CHAR}
+	</if>
+  </select>     
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_cqjx_discipline_assessment
+    where discipline_id = #{disciplineId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_cqjx_discipline_assessment
+    where discipline_id = #{disciplineId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessment" >
+    insert into zj_xm_cqjx_discipline_assessment (discipline_id, manager_id, discipline_state, 
+      discipline_title, discipline_years, discipline_quarter, dept_head_id, dept_head_option, 
+      executive_leader_id, executive_leader_option, 
+      discipline_remarks, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{disciplineId,jdbcType=CHAR}, #{managerId,jdbcType=CHAR}, #{disciplineState,jdbcType=CHAR}, 
+      #{disciplineTitle,jdbcType=CHAR}, #{disciplineYears,jdbcType=TIMESTAMP}, #{disciplineQuarter,jdbcType=CHAR},
+       #{deptHeadId,jdbcType=CHAR}, #{deptHeadOption,jdbcType=CHAR}, #{executiveLeaderId,jdbcType=CHAR},
+       #{executiveLeaderOption,jdbcType=CHAR}, 
+      #{disciplineRemarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessment" >
+    insert into zj_xm_cqjx_discipline_assessment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="disciplineId != null" >
+        discipline_id,
+      </if>
+      <if test="managerId != null" >
+        manager_id,
+      </if>
+      <if test="disciplineState != null" >
+        discipline_state,
+      </if>
+      <if test="disciplineTitle != null" >
+        discipline_title,
+      </if>
+      <if test="disciplineYears != null" >
+        discipline_years,
+      </if>
+      <if test="disciplineQuarter != null" >
+        discipline_quarter,
+      </if>        
+      <if test="deptHeadId != null" >
+        dept_head_id,
+      </if>
+      <if test="deptHeadOption != null" >
+        dept_head_option,
+      </if>
+      <if test="executiveLeaderId != null" >
+        executive_leader_id,
+      </if>
+      <if test="executiveLeaderOption != null" >
+        executive_leader_option,
+      </if>                      
+      <if test="disciplineRemarks != null" >
+        discipline_remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="disciplineId != null" >
+        #{disciplineId,jdbcType=CHAR},
+      </if>
+      <if test="managerId != null" >
+        #{managerId,jdbcType=CHAR},
+      </if>
+      <if test="disciplineState != null" >
+        #{disciplineState,jdbcType=CHAR},
+      </if>
+      <if test="disciplineTitle != null" >
+        #{disciplineTitle,jdbcType=CHAR},
+      </if>
+      <if test="disciplineYears != null" >
+        #{disciplineYears,jdbcType=TIMESTAMP},
+      </if>
+      <if test="disciplineQuarter != null" >
+        #{disciplineQuarter,jdbcType=CHAR},
+      </if>
+      <if test="deptHeadId != null" >
+        #{deptHeadId,jdbcType=CHAR},
+      </if>
+      <if test="deptHeadOption != null" >
+        #{deptHeadOption,jdbcType=CHAR},
+      </if>
+      <if test="executiveLeaderId != null" >
+        #{executiveLeaderId,jdbcType=CHAR},
+      </if>
+      <if test="executiveLeaderOption != null" >
+        #{executiveLeaderOption,jdbcType=CHAR},
+      </if>           
+      <if test="disciplineRemarks != null" >
+        #{disciplineRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessment" >
+    update zj_xm_cqjx_discipline_assessment
+    <set >
+      <if test="managerId != null" >
+        manager_id = #{managerId,jdbcType=CHAR},
+      </if>
+      <if test="disciplineState != null" >
+        discipline_state = #{disciplineState,jdbcType=CHAR},
+      </if>
+      <if test="disciplineTitle != null" >
+        discipline_title = #{disciplineTitle,jdbcType=CHAR},
+      </if>
+      <if test="disciplineYears != null" >
+        discipline_years = #{disciplineYears,jdbcType=TIMESTAMP},
+      </if>
+      <if test="disciplineQuarter != null" >
+        discipline_quarter = #{disciplineQuarter,jdbcType=CHAR},
+      </if>
+      <if test="deptHeadId != null" >
+        dept_head_id = #{deptHeadId,jdbcType=CHAR},
+      </if>
+      <if test="deptHeadOption != null" >
+        dept_head_option = #{deptHeadOption,jdbcType=CHAR},
+      </if>
+      <if test="executiveLeaderId != null" >
+        executive_leader_id = #{executiveLeaderId,jdbcType=CHAR},
+      </if>
+      <if test="executiveLeaderOption != null" >
+        executive_leader_option = #{executiveLeaderOption,jdbcType=CHAR},
+      </if>      
+      <if test="disciplineRemarks != null" >
+        discipline_remarks = #{disciplineRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where discipline_id = #{disciplineId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessment" >
+    update zj_xm_cqjx_discipline_assessment
+    set       manager_id = #{managerId,jdbcType=CHAR},
+      discipline_state = #{disciplineState,jdbcType=CHAR},
+      discipline_title = #{disciplineTitle,jdbcType=CHAR},
+      discipline_years = #{disciplineYears,jdbcType=TIMESTAMP},
+      discipline_quarter = #{disciplineQuarter,jdbcType=CHAR},
+      dept_head_id = #{deptHeadId,jdbcType=CHAR},
+      dept_head_option = #{deptHeadOption,jdbcType=CHAR},
+      executive_leader_id = #{executiveLeaderId,jdbcType=CHAR},
+      executive_leader_option = #{executiveLeaderOption,jdbcType=CHAR},
+      discipline_remarks = #{disciplineRemarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where discipline_id = #{disciplineId,jdbcType=CHAR}
+  </update>
+  <select id="selectDisciplineLeaderTodoListByUserKey" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessment" >
+      (select 
+        zj_xm_cqjx_discipline_assistant_leader_approval.assistant_leader_approval_id AS assistantLeaderApprovalId,zj_xm_cqjx_discipline_assessment.discipline_id, zj_xm_cqjx_discipline_assessment.manager_id, zj_xm_cqjx_discipline_assessment.discipline_state, zj_xm_cqjx_discipline_assessment.discipline_title, discipline_years, 
+    zj_xm_cqjx_discipline_assessment.discipline_quarter, zj_xm_cqjx_discipline_assessment.dept_head_id, zj_xm_cqjx_discipline_assessment.dept_head_option, zj_xm_cqjx_discipline_assessment.executive_leader_id, zj_xm_cqjx_discipline_assessment.executive_leader_option, 
+    zj_xm_cqjx_discipline_assessment.discipline_remarks, zj_xm_cqjx_discipline_assessment.del_flag, zj_xm_cqjx_discipline_assessment.create_time, zj_xm_cqjx_discipline_assessment.create_user, 
+    zj_xm_cqjx_discipline_assessment.create_user_name, zj_xm_cqjx_discipline_assessment.modify_time, zj_xm_cqjx_discipline_assessment.modify_user, zj_xm_cqjx_discipline_assessment.modify_user_name ,
+    zj_xm_cqjx_discipline_assistant_leader_approval.leader_option AS leaderOption,
+   (select assessment_type from zj_xm_cqjx_assessment_manage where del_flag = '0' and manager_id = zj_xm_cqjx_discipline_assessment.manager_id) AS assessmentType    
+    from zj_xm_cqjx_discipline_assessment LEFT join zj_xm_cqjx_discipline_assistant_leader_approval on executive_id = zj_xm_cqjx_discipline_assessment.discipline_id
+    where zj_xm_cqjx_discipline_assistant_leader_approval.del_flag = '0'
+    and zj_xm_cqjx_discipline_assessment.del_flag = '0'
+    and discipline_state = '3'
+    and zj_xm_cqjx_discipline_assistant_leader_approval.approval_flag = '1'
+    and zj_xm_cqjx_discipline_assistant_leader_approval.leader_id = #{createUser,jdbcType=CHAR}
+		)
+		union all
+      (select 
+        zj_xm_cqjx_discipline_assistant_leader_approval.assistant_leader_approval_id AS assistantLeaderApprovalId,zj_xm_cqjx_discipline_assessment.discipline_id, zj_xm_cqjx_discipline_assessment.manager_id, zj_xm_cqjx_discipline_assessment.discipline_state, zj_xm_cqjx_discipline_assessment.discipline_title, discipline_years, 
+    zj_xm_cqjx_discipline_assessment.discipline_quarter, zj_xm_cqjx_discipline_assessment.dept_head_id, zj_xm_cqjx_discipline_assessment.dept_head_option, zj_xm_cqjx_discipline_assessment.executive_leader_id, zj_xm_cqjx_discipline_assessment.executive_leader_option, 
+    zj_xm_cqjx_discipline_assessment.discipline_remarks, zj_xm_cqjx_discipline_assessment.del_flag, zj_xm_cqjx_discipline_assessment.create_time, zj_xm_cqjx_discipline_assessment.create_user, 
+    zj_xm_cqjx_discipline_assessment.create_user_name, zj_xm_cqjx_discipline_assessment.modify_time, zj_xm_cqjx_discipline_assessment.modify_user, zj_xm_cqjx_discipline_assessment.modify_user_name ,
+    zj_xm_cqjx_discipline_assistant_leader_approval.leader_option AS leaderOption,
+   (select assessment_type from zj_xm_cqjx_assessment_manage where del_flag = '0' and manager_id = zj_xm_cqjx_discipline_assessment.manager_id) AS assessmentType    
+    from zj_xm_cqjx_discipline_assessment LEFT join zj_xm_cqjx_discipline_assistant_leader_approval on executive_id = zj_xm_cqjx_discipline_assessment.discipline_id
+    where zj_xm_cqjx_discipline_assistant_leader_approval.del_flag = '0'
+    and zj_xm_cqjx_discipline_assessment.del_flag = '0'
+    and discipline_state = '5'
+    and zj_xm_cqjx_discipline_assistant_leader_approval.approval_flag = '1'
+    and zj_xm_cqjx_discipline_assistant_leader_approval.leader_id = #{createUser,jdbcType=CHAR}
+		)    
+  </select>  
+  <select id="selectByZjXmCqjxDisciplineAssessmentList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessment" >
+    select 
+    <include refid="Base_Column_List" />,
+      (select assessment_type from zj_xm_cqjx_assessment_manage where del_flag = '0' and manager_id = zj_xm_cqjx_discipline_assessment.manager_id) AS assessmentType    
+    from zj_xm_cqjx_discipline_assessment
+    where del_flag = '0'
+    <if test="managerId != null and managerId != ''" >
+     and manager_id = #{managerId,jdbcType=CHAR}
+    </if>
+    <if test="disciplineState != null and disciplineState != ''" >
+     and discipline_state = #{disciplineState,jdbcType=CHAR}
+    </if>
+    <if test="disciplineTitle != null and disciplineTitle != ''" >
+     and discipline_title = #{disciplineTitle,jdbcType=CHAR}
+    </if>
+    <if test="deptHeadId != null" >
+      and dept_head_id = #{deptHeadId,jdbcType=CHAR}
+    </if>
+    <if test="deptHeadOption != null" >
+      and dept_head_option = #{deptHeadOption,jdbcType=CHAR}
+    </if>
+    <if test="executiveLeaderId != null" >
+      and executive_leader_id = #{executiveLeaderId,jdbcType=CHAR}
+    </if>
+    <if test="executiveLeaderOption != null" >
+      and executive_leader_option = #{executiveLeaderOption,jdbcType=CHAR}
+    </if>        
+    <if test="disciplineYears != null" >
+     and discipline_years = #{disciplineYears,jdbcType=TIMESTAMP}
+    </if>
+    <if test="disciplineQuarter != null and disciplineQuarter != ''" >
+     and discipline_quarter = #{disciplineQuarter,jdbcType=CHAR}
+    </if>
+    <if test="disciplineRemarks != null and disciplineRemarks != ''" >
+     and discipline_remarks = #{disciplineRemarks,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmCqjxDisciplineAssessment" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessment" >
+    <![CDATA[ 
+        update zj_xm_cqjx_discipline_assessment
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and discipline_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.disciplineId} 
+     </foreach>
+  </delete>
+  <select id="selectDisciplineLeaderDoneListByUserKey" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxDisciplineAssessment">
+  	SELECT
+		t2.assistant_leader_approval_id AS assistantLeaderApprovalId,
+		t2.leader_option AS leaderOption,
+		(select assessment_type from zj_xm_cqjx_assessment_manage t3 where t3.del_flag = '0' and t3.manager_id = t1.manager_id) AS assessmentType, 
+		t1.*
+	FROM
+		zj_xm_cqjx_discipline_assessment t1 
+	LEFT JOIN zj_xm_cqjx_discipline_assistant_leader_approval t2 ON t2.executive_id = t1.discipline_id
+	AND t2.del_flag = '0'
+	WHERE t1.del_flag = '0'
+	AND t2.approval_flag IN ('2','3','4','5')
+	<if test="createUser != null and createUser != ''">
+	AND t2.leader_id =  #{createUser,jdbcType=CHAR}
+	</if>
+  </select>
+</mapper>

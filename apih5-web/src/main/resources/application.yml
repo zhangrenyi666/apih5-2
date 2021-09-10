@@ -1,0 +1,122 @@
+apih5:
+  md5Salt: apih5 #密码加密salt
+  defaultPassword: 123456 #用户默认密码
+  defaultPasswordReset: false #默认密码重置
+  loginUseCaptcha: false #登录系统是否使用验证码
+  registerUseCaptcha: false #登录系统是否使用注册
+  useEhCache: false #是否使用ehcache
+  userTokenKey: apih5_key #用户token生成密钥
+  useSyncWeChat: false                               #本系统数据同步微信（部门、人员）true为同步
+  filePath: D:/workspace-wd/apih5/apih5-web/target/
+  ##webUrl: http://192.168.1.118:8080/web/                    #前端 文件路径
+  ##webUrl: http://localhost:8080/web/                    #前端 文件路径
+  webUrl: http://test.apih5.com:9090/web/               #前端 文件路径
+  ##webUrl: http://wyongan.xicp.net/web/
+  otherUrl: http://weixin.fheb.cn:8088/?furl=       #中交-web365
+  #otherUrl: http://office.apih5.com:8088/?info=2&furl=1       #web365
+  
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: apih5-web03
+  profiles:
+    active: test  #dev\test\prod
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static,classpath:/public/,file:${apih5.filePath}
+  mail:
+    host: smtp.qq.com
+    username: 110@qq.com
+    password: 123456
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    pool: 
+      max-active: 300  # 连接池最大连接数（使用负值表示没有限制）
+      max-idle: 100    # 连接池中的最大空闲连接
+      min-idle: 8      # 连接池中的最小空闲连接
+      max-wait: -1ms   # 连接池最大阻塞等待时间（使用负值表示没有限制）
+    timeout: 1000        #配置默认超时时间10ms
+  jackson:
+    #date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: non_null
+    serialization:
+      write-dates-as-timestamps: true
+  aop:
+    proxy-target-class: true
+  flyway:
+    enabled: false
+    baseline-on-migrate: false
+    baseline-version: 1.3
+    locations: classpath:db/migrations
+    sql-migration-prefix: V
+    sql-migration-suffix: .sql
+    encoding: UTF-8
+  cloud:
+    #注册到服务中心
+    consul:
+      #host: 192.168.1.116
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        ##网关中使用的lb
+        serviceName: apih5-web
+        register: true
+        prefer-ip-address: true
+        health-check-path: /actuator/health
+        #当前服务的端口，也就是application-test里面的port
+        port: 8080
+    # 阿里的注册中心，bootstrap.properties里面已经配置了，但是这里不知道为啥还得写一遍
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: 127.0.0.1:8848
+management:
+  health:
+    defaults:
+      enabled: false
+
+mybatis:
+  mapperLocations: classpath:sqlmapper/*.xml
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+#flyway:
+#  enabled: false
+#  baseline-on-migrate: false
+#  baseline-version: 1.3
+#  locations: classpath:db/migrations
+#  sql-migration-prefix: V
+#  sql-migration-suffix: .sql
+#  encoding: UTF-8
+
+apollo:
+  bootstrap:
+    enabled: true
+    #从1.2.0版本开始，将Apollo配置加载提到初始化日志系统之前
+    eagerLoad: 
+      enabled: true
+    namespaces: application,public.other.api,zx
+
+logging:
+  config: classpath:logback.xml
+
+ureport:
+  fileStoreDir: D:/
+swagger: 
+  show: false

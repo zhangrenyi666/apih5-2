@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCtSuppliesLeaseResSettleItemMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCtSuppliesLeaseResSettleItem" >
+    <id column="zx_ct_supplies_lease_settlement_item_id" property="zxCtSuppliesLeaseSettlementItemId" jdbcType="CHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="rentUnit" property="rentUnit" jdbcType="VARCHAR" />
+    <result column="mainID" property="mainID" jdbcType="VARCHAR" />
+    <result column="upQty" property="upQty" jdbcType="DECIMAL" />
+    <result column="upAmt" property="upAmt" jdbcType="DECIMAL" />
+    <result column="totalQty" property="totalQty" jdbcType="DECIMAL" />
+    <result column="totalAmt" property="totalAmt" jdbcType="DECIMAL" />
+    <result column="orderNum" property="orderNum" jdbcType="INTEGER" />
+    <result column="equipName" property="equipName" jdbcType="VARCHAR" />
+    <result column="equipCode" property="equipCode" jdbcType="VARCHAR" />
+    <result column="comOrders" property="comOrders" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="taxRate" property="taxRate" jdbcType="VARCHAR" />
+    <result column="signedOrderItemID" property="signedOrderItemID" jdbcType="VARCHAR" />
+    <result column="signedNo" property="signedNo" jdbcType="VARCHAR" />
+    <result column="startDate" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="billNo" property="billNo" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="contrTrrm" property="contrTrrm" jdbcType="DECIMAL" />
+    <result column="contractQty" property="contractQty" jdbcType="DECIMAL" />
+    <result column="contractItemID" property="contractItemID" jdbcType="VARCHAR" />
+    <result column="contractAmt" property="contractAmt" jdbcType="DECIMAL" />
+    <result column="contractID" property="contractID" jdbcType="VARCHAR" />
+    <result column="detail_list_id" property="detailListId" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="contractPrice" property="contractPrice" jdbcType="DECIMAL" />
+    <result column="alterTrrm" property="alterTrrm" jdbcType="DECIMAL" />
+    <result column="changedQty" property="changedQty" jdbcType="DECIMAL" />
+    <result column="changedAmt" property="changedAmt" jdbcType="DECIMAL" />
+    <result column="alterPrice" property="alterPrice" jdbcType="DECIMAL" />
+    <result column="thisAmtTax" property="thisAmtTax" jdbcType="DECIMAL" />
+    <result column="thisQty" property="thisQty" jdbcType="DECIMAL" />
+    <result column="thisAmt" property="thisAmt" jdbcType="DECIMAL" />
+    <result column="thisPrice" property="thisPrice" jdbcType="DECIMAL" />
+    <result column="thisAmtNoTax" property="thisAmtNoTax" jdbcType="DECIMAL" />
+    <result column="signContrTrrm" property="signContrTrrm" jdbcType="DECIMAL" />
+    <result column="signQty" property="signQty" jdbcType="DECIMAL" />
+    <result column="signThisAmt" property="signThisAmt" jdbcType="DECIMAL" />
+    <result column="signRentStartDate" property="signRentStartDate" jdbcType="TIMESTAMP" />
+    <result column="signRentEndDate" property="signRentEndDate" jdbcType="TIMESTAMP" />
+    <result column="upAmtNoTax" property="upAmtNoTax" jdbcType="DECIMAL" />
+    <result column="upAmtTax" property="upAmtTax" jdbcType="DECIMAL" />    
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zx_ct_supplies_lease_settlement_item_id, editTime, rentUnit, mainID, upQty, 
+    upAmt, totalQty, totalAmt, orderNum, equipName, 
+    equipCode, comOrders, comName, comID, taxRate, 
+    signedOrderItemID, signedNo, startDate, period, billNo, 
+    unit, contrTrrm, detail_list_id, contractQty, contractItemID, contractAmt, 
+    contractID, spec, contractPrice, alterTrrm, changedQty, 
+    changedAmt, alterPrice, thisAmtTax, thisQty, thisAmt, 
+    thisPrice, thisAmtNoTax, signContrTrrm, signQty, signThisAmt, 
+    signRentStartDate, signRentEndDate, upAmtNoTax, upAmtTax, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_supplies_lease_res_settle_item
+    where del_flag = '0' and zx_ct_supplies_lease_settlement_item_id = #{zxCtSuppliesLeaseSettlementItemId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_ct_supplies_lease_res_settle_item
+    where zx_ct_supplies_lease_settlement_item_id = #{zxCtSuppliesLeaseSettlementItemId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesLeaseResSettleItem" >
+    insert into zx_ct_supplies_lease_res_settle_item (
+    zx_ct_supplies_lease_settlement_item_id, editTime, rentUnit, mainID, upQty, 
+    upAmt, totalQty, totalAmt, orderNum, equipName, 
+    equipCode, comOrders, comName, comID, taxRate, 
+    signedOrderItemID, signedNo, startDate, period, billNo, 
+    unit, contrTrrm, detail_list_id, contractQty, contractItemID, contractAmt, 
+    contractID, spec, contractPrice, alterTrrm, changedQty, 
+    changedAmt, alterPrice, thisAmtTax, thisQty, thisAmt, 
+    thisPrice, thisAmtNoTax, signContrTrrm, signQty, signThisAmt, 
+    signRentStartDate, signRentEndDate, upAmtNoTax, upAmtTax, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{zxCtSuppliesLeaseSettlementItemId,jdbcType=CHAR}, #{editTime,jdbcType=TIMESTAMP}, #{rentUnit,jdbcType=VARCHAR}, #{mainID,jdbcType=VARCHAR}, #{upQty,jdbcType=DECIMAL}, 
+    #{upAmt,jdbcType=DECIMAL}, #{totalQty,jdbcType=DECIMAL}, #{totalAmt,jdbcType=DECIMAL}, #{orderNum,jdbcType=INTEGER}, #{equipName,jdbcType=VARCHAR}, 
+    #{equipCode,jdbcType=VARCHAR}, #{comOrders,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, #{comID,jdbcType=VARCHAR}, #{taxRate,jdbcType=VARCHAR}, 
+    #{signedOrderItemID,jdbcType=VARCHAR}, #{signedNo,jdbcType=VARCHAR}, #{startDate,jdbcType=TIMESTAMP}, #{period,jdbcType=VARCHAR}, #{billNo,jdbcType=VARCHAR}, 
+    #{unit,jdbcType=VARCHAR}, #{contrTrrm,jdbcType=DECIMAL}, #{detailListId,jdbcType=DECIMAL}, #{contractQty,jdbcType=DECIMAL}, #{contractItemID,jdbcType=VARCHAR}, #{contractAmt,jdbcType=DECIMAL}, 
+    #{contractID,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, #{contractPrice,jdbcType=DECIMAL}, #{alterTrrm,jdbcType=DECIMAL}, #{changedQty,jdbcType=DECIMAL}, 
+    #{changedAmt,jdbcType=DECIMAL}, #{alterPrice,jdbcType=DECIMAL}, #{thisAmtTax,jdbcType=DECIMAL}, #{thisQty,jdbcType=DECIMAL}, #{thisAmt,jdbcType=DECIMAL}, 
+    #{thisPrice,jdbcType=DECIMAL}, #{thisAmtNoTax,jdbcType=DECIMAL}, #{signContrTrrm,jdbcType=DECIMAL}, #{signQty,jdbcType=DECIMAL}, #{signThisAmt,jdbcType=DECIMAL}, 
+    #{signRentStartDate,jdbcType=TIMESTAMP}, #{signRentEndDate,jdbcType=TIMESTAMP},  #{upAmtNoTax,jdbcType=DECIMAL}, #{upAmtTax,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesLeaseResSettleItem" >
+    insert into zx_ct_supplies_lease_res_settle_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxCtSuppliesLeaseSettlementItemId != null" >
+        zx_ct_supplies_lease_settlement_item_id,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="rentUnit != null" >
+        rentUnit,
+      </if>
+      <if test="mainID != null" >
+        mainID,
+      </if>
+      <if test="upQty != null" >
+        upQty,
+      </if>
+      <if test="upAmt != null" >
+        upAmt,
+      </if>
+      <if test="totalQty != null" >
+        totalQty,
+      </if>
+      <if test="totalAmt != null" >
+        totalAmt,
+      </if>
+      <if test="orderNum != null" >
+        orderNum,
+      </if>
+      <if test="equipName != null" >
+        equipName,
+      </if>
+      <if test="equipCode != null" >
+        equipCode,
+      </if>
+      <if test="comOrders != null" >
+        comOrders,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="taxRate != null" >
+        taxRate,
+      </if>
+      <if test="signedOrderItemID != null" >
+        signedOrderItemID,
+      </if>
+      <if test="signedNo != null" >
+        signedNo,
+      </if>
+      <if test="startDate != null" >
+        startDate,
+      </if>
+      <if test="period != null" >
+        period,
+      </if>
+      <if test="billNo != null" >
+        billNo,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="contrTrrm != null" >
+        contrTrrm,
+      </if>
+      <if test="detailListId != null" >
+        detail_list_id,
+      </if>
+      <if test="contractQty != null" >
+        contractQty,
+      </if>
+      <if test="contractItemID != null" >
+        contractItemID,
+      </if>
+      <if test="contractAmt != null" >
+        contractAmt,
+      </if>
+      <if test="contractID != null" >
+        contractID,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="contractPrice != null" >
+        contractPrice,
+      </if>
+      <if test="alterTrrm != null" >
+        alterTrrm,
+      </if>
+      <if test="changedQty != null" >
+        changedQty,
+      </if>
+      <if test="changedAmt != null" >
+        changedAmt,
+      </if>
+      <if test="alterPrice != null" >
+        alterPrice,
+      </if>
+      <if test="thisAmtTax != null" >
+        thisAmtTax,
+      </if>
+      <if test="thisQty != null" >
+        thisQty,
+      </if>
+      <if test="thisAmt != null" >
+        thisAmt,
+      </if>
+      <if test="thisPrice != null" >
+        thisPrice,
+      </if>
+      <if test="thisAmtNoTax != null" >
+        thisAmtNoTax,
+      </if>
+      <if test="signContrTrrm != null" >
+        signContrTrrm,
+      </if>
+      <if test="signQty != null" >
+        signQty,
+      </if>
+      <if test="signThisAmt != null" >
+        signThisAmt,
+      </if>
+      <if test="signRentStartDate != null" >
+        signRentStartDate,
+      </if>
+      <if test="signRentEndDate != null" >
+        signRentEndDate,
+      </if>
+      <if test="upAmtNoTax != null" >
+        upAmtNoTax,
+      </if>
+      <if test="upAmtTax != null" >
+        upAmtTax,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxCtSuppliesLeaseSettlementItemId != null" >
+        #{zxCtSuppliesLeaseSettlementItemId,jdbcType=CHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rentUnit != null" >
+        #{rentUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="mainID != null" >
+        #{mainID,jdbcType=VARCHAR},
+      </if>
+      <if test="upQty != null" >
+        #{upQty,jdbcType=DECIMAL},
+      </if>
+      <if test="upAmt != null" >
+        #{upAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalQty != null" >
+        #{totalQty,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmt != null" >
+        #{totalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="orderNum != null" >
+        #{orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="equipName != null" >
+        #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="equipCode != null" >
+        #{equipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRate != null" >
+        #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="signedOrderItemID != null" >
+        #{signedOrderItemID,jdbcType=VARCHAR},
+      </if>
+      <if test="signedNo != null" >
+        #{signedNo,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="period != null" >
+        #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null" >
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="contrTrrm != null" >
+        #{contrTrrm,jdbcType=DECIMAL},
+      </if>
+      <if test="detailListId != null" >
+        #{detailListId,jdbcType=DECIMAL},      
+      </if>      
+      <if test="contractQty != null" >
+        #{contractQty,jdbcType=DECIMAL},
+      </if>
+      <if test="contractItemID != null" >
+        #{contractItemID,jdbcType=VARCHAR},
+      </if>
+      <if test="contractAmt != null" >
+        #{contractAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="contractID != null" >
+        #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="contractPrice != null" >
+        #{contractPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="alterTrrm != null" >
+        #{alterTrrm,jdbcType=DECIMAL},
+      </if>
+      <if test="changedQty != null" >
+        #{changedQty,jdbcType=DECIMAL},
+      </if>
+      <if test="changedAmt != null" >
+        #{changedAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="alterPrice != null" >
+        #{alterPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmtTax != null" >
+        #{thisAmtTax,jdbcType=DECIMAL},
+      </if>
+      <if test="thisQty != null" >
+        #{thisQty,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmt != null" >
+        #{thisAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisPrice != null" >
+        #{thisPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmtNoTax != null" >
+        #{thisAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="signContrTrrm != null" >
+        #{signContrTrrm,jdbcType=DECIMAL},
+      </if>
+      <if test="signQty != null" >
+        #{signQty,jdbcType=DECIMAL},
+      </if>
+      <if test="signThisAmt != null" >
+        #{signThisAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="signRentStartDate != null" >
+        #{signRentStartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signRentEndDate != null" >
+        #{signRentEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="upAmtNoTax != null" >
+        #{upAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="upAmtTax != null" >
+        #{upAmtTax,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesLeaseResSettleItem" >
+    update zx_ct_supplies_lease_res_settle_item
+    <set >
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rentUnit != null" >
+        rentUnit = #{rentUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="mainID != null" >
+        mainID = #{mainID,jdbcType=VARCHAR},
+      </if>
+      <if test="upQty != null" >
+        upQty = #{upQty,jdbcType=DECIMAL},
+      </if>
+      <if test="upAmt != null" >
+        upAmt = #{upAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalQty != null" >
+        totalQty = #{totalQty,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmt != null" >
+        totalAmt = #{totalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="orderNum != null" >
+        orderNum = #{orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="equipName != null" >
+        equipName = #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="equipCode != null" >
+        equipCode = #{equipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        comOrders = #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRate != null" >
+        taxRate = #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="signedOrderItemID != null" >
+        signedOrderItemID = #{signedOrderItemID,jdbcType=VARCHAR},
+      </if>
+      <if test="signedNo != null" >
+        signedNo = #{signedNo,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null" >
+        startDate = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="period != null" >
+        period = #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null" >
+        billNo = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="contrTrrm != null" >
+        contrTrrm = #{contrTrrm,jdbcType=DECIMAL},
+      </if>
+      <if test="detailListId != null" >
+        detail_list_id = #{detailListId,jdbcType=DECIMAL},
+      </if>
+      <if test="contractQty != null" >
+        contractQty = #{contractQty,jdbcType=DECIMAL},
+      </if>
+      <if test="contractItemID != null" >
+        contractItemID = #{contractItemID,jdbcType=VARCHAR},
+      </if>
+      <if test="contractAmt != null" >
+        contractAmt = #{contractAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="contractID != null" >
+        contractID = #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="contractPrice != null" >
+        contractPrice = #{contractPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="alterTrrm != null" >
+        alterTrrm = #{alterTrrm,jdbcType=DECIMAL},
+      </if>
+      <if test="changedQty != null" >
+        changedQty = #{changedQty,jdbcType=DECIMAL},
+      </if>
+      <if test="changedAmt != null" >
+        changedAmt = #{changedAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="alterPrice != null" >
+        alterPrice = #{alterPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmtTax != null" >
+        thisAmtTax = #{thisAmtTax,jdbcType=DECIMAL},
+      </if>
+      <if test="thisQty != null" >
+        thisQty = #{thisQty,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmt != null" >
+        thisAmt = #{thisAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisPrice != null" >
+        thisPrice = #{thisPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmtNoTax != null" >
+        thisAmtNoTax = #{thisAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="signContrTrrm != null" >
+        signContrTrrm = #{signContrTrrm,jdbcType=DECIMAL},
+      </if>
+      <if test="signQty != null" >
+        signQty = #{signQty,jdbcType=DECIMAL},
+      </if>
+      <if test="signThisAmt != null" >
+        signThisAmt = #{signThisAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="signRentStartDate != null" >
+        signRentStartDate = #{signRentStartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signRentEndDate != null" >
+        signRentEndDate = #{signRentEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="upAmtNoTax != null" >
+        upAmtNoTax = #{upAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="upAmtTax != null" >
+        upAmtTax = #{upAmtTax,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zx_ct_supplies_lease_settlement_item_id = #{zxCtSuppliesLeaseSettlementItemId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesLeaseResSettleItem" >
+    update zx_ct_supplies_lease_res_settle_item set 
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      rentUnit = #{rentUnit,jdbcType=VARCHAR},
+      mainID = #{mainID,jdbcType=VARCHAR},
+      upQty = #{upQty,jdbcType=DECIMAL},
+      upAmt = #{upAmt,jdbcType=DECIMAL},
+      totalQty = #{totalQty,jdbcType=DECIMAL},
+      totalAmt = #{totalAmt,jdbcType=DECIMAL},
+      orderNum = #{orderNum,jdbcType=INTEGER},
+      equipName = #{equipName,jdbcType=VARCHAR},
+      equipCode = #{equipCode,jdbcType=VARCHAR},
+      comOrders = #{comOrders,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      comID = #{comID,jdbcType=VARCHAR},
+      taxRate = #{taxRate,jdbcType=VARCHAR},
+      signedOrderItemID = #{signedOrderItemID,jdbcType=VARCHAR},
+      signedNo = #{signedNo,jdbcType=VARCHAR},
+      startDate = #{startDate,jdbcType=TIMESTAMP},
+      period = #{period,jdbcType=VARCHAR},
+      billNo = #{billNo,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      contrTrrm = #{contrTrrm,jdbcType=DECIMAL},
+      contractQty = #{contractQty,jdbcType=DECIMAL},
+      contractItemID = #{contractItemID,jdbcType=VARCHAR},
+      contractAmt = #{contractAmt,jdbcType=DECIMAL},
+      contractID = #{contractID,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      contractPrice = #{contractPrice,jdbcType=DECIMAL},
+      alterTrrm = #{alterTrrm,jdbcType=DECIMAL},
+      detail_list_id = #{detailListId,jdbcType=DECIMAL},      
+      changedQty = #{changedQty,jdbcType=DECIMAL},
+      changedAmt = #{changedAmt,jdbcType=DECIMAL},
+      alterPrice = #{alterPrice,jdbcType=DECIMAL},
+      thisAmtTax = #{thisAmtTax,jdbcType=DECIMAL},
+      thisQty = #{thisQty,jdbcType=DECIMAL},
+      thisAmt = #{thisAmt,jdbcType=DECIMAL},
+      thisPrice = #{thisPrice,jdbcType=DECIMAL},
+      thisAmtNoTax = #{thisAmtNoTax,jdbcType=DECIMAL},
+      signContrTrrm = #{signContrTrrm,jdbcType=DECIMAL},
+      signQty = #{signQty,jdbcType=DECIMAL},
+      signThisAmt = #{signThisAmt,jdbcType=DECIMAL},
+      signRentStartDate = #{signRentStartDate,jdbcType=TIMESTAMP},
+      signRentEndDate = #{signRentEndDate,jdbcType=TIMESTAMP},
+      upAmtNoTax = #{upAmtNoTax,jdbcType=DECIMAL},
+      upAmtTax = #{upAmtTax,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zx_ct_supplies_lease_settlement_item_id = #{zxCtSuppliesLeaseSettlementItemId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxCtSuppliesLeaseResSettleItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesLeaseResSettleItem" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_supplies_lease_res_settle_item
+    where del_flag = '0'
+    <if test="zxCtSuppliesLeaseSettlementItemId != null and zxCtSuppliesLeaseSettlementItemId != ''" >
+     and zx_ct_supplies_lease_settlement_item_id = #{zxCtSuppliesLeaseSettlementItemId,jdbcType=CHAR}
+    </if>
+    <if test="editTime != null" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="rentUnit != null and rentUnit != ''" >
+     and rentUnit = #{rentUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="mainID != null and mainID != ''" >
+     and mainID = #{mainID,jdbcType=VARCHAR}
+    </if>
+    <if test="upQty != null and upQty != ''" >
+     and upQty = #{upQty,jdbcType=DECIMAL}
+    </if>
+    <if test="upAmt != null and upAmt != ''" >
+     and upAmt = #{upAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="totalQty != null and totalQty != ''" >
+     and totalQty = #{totalQty,jdbcType=DECIMAL}
+    </if>
+    <if test="totalAmt != null and totalAmt != ''" >
+     and totalAmt = #{totalAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="orderNum != null and orderNum != ''" >
+     and orderNum = #{orderNum,jdbcType=INTEGER}
+    </if>
+    <if test="equipName != null and equipName != ''" >
+     and equipName = #{equipName,jdbcType=VARCHAR}
+    </if>
+    <if test="equipCode != null and equipCode != ''" >
+     and equipCode = #{equipCode,jdbcType=VARCHAR}
+    </if>
+    <if test="comOrders != null and comOrders != ''" >
+     and comOrders = #{comOrders,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="taxRate != null and taxRate != ''" >
+     and taxRate = #{taxRate,jdbcType=VARCHAR}
+    </if>
+    <if test="signedOrderItemID != null and signedOrderItemID != ''" >
+     and signedOrderItemID = #{signedOrderItemID,jdbcType=VARCHAR}
+    </if>
+    <if test="signedNo != null and signedNo != ''" >
+     and signedNo = #{signedNo,jdbcType=VARCHAR}
+    </if>
+    <if test="startDate != null" >
+     and startDate = #{startDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="period != null and period != ''" >
+     and period = #{period,jdbcType=VARCHAR}
+    </if>
+    <if test="billNo != null and billNo != ''" >
+     and billNo = #{billNo,jdbcType=VARCHAR}
+    </if>
+    <if test="unit != null and unit != ''" >
+     and unit = #{unit,jdbcType=VARCHAR}
+    </if>
+    <if test="detailListId != null and detailListId != ''" >
+     and detail_list_id = #{detailListId,jdbcType=DECIMAL}
+    </if>
+    <if test="contrTrrm != null and contrTrrm != ''" >
+     and contrTrrm = #{contrTrrm,jdbcType=DECIMAL}
+    </if>
+    <if test="contractQty != null and contractQty != ''" >
+     and contractQty = #{contractQty,jdbcType=DECIMAL}
+    </if>
+    <if test="contractItemID != null and contractItemID != ''" >
+     and contractItemID = #{contractItemID,jdbcType=VARCHAR}
+    </if>
+    <if test="contractAmt != null and contractAmt != ''" >
+     and contractAmt = #{contractAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="contractID != null and contractID != ''" >
+     and contractID = #{contractID,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="contractPrice != null and contractPrice != ''" >
+     and contractPrice = #{contractPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="alterTrrm != null and alterTrrm != ''" >
+     and alterTrrm = #{alterTrrm,jdbcType=DECIMAL}
+    </if>
+    <if test="changedQty != null and changedQty != ''" >
+     and changedQty = #{changedQty,jdbcType=DECIMAL}
+    </if>
+    <if test="changedAmt != null and changedAmt != ''" >
+     and changedAmt = #{changedAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="alterPrice != null and alterPrice != ''" >
+     and alterPrice = #{alterPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="thisAmtTax != null and thisAmtTax != ''" >
+     and thisAmtTax = #{thisAmtTax,jdbcType=DECIMAL}
+    </if>
+    <if test="thisQty != null and thisQty != ''" >
+     and thisQty = #{thisQty,jdbcType=DECIMAL}
+    </if>
+    <if test="thisAmt != null and thisAmt != ''" >
+     and thisAmt = #{thisAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="thisPrice != null and thisPrice != ''" >
+     and thisPrice = #{thisPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="thisAmtNoTax != null and thisAmtNoTax != ''" >
+     and thisAmtNoTax = #{thisAmtNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="signContrTrrm != null and signContrTrrm != ''" >
+     and signContrTrrm = #{signContrTrrm,jdbcType=DECIMAL}
+    </if>
+    <if test="signQty != null and signQty != ''" >
+     and signQty = #{signQty,jdbcType=DECIMAL}
+    </if>
+    <if test="signThisAmt != null and signThisAmt != ''" >
+     and signThisAmt = #{signThisAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="signRentStartDate != null" >
+     and signRentStartDate = #{signRentStartDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="signRentEndDate != null" >
+     and signRentEndDate = #{signRentEndDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxCtSuppliesLeaseResSettleItem" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesLeaseResSettleItem" >
+    <![CDATA[ 
+        update zx_ct_supplies_lease_res_settle_item
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zx_ct_supplies_lease_settlement_item_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxCtSuppliesLeaseSettlementItemId} 
+     </foreach>
+  </delete>
+</mapper>

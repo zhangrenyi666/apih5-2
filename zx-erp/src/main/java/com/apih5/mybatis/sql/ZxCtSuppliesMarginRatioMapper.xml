@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCtSuppliesMarginRatioMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCtSuppliesMarginRatio" >
+    <id column="zx_ct_supplies_margin_ratio_id" property="zxCtSuppliesMarginRatioId" jdbcType="CHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="allowDelete" property="allowDelete" jdbcType="VARCHAR" />
+    <result column="timeLimit" property="timeLimit" jdbcType="VARCHAR" />
+    <result column="statisticsRate" property="statisticsRate" jdbcType="DECIMAL" />
+    <result column="contractID" property="contractID" jdbcType="VARCHAR" />
+    <result column="backCondition" property="backCondition" jdbcType="VARCHAR" />
+    <result column="statisticsNo" property="statisticsNo" jdbcType="VARCHAR" />
+    <result column="statisticsName" property="statisticsName" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zx_ct_supplies_margin_ratio_id, editTime, orgID, allowDelete, timeLimit, 
+    statisticsRate, contractID, backCondition, statisticsNo, statisticsName, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_supplies_margin_ratio
+    where del_flag = '0' and zx_ct_supplies_margin_ratio_id = #{zxCtSuppliesMarginRatioId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_ct_supplies_margin_ratio
+    where zx_ct_supplies_margin_ratio_id = #{zxCtSuppliesMarginRatioId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesMarginRatio" >
+    insert into zx_ct_supplies_margin_ratio (
+    zx_ct_supplies_margin_ratio_id, editTime, orgID, allowDelete, timeLimit, 
+    statisticsRate, contractID, backCondition, statisticsNo, statisticsName, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxCtSuppliesMarginRatioId,jdbcType=CHAR}, #{editTime,jdbcType=TIMESTAMP}, #{orgID,jdbcType=VARCHAR}, #{allowDelete,jdbcType=VARCHAR}, #{timeLimit,jdbcType=VARCHAR}, 
+    #{statisticsRate,jdbcType=DECIMAL}, #{contractID,jdbcType=VARCHAR}, #{backCondition,jdbcType=VARCHAR}, #{statisticsNo,jdbcType=VARCHAR}, #{statisticsName,jdbcType=VARCHAR}, 
+    #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+    #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesMarginRatio" >
+    insert into zx_ct_supplies_margin_ratio
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxCtSuppliesMarginRatioId != null" >
+        zx_ct_supplies_margin_ratio_id,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="allowDelete != null" >
+        allowDelete,
+      </if>
+      <if test="timeLimit != null" >
+        timeLimit,
+      </if>
+      <if test="statisticsRate != null" >
+        statisticsRate,
+      </if>
+      <if test="contractID != null" >
+        contractID,
+      </if>
+      <if test="backCondition != null" >
+        backCondition,
+      </if>
+      <if test="statisticsNo != null" >
+        statisticsNo,
+      </if>
+      <if test="statisticsName != null" >
+        statisticsName,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxCtSuppliesMarginRatioId != null" >
+        #{zxCtSuppliesMarginRatioId,jdbcType=CHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="allowDelete != null" >
+        #{allowDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="timeLimit != null" >
+        #{timeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticsRate != null" >
+        #{statisticsRate,jdbcType=DECIMAL},
+      </if>
+      <if test="contractID != null" >
+        #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="backCondition != null" >
+        #{backCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticsNo != null" >
+        #{statisticsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticsName != null" >
+        #{statisticsName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesMarginRatio" >
+    update zx_ct_supplies_margin_ratio
+    <set >
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="allowDelete != null" >
+        allowDelete = #{allowDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="timeLimit != null" >
+        timeLimit = #{timeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticsRate != null" >
+        statisticsRate = #{statisticsRate,jdbcType=DECIMAL},
+      </if>
+      <if test="contractID != null" >
+        contractID = #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="backCondition != null" >
+        backCondition = #{backCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticsNo != null" >
+        statisticsNo = #{statisticsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticsName != null" >
+        statisticsName = #{statisticsName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zx_ct_supplies_margin_ratio_id = #{zxCtSuppliesMarginRatioId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesMarginRatio" >
+    update zx_ct_supplies_margin_ratio set 
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      allowDelete = #{allowDelete,jdbcType=VARCHAR},
+      timeLimit = #{timeLimit,jdbcType=VARCHAR},
+      statisticsRate = #{statisticsRate,jdbcType=DECIMAL},
+      contractID = #{contractID,jdbcType=VARCHAR},
+      backCondition = #{backCondition,jdbcType=VARCHAR},
+      statisticsNo = #{statisticsNo,jdbcType=VARCHAR},
+      statisticsName = #{statisticsName,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zx_ct_supplies_margin_ratio_id = #{zxCtSuppliesMarginRatioId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxCtSuppliesMarginRatioList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesMarginRatio" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_supplies_margin_ratio
+    where del_flag = '0'
+    <if test="zxCtSuppliesMarginRatioId != null and zxCtSuppliesMarginRatioId != ''" >
+     and zx_ct_supplies_margin_ratio_id = #{zxCtSuppliesMarginRatioId,jdbcType=CHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="allowDelete != null and allowDelete != ''" >
+     and allowDelete = #{allowDelete,jdbcType=VARCHAR}
+    </if>
+    <if test="timeLimit != null and timeLimit != ''" >
+     and timeLimit = #{timeLimit,jdbcType=VARCHAR}
+    </if>
+    <if test="statisticsRate != null and statisticsRate != ''" >
+     and statisticsRate = #{statisticsRate,jdbcType=DECIMAL}
+    </if>
+    <if test="contractID != null and contractID != ''" >
+     and contractID = #{contractID,jdbcType=VARCHAR}
+    </if>
+    <if test="backCondition != null and backCondition != ''" >
+     and backCondition = #{backCondition,jdbcType=VARCHAR}
+    </if>
+    <if test="statisticsNo != null and statisticsNo != ''" >
+     and statisticsNo = #{statisticsNo,jdbcType=VARCHAR}
+    </if>
+    <if test="statisticsName != null and statisticsName != ''" >
+     and statisticsName = #{statisticsName,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxCtSuppliesMarginRatio" parameterType="com.apih5.mybatis.pojo.ZxCtSuppliesMarginRatio" >
+    <![CDATA[ 
+        update zx_ct_supplies_margin_ratio
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zx_ct_supplies_margin_ratio_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxCtSuppliesMarginRatioId} 
+     </foreach>
+  </delete>
+</mapper>

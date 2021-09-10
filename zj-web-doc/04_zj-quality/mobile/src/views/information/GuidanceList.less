@@ -1,0 +1,52 @@
+﻿// 导入主less
+@url-base: "../../";
+@import "@{url-base}App.less";
+// 声明模块名
+@pageName: DatumList;
+// 通用类名
+.@{mainName} {
+    &-@{pageName} {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        :global(.am-list-body) {
+            background-color: transparent;
+            border-width: 0;
+        }
+        :global(.am-list-body:after) {
+            border-width: 0;
+        }
+        :global(.am-pull-to-refresh-content-wrapper) {
+            overflow: inherit
+        }
+        &-item {
+            background: #fff;
+            padding: 0 5px 0 12px;
+            border-left: 4px solid;
+            line-height: 1.2;
+            &-title {
+                font-size: 18px;
+                padding: 7px 7px 7px 0;
+            }
+            &-introduce {
+                padding: 7px 7px 7px 0;
+                font-size: 14px;
+                color: #999;
+            }
+            &-tool {
+                display: flex;
+                padding: 7px 7px 7px 0;
+                border-top: 2px #999 dashed;
+                color: #999;
+                &-span1 {
+                    text-align: left;
+                }
+                &-span2 {
+                    flex: 1;
+                    text-align: right;
+                }
+            }
+        }
+    }
+}

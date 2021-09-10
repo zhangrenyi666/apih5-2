@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzQualityMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzQuality" >
+    <id column="quality_id" property="qualityId" jdbcType="CHAR" />
+    <result column="design_advistory_unit_standard_id" property="designAdvistoryUnitStandardId" jdbcType="CHAR" />
+    <result column="major_type_id" property="majorTypeId" jdbcType="VARCHAR" />
+    <result column="major_type_name" property="majorTypeName" jdbcType="CHAR" />
+    <result column="correspond_quality_id" property="correspondQualityId" jdbcType="VARCHAR" />
+    <result column="correspond_quality_name" property="correspondQualityName" jdbcType="VARCHAR" />
+    <result column="registered_user" property="registeredUser" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    quality_id, design_advistory_unit_standard_id, major_type_id, major_type_name, correspond_quality_id, 
+    correspond_quality_name, registered_user, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_quality
+    where quality_id = #{qualityId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_quality
+    where quality_id = #{qualityId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzQuality" >
+    insert into zj_tz_quality (quality_id, design_advistory_unit_standard_id, major_type_id, 
+      major_type_name, correspond_quality_id, correspond_quality_name, 
+      registered_user, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{qualityId,jdbcType=CHAR}, #{designAdvistoryUnitStandardId,jdbcType=CHAR}, #{majorTypeId,jdbcType=VARCHAR}, 
+      #{majorTypeName,jdbcType=CHAR}, #{correspondQualityId,jdbcType=VARCHAR}, #{correspondQualityName,jdbcType=VARCHAR}, 
+      #{registeredUser,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzQuality" >
+    insert into zj_tz_quality
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="qualityId != null" >
+        quality_id,
+      </if>
+      <if test="designAdvistoryUnitStandardId != null" >
+        design_advistory_unit_standard_id,
+      </if>
+      <if test="majorTypeId != null" >
+        major_type_id,
+      </if>
+      <if test="majorTypeName != null" >
+        major_type_name,
+      </if>
+      <if test="correspondQualityId != null" >
+        correspond_quality_id,
+      </if>
+      <if test="correspondQualityName != null" >
+        correspond_quality_name,
+      </if>
+      <if test="registeredUser != null" >
+        registered_user,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="qualityId != null" >
+        #{qualityId,jdbcType=CHAR},
+      </if>
+      <if test="designAdvistoryUnitStandardId != null" >
+        #{designAdvistoryUnitStandardId,jdbcType=CHAR},
+      </if>
+      <if test="majorTypeId != null" >
+        #{majorTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="majorTypeName != null" >
+        #{majorTypeName,jdbcType=CHAR},
+      </if>
+      <if test="correspondQualityId != null" >
+        #{correspondQualityId,jdbcType=VARCHAR},
+      </if>
+      <if test="correspondQualityName != null" >
+        #{correspondQualityName,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredUser != null" >
+        #{registeredUser,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzQuality" >
+    update zj_tz_quality
+    <set >
+      <if test="designAdvistoryUnitStandardId != null" >
+        design_advistory_unit_standard_id = #{designAdvistoryUnitStandardId,jdbcType=CHAR},
+      </if>
+      <if test="majorTypeId != null" >
+        major_type_id = #{majorTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="majorTypeName != null" >
+        major_type_name = #{majorTypeName,jdbcType=CHAR},
+      </if>
+      <if test="correspondQualityId != null" >
+        correspond_quality_id = #{correspondQualityId,jdbcType=VARCHAR},
+      </if>
+      <if test="correspondQualityName != null" >
+        correspond_quality_name = #{correspondQualityName,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredUser != null" >
+        registered_user = #{registeredUser,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where quality_id = #{qualityId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzQuality" >
+    update zj_tz_quality
+    set       design_advistory_unit_standard_id = #{designAdvistoryUnitStandardId,jdbcType=CHAR},
+      major_type_id = #{majorTypeId,jdbcType=VARCHAR},
+      major_type_name = #{majorTypeName,jdbcType=CHAR},
+      correspond_quality_id = #{correspondQualityId,jdbcType=VARCHAR},
+      correspond_quality_name = #{correspondQualityName,jdbcType=VARCHAR},
+      registered_user = #{registeredUser,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where quality_id = #{qualityId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzQualityList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzQuality" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_quality
+    where del_flag = '0'
+    <if test="designAdvistoryUnitStandardId != null and designAdvistoryUnitStandardId != ''" >
+     and design_advistory_unit_standard_id = #{designAdvistoryUnitStandardId,jdbcType=CHAR}
+    </if>
+    <if test="majorTypeId != null and majorTypeId != ''" >
+     and major_type_id = #{majorTypeId,jdbcType=VARCHAR}
+    </if>
+    <if test="majorTypeName != null and majorTypeName != ''" >
+     and major_type_name = #{majorTypeName,jdbcType=CHAR}
+    </if>
+    <if test="correspondQualityId != null and correspondQualityId != ''" >
+     and correspond_quality_id = #{correspondQualityId,jdbcType=VARCHAR}
+    </if>
+    <if test="correspondQualityName != null and correspondQualityName != ''" >
+     and correspond_quality_name = #{correspondQualityName,jdbcType=VARCHAR}
+    </if>
+    <if test="registeredUser != null and registeredUser != ''" >
+     and registered_user = #{registeredUser,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzQuality" parameterType="com.apih5.mybatis.pojo.ZjTzQuality" >
+    <![CDATA[ 
+        update zj_tz_quality
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and quality_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.qualityId} 
+     </foreach>
+  </delete>
+</mapper>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ArticleMapper" >
+
+    <insert id="saveTemplateConfig" parameterType="com.apih5.mybatis.pojo.TemplateConfig">
+        INSERT INTO template_config
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test='id != null and id != "" '>
+                id,
+            </if>
+            <if test='url != null and url != "" '>
+                url,
+            </if>
+            <if test='firstLevelPattern != null and firstLevelPattern != "" '>
+                first_level_pattern,
+            </if>
+            <if test='titlePattern != null and titlePattern != "" '>
+                title_pattern,
+            </if>
+            <if test='timePattern != null and timePattern != "" '>
+                time_pattern,
+            </if>
+            <if test='contentPattern != null and contentPattern != "" '>
+                content_pattern,
+            </if>
+                version,
+                user_id,
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test='id != null and id != "" '>
+                #{id, jdbcType=VARCHAR},
+            </if>
+            <if test='url != null and url != "" '>
+                #{url, jdbcType=VARCHAR},
+            </if>
+            <if test='firstLevelPattern != null and firstLevelPattern != "" '>
+                #{firstLevelPattern, jdbcType=VARCHAR},
+            </if>
+            <if test='titlePattern != null and titlePattern != "" '>
+                #{titlePattern, jdbcType=VARCHAR},
+            </if>
+            <if test='timePattern != null and timePattern != "" '>
+                #{timePattern, jdbcType=VARCHAR},
+            </if>
+            <if test='contentPattern != null and contentPattern != "" '>
+                #{contentPattern, jdbcType=VARCHAR},
+            </if>
+                1,
+                #{userId, jdbcType=INTEGER},
+        </trim>
+    </insert>
+
+    <update id="editTemplateConfig"  parameterType="com.apih5.mybatis.pojo.TemplateConfig">
+        UPDATE template_config
+        <trim prefix="set" suffixOverrides=",">
+            <if test='url != null and url != "" '>
+                url = #{url, jdbcType=VARCHAR},
+            </if>
+            <if test='firstLevelPattern != null and firstLevelPattern != "" '>
+                first_level_pattern = #{firstLevelPattern, jdbcType=VARCHAR},
+            </if>
+            <if test='titlePattern != null and titlePattern != "" '>
+                title_pattern = #{titlePattern, jdbcType=VARCHAR},
+            </if>
+            <if test='timePattern != null and timePattern != "" '>
+                time_pattern = #{timePattern, jdbcType=VARCHAR},
+            </if>
+            <if test='contentPattern != null and contentPattern != "" '>
+                content_pattern = #{contentPattern, jdbcType=VARCHAR},
+            </if>
+                version = version + 1,
+        </trim>
+        WHERE id = #{id, jdbcType=VARCHAR}
+    </update>
+
+    <delete id="removeTemplateConfig" parameterType="String">
+        DELETE FROM template_config WHERE id = #{id, jdbcType=VARCHAR}
+    </delete>
+
+    <select id="listAllTemplateConfig" resultType="com.apih5.mybatis.pojo.TemplateConfig">
+        SELECT id                    AS id,
+                url                   AS url,
+                first_level_pattern   AS firstLevelPattern,
+                title_pattern         AS titlePattern,
+                time_pattern          AS timePattern,
+                content_pattern       AS contentPattern
+        FROM template_config
+        WHERE user_id = #{userId}
+    </select>
+
+    <select id="getTemplateConfig" resultType="com.apih5.mybatis.pojo.TemplateConfig" parameterType="String">
+        SELECT
+        id                    AS id,
+        url                   AS url,
+        first_level_pattern   AS firstLevelPattern,
+        title_pattern         AS titlePattern,
+        time_pattern          AS timePattern,
+        content_pattern       AS contentPattern,
+        version               AS version
+        FROM template_config
+        WHERE id = #{id, jdbcType=VARCHAR}
+    </select>
+
+    <select id="listAllApih5Contents" resultType="com.apih5.mybatis.pojo.Apih5Content" parameterType="java.lang.Integer">
+        SELECT
+        id             AS id,
+        url            AS url,
+        title          AS title,
+        time          AS time,
+        content_body   AS contentBody,
+        DATE_FORMAT(created, '%Y年%m月%d日 %H:%i:%s') AS insertTime
+        FROM apih5_content
+        WHERE user_id = #{userId}
+        ORDER BY created DESC
+    </select>
+
+    <select id="getApih5Content" resultType="com.apih5.mybatis.pojo.Apih5Content" parameterType="String">
+        SELECT
+        id             AS id,
+        url            AS url,
+        title          AS title,
+        time          AS time,
+        content_body   AS contentBody
+        FROM apih5_content
+        WHERE id = #{id, jdbcType=VARCHAR}
+    </select>
+
+    <insert id="saveApih5Content" parameterType="com.apih5.mybatis.pojo.Apih5Content">
+        INSERT INTO apih5_content
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+                cid,
+            <if test='id != null and id != "" '>
+                id,
+            </if>
+            <if test='url != null and url != "" '>
+                url,
+            </if>
+            <if test='title != null and title != "" '>
+                title,
+            </if>
+            <if test='time != null and time != "" '>
+                time,
+            </if>
+            <if test='contentBody != null and contentBody != "" '>
+                content_body,
+            </if>
+                created,
+                user_id,
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+                NULL,
+            <if test='id != null and id != "" '>
+                #{id, jdbcType=VARCHAR},
+            </if>
+            <if test='url != null and url != "" '>
+                #{url, jdbcType=VARCHAR},
+            </if>
+            <if test='title != null and title != "" '>
+                #{title, jdbcType=VARCHAR},
+            </if>
+            <if test='time != null and time != "" '>
+                #{time, jdbcType=VARCHAR},
+            </if>
+            <if test='contentBody != null and contentBody != "" '>
+                #{contentBody, jdbcType=VARCHAR},
+            </if>
+                NOW(),
+                #{userId, jdbcType=INTEGER},
+        </trim>
+    </insert>
+
+    <insert id="batchSaveApih5Content" parameterType="java.util.List">
+        INSERT INTO apih5_content
+        VALUES
+        <foreach collection="list" item="item" index="index" separator="," >
+            (NULL, #{item.id}, #{item.url}, #{item.title}, #{item.time}, #{item.contentBody}, NOW())
+        </foreach>
+    </insert>
+
+    <select id="fetchAllArticleUrls" resultType="java.lang.String">
+        SELECT
+        url            AS url
+        FROM apih5_content
+    </select>
+
+    <select id="isExistUrl" resultType="java.lang.Integer" parameterType="com.apih5.mybatis.pojo.Apih5Content">
+        SELECT
+        COUNT(url) AS cnt
+        FROM apih5_content
+        WHERE url = #{url, jdbcType=VARCHAR}
+        AND user_id = #{userId, jdbcType=INTEGER}
+    </select>
+
+    <select id="checkTemplateConfigExists" resultType="int" parameterType="com.apih5.mybatis.pojo.TemplateConfig">
+        SELECT
+        COUNT(1) FROM template_config
+        <trim prefix="where" suffixOverrides="AND">
+            <if test='id != null and id != "" '>
+                id = #{id, jdbcType=VARCHAR} AND
+            </if>
+        </trim>
+    </select>
+
+    <select id="getApih5ContentSize" resultType="int" parameterType="java.lang.Integer">
+        SELECT COUNT(1) FROM Apih5_content WHERE user_id = #{userId}
+    </select>
+
+    <delete id="removeTemplateConfigByUserId" parameterType="java.lang.Integer">
+        DELETE FROM template_config WHERE user_id = #{userId, jdbcType=INTEGER}
+    </delete>
+
+    <delete id="removeApih5ContentByUserId" parameterType="java.lang.Integer">
+        DELETE FROM Apih5_content WHERE user_id = #{userId, jdbcType=INTEGER}
+    </delete>
+
+    <select id="fetchAllUserIdFromTemplateConfig" resultType="java.lang.Integer">
+        SELECT DISTINCT user_id FROM template_config
+    </select>
+
+</mapper>

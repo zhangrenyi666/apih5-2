@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.SysMenuMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.SysMenu" >
+    <id column="menu_id" property="menuId" jdbcType="CHAR" />
+    <result column="menu_name" property="menuName" jdbcType="VARCHAR" />
+    <result column="menu_url" property="menuUrl" jdbcType="VARCHAR" />
+    <result column="menu_parent_id" property="menuParentId" jdbcType="CHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="menu_path" property="menuPath" jdbcType="VARCHAR" />
+    <result column="menu_path_name" property="menuPathName" jdbcType="VARCHAR" />
+    <result column="menu_flag" property="menuFlag" jdbcType="CHAR" />
+    <result column="p_g_id" property="pGId" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    menu_id, menu_name, menu_url, menu_parent_id, sort, 
+    menu_path, menu_path_name, menu_flag, p_g_id, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_menu
+    where del_flag = '0' and menu_id = #{menuId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_menu
+    where menu_id = #{menuId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.SysMenu" >
+    insert into sys_menu (menu_id, menu_name, menu_url, 
+      menu_parent_id, sort, menu_path, 
+      menu_path_name, menu_flag, p_g_id, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{menuId,jdbcType=CHAR}, #{menuName,jdbcType=VARCHAR}, #{menuUrl,jdbcType=VARCHAR}, 
+      #{menuParentId,jdbcType=CHAR}, #{sort,jdbcType=INTEGER}, #{menuPath,jdbcType=VARCHAR}, 
+      #{menuPathName,jdbcType=VARCHAR}, #{menuFlag,jdbcType=CHAR}, #{pGId,jdbcType=INTEGER}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.SysMenu" >
+    insert into sys_menu
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="menuId != null" >
+        menu_id,
+      </if>
+      <if test="menuName != null" >
+        menu_name,
+      </if>
+      <if test="menuUrl != null" >
+        menu_url,
+      </if>
+      <if test="menuParentId != null" >
+        menu_parent_id,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="menuPath != null" >
+        menu_path,
+      </if>
+      <if test="menuPathName != null" >
+        menu_path_name,
+      </if>
+      <if test="menuFlag != null" >
+        menu_flag,
+      </if>
+      <if test="pGId != null" >
+        p_g_id,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="menuId != null" >
+        #{menuId,jdbcType=CHAR},
+      </if>
+      <if test="menuName != null" >
+        #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuUrl != null" >
+        #{menuUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="menuParentId != null" >
+        #{menuParentId,jdbcType=CHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="menuPath != null" >
+        #{menuPath,jdbcType=VARCHAR},
+      </if>
+      <if test="menuPathName != null" >
+        #{menuPathName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuFlag != null" >
+        #{menuFlag,jdbcType=CHAR},
+      </if>
+      <if test="pGId != null" >
+        #{pGId,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.SysMenu" >
+    update sys_menu
+    <set >
+      <if test="menuName != null" >
+        menu_name = #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuUrl != null" >
+        menu_url = #{menuUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="menuParentId != null" >
+        menu_parent_id = #{menuParentId,jdbcType=CHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="menuPath != null" >
+        menu_path = #{menuPath,jdbcType=VARCHAR},
+      </if>
+      <if test="menuPathName != null" >
+        menu_path_name = #{menuPathName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuFlag != null" >
+        menu_flag = #{menuFlag,jdbcType=CHAR},
+      </if>
+      <if test="pGId != null" >
+        p_g_id = #{pGId,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where menu_id = #{menuId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.SysMenu" >
+    update sys_menu
+    set       menu_name = #{menuName,jdbcType=VARCHAR},
+      menu_url = #{menuUrl,jdbcType=VARCHAR},
+      menu_parent_id = #{menuParentId,jdbcType=CHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      menu_path = #{menuPath,jdbcType=VARCHAR},
+      menu_path_name = #{menuPathName,jdbcType=VARCHAR},
+      menu_flag = #{menuFlag,jdbcType=CHAR},
+      p_g_id = #{pGId,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where menu_id = #{menuId,jdbcType=CHAR}
+  </update>
+  <select id="selectBySysMenuList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysMenu" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_menu
+    where del_flag = '0'
+    <if test="menuName != null and menuName != ''" >
+     and menu_name = #{menuName,jdbcType=VARCHAR}
+    </if>
+    <if test="menuUrl != null and menuUrl != ''" >
+     and menu_url = #{menuUrl,jdbcType=VARCHAR}
+    </if>
+    <if test="menuParentId != null and menuParentId != ''" >
+     and menu_parent_id = #{menuParentId,jdbcType=CHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="menuPath != null and menuPath != ''" >
+     and menu_path = #{menuPath,jdbcType=VARCHAR}
+    </if>
+    <if test="menuPathName != null and menuPathName != ''" >
+     and menu_path_name = #{menuPathName,jdbcType=VARCHAR}
+    </if>
+    <if test="menuFlag != null and menuFlag != ''" >
+     and menu_flag = #{menuFlag,jdbcType=CHAR}
+    </if>
+    <if test="pGId != null and pGId != ''" >
+     and p_g_id = #{pGId,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY sort  
+  </select>
+  <delete id="batchDeleteUpdateSysMenu" parameterType="com.apih5.mybatis.pojo.SysMenu" >
+    <![CDATA[ 
+        update sys_menu
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and menu_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.menuId} 
+     </foreach>
+  </delete>
+  <!-- 扩展 -->
+  <update id="batchUpdateSysMenu" parameterType="java.util.List">
+          <foreach collection="list" item="item" index="index" open="" close="" separator=";" >  
+          update sys_menu
+                <set>
+                 menu_name = #{item.menuName,jdbcType=VARCHAR},
+                 menu_url = #{item.menuUrl,jdbcType=VARCHAR},
+                 menu_parent_id = #{item.menuParentId,jdbcType=CHAR},
+                 sort = #{item.sort,jdbcType=INTEGER},
+                 menu_path = #{item.menuPath,jdbcType=VARCHAR},
+                 menu_path_name = #{item.menuPathName,jdbcType=VARCHAR},
+                 del_flag = #{item.delFlag,jdbcType=CHAR},
+                 create_time = #{item.createTime,jdbcType=TIMESTAMP},
+                 create_user = #{item.createUser,jdbcType=CHAR},
+                 create_user_name = #{item.createUserName,jdbcType=VARCHAR},
+                 modify_time = #{item.modifyTime,jdbcType=TIMESTAMP},
+                 modify_user = #{item.modifyUser,jdbcType=CHAR},
+                 modify_user_name = #{item.modifyUserName,jdbcType=VARCHAR}
+                </set>  
+                 where menu_id = #{item.menuId,jdbcType=CHAR}
+         </foreach>  
+    </update>
+    
+    <update id="batchUpdateMenuPathAndMenuPathName" parameterType="com.apih5.mybatis.pojo.SysMenu" >
+      update sys_menu
+       set  
+         menu_path = REPLACE(menu_path, #{oldMenuPath,jdbcType=VARCHAR}, #{menuPath,jdbcType=VARCHAR}),
+         menu_path_name = REPLACE(menu_path_name, #{oldMenuPathName,jdbcType=VARCHAR}, #{menuPathName,jdbcType=VARCHAR}) 
+       where del_flag = '0'
+       and menu_path like CONCAT(#{oldMenuPath,jdbcType=VARCHAR}, '%') 
+    </update>
+    
+    <select id="countSysMenuListByCondition" resultType="int" parameterType="com.apih5.mybatis.pojo.SysMenu" >
+    select 
+            count(*)
+    from sys_menu
+    where del_flag = '0'
+    <if test="menuName != null and menuName != ''" >
+     and menu_name = #{menuName,jdbcType=VARCHAR}
+    </if>
+    <if test="menuUrl != null and menuUrl != ''" >
+     and menu_url = #{menuUrl,jdbcType=VARCHAR}
+    </if>
+    <if test="menuParentId != null and menuParentId != ''" >
+     and menu_parent_id = #{menuParentId,jdbcType=CHAR}
+    </if>
+    <if test="menuPath != null and menuPath != ''" >
+     and menu_path like CONCAT('%', #{menuPath,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="menuPathName != null and menuPathName != ''" >
+     and menu_path_name like CONCAT('%',  #{menuPathName,jdbcType=VARCHAR}, '%')
+    </if>
+  </select>
+  <select id="selectMaxSortBySysMenu" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysMenu" >
+    SELECT MAX(sort) as sort FROM sys_menu
+     where del_flag='0'
+     and menu_parent_id = #{menuParentId,jdbcType=CHAR}
+     and sort <![CDATA[< ]]> 99
+  </select>
+</mapper>

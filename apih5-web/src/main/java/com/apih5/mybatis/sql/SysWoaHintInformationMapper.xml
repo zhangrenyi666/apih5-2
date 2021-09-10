@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.SysWoaHintInformationMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.SysWoaHintInformation" >
+    <id column="hint_information_id" property="hintInformationId" jdbcType="CHAR" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="msg" property="msg" jdbcType="VARCHAR" />
+    <result column="msg_link" property="msgLink" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="hint_sort" property="hintSort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    hint_information_id, icon, msg, msg_link, start_time, 
+    end_time, hint_sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_woa_hint_information
+    where hint_information_id = #{hintInformationId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_woa_hint_information
+    where hint_information_id = #{hintInformationId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.SysWoaHintInformation" >
+    insert into sys_woa_hint_information (hint_information_id, icon, msg, 
+      msg_link, start_time, end_time, 
+      hint_sort, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{hintInformationId,jdbcType=CHAR}, #{icon,jdbcType=VARCHAR}, #{msg,jdbcType=VARCHAR}, 
+      #{msgLink,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{hintSort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.SysWoaHintInformation" >
+    insert into sys_woa_hint_information
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hintInformationId != null" >
+        hint_information_id,
+      </if>
+      <if test="icon != null" >
+        icon,
+      </if>
+      <if test="msg != null" >
+        msg,
+      </if>
+      <if test="msgLink != null" >
+        msg_link,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="hintSort != null" >
+        hint_sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hintInformationId != null" >
+        #{hintInformationId,jdbcType=CHAR},
+      </if>
+      <if test="icon != null" >
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null" >
+        #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="msgLink != null" >
+        #{msgLink,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hintSort != null" >
+        #{hintSort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.SysWoaHintInformation" >
+    update sys_woa_hint_information
+    <set >
+      <if test="icon != null" >
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null" >
+        msg = #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="msgLink != null" >
+        msg_link = #{msgLink,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hintSort != null" >
+        hint_sort = #{hintSort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where hint_information_id = #{hintInformationId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.SysWoaHintInformation" >
+    update sys_woa_hint_information
+    set       icon = #{icon,jdbcType=VARCHAR},
+      msg = #{msg,jdbcType=VARCHAR},
+      msg_link = #{msgLink,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      hint_sort = #{hintSort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where hint_information_id = #{hintInformationId,jdbcType=CHAR}
+  </update>
+  <select id="selectBySysWoaHintInformationList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysWoaHintInformation" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_woa_hint_information
+    where del_flag = '0'
+    <if test="icon != null and icon != ''" >
+     and icon = #{icon,jdbcType=VARCHAR}
+    </if>
+    <if test="msg != null and msg != ''" >
+     and msg = #{msg,jdbcType=VARCHAR}
+    </if>
+    <if test="msgLink != null and msgLink != ''" >
+     and msg_link = #{msgLink,jdbcType=VARCHAR}
+    </if>
+    <if test="startTime != null and startTime != ''" >
+     and start_time = #{startTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="endTime != null and endTime != ''" >
+     and end_time = #{endTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="hintSort != null and hintSort != ''" >
+     and hint_sort = #{hintSort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY hint_sort 
+  </select>
+  <delete id="batchDeleteUpdateSysWoaHintInformation" parameterType="com.apih5.mybatis.pojo.SysWoaHintInformation" >
+    <![CDATA[ 
+        update sys_woa_hint_information
+        set del_flag = '1'
+        where del_flag = '0' and hint_information_id in 
+     ]]> 
+     <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.hintInformationId} 
+     </foreach>
+  </delete>
+  <!-- 扩展 -->
+  <select id="selectBySysWoaHintInformationListByTime" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysWoaHintInformation" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_woa_hint_information
+    where del_flag = '0'
+    <if test="icon != null and icon != ''" >
+     and icon = #{icon,jdbcType=VARCHAR}
+    </if>
+    <if test="msg != null and msg != ''" >
+     and msg = #{msg,jdbcType=VARCHAR}
+    </if>
+    <if test="startTime != null" >
+     and start_time &lt;= #{startTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="endTime != null" >
+     and end_time &gt;= #{endTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY hint_sort 
+  </select>
+</mapper>

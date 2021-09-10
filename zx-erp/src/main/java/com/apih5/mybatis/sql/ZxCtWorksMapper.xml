@@ -1,0 +1,1175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCtWorksMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCtWorks" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="parentID" property="parentID" jdbcType="VARCHAR" />
+    <result column="treeNode" property="treeNode" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="workBookID" property="workBookID" jdbcType="VARCHAR" />
+    <result column="workType" property="workType" jdbcType="VARCHAR" />
+    <result column="workNo" property="workNo" jdbcType="VARCHAR" />
+    <result column="workName" property="workName" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="contractPrice" property="contractPrice" jdbcType="DECIMAL" />
+    <result column="contractQty" property="contractQty" jdbcType="DECIMAL" />
+    <result column="contractAmt" property="contractAmt" jdbcType="DECIMAL" />
+    <result column="quantity" property="quantity" jdbcType="DECIMAL" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="deleted" property="deleted" jdbcType="INTEGER" />
+    <result column="isLeaf" property="isLeaf" jdbcType="INTEGER" />
+    <result column="exsitStatus" property="exsitStatus" jdbcType="INTEGER" />
+    <result column="isAssignable" property="isAssignable" jdbcType="INTEGER" />
+    <result column="updateFlag" property="updateFlag" jdbcType="VARCHAR" />
+    <result column="combProp" property="combProp" jdbcType="VARCHAR" />
+    <result column="pp1" property="pp1" jdbcType="VARCHAR" />
+    <result column="pp2" property="pp2" jdbcType="VARCHAR" />
+    <result column="pp3" property="pp3" jdbcType="VARCHAR" />
+    <result column="pp4" property="pp4" jdbcType="VARCHAR" />
+    <result column="pp5" property="pp5" jdbcType="VARCHAR" />
+    <result column="pp6" property="pp6" jdbcType="VARCHAR" />
+    <result column="pp7" property="pp7" jdbcType="VARCHAR" />
+    <result column="pp8" property="pp8" jdbcType="VARCHAR" />
+    <result column="pp9" property="pp9" jdbcType="VARCHAR" />
+    <result column="pp10" property="pp10" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="checkQty" property="checkQty" jdbcType="DECIMAL" />
+    <result column="expectChangeQty" property="expectChangeQty" jdbcType="DECIMAL" />
+    <result column="expectChangePrice" property="expectChangePrice" jdbcType="DECIMAL" />
+    <result column="inputWorkType" property="inputWorkType" jdbcType="VARCHAR" />
+    <result column="isReCountAmt" property="isReCountAmt" jdbcType="VARCHAR" />
+    <result column="qty" property="qty" jdbcType="DECIMAL" />
+    <result column="isGroup" property="isGroup" jdbcType="VARCHAR" />
+    <result column="contractPriceNoTax" property="contractPriceNoTax" jdbcType="DECIMAL" />
+    <result column="priceNoTax" property="priceNoTax" jdbcType="DECIMAL" />
+    <result column="contractAmtNoTax" property="contractAmtNoTax" jdbcType="DECIMAL" />
+    <result column="amtNoTax" property="amtNoTax" jdbcType="DECIMAL" />
+    <result column="taxRate" property="taxRate" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, parentID, treeNode, orgID, workBookID, 
+    workType, workNo, workName, unit, contractPrice, 
+    contractQty, contractAmt, quantity, price, deleted, 
+    isLeaf, exsitStatus, isAssignable, updateFlag, combProp, 
+    pp1, pp2, pp3, pp4, pp5, 
+    pp6, pp7, pp8, pp9, pp10, 
+    editTime, checkQty, expectChangeQty, expectChangePrice, inputWorkType, 
+    isReCountAmt, qty, isGroup, contractPriceNoTax, priceNoTax, 
+    contractAmtNoTax, amtNoTax, taxRate, remarks, sort, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_Works
+    where del_flag = '0' and id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_ct_Works
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+    insert into zx_ct_Works (
+    id, parentID, treeNode, orgID, workBookID, 
+    workType, workNo, workName, unit, contractPrice, 
+    contractQty, contractAmt, quantity, price, deleted, 
+    isLeaf, exsitStatus, isAssignable, updateFlag, combProp, 
+    pp1, pp2, pp3, pp4, pp5, 
+    pp6, pp7, pp8, pp9, pp10, 
+    editTime, checkQty, expectChangeQty, expectChangePrice, inputWorkType, 
+    isReCountAmt, qty, isGroup, contractPriceNoTax, priceNoTax, 
+    contractAmtNoTax, amtNoTax, taxRate, remarks, sort, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+      )
+    values (
+      #{id,jdbcType=CHAR}, #{parentID,jdbcType=VARCHAR}, #{treeNode,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, #{workBookID,jdbcType=VARCHAR}, 
+    #{workType,jdbcType=VARCHAR}, #{workNo,jdbcType=VARCHAR}, #{workName,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{contractPrice,jdbcType=DECIMAL}, 
+    #{contractQty,jdbcType=DECIMAL}, #{contractAmt,jdbcType=DECIMAL}, #{quantity,jdbcType=DECIMAL}, #{price,jdbcType=DECIMAL}, #{deleted,jdbcType=INTEGER}, 
+    #{isLeaf,jdbcType=INTEGER}, #{exsitStatus,jdbcType=INTEGER}, #{isAssignable,jdbcType=INTEGER}, #{updateFlag,jdbcType=VARCHAR}, #{combProp,jdbcType=VARCHAR}, 
+    #{pp1,jdbcType=VARCHAR}, #{pp2,jdbcType=VARCHAR}, #{pp3,jdbcType=VARCHAR}, #{pp4,jdbcType=VARCHAR}, #{pp5,jdbcType=VARCHAR}, 
+    #{pp6,jdbcType=VARCHAR}, #{pp7,jdbcType=VARCHAR}, #{pp8,jdbcType=VARCHAR}, #{pp9,jdbcType=VARCHAR}, #{pp10,jdbcType=VARCHAR}, 
+    #{editTime,jdbcType=TIMESTAMP}, #{checkQty,jdbcType=DECIMAL}, #{expectChangeQty,jdbcType=DECIMAL}, #{expectChangePrice,jdbcType=DECIMAL}, #{inputWorkType,jdbcType=VARCHAR}, 
+    #{isReCountAmt,jdbcType=VARCHAR}, #{qty,jdbcType=DECIMAL}, #{isGroup,jdbcType=VARCHAR}, #{contractPriceNoTax,jdbcType=DECIMAL}, #{priceNoTax,jdbcType=DECIMAL}, 
+    #{contractAmtNoTax,jdbcType=DECIMAL}, #{amtNoTax,jdbcType=DECIMAL}, #{taxRate,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+    #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+    #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+    insert into zx_ct_Works
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="parentID != null" >
+        parentID,
+      </if>
+      <if test="treeNode != null" >
+        treeNode,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="workBookID != null" >
+        workBookID,
+      </if>
+      <if test="workType != null" >
+        workType,
+      </if>
+      <if test="workNo != null" >
+        workNo,
+      </if>
+      <if test="workName != null" >
+        workName,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="contractPrice != null" >
+        contractPrice,
+      </if>
+      <if test="contractQty != null" >
+        contractQty,
+      </if>
+      <if test="contractAmt != null" >
+        contractAmt,
+      </if>
+      <if test="quantity != null" >
+        quantity,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="isLeaf != null" >
+        isLeaf,
+      </if>
+      <if test="exsitStatus != null" >
+        exsitStatus,
+      </if>
+      <if test="isAssignable != null" >
+        isAssignable,
+      </if>
+      <if test="updateFlag != null" >
+        updateFlag,
+      </if>
+      <if test="combProp != null" >
+        combProp,
+      </if>
+      <if test="pp1 != null" >
+        pp1,
+      </if>
+      <if test="pp2 != null" >
+        pp2,
+      </if>
+      <if test="pp3 != null" >
+        pp3,
+      </if>
+      <if test="pp4 != null" >
+        pp4,
+      </if>
+      <if test="pp5 != null" >
+        pp5,
+      </if>
+      <if test="pp6 != null" >
+        pp6,
+      </if>
+      <if test="pp7 != null" >
+        pp7,
+      </if>
+      <if test="pp8 != null" >
+        pp8,
+      </if>
+      <if test="pp9 != null" >
+        pp9,
+      </if>
+      <if test="pp10 != null" >
+        pp10,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="checkQty != null" >
+        checkQty,
+      </if>
+      <if test="expectChangeQty != null" >
+        expectChangeQty,
+      </if>
+      <if test="expectChangePrice != null" >
+        expectChangePrice,
+      </if>
+      <if test="inputWorkType != null" >
+        inputWorkType,
+      </if>
+      <if test="isReCountAmt != null" >
+        isReCountAmt,
+      </if>
+      <if test="qty != null" >
+        qty,
+      </if>
+      <if test="isGroup != null" >
+        isGroup,
+      </if>
+      <if test="contractPriceNoTax != null" >
+        contractPriceNoTax,
+      </if>
+      <if test="priceNoTax != null" >
+        priceNoTax,
+      </if>
+      <if test="contractAmtNoTax != null" >
+        contractAmtNoTax,
+      </if>
+      <if test="amtNoTax != null" >
+        amtNoTax,
+      </if>
+      <if test="taxRate != null" >
+        taxRate,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="parentID != null" >
+        #{parentID,jdbcType=VARCHAR},
+      </if>
+      <if test="treeNode != null" >
+        #{treeNode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="workBookID != null" >
+        #{workBookID,jdbcType=VARCHAR},
+      </if>
+      <if test="workType != null" >
+        #{workType,jdbcType=VARCHAR},
+      </if>
+      <if test="workNo != null" >
+        #{workNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workName != null" >
+        #{workName,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="contractPrice != null" >
+        #{contractPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="contractQty != null" >
+        #{contractQty,jdbcType=DECIMAL},
+      </if>
+      <if test="contractAmt != null" >
+        #{contractAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="quantity != null" >
+        #{quantity,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=INTEGER},
+      </if>
+      <if test="isLeaf != null" >
+        #{isLeaf,jdbcType=INTEGER},
+      </if>
+      <if test="exsitStatus != null" >
+        #{exsitStatus,jdbcType=INTEGER},
+      </if>
+      <if test="isAssignable != null" >
+        #{isAssignable,jdbcType=INTEGER},
+      </if>
+      <if test="updateFlag != null" >
+        #{updateFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="combProp != null" >
+        #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="pp1 != null" >
+        #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2 != null" >
+        #{pp2,jdbcType=VARCHAR},
+      </if>
+      <if test="pp3 != null" >
+        #{pp3,jdbcType=VARCHAR},
+      </if>
+      <if test="pp4 != null" >
+        #{pp4,jdbcType=VARCHAR},
+      </if>
+      <if test="pp5 != null" >
+        #{pp5,jdbcType=VARCHAR},
+      </if>
+      <if test="pp6 != null" >
+        #{pp6,jdbcType=VARCHAR},
+      </if>
+      <if test="pp7 != null" >
+        #{pp7,jdbcType=VARCHAR},
+      </if>
+      <if test="pp8 != null" >
+        #{pp8,jdbcType=VARCHAR},
+      </if>
+      <if test="pp9 != null" >
+        #{pp9,jdbcType=VARCHAR},
+      </if>
+      <if test="pp10 != null" >
+        #{pp10,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkQty != null" >
+        #{checkQty,jdbcType=DECIMAL},
+      </if>
+      <if test="expectChangeQty != null" >
+        #{expectChangeQty,jdbcType=DECIMAL},
+      </if>
+      <if test="expectChangePrice != null" >
+        #{expectChangePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="inputWorkType != null" >
+        #{inputWorkType,jdbcType=VARCHAR},
+      </if>
+      <if test="isReCountAmt != null" >
+        #{isReCountAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="qty != null" >
+        #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="isGroup != null" >
+        #{isGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="contractPriceNoTax != null" >
+        #{contractPriceNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="priceNoTax != null" >
+        #{priceNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="contractAmtNoTax != null" >
+        #{contractAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="amtNoTax != null" >
+        #{amtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRate != null" >
+        #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+    update zx_ct_Works
+    <set >
+      <if test="parentID != null" >
+        parentID = #{parentID,jdbcType=VARCHAR},
+      </if>
+      <if test="treeNode != null" >
+        treeNode = #{treeNode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="workBookID != null" >
+        workBookID = #{workBookID,jdbcType=VARCHAR},
+      </if>
+      <if test="workType != null" >
+        workType = #{workType,jdbcType=VARCHAR},
+      </if>
+      <if test="workNo != null" >
+        workNo = #{workNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workName != null" >
+        workName = #{workName,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="contractPrice != null" >
+        contractPrice = #{contractPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="contractQty != null" >
+        contractQty = #{contractQty,jdbcType=DECIMAL},
+      </if>
+      <if test="contractAmt != null" >
+        contractAmt = #{contractAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="quantity != null" >
+        quantity = #{quantity,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=INTEGER},
+      </if>
+      <if test="isLeaf != null" >
+        isLeaf = #{isLeaf,jdbcType=INTEGER},
+      </if>
+      <if test="exsitStatus != null" >
+        exsitStatus = #{exsitStatus,jdbcType=INTEGER},
+      </if>
+      <if test="isAssignable != null" >
+        isAssignable = #{isAssignable,jdbcType=INTEGER},
+      </if>
+      <if test="updateFlag != null" >
+        updateFlag = #{updateFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="combProp != null" >
+        combProp = #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="pp1 != null" >
+        pp1 = #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2 != null" >
+        pp2 = #{pp2,jdbcType=VARCHAR},
+      </if>
+      <if test="pp3 != null" >
+        pp3 = #{pp3,jdbcType=VARCHAR},
+      </if>
+      <if test="pp4 != null" >
+        pp4 = #{pp4,jdbcType=VARCHAR},
+      </if>
+      <if test="pp5 != null" >
+        pp5 = #{pp5,jdbcType=VARCHAR},
+      </if>
+      <if test="pp6 != null" >
+        pp6 = #{pp6,jdbcType=VARCHAR},
+      </if>
+      <if test="pp7 != null" >
+        pp7 = #{pp7,jdbcType=VARCHAR},
+      </if>
+      <if test="pp8 != null" >
+        pp8 = #{pp8,jdbcType=VARCHAR},
+      </if>
+      <if test="pp9 != null" >
+        pp9 = #{pp9,jdbcType=VARCHAR},
+      </if>
+      <if test="pp10 != null" >
+        pp10 = #{pp10,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkQty != null" >
+        checkQty = #{checkQty,jdbcType=DECIMAL},
+      </if>
+      <if test="expectChangeQty != null" >
+        expectChangeQty = #{expectChangeQty,jdbcType=DECIMAL},
+      </if>
+      <if test="expectChangePrice != null" >
+        expectChangePrice = #{expectChangePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="inputWorkType != null" >
+        inputWorkType = #{inputWorkType,jdbcType=VARCHAR},
+      </if>
+      <if test="isReCountAmt != null" >
+        isReCountAmt = #{isReCountAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="qty != null" >
+        qty = #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="isGroup != null" >
+        isGroup = #{isGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="contractPriceNoTax != null" >
+        contractPriceNoTax = #{contractPriceNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="priceNoTax != null" >
+        priceNoTax = #{priceNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="contractAmtNoTax != null" >
+        contractAmtNoTax = #{contractAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="amtNoTax != null" >
+        amtNoTax = #{amtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRate != null" >
+        taxRate = #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+    update zx_ct_Works set 
+      parentID = #{parentID,jdbcType=VARCHAR},
+      treeNode = #{treeNode,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      workBookID = #{workBookID,jdbcType=VARCHAR},
+      workType = #{workType,jdbcType=VARCHAR},
+      workNo = #{workNo,jdbcType=VARCHAR},
+      workName = #{workName,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      contractPrice = #{contractPrice,jdbcType=DECIMAL},
+      contractQty = #{contractQty,jdbcType=DECIMAL},
+      contractAmt = #{contractAmt,jdbcType=DECIMAL},
+      quantity = #{quantity,jdbcType=DECIMAL},
+      price = #{price,jdbcType=DECIMAL},
+      deleted = #{deleted,jdbcType=INTEGER},
+      isLeaf = #{isLeaf,jdbcType=INTEGER},
+      exsitStatus = #{exsitStatus,jdbcType=INTEGER},
+      isAssignable = #{isAssignable,jdbcType=INTEGER},
+      updateFlag = #{updateFlag,jdbcType=VARCHAR},
+      combProp = #{combProp,jdbcType=VARCHAR},
+      pp1 = #{pp1,jdbcType=VARCHAR},
+      pp2 = #{pp2,jdbcType=VARCHAR},
+      pp3 = #{pp3,jdbcType=VARCHAR},
+      pp4 = #{pp4,jdbcType=VARCHAR},
+      pp5 = #{pp5,jdbcType=VARCHAR},
+      pp6 = #{pp6,jdbcType=VARCHAR},
+      pp7 = #{pp7,jdbcType=VARCHAR},
+      pp8 = #{pp8,jdbcType=VARCHAR},
+      pp9 = #{pp9,jdbcType=VARCHAR},
+      pp10 = #{pp10,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      checkQty = #{checkQty,jdbcType=DECIMAL},
+      expectChangeQty = #{expectChangeQty,jdbcType=DECIMAL},
+      expectChangePrice = #{expectChangePrice,jdbcType=DECIMAL},
+      inputWorkType = #{inputWorkType,jdbcType=VARCHAR},
+      isReCountAmt = #{isReCountAmt,jdbcType=VARCHAR},
+      qty = #{qty,jdbcType=DECIMAL},
+      isGroup = #{isGroup,jdbcType=VARCHAR},
+      contractPriceNoTax = #{contractPriceNoTax,jdbcType=DECIMAL},
+      priceNoTax = #{priceNoTax,jdbcType=DECIMAL},
+      contractAmtNoTax = #{contractAmtNoTax,jdbcType=DECIMAL},
+      amtNoTax = #{amtNoTax,jdbcType=DECIMAL},
+      taxRate = #{taxRate,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxCtWorksList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_Works
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=CHAR}
+    </if>
+    <if test="parentID != null and parentID != ''" >
+     and parentID = #{parentID,jdbcType=VARCHAR}
+    </if>
+    <if test="treeNode != null and treeNode != ''" >
+     and treeNode = #{treeNode,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="workBookID != null and workBookID != ''" >
+     and workBookID = #{workBookID,jdbcType=VARCHAR}
+    </if>
+    <if test="workType != null and workType != ''" >
+     and workType = #{workType,jdbcType=VARCHAR}
+    </if>
+    <if test="workNo != null and workNo != ''" >
+     and workNo = #{workNo,jdbcType=VARCHAR}
+    </if>
+    <if test="workName != null and workName != ''" >
+     and workName = #{workName,jdbcType=VARCHAR}
+    </if>
+    <if test="unit != null and unit != ''" >
+     and unit = #{unit,jdbcType=VARCHAR}
+    </if>
+    <if test="contractPrice != null and contractPrice != ''" >
+     and contractPrice = #{contractPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="contractQty != null and contractQty != ''" >
+     and contractQty = #{contractQty,jdbcType=DECIMAL}
+    </if>
+    <if test="contractAmt != null and contractAmt != ''" >
+     and contractAmt = #{contractAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="quantity != null and quantity != ''" >
+     and quantity = #{quantity,jdbcType=DECIMAL}
+    </if>
+    <if test="price != null and price != ''" >
+     and price = #{price,jdbcType=DECIMAL}
+    </if>
+    <if test="deleted != null and deleted != ''" >
+     and deleted = #{deleted,jdbcType=INTEGER}
+    </if>
+    <if test="isLeaf != null and isLeaf != ''" >
+     and isLeaf = #{isLeaf,jdbcType=INTEGER}
+    </if>
+    <if test="exsitStatus != null and exsitStatus != ''" >
+     and exsitStatus = #{exsitStatus,jdbcType=INTEGER}
+    </if>
+    <if test="isAssignable != null and isAssignable != ''" >
+     and isAssignable = #{isAssignable,jdbcType=INTEGER}
+    </if>
+    <if test="updateFlag != null and updateFlag != ''" >
+     and updateFlag = #{updateFlag,jdbcType=VARCHAR}
+    </if>
+    <if test="combProp != null and combProp != ''" >
+     and combProp = #{combProp,jdbcType=VARCHAR}
+    </if>
+    <if test="pp1 != null and pp1 != ''" >
+     and pp1 = #{pp1,jdbcType=VARCHAR}
+    </if>
+    <if test="pp2 != null and pp2 != ''" >
+     and pp2 = #{pp2,jdbcType=VARCHAR}
+    </if>
+    <if test="pp3 != null and pp3 != ''" >
+     and pp3 = #{pp3,jdbcType=VARCHAR}
+    </if>
+    <if test="pp4 != null and pp4 != ''" >
+     and pp4 = #{pp4,jdbcType=VARCHAR}
+    </if>
+    <if test="pp5 != null and pp5 != ''" >
+     and pp5 = #{pp5,jdbcType=VARCHAR}
+    </if>
+    <if test="pp6 != null and pp6 != ''" >
+     and pp6 = #{pp6,jdbcType=VARCHAR}
+    </if>
+    <if test="pp7 != null and pp7 != ''" >
+     and pp7 = #{pp7,jdbcType=VARCHAR}
+    </if>
+    <if test="pp8 != null and pp8 != ''" >
+     and pp8 = #{pp8,jdbcType=VARCHAR}
+    </if>
+    <if test="pp9 != null and pp9 != ''" >
+     and pp9 = #{pp9,jdbcType=VARCHAR}
+    </if>
+    <if test="pp10 != null and pp10 != ''" >
+     and pp10 = #{pp10,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="checkQty != null and checkQty != ''" >
+     and checkQty = #{checkQty,jdbcType=DECIMAL}
+    </if>
+    <if test="expectChangeQty != null and expectChangeQty != ''" >
+     and expectChangeQty = #{expectChangeQty,jdbcType=DECIMAL}
+    </if>
+    <if test="expectChangePrice != null and expectChangePrice != ''" >
+     and expectChangePrice = #{expectChangePrice,jdbcType=DECIMAL}
+    </if>
+    <if test="inputWorkType != null and inputWorkType != ''" >
+     and inputWorkType = #{inputWorkType,jdbcType=VARCHAR}
+    </if>
+    <if test="isReCountAmt != null and isReCountAmt != ''" >
+     and isReCountAmt = #{isReCountAmt,jdbcType=VARCHAR}
+    </if>
+    <if test="qty != null and qty != ''" >
+     and qty = #{qty,jdbcType=DECIMAL}
+    </if>
+    <if test="isGroup != null and isGroup != ''" >
+     and isGroup = #{isGroup,jdbcType=VARCHAR}
+    </if>
+    <if test="contractPriceNoTax != null and contractPriceNoTax != ''" >
+     and contractPriceNoTax = #{contractPriceNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="priceNoTax != null and priceNoTax != ''" >
+     and priceNoTax = #{priceNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="contractAmtNoTax != null and contractAmtNoTax != ''" >
+     and contractAmtNoTax = #{contractAmtNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="amtNoTax != null and amtNoTax != ''" >
+     and amtNoTax = #{amtNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="taxRate != null and taxRate != ''" >
+     and taxRate = #{taxRate,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY treeNode
+  </select>
+  <delete id="batchDeleteUpdateZxCtWorks" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+    <![CDATA[ 
+        update zx_ct_Works
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+  
+	<select id="findWorksByParentID" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+    	SELECT
+			iw.id AS workID,
+			( SELECT count( * ) FROM zx_ct_works iw2 WHERE iw2.del_flag = '0' AND iw2.parentID = iw.id AND iw2.workType = '10' ) AS isLeaf,
+			CASE iw.workType WHEN '10' THEN '清单' END AS workType,
+			iw.workNo,
+			iw.workName,
+			iw.unit,
+			IF(ISNULL(SUM( IF(ISNULL( iwtm.linkQuantity ), 0, ISNULL( iwtm.linkQuantity )) )),0,ISNULL(SUM( IF(ISNULL( iwtm.linkQuantity ), 0, ISNULL( iwtm.linkQuantity )) ))) AS linkQuantity,
+			iw.contractPrice,
+			iw.contractQty,
+			IF(ISNULL( iw.contractAmt) ,0,iw.contractAmt) AS contractAmt,
+			iw.quantity,
+			iw.price,
+			IF(ISNULL(iw.quantity * iw.price),0,iw.quantity * iw.price) AS amt,
+			iw.checkQty,
+			IF(ISNULL( ( iw.checkQty * iw.contractPrice )),0,iw.checkQty * iw.contractPrice) AS checkAmt 
+		FROM
+			zx_ct_works iw
+			LEFT JOIN zx_ct_worktomu iwtm ON iw.ID = iwtm.workID 
+		WHERE
+			iw.del_flag = '0' 
+			AND iw.parentID = #{parentID,jdbcType=VARCHAR} 
+			AND iw.orgID = #{orgID,jdbcType=VARCHAR} 
+			AND iw.workType = '10' 
+			AND iw.workBookId IN ( SELECT id FROM zx_ct_workbook WHERE del_flag = '0' AND orgId = #{orgID,jdbcType=VARCHAR} ) 
+		GROUP BY
+			iw.ID,
+			iw.workType,
+			iw.workNo,
+			iw.workName,
+			iw.unit,
+			iw.price,
+			iw.treeNode,
+			iw.isLeaf,
+			iw.contractPrice,
+			iw.contractQty,
+			iw.contractAmt,
+			iw.quantity,
+			iw.price,
+			iw.checkQty 
+		ORDER BY
+			iw.treeNode
+	</select>
+  
+	<select id="getEqWorksBalance" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+    	SELECT
+			ibi.workID,
+			sum( ibi.balQty + ibi.balAltQty ) AS thisTotalQty,
+			sum( ibi.balAmt ) AS thisTotalAmt 
+		FROM
+			zx_ct_balanceitem ibi 
+		WHERE ibi.del_flag = '0' 
+		AND ibi.balID IN ( 
+				SELECT ib.id FROM zx_ct_balance ib 
+				WHERE ib.del_flag = '0' 
+				AND ib.orgID = #{orgID,jdbcType=VARCHAR}
+				AND ib.period &lt;= #{period,jdbcType=VARCHAR}
+			) 
+		GROUP BY
+			ibi.workID
+	</select>
+  
+	<select id="getLastWorksBalance" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+    	SELECT
+			ibi.workID,
+			sum( ibi.balQty + ibi.balAltQty ) AS lastTotalQty,
+			sum( ibi.balAmt ) AS lastTotalAmt 
+		FROM
+			zx_ct_balanceitem ibi 
+		WHERE ibi.del_flag = '0' 
+		AND	ibi.balID IN ( SELECT ib.id FROM zx_ct_balance ib WHERE ib.del_flag = '0' AND ib.orgID = #{orgID,jdbcType=VARCHAR} AND ib.period &lt; #{period,jdbcType=VARCHAR} ) 
+		GROUP BY
+			ibi.workID
+	</select>
+  
+	<select id="findSonWorksByParentIDs" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+		${sql}
+	</select>
+  
+	<select id="getZxCtWorksTreeList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+    	SELECT
+			(
+				SELECT SUM(iw2.contractPrice * iw2.contractQty)
+				FROM zx_ct_works AS iw2
+				WHERE iw2.del_flag = '0'
+				AND iw2.orgID = #{orgID,jdbcType=VARCHAR}
+				AND iw2.treeNode LIKE CONCAT('', iw.treeNode, '%')
+				AND iw2.isLeaf = '1'
+			) AS contractAmt,
+			(
+				SELECT SUM(iw2.contractPrice * iw2.checkQty)
+				FROM zx_ct_works AS iw2
+				WHERE iw2.del_flag = '0'
+				AND iw2.orgID = #{orgID,jdbcType=VARCHAR}
+				AND iw2.treeNode LIKE CONCAT('', iw.treeNode, '%')
+				AND iw2.isLeaf = '1'
+			) AS checkAmt,
+			(
+				SELECT SUM(iw2.price * iw2.quantity)
+				FROM zx_ct_works AS iw2
+				WHERE iw2.del_flag = '0'
+				AND iw2.orgID = #{orgID,jdbcType=VARCHAR}
+				AND iw2.treeNode LIKE CONCAT('', iw.treeNode, '%')
+				AND iw2.isLeaf = '1'
+			) AS changeAmt,
+			iw.id, iw.parentID, iw.treeNode, iw.orgID, iw.workBookID, 
+			iw.workType, iw.workNo, iw.workName, iw.unit, iw.contractPrice, 
+			iw.contractQty, iw.quantity, iw.price, iw.deleted, 
+			iw.isLeaf, iw.exsitStatus, iw.isAssignable, iw.updateFlag, iw.combProp, 
+			iw.pp1, iw.pp2, iw.pp3, iw.pp4, iw.pp5, 
+			iw.pp6, iw.pp7, iw.pp8, iw.pp9, iw.pp10, 
+			iw.editTime, iw.checkQty, iw.expectChangeQty, iw.expectChangePrice, iw.inputWorkType, 
+			iw.isReCountAmt, iw.qty, iw.isGroup, iw.contractPriceNoTax, iw.priceNoTax, 
+			iw.contractAmtNoTax, iw.amtNoTax, iw.taxRate, iw.remarks, iw.sort, 
+			iw.del_flag, iw.create_time, iw.create_user, iw.create_user_name, iw.modify_time, 
+			iw.modify_user, iw.modify_user_name
+		FROM zx_ct_works AS iw
+		WHERE iw.del_flag = '0'
+		AND iw.orgID = #{orgID,jdbcType=VARCHAR}
+		<if test="parentID != null and parentID != ''" >
+	    	and iw.parentID = #{parentID,jdbcType=VARCHAR}
+	    </if>
+	    <if test="workBookID != null and workBookID != ''" >
+	    	and iw.workBookID = #{workBookID,jdbcType=VARCHAR}
+	    </if>
+		ORDER BY iw.treeNode
+	</select>
+  
+	<select id="getZxCtWorksBalanceList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+    	SELECT
+			t1.*,
+			t2.balQty,
+			t2.balAltQty,
+			t2.changeAltAmt,
+			t2.id AS balItemId,
+			t2.balID,
+			(
+				SELECT case when sum(round(BI.balQty + BI.balAltQty,2)) is null then 0 else sum(round(BI.balQty + BI.balAltQty,2)) end 
+				FROM zx_ct_Balance B 
+				INNER JOIN zx_ct_BalanceItem BI on BI.balID = B.ID 
+				WHERE B.period &lt; (SELECT B2.period FROM zx_ct_Balance B2 where B2.ID = balID) 
+				and B.orgID = #{orgID,jdbcType=VARCHAR} 
+				AND BI.workID = t1.id 
+			) AS lastTotalQty,
+			(
+				SELECT case when sum(round(BI.balAmt,2)) is null then 0 else sum(round(BI.balAmt,2)) end  
+				FROM zx_ct_Balance B  
+				INNER JOIN zx_ct_BalanceItem BI on BI.balID = B.ID 
+				WHERE B.period &lt; (SELECT B2.period FROM zx_ct_Balance B2 where B2.ID = balID) 
+				and B.orgID = #{orgID,jdbcType=VARCHAR} 
+				AND BI.workID = t1.id 
+			) AS lastTotalAmt,
+			(
+				SELECT case when sum(round(BI.balQty + BI.balAltQty,2)) is null then 0 else sum(round(BI.balQty + BI.balAltQty,2)) end 
+				FROM zx_ct_Balance B 
+				INNER JOIN zx_ct_BalanceItem BI on BI.balID = B.ID 
+				WHERE B.period &lt;= (SELECT B2.period FROM zx_ct_Balance B2 where B2.ID = balID) 
+				and B.orgID = #{orgID,jdbcType=VARCHAR} 
+				AND BI.workID = t1.id 
+			) AS thisTotalQty,
+			(
+				SELECT case when sum(round(BI.balAmt,2)) is null then 0 else sum(round(BI.balAmt,2)) end 
+				FROM zx_ct_Balance B  
+				INNER JOIN zx_ct_BalanceItem BI on BI.balID = B.ID 
+				WHERE B.period &lt;= (SELECT B2.period FROM zx_ct_Balance B2 where B2.ID = balID) 
+				and B.orgID = #{orgID,jdbcType=VARCHAR} 
+				AND BI.workID = t1.id 
+			) AS thisTotalAmt
+		FROM
+			zx_ct_works AS t1 LEFT JOIN zx_ct_balanceitem AS t2
+			ON t1.id = t2.workID
+			AND t2.del_flag = '0'
+			AND t2.balID = #{balID,jdbcType=VARCHAR}
+		WHERE
+			t1.del_flag = '0' 
+		AND t1.orgID = #{orgID,jdbcType=VARCHAR} 
+		<if test="parentID != null and parentID != ''" >
+			and t1.parentID = #{parentID,jdbcType=VARCHAR}
+		</if>
+		<if test="workBookID != null and workBookID != ''" >
+			and t1.workBookID = #{workBookID,jdbcType=VARCHAR}
+		</if>
+		ORDER BY
+			t1.treeNode
+	</select>
+  
+	<select id="getZxCtWorksBalanceEditList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+    	SELECT
+			t1.*,
+			t2.balQty,
+			t2.balAltQty,
+			t2.changeAltAmt,
+			t2.id AS balItemId,
+			t2.balID,
+			(
+				SELECT case when sum(round(BI.balQty + BI.balAltQty,2)) is null then 0 else sum(round(BI.balQty + BI.balAltQty,2)) end 
+				FROM zx_ct_Balance B 
+				INNER JOIN zx_ct_BalanceItem BI on BI.balID = B.ID 
+				WHERE B.period &lt; (SELECT B2.period FROM zx_ct_Balance B2 where B2.ID = balID) 
+				and B.orgID = #{orgID,jdbcType=VARCHAR} 
+				AND BI.workID = t1.id 
+			) AS lastTotalQty,
+			(
+				SELECT case when sum(round(BI.balAmt,2)) is null then 0 else sum(round(BI.balAmt,2)) end  
+				FROM zx_ct_Balance B  
+				INNER JOIN zx_ct_BalanceItem BI on BI.balID = B.ID 
+				WHERE B.period &lt; (SELECT B2.period FROM zx_ct_Balance B2 where B2.ID = balID) 
+				and B.orgID = #{orgID,jdbcType=VARCHAR} 
+				AND BI.workID = t1.id 
+			) AS lastTotalAmt,
+			(
+				SELECT case when sum(round(BI.balQty + BI.balAltQty,2)) is null then 0 else sum(round(BI.balQty + BI.balAltQty,2)) end 
+				FROM zx_ct_Balance B 
+				INNER JOIN zx_ct_BalanceItem BI on BI.balID = B.ID 
+				WHERE B.period &lt;= (SELECT B2.period FROM zx_ct_Balance B2 where B2.ID = balID) 
+				and B.orgID = #{orgID,jdbcType=VARCHAR} 
+				AND BI.workID = t1.id 
+			) AS thisTotalQty,
+			(
+				SELECT case when sum(round(BI.balAmt,2)) is null then 0 else sum(round(BI.balAmt,2)) end 
+				FROM zx_ct_Balance B  
+				INNER JOIN zx_ct_BalanceItem BI on BI.balID = B.ID 
+				WHERE B.period &lt;= (SELECT B2.period FROM zx_ct_Balance B2 where B2.ID = balID) 
+				and B.orgID = #{orgID,jdbcType=VARCHAR} 
+				AND BI.workID = t1.id 
+			) AS thisTotalAmt
+		FROM
+			zx_ct_works AS t1 LEFT JOIN zx_ct_balanceitem AS t2
+			ON t1.id = t2.workID
+			AND t2.del_flag = '0'
+			AND t2.balID = #{balID,jdbcType=VARCHAR}
+		WHERE
+			t1.del_flag = '0' 
+		AND t1.orgID = #{orgID,jdbcType=VARCHAR} 
+		AND t1.isLeaf = '1'
+		AND t1.parentID != '-1'
+		<if test="parentID != null and parentID != ''" >
+			and t1.parentID = #{parentID,jdbcType=VARCHAR}
+		</if>
+		<if test="workBookID != null and workBookID != ''" >
+			and t1.workBookID = #{workBookID,jdbcType=VARCHAR}
+		</if>
+		ORDER BY
+			t1.treeNode
+	</select>
+  
+	<update id="updateIsLeafByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+	    update zx_ct_Works set 
+	    	isLeaf = #{isLeaf,jdbcType=INTEGER}
+	    where id = #{id,jdbcType=CHAR}
+	</update>
+  
+	<select id="getMaxTreeNode" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+		SELECT
+			MAX( treeNode ) AS treeNode 
+		FROM
+			zx_ct_Works 
+		WHERE del_flag = '0' 
+		AND LENGTH( treeNode ) = 8 
+		AND workBookID = #{workBookID,jdbcType=VARCHAR}
+	</select>
+	
+	<delete id="deleteByWorkBookID" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+        update zx_ct_Works
+        set del_flag = '1',
+            modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+            modify_user = #{modifyUser},
+            modify_user_name = #{modifyUserName}
+        where del_flag = '0' 
+		and workBookID = #{workBookID,jdbcType=VARCHAR}
+	</delete>
+	
+	<delete id="updateIsLeaf" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+		UPDATE zx_ct_works 
+		SET isLeaf = '0',
+		isAssignable = '0' 
+		WHERE
+			del_flag = '0' 
+			AND id IN ( SELECT * FROM ( SELECT DISTINCT parentID FROM zx_ct_works WHERE del_flag = '0' AND orgID = #{orgID,jdbcType=VARCHAR} ) AS taba )
+	</delete>
+	
+	<delete id="deleteAllByTreeNode" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+		delete 
+		FROM zx_ct_Works
+        where 1 = 1 
+        <if test="parentID != null and parentID != ''" >
+	    	and parentID = #{parentID,jdbcType=VARCHAR}
+	    </if>
+	    <if test="orgID != null and orgID != ''" >
+	    	and orgID = #{orgID,jdbcType=VARCHAR}
+	    </if>
+	</delete>
+	
+	<delete id="deleteAllChildren" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+		delete
+		FROM zx_ct_Works
+		where id in
+		<foreach collection="list" item="model" open="(" separator="," close=")">
+			#{model.id}
+		</foreach>
+	</delete>
+	
+	<update id="updateWorksByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+		update zx_ct_Works
+        set quantity = #{quantity,jdbcType=DECIMAL},
+        	price = #{price,jdbcType=DECIMAL},
+            modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+            modify_user = #{modifyUser},
+            modify_user_name = #{modifyUserName}
+            <if test="workNo != null and workNo != ''" >
+		    	, workNo = #{workNo,jdbcType=VARCHAR}
+		    </if>
+		    <if test="workName != null and workName != ''" >
+		    	, workName = #{workName,jdbcType=VARCHAR}
+		    </if>
+		    <if test="unit != null and unit != ''" >
+		     	, unit = #{unit,jdbcType=VARCHAR}
+		    </if>
+        where del_flag = '0' 
+		and id = #{id,jdbcType=CHAR}
+	</update>
+	
+	<delete id="delZxCtWorksByOrgIDWorkBookID" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+		update zx_ct_Works
+        set del_flag = '1',
+            modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+            modify_user = #{modifyUser},
+            modify_user_name = #{modifyUserName}
+        where del_flag = '0' 
+        <if test="workBookID != null and workBookID != ''" >
+	    	and workBookID = #{workBookID,jdbcType=VARCHAR}
+	    </if>
+	    <if test="orgID != null and orgID != ''" >
+	     	and orgID = #{orgID,jdbcType=VARCHAR}
+	    </if>
+	</delete>
+	
+	<select id="selectAlredyHaveWorks" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtWorks" >
+		SELECT <include refid="Base_Column_List"/>
+		FROM zx_ct_works
+		WHERE del_flag = '0'
+		AND workNo IN
+			<foreach collection="param2" item = "model" open="(" separator="," close=")">
+				#{model.workNo} 
+     		</foreach>
+		AND id NOT IN
+			<foreach collection="param2" item = "model" open="(" separator="," close=")">
+				#{model.id} 
+     		</foreach>
+     	<if test="param1.parentID != null and param1.parentID != ''" >
+	    	AND orgID = (
+				SELECT orgID FROM zx_ct_works WHERE del_flag = '0' 
+				AND id = #{param1.parentID}
+			)
+	    </if>	
+   		<if test="param1.orgID != null and param1.orgID != ''" >
+	    	AND orgID = #{param1.orgID}
+	    </if>
+	</select>
+</mapper>

@@ -1,0 +1,285 @@
+@tableBorderColor: rgb(200, 200, 200);
+
+.superTable {
+    display: block;
+    // min-height: 100;
+    .searchFromContainer {
+        padding: 10px;
+        // background: #fbfbfb;
+        background: #f0f2f5;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+    .ctrlBtnCon {
+        padding: 10px 0px 10px 0px;
+    }
+    .searchCtrl {
+        padding-top: 10px;
+    }
+
+    .custom-filter-dropdown {
+        padding: 8px;
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    :global {
+        table {
+            background-color: #fff;
+        }
+        .ant-table {
+            max-width: 1920px;
+        }
+        .ant-table-bordered .ant-table-header > table,
+        .ant-table-bordered .ant-table-body > table,
+        .ant-table-bordered .ant-table-fixed-left table,
+        .ant-table-bordered .ant-table-fixed-right table {
+            border: 1px solid @tableBorderColor;
+            border-right: 0;
+            border-bottom: 0;
+        }
+
+        .ant-table-bordered .ant-table-thead > tr > th,
+        .ant-table-bordered .ant-table-tbody > tr > td {
+            border-right: 1px solid @tableBorderColor;
+            border-bottom: 1px solid @tableBorderColor;
+        }
+
+        .ant-table-placeholder {
+            background: transparent;
+        }
+        .w-qnn-table-editableCell {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .w-qnn-table-editableCell .ant-input {
+            padding: 4px 3px;
+        }
+        .w-qnn-table-editableCell .tdEdit-cell-value-wrap {
+            border: 1px solid transparent;
+            padding: 0px 0px;
+        }
+        .w-qnn-table-editableCell:hover .tdEdit-cell-value-wrap {
+            border: 1px solid #d9d9d9;
+            border-radius: 4px;
+            // padding: 4px 3px;
+            box-sizing: border-box;
+            // min-height: 30px;
+            min-height: 18px;
+        }
+        .ant-table-small > .ant-table-content > .ant-table-body {
+            margin: 0;
+        }
+
+        .w-ant-th {
+            position: relative;
+            text-align:center;
+            .ant-table-selection {
+                height: 100%;
+                position: absolute;
+                // top: 14px;
+                top: 0px;
+                left: 0;
+                right: 0;
+                margin: auto;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .ant-table-column-sorter {
+                position: absolute;
+                top: 26px;
+                right: 14px;
+            }
+        }
+
+        .ant-table-small > .ant-table-content > .ant-table-fixed-right {
+            border-left: 1px solid @tableBorderColor;
+        }
+        // 小尺寸表格 带边框的
+        .ant-table-small.ant-table-bordered .ant-table-content {
+            border-right: 0px solid;
+            border: 1px solid @tableBorderColor;
+            border-top: 0px;
+            thead {
+                th {
+                    background-color: #fafafa !important;
+                    border-bottom: 1px solid @tableBorderColor !important;
+                    border-top: 1px solid @tableBorderColor;
+                }
+
+                .w-ant-th {
+                    border-bottom: 1px solid @tableBorderColor !important;
+                }
+            }
+            .ant-table-fixed-right{ 
+                border-right: 1px solid @tableBorderColor !important;
+            }
+
+            .ant-table-fixed-left {
+                border-left: 1px solid @tableBorderColor !important;
+                .ant-table-thead > tr > th:last-child,
+                .ant-table-tbody > tr > td:last-child {
+                    border-right: 1px solid @tableBorderColor;
+                    border-left: 1px solid @tableBorderColor;
+                }
+            }
+ 
+        }
+
+        //小尺寸表格 不带边框的
+        .ant-table.ant-table-small {
+            border: 0px;
+            .w-ant-th-firstRowIsSearch {
+                .w-th-inp {
+                    &:before {
+                        margin-bottom: 2px;
+                    }
+                }
+            }
+            .w-ant-th {
+                .ant-table-column-sorter {
+                    position: absolute;
+                    top: 18px;
+                    right: 8px;
+                }
+
+                .ant-row.ant-form-item {
+                    margin-right: 8px !important;
+                    margin-left: 8px !important;
+                }
+            }
+            .ant-table-thead {
+                .ant-form-item-control {
+                    line-height: 1.1 !important;
+                }
+            }
+            .ant-table-row {
+                .ant-form-item-control {
+                    line-height: 1.1 !important;
+                }
+                .ant-form-item-control-wrapper {
+                    line-height: 1.1;
+                }
+                .ant-select-selection--single,
+                .ant-select-selection {
+                    height: auto;
+                    padding: 2px 1px;
+                    min-height: 16px;
+                }
+                .ant-select-selection__rendered {
+                    line-height: 1.2;
+                    margin: 0;
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+                .w-qnn-table-editableCell .ant-input {
+                    padding: 0px 1px;
+                    height: auto;
+                    min-height: 16px;
+                }
+            }
+        }
+        .ant-table-selection-column.w-ant-th {
+            .w-th-inp {
+                &:before {
+                    border-top: none;
+                }
+            }
+        }
+        .w-ant-th-firstRowIsSearch {
+            padding-bottom: 84px;
+        }
+        .ant-table-small .w-ant-th-firstRowIsSearch {
+            // padding-bottom: 60px !important;
+            padding-bottom: 40px !important;
+        }
+        .ant-table-small .w-th-inp {
+            height: 36px;
+            // bottom: 18px;
+            margin-top: 0px;
+        }
+        .firstRowIsSearch1.w-th-inp {
+            &::before {
+                border-top: 0px solid transparent;
+                margin-bottom: 0px;
+            }
+        }
+
+        .firstRowIsSearch1.w-th-inp.t-border {
+            &::before {
+                margin-bottom: 16px;
+            }
+        }
+
+        .w-th-inp {
+            height: 52px;
+            margin-top: 8px;
+            margin-left: -2px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            // bottom: 16px;
+            bottom: 0px;
+            box-sizing: border-box;
+            &::before {
+                border-top: 1px solid @tableBorderColor;
+                content: "";
+                display: block;
+                width: 100%;
+                margin-bottom: 16px;
+            }
+            .ant-row.ant-form-item {
+                margin-right: 15px !important;
+                margin-left: 15px !important;
+                // margin-top: 16px !important;
+            }
+            .ant-calendar-picker {
+                width: 100% !important;
+            }
+            .headerDatePicker {
+                display: flex;
+                .ant-calendar-picker-input.ant-input {
+                    padding-right: 30px;
+                }
+                .ant-select-selection {
+                    margin-left: 3px;
+                }
+                .ant-select-arrow {
+                    right: 7px;
+                }
+                .ant-select-selection__rendered {
+                    margin-left: 3px;
+                    margin-right: 3px;
+                }
+            }
+        }
+    }
+}
+:global {
+    .qnn-table-custom-filter-dropdown {
+        padding: 8px;
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.myDrawer {
+    //未知原因会将这个设置为1000  设置为1000后将影响自定义组件中内容使用（比如流程的）
+    // z-index: 1000;
+    z-index: 999;
+    :global {
+        .ant-drawer-content {
+            .ant-drawer-wrapper-body {
+                overflow: hidden !important;
+            }
+        }
+        .ant-drawer-body {
+            padding: 0px 3px !important;
+            box-sizing: border-box;
+        }
+    }
+}

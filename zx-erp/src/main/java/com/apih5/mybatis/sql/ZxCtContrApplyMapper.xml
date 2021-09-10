@@ -1,0 +1,2411 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCtContrApplyMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCtContrApply" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="contractNo" property="contractNo" jdbcType="VARCHAR" />
+    <result column="contractName" property="contractName" jdbcType="VARCHAR" />
+    <result column="contractType" property="contractType" jdbcType="VARCHAR" />
+    <result column="contractCost" property="contractCost" jdbcType="DECIMAL" />
+    <result column="firstId" property="firstId" jdbcType="VARCHAR" />
+    <result column="firstName" property="firstName" jdbcType="VARCHAR" />
+    <result column="secondId" property="secondId" jdbcType="VARCHAR" />
+    <result column="secondName" property="secondName" jdbcType="VARCHAR" />
+    <result column="startDate" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="endDate" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="csTimeLimit" property="csTimeLimit" jdbcType="VARCHAR" />
+    <result column="agent" property="agent" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="beginPer" property="beginPer" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="supplyAgreement" property="supplyAgreement" jdbcType="VARCHAR" />
+    <result column="pp4" property="pp4" jdbcType="VARCHAR" />
+    <result column="pp5" property="pp5" jdbcType="VARCHAR" />
+    <result column="contractNameId" property="contractNameId" jdbcType="VARCHAR" />
+    <result column="pp10" property="pp10" jdbcType="VARCHAR" />
+    <result column="instProcessId" property="instProcessId" jdbcType="VARCHAR" />
+    <result column="workitemId" property="workitemId" jdbcType="VARCHAR" />
+    <result column="contractCode" property="contractCode" jdbcType="VARCHAR" />
+    <result column="organCode" property="organCode" jdbcType="VARCHAR" />
+    <result column="contractorAbbreviation" property="contractorAbbreviation" jdbcType="VARCHAR" />
+    <result column="bidWinnerAbbreviation" property="bidWinnerAbbreviation" jdbcType="VARCHAR" />
+    <result column="projectProvinceAbbreviation" property="projectProvinceAbbreviation" jdbcType="VARCHAR" />
+    <result column="projectAbbreviation" property="projectAbbreviation" jdbcType="VARCHAR" />
+    <result column="lotNo" property="lotNo" jdbcType="VARCHAR" />
+    <result column="contractCategory" property="contractCategory" jdbcType="VARCHAR" />
+    <result column="contractNumber" property="contractNumber" jdbcType="VARCHAR" />
+    <result column="ownerContractCode" property="ownerContractCode" jdbcType="VARCHAR" />
+    <result column="oneFirm" property="oneFirm" jdbcType="VARCHAR" />
+    <result column="flowBeginDate" property="flowBeginDate" jdbcType="TIMESTAMP" />
+    <result column="flowEndDate" property="flowEndDate" jdbcType="TIMESTAMP" />
+    <result column="alterContractSum" property="alterContractSum" jdbcType="DECIMAL" />
+    <result column="isFlag" property="isFlag" jdbcType="VARCHAR" />
+    <result column="isReport" property="isReport" jdbcType="VARCHAR" />
+    <result column="appInsHistId" property="appInsHistId" jdbcType="VARCHAR" />
+    <result column="sendToJuId" property="sendToJuId" jdbcType="VARCHAR" />
+    <result column="materialSource" property="materialSource" jdbcType="VARCHAR" />
+    <result column="upAlterContractSum" property="upAlterContractSum" jdbcType="DECIMAL" />
+    <result column="legalPerson" property="legalPerson" jdbcType="VARCHAR" />
+    <result column="agentPerson" property="agentPerson" jdbcType="VARCHAR" />
+    <result column="chargePerson" property="chargePerson" jdbcType="VARCHAR" />
+    <result column="isFlagZhb" property="isFlagZhb" jdbcType="VARCHAR" />
+    <result column="isReportZhb" property="isReportZhb" jdbcType="VARCHAR" />
+    <result column="sendToZhbId" property="sendToZhbId" jdbcType="VARCHAR" />
+    <result column="appInsHistIDZhb" property="appInsHistIDZhb" jdbcType="VARCHAR" />
+    <result column="contractCostNoTax" property="contractCostNoTax" jdbcType="DECIMAL" />
+    <result column="taxRate" property="taxRate" jdbcType="VARCHAR" />
+    <result column="alterContractSumNoTax" property="alterContractSumNoTax" jdbcType="DECIMAL" />
+    <result column="alterContractSumTax" property="alterContractSumTax" jdbcType="DECIMAL" />
+    <result column="pp4NoTax" property="pp4NoTax" jdbcType="DECIMAL" />
+    <result column="pp4Tax" property="pp4Tax" jdbcType="DECIMAL" />
+    <result column="isDeduct" property="isDeduct" jdbcType="VARCHAR" />
+    <result column="fromContractId" property="fromContractId" jdbcType="VARCHAR" />
+    <result column="fromContractNo" property="fromContractNo" jdbcType="VARCHAR" />
+    <result column="fromContractName" property="fromContractName" jdbcType="VARCHAR" />
+    <result column="contractCostTax" property="contractCostTax" jdbcType="DECIMAL" />
+    <result column="wtrName" property="wtrName" jdbcType="VARCHAR" />
+    <result column="wtrPhone" property="wtrPhone" jdbcType="VARCHAR" />
+    <result column="referenceName" property="referenceName" jdbcType="VARCHAR" />
+    <result column="referencePost" property="referencePost" jdbcType="VARCHAR" />
+    <result column="referencePhone" property="referencePhone" jdbcType="VARCHAR" />
+    <result column="upAlterContractSumNoTax" property="upAlterContractSumNoTax" jdbcType="DECIMAL" />
+    <result column="comId" property="comId" jdbcType="VARCHAR" />
+    <result column="upAlterContractSumTax" property="upAlterContractSumTax" jdbcType="DECIMAL" />
+    <result column="fiId" property="fiId" jdbcType="VARCHAR" />
+    <result column="actDepartment" property="actDepartment" jdbcType="VARCHAR" />
+    <result column="actDepartmentBm" property="actDepartmentBm" jdbcType="VARCHAR" />
+    <result column="actDepartmentId" property="actDepartmentId" jdbcType="VARCHAR" />
+    <result column="biddersId" property="biddersId" jdbcType="VARCHAR" />
+    <result column="biddersCode" property="biddersCode" jdbcType="VARCHAR" />
+    <result column="biddersName" property="biddersName" jdbcType="VARCHAR" />
+    <result column="accountUnitId" property="accountUnitId" jdbcType="VARCHAR" />
+    <result column="accountUnitCode" property="accountUnitCode" jdbcType="VARCHAR" />
+    <result column="accountUnitName" property="accountUnitName" jdbcType="VARCHAR" />
+    <result column="accountProjId" property="accountProjId" jdbcType="VARCHAR" />
+    <result column="accountProjCode" property="accountProjCode" jdbcType="VARCHAR" />
+    <result column="accountProjName" property="accountProjName" jdbcType="VARCHAR" />
+    <result column="projSite" property="projSite" jdbcType="VARCHAR" />
+    <result column="busiSegments" property="busiSegments" jdbcType="VARCHAR" />
+    <result column="projFundsSource" property="projFundsSource" jdbcType="VARCHAR" />
+    <result column="division" property="division" jdbcType="VARCHAR" />
+    <result column="taxFilingCode" property="taxFilingCode" jdbcType="VARCHAR" />
+    <result column="taxCountWay" property="taxCountWay" jdbcType="VARCHAR" />
+    <result column="taxAdvanceRate" property="taxAdvanceRate" jdbcType="VARCHAR" />
+    <result column="taxUseWay" property="taxUseWay" jdbcType="VARCHAR" />
+    <result column="prepaidLand" property="prepaidLand" jdbcType="VARCHAR" />
+    <result column="nationalTax" property="nationalTax" jdbcType="VARCHAR" />
+    <result column="nationalTaxTel" property="nationalTaxTel" jdbcType="VARCHAR" />
+    <result column="nationalTaxAdds" property="nationalTaxAdds" jdbcType="VARCHAR" />
+    <result column="projDepAdds" property="projDepAdds" jdbcType="VARCHAR" />
+    <result column="projDepZipCode" property="projDepZipCode" jdbcType="VARCHAR" />
+    <result column="projDepTel" property="projDepTel" jdbcType="VARCHAR" />
+    <result column="projDepFax" property="projDepFax" jdbcType="VARCHAR" />
+    <result column="projStage" property="projStage" jdbcType="VARCHAR" />
+    <result column="pmFixedLine" property="pmFixedLine" jdbcType="VARCHAR" />
+    <result column="pmMail" property="pmMail" jdbcType="VARCHAR" />
+    <result column="fiCharge" property="fiCharge" jdbcType="VARCHAR" />
+    <result column="fiTel" property="fiTel" jdbcType="VARCHAR" />
+    <result column="fiFixedLine" property="fiFixedLine" jdbcType="VARCHAR" />
+    <result column="fiMail" property="fiMail" jdbcType="VARCHAR" />
+    <result column="ctrCharge" property="ctrCharge" jdbcType="VARCHAR" />
+    <result column="ctrTel" property="ctrTel" jdbcType="VARCHAR" />
+    <result column="ctrFixedLine" property="ctrFixedLine" jdbcType="VARCHAR" />
+    <result column="ctrMail" property="ctrMail" jdbcType="VARCHAR" />
+    <result column="dcLeader" property="dcLeader" jdbcType="VARCHAR" />
+    <result column="dcTel" property="dcTel" jdbcType="VARCHAR" />
+    <result column="dcFixedLine" property="dcFixedLine" jdbcType="VARCHAR" />
+    <result column="dcMail" property="dcMail" jdbcType="VARCHAR" />
+    <result column="doubleCheckDate" property="doubleCheckDate" jdbcType="TIMESTAMP" />
+    <result column="writeDate" property="writeDate" jdbcType="TIMESTAMP" />
+    <result column="accountDepId" property="accountDepId" jdbcType="VARCHAR" />
+    <result column="accountDepCode" property="accountDepCode" jdbcType="VARCHAR" />
+    <result column="accountDepName" property="accountDepName" jdbcType="VARCHAR" />
+    <result column="secondIDCode" property="secondIDCode" jdbcType="VARCHAR" />
+    <result column="writer" property="writer" jdbcType="VARCHAR" />
+    <result column="systemNo" property="systemNo" jdbcType="VARCHAR" />
+    <result column="currencyCode" property="currencyCode" jdbcType="VARCHAR" />
+    <result column="ctrNature" property="ctrNature" jdbcType="VARCHAR" />
+    <result column="ctrUpdateState" property="ctrUpdateState" jdbcType="VARCHAR" />
+    <result column="fiCtrState" property="fiCtrState" jdbcType="CHAR" />
+    <result column="revenueDir" property="revenueDir" jdbcType="CHAR" />
+    <result column="invoiceType" property="invoiceType" jdbcType="CHAR" />
+    <result column="staCtr" property="staCtr" jdbcType="CHAR" />
+    <result column="keyCtr" property="keyCtr" jdbcType="CHAR" />
+    <result column="orgId" property="orgId" jdbcType="VARCHAR" />
+    <result column="notDisplay" property="notDisplay" jdbcType="VARCHAR" />
+    <result column="doubleCheckPerson" property="doubleCheckPerson" jdbcType="VARCHAR" />
+    <result column="secondIDCodeBh" property="secondIDCodeBh" jdbcType="VARCHAR" />
+    <result column="auditWorkitemId" property="auditWorkitemId" jdbcType="VARCHAR" />
+    <result column="auditSys" property="auditSys" jdbcType="VARCHAR" />
+    <result column="secondIDCodeName" property="secondIDCodeName" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="secondOrgType" property="secondOrgType" jdbcType="VARCHAR" />
+    <result column="firstOAorgId" property="firstOAorgId" jdbcType="VARCHAR" />
+    <result column="isBiddedOnCloud" property="isBiddedOnCloud" jdbcType="VARCHAR" />
+    <result column="bidType" property="bidType" jdbcType="VARCHAR" />
+    <result column="cloudBidNo" property="cloudBidNo" jdbcType="VARCHAR" />
+    <result column="bidOrgType" property="bidOrgType" jdbcType="VARCHAR" />
+    <result column="isAllDepartJoin" property="isAllDepartJoin" jdbcType="VARCHAR" />
+    <result column="joinType" property="joinType" jdbcType="VARCHAR" />
+    <result column="isDepartJoinBid" property="isDepartJoinBid" jdbcType="VARCHAR" />
+    <result column="contractDepart" property="contractDepart" jdbcType="VARCHAR" />
+    <result column="packageNo" property="packageNo" jdbcType="VARCHAR" />
+    <result column="cloudEcoId" property="cloudEcoId" jdbcType="VARCHAR" />
+    <result column="investContractNo" property="investContractNo" jdbcType="VARCHAR" />
+    <result column="resCategoryId" property="resCategoryId" jdbcType="VARCHAR" />
+    <result column="resCategoryName" property="resCategoryName" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, contractNo, contractName, contractType, contractCost, 
+    firstId, firstName, secondId, secondName, startDate, 
+    endDate, csTimeLimit, agent, content, remark, 
+    beginPer, status, supplyAgreement, pp4, pp5, 
+    contractNameId, pp10, instProcessId, workitemId, contractCode, 
+    organCode, contractorAbbreviation, bidWinnerAbbreviation, projectProvinceAbbreviation, projectAbbreviation, 
+    lotNo, contractCategory, contractNumber, ownerContractCode, oneFirm, 
+    flowBeginDate, flowEndDate, alterContractSum, isFlag, isReport, 
+    appInsHistId, sendToJuId, materialSource, upAlterContractSum, legalPerson, 
+    agentPerson, chargePerson, isFlagZhb, isReportZhb, sendToZhbId, 
+    appInsHistIDZhb, contractCostNoTax, taxRate, alterContractSumNoTax, alterContractSumTax, 
+    pp4NoTax, pp4Tax, isDeduct, fromContractId, fromContractNo, 
+    fromContractName, contractCostTax, wtrName, wtrPhone, referenceName, 
+    referencePost, referencePhone, upAlterContractSumNoTax, comId, upAlterContractSumTax, 
+    fiId, actDepartment, actDepartmentBm, actDepartmentId, biddersId, 
+    biddersCode, biddersName, accountUnitId, accountUnitCode, accountUnitName, 
+    accountProjId, accountProjCode, accountProjName, projSite, busiSegments, 
+    projFundsSource, division, taxFilingCode, taxCountWay, taxAdvanceRate, 
+    taxUseWay, prepaidLand, nationalTax, nationalTaxTel, nationalTaxAdds, 
+    projDepAdds, projDepZipCode, projDepTel, projDepFax, projStage, 
+    pmFixedLine, pmMail, fiCharge, fiTel, fiFixedLine, 
+    fiMail, ctrCharge, ctrTel, ctrFixedLine, ctrMail, 
+    dcLeader, dcTel, dcFixedLine, dcMail, doubleCheckDate, 
+    writeDate, accountDepId, accountDepCode, accountDepName, secondIDCode, 
+    writer, systemNo, currencyCode, ctrNature, ctrUpdateState, 
+    fiCtrState, revenueDir, invoiceType, staCtr, keyCtr, 
+    orgId, notDisplay, doubleCheckPerson, secondIDCodeBh, auditWorkitemId, 
+    auditSys, secondIDCodeName, orgName, secondOrgType, firstOAorgId, 
+    isBiddedOnCloud, bidType, cloudBidNo, bidOrgType, isAllDepartJoin, 
+    joinType, isDepartJoinBid, contractDepart, packageNo, cloudEcoId, 
+    investContractNo, resCategoryId, resCategoryName, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_contr_apply
+    where del_flag = '0' and id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_ct_contr_apply
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCtContrApply" >
+    insert into zx_ct_contr_apply (
+    id, contractNo, contractName, contractType, contractCost, 
+    firstId, firstName, secondId, secondName, startDate, 
+    endDate, csTimeLimit, agent, content, remark, 
+    beginPer, status, supplyAgreement, pp4, pp5, 
+    contractNameId, pp10, instProcessId, workitemId, contractCode, 
+    organCode, contractorAbbreviation, bidWinnerAbbreviation, projectProvinceAbbreviation, projectAbbreviation, 
+    lotNo, contractCategory, contractNumber, ownerContractCode, oneFirm, 
+    flowBeginDate, flowEndDate, alterContractSum, isFlag, isReport, 
+    appInsHistId, sendToJuId, materialSource, upAlterContractSum, legalPerson, 
+    agentPerson, chargePerson, isFlagZhb, isReportZhb, sendToZhbId, 
+    appInsHistIDZhb, contractCostNoTax, taxRate, alterContractSumNoTax, alterContractSumTax, 
+    pp4NoTax, pp4Tax, isDeduct, fromContractId, fromContractNo, 
+    fromContractName, contractCostTax, wtrName, wtrPhone, referenceName, 
+    referencePost, referencePhone, upAlterContractSumNoTax, comId, upAlterContractSumTax, 
+    fiId, actDepartment, actDepartmentBm, actDepartmentId, biddersId, 
+    biddersCode, biddersName, accountUnitId, accountUnitCode, accountUnitName, 
+    accountProjId, accountProjCode, accountProjName, projSite, busiSegments, 
+    projFundsSource, division, taxFilingCode, taxCountWay, taxAdvanceRate, 
+    taxUseWay, prepaidLand, nationalTax, nationalTaxTel, nationalTaxAdds, 
+    projDepAdds, projDepZipCode, projDepTel, projDepFax, projStage, 
+    pmFixedLine, pmMail, fiCharge, fiTel, fiFixedLine, 
+    fiMail, ctrCharge, ctrTel, ctrFixedLine, ctrMail, 
+    dcLeader, dcTel, dcFixedLine, dcMail, doubleCheckDate, 
+    writeDate, accountDepId, accountDepCode, accountDepName, secondIDCode, 
+    writer, systemNo, currencyCode, ctrNature, ctrUpdateState, 
+    fiCtrState, revenueDir, invoiceType, staCtr, keyCtr, 
+    orgId, notDisplay, doubleCheckPerson, secondIDCodeBh, auditWorkitemId, 
+    auditSys, secondIDCodeName, orgName, secondOrgType, firstOAorgId, 
+    isBiddedOnCloud, bidType, cloudBidNo, bidOrgType, isAllDepartJoin, 
+    joinType, isDepartJoinBid, contractDepart, packageNo, cloudEcoId, 
+    investContractNo, resCategoryId, resCategoryName, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{id,jdbcType=CHAR}, #{contractNo,jdbcType=VARCHAR}, #{contractName,jdbcType=VARCHAR}, #{contractType,jdbcType=VARCHAR}, #{contractCost,jdbcType=DECIMAL}, 
+    #{firstId,jdbcType=VARCHAR}, #{firstName,jdbcType=VARCHAR}, #{secondId,jdbcType=VARCHAR}, #{secondName,jdbcType=VARCHAR}, #{startDate,jdbcType=TIMESTAMP}, 
+    #{endDate,jdbcType=TIMESTAMP}, #{csTimeLimit,jdbcType=VARCHAR}, #{agent,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+    #{beginPer,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{supplyAgreement,jdbcType=VARCHAR}, #{pp4,jdbcType=VARCHAR}, #{pp5,jdbcType=VARCHAR}, 
+    #{contractNameId,jdbcType=VARCHAR}, #{pp10,jdbcType=VARCHAR}, #{instProcessId,jdbcType=VARCHAR}, #{workitemId,jdbcType=VARCHAR}, #{contractCode,jdbcType=VARCHAR}, 
+    #{organCode,jdbcType=VARCHAR}, #{contractorAbbreviation,jdbcType=VARCHAR}, #{bidWinnerAbbreviation,jdbcType=VARCHAR}, #{projectProvinceAbbreviation,jdbcType=VARCHAR}, #{projectAbbreviation,jdbcType=VARCHAR}, 
+    #{lotNo,jdbcType=VARCHAR}, #{contractCategory,jdbcType=VARCHAR}, #{contractNumber,jdbcType=VARCHAR}, #{ownerContractCode,jdbcType=VARCHAR}, #{oneFirm,jdbcType=VARCHAR}, 
+    #{flowBeginDate,jdbcType=TIMESTAMP}, #{flowEndDate,jdbcType=TIMESTAMP}, #{alterContractSum,jdbcType=DECIMAL}, #{isFlag,jdbcType=VARCHAR}, #{isReport,jdbcType=VARCHAR}, 
+    #{appInsHistId,jdbcType=VARCHAR}, #{sendToJuId,jdbcType=VARCHAR}, #{materialSource,jdbcType=VARCHAR}, #{upAlterContractSum,jdbcType=DECIMAL}, #{legalPerson,jdbcType=VARCHAR}, 
+    #{agentPerson,jdbcType=VARCHAR}, #{chargePerson,jdbcType=VARCHAR}, #{isFlagZhb,jdbcType=VARCHAR}, #{isReportZhb,jdbcType=VARCHAR}, #{sendToZhbId,jdbcType=VARCHAR}, 
+    #{appInsHistIDZhb,jdbcType=VARCHAR}, #{contractCostNoTax,jdbcType=DECIMAL}, #{taxRate,jdbcType=VARCHAR}, #{alterContractSumNoTax,jdbcType=DECIMAL}, #{alterContractSumTax,jdbcType=DECIMAL}, 
+    #{pp4NoTax,jdbcType=DECIMAL}, #{pp4Tax,jdbcType=DECIMAL}, #{isDeduct,jdbcType=VARCHAR}, #{fromContractId,jdbcType=VARCHAR}, #{fromContractNo,jdbcType=VARCHAR}, 
+    #{fromContractName,jdbcType=VARCHAR}, #{contractCostTax,jdbcType=DECIMAL}, #{wtrName,jdbcType=VARCHAR}, #{wtrPhone,jdbcType=VARCHAR}, #{referenceName,jdbcType=VARCHAR}, 
+    #{referencePost,jdbcType=VARCHAR}, #{referencePhone,jdbcType=VARCHAR}, #{upAlterContractSumNoTax,jdbcType=DECIMAL}, #{comId,jdbcType=VARCHAR}, #{upAlterContractSumTax,jdbcType=DECIMAL}, 
+    #{fiId,jdbcType=VARCHAR}, #{actDepartment,jdbcType=VARCHAR}, #{actDepartmentBm,jdbcType=VARCHAR}, #{actDepartmentId,jdbcType=VARCHAR}, #{biddersId,jdbcType=VARCHAR}, 
+    #{biddersCode,jdbcType=VARCHAR}, #{biddersName,jdbcType=VARCHAR}, #{accountUnitId,jdbcType=VARCHAR}, #{accountUnitCode,jdbcType=VARCHAR}, #{accountUnitName,jdbcType=VARCHAR}, 
+    #{accountProjId,jdbcType=VARCHAR}, #{accountProjCode,jdbcType=VARCHAR}, #{accountProjName,jdbcType=VARCHAR}, #{projSite,jdbcType=VARCHAR}, #{busiSegments,jdbcType=VARCHAR}, 
+    #{projFundsSource,jdbcType=VARCHAR}, #{division,jdbcType=VARCHAR}, #{taxFilingCode,jdbcType=VARCHAR}, #{taxCountWay,jdbcType=VARCHAR}, #{taxAdvanceRate,jdbcType=VARCHAR}, 
+    #{taxUseWay,jdbcType=VARCHAR}, #{prepaidLand,jdbcType=VARCHAR}, #{nationalTax,jdbcType=VARCHAR}, #{nationalTaxTel,jdbcType=VARCHAR}, #{nationalTaxAdds,jdbcType=VARCHAR}, 
+    #{projDepAdds,jdbcType=VARCHAR}, #{projDepZipCode,jdbcType=VARCHAR}, #{projDepTel,jdbcType=VARCHAR}, #{projDepFax,jdbcType=VARCHAR}, #{projStage,jdbcType=VARCHAR}, 
+    #{pmFixedLine,jdbcType=VARCHAR}, #{pmMail,jdbcType=VARCHAR}, #{fiCharge,jdbcType=VARCHAR}, #{fiTel,jdbcType=VARCHAR}, #{fiFixedLine,jdbcType=VARCHAR}, 
+    #{fiMail,jdbcType=VARCHAR}, #{ctrCharge,jdbcType=VARCHAR}, #{ctrTel,jdbcType=VARCHAR}, #{ctrFixedLine,jdbcType=VARCHAR}, #{ctrMail,jdbcType=VARCHAR}, 
+    #{dcLeader,jdbcType=VARCHAR}, #{dcTel,jdbcType=VARCHAR}, #{dcFixedLine,jdbcType=VARCHAR}, #{dcMail,jdbcType=VARCHAR}, #{doubleCheckDate,jdbcType=TIMESTAMP}, 
+    #{writeDate,jdbcType=TIMESTAMP}, #{accountDepId,jdbcType=VARCHAR}, #{accountDepCode,jdbcType=VARCHAR}, #{accountDepName,jdbcType=VARCHAR}, #{secondIDCode,jdbcType=VARCHAR}, 
+    #{writer,jdbcType=VARCHAR}, #{systemNo,jdbcType=VARCHAR}, #{currencyCode,jdbcType=VARCHAR}, #{ctrNature,jdbcType=VARCHAR}, #{ctrUpdateState,jdbcType=VARCHAR}, 
+    #{fiCtrState,jdbcType=CHAR}, #{revenueDir,jdbcType=CHAR}, #{invoiceType,jdbcType=CHAR}, #{staCtr,jdbcType=CHAR}, #{keyCtr,jdbcType=CHAR}, 
+    #{orgId,jdbcType=VARCHAR}, #{notDisplay,jdbcType=VARCHAR}, #{doubleCheckPerson,jdbcType=VARCHAR}, #{secondIDCodeBh,jdbcType=VARCHAR}, #{auditWorkitemId,jdbcType=VARCHAR}, 
+    #{auditSys,jdbcType=VARCHAR}, #{secondIDCodeName,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, #{secondOrgType,jdbcType=VARCHAR}, #{firstOAorgId,jdbcType=VARCHAR}, 
+    #{isBiddedOnCloud,jdbcType=VARCHAR}, #{bidType,jdbcType=VARCHAR}, #{cloudBidNo,jdbcType=VARCHAR}, #{bidOrgType,jdbcType=VARCHAR}, #{isAllDepartJoin,jdbcType=VARCHAR}, 
+    #{joinType,jdbcType=VARCHAR}, #{isDepartJoinBid,jdbcType=VARCHAR}, #{contractDepart,jdbcType=VARCHAR}, #{packageNo,jdbcType=VARCHAR}, #{cloudEcoId,jdbcType=VARCHAR}, 
+    #{investContractNo,jdbcType=VARCHAR}, #{resCategoryId,jdbcType=VARCHAR}, #{resCategoryName,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCtContrApply" >
+    insert into zx_ct_contr_apply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="contractNo != null" >
+        contractNo,
+      </if>
+      <if test="contractName != null" >
+        contractName,
+      </if>
+      <if test="contractType != null" >
+        contractType,
+      </if>
+      <if test="contractCost != null" >
+        contractCost,
+      </if>
+      <if test="firstId != null" >
+        firstId,
+      </if>
+      <if test="firstName != null" >
+        firstName,
+      </if>
+      <if test="secondId != null" >
+        secondId,
+      </if>
+      <if test="secondName != null" >
+        secondName,
+      </if>
+      <if test="startDate != null" >
+        startDate,
+      </if>
+      <if test="endDate != null" >
+        endDate,
+      </if>
+      <if test="csTimeLimit != null" >
+        csTimeLimit,
+      </if>
+      <if test="agent != null" >
+        agent,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="beginPer != null" >
+        beginPer,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="supplyAgreement != null" >
+        supplyAgreement,
+      </if>
+      <if test="pp4 != null" >
+        pp4,
+      </if>
+      <if test="pp5 != null" >
+        pp5,
+      </if>
+      <if test="contractNameId != null" >
+        contractNameId,
+      </if>
+      <if test="pp10 != null" >
+        pp10,
+      </if>
+      <if test="instProcessId != null" >
+        instProcessId,
+      </if>
+      <if test="workitemId != null" >
+        workitemId,
+      </if>
+      <if test="contractCode != null" >
+        contractCode,
+      </if>
+      <if test="organCode != null" >
+        organCode,
+      </if>
+      <if test="contractorAbbreviation != null" >
+        contractorAbbreviation,
+      </if>
+      <if test="bidWinnerAbbreviation != null" >
+        bidWinnerAbbreviation,
+      </if>
+      <if test="projectProvinceAbbreviation != null" >
+        projectProvinceAbbreviation,
+      </if>
+      <if test="projectAbbreviation != null" >
+        projectAbbreviation,
+      </if>
+      <if test="lotNo != null" >
+        lotNo,
+      </if>
+      <if test="contractCategory != null" >
+        contractCategory,
+      </if>
+      <if test="contractNumber != null" >
+        contractNumber,
+      </if>
+      <if test="ownerContractCode != null" >
+        ownerContractCode,
+      </if>
+      <if test="oneFirm != null" >
+        oneFirm,
+      </if>
+      <if test="flowBeginDate != null" >
+        flowBeginDate,
+      </if>
+      <if test="flowEndDate != null" >
+        flowEndDate,
+      </if>
+      <if test="alterContractSum != null" >
+        alterContractSum,
+      </if>
+      <if test="isFlag != null" >
+        isFlag,
+      </if>
+      <if test="isReport != null" >
+        isReport,
+      </if>
+      <if test="appInsHistId != null" >
+        appInsHistId,
+      </if>
+      <if test="sendToJuId != null" >
+        sendToJuId,
+      </if>
+      <if test="materialSource != null" >
+        materialSource,
+      </if>
+      <if test="upAlterContractSum != null" >
+        upAlterContractSum,
+      </if>
+      <if test="legalPerson != null" >
+        legalPerson,
+      </if>
+      <if test="agentPerson != null" >
+        agentPerson,
+      </if>
+      <if test="chargePerson != null" >
+        chargePerson,
+      </if>
+      <if test="isFlagZhb != null" >
+        isFlagZhb,
+      </if>
+      <if test="isReportZhb != null" >
+        isReportZhb,
+      </if>
+      <if test="sendToZhbId != null" >
+        sendToZhbId,
+      </if>
+      <if test="appInsHistIDZhb != null" >
+        appInsHistIDZhb,
+      </if>
+      <if test="contractCostNoTax != null" >
+        contractCostNoTax,
+      </if>
+      <if test="taxRate != null" >
+        taxRate,
+      </if>
+      <if test="alterContractSumNoTax != null" >
+        alterContractSumNoTax,
+      </if>
+      <if test="alterContractSumTax != null" >
+        alterContractSumTax,
+      </if>
+      <if test="pp4NoTax != null" >
+        pp4NoTax,
+      </if>
+      <if test="pp4Tax != null" >
+        pp4Tax,
+      </if>
+      <if test="isDeduct != null" >
+        isDeduct,
+      </if>
+      <if test="fromContractId != null" >
+        fromContractId,
+      </if>
+      <if test="fromContractNo != null" >
+        fromContractNo,
+      </if>
+      <if test="fromContractName != null" >
+        fromContractName,
+      </if>
+      <if test="contractCostTax != null" >
+        contractCostTax,
+      </if>
+      <if test="wtrName != null" >
+        wtrName,
+      </if>
+      <if test="wtrPhone != null" >
+        wtrPhone,
+      </if>
+      <if test="referenceName != null" >
+        referenceName,
+      </if>
+      <if test="referencePost != null" >
+        referencePost,
+      </if>
+      <if test="referencePhone != null" >
+        referencePhone,
+      </if>
+      <if test="upAlterContractSumNoTax != null" >
+        upAlterContractSumNoTax,
+      </if>
+      <if test="comId != null" >
+        comId,
+      </if>
+      <if test="upAlterContractSumTax != null" >
+        upAlterContractSumTax,
+      </if>
+      <if test="fiId != null" >
+        fiId,
+      </if>
+      <if test="actDepartment != null" >
+        actDepartment,
+      </if>
+      <if test="actDepartmentBm != null" >
+        actDepartmentBm,
+      </if>
+      <if test="actDepartmentId != null" >
+        actDepartmentId,
+      </if>
+      <if test="biddersId != null" >
+        biddersId,
+      </if>
+      <if test="biddersCode != null" >
+        biddersCode,
+      </if>
+      <if test="biddersName != null" >
+        biddersName,
+      </if>
+      <if test="accountUnitId != null" >
+        accountUnitId,
+      </if>
+      <if test="accountUnitCode != null" >
+        accountUnitCode,
+      </if>
+      <if test="accountUnitName != null" >
+        accountUnitName,
+      </if>
+      <if test="accountProjId != null" >
+        accountProjId,
+      </if>
+      <if test="accountProjCode != null" >
+        accountProjCode,
+      </if>
+      <if test="accountProjName != null" >
+        accountProjName,
+      </if>
+      <if test="projSite != null" >
+        projSite,
+      </if>
+      <if test="busiSegments != null" >
+        busiSegments,
+      </if>
+      <if test="projFundsSource != null" >
+        projFundsSource,
+      </if>
+      <if test="division != null" >
+        division,
+      </if>
+      <if test="taxFilingCode != null" >
+        taxFilingCode,
+      </if>
+      <if test="taxCountWay != null" >
+        taxCountWay,
+      </if>
+      <if test="taxAdvanceRate != null" >
+        taxAdvanceRate,
+      </if>
+      <if test="taxUseWay != null" >
+        taxUseWay,
+      </if>
+      <if test="prepaidLand != null" >
+        prepaidLand,
+      </if>
+      <if test="nationalTax != null" >
+        nationalTax,
+      </if>
+      <if test="nationalTaxTel != null" >
+        nationalTaxTel,
+      </if>
+      <if test="nationalTaxAdds != null" >
+        nationalTaxAdds,
+      </if>
+      <if test="projDepAdds != null" >
+        projDepAdds,
+      </if>
+      <if test="projDepZipCode != null" >
+        projDepZipCode,
+      </if>
+      <if test="projDepTel != null" >
+        projDepTel,
+      </if>
+      <if test="projDepFax != null" >
+        projDepFax,
+      </if>
+      <if test="projStage != null" >
+        projStage,
+      </if>
+      <if test="pmFixedLine != null" >
+        pmFixedLine,
+      </if>
+      <if test="pmMail != null" >
+        pmMail,
+      </if>
+      <if test="fiCharge != null" >
+        fiCharge,
+      </if>
+      <if test="fiTel != null" >
+        fiTel,
+      </if>
+      <if test="fiFixedLine != null" >
+        fiFixedLine,
+      </if>
+      <if test="fiMail != null" >
+        fiMail,
+      </if>
+      <if test="ctrCharge != null" >
+        ctrCharge,
+      </if>
+      <if test="ctrTel != null" >
+        ctrTel,
+      </if>
+      <if test="ctrFixedLine != null" >
+        ctrFixedLine,
+      </if>
+      <if test="ctrMail != null" >
+        ctrMail,
+      </if>
+      <if test="dcLeader != null" >
+        dcLeader,
+      </if>
+      <if test="dcTel != null" >
+        dcTel,
+      </if>
+      <if test="dcFixedLine != null" >
+        dcFixedLine,
+      </if>
+      <if test="dcMail != null" >
+        dcMail,
+      </if>
+      <if test="doubleCheckDate != null" >
+        doubleCheckDate,
+      </if>
+      <if test="writeDate != null" >
+        writeDate,
+      </if>
+      <if test="accountDepId != null" >
+        accountDepId,
+      </if>
+      <if test="accountDepCode != null" >
+        accountDepCode,
+      </if>
+      <if test="accountDepName != null" >
+        accountDepName,
+      </if>
+      <if test="secondIDCode != null" >
+        secondIDCode,
+      </if>
+      <if test="writer != null" >
+        writer,
+      </if>
+      <if test="systemNo != null" >
+        systemNo,
+      </if>
+      <if test="currencyCode != null" >
+        currencyCode,
+      </if>
+      <if test="ctrNature != null" >
+        ctrNature,
+      </if>
+      <if test="ctrUpdateState != null" >
+        ctrUpdateState,
+      </if>
+      <if test="fiCtrState != null" >
+        fiCtrState,
+      </if>
+      <if test="revenueDir != null" >
+        revenueDir,
+      </if>
+      <if test="invoiceType != null" >
+        invoiceType,
+      </if>
+      <if test="staCtr != null" >
+        staCtr,
+      </if>
+      <if test="keyCtr != null" >
+        keyCtr,
+      </if>
+      <if test="orgId != null" >
+        orgId,
+      </if>
+      <if test="notDisplay != null" >
+        notDisplay,
+      </if>
+      <if test="doubleCheckPerson != null" >
+        doubleCheckPerson,
+      </if>
+      <if test="secondIDCodeBh != null" >
+        secondIDCodeBh,
+      </if>
+      <if test="auditWorkitemId != null" >
+        auditWorkitemId,
+      </if>
+      <if test="auditSys != null" >
+        auditSys,
+      </if>
+      <if test="secondIDCodeName != null" >
+        secondIDCodeName,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="secondOrgType != null" >
+        secondOrgType,
+      </if>
+      <if test="firstOAorgId != null" >
+        firstOAorgId,
+      </if>
+      <if test="isBiddedOnCloud != null" >
+        isBiddedOnCloud,
+      </if>
+      <if test="bidType != null" >
+        bidType,
+      </if>
+      <if test="cloudBidNo != null" >
+        cloudBidNo,
+      </if>
+      <if test="bidOrgType != null" >
+        bidOrgType,
+      </if>
+      <if test="isAllDepartJoin != null" >
+        isAllDepartJoin,
+      </if>
+      <if test="joinType != null" >
+        joinType,
+      </if>
+      <if test="isDepartJoinBid != null" >
+        isDepartJoinBid,
+      </if>
+      <if test="contractDepart != null" >
+        contractDepart,
+      </if>
+      <if test="packageNo != null" >
+        packageNo,
+      </if>
+      <if test="cloudEcoId != null" >
+        cloudEcoId,
+      </if>
+      <if test="investContractNo != null" >
+        investContractNo,
+      </if>
+      <if test="resCategoryId != null" >
+        resCategoryId,
+      </if>
+      <if test="resCategoryName != null" >
+        resCategoryName,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="contractNo != null" >
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="contractName != null" >
+        #{contractName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractType != null" >
+        #{contractType,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCost != null" >
+        #{contractCost,jdbcType=DECIMAL},
+      </if>
+      <if test="firstId != null" >
+        #{firstId,jdbcType=VARCHAR},
+      </if>
+      <if test="firstName != null" >
+        #{firstName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondId != null" >
+        #{secondId,jdbcType=VARCHAR},
+      </if>
+      <if test="secondName != null" >
+        #{secondName,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="csTimeLimit != null" >
+        #{csTimeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="agent != null" >
+        #{agent,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="beginPer != null" >
+        #{beginPer,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyAgreement != null" >
+        #{supplyAgreement,jdbcType=VARCHAR},
+      </if>
+      <if test="pp4 != null" >
+        #{pp4,jdbcType=VARCHAR},
+      </if>
+      <if test="pp5 != null" >
+        #{pp5,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNameId != null" >
+        #{contractNameId,jdbcType=VARCHAR},
+      </if>
+      <if test="pp10 != null" >
+        #{pp10,jdbcType=VARCHAR},
+      </if>
+      <if test="instProcessId != null" >
+        #{instProcessId,jdbcType=VARCHAR},
+      </if>
+      <if test="workitemId != null" >
+        #{workitemId,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCode != null" >
+        #{contractCode,jdbcType=VARCHAR},
+      </if>
+      <if test="organCode != null" >
+        #{organCode,jdbcType=VARCHAR},
+      </if>
+      <if test="contractorAbbreviation != null" >
+        #{contractorAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="bidWinnerAbbreviation != null" >
+        #{bidWinnerAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="projectProvinceAbbreviation != null" >
+        #{projectProvinceAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="projectAbbreviation != null" >
+        #{projectAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="lotNo != null" >
+        #{lotNo,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCategory != null" >
+        #{contractCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNumber != null" >
+        #{contractNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerContractCode != null" >
+        #{ownerContractCode,jdbcType=VARCHAR},
+      </if>
+      <if test="oneFirm != null" >
+        #{oneFirm,jdbcType=VARCHAR},
+      </if>
+      <if test="flowBeginDate != null" >
+        #{flowBeginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flowEndDate != null" >
+        #{flowEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="alterContractSum != null" >
+        #{alterContractSum,jdbcType=DECIMAL},
+      </if>
+      <if test="isFlag != null" >
+        #{isFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="isReport != null" >
+        #{isReport,jdbcType=VARCHAR},
+      </if>
+      <if test="appInsHistId != null" >
+        #{appInsHistId,jdbcType=VARCHAR},
+      </if>
+      <if test="sendToJuId != null" >
+        #{sendToJuId,jdbcType=VARCHAR},
+      </if>
+      <if test="materialSource != null" >
+        #{materialSource,jdbcType=VARCHAR},
+      </if>
+      <if test="upAlterContractSum != null" >
+        #{upAlterContractSum,jdbcType=DECIMAL},
+      </if>
+      <if test="legalPerson != null" >
+        #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="agentPerson != null" >
+        #{agentPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="chargePerson != null" >
+        #{chargePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="isFlagZhb != null" >
+        #{isFlagZhb,jdbcType=VARCHAR},
+      </if>
+      <if test="isReportZhb != null" >
+        #{isReportZhb,jdbcType=VARCHAR},
+      </if>
+      <if test="sendToZhbId != null" >
+        #{sendToZhbId,jdbcType=VARCHAR},
+      </if>
+      <if test="appInsHistIDZhb != null" >
+        #{appInsHistIDZhb,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCostNoTax != null" >
+        #{contractCostNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRate != null" >
+        #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="alterContractSumNoTax != null" >
+        #{alterContractSumNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="alterContractSumTax != null" >
+        #{alterContractSumTax,jdbcType=DECIMAL},
+      </if>
+      <if test="pp4NoTax != null" >
+        #{pp4NoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="pp4Tax != null" >
+        #{pp4Tax,jdbcType=DECIMAL},
+      </if>
+      <if test="isDeduct != null" >
+        #{isDeduct,jdbcType=VARCHAR},
+      </if>
+      <if test="fromContractId != null" >
+        #{fromContractId,jdbcType=VARCHAR},
+      </if>
+      <if test="fromContractNo != null" >
+        #{fromContractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fromContractName != null" >
+        #{fromContractName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCostTax != null" >
+        #{contractCostTax,jdbcType=DECIMAL},
+      </if>
+      <if test="wtrName != null" >
+        #{wtrName,jdbcType=VARCHAR},
+      </if>
+      <if test="wtrPhone != null" >
+        #{wtrPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="referenceName != null" >
+        #{referenceName,jdbcType=VARCHAR},
+      </if>
+      <if test="referencePost != null" >
+        #{referencePost,jdbcType=VARCHAR},
+      </if>
+      <if test="referencePhone != null" >
+        #{referencePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="upAlterContractSumNoTax != null" >
+        #{upAlterContractSumNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="comId != null" >
+        #{comId,jdbcType=VARCHAR},
+      </if>
+      <if test="upAlterContractSumTax != null" >
+        #{upAlterContractSumTax,jdbcType=DECIMAL},
+      </if>
+      <if test="fiId != null" >
+        #{fiId,jdbcType=VARCHAR},
+      </if>
+      <if test="actDepartment != null" >
+        #{actDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="actDepartmentBm != null" >
+        #{actDepartmentBm,jdbcType=VARCHAR},
+      </if>
+      <if test="actDepartmentId != null" >
+        #{actDepartmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="biddersId != null" >
+        #{biddersId,jdbcType=VARCHAR},
+      </if>
+      <if test="biddersCode != null" >
+        #{biddersCode,jdbcType=VARCHAR},
+      </if>
+      <if test="biddersName != null" >
+        #{biddersName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountUnitId != null" >
+        #{accountUnitId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountUnitCode != null" >
+        #{accountUnitCode,jdbcType=VARCHAR},
+      </if>
+      <if test="accountUnitName != null" >
+        #{accountUnitName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountProjId != null" >
+        #{accountProjId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountProjCode != null" >
+        #{accountProjCode,jdbcType=VARCHAR},
+      </if>
+      <if test="accountProjName != null" >
+        #{accountProjName,jdbcType=VARCHAR},
+      </if>
+      <if test="projSite != null" >
+        #{projSite,jdbcType=VARCHAR},
+      </if>
+      <if test="busiSegments != null" >
+        #{busiSegments,jdbcType=VARCHAR},
+      </if>
+      <if test="projFundsSource != null" >
+        #{projFundsSource,jdbcType=VARCHAR},
+      </if>
+      <if test="division != null" >
+        #{division,jdbcType=VARCHAR},
+      </if>
+      <if test="taxFilingCode != null" >
+        #{taxFilingCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxCountWay != null" >
+        #{taxCountWay,jdbcType=VARCHAR},
+      </if>
+      <if test="taxAdvanceRate != null" >
+        #{taxAdvanceRate,jdbcType=VARCHAR},
+      </if>
+      <if test="taxUseWay != null" >
+        #{taxUseWay,jdbcType=VARCHAR},
+      </if>
+      <if test="prepaidLand != null" >
+        #{prepaidLand,jdbcType=VARCHAR},
+      </if>
+      <if test="nationalTax != null" >
+        #{nationalTax,jdbcType=VARCHAR},
+      </if>
+      <if test="nationalTaxTel != null" >
+        #{nationalTaxTel,jdbcType=VARCHAR},
+      </if>
+      <if test="nationalTaxAdds != null" >
+        #{nationalTaxAdds,jdbcType=VARCHAR},
+      </if>
+      <if test="projDepAdds != null" >
+        #{projDepAdds,jdbcType=VARCHAR},
+      </if>
+      <if test="projDepZipCode != null" >
+        #{projDepZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="projDepTel != null" >
+        #{projDepTel,jdbcType=VARCHAR},
+      </if>
+      <if test="projDepFax != null" >
+        #{projDepFax,jdbcType=VARCHAR},
+      </if>
+      <if test="projStage != null" >
+        #{projStage,jdbcType=VARCHAR},
+      </if>
+      <if test="pmFixedLine != null" >
+        #{pmFixedLine,jdbcType=VARCHAR},
+      </if>
+      <if test="pmMail != null" >
+        #{pmMail,jdbcType=VARCHAR},
+      </if>
+      <if test="fiCharge != null" >
+        #{fiCharge,jdbcType=VARCHAR},
+      </if>
+      <if test="fiTel != null" >
+        #{fiTel,jdbcType=VARCHAR},
+      </if>
+      <if test="fiFixedLine != null" >
+        #{fiFixedLine,jdbcType=VARCHAR},
+      </if>
+      <if test="fiMail != null" >
+        #{fiMail,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrCharge != null" >
+        #{ctrCharge,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrTel != null" >
+        #{ctrTel,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrFixedLine != null" >
+        #{ctrFixedLine,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrMail != null" >
+        #{ctrMail,jdbcType=VARCHAR},
+      </if>
+      <if test="dcLeader != null" >
+        #{dcLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="dcTel != null" >
+        #{dcTel,jdbcType=VARCHAR},
+      </if>
+      <if test="dcFixedLine != null" >
+        #{dcFixedLine,jdbcType=VARCHAR},
+      </if>
+      <if test="dcMail != null" >
+        #{dcMail,jdbcType=VARCHAR},
+      </if>
+      <if test="doubleCheckDate != null" >
+        #{doubleCheckDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="writeDate != null" >
+        #{writeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountDepId != null" >
+        #{accountDepId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountDepCode != null" >
+        #{accountDepCode,jdbcType=VARCHAR},
+      </if>
+      <if test="accountDepName != null" >
+        #{accountDepName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondIDCode != null" >
+        #{secondIDCode,jdbcType=VARCHAR},
+      </if>
+      <if test="writer != null" >
+        #{writer,jdbcType=VARCHAR},
+      </if>
+      <if test="systemNo != null" >
+        #{systemNo,jdbcType=VARCHAR},
+      </if>
+      <if test="currencyCode != null" >
+        #{currencyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrNature != null" >
+        #{ctrNature,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrUpdateState != null" >
+        #{ctrUpdateState,jdbcType=VARCHAR},
+      </if>
+      <if test="fiCtrState != null" >
+        #{fiCtrState,jdbcType=CHAR},
+      </if>
+      <if test="revenueDir != null" >
+        #{revenueDir,jdbcType=CHAR},
+      </if>
+      <if test="invoiceType != null" >
+        #{invoiceType,jdbcType=CHAR},
+      </if>
+      <if test="staCtr != null" >
+        #{staCtr,jdbcType=CHAR},
+      </if>
+      <if test="keyCtr != null" >
+        #{keyCtr,jdbcType=CHAR},
+      </if>
+      <if test="orgId != null" >
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="notDisplay != null" >
+        #{notDisplay,jdbcType=VARCHAR},
+      </if>
+      <if test="doubleCheckPerson != null" >
+        #{doubleCheckPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="secondIDCodeBh != null" >
+        #{secondIDCodeBh,jdbcType=VARCHAR},
+      </if>
+      <if test="auditWorkitemId != null" >
+        #{auditWorkitemId,jdbcType=VARCHAR},
+      </if>
+      <if test="auditSys != null" >
+        #{auditSys,jdbcType=VARCHAR},
+      </if>
+      <if test="secondIDCodeName != null" >
+        #{secondIDCodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondOrgType != null" >
+        #{secondOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="firstOAorgId != null" >
+        #{firstOAorgId,jdbcType=VARCHAR},
+      </if>
+      <if test="isBiddedOnCloud != null" >
+        #{isBiddedOnCloud,jdbcType=VARCHAR},
+      </if>
+      <if test="bidType != null" >
+        #{bidType,jdbcType=VARCHAR},
+      </if>
+      <if test="cloudBidNo != null" >
+        #{cloudBidNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bidOrgType != null" >
+        #{bidOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="isAllDepartJoin != null" >
+        #{isAllDepartJoin,jdbcType=VARCHAR},
+      </if>
+      <if test="joinType != null" >
+        #{joinType,jdbcType=VARCHAR},
+      </if>
+      <if test="isDepartJoinBid != null" >
+        #{isDepartJoinBid,jdbcType=VARCHAR},
+      </if>
+      <if test="contractDepart != null" >
+        #{contractDepart,jdbcType=VARCHAR},
+      </if>
+      <if test="packageNo != null" >
+        #{packageNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cloudEcoId != null" >
+        #{cloudEcoId,jdbcType=VARCHAR},
+      </if>
+      <if test="investContractNo != null" >
+        #{investContractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resCategoryId != null" >
+        #{resCategoryId,jdbcType=VARCHAR},
+      </if>
+      <if test="resCategoryName != null" >
+        #{resCategoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCtContrApply" >
+    update zx_ct_contr_apply
+    <set >
+      <if test="contractNo != null" >
+        contractNo = #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="contractName != null" >
+        contractName = #{contractName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractType != null" >
+        contractType = #{contractType,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCost != null" >
+        contractCost = #{contractCost,jdbcType=DECIMAL},
+      </if>
+      <if test="firstId != null" >
+        firstId = #{firstId,jdbcType=VARCHAR},
+      </if>
+      <if test="firstName != null" >
+        firstName = #{firstName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondId != null" >
+        secondId = #{secondId,jdbcType=VARCHAR},
+      </if>
+      <if test="secondName != null" >
+        secondName = #{secondName,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null" >
+        startDate = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        endDate = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="csTimeLimit != null" >
+        csTimeLimit = #{csTimeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="agent != null" >
+        agent = #{agent,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="beginPer != null" >
+        beginPer = #{beginPer,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyAgreement != null" >
+        supplyAgreement = #{supplyAgreement,jdbcType=VARCHAR},
+      </if>
+      <if test="pp4 != null" >
+        pp4 = #{pp4,jdbcType=VARCHAR},
+      </if>
+      <if test="pp5 != null" >
+        pp5 = #{pp5,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNameId != null" >
+        contractNameId = #{contractNameId,jdbcType=VARCHAR},
+      </if>
+      <if test="pp10 != null" >
+        pp10 = #{pp10,jdbcType=VARCHAR},
+      </if>
+      <if test="instProcessId != null" >
+        instProcessId = #{instProcessId,jdbcType=VARCHAR},
+      </if>
+      <if test="workitemId != null" >
+        workitemId = #{workitemId,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCode != null" >
+        contractCode = #{contractCode,jdbcType=VARCHAR},
+      </if>
+      <if test="organCode != null" >
+        organCode = #{organCode,jdbcType=VARCHAR},
+      </if>
+      <if test="contractorAbbreviation != null" >
+        contractorAbbreviation = #{contractorAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="bidWinnerAbbreviation != null" >
+        bidWinnerAbbreviation = #{bidWinnerAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="projectProvinceAbbreviation != null" >
+        projectProvinceAbbreviation = #{projectProvinceAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="projectAbbreviation != null" >
+        projectAbbreviation = #{projectAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="lotNo != null" >
+        lotNo = #{lotNo,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCategory != null" >
+        contractCategory = #{contractCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNumber != null" >
+        contractNumber = #{contractNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerContractCode != null" >
+        ownerContractCode = #{ownerContractCode,jdbcType=VARCHAR},
+      </if>
+      <if test="oneFirm != null" >
+        oneFirm = #{oneFirm,jdbcType=VARCHAR},
+      </if>
+      <if test="flowBeginDate != null" >
+        flowBeginDate = #{flowBeginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flowEndDate != null" >
+        flowEndDate = #{flowEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="alterContractSum != null" >
+        alterContractSum = #{alterContractSum,jdbcType=DECIMAL},
+      </if>
+      <if test="isFlag != null" >
+        isFlag = #{isFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="isReport != null" >
+        isReport = #{isReport,jdbcType=VARCHAR},
+      </if>
+      <if test="appInsHistId != null" >
+        appInsHistId = #{appInsHistId,jdbcType=VARCHAR},
+      </if>
+      <if test="sendToJuId != null" >
+        sendToJuId = #{sendToJuId,jdbcType=VARCHAR},
+      </if>
+      <if test="materialSource != null" >
+        materialSource = #{materialSource,jdbcType=VARCHAR},
+      </if>
+      <if test="upAlterContractSum != null" >
+        upAlterContractSum = #{upAlterContractSum,jdbcType=DECIMAL},
+      </if>
+      <if test="legalPerson != null" >
+        legalPerson = #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="agentPerson != null" >
+        agentPerson = #{agentPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="chargePerson != null" >
+        chargePerson = #{chargePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="isFlagZhb != null" >
+        isFlagZhb = #{isFlagZhb,jdbcType=VARCHAR},
+      </if>
+      <if test="isReportZhb != null" >
+        isReportZhb = #{isReportZhb,jdbcType=VARCHAR},
+      </if>
+      <if test="sendToZhbId != null" >
+        sendToZhbId = #{sendToZhbId,jdbcType=VARCHAR},
+      </if>
+      <if test="appInsHistIDZhb != null" >
+        appInsHistIDZhb = #{appInsHistIDZhb,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCostNoTax != null" >
+        contractCostNoTax = #{contractCostNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRate != null" >
+        taxRate = #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="alterContractSumNoTax != null" >
+        alterContractSumNoTax = #{alterContractSumNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="alterContractSumTax != null" >
+        alterContractSumTax = #{alterContractSumTax,jdbcType=DECIMAL},
+      </if>
+      <if test="pp4NoTax != null" >
+        pp4NoTax = #{pp4NoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="pp4Tax != null" >
+        pp4Tax = #{pp4Tax,jdbcType=DECIMAL},
+      </if>
+      <if test="isDeduct != null" >
+        isDeduct = #{isDeduct,jdbcType=VARCHAR},
+      </if>
+      <if test="fromContractId != null" >
+        fromContractId = #{fromContractId,jdbcType=VARCHAR},
+      </if>
+      <if test="fromContractNo != null" >
+        fromContractNo = #{fromContractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fromContractName != null" >
+        fromContractName = #{fromContractName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCostTax != null" >
+        contractCostTax = #{contractCostTax,jdbcType=DECIMAL},
+      </if>
+      <if test="wtrName != null" >
+        wtrName = #{wtrName,jdbcType=VARCHAR},
+      </if>
+      <if test="wtrPhone != null" >
+        wtrPhone = #{wtrPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="referenceName != null" >
+        referenceName = #{referenceName,jdbcType=VARCHAR},
+      </if>
+      <if test="referencePost != null" >
+        referencePost = #{referencePost,jdbcType=VARCHAR},
+      </if>
+      <if test="referencePhone != null" >
+        referencePhone = #{referencePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="upAlterContractSumNoTax != null" >
+        upAlterContractSumNoTax = #{upAlterContractSumNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="comId != null" >
+        comId = #{comId,jdbcType=VARCHAR},
+      </if>
+      <if test="upAlterContractSumTax != null" >
+        upAlterContractSumTax = #{upAlterContractSumTax,jdbcType=DECIMAL},
+      </if>
+      <if test="fiId != null" >
+        fiId = #{fiId,jdbcType=VARCHAR},
+      </if>
+      <if test="actDepartment != null" >
+        actDepartment = #{actDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="actDepartmentBm != null" >
+        actDepartmentBm = #{actDepartmentBm,jdbcType=VARCHAR},
+      </if>
+      <if test="actDepartmentId != null" >
+        actDepartmentId = #{actDepartmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="biddersId != null" >
+        biddersId = #{biddersId,jdbcType=VARCHAR},
+      </if>
+      <if test="biddersCode != null" >
+        biddersCode = #{biddersCode,jdbcType=VARCHAR},
+      </if>
+      <if test="biddersName != null" >
+        biddersName = #{biddersName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountUnitId != null" >
+        accountUnitId = #{accountUnitId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountUnitCode != null" >
+        accountUnitCode = #{accountUnitCode,jdbcType=VARCHAR},
+      </if>
+      <if test="accountUnitName != null" >
+        accountUnitName = #{accountUnitName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountProjId != null" >
+        accountProjId = #{accountProjId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountProjCode != null" >
+        accountProjCode = #{accountProjCode,jdbcType=VARCHAR},
+      </if>
+      <if test="accountProjName != null" >
+        accountProjName = #{accountProjName,jdbcType=VARCHAR},
+      </if>
+      <if test="projSite != null" >
+        projSite = #{projSite,jdbcType=VARCHAR},
+      </if>
+      <if test="busiSegments != null" >
+        busiSegments = #{busiSegments,jdbcType=VARCHAR},
+      </if>
+      <if test="projFundsSource != null" >
+        projFundsSource = #{projFundsSource,jdbcType=VARCHAR},
+      </if>
+      <if test="division != null" >
+        division = #{division,jdbcType=VARCHAR},
+      </if>
+      <if test="taxFilingCode != null" >
+        taxFilingCode = #{taxFilingCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxCountWay != null" >
+        taxCountWay = #{taxCountWay,jdbcType=VARCHAR},
+      </if>
+      <if test="taxAdvanceRate != null" >
+        taxAdvanceRate = #{taxAdvanceRate,jdbcType=VARCHAR},
+      </if>
+      <if test="taxUseWay != null" >
+        taxUseWay = #{taxUseWay,jdbcType=VARCHAR},
+      </if>
+      <if test="prepaidLand != null" >
+        prepaidLand = #{prepaidLand,jdbcType=VARCHAR},
+      </if>
+      <if test="nationalTax != null" >
+        nationalTax = #{nationalTax,jdbcType=VARCHAR},
+      </if>
+      <if test="nationalTaxTel != null" >
+        nationalTaxTel = #{nationalTaxTel,jdbcType=VARCHAR},
+      </if>
+      <if test="nationalTaxAdds != null" >
+        nationalTaxAdds = #{nationalTaxAdds,jdbcType=VARCHAR},
+      </if>
+      <if test="projDepAdds != null" >
+        projDepAdds = #{projDepAdds,jdbcType=VARCHAR},
+      </if>
+      <if test="projDepZipCode != null" >
+        projDepZipCode = #{projDepZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="projDepTel != null" >
+        projDepTel = #{projDepTel,jdbcType=VARCHAR},
+      </if>
+      <if test="projDepFax != null" >
+        projDepFax = #{projDepFax,jdbcType=VARCHAR},
+      </if>
+      <if test="projStage != null" >
+        projStage = #{projStage,jdbcType=VARCHAR},
+      </if>
+      <if test="pmFixedLine != null" >
+        pmFixedLine = #{pmFixedLine,jdbcType=VARCHAR},
+      </if>
+      <if test="pmMail != null" >
+        pmMail = #{pmMail,jdbcType=VARCHAR},
+      </if>
+      <if test="fiCharge != null" >
+        fiCharge = #{fiCharge,jdbcType=VARCHAR},
+      </if>
+      <if test="fiTel != null" >
+        fiTel = #{fiTel,jdbcType=VARCHAR},
+      </if>
+      <if test="fiFixedLine != null" >
+        fiFixedLine = #{fiFixedLine,jdbcType=VARCHAR},
+      </if>
+      <if test="fiMail != null" >
+        fiMail = #{fiMail,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrCharge != null" >
+        ctrCharge = #{ctrCharge,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrTel != null" >
+        ctrTel = #{ctrTel,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrFixedLine != null" >
+        ctrFixedLine = #{ctrFixedLine,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrMail != null" >
+        ctrMail = #{ctrMail,jdbcType=VARCHAR},
+      </if>
+      <if test="dcLeader != null" >
+        dcLeader = #{dcLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="dcTel != null" >
+        dcTel = #{dcTel,jdbcType=VARCHAR},
+      </if>
+      <if test="dcFixedLine != null" >
+        dcFixedLine = #{dcFixedLine,jdbcType=VARCHAR},
+      </if>
+      <if test="dcMail != null" >
+        dcMail = #{dcMail,jdbcType=VARCHAR},
+      </if>
+      <if test="doubleCheckDate != null" >
+        doubleCheckDate = #{doubleCheckDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="writeDate != null" >
+        writeDate = #{writeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountDepId != null" >
+        accountDepId = #{accountDepId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountDepCode != null" >
+        accountDepCode = #{accountDepCode,jdbcType=VARCHAR},
+      </if>
+      <if test="accountDepName != null" >
+        accountDepName = #{accountDepName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondIDCode != null" >
+        secondIDCode = #{secondIDCode,jdbcType=VARCHAR},
+      </if>
+      <if test="writer != null" >
+        writer = #{writer,jdbcType=VARCHAR},
+      </if>
+      <if test="systemNo != null" >
+        systemNo = #{systemNo,jdbcType=VARCHAR},
+      </if>
+      <if test="currencyCode != null" >
+        currencyCode = #{currencyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrNature != null" >
+        ctrNature = #{ctrNature,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrUpdateState != null" >
+        ctrUpdateState = #{ctrUpdateState,jdbcType=VARCHAR},
+      </if>
+      <if test="fiCtrState != null" >
+        fiCtrState = #{fiCtrState,jdbcType=CHAR},
+      </if>
+      <if test="revenueDir != null" >
+        revenueDir = #{revenueDir,jdbcType=CHAR},
+      </if>
+      <if test="invoiceType != null" >
+        invoiceType = #{invoiceType,jdbcType=CHAR},
+      </if>
+      <if test="staCtr != null" >
+        staCtr = #{staCtr,jdbcType=CHAR},
+      </if>
+      <if test="keyCtr != null" >
+        keyCtr = #{keyCtr,jdbcType=CHAR},
+      </if>
+      <if test="orgId != null" >
+        orgId = #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="notDisplay != null" >
+        notDisplay = #{notDisplay,jdbcType=VARCHAR},
+      </if>
+      <if test="doubleCheckPerson != null" >
+        doubleCheckPerson = #{doubleCheckPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="secondIDCodeBh != null" >
+        secondIDCodeBh = #{secondIDCodeBh,jdbcType=VARCHAR},
+      </if>
+      <if test="auditWorkitemId != null" >
+        auditWorkitemId = #{auditWorkitemId,jdbcType=VARCHAR},
+      </if>
+      <if test="auditSys != null" >
+        auditSys = #{auditSys,jdbcType=VARCHAR},
+      </if>
+      <if test="secondIDCodeName != null" >
+        secondIDCodeName = #{secondIDCodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondOrgType != null" >
+        secondOrgType = #{secondOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="firstOAorgId != null" >
+        firstOAorgId = #{firstOAorgId,jdbcType=VARCHAR},
+      </if>
+      <if test="isBiddedOnCloud != null" >
+        isBiddedOnCloud = #{isBiddedOnCloud,jdbcType=VARCHAR},
+      </if>
+      <if test="bidType != null" >
+        bidType = #{bidType,jdbcType=VARCHAR},
+      </if>
+      <if test="cloudBidNo != null" >
+        cloudBidNo = #{cloudBidNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bidOrgType != null" >
+        bidOrgType = #{bidOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="isAllDepartJoin != null" >
+        isAllDepartJoin = #{isAllDepartJoin,jdbcType=VARCHAR},
+      </if>
+      <if test="joinType != null" >
+        joinType = #{joinType,jdbcType=VARCHAR},
+      </if>
+      <if test="isDepartJoinBid != null" >
+        isDepartJoinBid = #{isDepartJoinBid,jdbcType=VARCHAR},
+      </if>
+      <if test="contractDepart != null" >
+        contractDepart = #{contractDepart,jdbcType=VARCHAR},
+      </if>
+      <if test="packageNo != null" >
+        packageNo = #{packageNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cloudEcoId != null" >
+        cloudEcoId = #{cloudEcoId,jdbcType=VARCHAR},
+      </if>
+      <if test="investContractNo != null" >
+        investContractNo = #{investContractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resCategoryId != null" >
+        resCategoryId = #{resCategoryId,jdbcType=VARCHAR},
+      </if>
+      <if test="resCategoryName != null" >
+        resCategoryName = #{resCategoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCtContrApply" >
+    update zx_ct_contr_apply set 
+      contractNo = #{contractNo,jdbcType=VARCHAR},
+      contractName = #{contractName,jdbcType=VARCHAR},
+      contractType = #{contractType,jdbcType=VARCHAR},
+      contractCost = #{contractCost,jdbcType=DECIMAL},
+      firstId = #{firstId,jdbcType=VARCHAR},
+      firstName = #{firstName,jdbcType=VARCHAR},
+      secondId = #{secondId,jdbcType=VARCHAR},
+      secondName = #{secondName,jdbcType=VARCHAR},
+      startDate = #{startDate,jdbcType=TIMESTAMP},
+      endDate = #{endDate,jdbcType=TIMESTAMP},
+      csTimeLimit = #{csTimeLimit,jdbcType=VARCHAR},
+      agent = #{agent,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      beginPer = #{beginPer,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      supplyAgreement = #{supplyAgreement,jdbcType=VARCHAR},
+      pp4 = #{pp4,jdbcType=VARCHAR},
+      pp5 = #{pp5,jdbcType=VARCHAR},
+      contractNameId = #{contractNameId,jdbcType=VARCHAR},
+      pp10 = #{pp10,jdbcType=VARCHAR},
+      instProcessId = #{instProcessId,jdbcType=VARCHAR},
+      workitemId = #{workitemId,jdbcType=VARCHAR},
+      contractCode = #{contractCode,jdbcType=VARCHAR},
+      organCode = #{organCode,jdbcType=VARCHAR},
+      contractorAbbreviation = #{contractorAbbreviation,jdbcType=VARCHAR},
+      bidWinnerAbbreviation = #{bidWinnerAbbreviation,jdbcType=VARCHAR},
+      projectProvinceAbbreviation = #{projectProvinceAbbreviation,jdbcType=VARCHAR},
+      projectAbbreviation = #{projectAbbreviation,jdbcType=VARCHAR},
+      lotNo = #{lotNo,jdbcType=VARCHAR},
+      contractCategory = #{contractCategory,jdbcType=VARCHAR},
+      contractNumber = #{contractNumber,jdbcType=VARCHAR},
+      ownerContractCode = #{ownerContractCode,jdbcType=VARCHAR},
+      oneFirm = #{oneFirm,jdbcType=VARCHAR},
+      flowBeginDate = #{flowBeginDate,jdbcType=TIMESTAMP},
+      flowEndDate = #{flowEndDate,jdbcType=TIMESTAMP},
+      alterContractSum = #{alterContractSum,jdbcType=DECIMAL},
+      isFlag = #{isFlag,jdbcType=VARCHAR},
+      isReport = #{isReport,jdbcType=VARCHAR},
+      appInsHistId = #{appInsHistId,jdbcType=VARCHAR},
+      sendToJuId = #{sendToJuId,jdbcType=VARCHAR},
+      materialSource = #{materialSource,jdbcType=VARCHAR},
+      upAlterContractSum = #{upAlterContractSum,jdbcType=DECIMAL},
+      legalPerson = #{legalPerson,jdbcType=VARCHAR},
+      agentPerson = #{agentPerson,jdbcType=VARCHAR},
+      chargePerson = #{chargePerson,jdbcType=VARCHAR},
+      isFlagZhb = #{isFlagZhb,jdbcType=VARCHAR},
+      isReportZhb = #{isReportZhb,jdbcType=VARCHAR},
+      sendToZhbId = #{sendToZhbId,jdbcType=VARCHAR},
+      appInsHistIDZhb = #{appInsHistIDZhb,jdbcType=VARCHAR},
+      contractCostNoTax = #{contractCostNoTax,jdbcType=DECIMAL},
+      taxRate = #{taxRate,jdbcType=VARCHAR},
+      alterContractSumNoTax = #{alterContractSumNoTax,jdbcType=DECIMAL},
+      alterContractSumTax = #{alterContractSumTax,jdbcType=DECIMAL},
+      pp4NoTax = #{pp4NoTax,jdbcType=DECIMAL},
+      pp4Tax = #{pp4Tax,jdbcType=DECIMAL},
+      isDeduct = #{isDeduct,jdbcType=VARCHAR},
+      fromContractId = #{fromContractId,jdbcType=VARCHAR},
+      fromContractNo = #{fromContractNo,jdbcType=VARCHAR},
+      fromContractName = #{fromContractName,jdbcType=VARCHAR},
+      contractCostTax = #{contractCostTax,jdbcType=DECIMAL},
+      wtrName = #{wtrName,jdbcType=VARCHAR},
+      wtrPhone = #{wtrPhone,jdbcType=VARCHAR},
+      referenceName = #{referenceName,jdbcType=VARCHAR},
+      referencePost = #{referencePost,jdbcType=VARCHAR},
+      referencePhone = #{referencePhone,jdbcType=VARCHAR},
+      upAlterContractSumNoTax = #{upAlterContractSumNoTax,jdbcType=DECIMAL},
+      comId = #{comId,jdbcType=VARCHAR},
+      upAlterContractSumTax = #{upAlterContractSumTax,jdbcType=DECIMAL},
+      fiId = #{fiId,jdbcType=VARCHAR},
+      actDepartment = #{actDepartment,jdbcType=VARCHAR},
+      actDepartmentBm = #{actDepartmentBm,jdbcType=VARCHAR},
+      actDepartmentId = #{actDepartmentId,jdbcType=VARCHAR},
+      biddersId = #{biddersId,jdbcType=VARCHAR},
+      biddersCode = #{biddersCode,jdbcType=VARCHAR},
+      biddersName = #{biddersName,jdbcType=VARCHAR},
+      accountUnitId = #{accountUnitId,jdbcType=VARCHAR},
+      accountUnitCode = #{accountUnitCode,jdbcType=VARCHAR},
+      accountUnitName = #{accountUnitName,jdbcType=VARCHAR},
+      accountProjId = #{accountProjId,jdbcType=VARCHAR},
+      accountProjCode = #{accountProjCode,jdbcType=VARCHAR},
+      accountProjName = #{accountProjName,jdbcType=VARCHAR},
+      projSite = #{projSite,jdbcType=VARCHAR},
+      busiSegments = #{busiSegments,jdbcType=VARCHAR},
+      projFundsSource = #{projFundsSource,jdbcType=VARCHAR},
+      division = #{division,jdbcType=VARCHAR},
+      taxFilingCode = #{taxFilingCode,jdbcType=VARCHAR},
+      taxCountWay = #{taxCountWay,jdbcType=VARCHAR},
+      taxAdvanceRate = #{taxAdvanceRate,jdbcType=VARCHAR},
+      taxUseWay = #{taxUseWay,jdbcType=VARCHAR},
+      prepaidLand = #{prepaidLand,jdbcType=VARCHAR},
+      nationalTax = #{nationalTax,jdbcType=VARCHAR},
+      nationalTaxTel = #{nationalTaxTel,jdbcType=VARCHAR},
+      nationalTaxAdds = #{nationalTaxAdds,jdbcType=VARCHAR},
+      projDepAdds = #{projDepAdds,jdbcType=VARCHAR},
+      projDepZipCode = #{projDepZipCode,jdbcType=VARCHAR},
+      projDepTel = #{projDepTel,jdbcType=VARCHAR},
+      projDepFax = #{projDepFax,jdbcType=VARCHAR},
+      projStage = #{projStage,jdbcType=VARCHAR},
+      pmFixedLine = #{pmFixedLine,jdbcType=VARCHAR},
+      pmMail = #{pmMail,jdbcType=VARCHAR},
+      fiCharge = #{fiCharge,jdbcType=VARCHAR},
+      fiTel = #{fiTel,jdbcType=VARCHAR},
+      fiFixedLine = #{fiFixedLine,jdbcType=VARCHAR},
+      fiMail = #{fiMail,jdbcType=VARCHAR},
+      ctrCharge = #{ctrCharge,jdbcType=VARCHAR},
+      ctrTel = #{ctrTel,jdbcType=VARCHAR},
+      ctrFixedLine = #{ctrFixedLine,jdbcType=VARCHAR},
+      ctrMail = #{ctrMail,jdbcType=VARCHAR},
+      dcLeader = #{dcLeader,jdbcType=VARCHAR},
+      dcTel = #{dcTel,jdbcType=VARCHAR},
+      dcFixedLine = #{dcFixedLine,jdbcType=VARCHAR},
+      dcMail = #{dcMail,jdbcType=VARCHAR},
+      doubleCheckDate = #{doubleCheckDate,jdbcType=TIMESTAMP},
+      writeDate = #{writeDate,jdbcType=TIMESTAMP},
+      accountDepId = #{accountDepId,jdbcType=VARCHAR},
+      accountDepCode = #{accountDepCode,jdbcType=VARCHAR},
+      accountDepName = #{accountDepName,jdbcType=VARCHAR},
+      secondIDCode = #{secondIDCode,jdbcType=VARCHAR},
+      writer = #{writer,jdbcType=VARCHAR},
+      systemNo = #{systemNo,jdbcType=VARCHAR},
+      currencyCode = #{currencyCode,jdbcType=VARCHAR},
+      ctrNature = #{ctrNature,jdbcType=VARCHAR},
+      ctrUpdateState = #{ctrUpdateState,jdbcType=VARCHAR},
+      fiCtrState = #{fiCtrState,jdbcType=CHAR},
+      revenueDir = #{revenueDir,jdbcType=CHAR},
+      invoiceType = #{invoiceType,jdbcType=CHAR},
+      staCtr = #{staCtr,jdbcType=CHAR},
+      keyCtr = #{keyCtr,jdbcType=CHAR},
+      orgId = #{orgId,jdbcType=VARCHAR},
+      notDisplay = #{notDisplay,jdbcType=VARCHAR},
+      doubleCheckPerson = #{doubleCheckPerson,jdbcType=VARCHAR},
+      secondIDCodeBh = #{secondIDCodeBh,jdbcType=VARCHAR},
+      auditWorkitemId = #{auditWorkitemId,jdbcType=VARCHAR},
+      auditSys = #{auditSys,jdbcType=VARCHAR},
+      secondIDCodeName = #{secondIDCodeName,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      secondOrgType = #{secondOrgType,jdbcType=VARCHAR},
+      firstOAorgId = #{firstOAorgId,jdbcType=VARCHAR},
+      isBiddedOnCloud = #{isBiddedOnCloud,jdbcType=VARCHAR},
+      bidType = #{bidType,jdbcType=VARCHAR},
+      cloudBidNo = #{cloudBidNo,jdbcType=VARCHAR},
+      bidOrgType = #{bidOrgType,jdbcType=VARCHAR},
+      isAllDepartJoin = #{isAllDepartJoin,jdbcType=VARCHAR},
+      joinType = #{joinType,jdbcType=VARCHAR},
+      isDepartJoinBid = #{isDepartJoinBid,jdbcType=VARCHAR},
+      contractDepart = #{contractDepart,jdbcType=VARCHAR},
+      packageNo = #{packageNo,jdbcType=VARCHAR},
+      cloudEcoId = #{cloudEcoId,jdbcType=VARCHAR},
+      investContractNo = #{investContractNo,jdbcType=VARCHAR},
+      resCategoryId = #{resCategoryId,jdbcType=VARCHAR},
+      resCategoryName = #{resCategoryName,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxCtContrApplyList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtContrApply" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_contr_apply
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=CHAR}
+    </if>
+    <if test="contractNo != null and contractNo != ''" >
+     and contractNo like CONCAT('%',CONCAT(#{contractNo,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="contractName != null and contractName != ''" >
+     and contractName like CONCAT('%',CONCAT(#{contractName,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="contractType != null and contractType != ''" >
+     and contractType = #{contractType,jdbcType=VARCHAR}
+    </if>
+    <if test="contractCost != null and contractCost != ''" >
+     and contractCost = #{contractCost,jdbcType=DECIMAL}
+    </if>
+    <if test="firstId != null and firstId != ''" >
+     and firstId = #{firstId,jdbcType=VARCHAR}
+    </if>
+    <if test="firstName != null and firstName != ''" >
+     and firstName like CONCAT('%',CONCAT(#{firstName,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="secondId != null and secondId != ''" >
+     and secondId = #{secondId,jdbcType=VARCHAR}
+    </if>
+    <if test="secondName != null and secondName != ''" >
+     and secondName like CONCAT('%',CONCAT(#{secondName,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="startDate != null and startDate != ''" >
+     and startDate = #{startDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="endDate != null and endDate != ''" >
+     and endDate = #{endDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="csTimeLimit != null and csTimeLimit != ''" >
+     and csTimeLimit = #{csTimeLimit,jdbcType=VARCHAR}
+    </if>
+    <if test="agent != null and agent != ''" >
+     and agent = #{agent,jdbcType=VARCHAR}
+    </if>
+    <if test="content != null and content != ''" >
+     and content like CONCAT('%',CONCAT(#{content,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="beginPer != null and beginPer != ''" >
+     and beginPer = #{beginPer,jdbcType=VARCHAR}
+    </if>
+    <if test="status != null and status != ''" >
+     and status = #{status,jdbcType=VARCHAR}
+    </if>
+    <if test="supplyAgreement != null and supplyAgreement != ''" >
+     and supplyAgreement = #{supplyAgreement,jdbcType=VARCHAR}
+    </if>
+    <if test="pp4 != null and pp4 != ''" >
+     and pp4 = #{pp4,jdbcType=VARCHAR}
+    </if>
+    <if test="pp5 != null and pp5 != ''" >
+     and pp5 = #{pp5,jdbcType=VARCHAR}
+    </if>
+    <if test="contractNameId != null and contractNameId != ''" >
+     and contractNameId = #{contractNameId,jdbcType=VARCHAR}
+    </if>
+    <if test="pp10 != null and pp10 != ''" >
+     and pp10 = #{pp10,jdbcType=VARCHAR}
+    </if>
+    <if test="instProcessId != null and instProcessId != ''" >
+     and instProcessId = #{instProcessId,jdbcType=VARCHAR}
+    </if>
+    <if test="workitemId != null and workitemId != ''" >
+     and workitemId = #{workitemId,jdbcType=VARCHAR}
+    </if>
+    <if test="contractCode != null and contractCode != ''" >
+     and contractCode = #{contractCode,jdbcType=VARCHAR}
+    </if>
+    <if test="organCode != null and organCode != ''" >
+     and organCode = #{organCode,jdbcType=VARCHAR}
+    </if>
+    <if test="contractorAbbreviation != null and contractorAbbreviation != ''" >
+     and contractorAbbreviation = #{contractorAbbreviation,jdbcType=VARCHAR}
+    </if>
+    <if test="bidWinnerAbbreviation != null and bidWinnerAbbreviation != ''" >
+     and bidWinnerAbbreviation = #{bidWinnerAbbreviation,jdbcType=VARCHAR}
+    </if>
+    <if test="projectProvinceAbbreviation != null and projectProvinceAbbreviation != ''" >
+     and projectProvinceAbbreviation = #{projectProvinceAbbreviation,jdbcType=VARCHAR}
+    </if>
+    <if test="projectAbbreviation != null and projectAbbreviation != ''" >
+     and projectAbbreviation = #{projectAbbreviation,jdbcType=VARCHAR}
+    </if>
+    <if test="lotNo != null and lotNo != ''" >
+     and lotNo = #{lotNo,jdbcType=VARCHAR}
+    </if>
+    <if test="contractCategory != null and contractCategory != ''" >
+     and contractCategory = #{contractCategory,jdbcType=VARCHAR}
+    </if>
+    <if test="contractNumber != null and contractNumber != ''" >
+     and contractNumber = #{contractNumber,jdbcType=VARCHAR}
+    </if>
+    <if test="ownerContractCode != null and ownerContractCode != ''" >
+     and ownerContractCode = #{ownerContractCode,jdbcType=VARCHAR}
+    </if>
+    <if test="oneFirm != null and oneFirm != ''" >
+     and oneFirm = #{oneFirm,jdbcType=VARCHAR}
+    </if>
+    <if test="flowBeginDate != null and flowBeginDate != ''" >
+     and flowBeginDate = #{flowBeginDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="flowEndDate != null and flowEndDate != ''" >
+     and flowEndDate = #{flowEndDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="alterContractSum != null and alterContractSum != ''" >
+     and alterContractSum = #{alterContractSum,jdbcType=DECIMAL}
+    </if>
+    <if test="isFlag != null and isFlag != ''" >
+     and isFlag = #{isFlag,jdbcType=VARCHAR}
+    </if>
+    <if test="isReport != null and isReport != ''" >
+     and isReport = #{isReport,jdbcType=VARCHAR}
+    </if>
+    <if test="appInsHistId != null and appInsHistId != ''" >
+     and appInsHistId = #{appInsHistId,jdbcType=VARCHAR}
+    </if>
+    <if test="sendToJuId != null and sendToJuId != ''" >
+     and sendToJuId = #{sendToJuId,jdbcType=VARCHAR}
+    </if>
+    <if test="materialSource != null and materialSource != ''" >
+     and materialSource = #{materialSource,jdbcType=VARCHAR}
+    </if>
+    <if test="upAlterContractSum != null and upAlterContractSum != ''" >
+     and upAlterContractSum = #{upAlterContractSum,jdbcType=DECIMAL}
+    </if>
+    <if test="legalPerson != null and legalPerson != ''" >
+     and legalPerson like CONCAT('%',CONCAT(#{legalPerson,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="agentPerson != null and agentPerson != ''" >
+     and agentPerson like CONCAT('%',CONCAT(#{agentPerson,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="chargePerson != null and chargePerson != ''" >
+     and chargePerson like CONCAT('%',CONCAT(#{chargePerson,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="isFlagZhb != null and isFlagZhb != ''" >
+     and isFlagZhb = #{isFlagZhb,jdbcType=VARCHAR}
+    </if>
+    <if test="isReportZhb != null and isReportZhb != ''" >
+     and isReportZhb = #{isReportZhb,jdbcType=VARCHAR}
+    </if>
+    <if test="sendToZhbId != null and sendToZhbId != ''" >
+     and sendToZhbId = #{sendToZhbId,jdbcType=VARCHAR}
+    </if>
+    <if test="appInsHistIDZhb != null and appInsHistIDZhb != ''" >
+     and appInsHistIDZhb = #{appInsHistIDZhb,jdbcType=VARCHAR}
+    </if>
+    <if test="contractCostNoTax != null and contractCostNoTax != ''" >
+     and contractCostNoTax = #{contractCostNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="taxRate != null and taxRate != ''" >
+     and taxRate = #{taxRate,jdbcType=VARCHAR}
+    </if>
+    <if test="alterContractSumNoTax != null and alterContractSumNoTax != ''" >
+     and alterContractSumNoTax = #{alterContractSumNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="alterContractSumTax != null and alterContractSumTax != ''" >
+     and alterContractSumTax = #{alterContractSumTax,jdbcType=DECIMAL}
+    </if>
+    <if test="pp4NoTax != null and pp4NoTax != ''" >
+     and pp4NoTax = #{pp4NoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="pp4Tax != null and pp4Tax != ''" >
+     and pp4Tax = #{pp4Tax,jdbcType=DECIMAL}
+    </if>
+    <if test="isDeduct != null and isDeduct != ''" >
+     and isDeduct = #{isDeduct,jdbcType=VARCHAR}
+    </if>
+    <if test="fromContractId != null and fromContractId != ''" >
+     and fromContractId = #{fromContractId,jdbcType=VARCHAR}
+    </if>
+    <if test="fromContractNo != null and fromContractNo != ''" >
+     and fromContractNo = #{fromContractNo,jdbcType=VARCHAR}
+    </if>
+    <if test="fromContractName != null and fromContractName != ''" >
+     and fromContractName = #{fromContractName,jdbcType=VARCHAR}
+    </if>
+    <if test="contractCostTax != null and contractCostTax != ''" >
+     and contractCostTax = #{contractCostTax,jdbcType=DECIMAL}
+    </if>
+    <if test="wtrName != null and wtrName != ''" >
+     and wtrName = #{wtrName,jdbcType=VARCHAR}
+    </if>
+    <if test="wtrPhone != null and wtrPhone != ''" >
+     and wtrPhone = #{wtrPhone,jdbcType=VARCHAR}
+    </if>
+    <if test="referenceName != null and referenceName != ''" >
+     and referenceName = #{referenceName,jdbcType=VARCHAR}
+    </if>
+    <if test="referencePost != null and referencePost != ''" >
+     and referencePost = #{referencePost,jdbcType=VARCHAR}
+    </if>
+    <if test="referencePhone != null and referencePhone != ''" >
+     and referencePhone = #{referencePhone,jdbcType=VARCHAR}
+    </if>
+    <if test="upAlterContractSumNoTax != null and upAlterContractSumNoTax != ''" >
+     and upAlterContractSumNoTax = #{upAlterContractSumNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="comId != null and comId != ''" >
+     and comId = #{comId,jdbcType=VARCHAR}
+    </if>
+    <if test="upAlterContractSumTax != null and upAlterContractSumTax != ''" >
+     and upAlterContractSumTax = #{upAlterContractSumTax,jdbcType=DECIMAL}
+    </if>
+    <if test="fiId != null and fiId != ''" >
+     and fiId = #{fiId,jdbcType=VARCHAR}
+    </if>
+    <if test="actDepartment != null and actDepartment != ''" >
+     and actDepartment = #{actDepartment,jdbcType=VARCHAR}
+    </if>
+    <if test="actDepartmentBm != null and actDepartmentBm != ''" >
+     and actDepartmentBm = #{actDepartmentBm,jdbcType=VARCHAR}
+    </if>
+    <if test="actDepartmentId != null and actDepartmentId != ''" >
+     and actDepartmentId = #{actDepartmentId,jdbcType=VARCHAR}
+    </if>
+    <if test="biddersId != null and biddersId != ''" >
+     and biddersId = #{biddersId,jdbcType=VARCHAR}
+    </if>
+    <if test="biddersCode != null and biddersCode != ''" >
+     and biddersCode = #{biddersCode,jdbcType=VARCHAR}
+    </if>
+    <if test="biddersName != null and biddersName != ''" >
+     and biddersName = #{biddersName,jdbcType=VARCHAR}
+    </if>
+    <if test="accountUnitId != null and accountUnitId != ''" >
+     and accountUnitId = #{accountUnitId,jdbcType=VARCHAR}
+    </if>
+    <if test="accountUnitCode != null and accountUnitCode != ''" >
+     and accountUnitCode = #{accountUnitCode,jdbcType=VARCHAR}
+    </if>
+    <if test="accountUnitName != null and accountUnitName != ''" >
+     and accountUnitName = #{accountUnitName,jdbcType=VARCHAR}
+    </if>
+    <if test="accountProjId != null and accountProjId != ''" >
+     and accountProjId = #{accountProjId,jdbcType=VARCHAR}
+    </if>
+    <if test="accountProjCode != null and accountProjCode != ''" >
+     and accountProjCode = #{accountProjCode,jdbcType=VARCHAR}
+    </if>
+    <if test="accountProjName != null and accountProjName != ''" >
+     and accountProjName = #{accountProjName,jdbcType=VARCHAR}
+    </if>
+    <if test="projSite != null and projSite != ''" >
+     and projSite = #{projSite,jdbcType=VARCHAR}
+    </if>
+    <if test="busiSegments != null and busiSegments != ''" >
+     and busiSegments = #{busiSegments,jdbcType=VARCHAR}
+    </if>
+    <if test="projFundsSource != null and projFundsSource != ''" >
+     and projFundsSource = #{projFundsSource,jdbcType=VARCHAR}
+    </if>
+    <if test="division != null and division != ''" >
+     and division = #{division,jdbcType=VARCHAR}
+    </if>
+    <if test="taxFilingCode != null and taxFilingCode != ''" >
+     and taxFilingCode = #{taxFilingCode,jdbcType=VARCHAR}
+    </if>
+    <if test="taxCountWay != null and taxCountWay != ''" >
+     and taxCountWay = #{taxCountWay,jdbcType=VARCHAR}
+    </if>
+    <if test="taxAdvanceRate != null and taxAdvanceRate != ''" >
+     and taxAdvanceRate = #{taxAdvanceRate,jdbcType=VARCHAR}
+    </if>
+    <if test="taxUseWay != null and taxUseWay != ''" >
+     and taxUseWay = #{taxUseWay,jdbcType=VARCHAR}
+    </if>
+    <if test="prepaidLand != null and prepaidLand != ''" >
+     and prepaidLand = #{prepaidLand,jdbcType=VARCHAR}
+    </if>
+    <if test="nationalTax != null and nationalTax != ''" >
+     and nationalTax = #{nationalTax,jdbcType=VARCHAR}
+    </if>
+    <if test="nationalTaxTel != null and nationalTaxTel != ''" >
+     and nationalTaxTel = #{nationalTaxTel,jdbcType=VARCHAR}
+    </if>
+    <if test="nationalTaxAdds != null and nationalTaxAdds != ''" >
+     and nationalTaxAdds = #{nationalTaxAdds,jdbcType=VARCHAR}
+    </if>
+    <if test="projDepAdds != null and projDepAdds != ''" >
+     and projDepAdds = #{projDepAdds,jdbcType=VARCHAR}
+    </if>
+    <if test="projDepZipCode != null and projDepZipCode != ''" >
+     and projDepZipCode = #{projDepZipCode,jdbcType=VARCHAR}
+    </if>
+    <if test="projDepTel != null and projDepTel != ''" >
+     and projDepTel = #{projDepTel,jdbcType=VARCHAR}
+    </if>
+    <if test="projDepFax != null and projDepFax != ''" >
+     and projDepFax = #{projDepFax,jdbcType=VARCHAR}
+    </if>
+    <if test="projStage != null and projStage != ''" >
+     and projStage = #{projStage,jdbcType=VARCHAR}
+    </if>
+    <if test="pmFixedLine != null and pmFixedLine != ''" >
+     and pmFixedLine = #{pmFixedLine,jdbcType=VARCHAR}
+    </if>
+    <if test="pmMail != null and pmMail != ''" >
+     and pmMail = #{pmMail,jdbcType=VARCHAR}
+    </if>
+    <if test="fiCharge != null and fiCharge != ''" >
+     and fiCharge = #{fiCharge,jdbcType=VARCHAR}
+    </if>
+    <if test="fiTel != null and fiTel != ''" >
+     and fiTel = #{fiTel,jdbcType=VARCHAR}
+    </if>
+    <if test="fiFixedLine != null and fiFixedLine != ''" >
+     and fiFixedLine = #{fiFixedLine,jdbcType=VARCHAR}
+    </if>
+    <if test="fiMail != null and fiMail != ''" >
+     and fiMail = #{fiMail,jdbcType=VARCHAR}
+    </if>
+    <if test="ctrCharge != null and ctrCharge != ''" >
+     and ctrCharge = #{ctrCharge,jdbcType=VARCHAR}
+    </if>
+    <if test="ctrTel != null and ctrTel != ''" >
+     and ctrTel = #{ctrTel,jdbcType=VARCHAR}
+    </if>
+    <if test="ctrFixedLine != null and ctrFixedLine != ''" >
+     and ctrFixedLine = #{ctrFixedLine,jdbcType=VARCHAR}
+    </if>
+    <if test="ctrMail != null and ctrMail != ''" >
+     and ctrMail = #{ctrMail,jdbcType=VARCHAR}
+    </if>
+    <if test="dcLeader != null and dcLeader != ''" >
+     and dcLeader = #{dcLeader,jdbcType=VARCHAR}
+    </if>
+    <if test="dcTel != null and dcTel != ''" >
+     and dcTel = #{dcTel,jdbcType=VARCHAR}
+    </if>
+    <if test="dcFixedLine != null and dcFixedLine != ''" >
+     and dcFixedLine = #{dcFixedLine,jdbcType=VARCHAR}
+    </if>
+    <if test="dcMail != null and dcMail != ''" >
+     and dcMail = #{dcMail,jdbcType=VARCHAR}
+    </if>
+    <if test="doubleCheckDate != null and doubleCheckDate != ''" >
+     and doubleCheckDate = #{doubleCheckDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="writeDate != null and writeDate != ''" >
+     and writeDate = #{writeDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="accountDepId != null and accountDepId != ''" >
+     and accountDepId = #{accountDepId,jdbcType=VARCHAR}
+    </if>
+    <if test="accountDepCode != null and accountDepCode != ''" >
+     and accountDepCode = #{accountDepCode,jdbcType=VARCHAR}
+    </if>
+    <if test="accountDepName != null and accountDepName != ''" >
+     and accountDepName = #{accountDepName,jdbcType=VARCHAR}
+    </if>
+    <if test="secondIDCode != null and secondIDCode != ''" >
+     and secondIDCode = #{secondIDCode,jdbcType=VARCHAR}
+    </if>
+    <if test="writer != null and writer != ''" >
+     and writer = #{writer,jdbcType=VARCHAR}
+    </if>
+    <if test="systemNo != null and systemNo != ''" >
+     and systemNo = #{systemNo,jdbcType=VARCHAR}
+    </if>
+    <if test="currencyCode != null and currencyCode != ''" >
+     and currencyCode = #{currencyCode,jdbcType=VARCHAR}
+    </if>
+    <if test="ctrNature != null and ctrNature != ''" >
+     and ctrNature = #{ctrNature,jdbcType=VARCHAR}
+    </if>
+    <if test="ctrUpdateState != null and ctrUpdateState != ''" >
+     and ctrUpdateState = #{ctrUpdateState,jdbcType=VARCHAR}
+    </if>
+    <if test="fiCtrState != null and fiCtrState != ''" >
+     and fiCtrState = #{fiCtrState,jdbcType=CHAR}
+    </if>
+    <if test="revenueDir != null and revenueDir != ''" >
+     and revenueDir = #{revenueDir,jdbcType=CHAR}
+    </if>
+    <if test="invoiceType != null and invoiceType != ''" >
+     and invoiceType = #{invoiceType,jdbcType=CHAR}
+    </if>
+    <if test="staCtr != null and staCtr != ''" >
+     and staCtr = #{staCtr,jdbcType=CHAR}
+    </if>
+    <if test="keyCtr != null and keyCtr != ''" >
+     and keyCtr = #{keyCtr,jdbcType=CHAR}
+    </if>
+    <if test="orgId != null and orgId != ''" >
+     and orgId = #{orgId,jdbcType=VARCHAR}
+    </if>
+    <if test="notDisplay != null and notDisplay != ''" >
+     and notDisplay = #{notDisplay,jdbcType=VARCHAR}
+    </if>
+    <if test="doubleCheckPerson != null and doubleCheckPerson != ''" >
+     and doubleCheckPerson = #{doubleCheckPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="secondIDCodeBh != null and secondIDCodeBh != ''" >
+     and secondIDCodeBh = #{secondIDCodeBh,jdbcType=VARCHAR}
+    </if>
+    <if test="auditWorkitemId != null and auditWorkitemId != ''" >
+     and auditWorkitemId = #{auditWorkitemId,jdbcType=VARCHAR}
+    </if>
+    <if test="auditSys != null and auditSys != ''" >
+     and auditSys = #{auditSys,jdbcType=VARCHAR}
+    </if>
+    <if test="secondIDCodeName != null and secondIDCodeName != ''" >
+     and secondIDCodeName = #{secondIDCodeName,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="secondOrgType != null and secondOrgType != ''" >
+     and secondOrgType = #{secondOrgType,jdbcType=VARCHAR}
+    </if>
+    <if test="firstOAorgId != null and firstOAorgId != ''" >
+     and firstOAorgId = #{firstOAorgId,jdbcType=VARCHAR}
+    </if>
+    <if test="isBiddedOnCloud != null and isBiddedOnCloud != ''" >
+     and isBiddedOnCloud = #{isBiddedOnCloud,jdbcType=VARCHAR}
+    </if>
+    <if test="bidType != null and bidType != ''" >
+     and bidType = #{bidType,jdbcType=VARCHAR}
+    </if>
+    <if test="cloudBidNo != null and cloudBidNo != ''" >
+     and cloudBidNo = #{cloudBidNo,jdbcType=VARCHAR}
+    </if>
+    <if test="bidOrgType != null and bidOrgType != ''" >
+     and bidOrgType = #{bidOrgType,jdbcType=VARCHAR}
+    </if>
+    <if test="isAllDepartJoin != null and isAllDepartJoin != ''" >
+     and isAllDepartJoin = #{isAllDepartJoin,jdbcType=VARCHAR}
+    </if>
+    <if test="joinType != null and joinType != ''" >
+     and joinType = #{joinType,jdbcType=VARCHAR}
+    </if>
+    <if test="isDepartJoinBid != null and isDepartJoinBid != ''" >
+     and isDepartJoinBid = #{isDepartJoinBid,jdbcType=VARCHAR}
+    </if>
+    <if test="contractDepart != null and contractDepart != ''" >
+     and contractDepart = #{contractDepart,jdbcType=VARCHAR}
+    </if>
+    <if test="packageNo != null and packageNo != ''" >
+     and packageNo = #{packageNo,jdbcType=VARCHAR}
+    </if>
+    <if test="cloudEcoId != null and cloudEcoId != ''" >
+     and cloudEcoId = #{cloudEcoId,jdbcType=VARCHAR}
+    </if>
+    <if test="investContractNo != null and investContractNo != ''" >
+     and investContractNo = #{investContractNo,jdbcType=VARCHAR}
+    </if>
+    <if test="resCategoryId != null and resCategoryId != ''" >
+     and resCategoryId = #{resCategoryId,jdbcType=VARCHAR}
+    </if>
+    <if test="resCategoryName != null and resCategoryName != ''" >
+     and resCategoryName = #{resCategoryName,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxCtContrApply" parameterType="com.apih5.mybatis.pojo.ZxCtContrApply" >
+    <![CDATA[ 
+        update zx_ct_contr_apply
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+
+  <select id="selectByZxCtContrApplyFirstNameList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtContrApply">
+    select code contractCode,orgName from zx_ct_contract
+      where del_flag = '0'
+  </select>
+</mapper>

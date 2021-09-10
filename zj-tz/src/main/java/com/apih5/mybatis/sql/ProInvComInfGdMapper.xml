@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ProInvComInfGdMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ProInvComInfGd" >
+    <id column="gd_category" property="gdCategory" jdbcType="VARCHAR" />
+    <result column="pro_com_id" property="proComId" jdbcType="CHAR" />
+    <result column="gd_name" property="gdName" jdbcType="VARCHAR" />
+    <result column="cgbl" property="cgbl" jdbcType="DECIMAL" />
+    <result column="fpbl" property="fpbl" jdbcType="DECIMAL" />
+    <result column="cze" property="cze" jdbcType="DECIMAL" />
+    <result column="inv_pro_id" property="invProId" jdbcType="CHAR" />
+    <result column="gd_id" property="gdId" jdbcType="CHAR" />
+    <result column="id" property="id" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    gd_category, pro_com_id, gd_name, cgbl, fpbl, 
+    cze, inv_pro_id, gd_id, id
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from del_flag = '0' and pro_inv_com_inf_gd
+    where gd_category = #{gdCategory,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from pro_inv_com_inf_gd
+    where gd_category = #{gdCategory,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ProInvComInfGd" >
+    insert into pro_inv_com_inf_gd (gd_category, pro_com_id, gd_name, 
+      cgbl, fpbl, cze, 
+      inv_pro_id, gd_id, id
+      )
+    values (#{gdCategory,jdbcType=VARCHAR}, #{proComId,jdbcType=CHAR}, #{gdName,jdbcType=VARCHAR}, 
+      #{cgbl,jdbcType=DECIMAL}, #{fpbl,jdbcType=DECIMAL}, #{cze,jdbcType=DECIMAL}, 
+      #{invProId,jdbcType=CHAR}, #{gdId,jdbcType=CHAR}, #{id,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ProInvComInfGd" >
+    insert into pro_inv_com_inf_gd
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gdCategory != null" >
+        gd_category,
+      </if>
+      <if test="proComId != null" >
+        pro_com_id,
+      </if>
+      <if test="gdName != null" >
+        gd_name,
+      </if>
+      <if test="cgbl != null" >
+        cgbl,
+      </if>
+      <if test="fpbl != null" >
+        fpbl,
+      </if>
+      <if test="cze != null" >
+        cze,
+      </if>
+      <if test="invProId != null" >
+        inv_pro_id,
+      </if>
+      <if test="gdId != null" >
+        gd_id,
+      </if>
+      <if test="id != null" >
+        id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gdCategory != null" >
+        #{gdCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="proComId != null" >
+        #{proComId,jdbcType=CHAR},
+      </if>
+      <if test="gdName != null" >
+        #{gdName,jdbcType=VARCHAR},
+      </if>
+      <if test="cgbl != null" >
+        #{cgbl,jdbcType=DECIMAL},
+      </if>
+      <if test="fpbl != null" >
+        #{fpbl,jdbcType=DECIMAL},
+      </if>
+      <if test="cze != null" >
+        #{cze,jdbcType=DECIMAL},
+      </if>
+      <if test="invProId != null" >
+        #{invProId,jdbcType=CHAR},
+      </if>
+      <if test="gdId != null" >
+        #{gdId,jdbcType=CHAR},
+      </if>
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ProInvComInfGd" >
+    update pro_inv_com_inf_gd
+    <set >
+      <if test="proComId != null" >
+        pro_com_id = #{proComId,jdbcType=CHAR},
+      </if>
+      <if test="gdName != null" >
+        gd_name = #{gdName,jdbcType=VARCHAR},
+      </if>
+      <if test="cgbl != null" >
+        cgbl = #{cgbl,jdbcType=DECIMAL},
+      </if>
+      <if test="fpbl != null" >
+        fpbl = #{fpbl,jdbcType=DECIMAL},
+      </if>
+      <if test="cze != null" >
+        cze = #{cze,jdbcType=DECIMAL},
+      </if>
+      <if test="invProId != null" >
+        inv_pro_id = #{invProId,jdbcType=CHAR},
+      </if>
+      <if test="gdId != null" >
+        gd_id = #{gdId,jdbcType=CHAR},
+      </if>
+      <if test="id != null" >
+        id = #{id,jdbcType=CHAR},
+      </if>
+    </set>
+    where gd_category = #{gdCategory,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ProInvComInfGd" >
+    update pro_inv_com_inf_gd
+    set       pro_com_id = #{proComId,jdbcType=CHAR},
+      gd_name = #{gdName,jdbcType=VARCHAR},
+      cgbl = #{cgbl,jdbcType=DECIMAL},
+      fpbl = #{fpbl,jdbcType=DECIMAL},
+      cze = #{cze,jdbcType=DECIMAL},
+      inv_pro_id = #{invProId,jdbcType=CHAR},
+      gd_id = #{gdId,jdbcType=CHAR},
+      id = #{id,jdbcType=CHAR}
+    where gd_category = #{gdCategory,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByProInvComInfGdList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ProInvComInfGd" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_inv_com_inf_gd
+    where 1 = 1
+    <if test="gdCategory != null and gdCategory != ''" >
+     and gd_category = #{gdCategory,jdbcType=}
+    </if>
+    <if test="proComId != null and proComId != ''" >
+     and pro_com_id = #{proComId,jdbcType=CHAR}
+    </if>
+    <if test="gdName != null and gdName != ''" >
+     and gd_name = #{gdName,jdbcType=VARCHAR}
+    </if>
+    <if test="cgbl != null and cgbl != ''" >
+     and cgbl = #{cgbl,jdbcType=DECIMAL}
+    </if>
+    <if test="fpbl != null and fpbl != ''" >
+     and fpbl = #{fpbl,jdbcType=DECIMAL}
+    </if>
+    <if test="cze != null and cze != ''" >
+     and cze = #{cze,jdbcType=DECIMAL}
+    </if>
+    <if test="invProId != null and invProId != ''" >
+     and inv_pro_id = #{invProId,jdbcType=CHAR}
+    </if>
+    <if test="gdId != null and gdId != ''" >
+     and gd_id = #{gdId,jdbcType=CHAR}
+    </if>
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=CHAR}
+    </if>
+  </select>
+  <delete id="batchDeleteUpdateProInvComInfGd" parameterType="com.apih5.mybatis.pojo.ProInvComInfGd" >
+    <![CDATA[ 
+        update pro_inv_com_inf_gd
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and gd_category in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.gdCategory} 
+     </foreach>
+  </delete>
+</mapper>

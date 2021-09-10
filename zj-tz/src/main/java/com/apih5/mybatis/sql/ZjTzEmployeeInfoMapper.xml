@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzEmployeeInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzEmployeeInfo" >
+    <id column="employee_info_id" property="employeeInfoId" jdbcType="CHAR" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="personnel_unit" property="personnelUnit" jdbcType="VARCHAR" />
+    <result column="department_name" property="departmentName" jdbcType="VARCHAR" />
+    <result column="join_time" property="joinTime" jdbcType="DATE" />
+    <result column="employee_name" property="employeeName" jdbcType="VARCHAR" />
+    <result column="id_card" property="idCard" jdbcType="CHAR" />
+    <result column="birth_date" property="birthDate" jdbcType="DATE" />
+    <result column="native_place" property="nativePlace" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="CHAR" />
+    <result column="nation" property="nation" jdbcType="VARCHAR" />
+    <result column="job_time" property="jobTime" jdbcType="DATE" />
+    <result column="enter_prise_time" property="enterPriseTime" jdbcType="DATE" />
+    <result column="marital" property="marital" jdbcType="CHAR" />
+    <result column="health" property="health" jdbcType="VARCHAR" />
+    <result column="registered_residence" property="registeredResidence" jdbcType="VARCHAR" />
+    <result column="post" property="post" jdbcType="VARCHAR" />
+    <result column="employee_type_id" property="employeeTypeId" jdbcType="CHAR" />
+    <result column="labor_type_id" property="laborTypeId" jdbcType="CHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="mail_box" property="mailBox" jdbcType="VARCHAR" />
+    <result column="contract_character_id" property="contractCharacterId" jdbcType="CHAR" />
+    <result column="political_id" property="politicalId" jdbcType="CHAR" />
+    <result column="leader_category_id" property="leaderCategoryId" jdbcType="CHAR" />
+    <result column="attend_party_time" property="attendPartyTime" jdbcType="DATE" />
+    <result column="project_id" property="projectId" jdbcType="VARCHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="pre_project_id" property="preProjectId" jdbcType="VARCHAR" />
+    <result column="pre_project_name" property="preProjectName" jdbcType="VARCHAR" />
+    <result column="pre_join_time" property="preJoinTime" jdbcType="DATE" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    employee_info_id, company_name, personnel_unit, department_name, join_time, 
+    employee_name, id_card, birth_date, native_place, sex, 
+    nation, job_time, enter_prise_time, marital, health, 
+    registered_residence, post, employee_type_id, labor_type_id, phone, 
+    mail_box, contract_character_id, political_id, leader_category_id, attend_party_time, 
+    project_id, project_name, pre_project_id, pre_project_name, pre_join_time, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_employee_info
+    where employee_info_id = #{employeeInfoId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_employee_info
+    where employee_info_id = #{employeeInfoId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeInfo" >
+    insert into zj_tz_employee_info (employee_info_id, company_name, personnel_unit, 
+      department_name, join_time, employee_name, 
+      id_card, birth_date, native_place, 
+      sex, nation, job_time, 
+      enter_prise_time, marital, health, 
+      registered_residence, post, employee_type_id, 
+      labor_type_id, phone, mail_box, 
+      contract_character_id, political_id, leader_category_id, 
+      attend_party_time, project_id, project_name, 
+      pre_project_id, pre_project_name, pre_join_time, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{employeeInfoId,jdbcType=CHAR}, #{companyName,jdbcType=VARCHAR}, #{personnelUnit,jdbcType=VARCHAR}, 
+      #{departmentName,jdbcType=VARCHAR}, #{joinTime,jdbcType=DATE}, #{employeeName,jdbcType=VARCHAR}, 
+      #{idCard,jdbcType=CHAR}, #{birthDate,jdbcType=DATE}, #{nativePlace,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=CHAR}, #{nation,jdbcType=VARCHAR}, #{jobTime,jdbcType=DATE}, 
+      #{enterPriseTime,jdbcType=DATE}, #{marital,jdbcType=CHAR}, #{health,jdbcType=VARCHAR}, 
+      #{registeredResidence,jdbcType=VARCHAR}, #{post,jdbcType=VARCHAR}, #{employeeTypeId,jdbcType=CHAR}, 
+      #{laborTypeId,jdbcType=CHAR}, #{phone,jdbcType=VARCHAR}, #{mailBox,jdbcType=VARCHAR}, 
+      #{contractCharacterId,jdbcType=CHAR}, #{politicalId,jdbcType=CHAR}, #{leaderCategoryId,jdbcType=CHAR}, 
+      #{attendPartyTime,jdbcType=DATE}, #{projectId,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, 
+      #{preProjectId,jdbcType=VARCHAR}, #{preProjectName,jdbcType=VARCHAR}, #{preJoinTime,jdbcType=DATE}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeInfo" >
+    insert into zj_tz_employee_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="employeeInfoId != null" >
+        employee_info_id,
+      </if>
+      <if test="companyName != null" >
+        company_name,
+      </if>
+      <if test="personnelUnit != null" >
+        personnel_unit,
+      </if>
+      <if test="departmentName != null" >
+        department_name,
+      </if>
+      <if test="joinTime != null" >
+        join_time,
+      </if>
+      <if test="employeeName != null" >
+        employee_name,
+      </if>
+      <if test="idCard != null" >
+        id_card,
+      </if>
+      <if test="birthDate != null" >
+        birth_date,
+      </if>
+      <if test="nativePlace != null" >
+        native_place,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="nation != null" >
+        nation,
+      </if>
+      <if test="jobTime != null" >
+        job_time,
+      </if>
+      <if test="enterPriseTime != null" >
+        enter_prise_time,
+      </if>
+      <if test="marital != null" >
+        marital,
+      </if>
+      <if test="health != null" >
+        health,
+      </if>
+      <if test="registeredResidence != null" >
+        registered_residence,
+      </if>
+      <if test="post != null" >
+        post,
+      </if>
+      <if test="employeeTypeId != null" >
+        employee_type_id,
+      </if>
+      <if test="laborTypeId != null" >
+        labor_type_id,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="mailBox != null" >
+        mail_box,
+      </if>
+      <if test="contractCharacterId != null" >
+        contract_character_id,
+      </if>
+      <if test="politicalId != null" >
+        political_id,
+      </if>
+      <if test="leaderCategoryId != null" >
+        leader_category_id,
+      </if>
+      <if test="attendPartyTime != null" >
+        attend_party_time,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="preProjectId != null" >
+        pre_project_id,
+      </if>
+      <if test="preProjectName != null" >
+        pre_project_name,
+      </if>
+      <if test="preJoinTime != null" >
+        pre_join_time,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="employeeInfoId != null" >
+        #{employeeInfoId,jdbcType=CHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="personnelUnit != null" >
+        #{personnelUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentName != null" >
+        #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="joinTime != null" >
+        #{joinTime,jdbcType=DATE},
+      </if>
+      <if test="employeeName != null" >
+        #{employeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        #{idCard,jdbcType=CHAR},
+      </if>
+      <if test="birthDate != null" >
+        #{birthDate,jdbcType=DATE},
+      </if>
+      <if test="nativePlace != null" >
+        #{nativePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="nation != null" >
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="jobTime != null" >
+        #{jobTime,jdbcType=DATE},
+      </if>
+      <if test="enterPriseTime != null" >
+        #{enterPriseTime,jdbcType=DATE},
+      </if>
+      <if test="marital != null" >
+        #{marital,jdbcType=CHAR},
+      </if>
+      <if test="health != null" >
+        #{health,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredResidence != null" >
+        #{registeredResidence,jdbcType=VARCHAR},
+      </if>
+      <if test="post != null" >
+        #{post,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeTypeId != null" >
+        #{employeeTypeId,jdbcType=CHAR},
+      </if>
+      <if test="laborTypeId != null" >
+        #{laborTypeId,jdbcType=CHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="mailBox != null" >
+        #{mailBox,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCharacterId != null" >
+        #{contractCharacterId,jdbcType=CHAR},
+      </if>
+      <if test="politicalId != null" >
+        #{politicalId,jdbcType=CHAR},
+      </if>
+      <if test="leaderCategoryId != null" >
+        #{leaderCategoryId,jdbcType=CHAR},
+      </if>
+      <if test="attendPartyTime != null" >
+        #{attendPartyTime,jdbcType=DATE},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="preProjectId != null" >
+        #{preProjectId,jdbcType=VARCHAR},
+      </if>
+      <if test="preProjectName != null" >
+        #{preProjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="preJoinTime != null" >
+        #{preJoinTime,jdbcType=DATE},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeInfo" >
+    update zj_tz_employee_info
+    <set >
+      <if test="companyName != null" >
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="personnelUnit != null" >
+        personnel_unit = #{personnelUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentName != null" >
+        department_name = #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="joinTime != null" >
+        join_time = #{joinTime,jdbcType=DATE},
+      </if>
+      <if test="employeeName != null" >
+        employee_name = #{employeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        id_card = #{idCard,jdbcType=CHAR},
+      </if>
+      <if test="birthDate != null" >
+        birth_date = #{birthDate,jdbcType=DATE},
+      </if>
+      <if test="nativePlace != null" >
+        native_place = #{nativePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="nation != null" >
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="jobTime != null" >
+        job_time = #{jobTime,jdbcType=DATE},
+      </if>
+      <if test="enterPriseTime != null" >
+        enter_prise_time = #{enterPriseTime,jdbcType=DATE},
+      </if>
+      <if test="marital != null" >
+        marital = #{marital,jdbcType=CHAR},
+      </if>
+      <if test="health != null" >
+        health = #{health,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredResidence != null" >
+        registered_residence = #{registeredResidence,jdbcType=VARCHAR},
+      </if>
+      <if test="post != null" >
+        post = #{post,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeTypeId != null" >
+        employee_type_id = #{employeeTypeId,jdbcType=CHAR},
+      </if>
+      <if test="laborTypeId != null" >
+        labor_type_id = #{laborTypeId,jdbcType=CHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="mailBox != null" >
+        mail_box = #{mailBox,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCharacterId != null" >
+        contract_character_id = #{contractCharacterId,jdbcType=CHAR},
+      </if>
+      <if test="politicalId != null" >
+        political_id = #{politicalId,jdbcType=CHAR},
+      </if>
+      <if test="leaderCategoryId != null" >
+        leader_category_id = #{leaderCategoryId,jdbcType=CHAR},
+      </if>
+      <if test="attendPartyTime != null" >
+        attend_party_time = #{attendPartyTime,jdbcType=DATE},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="preProjectId != null" >
+        pre_project_id = #{preProjectId,jdbcType=VARCHAR},
+      </if>
+      <if test="preProjectName != null" >
+        pre_project_name = #{preProjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="preJoinTime != null" >
+        pre_join_time = #{preJoinTime,jdbcType=DATE},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where employee_info_id = #{employeeInfoId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeInfo" >
+    update zj_tz_employee_info
+    set       company_name = #{companyName,jdbcType=VARCHAR},
+      personnel_unit = #{personnelUnit,jdbcType=VARCHAR},
+      department_name = #{departmentName,jdbcType=VARCHAR},
+      join_time = #{joinTime,jdbcType=DATE},
+      employee_name = #{employeeName,jdbcType=VARCHAR},
+      id_card = #{idCard,jdbcType=CHAR},
+      birth_date = #{birthDate,jdbcType=DATE},
+      native_place = #{nativePlace,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=CHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      job_time = #{jobTime,jdbcType=DATE},
+      enter_prise_time = #{enterPriseTime,jdbcType=DATE},
+      marital = #{marital,jdbcType=CHAR},
+      health = #{health,jdbcType=VARCHAR},
+      registered_residence = #{registeredResidence,jdbcType=VARCHAR},
+      post = #{post,jdbcType=VARCHAR},
+      employee_type_id = #{employeeTypeId,jdbcType=CHAR},
+      labor_type_id = #{laborTypeId,jdbcType=CHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      mail_box = #{mailBox,jdbcType=VARCHAR},
+      contract_character_id = #{contractCharacterId,jdbcType=CHAR},
+      political_id = #{politicalId,jdbcType=CHAR},
+      leader_category_id = #{leaderCategoryId,jdbcType=CHAR},
+      attend_party_time = #{attendPartyTime,jdbcType=DATE},
+      project_id = #{projectId,jdbcType=VARCHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      pre_project_id = #{preProjectId,jdbcType=VARCHAR},
+      pre_project_name = #{preProjectName,jdbcType=VARCHAR},
+      pre_join_time = #{preJoinTime,jdbcType=DATE},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where employee_info_id = #{employeeInfoId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzEmployeeInfoList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeInfo" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_employee_info
+    where del_flag = '0'
+    <if test="employeeInfoId != null and employeeInfoId != ''" >
+     and employee_info_id = #{employeeInfoId,jdbcType=}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and company_name = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="personnelUnit != null and personnelUnit != ''" >
+     and personnel_unit = #{personnelUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentName != null and departmentName != ''" >
+     and department_name = #{departmentName,jdbcType=VARCHAR}
+    </if>
+    <if test="joinTime != null" >
+     and join_time = #{joinTime,jdbcType=DATE}
+    </if>
+    <if test="employeeName != null and employeeName != ''" >
+     and employee_name = #{employeeName,jdbcType=VARCHAR}
+    </if>
+    <if test="idCard != null and idCard != ''" >
+     and id_card = #{idCard,jdbcType=CHAR}
+    </if>
+    <if test="birthDate != null" >
+     and birth_date = #{birthDate,jdbcType=DATE}
+    </if>
+    <if test="nativePlace != null and nativePlace != ''" >
+     and native_place = #{nativePlace,jdbcType=VARCHAR}
+    </if>
+    <if test="sex != null and sex != ''" >
+     and sex = #{sex,jdbcType=CHAR}
+    </if>
+    <if test="nation != null and nation != ''" >
+     and nation = #{nation,jdbcType=VARCHAR}
+    </if>
+    <if test="jobTime != null" >
+     and job_time = #{jobTime,jdbcType=DATE}
+    </if>
+    <if test="enterPriseTime != null" >
+     and enter_prise_time = #{enterPriseTime,jdbcType=DATE}
+    </if>
+    <if test="marital != null and marital != ''" >
+     and marital = #{marital,jdbcType=CHAR}
+    </if>
+    <if test="health != null and health != ''" >
+     and health = #{health,jdbcType=VARCHAR}
+    </if>
+    <if test="registeredResidence != null and registeredResidence != ''" >
+     and registered_residence = #{registeredResidence,jdbcType=VARCHAR}
+    </if>
+    <if test="post != null and post != ''" >
+     and post = #{post,jdbcType=VARCHAR}
+    </if>
+    <if test="employeeTypeId != null and employeeTypeId != ''" >
+     and employee_type_id = #{employeeTypeId,jdbcType=CHAR}
+    </if>
+    <if test="laborTypeId != null and laborTypeId != ''" >
+     and labor_type_id = #{laborTypeId,jdbcType=CHAR}
+    </if>
+    <if test="phone != null and phone != ''" >
+     and phone = #{phone,jdbcType=VARCHAR}
+    </if>
+    <if test="mailBox != null and mailBox != ''" >
+     and mail_box = #{mailBox,jdbcType=VARCHAR}
+    </if>
+    <if test="contractCharacterId != null and contractCharacterId != ''" >
+     and contract_character_id = #{contractCharacterId,jdbcType=CHAR}
+    </if>
+    <if test="politicalId != null and politicalId != ''" >
+     and political_id = #{politicalId,jdbcType=CHAR}
+    </if>
+    <if test="leaderCategoryId != null and leaderCategoryId != ''" >
+     and leader_category_id = #{leaderCategoryId,jdbcType=CHAR}
+    </if>
+    <if test="attendPartyTime != null" >
+     and attend_party_time = #{attendPartyTime,jdbcType=DATE}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=VARCHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="preProjectId != null and preProjectId != ''" >
+     and pre_project_id = #{preProjectId,jdbcType=VARCHAR}
+    </if>
+    <if test="preProjectName != null and preProjectName != ''" >
+     and pre_project_name = #{preProjectName,jdbcType=VARCHAR}
+    </if>
+    <if test="preJoinTime != null" >
+     and pre_join_time = #{preJoinTime,jdbcType=DATE}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzEmployeeInfo" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeInfo" >
+    <![CDATA[ 
+        update zj_tz_employee_info
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and employee_info_id in 
+     ]]>
+    <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.employeeInfoId}
+    </foreach>
+  </delete>
+
+  <!--扩展-->
+  <resultMap id="BaseResultMapAll" type="com.apih5.mybatis.pojo.ZjTzEmployeeInfo" autoMapping="true">
+    <id column="employee_info_id" property="employeeInfoId" jdbcType="CHAR" />
+    <collection property="educationList"
+                ofType="com.apih5.mybatis.pojo.ZjTzEmployeeEducation"
+                column="{employeeInfoId=employee_info_id}"
+                select="com.apih5.mybatis.dao.ZjTzEmployeeEducationMapper.selectByZjTzEmployeeEducationList">
+    </collection>
+    <collection property="awardList"
+                ofType="com.apih5.mybatis.pojo.ZjTzEmployeeAward"
+                column="{employeeInfoId=employee_info_id}"
+                select="com.apih5.mybatis.dao.ZjTzEmployeeAwardMapper.selectByZjTzEmployeeAwardList">
+    </collection>
+    <!--<collection property="languageList"-->
+                <!--ofType="com.apih5.mybatis.pojo.ZjTzEmployeeLanguage"-->
+                <!--column="{employeeInfoId=employee_info_id}"-->
+                <!--select="com.apih5.mybatis.dao.ZjTzEmployeeLanguageMapper.selectByZjTzEmployeeLanguageList">-->
+    <!--</collection>-->
+    <!--<collection property="politicsList"-->
+                <!--ofType="com.apih5.mybatis.pojo.ZjTzEmployeePolitics"-->
+                <!--column="{employeeInfoId=employee_info_id}"-->
+                <!--select="com.apih5.mybatis.dao.ZjTzEmployeePoliticsMapper.selectByZjTzEmployeePoliticsList">-->
+    <!--</collection>-->
+    <collection property="professionalList"
+                ofType="com.apih5.mybatis.pojo.ZjTzEmployeeProfessional"
+                column="{employeeInfoId=employee_info_id}"
+                select="com.apih5.mybatis.dao.ZjTzEmployeeProfessionalMapper.selectByZjTzEmployeeProfessionalList">
+    </collection>
+    <collection property="qualificationList"
+                ofType="com.apih5.mybatis.pojo.ZjTzEmployeeQualification"
+                column="{employeeInfoId=employee_info_id}"
+                select="com.apih5.mybatis.dao.ZjTzEmployeeQualificationMapper.selectByZjTzEmployeeQualificationList">
+    </collection>
+    <collection property="workList"
+                ofType="com.apih5.mybatis.pojo.ZjTzEmployeeWork"
+                column="{employeeInfoId=employee_info_id}"
+                select="com.apih5.mybatis.dao.ZjTzEmployeeWorkMapper.selectByZjTzEmployeeWorkList">
+    </collection>
+  </resultMap>
+
+  <select id="selectByZjTzEmployeeInfoListAll" resultMap="BaseResultMapAll" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeInfo">
+    select
+      *
+    from zj_tz_employee_info
+    where del_flag = '0'
+    <if test="employeeInfoId != null and employeeInfoId != ''" >
+      and employee_info_id = #{employeeInfoId,jdbcType=VARCHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+      and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+      and project_name like CONCAT('%',CONCAT(#{projectName,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="companyName != null and companyName != ''" >
+      and company_name like CONCAT('%',CONCAT(#{companyName,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="personnelUnit != null and personnelUnit != ''" >
+      and personnel_unit like CONCAT('%',CONCAT(#{personnelUnit,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="departmentName != null and departmentName != ''" >
+      and department_name like CONCAT('%',CONCAT(#{departmentName,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="timeList != null" >
+      and join_time BETWEEN
+      <foreach collection="timeList" index="index" item="item" separator="AND">
+        DATE_FORMAT(#{item},"%Y-%m-%d")
+      </foreach>
+    </if>
+    <if test="employeeName != null and employeeName != ''" >
+      and employee_name like CONCAT('%',CONCAT(#{employeeName,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="idCard != null and idCard != ''" >
+      and id_card like CONCAT('%',CONCAT(#{idCard,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="birthDate != null" >
+      and birth_date = #{birthDate,jdbcType=DATE}
+    </if>
+    <if test="nativePlace != null and nativePlace != ''" >
+      and native_place = #{nativePlace,jdbcType=VARCHAR}
+    </if>
+    <if test="sex != null and sex != ''" >
+      and sex = #{sex,jdbcType=CHAR}
+    </if>
+    <if test="nation != null and nation != ''" >
+      and nation = #{nation,jdbcType=VARCHAR}
+    </if>
+    <if test="jobTime != null" >
+      and job_time = #{jobTime,jdbcType=DATE}
+    </if>
+    <if test="enterPriseTime != null" >
+      and enter_prise_time = #{enterPriseTime,jdbcType=DATE}
+    </if>
+    <if test="marital != null and marital != ''" >
+      and marital = #{marital,jdbcType=CHAR}
+    </if>
+    <if test="health != null and health != ''" >
+      and health = #{health,jdbcType=VARCHAR}
+    </if>
+    <if test="registeredResidence != null and registeredResidence != ''" >
+      and registered_residence = #{registeredResidence,jdbcType=VARCHAR}
+    </if>
+    <if test="post != null and post != ''" >
+      and post = #{post,jdbcType=VARCHAR}
+    </if>
+    <if test="employeeTypeId != null and employeeTypeId != ''" >
+      and employee_type_id = #{employeeTypeId,jdbcType=CHAR}
+    </if>
+    <if test="laborTypeId != null and laborTypeId != ''" >
+      and labor_type_id = #{laborTypeId,jdbcType=CHAR}
+    </if>
+    <if test="phone != null and phone != ''" >
+      and phone = #{phone,jdbcType=VARCHAR}
+    </if>
+    <if test="mailBox != null and mailBox != ''" >
+      and mail_box = #{mailBox,jdbcType=VARCHAR}
+    </if>
+    <if test="contractCharacterId != null and contractCharacterId != ''" >
+      and contract_character_id = #{contractCharacterId,jdbcType=CHAR}
+    </if>
+    <if test="politicalId != null and politicalId != ''" >
+      and political_id = #{politicalId,jdbcType=CHAR}
+    </if>
+    <if test="leaderCategoryId != null and leaderCategoryId != ''" >
+      and leader_category_id = #{leaderCategoryId,jdbcType=CHAR}
+    </if>
+    <if test="attendPartyTime != null" >
+      and attend_party_time = #{attendPartyTime,jdbcType=DATE}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+      and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+      and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC
+  </select>
+
+  <select id="selectByIdCard" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from zj_tz_employee_info
+    where id_card = #{idCard,jdbcType=CHAR} and del_flag = '0'
+  </select>
+
+  <resultMap id="BaseResultMapPerson" type="com.apih5.mybatis.pojo.ZjTzEmployeeInfo" autoMapping="true">
+    <id column="employee_info_id" property="employeeInfoId" jdbcType="CHAR" />
+  </resultMap>
+
+  <select id="selectZjTzEmployeeInfoListSelectPerson" resultMap="BaseResultMapPerson" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeInfo">
+    select
+      *
+    from zj_tz_employee_info
+    where del_flag = '0'
+    and id_card = #{idCard,jdbcType=VARCHAR}
+  </select>
+
+  <select id="getZjTzEmployeeInfoByIdCard" resultMap="BaseResultMapPerson" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeInfo">
+    select
+    *
+    from zj_tz_employee_info
+    where del_flag = '0'
+      and id_card  = #{idCard,jdbcType=VARCHAR}
+  </select>
+
+  <select id="isProject" resultMap="BaseResultMapPerson" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeInfo">
+    select *  FROM zj_tz_employee_info
+	where del_flag = '0'
+    and employee_info_id in
+    <foreach collection="zjTzEmployeeInfoList" item = "model" open="(" separator="," close=")">#{model.employeeInfoId}
+    </foreach>
+	and project_id != '000000'
+  </select>
+  <update id="updateJoinTimeAndProject" parameterType="com.apih5.mybatis.pojo.ZjTzEmployeeInfo" >
+        update zj_tz_employee_info
+        set join_time = #{joinTime,jdbcType=TIMESTAMP},
+            project_id = '000000',
+            project_name = '人才储备库',
+            modify_time=#{modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{modifyUser},
+            modify_user_name=#{modifyUserName}
+        where del_flag = '0'
+        and employee_info_id  = #{employeeInfoId,jdbcType=VARCHAR}
+  </update>
+
+</mapper>

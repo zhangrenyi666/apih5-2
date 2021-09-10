@@ -1,0 +1,10 @@
+UPDATE zx_sa_projectfinish zspf
+SET zspf.pp7 = (
+	SELECT bc.item_id FROM base_code bc WHERE bc.del_flag = 0 AND bc.item_name = zspf.pp7 AND bc.code_pid = '1DA87A3JD8E4DF01A8C0000060CDF9DC'
+)
+WHERE zspf.del_flag = '0'
+AND (zspf.pp7 != ''
+OR NOT ISNULL(zspf.pp7));
+
+UPDATE zx_sa_projectfinish zspf
+SET zspf.determine_filing_date = zspf.guidangDate;

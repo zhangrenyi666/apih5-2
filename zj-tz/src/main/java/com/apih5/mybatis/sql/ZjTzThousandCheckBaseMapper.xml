@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzThousandCheckBaseMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzThousandCheckBase" >
+    <id column="thousand_check_base_id" property="thousandCheckBaseId" jdbcType="CHAR" />
+    <result column="code_pid" property="codePid" jdbcType="CHAR" />
+    <result column="type_id" property="typeId" jdbcType="VARCHAR" />
+    <result column="eval_pro" property="evalPro" jdbcType="VARCHAR" />
+    <result column="eval_index" property="evalIndex" jdbcType="VARCHAR" />
+    <result column="eval_content" property="evalContent" jdbcType="VARCHAR" />
+    <result column="score" property="score" jdbcType="DECIMAL" />
+    <result column="score_subtotal" property="scoreSubtotal" jdbcType="DECIMAL" />
+    <result column="score_total" property="scoreTotal" jdbcType="DECIMAL" />
+    <result column="pid_all" property="pidAll" jdbcType="VARCHAR" />
+    <result column="pid_name_all" property="pidNameAll" jdbcType="VARCHAR" />
+    <result column="order_flag" property="orderFlag" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    thousand_check_base_id, code_pid, type_id, eval_pro, eval_index, 
+    eval_content, score, score_subtotal, score_total, pid_all, 
+    pid_name_all, order_flag, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_thousand_check_base
+    where thousand_check_base_id = #{thousandCheckBaseId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_thousand_check_base
+    where thousand_check_base_id = #{thousandCheckBaseId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzThousandCheckBase" >
+    insert into zj_tz_thousand_check_base (thousand_check_base_id, code_pid, type_id, 
+      eval_pro, eval_index, eval_content, 
+      score, score_subtotal, score_total, 
+      pid_all, pid_name_all, order_flag, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{thousandCheckBaseId,jdbcType=CHAR}, #{codePid,jdbcType=CHAR}, #{typeId,jdbcType=VARCHAR}, 
+      #{evalPro,jdbcType=VARCHAR}, #{evalIndex,jdbcType=VARCHAR}, #{evalContent,jdbcType=VARCHAR}, 
+      #{score,jdbcType=DECIMAL}, #{scoreSubtotal,jdbcType=DECIMAL}, #{scoreTotal,jdbcType=DECIMAL}, 
+      #{pidAll,jdbcType=VARCHAR}, #{pidNameAll,jdbcType=VARCHAR}, #{orderFlag,jdbcType=INTEGER}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzThousandCheckBase" >
+    insert into zj_tz_thousand_check_base
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="thousandCheckBaseId != null" >
+        thousand_check_base_id,
+      </if>
+      <if test="codePid != null" >
+        code_pid,
+      </if>
+      <if test="typeId != null" >
+        type_id,
+      </if>
+      <if test="evalPro != null" >
+        eval_pro,
+      </if>
+      <if test="evalIndex != null" >
+        eval_index,
+      </if>
+      <if test="evalContent != null" >
+        eval_content,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="scoreSubtotal != null" >
+        score_subtotal,
+      </if>
+      <if test="scoreTotal != null" >
+        score_total,
+      </if>
+      <if test="pidAll != null" >
+        pid_all,
+      </if>
+      <if test="pidNameAll != null" >
+        pid_name_all,
+      </if>
+      <if test="orderFlag != null" >
+        order_flag,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="thousandCheckBaseId != null" >
+        #{thousandCheckBaseId,jdbcType=CHAR},
+      </if>
+      <if test="codePid != null" >
+        #{codePid,jdbcType=CHAR},
+      </if>
+      <if test="typeId != null" >
+        #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="evalPro != null" >
+        #{evalPro,jdbcType=VARCHAR},
+      </if>
+      <if test="evalIndex != null" >
+        #{evalIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="evalContent != null" >
+        #{evalContent,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="scoreSubtotal != null" >
+        #{scoreSubtotal,jdbcType=DECIMAL},
+      </if>
+      <if test="scoreTotal != null" >
+        #{scoreTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="pidAll != null" >
+        #{pidAll,jdbcType=VARCHAR},
+      </if>
+      <if test="pidNameAll != null" >
+        #{pidNameAll,jdbcType=VARCHAR},
+      </if>
+      <if test="orderFlag != null" >
+        #{orderFlag,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzThousandCheckBase" >
+    update zj_tz_thousand_check_base
+    <set >
+      <if test="codePid != null" >
+        code_pid = #{codePid,jdbcType=CHAR},
+      </if>
+      <if test="typeId != null" >
+        type_id = #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="evalPro != null" >
+        eval_pro = #{evalPro,jdbcType=VARCHAR},
+      </if>
+      <if test="evalIndex != null" >
+        eval_index = #{evalIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="evalContent != null" >
+        eval_content = #{evalContent,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="scoreSubtotal != null" >
+        score_subtotal = #{scoreSubtotal,jdbcType=DECIMAL},
+      </if>
+      <if test="scoreTotal != null" >
+        score_total = #{scoreTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="pidAll != null" >
+        pid_all = #{pidAll,jdbcType=VARCHAR},
+      </if>
+      <if test="pidNameAll != null" >
+        pid_name_all = #{pidNameAll,jdbcType=VARCHAR},
+      </if>
+      <if test="orderFlag != null" >
+        order_flag = #{orderFlag,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where thousand_check_base_id = #{thousandCheckBaseId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzThousandCheckBase" >
+    update zj_tz_thousand_check_base
+    set       code_pid = #{codePid,jdbcType=CHAR},
+      type_id = #{typeId,jdbcType=VARCHAR},
+      eval_pro = #{evalPro,jdbcType=VARCHAR},
+      eval_index = #{evalIndex,jdbcType=VARCHAR},
+      eval_content = #{evalContent,jdbcType=VARCHAR},
+      score = #{score,jdbcType=DECIMAL},
+      score_subtotal = #{scoreSubtotal,jdbcType=DECIMAL},
+      score_total = #{scoreTotal,jdbcType=DECIMAL},
+      pid_all = #{pidAll,jdbcType=VARCHAR},
+      pid_name_all = #{pidNameAll,jdbcType=VARCHAR},
+      order_flag = #{orderFlag,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where thousand_check_base_id = #{thousandCheckBaseId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzThousandCheckBaseList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzThousandCheckBase" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_thousand_check_base
+    where del_flag = '0'
+    <if test="codePid != null and codePid != ''" >
+     and code_pid = #{codePid,jdbcType=CHAR}
+    </if>
+    <if test="typeId != null and typeId != ''" >
+     and type_id = #{typeId,jdbcType=VARCHAR}
+    </if>
+    <if test="evalPro != null and evalPro != ''" >
+     and eval_pro = #{evalPro,jdbcType=VARCHAR}
+    </if>
+    <if test="evalIndex != null and evalIndex != ''" >
+     and eval_index = #{evalIndex,jdbcType=VARCHAR}
+    </if>
+    <if test="evalContent != null and evalContent != ''" >
+     and eval_content = #{evalContent,jdbcType=VARCHAR}
+    </if>
+    <if test="score != null and score != ''" >
+     and score = #{score,jdbcType=DECIMAL}
+    </if>
+    <if test="scoreSubtotal != null and scoreSubtotal != ''" >
+     and score_subtotal = #{scoreSubtotal,jdbcType=DECIMAL}
+    </if>
+    <if test="scoreTotal != null and scoreTotal != ''" >
+     and score_total = #{scoreTotal,jdbcType=DECIMAL}
+    </if>
+    <if test="pidAll != null and pidAll != ''" >
+     and pid_all = #{pidAll,jdbcType=VARCHAR}
+    </if>
+    <if test="pidNameAll != null and pidNameAll != ''" >
+     and pid_name_all = #{pidNameAll,jdbcType=VARCHAR}
+    </if>
+    <if test="orderFlag != null and orderFlag != ''" >
+     and order_flag = #{orderFlag,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY order_flag ASC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzThousandCheckBase" parameterType="com.apih5.mybatis.pojo.ZjTzThousandCheckBase" >
+    <![CDATA[ 
+        update zj_tz_thousand_check_base
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and thousand_check_base_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.thousandCheckBaseId} 
+     </foreach>
+  </delete>
+  <select id="getZjTzThousandCheckBaseItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzThousandCheckBase" >
+    select 
+    <include refid="Base_Column_List" />,
+    (SELECT eval_pro FROM zj_tz_thousand_check_base AS t WHERE t.del_flag = '0' AND t1.code_pid = t.thousand_check_base_id) AS evalProName
+    from zj_tz_thousand_check_base AS t1
+    where del_flag = '0'
+    and code_pid !='0'
+    <if test="codePid != null and codePid != ''" >
+     and code_pid = #{codePid,jdbcType=CHAR}
+    </if>
+    <if test="typeId != null and typeId != ''" >
+     and type_id = #{typeId,jdbcType=VARCHAR}
+    </if>
+    <if test="evalPro != null and evalPro != ''" >
+     and eval_pro = #{evalPro,jdbcType=VARCHAR}
+    </if>
+    <if test="evalIndex != null and evalIndex != ''" >
+     and eval_index = #{evalIndex,jdbcType=VARCHAR}
+    </if>
+    <if test="evalContent != null and evalContent != ''" >
+     and eval_content = #{evalContent,jdbcType=VARCHAR}
+    </if>
+    <if test="score != null and score != ''" >
+     and score = #{score,jdbcType=DECIMAL}
+    </if>
+    <if test="scoreSubtotal != null and scoreSubtotal != ''" >
+     and score_subtotal = #{scoreSubtotal,jdbcType=DECIMAL}
+    </if>
+    <if test="scoreTotal != null and scoreTotal != ''" >
+     and score_total = #{scoreTotal,jdbcType=DECIMAL}
+    </if>
+    <if test="pidAll != null and pidAll != ''" >
+     and pid_all = #{pidAll,jdbcType=VARCHAR}
+    </if>
+    <if test="pidNameAll != null and pidNameAll != ''" >
+     and pid_name_all = #{pidNameAll,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY code_pid DESC 
+    
+  </select>
+</mapper>

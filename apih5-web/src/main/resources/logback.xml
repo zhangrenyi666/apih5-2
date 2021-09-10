@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 文件输出格式 -->
+    <property name="PATTERN" value="%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level [%thread] %c [%L] -| %msg%n" />
+    <property name="PATTERN_CONSOL" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level] %c{0} [%L] -| %msg%n" />
+    <!-- test环境文件输出目录 -->
+    <property name="TEST_FILE_PATH" value="${log.path}" />
+    <!-- prod环境文件输出目录-->
+    <property name="PRO_FILE_PATH" value="${log.path}" />
+
+    <!-- 开发环境  无需log文件 -->
+   <!--  <springProfile name="dev">
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>${PATTERN_CONSOL}</pattern>  
+            </encoder>
+        </appender>
+        <logger name="com.apih5" level="debug"/>
+        <root level="info">
+            <appender-ref ref="CONSOLE" />
+        </root>
+    </springProfile> -->
+
+    <!-- 测试环境 -->
+    <!-- <springProfile name="test"> -->
+        <!-- 每天产生一个文件 -->
+        <appender name="TEST-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <!-- 文件路径 -->
+            <file>${TEST_FILE_PATH}/test.log</file>
+            <append>true</append>
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <!-- 文件名称 -->
+                <fileNamePattern>${TEST_FILE_PATH}/zip/test.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+                <maxFileSize>1MB</maxFileSize>  
+                <!-- 文件最大保存历史数量  -->
+                <maxHistory>20</maxHistory>  
+                <totalSizeCap>20GB</totalSizeCap>  
+            </rollingPolicy>
+            <encoder>  
+                 <pattern>${PATTERN}</pattern>  
+            </encoder>  
+            <!-- 作用?? 
+            <filter class="ch.qos.logback.classic.filter.LevelFilter">  
+                <level>info</level>  
+                <onMatch>ACCEPT</onMatch>  
+                <onMismatch>DENY</onMismatch>  
+            </filter> -->
+        </appender>
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder >
+                <pattern>${PATTERN_CONSOL}</pattern>  
+            </encoder>
+        </appender>
+        <logger name="com.apih5" level="debug"/>
+        <root level="info">
+            <appender-ref ref="TEST-FILE" />
+            <appender-ref ref="CONSOLE" />
+        </root>
+   <!--  </springProfile> -->
+
+    <!-- 生产环境 -->
+    <!-- <springProfile name="prod">
+        <appender name="PROD_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${PRO_FILE_PATH}</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${PRO_FILE_PATH}/warn.%d{yyyy-MM-dd}.log</fileNamePattern>
+                <MaxHistory>100</MaxHistory>
+            </rollingPolicy>
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </appender>
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>${PATTERN_CONSOL}</pattern>  
+            </encoder>
+        </appender>
+        <logger name="com.apih5" level="warn"/>
+        <root level="warn">
+            <appender-ref ref="PROD_FILE" />
+            <appender-ref ref="CONSOLE" />
+        </root>
+    </springProfile> -->
+</configuration>

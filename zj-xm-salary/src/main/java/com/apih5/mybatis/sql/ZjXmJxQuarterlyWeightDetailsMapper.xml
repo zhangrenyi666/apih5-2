@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmJxQuarterlyWeightDetailsMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmJxQuarterlyWeightDetails" >
+    <id column="details_id" property="detailsId" jdbcType="CHAR" />
+    <result column="assessment_id" property="assessmentId" jdbcType="CHAR" />
+    <result column="project_type" property="projectType" jdbcType="CHAR" />
+    <result column="project_type_name" property="projectTypeName" jdbcType="VARCHAR" />
+    <result column="road_bridge_weight" property="roadBridgeWeight" jdbcType="INTEGER" />
+    <result column="housing_weight" property="housingWeight" jdbcType="INTEGER" />
+    <result column="track_weight" property="trackWeight" jdbcType="INTEGER" />
+    <result column="technical_weight" property="technicalWeight" jdbcType="INTEGER" />
+    <result column="safety_weight" property="safetyWeight" jdbcType="INTEGER" />
+    <result column="business_weight" property="businessWeight" jdbcType="INTEGER" />
+    <result column="finance_weight" property="financeWeight" jdbcType="INTEGER" />
+    <result column="materials_weight" property="materialsWeight" jdbcType="INTEGER" />
+    <result column="human_resources_weight" property="humanResourcesWeight" jdbcType="INTEGER" />
+    <result column="legal_weight" property="legalWeight" jdbcType="INTEGER" />
+    <result column="office_weight" property="officeWeight" jdbcType="INTEGER" />
+    <result column="supply_chain_weight" property="supplyChainWeight" jdbcType="INTEGER" />
+    <result column="closing_center_weight" property="closingCenterWeight" jdbcType="INTEGER" />
+    <result column="is_closed" property="isClosed" jdbcType="CHAR" />
+    <result column="confirm_status" property="confirmStatus" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    details_id, assessment_id, project_type, project_type_name, road_bridge_weight, 
+    housing_weight, track_weight, technical_weight, safety_weight, business_weight, 
+    finance_weight, materials_weight, human_resources_weight, legal_weight, office_weight, 
+    supply_chain_weight, closing_center_weight, is_closed, confirm_status, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_quarterly_weight_details
+    where del_flag = '0' and details_id = #{detailsId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_jx_quarterly_weight_details
+    where details_id = #{detailsId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyWeightDetails" >
+    insert into zj_xm_jx_quarterly_weight_details (
+    details_id, assessment_id, project_type, project_type_name, road_bridge_weight, 
+    housing_weight, track_weight, technical_weight, safety_weight, business_weight, 
+    finance_weight, materials_weight, human_resources_weight, legal_weight, office_weight, 
+    supply_chain_weight, closing_center_weight, is_closed, confirm_status, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{detailsId,jdbcType=CHAR}, #{assessmentId,jdbcType=CHAR}, #{projectType,jdbcType=CHAR}, #{projectTypeName,jdbcType=VARCHAR}, #{roadBridgeWeight,jdbcType=INTEGER}, 
+    #{housingWeight,jdbcType=INTEGER}, #{trackWeight,jdbcType=INTEGER}, #{technicalWeight,jdbcType=INTEGER}, #{safetyWeight,jdbcType=INTEGER}, #{businessWeight,jdbcType=INTEGER}, 
+    #{financeWeight,jdbcType=INTEGER}, #{materialsWeight,jdbcType=INTEGER}, #{humanResourcesWeight,jdbcType=INTEGER}, #{legalWeight,jdbcType=INTEGER}, #{officeWeight,jdbcType=INTEGER}, 
+    #{supplyChainWeight,jdbcType=INTEGER}, #{closingCenterWeight,jdbcType=INTEGER}, #{isClosed,jdbcType=CHAR}, #{confirmStatus,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, 
+    #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+    #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyWeightDetails" >
+    insert into zj_xm_jx_quarterly_weight_details
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="detailsId != null" >
+        details_id,
+      </if>
+      <if test="assessmentId != null" >
+        assessment_id,
+      </if>
+      <if test="projectType != null" >
+        project_type,
+      </if>
+      <if test="projectTypeName != null" >
+        project_type_name,
+      </if>
+      <if test="roadBridgeWeight != null" >
+        road_bridge_weight,
+      </if>
+      <if test="housingWeight != null" >
+        housing_weight,
+      </if>
+      <if test="trackWeight != null" >
+        track_weight,
+      </if>
+      <if test="technicalWeight != null" >
+        technical_weight,
+      </if>
+      <if test="safetyWeight != null" >
+        safety_weight,
+      </if>
+      <if test="businessWeight != null" >
+        business_weight,
+      </if>
+      <if test="financeWeight != null" >
+        finance_weight,
+      </if>
+      <if test="materialsWeight != null" >
+        materials_weight,
+      </if>
+      <if test="humanResourcesWeight != null" >
+        human_resources_weight,
+      </if>
+      <if test="legalWeight != null" >
+        legal_weight,
+      </if>
+      <if test="officeWeight != null" >
+        office_weight,
+      </if>
+      <if test="supplyChainWeight != null" >
+        supply_chain_weight,
+      </if>
+      <if test="closingCenterWeight != null" >
+        closing_center_weight,
+      </if>
+      <if test="isClosed != null" >
+        is_closed,
+      </if>
+      <if test="confirmStatus != null" >
+        confirm_status,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="detailsId != null" >
+        #{detailsId,jdbcType=CHAR},
+      </if>
+      <if test="assessmentId != null" >
+        #{assessmentId,jdbcType=CHAR},
+      </if>
+      <if test="projectType != null" >
+        #{projectType,jdbcType=CHAR},
+      </if>
+      <if test="projectTypeName != null" >
+        #{projectTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="roadBridgeWeight != null" >
+        #{roadBridgeWeight,jdbcType=INTEGER},
+      </if>
+      <if test="housingWeight != null" >
+        #{housingWeight,jdbcType=INTEGER},
+      </if>
+      <if test="trackWeight != null" >
+        #{trackWeight,jdbcType=INTEGER},
+      </if>
+      <if test="technicalWeight != null" >
+        #{technicalWeight,jdbcType=INTEGER},
+      </if>
+      <if test="safetyWeight != null" >
+        #{safetyWeight,jdbcType=INTEGER},
+      </if>
+      <if test="businessWeight != null" >
+        #{businessWeight,jdbcType=INTEGER},
+      </if>
+      <if test="financeWeight != null" >
+        #{financeWeight,jdbcType=INTEGER},
+      </if>
+      <if test="materialsWeight != null" >
+        #{materialsWeight,jdbcType=INTEGER},
+      </if>
+      <if test="humanResourcesWeight != null" >
+        #{humanResourcesWeight,jdbcType=INTEGER},
+      </if>
+      <if test="legalWeight != null" >
+        #{legalWeight,jdbcType=INTEGER},
+      </if>
+      <if test="officeWeight != null" >
+        #{officeWeight,jdbcType=INTEGER},
+      </if>
+      <if test="supplyChainWeight != null" >
+        #{supplyChainWeight,jdbcType=INTEGER},
+      </if>
+      <if test="closingCenterWeight != null" >
+        #{closingCenterWeight,jdbcType=INTEGER},
+      </if>
+      <if test="isClosed != null" >
+        #{isClosed,jdbcType=CHAR},
+      </if>
+      <if test="confirmStatus != null" >
+        #{confirmStatus,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyWeightDetails" >
+    update zj_xm_jx_quarterly_weight_details
+    <set >
+      <if test="assessmentId != null" >
+        assessment_id = #{assessmentId,jdbcType=CHAR},
+      </if>
+      <if test="projectType != null" >
+        project_type = #{projectType,jdbcType=CHAR},
+      </if>
+      <if test="projectTypeName != null" >
+        project_type_name = #{projectTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="roadBridgeWeight != null" >
+        road_bridge_weight = #{roadBridgeWeight,jdbcType=INTEGER},
+      </if>
+      <if test="housingWeight != null" >
+        housing_weight = #{housingWeight,jdbcType=INTEGER},
+      </if>
+      <if test="trackWeight != null" >
+        track_weight = #{trackWeight,jdbcType=INTEGER},
+      </if>
+      <if test="technicalWeight != null" >
+        technical_weight = #{technicalWeight,jdbcType=INTEGER},
+      </if>
+      <if test="safetyWeight != null" >
+        safety_weight = #{safetyWeight,jdbcType=INTEGER},
+      </if>
+      <if test="businessWeight != null" >
+        business_weight = #{businessWeight,jdbcType=INTEGER},
+      </if>
+      <if test="financeWeight != null" >
+        finance_weight = #{financeWeight,jdbcType=INTEGER},
+      </if>
+      <if test="materialsWeight != null" >
+        materials_weight = #{materialsWeight,jdbcType=INTEGER},
+      </if>
+      <if test="humanResourcesWeight != null" >
+        human_resources_weight = #{humanResourcesWeight,jdbcType=INTEGER},
+      </if>
+      <if test="legalWeight != null" >
+        legal_weight = #{legalWeight,jdbcType=INTEGER},
+      </if>
+      <if test="officeWeight != null" >
+        office_weight = #{officeWeight,jdbcType=INTEGER},
+      </if>
+      <if test="supplyChainWeight != null" >
+        supply_chain_weight = #{supplyChainWeight,jdbcType=INTEGER},
+      </if>
+      <if test="closingCenterWeight != null" >
+        closing_center_weight = #{closingCenterWeight,jdbcType=INTEGER},
+      </if>
+      <if test="isClosed != null" >
+        is_closed = #{isClosed,jdbcType=CHAR},
+      </if>
+      <if test="confirmStatus != null" >
+        confirm_status = #{confirmStatus,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where details_id = #{detailsId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyWeightDetails" >
+    update zj_xm_jx_quarterly_weight_details set 
+      assessment_id = #{assessmentId,jdbcType=CHAR},
+      project_type = #{projectType,jdbcType=CHAR},
+      project_type_name = #{projectTypeName,jdbcType=VARCHAR},
+      road_bridge_weight = #{roadBridgeWeight,jdbcType=INTEGER},
+      housing_weight = #{housingWeight,jdbcType=INTEGER},
+      track_weight = #{trackWeight,jdbcType=INTEGER},
+      technical_weight = #{technicalWeight,jdbcType=INTEGER},
+      safety_weight = #{safetyWeight,jdbcType=INTEGER},
+      business_weight = #{businessWeight,jdbcType=INTEGER},
+      finance_weight = #{financeWeight,jdbcType=INTEGER},
+      materials_weight = #{materialsWeight,jdbcType=INTEGER},
+      human_resources_weight = #{humanResourcesWeight,jdbcType=INTEGER},
+      legal_weight = #{legalWeight,jdbcType=INTEGER},
+      office_weight = #{officeWeight,jdbcType=INTEGER},
+      supply_chain_weight = #{supplyChainWeight,jdbcType=INTEGER},
+      closing_center_weight = #{closingCenterWeight,jdbcType=INTEGER},
+      is_closed = #{isClosed,jdbcType=CHAR},
+      confirm_status = #{confirmStatus,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where details_id = #{detailsId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmJxQuarterlyWeightDetailsList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyWeightDetails" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_quarterly_weight_details
+    where del_flag = '0'
+    <if test="detailsId != null and detailsId != ''" >
+     and details_id = #{detailsId,jdbcType=CHAR}
+    </if>
+    <if test="assessmentId != null and assessmentId != ''" >
+     and assessment_id = #{assessmentId,jdbcType=CHAR}
+    </if>
+    <if test="projectType != null and projectType != ''" >
+     and project_type = #{projectType,jdbcType=CHAR}
+    </if>
+    <if test="projectTypeName != null and projectTypeName != ''" >
+     and project_type_name = #{projectTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="roadBridgeWeight != null and roadBridgeWeight != ''" >
+     and road_bridge_weight = #{roadBridgeWeight,jdbcType=INTEGER}
+    </if>
+    <if test="housingWeight != null and housingWeight != ''" >
+     and housing_weight = #{housingWeight,jdbcType=INTEGER}
+    </if>
+    <if test="trackWeight != null and trackWeight != ''" >
+     and track_weight = #{trackWeight,jdbcType=INTEGER}
+    </if>
+    <if test="technicalWeight != null and technicalWeight != ''" >
+     and technical_weight = #{technicalWeight,jdbcType=INTEGER}
+    </if>
+    <if test="safetyWeight != null and safetyWeight != ''" >
+     and safety_weight = #{safetyWeight,jdbcType=INTEGER}
+    </if>
+    <if test="businessWeight != null and businessWeight != ''" >
+     and business_weight = #{businessWeight,jdbcType=INTEGER}
+    </if>
+    <if test="financeWeight != null and financeWeight != ''" >
+     and finance_weight = #{financeWeight,jdbcType=INTEGER}
+    </if>
+    <if test="materialsWeight != null and materialsWeight != ''" >
+     and materials_weight = #{materialsWeight,jdbcType=INTEGER}
+    </if>
+    <if test="humanResourcesWeight != null and humanResourcesWeight != ''" >
+     and human_resources_weight = #{humanResourcesWeight,jdbcType=INTEGER}
+    </if>
+    <if test="legalWeight != null and legalWeight != ''" >
+     and legal_weight = #{legalWeight,jdbcType=INTEGER}
+    </if>
+    <if test="officeWeight != null and officeWeight != ''" >
+     and office_weight = #{officeWeight,jdbcType=INTEGER}
+    </if>
+    <if test="supplyChainWeight != null and supplyChainWeight != ''" >
+     and supply_chain_weight = #{supplyChainWeight,jdbcType=INTEGER}
+    </if>
+    <if test="closingCenterWeight != null and closingCenterWeight != ''" >
+     and closing_center_weight = #{closingCenterWeight,jdbcType=INTEGER}
+    </if>
+    <if test="isClosed != null and isClosed != ''" >
+     and is_closed = #{isClosed,jdbcType=CHAR}
+    </if>
+    <if test="confirmStatus != null and confirmStatus != ''" >
+     and confirm_status = #{confirmStatus,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmJxQuarterlyWeightDetails" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyWeightDetails" >
+    <![CDATA[ 
+        update zj_xm_jx_quarterly_weight_details
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and details_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.detailsId} 
+     </foreach>
+  </delete>
+  
+    <insert id ="batchInsertZjXmJxQuarterlyWeightDetails" parameterType="java.util.List" >
+     insert into zj_xm_jx_quarterly_weight_details (
+      details_id, assessment_id, project_type, project_type_name, road_bridge_weight, 
+      housing_weight, track_weight, technical_weight, safety_weight, business_weight, 
+      finance_weight, materials_weight, human_resources_weight, legal_weight, office_weight, 
+      supply_chain_weight, closing_center_weight, is_closed, confirm_status, remarks, 
+      sort, del_flag, create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values 
+      <foreach collection ="list" item="item" index= "index" separator=",">
+     (
+      #{item.detailsId,jdbcType=CHAR}, #{item.assessmentId,jdbcType=CHAR}, 
+      #{item.projectType,jdbcType=CHAR}, #{item.projectTypeName,jdbcType=VARCHAR}, 
+      #{item.roadBridgeWeight,jdbcType=INTEGER}, #{item.housingWeight,jdbcType=INTEGER}, 
+      #{item.trackWeight,jdbcType=INTEGER}, #{item.technicalWeight,jdbcType=INTEGER}, 
+      #{item.safetyWeight,jdbcType=INTEGER}, #{item.businessWeight,jdbcType=INTEGER}, 
+      #{item.financeWeight,jdbcType=INTEGER}, #{item.materialsWeight,jdbcType=INTEGER}, 
+      #{item.humanResourcesWeight,jdbcType=INTEGER}, #{item.legalWeight,jdbcType=INTEGER}, 
+      #{item.officeWeight,jdbcType=INTEGER}, #{item.supplyChainWeight,jdbcType=INTEGER}, 
+      #{item.closingCenterWeight,jdbcType=INTEGER}, #{item.isClosed,jdbcType=CHAR}, 
+      #{item.confirmStatus,jdbcType=CHAR}, #{item.remarks,jdbcType=VARCHAR}, 
+      #{item.sort,jdbcType=INTEGER}, #{item.delFlag,jdbcType=CHAR}, 
+      #{item.createTime,jdbcType=TIMESTAMP}, #{item.createUser,jdbcType=CHAR}, 
+      #{item.createUserName,jdbcType=VARCHAR}, #{item.modifyTime,jdbcType=TIMESTAMP}, 
+      #{item.modifyUser,jdbcType=CHAR}, #{item.modifyUserName,jdbcType=VARCHAR}
+      )
+     </foreach >
+  </insert>
+
+  <update id="batchConfirmZjXmJxQuarterlyWeightDetails" parameterType="java.util.List" >
+    update zj_xm_jx_quarterly_weight_details
+    <set>
+        confirm_status = '1',
+    </set> 
+    where del_flag = '0' and details_id in
+    <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.detailsId} 
+    </foreach>
+  </update>
+  
+  <select id="checkZjXmJxQuarterlyWeightDetailsConfirmStatus" resultType="int" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyWeightDetails" >
+    select 
+          count(1)
+    from zj_xm_jx_quarterly_weight_details
+    where del_flag = '0'
+      and confirm_status != '1'
+    <if test="detailsId != null and detailsId != ''" >
+     and details_id = #{detailsId,jdbcType=CHAR}
+    </if>
+    <if test="assessmentId != null and assessmentId != ''" >
+     and assessment_id = #{assessmentId,jdbcType=CHAR}
+    </if>
+    <if test="projectType != null and projectType != ''" >
+     and project_type = #{projectType,jdbcType=CHAR}
+    </if>
+    <if test="projectTypeName != null and projectTypeName != ''" >
+     and project_type_name = #{projectTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="roadBridgeWeight != null and roadBridgeWeight != ''" >
+     and road_bridge_weight = #{roadBridgeWeight,jdbcType=INTEGER}
+    </if>
+    <if test="housingWeight != null and housingWeight != ''" >
+     and housing_weight = #{housingWeight,jdbcType=INTEGER}
+    </if>
+    <if test="trackWeight != null and trackWeight != ''" >
+     and track_weight = #{trackWeight,jdbcType=INTEGER}
+    </if>
+    <if test="technicalWeight != null and technicalWeight != ''" >
+     and technical_weight = #{technicalWeight,jdbcType=INTEGER}
+    </if>
+    <if test="safetyWeight != null and safetyWeight != ''" >
+     and safety_weight = #{safetyWeight,jdbcType=INTEGER}
+    </if>
+    <if test="businessWeight != null and businessWeight != ''" >
+     and business_weight = #{businessWeight,jdbcType=INTEGER}
+    </if>
+    <if test="financeWeight != null and financeWeight != ''" >
+     and finance_weight = #{financeWeight,jdbcType=INTEGER}
+    </if>
+    <if test="materialsWeight != null and materialsWeight != ''" >
+     and materials_weight = #{materialsWeight,jdbcType=INTEGER}
+    </if>
+    <if test="humanResourcesWeight != null and humanResourcesWeight != ''" >
+     and human_resources_weight = #{humanResourcesWeight,jdbcType=INTEGER}
+    </if>
+    <if test="legalWeight != null and legalWeight != ''" >
+     and legal_weight = #{legalWeight,jdbcType=INTEGER}
+    </if>
+    <if test="officeWeight != null and officeWeight != ''" >
+     and office_weight = #{officeWeight,jdbcType=INTEGER}
+    </if>
+    <if test="supplyChainWeight != null and supplyChainWeight != ''" >
+     and supply_chain_weight = #{supplyChainWeight,jdbcType=INTEGER}
+    </if>
+    <if test="closingCenterWeight != null and closingCenterWeight != ''" >
+     and closing_center_weight = #{closingCenterWeight,jdbcType=INTEGER}
+    </if>
+    <if test="isClosed != null and isClosed != ''" >
+     and is_closed = #{isClosed,jdbcType=CHAR}
+    </if>
+    <if test="confirmStatus != null and confirmStatus != ''" >
+     and confirm_status = #{confirmStatus,jdbcType=CHAR}
+    </if>
+  </select>
+  
+</mapper>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjConsumablePutMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjConsumablePut" >
+    <id column="put_id" property="putId" jdbcType="CHAR" />
+    <result column="set_id" property="setId" jdbcType="CHAR" />
+    <result column="category_name" property="categoryName" jdbcType="VARCHAR" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="brand_name" property="brandName" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model_name" property="modelName" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="colour_name" property="colourName" jdbcType="VARCHAR" />
+    <result column="colour" property="colour" jdbcType="VARCHAR" />
+    <result column="this_add_num" property="thisAddNum" jdbcType="INTEGER" />
+    <result column="put_time" property="putTime" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    put_id, set_id, category_name, category, brand_name, 
+    brand, model_name, model, colour_name, colour, 
+    this_add_num, put_time, remark, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_consumable_put
+    where put_id = #{putId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_consumable_put
+    where put_id = #{putId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjConsumablePut" >
+    insert into zj_consumable_put (put_id, set_id, category_name, 
+      category, brand_name, brand, 
+      model_name, model, colour_name, 
+      colour, this_add_num, put_time, 
+      remark, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{putId,jdbcType=CHAR}, #{setId,jdbcType=CHAR}, #{categoryName,jdbcType=VARCHAR}, 
+      #{category,jdbcType=VARCHAR}, #{brandName,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, 
+      #{modelName,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{colourName,jdbcType=VARCHAR}, 
+      #{colour,jdbcType=VARCHAR}, #{thisAddNum,jdbcType=INTEGER}, #{putTime,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjConsumablePut" >
+    insert into zj_consumable_put
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="putId != null" >
+        put_id,
+      </if>
+      <if test="setId != null" >
+        set_id,
+      </if>
+      <if test="categoryName != null" >
+        category_name,
+      </if>
+      <if test="category != null" >
+        category,
+      </if>
+      <if test="brandName != null" >
+        brand_name,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="modelName != null" >
+        model_name,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="colourName != null" >
+        colour_name,
+      </if>
+      <if test="colour != null" >
+        colour,
+      </if>
+      <if test="thisAddNum != null" >
+        this_add_num,
+      </if>
+      <if test="putTime != null" >
+        put_time,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="putId != null" >
+        #{putId,jdbcType=CHAR},
+      </if>
+      <if test="setId != null" >
+        #{setId,jdbcType=CHAR},
+      </if>
+      <if test="categoryName != null" >
+        #{categoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="brandName != null" >
+        #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="modelName != null" >
+        #{modelName,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="colourName != null" >
+        #{colourName,jdbcType=VARCHAR},
+      </if>
+      <if test="colour != null" >
+        #{colour,jdbcType=VARCHAR},
+      </if>
+      <if test="thisAddNum != null" >
+        #{thisAddNum,jdbcType=INTEGER},
+      </if>
+      <if test="putTime != null" >
+        #{putTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjConsumablePut" >
+    update zj_consumable_put
+    <set >
+      <if test="setId != null" >
+        set_id = #{setId,jdbcType=CHAR},
+      </if>
+      <if test="categoryName != null" >
+        category_name = #{categoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null" >
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="brandName != null" >
+        brand_name = #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="modelName != null" >
+        model_name = #{modelName,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="colourName != null" >
+        colour_name = #{colourName,jdbcType=VARCHAR},
+      </if>
+      <if test="colour != null" >
+        colour = #{colour,jdbcType=VARCHAR},
+      </if>
+      <if test="thisAddNum != null" >
+        this_add_num = #{thisAddNum,jdbcType=INTEGER},
+      </if>
+      <if test="putTime != null" >
+        put_time = #{putTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where put_id = #{putId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjConsumablePut" >
+    update zj_consumable_put
+    set       set_id = #{setId,jdbcType=CHAR},
+      category_name = #{categoryName,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR},
+      brand_name = #{brandName,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      model_name = #{modelName,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      colour_name = #{colourName,jdbcType=VARCHAR},
+      colour = #{colour,jdbcType=VARCHAR},
+      this_add_num = #{thisAddNum,jdbcType=INTEGER},
+      put_time = #{putTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where put_id = #{putId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjConsumablePutList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjConsumablePut" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_consumable_put
+    where del_flag = '0'
+    <if test="putId != null and putId != ''" >
+     and put_id = #{putId,jdbcType=CHAR}
+    </if>
+    <if test="setId != null and setId != ''" >
+     and set_id = #{setId,jdbcType=CHAR}
+    </if>
+    <if test="categoryName != null and categoryName != ''" >
+     and category_name LIKE CONCAT('%', #{categoryName},'%')
+    </if>
+    <if test="category != null and category != ''" >
+     and category = #{category,jdbcType=VARCHAR}
+    </if>
+    <if test="brandName != null and brandName != ''" >
+     and brand_name LIKE CONCAT('%', #{brandName},'%')
+    </if>
+    <if test="brand != null and brand != ''" >
+     and brand = #{brand,jdbcType=VARCHAR}
+    </if>
+    <if test="modelName != null and modelName != ''" >
+     and model_name LIKE CONCAT('%', #{modelName},'%')
+    </if>
+    <if test="model != null and model != ''" >
+     and model = #{model,jdbcType=VARCHAR}
+    </if>
+    <if test="colourName != null and colourName != ''" >
+     and colour_name LIKE CONCAT('%', #{colourName},'%')
+    </if>
+    <if test="colour != null and colour != ''" >
+     and colour = #{colour,jdbcType=VARCHAR}
+    </if>
+    <if test="thisAddNum != null and thisAddNum != ''" >
+     and this_add_num = #{thisAddNum,jdbcType=INTEGER}
+    </if>
+    <if test="putTime != null and putTime != ''" >
+     and put_time = #{putTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <!--增加时间检索条件 -->
+	<if test="startTime != null">
+	 AND DATE_FORMAT(put_time,'%Y-%m-%d %H:%i:%s') &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %H:%i:%s')
+	</if>
+	<if test="endTime != null">
+	 AND DATE_FORMAT(put_time,'%Y-%m-%d %H:%i:%s') &lt;= DATE_FORMAT(CONCAT(#{endTime},'23:59:59'),'%Y-%m-%d %H:%i:%s')
+	</if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjConsumablePut" parameterType="com.apih5.mybatis.pojo.ZjConsumablePut" >
+    <![CDATA[ 
+        update zj_consumable_put
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and put_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.putId} 
+     </foreach>
+  </delete>
+</mapper>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.BaseAccountMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.BaseAccount" >
+    <id column="account_id" property="accountId" jdbcType="CHAR" />
+    <result column="account_name" property="accountName" jdbcType="VARCHAR" />
+    <result column="account_corp_id" property="accountCorpId" jdbcType="VARCHAR" />
+    <result column="account_app_type" property="accountAppType" jdbcType="CHAR" />
+    <result column="agent_id" property="agentId" jdbcType="VARCHAR" />
+    <result column="corp_id" property="corpId" jdbcType="VARCHAR" />
+    <result column="secret" property="secret" jdbcType="VARCHAR" />
+    <result column="token" property="token" jdbcType="CHAR" />
+    <result column="access_token" property="accessToken" jdbcType="VARCHAR" />
+    <result column="scope" property="scope" jdbcType="VARCHAR" />
+    <result column="other_account_id" property="otherAccountId" jdbcType="CHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    account_id, account_name, account_corp_id, account_app_type, agent_id, 
+    corp_id, secret, token, access_token, scope, 
+    other_account_id, del_flag, create_time, create_user, modify_time, 
+    modify_user
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_account
+    where account_id = #{accountId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from base_account
+    where account_id = #{accountId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.BaseAccount" >
+    insert into base_account (account_id, account_name, account_corp_id, 
+      account_app_type, agent_id, corp_id, 
+      secret, token, access_token, 
+      scope, other_account_id, del_flag, 
+      create_time, create_user, modify_time, 
+      modify_user
+      )
+    values (#{accountId,jdbcType=CHAR}, #{accountName,jdbcType=VARCHAR}, #{accountCorpId,jdbcType=VARCHAR}, 
+      #{accountAppType,jdbcType=CHAR}, #{agentId,jdbcType=VARCHAR}, #{corpId,jdbcType=VARCHAR}, 
+      #{secret,jdbcType=VARCHAR}, #{token,jdbcType=CHAR}, #{accessToken,jdbcType=VARCHAR}, 
+      #{scope,jdbcType=VARCHAR}, #{otherAccountId,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.BaseAccount" >
+    insert into base_account
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="accountId != null" >
+        account_id,
+      </if>
+      <if test="accountName != null" >
+        account_name,
+      </if>
+      <if test="accountCorpId != null" >
+        account_corp_id,
+      </if>
+      <if test="accountAppType != null" >
+        account_app_type,
+      </if>
+      <if test="agentId != null" >
+        agent_id,
+      </if>
+      <if test="corpId != null" >
+        corp_id,
+      </if>
+      <if test="secret != null" >
+        secret,
+      </if>
+      <if test="token != null" >
+        token,
+      </if>
+      <if test="accessToken != null" >
+        access_token,
+      </if>
+      <if test="scope != null" >
+        scope,
+      </if>
+      <if test="otherAccountId != null" >
+        other_account_id,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="accountId != null" >
+        #{accountId,jdbcType=CHAR},
+      </if>
+      <if test="accountName != null" >
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountCorpId != null" >
+        #{accountCorpId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountAppType != null" >
+        #{accountAppType,jdbcType=CHAR},
+      </if>
+      <if test="agentId != null" >
+        #{agentId,jdbcType=VARCHAR},
+      </if>
+      <if test="corpId != null" >
+        #{corpId,jdbcType=VARCHAR},
+      </if>
+      <if test="secret != null" >
+        #{secret,jdbcType=VARCHAR},
+      </if>
+      <if test="token != null" >
+        #{token,jdbcType=CHAR},
+      </if>
+      <if test="accessToken != null" >
+        #{accessToken,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null" >
+        #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="otherAccountId != null" >
+        #{otherAccountId,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.BaseAccount" >
+    update base_account
+    <set >
+      <if test="accountName != null" >
+        account_name = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountCorpId != null" >
+        account_corp_id = #{accountCorpId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountAppType != null" >
+        account_app_type = #{accountAppType,jdbcType=CHAR},
+      </if>
+      <if test="agentId != null" >
+        agent_id = #{agentId,jdbcType=VARCHAR},
+      </if>
+      <if test="corpId != null" >
+        corp_id = #{corpId,jdbcType=VARCHAR},
+      </if>
+      <if test="secret != null" >
+        secret = #{secret,jdbcType=VARCHAR},
+      </if>
+      <if test="token != null" >
+        token = #{token,jdbcType=CHAR},
+      </if>
+      <if test="accessToken != null" >
+        access_token = #{accessToken,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null" >
+        scope = #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="otherAccountId != null" >
+        other_account_id = #{otherAccountId,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+    </set>
+    where account_id = #{accountId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.BaseAccount" >
+    update base_account
+    set       account_name = #{accountName,jdbcType=VARCHAR},
+      account_corp_id = #{accountCorpId,jdbcType=VARCHAR},
+      account_app_type = #{accountAppType,jdbcType=CHAR},
+      agent_id = #{agentId,jdbcType=VARCHAR},
+      corp_id = #{corpId,jdbcType=VARCHAR},
+      secret = #{secret,jdbcType=VARCHAR},
+      token = #{token,jdbcType=CHAR},
+      access_token = #{accessToken,jdbcType=VARCHAR},
+      scope = #{scope,jdbcType=VARCHAR},
+      other_account_id = #{otherAccountId,jdbcType=CHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR}
+    where account_id = #{accountId,jdbcType=CHAR}
+  </update>
+  <select id="selectByBaseAccountList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.BaseAccount" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_account
+    where del_flag = '0'
+    <if test="accountName != null and accountName != ''" >
+     and account_name = #{accountName,jdbcType=VARCHAR}
+    </if>
+    <if test="accountCorpId != null and accountCorpId != ''" >
+     and account_corp_id = #{accountCorpId,jdbcType=VARCHAR}
+    </if>
+    <if test="accountAppType != null and accountAppType != ''" >
+     and account_app_type = #{accountAppType,jdbcType=CHAR}
+    </if>
+    <if test="agentId != null and agentId != ''" >
+     and agent_id = #{agentId,jdbcType=VARCHAR}
+    </if>
+    <if test="corpId != null and corpId != ''" >
+     and corp_id = #{corpId,jdbcType=VARCHAR}
+    </if>
+    <if test="secret != null and secret != ''" >
+     and secret = #{secret,jdbcType=VARCHAR}
+    </if>
+    <if test="token != null and token != ''" >
+     and token = #{token,jdbcType=CHAR}
+    </if>
+    <if test="accessToken != null and accessToken != ''" >
+     and access_token = #{accessToken,jdbcType=VARCHAR}
+    </if>
+    <if test="scope != null and scope != ''" >
+     and scope = #{scope,jdbcType=VARCHAR}
+    </if>
+    <if test="otherAccountId != null and otherAccountId != ''" >
+     and other_account_id = #{otherAccountId,jdbcType=CHAR}
+    </if>
+    ORDER BY create_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateBaseAccount" parameterType="com.apih5.mybatis.pojo.BaseAccount" >
+    <![CDATA[ 
+        update base_account
+        set del_flag = '1'
+        where del_flag = '0' and account_id in 
+     ]]> 
+     <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.accountId} 
+     </foreach>
+  </delete>
+  <!-- 扩展 -->
+  <select id="selectByBaseAccountListByLike" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_account
+    where del_flag = '0'
+      and account_id like CONCAT('%', #{accountId,jdbcType=VARCHAR}, '%')
+  </select>
+</mapper>

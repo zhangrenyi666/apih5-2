@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqYyglJbbMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqYyglJbb" >
+    <id column="zxEqYyglJbbId" property="zxEqYyglJbbId" jdbcType="CHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="count1" property="count1" jdbcType="DECIMAL" />
+    <result column="count2" property="count2" jdbcType="DECIMAL" />
+    <result column="power1" property="power1" jdbcType="DECIMAL" />
+    <result column="power2" property="power2" jdbcType="DECIMAL" />
+    <result column="leftValue1" property="leftValue1" jdbcType="DECIMAL" />
+    <result column="leftValue2" property="leftValue2" jdbcType="DECIMAL" />
+    <result column="orginalValue1" property="orginalValue1" jdbcType="DECIMAL" />
+    <result column="orginalValue2" property="orginalValue2" jdbcType="DECIMAL" />
+    <result column="reportTitle" property="reportTitle" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="periodType" property="periodType" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxEqYyglJbbId, orgName, period, count1, count2, 
+    power1, power2, leftValue1, leftValue2, orginalValue1, 
+    orginalValue2, reportTitle, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_yyglJbb
+    where del_flag = '0' and zxEqYyglJbbId = #{zxEqYyglJbbId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_yyglJbb
+    where zxEqYyglJbbId = #{zxEqYyglJbbId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqYyglJbb" >
+    insert into zx_eq_yyglJbb (
+    zxEqYyglJbbId, orgName, period, count1, count2, 
+    power1, power2, leftValue1, leftValue2, orginalValue1, 
+    orginalValue2, reportTitle, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{zxEqYyglJbbId,jdbcType=CHAR}, #{orgName,jdbcType=VARCHAR}, #{period,jdbcType=VARCHAR}, #{count1,jdbcType=DECIMAL}, #{count2,jdbcType=DECIMAL}, 
+    #{power1,jdbcType=DECIMAL}, #{power2,jdbcType=DECIMAL}, #{leftValue1,jdbcType=DECIMAL}, #{leftValue2,jdbcType=DECIMAL}, #{orginalValue1,jdbcType=DECIMAL}, 
+    #{orginalValue2,jdbcType=DECIMAL}, #{reportTitle,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqYyglJbb" >
+    insert into zx_eq_yyglJbb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxEqYyglJbbId != null" >
+        zxEqYyglJbbId,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="period != null" >
+        period,
+      </if>
+      <if test="count1 != null" >
+        count1,
+      </if>
+      <if test="count2 != null" >
+        count2,
+      </if>
+      <if test="power1 != null" >
+        power1,
+      </if>
+      <if test="power2 != null" >
+        power2,
+      </if>
+      <if test="leftValue1 != null" >
+        leftValue1,
+      </if>
+      <if test="leftValue2 != null" >
+        leftValue2,
+      </if>
+      <if test="orginalValue1 != null" >
+        orginalValue1,
+      </if>
+      <if test="orginalValue2 != null" >
+        orginalValue2,
+      </if>
+      <if test="reportTitle != null" >
+        reportTitle,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxEqYyglJbbId != null" >
+        #{zxEqYyglJbbId,jdbcType=CHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="count1 != null" >
+        #{count1,jdbcType=DECIMAL},
+      </if>
+      <if test="count2 != null" >
+        #{count2,jdbcType=DECIMAL},
+      </if>
+      <if test="power1 != null" >
+        #{power1,jdbcType=DECIMAL},
+      </if>
+      <if test="power2 != null" >
+        #{power2,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue1 != null" >
+        #{leftValue1,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue2 != null" >
+        #{leftValue2,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue1 != null" >
+        #{orginalValue1,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue2 != null" >
+        #{orginalValue2,jdbcType=DECIMAL},
+      </if>
+      <if test="reportTitle != null" >
+        #{reportTitle,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqYyglJbb" >
+    update zx_eq_yyglJbb
+    <set >
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        period = #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="count1 != null" >
+        count1 = #{count1,jdbcType=DECIMAL},
+      </if>
+      <if test="count2 != null" >
+        count2 = #{count2,jdbcType=DECIMAL},
+      </if>
+      <if test="power1 != null" >
+        power1 = #{power1,jdbcType=DECIMAL},
+      </if>
+      <if test="power2 != null" >
+        power2 = #{power2,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue1 != null" >
+        leftValue1 = #{leftValue1,jdbcType=DECIMAL},
+      </if>
+      <if test="leftValue2 != null" >
+        leftValue2 = #{leftValue2,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue1 != null" >
+        orginalValue1 = #{orginalValue1,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue2 != null" >
+        orginalValue2 = #{orginalValue2,jdbcType=DECIMAL},
+      </if>
+      <if test="reportTitle != null" >
+        reportTitle = #{reportTitle,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxEqYyglJbbId = #{zxEqYyglJbbId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqYyglJbb" >
+    update zx_eq_yyglJbb set 
+      orgName = #{orgName,jdbcType=VARCHAR},
+      period = #{period,jdbcType=VARCHAR},
+      count1 = #{count1,jdbcType=DECIMAL},
+      count2 = #{count2,jdbcType=DECIMAL},
+      power1 = #{power1,jdbcType=DECIMAL},
+      power2 = #{power2,jdbcType=DECIMAL},
+      leftValue1 = #{leftValue1,jdbcType=DECIMAL},
+      leftValue2 = #{leftValue2,jdbcType=DECIMAL},
+      orginalValue1 = #{orginalValue1,jdbcType=DECIMAL},
+      orginalValue2 = #{orginalValue2,jdbcType=DECIMAL},
+      reportTitle = #{reportTitle,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxEqYyglJbbId = #{zxEqYyglJbbId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxEqYyglJbbList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqYyglJbb" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_yyglJbb
+    where del_flag = '0'
+    <if test="zxEqYyglJbbId != null and zxEqYyglJbbId != ''" >
+     and zxEqYyglJbbId = #{zxEqYyglJbbId,jdbcType=CHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="period != null and period != ''" >
+     and period = #{period,jdbcType=VARCHAR}
+    </if>
+    <if test="count1 != null and count1 != ''" >
+     and count1 = #{count1,jdbcType=DECIMAL}
+    </if>
+    <if test="count2 != null and count2 != ''" >
+     and count2 = #{count2,jdbcType=DECIMAL}
+    </if>
+    <if test="power1 != null and power1 != ''" >
+     and power1 = #{power1,jdbcType=DECIMAL}
+    </if>
+    <if test="power2 != null and power2 != ''" >
+     and power2 = #{power2,jdbcType=DECIMAL}
+    </if>
+    <if test="leftValue1 != null and leftValue1 != ''" >
+     and leftValue1 = #{leftValue1,jdbcType=DECIMAL}
+    </if>
+    <if test="leftValue2 != null and leftValue2 != ''" >
+     and leftValue2 = #{leftValue2,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue1 != null and orginalValue1 != ''" >
+     and orginalValue1 = #{orginalValue1,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue2 != null and orginalValue2 != ''" >
+     and orginalValue2 = #{orginalValue2,jdbcType=DECIMAL}
+    </if>
+    <if test="reportTitle != null and reportTitle != ''" >
+     and reportTitle = #{reportTitle,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqYyglJbb" parameterType="com.apih5.mybatis.pojo.ZxEqYyglJbb" >
+    <![CDATA[ 
+        update zx_eq_yyglJbb
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxEqYyglJbbId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxEqYyglJbbId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+  <select id="selectZxEqYyglJbb" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqYyglJbb" >
+                 select 
+                 '单位：'+department_name as orgName,
+                 case when #{periodType,jdbcType=VARCHAR} = '年' then #{period,jdbcType=VARCHAR} + '年'
+                 else
+                 left(#{period,jdbcType=VARCHAR},4) + '年' + right(#{period,jdbcType=VARCHAR},2) + '季' end as period,
+                 (select count(1) from zx_eq_equip where (DATE_FORMAT(acceptanceDate,'%Y')+'0'+quarter(acceptanceDate) &gt;= #{period,jdbcType=VARCHAR} or DATE_FORMAT(acceptanceDate,'%Y') &gt;= #{period,jdbcType=VARCHAR}) and (ownerOrgID = sd.department_id or sd.department_path like ownerOrgID||'%'))
+                 as count1,
+                 0 as count2,
+                 (select count(1) from zx_eq_equip where (DATE_FORMAT(acceptanceDate,'%Y')+'0'+quarter(acceptanceDate) &gt;= @period or DATE_FORMAT(acceptanceDate,'%Y') &gt;= @period) and (ownerOrgID = sd.department_id or sd.department_path like ownerOrgID||'%'))+0 as countAll, 
+                 (select sum(power) from zx_eq_equip where (DATE_FORMAT(acceptanceDate,'%Y')+'0'+quarter(acceptanceDate) &gt;= #{period,jdbcType=VARCHAR} or DATE_FORMAT(acceptanceDate,'%Y') &gt;= #{period,jdbcType=VARCHAR}) and (ownerOrgID = sd.department_id or sd.department_path like ownerOrgID||'%') and isnum(power)=1)
+                 as power1,
+                 0 as power2,
+                 (select sum(power) from zx_eq_equip where (DATE_FORMAT(acceptanceDate,'%Y')+'0'+quarter(acceptanceDate) &gt;= @period or DATE_FORMAT(acceptanceDate,'%Y') &gt;= @period) and (ownerOrgID = sd.department_id or sd.department_path like ownerOrgID||'%') and isnum(power)=1)+0 as powerAll, 
+                 (select sum(leftValue) from zx_eq_equip where (DATE_FORMAT(acceptanceDate,'%Y')+'0'+quarter(acceptanceDate) &gt;= #{period,jdbcType=VARCHAR} or DATE_FORMAT(acceptanceDate,'%Y') &gt;= #{period,jdbcType=VARCHAR}) and (ownerOrgID = sd.department_id or sd.department_path like ownerOrgID||'%'))
+                 as leftValue1,
+                 0 as leftValue2,
+                 (select sum(leftValue) from zx_eq_equip where (DATE_FORMAT(acceptanceDate,'%Y')+'0'+quarter(acceptanceDate) &gt;= @period or DATE_FORMAT(acceptanceDate,'%Y') &gt;= @period) and (ownerOrgID = sd.department_id or sd.department_path like ownerOrgID||'%'))+0 as leftValueAll, 
+                 (select sum(orginalValue) from zx_eq_equip where (DATE_FORMAT(acceptanceDate,'%Y')+'0'+quarter(acceptanceDate) &gt;= #{period,jdbcType=VARCHAR} or DATE_FORMAT(acceptanceDate,'%Y') &gt;= #{period,jdbcType=VARCHAR}) and (ownerOrgID = sd.department_id or sd.department_path like ownerOrgID||'%'))
+                 as orginalValue1,
+                 0 as orginalValue2,
+                 (select sum(orginalValue) from zx_eq_equip where (DATE_FORMAT(acceptanceDate,'%Y')+'0'+quarter(acceptanceDate) &gt;= @period or DATE_FORMAT(acceptanceDate,'%Y') &gt;= @period) and (ownerOrgID = sd.department_id or sd.department_path like ownerOrgID||'%'))+0 as orginalValueAll, 
+                 '运营管理业务采集'+#{periodType,jdbcType=VARCHAR}+'报' as reportTitle
+                 from sys_department sd where department_id=#{orgID,jdbcType=VARCHAR};
+  </select>
+</mapper>

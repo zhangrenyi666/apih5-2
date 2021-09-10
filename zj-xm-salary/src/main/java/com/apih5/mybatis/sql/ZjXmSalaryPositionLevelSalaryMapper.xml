@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmSalaryPositionLevelSalaryMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmSalaryPositionLevelSalary" >
+    <id column="level_salary_id" property="levelSalaryId" jdbcType="CHAR" />
+    <result column="project_type" property="projectType" jdbcType="CHAR" />
+    <result column="position_type" property="positionType" jdbcType="CHAR" />
+    <result column="position_level" property="positionLevel" jdbcType="VARCHAR" />
+    <result column="position_grade" property="positionGrade" jdbcType="CHAR" />
+    <result column="position_salary" property="positionSalary" jdbcType="DECIMAL" />
+    <result column="pid" property="pid" jdbcType="CHAR" />
+    <result column="pid_all" property="pidAll" jdbcType="VARCHAR" />
+    <result column="pname_all" property="pnameAll" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    level_salary_id, project_type, position_type, position_level, position_grade, 
+    position_salary, pid, pid_all, pname_all, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_position_level_salary
+    where level_salary_id = #{levelSalaryId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_salary_position_level_salary
+    where level_salary_id = #{levelSalaryId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryPositionLevelSalary" >
+    insert into zj_xm_salary_position_level_salary (level_salary_id, project_type, position_type, 
+      position_level, position_grade, position_salary, 
+      pid, pid_all, pname_all, 
+      remarks, sort, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{levelSalaryId,jdbcType=CHAR}, #{projectType,jdbcType=CHAR}, #{positionType,jdbcType=CHAR}, 
+      #{positionLevel,jdbcType=VARCHAR}, #{positionGrade,jdbcType=CHAR}, #{positionSalary,jdbcType=DECIMAL}, 
+      #{pid,jdbcType=CHAR}, #{pidAll,jdbcType=VARCHAR}, #{pnameAll,jdbcType=VARCHAR}, 
+      #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryPositionLevelSalary" >
+    insert into zj_xm_salary_position_level_salary
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="levelSalaryId != null" >
+        level_salary_id,
+      </if>
+      <if test="projectType != null" >
+        project_type,
+      </if>
+      <if test="positionType != null" >
+        position_type,
+      </if>
+      <if test="positionLevel != null" >
+        position_level,
+      </if>
+      <if test="positionGrade != null" >
+        position_grade,
+      </if>
+      <if test="positionSalary != null" >
+        position_salary,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="pidAll != null" >
+        pid_all,
+      </if>
+      <if test="pnameAll != null" >
+        pname_all,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="levelSalaryId != null" >
+        #{levelSalaryId,jdbcType=CHAR},
+      </if>
+      <if test="projectType != null" >
+        #{projectType,jdbcType=CHAR},
+      </if>
+      <if test="positionType != null" >
+        #{positionType,jdbcType=CHAR},
+      </if>
+      <if test="positionLevel != null" >
+        #{positionLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="positionGrade != null" >
+        #{positionGrade,jdbcType=CHAR},
+      </if>
+      <if test="positionSalary != null" >
+        #{positionSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=CHAR},
+      </if>
+      <if test="pidAll != null" >
+        #{pidAll,jdbcType=VARCHAR},
+      </if>
+      <if test="pnameAll != null" >
+        #{pnameAll,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryPositionLevelSalary" >
+    update zj_xm_salary_position_level_salary
+    <set >
+      <if test="projectType != null" >
+        project_type = #{projectType,jdbcType=CHAR},
+      </if>
+      <if test="positionType != null" >
+        position_type = #{positionType,jdbcType=CHAR},
+      </if>
+      <if test="positionLevel != null" >
+        position_level = #{positionLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="positionGrade != null" >
+        position_grade = #{positionGrade,jdbcType=CHAR},
+      </if>
+      <if test="positionSalary != null" >
+        position_salary = #{positionSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=CHAR},
+      </if>
+      <if test="pidAll != null" >
+        pid_all = #{pidAll,jdbcType=VARCHAR},
+      </if>
+      <if test="pnameAll != null" >
+        pname_all = #{pnameAll,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where level_salary_id = #{levelSalaryId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryPositionLevelSalary" >
+    update zj_xm_salary_position_level_salary
+    set       project_type = #{projectType,jdbcType=CHAR},
+      position_type = #{positionType,jdbcType=CHAR},
+      position_level = #{positionLevel,jdbcType=VARCHAR},
+      position_grade = #{positionGrade,jdbcType=CHAR},
+      position_salary = #{positionSalary,jdbcType=DECIMAL},
+      pid = #{pid,jdbcType=CHAR},
+      pid_all = #{pidAll,jdbcType=VARCHAR},
+      pname_all = #{pnameAll,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where level_salary_id = #{levelSalaryId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmSalaryPositionLevelSalaryList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryPositionLevelSalary" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_position_level_salary
+    where del_flag = '0'
+    <if test="projectType != null and projectType != ''" >
+     and project_type = #{projectType,jdbcType=CHAR}
+    </if>
+    <if test="positionType != null and positionType != ''" >
+     and position_type = #{positionType,jdbcType=CHAR}
+    </if>
+    <if test="positionLevel != null and positionLevel != ''" >
+     and position_level = #{positionLevel,jdbcType=VARCHAR}
+    </if>
+    <if test="positionGrade != null and positionGrade != ''" >
+     and position_grade = #{positionGrade,jdbcType=CHAR}
+    </if>
+    <if test="positionSalary != null and positionSalary != ''" >
+     and position_salary = #{positionSalary,jdbcType=DECIMAL}
+    </if>
+    <if test="pid != null and pid != ''" >
+     and pid = #{pid,jdbcType=CHAR}
+    </if>
+    <if test="pidAll != null and pidAll != ''" >
+     and pid_all = #{pidAll,jdbcType=VARCHAR}
+    </if>
+    <if test="pnameAll != null and pnameAll != ''" >
+     and pname_all = #{pnameAll,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY create_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmSalaryPositionLevelSalary" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryPositionLevelSalary" >
+    <![CDATA[ 
+        update zj_xm_salary_position_level_salary
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and level_salary_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.levelSalaryId} 
+     </foreach>
+  </delete>
+  
+  <insert id ="batchInsertZjXmSalaryPositionLevelSalary" parameterType="java.util.List" >
+   insert into zj_xm_salary_position_level_salary 
+     (level_salary_id, project_type, position_type, 
+      position_level, position_grade, position_salary, 
+      pid, pid_all, pname_all, 
+      remarks, sort, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values
+      <foreach collection ="list" item="item" index= "index" separator=",">
+     (
+      #{item.levelSalaryId,jdbcType=CHAR}, #{item.projectType,jdbcType=CHAR}, #{item.positionType,jdbcType=CHAR}, 
+      #{item.positionLevel,jdbcType=VARCHAR}, #{item.positionGrade,jdbcType=CHAR}, #{item.positionSalary,jdbcType=DECIMAL}, 
+      #{item.pid,jdbcType=CHAR}, #{item.pidAll,jdbcType=VARCHAR}, #{item.pnameAll,jdbcType=VARCHAR}, 
+      #{item.remarks,jdbcType=VARCHAR}, #{item.sort,jdbcType=INTEGER}, #{item.delFlag,jdbcType=CHAR}, 
+      #{item.createTime,jdbcType=TIMESTAMP}, #{item.createUser,jdbcType=CHAR}, #{item.createUserName,jdbcType=VARCHAR}, 
+      #{item.modifyTime,jdbcType=TIMESTAMP}, #{item.modifyUser,jdbcType=CHAR}, #{item.modifyUserName,jdbcType=VARCHAR}
+     )
+     </foreach >
+  </insert>
+  
+  <update id="batchUpdateZjXmSalaryPositionLevelSalary" parameterType="java.util.List">
+     <foreach collection="list" item="item" index="index" open="" close="" separator=";" >  
+       update zj_xm_salary_position_level_salary
+            <set>
+                project_type = #{item.projectType,jdbcType=CHAR},
+                position_type = #{item.positionType,jdbcType=CHAR},
+                position_level = #{item.positionLevel,jdbcType=VARCHAR},
+                position_grade = #{item.positionGrade,jdbcType=CHAR},
+                position_salary = #{item.positionSalary,jdbcType=DECIMAL},
+                pid = #{item.pid,jdbcType=CHAR},
+                pid_all = #{item.pidAll,jdbcType=VARCHAR},
+                pname_all = #{item.pnameAll,jdbcType=VARCHAR},
+                remarks = #{item.remarks,jdbcType=VARCHAR},
+                sort = #{item.sort,jdbcType=INTEGER},
+                del_flag = #{item.delFlag,jdbcType=CHAR},
+                create_time = #{item.createTime,jdbcType=TIMESTAMP},
+                create_user = #{item.createUser,jdbcType=CHAR},
+                create_user_name = #{item.createUserName,jdbcType=VARCHAR},
+                modify_time = #{item.modifyTime,jdbcType=TIMESTAMP},
+                modify_user = #{item.modifyUser,jdbcType=CHAR},
+                modify_user_name = #{item.modifyUserName,jdbcType=VARCHAR}
+             </set>  
+          where level_salary_id = #{item.levelSalaryId,jdbcType=CHAR}
+      </foreach>  
+  </update>
+    
+  <select id="checkZjXmSalarPositionLevelSalary" resultType="int" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryPositionLevelSalary" >
+    select 
+            count(1)
+       FROM zj_xm_salary_position_level_salary
+     where del_flag = '0'
+    <if test="levelSalaryId != null and levelSalaryId != ''" >
+     and level_salary_id = #{levelSalaryId,jdbcType=CHAR}
+    </if>
+    <if test="projectType != null and projectType != ''" >
+     and project_type = #{projectType,jdbcType=CHAR}
+    </if>
+    <if test="positionType != null and positionType != ''" >
+     and position_type = #{positionType,jdbcType=CHAR}
+    </if>
+    <if test="positionGrade != null and positionGrade != ''" >
+     and position_grade = #{positionGrade,jdbcType=CHAR}
+    </if>
+    <if test="pid != null and pid != ''" >
+     and pid = #{pid,jdbcType=CHAR}
+    </if>
+  </select>
+  
+</mapper>

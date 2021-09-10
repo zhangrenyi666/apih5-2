@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzRiskListBaseMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzRiskListBase" >
+    <id column="risk_list_base_id" property="riskListBaseId" jdbcType="CHAR" />
+    <result column="type_id" property="typeId" jdbcType="CHAR" />
+    <result column="type_name" property="typeName" jdbcType="VARCHAR" />
+    <result column="risk_name" property="riskName" jdbcType="VARCHAR" />
+    <result column="manag_lever" property="managLever" jdbcType="VARCHAR" />
+    <result column="applicable_item_type" property="applicableItemType" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="lock_flag" property="lockFlag" jdbcType="CHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    risk_list_base_id, type_id, type_name, risk_name, manag_lever, 
+    applicable_item_type, remarks, lock_flag, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_risk_list_base
+    where risk_list_base_id = #{riskListBaseId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_risk_list_base
+    where risk_list_base_id = #{riskListBaseId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzRiskListBase" >
+    insert into zj_tz_risk_list_base (risk_list_base_id, type_id, type_name, 
+      risk_name, manag_lever, applicable_item_type, 
+      remarks, lock_flag, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{riskListBaseId,jdbcType=CHAR}, #{typeId,jdbcType=CHAR}, #{typeName,jdbcType=VARCHAR}, 
+      #{riskName,jdbcType=VARCHAR}, #{managLever,jdbcType=VARCHAR}, #{applicableItemType,jdbcType=VARCHAR}, 
+      #{remarks,jdbcType=VARCHAR}, #{lockFlag,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzRiskListBase" >
+    insert into zj_tz_risk_list_base
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="riskListBaseId != null" >
+        risk_list_base_id,
+      </if>
+      <if test="typeId != null" >
+        type_id,
+      </if>
+      <if test="typeName != null" >
+        type_name,
+      </if>
+      <if test="riskName != null" >
+        risk_name,
+      </if>
+      <if test="managLever != null" >
+        manag_lever,
+      </if>
+      <if test="applicableItemType != null" >
+        applicable_item_type,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="lockFlag != null" >
+        lock_flag,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="riskListBaseId != null" >
+        #{riskListBaseId,jdbcType=CHAR},
+      </if>
+      <if test="typeId != null" >
+        #{typeId,jdbcType=CHAR},
+      </if>
+      <if test="typeName != null" >
+        #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="riskName != null" >
+        #{riskName,jdbcType=VARCHAR},
+      </if>
+      <if test="managLever != null" >
+        #{managLever,jdbcType=VARCHAR},
+      </if>
+      <if test="applicableItemType != null" >
+        #{applicableItemType,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="lockFlag != null" >
+        #{lockFlag,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzRiskListBase" >
+    update zj_tz_risk_list_base
+    <set >
+      <if test="typeId != null" >
+        type_id = #{typeId,jdbcType=CHAR},
+      </if>
+      <if test="typeName != null" >
+        type_name = #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="riskName != null" >
+        risk_name = #{riskName,jdbcType=VARCHAR},
+      </if>
+      <if test="managLever != null" >
+        manag_lever = #{managLever,jdbcType=VARCHAR},
+      </if>
+      <if test="applicableItemType != null" >
+        applicable_item_type = #{applicableItemType,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="lockFlag != null" >
+        lock_flag = #{lockFlag,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where risk_list_base_id = #{riskListBaseId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzRiskListBase" >
+    update zj_tz_risk_list_base
+    set       type_id = #{typeId,jdbcType=CHAR},
+      type_name = #{typeName,jdbcType=VARCHAR},
+      risk_name = #{riskName,jdbcType=VARCHAR},
+      manag_lever = #{managLever,jdbcType=VARCHAR},
+      applicable_item_type = #{applicableItemType,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      lock_flag = #{lockFlag,jdbcType=CHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where risk_list_base_id = #{riskListBaseId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzRiskListBaseList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzRiskListBase" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_risk_list_base
+    where del_flag = '0'
+    <if test="typeId != null and typeId != ''" >
+     and type_id = #{typeId,jdbcType=CHAR}
+    </if>
+    <if test="typeName != null and typeName != ''" >
+     and type_name = #{typeName,jdbcType=VARCHAR}
+    </if>
+    <if test="riskName != null and riskName != ''" >
+     and risk_name = #{riskName,jdbcType=VARCHAR}
+    </if>
+    <if test="managLever != null and managLever != ''" >
+     and manag_lever = #{managLever,jdbcType=VARCHAR}
+    </if>
+    <if test="applicableItemType != null and applicableItemType != ''" >
+     and applicable_item_type = #{applicableItemType,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="lockFlag != null and lockFlag != ''" >
+     and lock_flag = #{lockFlag,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="groupByFlagTypeId != null and groupByFlagTypeId != ''" >
+     GROUP BY type_id 
+    </if>
+    ORDER BY type_id ASC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzRiskListBase" parameterType="com.apih5.mybatis.pojo.ZjTzRiskListBase" >
+    <![CDATA[ 
+        update zj_tz_risk_list_base
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and risk_list_base_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.riskListBaseId} 
+     </foreach>
+  </delete>
+  
+  <delete id="batchLockUpdateZjTzRiskListBase" parameterType="com.apih5.mybatis.pojo.ZjTzRiskListBase" >
+    <![CDATA[ 
+        update zj_tz_risk_list_base
+        set lock_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and risk_list_base_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.riskListBaseId} 
+     </foreach>
+  </delete>
+   <delete id="batchClearUpdateZjTzRiskListBase" parameterType="com.apih5.mybatis.pojo.ZjTzRiskListBase" >
+    <![CDATA[ 
+        update zj_tz_risk_list_base
+        set lock_flag = '0',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and risk_list_base_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.riskListBaseId} 
+     </foreach>
+  </delete>
+</mapper>

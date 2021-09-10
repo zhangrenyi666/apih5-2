@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+  	<parent>
+    	<groupId>com.apih5</groupId>
+    	<artifactId>apih5</artifactId>
+    	<version>1.0.0-SNAPSHOT</version>
+    	<relativePath>../pom.xml</relativePath>
+ 	</parent>
+ 	
+  	<groupId>com.apih5</groupId>
+  	<artifactId>apih5-web</artifactId>
+  	<version>1.0.0-SNAPSHOT</version>
+  	<packaging>war</packaging>
+  	<name>apih5-web</name>
+  	<description>apih5 project</description>
+  	<url>http://www.apih5.com</url>
+  	
+  	<developers>
+		<developer>
+			<name>apih5</name>
+		</developer>
+	</developers>
+	
+ 	<dependencies>
+ 		<dependency>
+			<groupId>com.apih5</groupId>
+			<artifactId>apih5-pom</artifactId>
+		</dependency>
+		<dependency>
+            <groupId>com.apih5</groupId>
+            <artifactId>apih5-core</artifactId>
+        </dependency>
+		<dependency>
+            <groupId>com.apih5</groupId>
+            <artifactId>apih5-other-api</artifactId>
+        </dependency>
+		<!-- ↓↓↓ apih5-基础插件 ↓↓↓ -->
+		<!-- 定时任务 -->
+		<!-- <dependency>
+            <groupId>com.apih5</groupId>
+            <artifactId>apih5-quartz</artifactId>
+            <version>${apih5.version}</version>
+        </dependency> -->
+        <!-- 报表插件 -->
+        <!-- <dependency>
+            <groupId>com.apih5</groupId>
+            <artifactId>apih5-ureport</artifactId>
+            <version>${apih5.version}</version>
+        </dependency> -->
+        <!-- 流程插件 -->
+        <!-- <dependency>
+            <groupId>com.apih5</groupId>
+            <artifactId>apih5-flow</artifactId>
+            <version>${apih5.version}</version>
+        </dependency> -->
+        <!-- ↑↑↑ apih5-基础插件 ↑↑↑ -->
+        
+		<!-- tomcat 启动使用 -->
+        <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+		
+
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+				        <source>1.8</source>  
+				        <target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmSalaryWorkExperienceMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmSalaryWorkExperience" >
+    <id column="experience_id" property="experienceId" jdbcType="CHAR" />
+    <result column="extension_id" property="extensionId" jdbcType="CHAR" />
+    <result column="start_date" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="end_date" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="work_unit" property="workUnit" jdbcType="VARCHAR" />
+    <result column="department" property="department" jdbcType="VARCHAR" />
+    <result column="position" property="position" jdbcType="VARCHAR" />
+    <result column="work_content" property="workContent" jdbcType="VARCHAR" />
+    <result column="certifier" property="certifier" jdbcType="VARCHAR" />
+    <result column="phone_number" property="phoneNumber" jdbcType="VARCHAR" />
+    <result column="position_type" property="positionType" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    experience_id, extension_id, start_date, end_date, work_unit, 
+    department, position, work_content, certifier, phone_number, 
+    position_type, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_work_experience
+    where experience_id = #{experienceId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_salary_work_experience
+    where experience_id = #{experienceId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryWorkExperience" >
+    insert into zj_xm_salary_work_experience (experience_id, extension_id, start_date, 
+      end_date, work_unit, department, 
+      position, work_content, certifier, 
+      phone_number, position_type, remarks, 
+      sort, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{experienceId,jdbcType=CHAR}, #{extensionId,jdbcType=CHAR}, #{startDate,jdbcType=TIMESTAMP}, 
+      #{endDate,jdbcType=TIMESTAMP}, #{workUnit,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, 
+      #{position,jdbcType=VARCHAR}, #{workContent,jdbcType=VARCHAR}, #{certifier,jdbcType=VARCHAR}, 
+      #{phoneNumber,jdbcType=VARCHAR}, #{positionType,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryWorkExperience" >
+    insert into zj_xm_salary_work_experience
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="experienceId != null" >
+        experience_id,
+      </if>
+      <if test="extensionId != null" >
+        extension_id,
+      </if>
+      <if test="startDate != null" >
+        start_date,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+      <if test="workUnit != null" >
+        work_unit,
+      </if>
+      <if test="department != null" >
+        department,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="workContent != null" >
+        work_content,
+      </if>
+      <if test="certifier != null" >
+        certifier,
+      </if>
+      <if test="phoneNumber != null" >
+        phone_number,
+      </if>
+      <if test="positionType != null" >
+        position_type,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="experienceId != null" >
+        #{experienceId,jdbcType=CHAR},
+      </if>
+      <if test="extensionId != null" >
+        #{extensionId,jdbcType=CHAR},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workUnit != null" >
+        #{workUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null" >
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="workContent != null" >
+        #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="certifier != null" >
+        #{certifier,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null" >
+        #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="positionType != null" >
+        #{positionType,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryWorkExperience" >
+    update zj_xm_salary_work_experience
+    <set >
+      <if test="extensionId != null" >
+        extension_id = #{extensionId,jdbcType=CHAR},
+      </if>
+      <if test="startDate != null" >
+        start_date = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workUnit != null" >
+        work_unit = #{workUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null" >
+        department = #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="workContent != null" >
+        work_content = #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="certifier != null" >
+        certifier = #{certifier,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null" >
+        phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="positionType != null" >
+        position_type = #{positionType,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where experience_id = #{experienceId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryWorkExperience" >
+    update zj_xm_salary_work_experience
+    set       extension_id = #{extensionId,jdbcType=CHAR},
+      start_date = #{startDate,jdbcType=TIMESTAMP},
+      end_date = #{endDate,jdbcType=TIMESTAMP},
+      work_unit = #{workUnit,jdbcType=VARCHAR},
+      department = #{department,jdbcType=VARCHAR},
+      position = #{position,jdbcType=VARCHAR},
+      work_content = #{workContent,jdbcType=VARCHAR},
+      certifier = #{certifier,jdbcType=VARCHAR},
+      phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      position_type = #{positionType,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where experience_id = #{experienceId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmSalaryWorkExperienceList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryWorkExperience" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_work_experience
+    where del_flag = '0'
+    <if test="extensionId != null and extensionId != ''" >
+     and extension_id = #{extensionId,jdbcType=CHAR}
+    </if>
+    <if test="startDate != null and startDate != ''" >
+     and start_date = #{startDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="endDate != null and endDate != ''" >
+     and end_date = #{endDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="workUnit != null and workUnit != ''" >
+     and work_unit = #{workUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="department != null and department != ''" >
+     and department = #{department,jdbcType=VARCHAR}
+    </if>
+    <if test="position != null and position != ''" >
+     and position = #{position,jdbcType=VARCHAR}
+    </if>
+    <if test="workContent != null and workContent != ''" >
+     and work_content = #{workContent,jdbcType=VARCHAR}
+    </if>
+    <if test="certifier != null and certifier != ''" >
+     and certifier = #{certifier,jdbcType=VARCHAR}
+    </if>
+    <if test="phoneNumber != null and phoneNumber != ''" >
+     and phone_number = #{phoneNumber,jdbcType=VARCHAR}
+    </if>
+    <if test="positionType != null and positionType != ''" >
+     and position_type = #{positionType,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY create_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmSalaryWorkExperience" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryWorkExperience" >
+    <![CDATA[ 
+        update zj_xm_salary_work_experience
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and experience_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.experienceId} 
+     </foreach>
+  </delete>
+  
+  <delete id="batchDeleteZjXmSalaryWorkExperienceByExtensionId" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryWorkExperience" >
+    <![CDATA[ 
+        update zj_xm_salary_work_experience
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and extension_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.extensionId} 
+     </foreach>
+  </delete>
+  
+</mapper>

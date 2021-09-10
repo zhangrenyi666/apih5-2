@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmCqjxProjectOverallEvaluationAssistantMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmCqjxProjectOverallEvaluationAssistant" >
+    <id column="overall_evaluation_id" property="overallEvaluationId" jdbcType="CHAR" />
+    <result column="assessment_type" property="assessmentType" jdbcType="CHAR" />
+    <result column="manager_id" property="managerId" jdbcType="CHAR" />
+    <result column="assessment_years" property="assessmentYears" jdbcType="TIMESTAMP" />
+    <result column="assessment_title" property="assessmentTitle" jdbcType="VARCHAR" />
+    <result column="assessment_quarter" property="assessmentQuarter" jdbcType="VARCHAR" />
+    <result column="assessment_state" property="assessmentState" jdbcType="CHAR" />
+    <result column="position" property="position" jdbcType="VARCHAR" />
+    <result column="item_one_score" property="itemOneScore" jdbcType="CHAR" />
+    <result column="item_two_score" property="itemTwoScore" jdbcType="CHAR" />
+    <result column="item_three_score" property="itemThreeScore" jdbcType="CHAR" />
+    <result column="item_four_score" property="itemFourScore" jdbcType="CHAR" />
+    <result column="item_five_score" property="itemFiveScore" jdbcType="CHAR" />
+    <result column="assistant_lock" property="assistantLock" jdbcType="CHAR" />
+    <result column="leader_see" property="leaderSee" jdbcType="CHAR" />
+    <result column="quarter_score" property="quarterScore" jdbcType="CHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    overall_evaluation_id, assessment_type, manager_id, assessment_years, assessment_title, 
+    assessment_quarter, assessment_state, position, item_one_score, item_two_score, 
+    item_three_score, item_four_score, item_five_score, assistant_lock, leader_see, 
+    quarter_score, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectProjectEvaluationLeaderTodoCount" resultType="java.lang.Integer" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxProjectOverallEvaluationAssistant" >
+    select 
+      count(*)
+        from zj_xm_cqjx_project_overall_evaluation_assistant zt 
+             left join zj_xm_cqjx_project_evaluation_approval zl on zt.overall_evaluation_id = zl.executive_id
+		where zl.del_flag = '0'
+		and zt.del_flag = "0"
+		and approval_flag = "1"   
+    <if test="createUser != null and createUser != ''" >
+     and leader_id = #{createUser,jdbcType=CHAR}
+    </if>
+  </select>      
+  <select id="selectProjectEvaluationLeaderTodoListByUserKey" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxProjectOverallEvaluationAssistant" >
+   (select 
+   	    zt.manager_id,
+	    zt.assessment_type,   
+        zt.assessment_years,
+		zt.assessment_title,
+		zt.assessment_quarter,
+		zt.assessment_state,
+	    zt.position,			
+		zt.create_user_name,
+		zt.overall_evaluation_id,
+    (select oa_org_name from zj_xm_cqjx_project_oa_dept_member where del_flag = '0' and oa_user_id = zt.create_user and other_id = zt.manager_id) AS departmentName,		
+	    "1" AS flowType,			
+		zl.assistant_leader_approval_id AS assistantLeaderApprovalId,
+		zl.leader_score AS leaderScore		
+    from zj_xm_cqjx_project_overall_evaluation_assistant zt left join zj_xm_cqjx_project_evaluation_approval zl on zt.overall_evaluation_id = zl.executive_id
+		where zl.del_flag = '0'
+		and zt.del_flag = "0"
+		and approval_flag = "1"
+    <if test="createUser != null and createUser != ''" >
+     and leader_id = #{createUser,jdbcType=VARCHAR}
+    </if>		
+		)
+		union all
+    (select 
+	    zt.manager_id,	
+	    zt.assessment_type, 
+        zt.assessment_years,
+		zt.assessment_title,
+		zt.assessment_quarter,
+		zt.assessment_state,
+	    zt.position,				
+		zt.create_user_name,
+		zt.overall_evaluation_id,
+	(select oa_org_name from zj_xm_cqjx_project_oa_dept_member where del_flag = '0' and oa_user_id = zt.create_user and other_id = zt.manager_id) AS departmentName,
+	    "2" AS flowType,			
+		zl.assistant_leader_approval_id AS assistantLeaderApprovalId,
+		zl.leader_score AS leaderScore
+    from zj_xm_cqjx_project_overall_evaluation_assistant zt left join zj_xm_cqjx_project_supervise_approval zl on zt.overall_evaluation_id = zl.executive_id
+		where zl.del_flag = '0'
+		and zt.del_flag = "0"
+		and approval_flag = "1"		
+    <if test="createUser != null and createUser != ''" >
+     and leader_id = #{createUser,jdbcType=VARCHAR}
+    </if>		
+		)
+  </select>  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_cqjx_project_overall_evaluation_assistant
+    where overall_evaluation_id = #{overallEvaluationId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_cqjx_project_overall_evaluation_assistant
+    where overall_evaluation_id = #{overallEvaluationId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxProjectOverallEvaluationAssistant" >
+    insert into zj_xm_cqjx_project_overall_evaluation_assistant (overall_evaluation_id, assessment_type, manager_id, 
+      assessment_years, assessment_title, assessment_quarter, 
+      assessment_state, position, item_one_score, 
+      item_two_score, item_three_score, item_four_score, 
+      item_five_score, assistant_lock, leader_see,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+      quarter_score, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{overallEvaluationId,jdbcType=CHAR}, #{assessmentType,jdbcType=CHAR}, #{managerId,jdbcType=CHAR}, 
+      #{assessmentYears,jdbcType=TIMESTAMP}, #{assessmentTitle,jdbcType=VARCHAR}, #{assessmentQuarter,jdbcType=VARCHAR}, 
+      #{assessmentState,jdbcType=CHAR}, #{position,jdbcType=VARCHAR}, #{itemOneScore,jdbcType=CHAR}, 
+      #{itemTwoScore,jdbcType=CHAR}, #{itemThreeScore,jdbcType=CHAR}, #{itemFourScore,jdbcType=CHAR}, 
+      #{itemFiveScore,jdbcType=CHAR}, #{assistantLock,jdbcType=CHAR}, #{leaderSee,jdbcType=CHAR}, 
+      #{quarterScore,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxProjectOverallEvaluationAssistant" >
+    insert into zj_xm_cqjx_project_overall_evaluation_assistant
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="overallEvaluationId != null" >
+        overall_evaluation_id,
+      </if>
+      <if test="assessmentType != null" >
+        assessment_type,
+      </if>
+      <if test="managerId != null" >
+        manager_id,
+      </if>
+      <if test="assessmentYears != null" >
+        assessment_years,
+      </if>
+      <if test="assessmentTitle != null" >
+        assessment_title,
+      </if>
+      <if test="assessmentQuarter != null" >
+        assessment_quarter,
+      </if>
+      <if test="assessmentState != null" >
+        assessment_state,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="itemOneScore != null" >
+        item_one_score,
+      </if>
+      <if test="itemTwoScore != null" >
+        item_two_score,
+      </if>
+      <if test="itemThreeScore != null" >
+        item_three_score,
+      </if>
+      <if test="itemFourScore != null" >
+        item_four_score,
+      </if>
+      <if test="itemFiveScore != null" >
+        item_five_score,
+      </if>
+      <if test="assistantLock != null" >
+        assistant_lock,
+      </if>
+      <if test="leaderSee != null" >
+        leader_see,
+      </if>
+      <if test="quarterScore != null" >
+        quarter_score,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="overallEvaluationId != null" >
+        #{overallEvaluationId,jdbcType=CHAR},
+      </if>
+      <if test="assessmentType != null" >
+        #{assessmentType,jdbcType=CHAR},
+      </if>
+      <if test="managerId != null" >
+        #{managerId,jdbcType=CHAR},
+      </if>
+      <if test="assessmentYears != null" >
+        #{assessmentYears,jdbcType=TIMESTAMP},
+      </if>
+      <if test="assessmentTitle != null" >
+        #{assessmentTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="assessmentQuarter != null" >
+        #{assessmentQuarter,jdbcType=VARCHAR},
+      </if>
+      <if test="assessmentState != null" >
+        #{assessmentState,jdbcType=CHAR},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="itemOneScore != null" >
+        #{itemOneScore,jdbcType=CHAR},
+      </if>
+      <if test="itemTwoScore != null" >
+        #{itemTwoScore,jdbcType=CHAR},
+      </if>
+      <if test="itemThreeScore != null" >
+        #{itemThreeScore,jdbcType=CHAR},
+      </if>
+      <if test="itemFourScore != null" >
+        #{itemFourScore,jdbcType=CHAR},
+      </if>
+      <if test="itemFiveScore != null" >
+        #{itemFiveScore,jdbcType=CHAR},
+      </if>
+      <if test="assistantLock != null" >
+        #{assistantLock,jdbcType=CHAR},
+      </if>
+      <if test="leaderSee != null" >
+        #{leaderSee,jdbcType=CHAR},
+      </if>
+      <if test="quarterScore != null" >
+        #{quarterScore,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxProjectOverallEvaluationAssistant" >
+    update zj_xm_cqjx_project_overall_evaluation_assistant
+    <set >
+      <if test="assessmentType != null" >
+        assessment_type = #{assessmentType,jdbcType=CHAR},
+      </if>
+      <if test="managerId != null" >
+        manager_id = #{managerId,jdbcType=CHAR},
+      </if>
+      <if test="assessmentYears != null" >
+        assessment_years = #{assessmentYears,jdbcType=TIMESTAMP},
+      </if>
+      <if test="assessmentTitle != null" >
+        assessment_title = #{assessmentTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="assessmentQuarter != null" >
+        assessment_quarter = #{assessmentQuarter,jdbcType=VARCHAR},
+      </if>
+      <if test="assessmentState != null" >
+        assessment_state = #{assessmentState,jdbcType=CHAR},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="itemOneScore != null" >
+        item_one_score = #{itemOneScore,jdbcType=CHAR},
+      </if>
+      <if test="itemTwoScore != null" >
+        item_two_score = #{itemTwoScore,jdbcType=CHAR},
+      </if>
+      <if test="itemThreeScore != null" >
+        item_three_score = #{itemThreeScore,jdbcType=CHAR},
+      </if>
+      <if test="itemFourScore != null" >
+        item_four_score = #{itemFourScore,jdbcType=CHAR},
+      </if>
+      <if test="itemFiveScore != null" >
+        item_five_score = #{itemFiveScore,jdbcType=CHAR},
+      </if>
+      <if test="assistantLock != null" >
+        assistant_lock = #{assistantLock,jdbcType=CHAR},
+      </if>
+      <if test="leaderSee != null" >
+        leader_see = #{leaderSee,jdbcType=CHAR},
+      </if>
+      <if test="quarterScore != null" >
+        quarter_score = #{quarterScore,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where overall_evaluation_id = #{overallEvaluationId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxProjectOverallEvaluationAssistant" >
+    update zj_xm_cqjx_project_overall_evaluation_assistant
+    set       assessment_type = #{assessmentType,jdbcType=CHAR},
+      manager_id = #{managerId,jdbcType=CHAR},
+      assessment_years = #{assessmentYears,jdbcType=TIMESTAMP},
+      assessment_title = #{assessmentTitle,jdbcType=VARCHAR},
+      assessment_quarter = #{assessmentQuarter,jdbcType=VARCHAR},
+      assessment_state = #{assessmentState,jdbcType=CHAR},
+      position = #{position,jdbcType=VARCHAR},
+      item_one_score = #{itemOneScore,jdbcType=CHAR},
+      item_two_score = #{itemTwoScore,jdbcType=CHAR},
+      item_three_score = #{itemThreeScore,jdbcType=CHAR},
+      item_four_score = #{itemFourScore,jdbcType=CHAR},
+      item_five_score = #{itemFiveScore,jdbcType=CHAR},
+      assistant_lock = #{assistantLock,jdbcType=CHAR},
+      leader_see = #{leaderSee,jdbcType=CHAR},
+      quarter_score = #{quarterScore,jdbcType=CHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where overall_evaluation_id = #{overallEvaluationId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmCqjxProjectOverallEvaluationAssistantList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxProjectOverallEvaluationAssistant" >
+    select 
+    <include refid="Base_Column_List" />,
+    (select oa_org_name from zj_xm_cqjx_project_oa_dept_member 
+            where del_flag = '0' and oa_user_id = zj_xm_cqjx_project_overall_evaluation_assistant.create_user 
+            and other_id = zj_xm_cqjx_project_overall_evaluation_assistant.manager_id) AS departmentName,
+     (SELECT mobile from zj_xm_cqjx_project_oa_dept_member 
+      WHERE del_flag = '0' AND other_id = zj_xm_cqjx_project_overall_evaluation_assistant.manager_id 
+      AND oa_user_id = zj_xm_cqjx_project_overall_evaluation_assistant.create_user) AS mobile
+    from zj_xm_cqjx_project_overall_evaluation_assistant
+    where del_flag = '0'
+    <if test="assessmentType != null and assessmentType != ''" >
+     and assessment_type = #{assessmentType,jdbcType=CHAR}
+    </if>
+    <if test="managerId != null and managerId != ''" >
+     and manager_id = #{managerId,jdbcType=CHAR}
+    </if>
+    <if test="assessmentYears != null" >
+     and assessment_years = #{assessmentYears,jdbcType=TIMESTAMP}
+    </if>
+    <if test="assessmentTitle != null and assessmentTitle != ''" >
+     and assessment_title = #{assessmentTitle,jdbcType=VARCHAR}
+    </if>
+    <if test="assessmentQuarter != null and assessmentQuarter != ''" >
+     and assessment_quarter = #{assessmentQuarter,jdbcType=VARCHAR}
+    </if>
+    <if test="assessmentState != null and assessmentState != ''" >
+     and assessment_state = #{assessmentState,jdbcType=CHAR}
+    </if>
+    <if test="position != null and position != ''" >
+     and position = #{position,jdbcType=VARCHAR}
+    </if>
+    <if test="itemOneScore != null and itemOneScore != ''" >
+     and item_one_score = #{itemOneScore,jdbcType=CHAR}
+    </if>
+    <if test="itemTwoScore != null and itemTwoScore != ''" >
+     and item_two_score = #{itemTwoScore,jdbcType=CHAR}
+    </if>
+    <if test="itemThreeScore != null and itemThreeScore != ''" >
+     and item_three_score = #{itemThreeScore,jdbcType=CHAR}
+    </if>
+    <if test="itemFourScore != null and itemFourScore != ''" >
+     and item_four_score = #{itemFourScore,jdbcType=CHAR}
+    </if>
+    <if test="itemFiveScore != null and itemFiveScore != ''" >
+     and item_five_score = #{itemFiveScore,jdbcType=CHAR}
+    </if>
+    <if test="assistantLock != null and assistantLock != ''" >
+     and assistant_lock = #{assistantLock,jdbcType=CHAR}
+    </if>
+    <if test="leaderSee != null and leaderSee != ''" >
+     and leader_see = #{leaderSee,jdbcType=CHAR}
+    </if>
+    <if test="quarterScore != null and quarterScore != ''" >
+     and quarter_score = #{quarterScore,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmCqjxProjectOverallEvaluationAssistant" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxProjectOverallEvaluationAssistant" >
+    <![CDATA[ 
+        update zj_xm_cqjx_project_overall_evaluation_assistant
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and overall_evaluation_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.overallEvaluationId} 
+     </foreach>
+  </delete>
+  <select id="selectProjectEvaluationLeaderDoneListByUserKey" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmCqjxProjectOverallEvaluationAssistant">
+  	(SELECT
+		(select oa_org_name from zj_xm_cqjx_project_oa_dept_member t3 where t3.del_flag = '0' and t3.oa_user_id = t1.create_user and t3.other_id = t1.manager_id) AS departmentName,
+		t2.assistant_leader_approval_id AS assistantLeaderApprovalId,
+		t2.leader_score AS leaderScore,
+		"1" AS flowType,
+		t1.*
+	FROM zj_xm_cqjx_project_overall_evaluation_assistant t1 LEFT JOIN zj_xm_cqjx_project_evaluation_approval t2 ON t2.executive_id =
+	t1.overall_evaluation_id and t2.del_flag = '0'
+	WHERE t1.del_flag = '0'
+	and t2.approval_flag = '2'
+	<if test="createUser != null and createUser != ''" >
+	and t2.leader_id = #{createUser,jdbcType=VARCHAR}
+	</if>
+	)
+	union all 
+	(SELECT
+		(select oa_org_name from zj_xm_cqjx_project_oa_dept_member t3 where t3.del_flag = '0' and t3.oa_user_id = t1.create_user and t3.other_id = t1.manager_id) AS departmentName,
+		t2.assistant_leader_approval_id AS assistantLeaderApprovalId,
+		t2.leader_score AS leaderScore,
+		"2" AS flowType,
+		t1.*
+	FROM zj_xm_cqjx_project_overall_evaluation_assistant t1 LEFT JOIN zj_xm_cqjx_project_supervise_approval t2 ON t2.executive_id = 
+	t1.overall_evaluation_id and t2.del_flag = '0'
+	WHERE t1.del_flag = '0'
+	and t2.approval_flag = '2'
+	<if test="createUser != null and createUser != ''" >
+	and t2.leader_id = #{createUser,jdbcType=VARCHAR}
+	</if>
+	)
+  </select>
+</mapper>

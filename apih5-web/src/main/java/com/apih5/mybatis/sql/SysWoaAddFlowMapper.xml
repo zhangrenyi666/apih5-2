@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.SysWoaAddFlowMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.SysWoaAddFlow" >
+    <id column="add_page_id" property="addPageId" jdbcType="CHAR" />
+    <result column="module_type" property="moduleType" jdbcType="CHAR" />
+    <result column="module_title" property="moduleTitle" jdbcType="VARCHAR" />
+    <result column="module_link" property="moduleLink" jdbcType="VARCHAR" />
+    <result column="module_app_link" property="moduleAppLink" jdbcType="VARCHAR" />
+    <result column="module_icon" property="moduleIcon" jdbcType="VARCHAR" />
+    <result column="company_id" property="companyId" jdbcType="CHAR" />
+    <result column="module_sort" property="moduleSort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    add_page_id, module_type, module_title, module_link, module_app_link, 
+    module_icon, company_id, module_sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_woa_add_flow
+    where add_page_id = #{addPageId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_woa_add_flow
+    where add_page_id = #{addPageId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.SysWoaAddFlow" >
+    insert into sys_woa_add_flow (add_page_id, module_type, module_title, 
+      module_link, module_app_link, module_icon, 
+      company_id, module_sort, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{addPageId,jdbcType=CHAR}, #{moduleType,jdbcType=CHAR}, #{moduleTitle,jdbcType=VARCHAR}, 
+      #{moduleLink,jdbcType=VARCHAR}, #{moduleAppLink,jdbcType=VARCHAR}, #{moduleIcon,jdbcType=VARCHAR}, 
+      #{companyId,jdbcType=CHAR}, #{moduleSort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.SysWoaAddFlow" >
+    insert into sys_woa_add_flow
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="addPageId != null" >
+        add_page_id,
+      </if>
+      <if test="moduleType != null" >
+        module_type,
+      </if>
+      <if test="moduleTitle != null" >
+        module_title,
+      </if>
+      <if test="moduleLink != null" >
+        module_link,
+      </if>
+      <if test="moduleAppLink != null" >
+        module_app_link,
+      </if>
+      <if test="moduleIcon != null" >
+        module_icon,
+      </if>
+      <if test="companyId != null" >
+        company_id,
+      </if>
+      <if test="moduleSort != null" >
+        module_sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="addPageId != null" >
+        #{addPageId,jdbcType=CHAR},
+      </if>
+      <if test="moduleType != null" >
+        #{moduleType,jdbcType=CHAR},
+      </if>
+      <if test="moduleTitle != null" >
+        #{moduleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleLink != null" >
+        #{moduleLink,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleAppLink != null" >
+        #{moduleAppLink,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleIcon != null" >
+        #{moduleIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="moduleSort != null" >
+        #{moduleSort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.SysWoaAddFlow" >
+    update sys_woa_add_flow
+    <set >
+      <if test="moduleType != null" >
+        module_type = #{moduleType,jdbcType=CHAR},
+      </if>
+      <if test="moduleTitle != null" >
+        module_title = #{moduleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleLink != null" >
+        module_link = #{moduleLink,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleAppLink != null" >
+        module_app_link = #{moduleAppLink,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleIcon != null" >
+        module_icon = #{moduleIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        company_id = #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="moduleSort != null" >
+        module_sort = #{moduleSort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where add_page_id = #{addPageId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.SysWoaAddFlow" >
+    update sys_woa_add_flow
+    set       module_type = #{moduleType,jdbcType=CHAR},
+      module_title = #{moduleTitle,jdbcType=VARCHAR},
+      module_link = #{moduleLink,jdbcType=VARCHAR},
+      module_app_link = #{moduleAppLink,jdbcType=VARCHAR},
+      module_icon = #{moduleIcon,jdbcType=VARCHAR},
+      company_id = #{companyId,jdbcType=CHAR},
+      module_sort = #{moduleSort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where add_page_id = #{addPageId,jdbcType=CHAR}
+  </update>
+  <select id="selectBySysWoaAddFlowList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysWoaAddFlow" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_woa_add_flow
+    where del_flag = '0'
+    <if test="moduleType != null and moduleType != ''" >
+     and module_type = #{moduleType,jdbcType=CHAR}
+    </if>
+    <if test="moduleTitle != null and moduleTitle != ''" >
+     and module_title = #{moduleTitle,jdbcType=VARCHAR}
+    </if>
+    <if test="moduleLink != null and moduleLink != ''" >
+     and module_link = #{moduleLink,jdbcType=VARCHAR}
+    </if>
+    <if test="moduleAppLink != null and moduleAppLink != ''" >
+     and module_app_link = #{moduleAppLink,jdbcType=VARCHAR}
+    </if>
+    <if test="moduleIcon != null and moduleIcon != ''" >
+     and module_icon = #{moduleIcon,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and company_id = #{companyId,jdbcType=CHAR}
+    </if>
+    <if test="moduleSort != null and moduleSort != ''" >
+     and module_sort = #{moduleSort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY module_sort 
+  </select>
+  <delete id="batchDeleteUpdateSysWoaAddFlow" parameterType="com.apih5.mybatis.pojo.SysWoaAddFlow" >
+    <![CDATA[ 
+        update sys_woa_add_flow
+        set del_flag = '1'
+        where del_flag = '0' and add_page_id in 
+     ]]> 
+     <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.addPageId} 
+     </foreach>
+  </delete>
+  <!-- 扩展 -->
+  <select id="selectBySysWoaAddFlowListByRole" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysWoaAddFlow" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_woa_add_flow
+    where del_flag = '0'
+        and company_id IN (${companyId})
+  </select>
+</mapper>

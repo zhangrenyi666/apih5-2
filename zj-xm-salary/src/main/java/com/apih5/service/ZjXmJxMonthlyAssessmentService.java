@@ -1,0 +1,34 @@
+package com.apih5.service;
+
+import java.util.List;
+import com.apih5.framework.entity.ResponseEntity;
+import com.apih5.mybatis.pojo.ZjXmJxMonthlyAssessment;
+
+public interface ZjXmJxMonthlyAssessmentService {
+
+	public ResponseEntity getZjXmJxMonthlyAssessmentListByCondition(ZjXmJxMonthlyAssessment zjXmJxMonthlyAssessment);
+
+	public ResponseEntity getZjXmJxMonthlyAssessmentDetails(ZjXmJxMonthlyAssessment zjXmJxMonthlyAssessment);
+
+	public ResponseEntity saveZjXmJxMonthlyAssessment(ZjXmJxMonthlyAssessment zjXmJxMonthlyAssessment);
+
+	public ResponseEntity updateZjXmJxMonthlyAssessment(ZjXmJxMonthlyAssessment zjXmJxMonthlyAssessment);
+
+	public ResponseEntity batchDeleteUpdateZjXmJxMonthlyAssessment(
+			List<ZjXmJxMonthlyAssessment> zjXmJxMonthlyAssessmentList) throws Exception;
+
+	public ResponseEntity cascadeAddZjXmJxMonthlyAssessment(ZjXmJxMonthlyAssessment zjXmJxMonthlyAssessment);
+
+	public ResponseEntity getZjXmJxMonthlyAssessmentTaskDetails(ZjXmJxMonthlyAssessment zjXmJxMonthlyAssessment);
+
+	public ResponseEntity submitZjXmJxMonthlyAssessmentForTask(ZjXmJxMonthlyAssessment zjXmJxMonthlyAssessment);
+
+	public ResponseEntity submitZjXmJxMonthlyAssessmentForPeriphery(ZjXmJxMonthlyAssessment zjXmJxMonthlyAssessment);
+
+	public ResponseEntity getZjXmJxMonthlyAssessmentPrincipalDetails(ZjXmJxMonthlyAssessment zjXmJxMonthlyAssessment);
+
+	public ResponseEntity submitZjXmJxMonthlyAssessmentForPrincipal(ZjXmJxMonthlyAssessment zjXmJxMonthlyAssessment);
+
+	public ResponseEntity sendZjXmJxMonthlyAssessmentNotice(ZjXmJxMonthlyAssessment zjXmJxMonthlyAssessment)
+			throws Exception;
+}

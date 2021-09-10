@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSfSourceOfDangerMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSfSourceOfDanger" >
+    <id column="zx_sf_source_of_danger_id" property="zxSfSourceOfDangerId" jdbcType="CHAR" />
+    <result column="p_id" property="pId" jdbcType="CHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="dee" property="dee" jdbcType="DECIMAL" />
+    <result column="cee" property="cee" jdbcType="DECIMAL" />
+    <result column="bee" property="bee" jdbcType="DECIMAL" />
+    <result column="lee" property="lee" jdbcType="DECIMAL" />
+    <result column="risk_level" property="riskLevel" jdbcType="CHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zx_sf_source_of_danger_id, p_id, type, name, dee, 
+    cee, bee, lee, risk_level, status, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sf_source_of_danger
+    where del_flag = '0' and zx_sf_source_of_danger_id = #{zxSfSourceOfDangerId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sf_source_of_danger
+    where zx_sf_source_of_danger_id = #{zxSfSourceOfDangerId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSfSourceOfDanger" >
+    insert into zx_sf_source_of_danger (
+    zx_sf_source_of_danger_id, p_id, type, name, dee, 
+    cee, bee, lee, risk_level, status, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxSfSourceOfDangerId,jdbcType=CHAR}, #{pId,jdbcType=CHAR}, #{type,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{dee,jdbcType=DECIMAL}, 
+    #{cee,jdbcType=DECIMAL}, #{bee,jdbcType=DECIMAL}, #{lee,jdbcType=DECIMAL}, #{riskLevel,jdbcType=CHAR}, #{status,jdbcType=CHAR}, 
+    #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+    #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSfSourceOfDanger" >
+    insert into zx_sf_source_of_danger
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSfSourceOfDangerId != null" >
+        zx_sf_source_of_danger_id,
+      </if>
+      <if test="pId != null" >
+        p_id,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="dee != null" >
+        dee,
+      </if>
+      <if test="cee != null" >
+        cee,
+      </if>
+      <if test="bee != null" >
+        bee,
+      </if>
+      <if test="lee != null" >
+        lee,
+      </if>
+      <if test="riskLevel != null" >
+        risk_level,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSfSourceOfDangerId != null" >
+        #{zxSfSourceOfDangerId,jdbcType=CHAR},
+      </if>
+      <if test="pId != null" >
+        #{pId,jdbcType=CHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="dee != null" >
+        #{dee,jdbcType=DECIMAL},
+      </if>
+      <if test="cee != null" >
+        #{cee,jdbcType=DECIMAL},
+      </if>
+      <if test="bee != null" >
+        #{bee,jdbcType=DECIMAL},
+      </if>
+      <if test="lee != null" >
+        #{lee,jdbcType=DECIMAL},
+      </if>
+      <if test="riskLevel != null" >
+        #{riskLevel,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSfSourceOfDanger" >
+    update zx_sf_source_of_danger
+    <set >
+      <if test="pId != null" >
+        p_id = #{pId,jdbcType=CHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="dee != null" >
+        dee = #{dee,jdbcType=DECIMAL},
+      </if>
+      <if test="cee != null" >
+        cee = #{cee,jdbcType=DECIMAL},
+      </if>
+      <if test="bee != null" >
+        bee = #{bee,jdbcType=DECIMAL},
+      </if>
+      <if test="lee != null" >
+        lee = #{lee,jdbcType=DECIMAL},
+      </if>
+      <if test="riskLevel != null" >
+        risk_level = #{riskLevel,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zx_sf_source_of_danger_id = #{zxSfSourceOfDangerId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSfSourceOfDanger" >
+    update zx_sf_source_of_danger set 
+      p_id = #{pId,jdbcType=CHAR},
+      type = #{type,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      dee = #{dee,jdbcType=DECIMAL},
+      cee = #{cee,jdbcType=DECIMAL},
+      bee = #{bee,jdbcType=DECIMAL},
+      lee = #{lee,jdbcType=DECIMAL},
+      risk_level = #{riskLevel,jdbcType=CHAR},
+      status = #{status,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zx_sf_source_of_danger_id = #{zxSfSourceOfDangerId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSfSourceOfDangerList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSfSourceOfDanger" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sf_source_of_danger
+    where del_flag = '0'
+    <if test="zxSfSourceOfDangerId != null and zxSfSourceOfDangerId != ''" >
+     and zx_sf_source_of_danger_id = #{zxSfSourceOfDangerId,jdbcType=CHAR}
+    </if>
+    <if test="pId != null and pId != ''" >
+     and p_id = #{pId,jdbcType=CHAR}
+    </if>
+    <if test="type != null and type != ''" >
+     and type = #{type,jdbcType=INTEGER}
+    </if>
+    <if test="name != null and name != ''" >
+     and name = #{name,jdbcType=VARCHAR}
+    </if>
+    <if test="dee != null and dee != ''" >
+     and dee = #{dee,jdbcType=DECIMAL}
+    </if>
+    <if test="cee != null and cee != ''" >
+     and cee = #{cee,jdbcType=DECIMAL}
+    </if>
+    <if test="bee != null and bee != ''" >
+     and bee = #{bee,jdbcType=DECIMAL}
+    </if>
+    <if test="lee != null and lee != ''" >
+     and lee = #{lee,jdbcType=DECIMAL}
+    </if>
+    <if test="riskLevel != null and riskLevel != ''" >
+     and risk_level = #{riskLevel,jdbcType=CHAR}
+    </if>
+    <if test="status != null and status != ''" >
+     and status = #{status,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSfSourceOfDanger" parameterType="com.apih5.mybatis.pojo.ZxSfSourceOfDanger" >
+    <![CDATA[ 
+        update zx_sf_source_of_danger
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zx_sf_source_of_danger_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSfSourceOfDangerId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+</mapper>

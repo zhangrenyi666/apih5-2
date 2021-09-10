@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ProInvBgbcxyMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ProInvBgbcxy" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="inv_htinfo_id" property="invHtinfoId" jdbcType="CHAR" />
+    <result column="bcht_name" property="bchtName" jdbcType="VARCHAR" />
+    <result column="bcjaf_money" property="bcjafMoney" jdbcType="DECIMAL" />
+    <result column="bchjaf_money" property="bchjafMoney" jdbcType="DECIMAL" />
+    <result column="bczcf_money" property="bczcfMoney" jdbcType="DECIMAL" />
+    <result column="bchzcf_money" property="bchzcfMoney" jdbcType="DECIMAL" />
+    <result column="bcglf_money" property="bcglfMoney" jdbcType="DECIMAL" />
+    <result column="bchglf_money" property="bchglfMoney" jdbcType="DECIMAL" />
+    <result column="bcjlf_money" property="bcjlfMoney" jdbcType="DECIMAL" />
+    <result column="bchjlf_money" property="bchjlfMoney" jdbcType="DECIMAL" />
+    <result column="bcccsjf_money" property="bcccsjfMoney" jdbcType="DECIMAL" />
+    <result column="bchccsjf_money" property="bchccsjfMoney" jdbcType="DECIMAL" />
+    <result column="bcoth_money" property="bcothMoney" jdbcType="DECIMAL" />
+    <result column="bchoth_money" property="bchothMoney" jdbcType="DECIMAL" />
+    <result column="bchht_money" property="bchhtMoney" jdbcType="DECIMAL" />
+    <result column="bchhtgq" property="bchhtgq" jdbcType="DECIMAL" />
+    <result column="is_newlabel" property="isNewlabel" jdbcType="VARCHAR" />
+    <result column="nrxtgl_date" property="nrxtglDate" jdbcType="TIMESTAMP" />
+    <result column="sbjtgl_date" property="sbjtglDate" jdbcType="TIMESTAMP" />
+    <result column="bcxyqd_date" property="bcxyqdDate" jdbcType="TIMESTAMP" />
+    <result column="currency" property="currency" jdbcType="VARCHAR" />
+    <result column="create_by" property="createBy" jdbcType="CHAR" />
+    <result column="create_org" property="createOrg" jdbcType="CHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="CHAR" />
+    <result column="update_org" property="updateOrg" jdbcType="CHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, inv_htinfo_id, bcht_name, bcjaf_money, bchjaf_money, 
+    bczcf_money, bchzcf_money, bcglf_money, bchglf_money, bcjlf_money, 
+    bchjlf_money, bcccsjf_money, bchccsjf_money, bcoth_money, bchoth_money, 
+    bchht_money, bchhtgq, is_newlabel, nrxtgl_date, sbjtgl_date, 
+    bcxyqd_date, currency, create_by, create_org, create_date, 
+    update_by, update_org, update_date, remarks, del_flag
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from del_flag = '0' and pro_inv_bgbcxy
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from pro_inv_bgbcxy
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ProInvBgbcxy" >
+    insert into pro_inv_bgbcxy (id, inv_htinfo_id, bcht_name, 
+      bcjaf_money, bchjaf_money, bczcf_money, 
+      bchzcf_money, bcglf_money, bchglf_money, 
+      bcjlf_money, bchjlf_money, bcccsjf_money, 
+      bchccsjf_money, bcoth_money, bchoth_money, 
+      bchht_money, bchhtgq, is_newlabel, 
+      nrxtgl_date, sbjtgl_date, bcxyqd_date, 
+      currency, create_by, create_org, 
+      create_date, update_by, update_org, 
+      update_date, remarks, del_flag
+      )
+    values (#{id,jdbcType=CHAR}, #{invHtinfoId,jdbcType=CHAR}, #{bchtName,jdbcType=VARCHAR}, 
+      #{bcjafMoney,jdbcType=DECIMAL}, #{bchjafMoney,jdbcType=DECIMAL}, #{bczcfMoney,jdbcType=DECIMAL}, 
+      #{bchzcfMoney,jdbcType=DECIMAL}, #{bcglfMoney,jdbcType=DECIMAL}, #{bchglfMoney,jdbcType=DECIMAL}, 
+      #{bcjlfMoney,jdbcType=DECIMAL}, #{bchjlfMoney,jdbcType=DECIMAL}, #{bcccsjfMoney,jdbcType=DECIMAL}, 
+      #{bchccsjfMoney,jdbcType=DECIMAL}, #{bcothMoney,jdbcType=DECIMAL}, #{bchothMoney,jdbcType=DECIMAL}, 
+      #{bchhtMoney,jdbcType=DECIMAL}, #{bchhtgq,jdbcType=DECIMAL}, #{isNewlabel,jdbcType=VARCHAR}, 
+      #{nrxtglDate,jdbcType=TIMESTAMP}, #{sbjtglDate,jdbcType=TIMESTAMP}, #{bcxyqdDate,jdbcType=TIMESTAMP}, 
+      #{currency,jdbcType=VARCHAR}, #{createBy,jdbcType=CHAR}, #{createOrg,jdbcType=CHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=CHAR}, #{updateOrg,jdbcType=CHAR}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ProInvBgbcxy" >
+    insert into pro_inv_bgbcxy
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="invHtinfoId != null" >
+        inv_htinfo_id,
+      </if>
+      <if test="bchtName != null" >
+        bcht_name,
+      </if>
+      <if test="bcjafMoney != null" >
+        bcjaf_money,
+      </if>
+      <if test="bchjafMoney != null" >
+        bchjaf_money,
+      </if>
+      <if test="bczcfMoney != null" >
+        bczcf_money,
+      </if>
+      <if test="bchzcfMoney != null" >
+        bchzcf_money,
+      </if>
+      <if test="bcglfMoney != null" >
+        bcglf_money,
+      </if>
+      <if test="bchglfMoney != null" >
+        bchglf_money,
+      </if>
+      <if test="bcjlfMoney != null" >
+        bcjlf_money,
+      </if>
+      <if test="bchjlfMoney != null" >
+        bchjlf_money,
+      </if>
+      <if test="bcccsjfMoney != null" >
+        bcccsjf_money,
+      </if>
+      <if test="bchccsjfMoney != null" >
+        bchccsjf_money,
+      </if>
+      <if test="bcothMoney != null" >
+        bcoth_money,
+      </if>
+      <if test="bchothMoney != null" >
+        bchoth_money,
+      </if>
+      <if test="bchhtMoney != null" >
+        bchht_money,
+      </if>
+      <if test="bchhtgq != null" >
+        bchhtgq,
+      </if>
+      <if test="isNewlabel != null" >
+        is_newlabel,
+      </if>
+      <if test="nrxtglDate != null" >
+        nrxtgl_date,
+      </if>
+      <if test="sbjtglDate != null" >
+        sbjtgl_date,
+      </if>
+      <if test="bcxyqdDate != null" >
+        bcxyqd_date,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createOrg != null" >
+        create_org,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateOrg != null" >
+        update_org,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="invHtinfoId != null" >
+        #{invHtinfoId,jdbcType=CHAR},
+      </if>
+      <if test="bchtName != null" >
+        #{bchtName,jdbcType=VARCHAR},
+      </if>
+      <if test="bcjafMoney != null" >
+        #{bcjafMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bchjafMoney != null" >
+        #{bchjafMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bczcfMoney != null" >
+        #{bczcfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bchzcfMoney != null" >
+        #{bchzcfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bcglfMoney != null" >
+        #{bcglfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bchglfMoney != null" >
+        #{bchglfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bcjlfMoney != null" >
+        #{bcjlfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bchjlfMoney != null" >
+        #{bchjlfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bcccsjfMoney != null" >
+        #{bcccsjfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bchccsjfMoney != null" >
+        #{bchccsjfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bcothMoney != null" >
+        #{bcothMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bchothMoney != null" >
+        #{bchothMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bchhtMoney != null" >
+        #{bchhtMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bchhtgq != null" >
+        #{bchhtgq,jdbcType=DECIMAL},
+      </if>
+      <if test="isNewlabel != null" >
+        #{isNewlabel,jdbcType=VARCHAR},
+      </if>
+      <if test="nrxtglDate != null" >
+        #{nrxtglDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sbjtglDate != null" >
+        #{sbjtglDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bcxyqdDate != null" >
+        #{bcxyqdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=CHAR},
+      </if>
+      <if test="createOrg != null" >
+        #{createOrg,jdbcType=CHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=CHAR},
+      </if>
+      <if test="updateOrg != null" >
+        #{updateOrg,jdbcType=CHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ProInvBgbcxy" >
+    update pro_inv_bgbcxy
+    <set >
+      <if test="invHtinfoId != null" >
+        inv_htinfo_id = #{invHtinfoId,jdbcType=CHAR},
+      </if>
+      <if test="bchtName != null" >
+        bcht_name = #{bchtName,jdbcType=VARCHAR},
+      </if>
+      <if test="bcjafMoney != null" >
+        bcjaf_money = #{bcjafMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bchjafMoney != null" >
+        bchjaf_money = #{bchjafMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bczcfMoney != null" >
+        bczcf_money = #{bczcfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bchzcfMoney != null" >
+        bchzcf_money = #{bchzcfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bcglfMoney != null" >
+        bcglf_money = #{bcglfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bchglfMoney != null" >
+        bchglf_money = #{bchglfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bcjlfMoney != null" >
+        bcjlf_money = #{bcjlfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bchjlfMoney != null" >
+        bchjlf_money = #{bchjlfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bcccsjfMoney != null" >
+        bcccsjf_money = #{bcccsjfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bchccsjfMoney != null" >
+        bchccsjf_money = #{bchccsjfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bcothMoney != null" >
+        bcoth_money = #{bcothMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bchothMoney != null" >
+        bchoth_money = #{bchothMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bchhtMoney != null" >
+        bchht_money = #{bchhtMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="bchhtgq != null" >
+        bchhtgq = #{bchhtgq,jdbcType=DECIMAL},
+      </if>
+      <if test="isNewlabel != null" >
+        is_newlabel = #{isNewlabel,jdbcType=VARCHAR},
+      </if>
+      <if test="nrxtglDate != null" >
+        nrxtgl_date = #{nrxtglDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sbjtglDate != null" >
+        sbjtgl_date = #{sbjtglDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bcxyqdDate != null" >
+        bcxyqd_date = #{bcxyqdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="currency != null" >
+        currency = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=CHAR},
+      </if>
+      <if test="createOrg != null" >
+        create_org = #{createOrg,jdbcType=CHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=CHAR},
+      </if>
+      <if test="updateOrg != null" >
+        update_org = #{updateOrg,jdbcType=CHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ProInvBgbcxy" >
+    update pro_inv_bgbcxy
+    set       inv_htinfo_id = #{invHtinfoId,jdbcType=CHAR},
+      bcht_name = #{bchtName,jdbcType=VARCHAR},
+      bcjaf_money = #{bcjafMoney,jdbcType=DECIMAL},
+      bchjaf_money = #{bchjafMoney,jdbcType=DECIMAL},
+      bczcf_money = #{bczcfMoney,jdbcType=DECIMAL},
+      bchzcf_money = #{bchzcfMoney,jdbcType=DECIMAL},
+      bcglf_money = #{bcglfMoney,jdbcType=DECIMAL},
+      bchglf_money = #{bchglfMoney,jdbcType=DECIMAL},
+      bcjlf_money = #{bcjlfMoney,jdbcType=DECIMAL},
+      bchjlf_money = #{bchjlfMoney,jdbcType=DECIMAL},
+      bcccsjf_money = #{bcccsjfMoney,jdbcType=DECIMAL},
+      bchccsjf_money = #{bchccsjfMoney,jdbcType=DECIMAL},
+      bcoth_money = #{bcothMoney,jdbcType=DECIMAL},
+      bchoth_money = #{bchothMoney,jdbcType=DECIMAL},
+      bchht_money = #{bchhtMoney,jdbcType=DECIMAL},
+      bchhtgq = #{bchhtgq,jdbcType=DECIMAL},
+      is_newlabel = #{isNewlabel,jdbcType=VARCHAR},
+      nrxtgl_date = #{nrxtglDate,jdbcType=TIMESTAMP},
+      sbjtgl_date = #{sbjtglDate,jdbcType=TIMESTAMP},
+      bcxyqd_date = #{bcxyqdDate,jdbcType=TIMESTAMP},
+      currency = #{currency,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=CHAR},
+      create_org = #{createOrg,jdbcType=CHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=CHAR},
+      update_org = #{updateOrg,jdbcType=CHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByProInvBgbcxyList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ProInvBgbcxy" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_inv_bgbcxy
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=}
+    </if>
+    <if test="invHtinfoId != null and invHtinfoId != ''" >
+     and inv_htinfo_id = #{invHtinfoId,jdbcType=CHAR}
+    </if>
+    <if test="bchtName != null and bchtName != ''" >
+     and bcht_name = #{bchtName,jdbcType=VARCHAR}
+    </if>
+    <if test="bcjafMoney != null and bcjafMoney != ''" >
+     and bcjaf_money = #{bcjafMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="bchjafMoney != null and bchjafMoney != ''" >
+     and bchjaf_money = #{bchjafMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="bczcfMoney != null and bczcfMoney != ''" >
+     and bczcf_money = #{bczcfMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="bchzcfMoney != null and bchzcfMoney != ''" >
+     and bchzcf_money = #{bchzcfMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="bcglfMoney != null and bcglfMoney != ''" >
+     and bcglf_money = #{bcglfMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="bchglfMoney != null and bchglfMoney != ''" >
+     and bchglf_money = #{bchglfMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="bcjlfMoney != null and bcjlfMoney != ''" >
+     and bcjlf_money = #{bcjlfMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="bchjlfMoney != null and bchjlfMoney != ''" >
+     and bchjlf_money = #{bchjlfMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="bcccsjfMoney != null and bcccsjfMoney != ''" >
+     and bcccsjf_money = #{bcccsjfMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="bchccsjfMoney != null and bchccsjfMoney != ''" >
+     and bchccsjf_money = #{bchccsjfMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="bcothMoney != null and bcothMoney != ''" >
+     and bcoth_money = #{bcothMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="bchothMoney != null and bchothMoney != ''" >
+     and bchoth_money = #{bchothMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="bchhtMoney != null and bchhtMoney != ''" >
+     and bchht_money = #{bchhtMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="bchhtgq != null and bchhtgq != ''" >
+     and bchhtgq = #{bchhtgq,jdbcType=DECIMAL}
+    </if>
+    <if test="isNewlabel != null and isNewlabel != ''" >
+     and is_newlabel = #{isNewlabel,jdbcType=VARCHAR}
+    </if>
+    <if test="nrxtglDate != null and nrxtglDate != ''" >
+     and nrxtgl_date = #{nrxtglDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="sbjtglDate != null and sbjtglDate != ''" >
+     and sbjtgl_date = #{sbjtglDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="bcxyqdDate != null and bcxyqdDate != ''" >
+     and bcxyqd_date = #{bcxyqdDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="currency != null and currency != ''" >
+     and currency = #{currency,jdbcType=VARCHAR}
+    </if>
+    <if test="createBy != null and createBy != ''" >
+     and create_by = #{createBy,jdbcType=CHAR}
+    </if>
+    <if test="createOrg != null and createOrg != ''" >
+     and create_org = #{createOrg,jdbcType=CHAR}
+    </if>
+    <if test="createDate != null and createDate != ''" >
+     and create_date = #{createDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updateBy != null and updateBy != ''" >
+     and update_by = #{updateBy,jdbcType=CHAR}
+    </if>
+    <if test="updateOrg != null and updateOrg != ''" >
+     and update_org = #{updateOrg,jdbcType=CHAR}
+    </if>
+    <if test="updateDate != null and updateDate != ''" >
+     and update_date = #{updateDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <delete id="batchDeleteUpdateProInvBgbcxy" parameterType="com.apih5.mybatis.pojo.ProInvBgbcxy" >
+    <![CDATA[ 
+        update pro_inv_bgbcxy
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

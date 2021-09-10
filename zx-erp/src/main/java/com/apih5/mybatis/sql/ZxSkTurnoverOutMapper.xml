@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkTurnoverOutMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkTurnoverOut" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="billNo" property="billNo" jdbcType="VARCHAR" />
+    <result column="busDate" property="busDate" jdbcType="TIMESTAMP" />
+    <result column="inOrgID" property="inOrgID" jdbcType="VARCHAR" />
+    <result column="inOrgName" property="inOrgName" jdbcType="VARCHAR" />
+    <result column="consignee" property="consignee" jdbcType="VARCHAR" />
+    <result column="billStatus" property="billStatus" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="companyId" property="companyId" jdbcType="VARCHAR" />
+    <result column="companyName" property="companyName" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, orgID, orgName, billNo, busDate, 
+    inOrgID, inOrgName, consignee, billStatus, status, 
+    companyId, companyName, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_turnoverOut
+    where del_flag = '0' and id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_turnoverOut
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverOut" >
+    insert into zx_sk_turnoverOut (
+    id, orgID, orgName, billNo, busDate, 
+    inOrgID, inOrgName, consignee, billStatus, status, 
+    companyId, companyName, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{id,jdbcType=CHAR}, #{orgID,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, #{billNo,jdbcType=VARCHAR}, #{busDate,jdbcType=TIMESTAMP}, 
+    #{inOrgID,jdbcType=VARCHAR}, #{inOrgName,jdbcType=VARCHAR}, #{consignee,jdbcType=VARCHAR}, #{billStatus,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+    #{companyId,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverOut" >
+    insert into zx_sk_turnoverOut
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="billNo != null" >
+        billNo,
+      </if>
+      <if test="busDate != null" >
+        busDate,
+      </if>
+      <if test="inOrgID != null" >
+        inOrgID,
+      </if>
+      <if test="inOrgName != null" >
+        inOrgName,
+      </if>
+      <if test="consignee != null" >
+        consignee,
+      </if>
+      <if test="billStatus != null" >
+        billStatus,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="companyId != null" >
+        companyId,
+      </if>
+      <if test="companyName != null" >
+        companyName,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null" >
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="busDate != null" >
+        #{busDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inOrgID != null" >
+        #{inOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="inOrgName != null" >
+        #{inOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="consignee != null" >
+        #{consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="billStatus != null" >
+        #{billStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverOut" >
+    update zx_sk_turnoverOut
+    <set >
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null" >
+        billNo = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="busDate != null" >
+        busDate = #{busDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inOrgID != null" >
+        inOrgID = #{inOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="inOrgName != null" >
+        inOrgName = #{inOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="consignee != null" >
+        consignee = #{consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="billStatus != null" >
+        billStatus = #{billStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        companyId = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        companyName = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverOut" >
+    update zx_sk_turnoverOut set 
+      orgID = #{orgID,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      billNo = #{billNo,jdbcType=VARCHAR},
+      busDate = #{busDate,jdbcType=TIMESTAMP},
+      inOrgID = #{inOrgID,jdbcType=VARCHAR},
+      inOrgName = #{inOrgName,jdbcType=VARCHAR},
+      consignee = #{consignee,jdbcType=VARCHAR},
+      billStatus = #{billStatus,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      companyId = #{companyId,jdbcType=VARCHAR},
+      companyName = #{companyName,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSkTurnoverOutList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverOut" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_turnoverOut
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=CHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="billNo != null and billNo != ''" >
+      and billNo like CONCAT('%',CONCAT(#{billNo,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="timeList != null" >
+     and busDate BETWEEN
+      <foreach collection="timeList" index="index" item="item" separator="AND">
+        DATE_FORMAT(#{item},"%Y-%m-%d")
+      </foreach>
+    </if>
+    <if test="inOrgID != null and inOrgID != ''" >
+     and inOrgID = #{inOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="inOrgName != null and inOrgName != ''" >
+      and inOrgName like CONCAT('%',CONCAT(#{inOrgName,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="consignee != null and consignee != ''" >
+      and consignee like CONCAT('%',CONCAT(#{consignee,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="billStatus != null and billStatus != ''" >
+     and billStatus = #{billStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="status != null and status != ''" >
+     and status = #{status,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and companyId = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and companyName = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkTurnoverOut" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverOut" >
+    <![CDATA[ 
+        update zx_sk_turnoverOut
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+  <select id="getZxSkTurnoverOutResourceList" resultType="com.apih5.mybatis.pojo.ZxSkTurnoverOutItem" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverOut">
+    select * from (
+        select
+          zx_sk_turnoverstock.*,
+    --       zx_sk_turnoverstock.stockQty as outQty,
+          zx_sk_turnoverin.busDate as inBusDate
+          FROM zx_sk_turnoverstock left join zx_sk_turnoverinItem
+              on zx_sk_turnoverstock.batchNo = zx_sk_turnoverinItem.id
+           left join zx_sk_turnoverin
+              on zx_sk_turnoverinItem.billID = zx_sk_turnoverin.id
+          where zx_sk_turnoverstock.del_flag = 0
+          and zx_sk_turnoverstock.stockQty > 0
+          and zx_sk_turnoverstock.orgID = #{orgID}
+      ) as filtrateTable
+      where del_flag = '0'
+    <if test="resCode != null and resCode != ''" >
+      and resCode like CONCAT('%',CONCAT(#{resCode,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="resName != null and resName != ''" >
+      and resName like CONCAT('%',CONCAT(#{resName,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="resUnit != null and resUnit != ''" >
+      and resUnit like CONCAT('%',CONCAT(#{resUnit,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="spec != null and spec != ''" >
+      and spec like CONCAT('%',CONCAT(#{spec,jdbcType=VARCHAR},'%'))
+    </if>
+
+  </select>
+  <update id="checkZxSkTurnoverOut" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverOut">
+    update zx_sk_turnoverOut
+      set status = #{status},
+      modify_time=#{modifyTime,jdbcType=TIMESTAMP},
+      modify_user=#{modifyUser},
+      modify_user_name=#{modifyUserName}
+      where del_flag = '0' and id = #{id}
+  </update>
+  <select id="getZxSkTurnoverOutCount" parameterType="java.lang.String" resultType="int">
+    select count(*) from zx_sk_turnoverOut where billNo like CONCAT('%',CONCAT(#{date},'%')) and orgID = #{orgID}
+  </select>
+
+
+
+</mapper>

@@ -1,0 +1,93 @@
+.root{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    .rootl{
+        flex-basis: 250px;
+        margin-right: 8px;
+        height:calc(100vh - 168px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        position: relative;
+        .hr {
+            height: 100%;
+            width: 8px;
+            z-index: 2;
+            cursor: e-resize;
+            background: rgba(30, 130, 223, 0.733);
+            position: absolute;
+            right: 0px;
+            transition: 0.1s;
+            &:hover {
+                width: 28px;
+                transition: 0.1s;
+            }
+        }
+    }
+    .rootr{
+        flex: 1;
+        height:calc(100vh - 168px);
+        overflow: hidden;
+        .rootrTop{
+            width: 100%;
+            height: 60%;
+            overflow: hidden;
+            :global{
+                .qnn-table{
+                    .qnn-table-virtual-table{
+                        .QnnForm:nth-of-type(2){
+                            .ant-spin-container{
+                                max-height: calc((100vh - 108px) * 0.6 - 180px);
+                                overflow: auto;
+                                .qnn-table-listContainer{
+                                    overflow: hidden;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .rootrBottom{
+            width: 100%;
+            height: 40%;
+            overflow: hidden;
+            :global{
+                .qnn-table{
+                    .qnn-table-virtual-table{
+                        .QnnForm:nth-of-type(2){
+                            .ant-spin-container{
+                                max-height: calc((100vh - 108px) * 0.4 - 142px);
+                                overflow: auto;
+                                .qnn-table-listContainer{
+                                    overflow: hidden;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .alert {
+        width: 100%;
+        font-size: 24px;
+        text-align: center;
+        margin-top: 20%;
+        color: #ccc;
+    }
+}
+:global{
+    .modalQX{
+        .ant-modal-body{
+            padding: 0 10px;
+            .ant-tabs-nav{
+                margin: 0;
+            }
+            .ant-row{
+                margin: 0;
+            }
+        }
+    }
+}

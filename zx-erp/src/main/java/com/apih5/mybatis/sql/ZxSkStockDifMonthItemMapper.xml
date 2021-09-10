@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkStockDifMonthItemMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkStockDifMonthItem" >
+    <id column="zx_sk_stockDifMonthItem_id" property="zxSkStockDifMonthItemId" jdbcType="CHAR" />
+    <result column="mainID" property="mainID" jdbcType="VARCHAR" />
+    <result column="resID" property="resID" jdbcType="VARCHAR" />
+    <result column="resCode" property="resCode" jdbcType="VARCHAR" />
+    <result column="resName" property="resName" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="thisPrice" property="thisPrice" jdbcType="DECIMAL" />
+    <result column="thisQty" property="thisQty" jdbcType="DECIMAL" />
+    <result column="designQty" property="designQty" jdbcType="DECIMAL" />
+    <result column="sunHaoLv" property="sunHaoLv" jdbcType="DECIMAL" />
+    <result column="categoryID" property="categoryID" jdbcType="VARCHAR" />
+    <result column="categoryName" property="categoryName" jdbcType="VARCHAR" />
+    <result column="mtType" property="mtType" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="inDate" property="inDate" jdbcType="TIMESTAMP" />
+    <result column="outDate" property="outDate" jdbcType="TIMESTAMP" />
+    <result column="inDate" property="inDate" jdbcType="TIMESTAMP" />
+    <result column="departmentId" property="departmentId" jdbcType="VARCHAR" />
+    <result column="materialType" property="materialType" jdbcType="VARCHAR" />
+    <!--<result column="thisAmt" property="thisAmt"/>-->
+    <!--<result column="design" property="design"/>-->
+    <!--<result column="llQty" property="llQty"/>-->
+    <!--<result column="llAmt" property="llAmt"/>-->
+    <!--<result column="deJcQty" property="deJcQty"/>-->
+    <!--<result column="deJcAmt" property="deJcAmt"/>-->
+    <!--<result column="deJclv" property="deJclv"/>-->
+    <!--<result column="llJcQty" property="llJcQty"/>-->
+    <!--<result column="llJcAmt" property="llJcAmt"/>-->
+    <!--<result column="llJclv" property="llJclv"/>-->
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zx_sk_stockDifMonthItem_id, mainID, resID, resCode, resName, 
+    spec, unit, thisPrice, thisQty, designQty, 
+    sunHaoLv, categoryID, categoryName, mtType, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_stockDifMonthItem
+    where del_flag = '0' and zx_sk_stockDifMonthItem_id = #{zxSkStockDifMonthItemId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_stockDifMonthItem
+    where zx_sk_stockDifMonthItem_id = #{zxSkStockDifMonthItemId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkStockDifMonthItem" >
+    insert into zx_sk_stockDifMonthItem (
+    zx_sk_stockDifMonthItem_id, mainID, resID, resCode, resName, 
+    spec, unit, thisPrice, thisQty, designQty, 
+    sunHaoLv, categoryID, categoryName, mtType, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxSkStockDifMonthItemId,jdbcType=CHAR}, #{mainID,jdbcType=VARCHAR}, #{resID,jdbcType=VARCHAR}, #{resCode,jdbcType=VARCHAR}, #{resName,jdbcType=VARCHAR}, 
+    #{spec,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{thisPrice,jdbcType=DECIMAL}, #{thisQty,jdbcType=DECIMAL}, #{designQty,jdbcType=DECIMAL}, 
+    #{sunHaoLv,jdbcType=DECIMAL}, #{categoryID,jdbcType=VARCHAR}, #{categoryName,jdbcType=VARCHAR}, #{mtType,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+    #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+    #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkStockDifMonthItem" >
+    insert into zx_sk_stockDifMonthItem
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSkStockDifMonthItemId != null" >
+        zx_sk_stockDifMonthItem_id,
+      </if>
+      <if test="mainID != null" >
+        mainID,
+      </if>
+      <if test="resID != null" >
+        resID,
+      </if>
+      <if test="resCode != null" >
+        resCode,
+      </if>
+      <if test="resName != null" >
+        resName,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="thisPrice != null" >
+        thisPrice,
+      </if>
+      <if test="thisQty != null" >
+        thisQty,
+      </if>
+      <if test="designQty != null" >
+        designQty,
+      </if>
+      <if test="sunHaoLv != null" >
+        sunHaoLv,
+      </if>
+      <if test="categoryID != null" >
+        categoryID,
+      </if>
+      <if test="categoryName != null" >
+        categoryName,
+      </if>
+      <if test="mtType != null" >
+        mtType,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSkStockDifMonthItemId != null" >
+        #{zxSkStockDifMonthItemId,jdbcType=CHAR},
+      </if>
+      <if test="mainID != null" >
+        #{mainID,jdbcType=VARCHAR},
+      </if>
+      <if test="resID != null" >
+        #{resID,jdbcType=VARCHAR},
+      </if>
+      <if test="resCode != null" >
+        #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="thisPrice != null" >
+        #{thisPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="thisQty != null" >
+        #{thisQty,jdbcType=DECIMAL},
+      </if>
+      <if test="designQty != null" >
+        #{designQty,jdbcType=DECIMAL},
+      </if>
+      <if test="sunHaoLv != null" >
+        #{sunHaoLv,jdbcType=DECIMAL},
+      </if>
+      <if test="categoryID != null" >
+        #{categoryID,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryName != null" >
+        #{categoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="mtType != null" >
+        #{mtType,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkStockDifMonthItem" >
+    update zx_sk_stockDifMonthItem
+    <set >
+      <if test="mainID != null" >
+        mainID = #{mainID,jdbcType=VARCHAR},
+      </if>
+      <if test="resID != null" >
+        resID = #{resID,jdbcType=VARCHAR},
+      </if>
+      <if test="resCode != null" >
+        resCode = #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        resName = #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="thisPrice != null" >
+        thisPrice = #{thisPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="thisQty != null" >
+        thisQty = #{thisQty,jdbcType=DECIMAL},
+      </if>
+      <if test="designQty != null" >
+        designQty = #{designQty,jdbcType=DECIMAL},
+      </if>
+      <if test="sunHaoLv != null" >
+        sunHaoLv = #{sunHaoLv,jdbcType=DECIMAL},
+      </if>
+      <if test="categoryID != null" >
+        categoryID = #{categoryID,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryName != null" >
+        categoryName = #{categoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="mtType != null" >
+        mtType = #{mtType,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zx_sk_stockDifMonthItem_id = #{zxSkStockDifMonthItemId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkStockDifMonthItem" >
+    update zx_sk_stockDifMonthItem set 
+      mainID = #{mainID,jdbcType=VARCHAR},
+      resID = #{resID,jdbcType=VARCHAR},
+      resCode = #{resCode,jdbcType=VARCHAR},
+      resName = #{resName,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      thisPrice = #{thisPrice,jdbcType=DECIMAL},
+      thisQty = #{thisQty,jdbcType=DECIMAL},
+      designQty = #{designQty,jdbcType=DECIMAL},
+      sunHaoLv = #{sunHaoLv,jdbcType=DECIMAL},
+      categoryID = #{categoryID,jdbcType=VARCHAR},
+      categoryName = #{categoryName,jdbcType=VARCHAR},
+      mtType = #{mtType,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zx_sk_stockDifMonthItem_id = #{zxSkStockDifMonthItemId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSkStockDifMonthItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkStockDifMonthItem" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_stockDifMonthItem
+    where del_flag = '0'
+    <if test="zxSkStockDifMonthItemId != null and zxSkStockDifMonthItemId != ''" >
+     and zx_sk_stockDifMonthItem_id = #{zxSkStockDifMonthItemId,jdbcType=CHAR}
+    </if>
+    <if test="mainID != null and mainID != ''" >
+     and mainID = #{mainID,jdbcType=VARCHAR}
+    </if>
+    <if test="resID != null and resID != ''" >
+     and resID = #{resID,jdbcType=VARCHAR}
+    </if>
+    <if test="resCode != null and resCode != ''" >
+     and resCode = #{resCode,jdbcType=VARCHAR}
+    </if>
+    <if test="resName != null and resName != ''" >
+     and resName = #{resName,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="unit != null and unit != ''" >
+     and unit = #{unit,jdbcType=VARCHAR}
+    </if>
+    <if test="thisPrice != null and thisPrice != ''" >
+     and thisPrice = #{thisPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="thisQty != null and thisQty != ''" >
+     and thisQty = #{thisQty,jdbcType=DECIMAL}
+    </if>
+    <if test="designQty != null and designQty != ''" >
+     and designQty = #{designQty,jdbcType=DECIMAL}
+    </if>
+    <if test="sunHaoLv != null and sunHaoLv != ''" >
+     and sunHaoLv = #{sunHaoLv,jdbcType=DECIMAL}
+    </if>
+    <if test="categoryID != null and categoryID != ''" >
+     and categoryID = #{categoryID,jdbcType=VARCHAR}
+    </if>
+    <if test="categoryName != null and categoryName != ''" >
+     and categoryName = #{categoryName,jdbcType=VARCHAR}
+    </if>
+    <if test="mtType != null and mtType != ''" >
+     and mtType = #{mtType,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkStockDifMonthItem" parameterType="com.apih5.mybatis.pojo.ZxSkStockDifMonthItem" >
+    <![CDATA[ 
+        update zx_sk_stockDifMonthItem
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zx_sk_stockDifMonthItem_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSkStockDifMonthItemId} 
+     </foreach>
+  </delete>
+
+  <select id="getStockDifMonthForm" resultMap="BaseResultMap">
+      select b.resID,b.resName,b.resCode,b.spec,b.unit,b.mtType,
+
+       b.thisQty as thisQty,
+
+       b.thisPrice as thisPrice,
+
+       b.thisQty*b.thisPrice as thisAmt,
+
+       b.designQty as designQty,
+
+       b.designQty*b.thisPrice as design,
+
+       b.sunHaoLv as sunHaoLv,
+
+       b.designQty+b.designQty*b.sunHaoLv*0.01 as llQty,
+
+       (b.designQty+b.designQty*b.sunHaoLv*0.01)*b.thisPrice as llAmt,
+
+       b.designQty-b.thisQty as deJcQty,
+
+       (b.designQty-b.thisQty)*b.thisPrice as deJcAmt,
+
+       (b.designQty-b.thisQty)*b.thisPrice/(b.designQty*b.thisPrice)*100 as deJclv,
+
+       (b.designQty+b.designQty*b.sunHaoLv*0.01)-b.thisQty as llJcQty,
+
+       b.thisPrice*((b.designQty+b.designQty*b.sunHaoLv*0.01)-b.thisQty) as llJcAmt,
+	   b.thisPrice*((b.designQty+b.designQty*b.sunHaoLv*0.01)-b.thisQty)/(b.designQty*b.thisPrice) as llJclv
+       ,b.remarks
+       from zx_sk_stockDifMonth a inner join zx_sk_stockDifMonthItem b on a.zx_sk_stockDifMonth_id = b.mainID
+
+  </select>
+
+  <select id="getStockDifJiDuForm" resultMap="BaseResultMap">
+    select resName,resCode,spec,unit,
+    case when mtType='1' then '原材料' when mtType='2' then '混合料' else '' end as mtType,
+    thisQty,thisPrice,thisAmt,designQty,design,sunHaoLv,llQty,deJcQty,deJcAmt,deJclv,llJcQty,llJcAmt,llJclv,klQty,klAmt,klDeQty,klDeAmt,klDeJcQty,klDeJcAmt
+    ,case when klDeAmt = 0 then 0 else klDeJcAmt/klDeAmt*100 end as klDeJclv
+    ,klLlJcQty,klLlJcAmt
+    ,case when klDeAmt = 0 then 0 else klLlJcAmt/klDeAmt*100 end as klLlJclv
+    from
+    (
+    select tmp.resName as resName,tmp.resCode,tmp.spec,tmp.unit,tmp.mtType,thisQty,thisPrice,thisAmt,designQty,design,sunHaoLv,llQty,deJcQty,deJcAmt,case when design = 0 then 0 else deJcAmt/design*100 end as deJclv,llJcQty,llJcAmt,case when design = 0 then 0 else llJcAmt/design*100 end as llJclv
+    ,klQty,klAmt,klDeQty,klDeAmt,klDeJcQty,klDeJcAmt,klDeJclv,klLlJcQty,klLlJcAmt
+    ,case when klDeAmt = 0 then 0 else klLlJcAmt/klDeAmt*100 end as klLlJclv
+    from (
+    select total.resID,total.resName,total.resCode,total.spec,total.unit,total.mtType,
+    ifnull(sum(b.thisQty),0) as thisQty,
+    ifnull(sum(b.thisPrice),0) as thisPrice,
+    ifnull(sum(b.thisAmt),0) as thisAmt,
+    ifnull(sum(b.designQty),0) as designQty,
+    ifnull(sum(b.design),0) as design,
+    total.sunHaoLv as sunHaoLv,
+    ifnull(sum(b.llQty),0) as llQty,
+    ifnull(sum(b.deJcQty),0) as deJcQty,
+    ifnull(sum(b.deJcAmt),0) as deJcAmt,
+    0 as deJclv,
+    ifnull(sum(b.llJcQty),0) as llJcQty,
+    ifnull(sum(b.llJcAmt),0) as llJcAmt,
+    0 as llJclv
+    ,sum(total.klQty) as klQty
+    ,sum(total.klAmt/10000) as klAmt
+    ,sum(total.klDeQty) as klDeQty
+    ,sum(total.klDeAmt/10000) as klDeAmt
+    ,sum(total.klDeJcQty) as klDeJcQty
+    ,sum(total.klDeJcAmt/10000) as klDeJcAmt
+    ,sum(total.klDeJclv) as klDeJclv
+    ,sum(total.klLlJcQty) as klLlJcQty
+    ,sum(total.klLlJcAmt/10000) as klLlJcAmt
+    ,sum(total.klLlJclv) as klLlJclv
+    from
+    (
+    select a.comID,a.projectID,a.projectName,b.resID,b.resName,b.resCode,b.spec,b.unit,b.mtType,b.sunHaoLv
+    ,sum(b.thisQty) as klQty,
+    sum(b.thisQty*b.thisPrice) as klAmt,
+    sum(b.designQty) as klDeQty,
+    sum(b.designQty*b.thisPrice) as klDeAmt,
+    sum(b.designQty-b.thisQty) as klDeJcQty,
+    sum((b.designQty-b.thisQty)*b.thisPrice) as klDeJcAmt,
+    0 as klDeJclv
+    ,sum((b.designQty+b.designQty*b.sunHaoLv*0.01)-b.thisQty) as klLlJcQty
+    ,sum(((b.designQty+b.designQty*b.sunHaoLv*0.01)-b.thisQty)*b.thisPrice) as klLlJcAmt,
+    0 klLlJclv
+    from zx_sk_stockdifmonth a
+    inner join zx_sk_stockdifmonthitem b on a.zx_sk_stockDifMonth_id = b.mainID
+    where
+    a.period &lt;= '10' and a.status = '2'
+    group by a.comID,a.projectID,a.projectName,b.resID,b.resName,b.resCode,b.spec,b.unit,b.mtType,b.sunHaoLv
+    ) total
+    left join
+    (
+    select a.projectID,a.projectName,b.resID,b.resName,b.resCode,b.spec,b.unit,b.mtType,
+    sum(b.thisQty) as thisQty,
+    case when sum(b.thisQty) = 0 then 0 else sum(b.thisQty*b.thisPrice)/sum(b.thisQty) end as thisPrice,
+    sum(b.thisQty*b.thisPrice/10000) as thisAmt,
+    sum(b.designQty) as designQty,
+    sum(b.designQty*b.thisPrice/10000) as design,
+    b.sunHaoLv as sunHaoLv,
+    sum(b.designQty+b.designQty*b.sunHaoLv*0.01) as llQty,
+    sum(b.designQty-b.thisQty) as deJcQty,
+    sum((b.designQty-b.thisQty)*b.thisPrice)/10000 as deJcAmt,
+    0 as deJclv,
+    sum((b.designQty+b.designQty*b.sunHaoLv*0.01)-b.thisQty) as llJcQty,
+    sum(((b.designQty+b.designQty*b.sunHaoLv*0.01)-b.thisQty)*b.thisPrice/10000) as llJcAmt,
+    0 as llJclv
+    from zx_sk_stockdifmonth a
+    inner join zx_sk_stockdifmonthitem b on a.zx_sk_stockDifMonth_id = b.mainID
+    where
+    a.period between'0' and '10' and a.status = '2'
+
+    group by a.projectID,a.projectName,b.resID,b.resName,b.resCode,b.spec,b.unit,b.mtType,b.sunHaoLv
+    ) b on b.projectID = total.projectID and b.resID=total.resID and b.mtType = total.mtType and b.sunHaoLv = total.sunHaoLv
+    group by total.resID,total.resName,total.resCode,total.spec,total.unit,total.mtType,total.sunHaoLv
+    ) tmp
+    ) t
+     order by resCode
+  </select>
+  
+  <select id="getStockDifMonthMaterialCategory" resultMap="BaseResultMap">
+    select resName,resCode,spec,unit,
+    case when mtType='1' then '原材料' when mtType='2' then '混合料' else '' end as mtType,
+    thisQty,thisPrice,thisAmt,designQty,design,sunHaoLv,llQty,deJcQty,deJcAmt,deJclv,llJcQty,llJcAmt,llJclv,klQty,klAmt,klDeQty,klDeAmt,klDeJcQty,klDeJcAmt
+    ,case when klDeAmt = 0 then 0 else klDeJcAmt/klDeAmt*100 end as klDeJclv
+    ,klLlJcQty,klLlJcAmt
+    ,case when klDeAmt = 0 then 0 else klLlJcAmt/klDeAmt*100 end as klLlJclv
+    from
+    (
+    select tmp.resName as resName,tmp.resCode,tmp.spec,tmp.unit,tmp.mtType,thisQty,thisPrice,thisAmt,designQty,design,sunHaoLv,llQty,deJcQty,deJcAmt,case when design = 0 then 0 else deJcAmt/design*100 end as deJclv,llJcQty,llJcAmt,case when design = 0 then 0 else llJcAmt/design*100 end as llJclv
+    ,klQty,klAmt,klDeQty,klDeAmt,klDeJcQty,klDeJcAmt,klDeJclv,klLlJcQty,klLlJcAmt
+    ,case when klDeAmt = 0 then 0 else klLlJcAmt/klDeAmt*100 end as klLlJclv
+    from (
+    select total.resID,total.resName,total.resCode,total.spec,total.unit,total.mtType,
+    ifnull(sum(b.thisQty),0) as thisQty,
+    ifnull(sum(b.thisPrice),0) as thisPrice,
+    ifnull(sum(b.thisAmt),0) as thisAmt,
+    ifnull(sum(b.designQty),0) as designQty,
+    ifnull(sum(b.design),0) as design,
+    total.sunHaoLv as sunHaoLv,
+    ifnull(sum(b.llQty),0) as llQty,
+    ifnull(sum(b.deJcQty),0) as deJcQty,
+    ifnull(sum(b.deJcAmt),0) as deJcAmt,
+    0 as deJclv,
+    ifnull(sum(b.llJcQty),0) as llJcQty,
+    ifnull(sum(b.llJcAmt),0) as llJcAmt,
+    0 as llJclv
+    ,sum(total.klQty) as klQty
+    ,sum(total.klAmt/10000) as klAmt
+    ,sum(total.klDeQty) as klDeQty
+    ,sum(total.klDeAmt/10000) as klDeAmt
+    ,sum(total.klDeJcQty) as klDeJcQty
+    ,sum(total.klDeJcAmt/10000) as klDeJcAmt
+    ,sum(total.klDeJclv) as klDeJclv
+    ,sum(total.klLlJcQty) as klLlJcQty
+    ,sum(total.klLlJcAmt/10000) as klLlJcAmt
+    ,sum(total.klLlJclv) as klLlJclv
+    from
+    (
+    select a.comID,a.projectID,a.projectName,b.resID,b.resName,b.resCode,b.spec,b.unit,b.mtType,b.sunHaoLv
+    ,sum(b.thisQty) as klQty,
+    sum(b.thisQty*b.thisPrice) as klAmt,
+    sum(b.designQty) as klDeQty,
+    sum(b.designQty*b.thisPrice) as klDeAmt,
+    sum(b.designQty-b.thisQty) as klDeJcQty,
+    sum((b.designQty-b.thisQty)*b.thisPrice) as klDeJcAmt,
+    0 as klDeJclv
+    ,sum((b.designQty+b.designQty*b.sunHaoLv*0.01)-b.thisQty) as klLlJcQty
+    ,sum(((b.designQty+b.designQty*b.sunHaoLv*0.01)-b.thisQty)*b.thisPrice) as klLlJcAmt,
+    0 klLlJclv
+    from zx_sk_stockdifmonth a
+    inner join zx_sk_stockdifmonthitem b on a.zx_sk_stockDifMonth_id = b.mainID
+    where
+    a.period &lt;= '10' and a.status = '2'
+    group by a.comID,a.projectID,a.projectName,b.resID,b.resName,b.resCode,b.spec,b.unit,b.mtType,b.sunHaoLv
+    ) total
+    left join
+    (
+    select a.projectID,a.projectName,b.resID,b.resName,b.resCode,b.spec,b.unit,b.mtType,
+    sum(b.thisQty) as thisQty,
+    case when sum(b.thisQty) = 0 then 0 else sum(b.thisQty*b.thisPrice)/sum(b.thisQty) end as thisPrice,
+    sum(b.thisQty*b.thisPrice/10000) as thisAmt,
+    sum(b.designQty) as designQty,
+    sum(b.designQty*b.thisPrice/10000) as design,
+    b.sunHaoLv as sunHaoLv,
+    sum(b.designQty+b.designQty*b.sunHaoLv*0.01) as llQty,
+    sum(b.designQty-b.thisQty) as deJcQty,
+    sum((b.designQty-b.thisQty)*b.thisPrice)/10000 as deJcAmt,
+    0 as deJclv,
+    sum((b.designQty+b.designQty*b.sunHaoLv*0.01)-b.thisQty) as llJcQty,
+    sum(((b.designQty+b.designQty*b.sunHaoLv*0.01)-b.thisQty)*b.thisPrice/10000) as llJcAmt,
+    0 as llJclv
+    from zx_sk_stockdifmonth a
+    inner join zx_sk_stockdifmonthitem b on a.zx_sk_stockDifMonth_id = b.mainID
+    where
+    a.period between'0' and '10' and a.status = '2'
+
+    group by a.projectID,a.projectName,b.resID,b.resName,b.resCode,b.spec,b.unit,b.mtType,b.sunHaoLv
+    ) b on b.projectID = total.projectID and b.resID=total.resID and b.mtType = total.mtType and b.sunHaoLv = total.sunHaoLv
+    group by total.resID,total.resName,total.resCode,total.spec,total.unit,total.mtType,total.sunHaoLv
+    ) tmp
+    ) t
+     order by resCode
+  </select>
+  <select id="getReceivingDynamic" resultMap="BaseResultMap">
+    SELECT
+    stocktrans.inbusDate,
+	stocktrans.resCode,
+	stocktrans.resName,
+	stocktrans.spec,
+	stocktrans.unit,
+	stocktrans.voucherNo,
+	stocktrans.outOrgName,
+	stocktrans.stdPrice,
+	stocktrans.orsQty,
+	stocktrans.serQty,
+	stocktrans.otrQty,
+	stocktrans.obuQty,
+	stocktrans.ocsQty,
+	orsQty + serQty + otrQty + ocsQty AS totalQty,
+	stocktrans.inAmt,
+	stocktrans.otkQty,
+	stocktrans.withinQty,
+    stocktrans.rithinQty,
+	withinQty + rithinQty AS inOrOutTotalQty,
+	stocktrans.inOrOutStdPrice,
+	stocktrans.inOrOutoutAmt,
+	stocktrans.diskoutQty,
+	stocktrans.outAmt,
+	(orsQty + serQty + otrQty + ocsQty) - (withinQty + rithinQty) + diskoutQty AS  resultQty,
+	inAmt - inOrOutoutAmt + outAmt AS resultAmt,
+	(inAmt - inOrOutoutAmt + outAmt) / ((orsQty + serQty + otrQty + ocsQty) - (withinQty + rithinQty) + diskoutQty) AS resultPrice
+from (SELECT
+    s.busDate AS inbusDate,
+	si.ID,
+	si.resID,
+	si.resCode,
+	si.resName,
+	si.spec,
+	si.resUnit as unit,
+	si.stdPrice,
+	si.outPrice,
+	si.outAmt,
+	s.orgID,
+	si.inAmt,
+	s.busDate,
+	s.inOrgName,
+	s.voucherNo,
+	s.billType,
+	s.billNo,
+	s.billFlag,
+	0 AS adjustAmt,
+
+  IF ( s.inOrOut = 0,si.outQty,si.outQty ) as withinQty,
+  IF ( s.inOrOut = 1,si.outQty,si.outQty ) as rithinQty,
+	IF ( s.billType = 16,si.stdPrice,si.stdPrice ) as inOrOutStdPrice,
+	IF ( s.billType = 16,si.outAmt,si.outAmt ) as inOrOutoutAmt,
+
+
+CASE
+
+	WHEN s.billType IN ( 16, 17, 21, 22, 30, 33 ) THEN
+	s.inOrgName ELSE s.outOrgName
+	END AS outOrgName,
+CASE
+	s.billType
+	WHEN 11 THEN
+	si.stdPrice
+	WHEN 12 THEN
+	si.inPrice
+	WHEN 18 THEN
+	si.inPrice ELSE 0
+	END AS inPrice,
+
+	   case when s.billType = 16 or s.billType =30 or s.billType =21 then si.stdPrice
+			when s.billType = 17 or s.billType =33 or s.billType =22 or s.billType =24 then si.outPrice
+			WHEN s.billType = 45 then si.outPrice
+	   else 0 end as oswPrice,
+
+		 case when s.billType = 18 or s.billType =24  then si.outQty
+	   else 0 end as diskoutQty,
+
+		 case when s.billType = 18 or s.billType =24  then si.outAmt
+	   else 0 end as diskoutAmt,
+
+	   case when (s.billType=11 AND (s.materialSource='0001' or s.materialSource='0002' or s.materialSource='0003' or s.materialSource='0004')) or s.billType=12
+			then si.inQty
+	   else 0 end as allInQty,
+	   si.inAmt AS allInAmt,
+
+	   case when s.billType IN (16,17,21,22,24,45,30,33) then si.outQty
+	   else 0 end as allOutQty,
+
+	   si.outAmt as allOutAmt,
+	   case when s.billStatus = '已审核' and ( s.billType = 18 OR s.billType = 24 ) then si.inQty - si.outQty
+	   else 0 end as vinoutQty,
+
+
+-- 	   --入库数量
+	   case when (s.billType=11 AND s.materialSource='0001') then si.inQty
+	   else 0 end as serQty,
+	   case when (s.billType=11 AND s.materialSource='0002') then si.inQty
+	   else 0 end as orsQty,
+	   case when (s.billType=11 AND s.materialSource='0003') then si.inQty
+	   else 0 end as otrQty,
+	   case when (s.billType=11 AND si.precollecte='1') then si.inQty
+	   else 0 end as obuQty,
+	   case when (s.billType=11 AND s.materialSource='0004') then si.inQty
+	   else 0 end as ocsQty,
+
+-- 	   --单价
+
+	   case when s.billType=45 then si.outPrice
+	   else 0 end as trsPrice,
+	   case s.billType when 30 then si.stdPrice when 33 then si.outPrice
+	   else 0 end as otsPrice,
+	   case s.billType when 16 then si.stdPrice when 17 then si.outPrice
+	   else 0 end as otkPrice,
+
+-- 	   --出库数量
+	   case when s.billType IN (21,22,24) then si.outQty
+	   else 0 end as oswQty,
+	   case when s.billType=45 then si.outQty
+	   else 0 end as trsQty,
+	   case when s.billType=30 OR s.billType=33 then si.outQty
+	   else 0 end as otsQty,
+	   case when s.billType=16 OR s.billType=17 then si.outQty
+	   else 0 end as otkQty
+
+FROM zx_sk_stocktransitem si	INNER JOIN zx_sk_stocktransfer s ON si.billID=s.ID
+WHERE
+--     -----自行采购 serQty
+   ((((s.billType=11 AND s.materialSource='0001') or s.billType='12'))
+-- 	  甲供 orsQty
+		or (s.billType=11 AND s.materialSource='0002')
+		or (s.billType=11 AND s.materialSource='0003')
+-- 		其它 otrQty
+		or (s.billType=11 AND si.precollecte='1')
+-- 		预收 obuQty
+		or (s.billType=11 AND s.materialSource='0004')
+-- 		甲控 ocsQty
+		or (s.billType IN (21,22,24))
+-- 		工程耗用 oswQty
+		or (s.billType=45 )
+--     加工改制 trs
+		or ((s.billType=30 OR s.billType=33 ))
+--     向内调拨 ots
+		or ((s.billType=16 OR s.billType=17 ))
+-- 		向外调拨 otk
+		or (s.billType = 18 OR s.billType = 24 )
+-- 		库存金额调整
+	  )
+and s.billStatus = '1'
+and s.busDate BETWEEN #{inDate,jdbcType=TIMESTAMP} AND #{outDate,jdbcType=TIMESTAMP}
+    <if test="resCode != null and resCode != ''" >
+     and si.resCode = #{resCode,jdbcType=VARCHAR}
+    </if>
+     <if test="departmentId != null and departmentId != ''" >
+     and s.orgID = #{departmentId,jdbcType=VARCHAR}
+    </if>
+     <if test="materialType != null and materialType != ''" >
+     and s.resourceID = #{materialType,jdbcType=VARCHAR}
+    </if>
+
+)  stocktrans
+  </select>
+  <select id="getResMoveMonthMP" resultMap="BaseResultMap">
+  select *,thisQtys/thisAmts as thisProce
+from
+(
+select resCode, resName, spec, resUnit as unit, 
+	   round(stockQty,3) stockQty,round(stockAmt,2) stockAmt, 
+	   stockAmt/stockQty as stockPrice,
+	   round(orsQty,3) orsQty, round(otrQty,3) otrQty, 
+       round(serQty,3) serQty, round(obuQty,3) obuQty, round(ocsQty,3) ocsQty,
+       round(inQty,2) inQty,
+       round(inAmt,2) inAmt, 
+       inAmt/inQty as inPrice,
+	   round(oswQty,3) oswQty, round(oswAmt,2) oswAmt,
+	   oswAmt/oswQty as oswPrice,
+	   round(trsQty,3) trsQty, 
+	    round(otkQty,3) otkQty, round(outAmt,2) outAmt, 
+		 outAmt/otkQty as otkPrice,
+	    round(vinQty,3) vinQty, round(vinAmt,2) vinAmt,
+
+	   round((if(stockQty IS NULL,0,stockQty)
+		 +if(orsQty IS NULL,0,orsQty)
+		 +if(stockQty IS NULL,0,stockQty)
+		 +if(orsQty IS NULL,0,orsQty)
+		 +if(otrQty IS NULL,0,otrQty)
+		 +if(serQty IS NULL,0,serQty)
+		 +if(ocsQty IS NULL,0,ocsQty)
+		 -if(oswQty IS NULL,0,oswQty)
+		 -if(trsQty IS NULL,0,trsQty)
+     -if(otkQty IS NULL,0,otkQty)
+		 +if(vinQty IS NULL,0,vinQty)),3) as thisQtys,
+
+       round(if(round(stockAmt,2) IS NULL,0,round(stockAmt,2))
+			 +if(round(inAmt,2) IS NULL,0,round(inAmt,2))
+			 -if(round(oswAmt,2) IS NULL,0,round(oswAmt,2))
+			 -if(round(outAmt,2) IS NULL,0,round(outAmt,2))
+       +if(round(vinAmt,2) IS NULL,0,round(vinAmt,2)),2) as thisAmts
+
+
+from 
+(
+	SELECT 
+-- 		物资编号、-物资名称、-物资规格、计量单位
+		main.resCode,main.resName,main.spec,main.resUnit,
+		
+		-- 上月结存(数量、金额）
+		sot.stockQty as stockQty,
+		if(sot.stockAmt IS NULL,0,sot.stockAmt)AS stockAmt,
+
+		
+		-- 本月收入（甲供、其它、自行采购、预收、甲控、金额）
+		vin.orsQty as orsQty, vin.otrQty as otrQty,
+		vin.serQty as serQty, obu.obuQty as obuQty,vin.ocsQty as ocsQty,
+		
+		if(vin.orsQty IS NULL,0,vin.orsQty)
+		+if(vin.otrQty IS NULL,0,vin.otrQty)
+		+if(vin.serQty IS NULL,0,vin.serQty)
+		+if(vin.ocsQty IS NULL,0,vin.ocsQty) AS inQty,
+		
+		
+		if(vin.serAmt IS NULL,0,vin.serAmt)
+		+if(vin.orsAmt IS NULL,0,vin.orsAmt)
+		+if(vin.otrAmt IS NULL,0,vin.otrAmt)
+		+if(vin.ocsAmt IS NULL,0,vin.ocsAmt) AS inAmt,
+		
+
+
+		-- 工程耗用数量、工程耗用金额、加工改制、调拨、金额
+		vin.oswQty as oswQty, vin.oswAmt as oswAmt, vin.trsQty as  trsQty,
+		vin.otkQty as otkQty, isnull(vin.trsAmt)+isnull(vin.otkAmt) as outAmt,
+
+		-- 盈亏（数量、金额）
+		vin.vinQty as vinQty,
+		if(vin.vinAmt IS NULL,0,vin.vinAmt)as vinAmt
+
+	-- ******单据类型(billType)说明:11收料单,14直进直出单,16对外调拨单,18盘赢入库单,21领料单,22退库单,24盘亏出库单,30对内调拨单,45加工改制单******
+	FROM 
+	(
+		 SELECT DISTINCT isti.resID,irs.resCode,irs.resName,irs.spec,irs.unit as resUnit
+		 FROM zx_sk_stocktransitem isti 
+			  INNER JOIN zx_sk_stocktransfer ist ON isti.billID=ist.ID
+			  INNER JOIN zx_sk_resource_materials irs ON irs.ID=isti.resID
+			  left join zx_ct_contract ic on ic.orgID=ist.orgID and contractType='P1'
+		 WHERE 
+
+		 ic.contractStatus =3
+		 or ic.contractStatus in ('1','2')
+
+	)main 
+	LEFT JOIN 
+	-- 上月结存
+	(
+		SELECT isti.resID,sum(
+		if(isti.inQty IS NULL,0,isti.inQty)
+		-if(isti.outQty IS NULL,0,isti.outQty)) AS stockQty,
+
+		sum(
+		if(isti.inAmt IS NULL,0,isti.inAmt)
+		-if(isti.outAmt IS NULL,0,isti.outAmt)
+
+		) AS stockAmt
+		FROM zx_sk_stocktransitem isti INNER JOIN zx_sk_stocktransfer ist ON isti.billID=ist.ID	
+			 left join zx_ct_contract ic on ic.orgID=ist.orgID and contractType='P1'
+		WHERE 
+
+		ist.orgID IN (SELECT o.iecmOrgID	from zx_eq_iecm_org o WHERE
+
+		o.orgType IN ('1','2','4','6')) 
+		and ic.contractStatus =3
+
+		or ic.contractStatus in ('1','2')
+
+		and ist.billStatus='已审核' and ist.billType!='10'
+		GROUP BY isti.resID
+	) sot ON sot.resID=main.resID 
+	-- ---------------------------------本月收入-----------------------------------
+	LEFT JOIN 
+	(
+	   select jl.resID,
+			  sum(jl.serQty) serQty,
+			  sum(jl.serAmt) as serAmt,sum(jl.orsQty) as orsQty,sum(jl.orsAmt) as orsAmt,sum(jl.otrQty) as otrQty,
+			  sum(jl.otrAmt) as otrAmt,sum(oswQty) as oswQty,sum(jl.oswAmt) as oswAmt,
+			  sum(jl.ocsQty) as ocsQty,sum(jl.ocsAmt) as ocsAmt,
+			  sum(jl.trsQty) as trsQty,sum(jl.trsAmt) as trsAmt,sum(jl.otkQty) as otkQty,sum(jl.otkAmt) as otkAmt,
+			  sum(jl.vinQty) as vinQty,sum(jl.vinAmt) as vinAmt
+	   from 
+	   (
+			SELECT isti.resID,ist.billType,ist.materialSource,
+				   case when (ist.billType=11 AND ist.materialSource='0001') or (ist.billType=12 and (ist.materialSource='0001'
+
+					 )) then sum(
+					 if(isti.inQty IS NULL,0,isti.inQty)
+
+					 ) 
+				   else 0 end serQty,-- --自行采购------
+				   case when (ist.billType=11 AND ist.materialSource='0001') or (ist.billType=12 and (ist.materialSource='0001'
+
+					 )) then sum(
+					 if(isti.inAmt IS NULL,0,isti.inAmt)
+
+					 ) 
+				   else 0 end serAmt,-- --自行采购------
+				   case when (ist.billType=11 AND ist.materialSource='0002') or (ist.billType=12 and ist.materialSource='0002') then sum(
+					 if(isti.inQty IS NULL,0,isti.inQty)
+
+					 ) 
+				   else 0 end orsQty,-- --甲供---
+				   case when (ist.billType=11 AND ist.materialSource='0002') or (ist.billType=12 and ist.materialSource='0002') then sum(
+					 if(isti.inAmt IS NULL,0,isti.inAmt)
+
+					 ) 
+				   else 0 end orsAmt,-- --甲供---
+				   case when (ist.billType=11 AND ist.materialSource='0003') or (ist.billType=12 and ist.materialSource='0003') then sum(
+					 if(isti.inQty IS NULL,0,isti.inQty)
+
+					 ) 
+				   else 0 end otrQty,-- --其它----
+				   case when (ist.billType=11 AND ist.materialSource='0003') or (ist.billType=12 and ist.materialSource='0003') then sum(
+					 if(isti.inAmt IS NULL,0,isti.inAmt)
+
+					 ) 
+				   else 0 end otrAmt,-- --其它----
+				   case when (ist.billType=11 AND ist.materialSource='0004') or (ist.billType=12 and ist.materialSource='0004') then sum(
+					 if(isti.inQty IS NULL,0,isti.inQty)
+
+					 ) 
+				   else 0 end ocsQty,-- --甲控----
+				   case when (ist.billType=11 AND ist.materialSource='0004') or (ist.billType=12 and ist.materialSource='0004') then sum(
+					 if(isti.inAmt IS NULL,0,isti.inAmt)
+
+					 ) 
+				   else 0 end ocsAmt,-- --甲控----
+
+				   case when ist.billType IN (21,22) then sum(
+					 if(isti.outQty IS NULL,0,isti.outQty)
+
+					 ) 
+				   else 0 end oswQty,-- --工程耗用----
+				   case when ist.billType IN (21,22) then sum(
+					 if(isti.outAmt IS NULL,0,isti.outAmt)
+
+					 ) 
+				   else 0 end oswAmt,-- --工程耗用----
+				   case when ist.billType=45 then sum(
+					 if(isti.outQty IS NULL,0,isti.outQty)
+
+					 ) 
+				   else 0 end trsQty,-- --加工改制----
+				   case when ist.billType=45 then sum(
+					 if(isti.outAmt IS NULL,0,isti.outAmt)
+
+					 )  
+				   else 0 end trsAmt,-- --加工改制----
+				   case when (ist.billType=16 or ist.billType=17 or ist.billType=30 or ist.billType=33) then sum(
+					 if(isti.outQty IS NULL,0,isti.outQty)
+
+					 ) 
+				   else 0 end otkQty,-- 调拨-----
+				   case when (ist.billType=16 or ist.billType=17 or ist.billType=30 or ist.billType=33) then sum(
+					 if(isti.outAmt IS NULL,0,isti.outAmt)
+
+					 ) 
+				   else 0 end otkAmt,-- 调拨-----
+				   case when (ist.billType=18 or ist.billType=24) then sum(
+					 if(isti.inQty IS NULL,0,isti.inQty)
+					 -if(isti.outQty IS NULL,0,isti.outQty)
+
+					 ) 
+				   else 0 end vinQty,-- 盈亏（数量、金额）
+				   case when (ist.billType=18 or ist.billType=24) then sum(
+					 if(isti.inAmt IS NULL,0,isti.inAmt)
+					 -if(isti.outAmt IS NULL,0,isti.outAmt)
+
+					 ) 
+				   else 0 end vinAmt -- 盈亏（数量、金额）
+
+			FROM zx_sk_stocktransitem isti 
+				 INNER JOIN zx_sk_stocktransfer ist ON isti.billID=ist.ID and ist.billStatus='已审核' 
+							AND ist.orgID IN (SELECT o.iecmOrgID from zx_eq_iecm_org o WHERE
+-- 							o.bsid like @bsid + '%' AND 
+							o.orgType IN ('1','2','4','6'))	
+				 left join zx_ct_contract ic on ic.orgID=ist.orgID and contractType='P1' 
+
+			and ic.contractStatus =3
+
+			or ic.contractStatus in ('1','2') 
+
+
+			and isti.resID is not null
+			GROUP BY isti.resID,ist.billType,ist.materialSource
+		) jl 
+	   group by resID
+		 
+	) vin ON vin.resID=main.resID
+	-- ---预收-----------
+	LEFT JOIN 
+	(
+		SELECT isti.resID,sum(
+		if(isti.inQty IS NULL,0,isti.inQty)
+
+		) obuQty
+		FROM zx_sk_stocktransitem isti INNER JOIN zx_sk_stocktransfer ist ON isti.billID=ist.ID and ist.billStatus='已审核'
+									  left join zx_ct_contract ic on ic.orgID=ist.orgID and contractType='P1'
+		WHERE ((ist.billType=11 AND isti.precollecte='1') 
+			   or (ist.billType=12 AND (SELECT temp.precollecte FROM zx_sk_stocktransitem temp WHERE temp.ID = isti.itemID) = '1'))
+
+		AND ist.orgID IN (SELECT o.iecmOrgID from zx_eq_iecm_org o WHERE 
+
+		o.orgType IN ('1','2','4','6')) 
+		and isti.inqty!=0 and (
+
+		ic.contractStatus =3) or (
+
+		ic.contractStatus in ('1','2'))
+		GROUP BY isti.resID
+		)obu ON obu.resID=main.resID
+	
+) tem
+) t 
+-- 四舍五入后再判断 edit by wenjw 2017.8.3
+where stockQty !=0 or orsQty !=0 or otrQty !=0 or serQty !=0 or oswQty !=0 or trsQty !=0 or otkQty !=0 or vinQty !=0
+or stockAmt !=0 or oswAmt !=0 or vinAmt !=0 OR inAmt !=0 OR outAmt !=0 OR ocsQty != 0
+order by resCode
+  </select>
+</mapper>

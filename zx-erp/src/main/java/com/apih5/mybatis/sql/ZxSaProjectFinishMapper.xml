@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSaProjectFinishMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSaProjectFinish" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="contractID" property="contractID" jdbcType="VARCHAR" />
+    <result column="contractNo" property="contractNo" jdbcType="VARCHAR" />
+    <result column="contractName" property="contractName" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="contractCost" property="contractCost" jdbcType="DECIMAL" />
+    <result column="contractMoney" property="contractMoney" jdbcType="DECIMAL" />
+    <result column="projectManager" property="projectManager" jdbcType="VARCHAR" />
+    <result column="actualStartDate" property="actualStartDate" jdbcType="TIMESTAMP" />
+    <result column="actualEndDate" property="actualEndDate" jdbcType="TIMESTAMP" />
+    <result column="csTimeLimit" property="csTimeLimit" jdbcType="VARCHAR" />
+    <result column="realBeginDate" property="realBeginDate" jdbcType="TIMESTAMP" />
+    <result column="realEndDate" property="realEndDate" jdbcType="TIMESTAMP" />
+    <result column="realSettleEndDate" property="realSettleEndDate" jdbcType="TIMESTAMP" />
+    <result column="determine_filing_date" property="determineFilingDate" jdbcType="TIMESTAMP" />
+    <result column="planSettleCloseDate" property="planSettleCloseDate" jdbcType="TIMESTAMP" />
+    <result column="realSettleCloseDate" property="realSettleCloseDate" jdbcType="TIMESTAMP" />
+    <result column="reportDate" property="reportDate" jdbcType="TIMESTAMP" />
+    <result column="reportPerson" property="reportPerson" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="finishStatus" property="finishStatus" jdbcType="VARCHAR" />
+    <result column="auditStatus" property="auditStatus" jdbcType="VARCHAR" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="comOrders" property="comOrders" jdbcType="VARCHAR" />
+    <result column="combProp" property="combProp" jdbcType="VARCHAR" />
+    <result column="pp1" property="pp1" jdbcType="VARCHAR" />
+    <result column="pp2" property="pp2" jdbcType="VARCHAR" />
+    <result column="pp3" property="pp3" jdbcType="VARCHAR" />
+    <result column="pp4" property="pp4" jdbcType="VARCHAR" />
+    <result column="pp5" property="pp5" jdbcType="VARCHAR" />
+    <result column="pp6" property="pp6" jdbcType="VARCHAR" />
+    <result column="pp7" property="pp7" jdbcType="VARCHAR" />
+    <result column="pp8" property="pp8" jdbcType="VARCHAR" />
+    <result column="pp9" property="pp9" jdbcType="VARCHAR" />
+    <result column="pp10" property="pp10" jdbcType="VARCHAR" />
+    <result column="guidangDate" property="guidangDate" jdbcType="TIMESTAMP" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, contractID, contractNo, contractName, orgID, 
+    orgName, contractCost, contractMoney, projectManager, actualStartDate, 
+    actualEndDate, csTimeLimit, realBeginDate, realEndDate, realSettleEndDate, 
+    determine_filing_date, planSettleCloseDate, realSettleCloseDate, reportDate, reportPerson, 
+    remark, finishStatus, auditStatus, comID, comName, 
+    comOrders, combProp, pp1, pp2, pp3, 
+    pp4, pp5, pp6, pp7, pp8, 
+    pp9, pp10, guidangDate, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sa_ProjectFinish
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sa_ProjectFinish
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSaProjectFinish" >
+    insert into zx_sa_ProjectFinish (id, contractID, contractNo, 
+      contractName, orgID, orgName, 
+      contractCost, contractMoney, projectManager, 
+      actualStartDate, actualEndDate, csTimeLimit, 
+      realBeginDate, realEndDate, realSettleEndDate, 
+      determine_filing_date, planSettleCloseDate, realSettleCloseDate, 
+      reportDate, reportPerson, remark, 
+      finishStatus, auditStatus, comID, 
+      comName, comOrders, combProp, 
+      pp1, pp2, pp3, 
+      pp4, pp5, pp6, 
+      pp7, pp8, pp9, 
+      pp10, guidangDate, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{contractID,jdbcType=VARCHAR}, #{contractNo,jdbcType=VARCHAR}, 
+      #{contractName,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, 
+      #{contractCost,jdbcType=DECIMAL}, #{contractMoney,jdbcType=DECIMAL}, #{projectManager,jdbcType=VARCHAR}, 
+      #{actualStartDate,jdbcType=TIMESTAMP}, #{actualEndDate,jdbcType=TIMESTAMP}, #{csTimeLimit,jdbcType=VARCHAR}, 
+      #{realBeginDate,jdbcType=TIMESTAMP}, #{realEndDate,jdbcType=TIMESTAMP}, #{realSettleEndDate,jdbcType=TIMESTAMP}, 
+      #{determineFilingDate,jdbcType=TIMESTAMP}, #{planSettleCloseDate,jdbcType=TIMESTAMP}, #{realSettleCloseDate,jdbcType=TIMESTAMP}, 
+      #{reportDate,jdbcType=TIMESTAMP}, #{reportPerson,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{finishStatus,jdbcType=VARCHAR}, #{auditStatus,jdbcType=VARCHAR}, #{comID,jdbcType=VARCHAR}, 
+      #{comName,jdbcType=VARCHAR}, #{comOrders,jdbcType=VARCHAR}, #{combProp,jdbcType=VARCHAR}, 
+      #{pp1,jdbcType=VARCHAR}, #{pp2,jdbcType=VARCHAR}, #{pp3,jdbcType=VARCHAR}, 
+      #{pp4,jdbcType=VARCHAR}, #{pp5,jdbcType=VARCHAR}, #{pp6,jdbcType=VARCHAR}, 
+      #{pp7,jdbcType=VARCHAR}, #{pp8,jdbcType=VARCHAR}, #{pp9,jdbcType=VARCHAR}, 
+      #{pp10,jdbcType=VARCHAR}, #{guidangDate,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSaProjectFinish" >
+    insert into zx_sa_ProjectFinish
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="contractID != null" >
+        contractID,
+      </if>
+      <if test="contractNo != null" >
+        contractNo,
+      </if>
+      <if test="contractName != null" >
+        contractName,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="contractCost != null" >
+        contractCost,
+      </if>
+      <if test="contractMoney != null" >
+        contractMoney,
+      </if>
+      <if test="projectManager != null" >
+        projectManager,
+      </if>
+      <if test="actualStartDate != null" >
+        actualStartDate,
+      </if>
+      <if test="actualEndDate != null" >
+        actualEndDate,
+      </if>
+      <if test="csTimeLimit != null" >
+        csTimeLimit,
+      </if>
+      <if test="realBeginDate != null" >
+        realBeginDate,
+      </if>
+      <if test="realEndDate != null" >
+        realEndDate,
+      </if>
+      <if test="realSettleEndDate != null" >
+        realSettleEndDate,
+      </if>
+      <if test="determineFilingDate != null" >
+        determine_filing_date,
+      </if>
+      <if test="planSettleCloseDate != null" >
+        planSettleCloseDate,
+      </if>
+      <if test="realSettleCloseDate != null" >
+        realSettleCloseDate,
+      </if>
+      <if test="reportDate != null" >
+        reportDate,
+      </if>
+      <if test="reportPerson != null" >
+        reportPerson,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="finishStatus != null" >
+        finishStatus,
+      </if>
+      <if test="auditStatus != null" >
+        auditStatus,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="comOrders != null" >
+        comOrders,
+      </if>
+      <if test="combProp != null" >
+        combProp,
+      </if>
+      <if test="pp1 != null" >
+        pp1,
+      </if>
+      <if test="pp2 != null" >
+        pp2,
+      </if>
+      <if test="pp3 != null" >
+        pp3,
+      </if>
+      <if test="pp4 != null" >
+        pp4,
+      </if>
+      <if test="pp5 != null" >
+        pp5,
+      </if>
+      <if test="pp6 != null" >
+        pp6,
+      </if>
+      <if test="pp7 != null" >
+        pp7,
+      </if>
+      <if test="pp8 != null" >
+        pp8,
+      </if>
+      <if test="pp9 != null" >
+        pp9,
+      </if>
+      <if test="pp10 != null" >
+        pp10,
+      </if>
+      <if test="guidangDate != null" >
+        guidangDate,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="contractID != null" >
+        #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null" >
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="contractName != null" >
+        #{contractName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCost != null" >
+        #{contractCost,jdbcType=DECIMAL},
+      </if>
+      <if test="contractMoney != null" >
+        #{contractMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="projectManager != null" >
+        #{projectManager,jdbcType=VARCHAR},
+      </if>
+      <if test="actualStartDate != null" >
+        #{actualStartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actualEndDate != null" >
+        #{actualEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="csTimeLimit != null" >
+        #{csTimeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="realBeginDate != null" >
+        #{realBeginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realEndDate != null" >
+        #{realEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realSettleEndDate != null" >
+        #{realSettleEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="determineFilingDate != null" >
+        #{determineFilingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="planSettleCloseDate != null" >
+        #{planSettleCloseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realSettleCloseDate != null" >
+        #{realSettleCloseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportDate != null" >
+        #{reportDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportPerson != null" >
+        #{reportPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="finishStatus != null" >
+        #{finishStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="combProp != null" >
+        #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="pp1 != null" >
+        #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2 != null" >
+        #{pp2,jdbcType=VARCHAR},
+      </if>
+      <if test="pp3 != null" >
+        #{pp3,jdbcType=VARCHAR},
+      </if>
+      <if test="pp4 != null" >
+        #{pp4,jdbcType=VARCHAR},
+      </if>
+      <if test="pp5 != null" >
+        #{pp5,jdbcType=VARCHAR},
+      </if>
+      <if test="pp6 != null" >
+        #{pp6,jdbcType=VARCHAR},
+      </if>
+      <if test="pp7 != null" >
+        #{pp7,jdbcType=VARCHAR},
+      </if>
+      <if test="pp8 != null" >
+        #{pp8,jdbcType=VARCHAR},
+      </if>
+      <if test="pp9 != null" >
+        #{pp9,jdbcType=VARCHAR},
+      </if>
+      <if test="pp10 != null" >
+        #{pp10,jdbcType=VARCHAR},
+      </if>
+      <if test="guidangDate != null" >
+        #{guidangDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSaProjectFinish" >
+    update zx_sa_ProjectFinish
+    <set >
+      <if test="contractID != null" >
+        contractID = #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null" >
+        contractNo = #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="contractName != null" >
+        contractName = #{contractName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCost != null" >
+        contractCost = #{contractCost,jdbcType=DECIMAL},
+      </if>
+      <if test="contractMoney != null" >
+        contractMoney = #{contractMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="projectManager != null" >
+        projectManager = #{projectManager,jdbcType=VARCHAR},
+      </if>
+      <if test="actualStartDate != null" >
+        actualStartDate = #{actualStartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actualEndDate != null" >
+        actualEndDate = #{actualEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="csTimeLimit != null" >
+        csTimeLimit = #{csTimeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="realBeginDate != null" >
+        realBeginDate = #{realBeginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realEndDate != null" >
+        realEndDate = #{realEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realSettleEndDate != null" >
+        realSettleEndDate = #{realSettleEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="determineFilingDate != null" >
+        determine_filing_date = #{determineFilingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="planSettleCloseDate != null" >
+        planSettleCloseDate = #{planSettleCloseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realSettleCloseDate != null" >
+        realSettleCloseDate = #{realSettleCloseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportDate != null" >
+        reportDate = #{reportDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportPerson != null" >
+        reportPerson = #{reportPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="finishStatus != null" >
+        finishStatus = #{finishStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        auditStatus = #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        comOrders = #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="combProp != null" >
+        combProp = #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="pp1 != null" >
+        pp1 = #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2 != null" >
+        pp2 = #{pp2,jdbcType=VARCHAR},
+      </if>
+      <if test="pp3 != null" >
+        pp3 = #{pp3,jdbcType=VARCHAR},
+      </if>
+      <if test="pp4 != null" >
+        pp4 = #{pp4,jdbcType=VARCHAR},
+      </if>
+      <if test="pp5 != null" >
+        pp5 = #{pp5,jdbcType=VARCHAR},
+      </if>
+      <if test="pp6 != null" >
+        pp6 = #{pp6,jdbcType=VARCHAR},
+      </if>
+      <if test="pp7 != null" >
+        pp7 = #{pp7,jdbcType=VARCHAR},
+      </if>
+      <if test="pp8 != null" >
+        pp8 = #{pp8,jdbcType=VARCHAR},
+      </if>
+      <if test="pp9 != null" >
+        pp9 = #{pp9,jdbcType=VARCHAR},
+      </if>
+      <if test="pp10 != null" >
+        pp10 = #{pp10,jdbcType=VARCHAR},
+      </if>
+      <if test="guidangDate != null" >
+        guidangDate = #{guidangDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSaProjectFinish" >
+    update zx_sa_ProjectFinish
+    set       contractID = #{contractID,jdbcType=VARCHAR},
+      contractNo = #{contractNo,jdbcType=VARCHAR},
+      contractName = #{contractName,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      contractCost = #{contractCost,jdbcType=DECIMAL},
+      contractMoney = #{contractMoney,jdbcType=DECIMAL},
+      projectManager = #{projectManager,jdbcType=VARCHAR},
+      actualStartDate = #{actualStartDate,jdbcType=TIMESTAMP},
+      actualEndDate = #{actualEndDate,jdbcType=TIMESTAMP},
+      csTimeLimit = #{csTimeLimit,jdbcType=VARCHAR},
+      realBeginDate = #{realBeginDate,jdbcType=TIMESTAMP},
+      realEndDate = #{realEndDate,jdbcType=TIMESTAMP},
+      realSettleEndDate = #{realSettleEndDate,jdbcType=TIMESTAMP},
+      determine_filing_date = #{determineFilingDate,jdbcType=TIMESTAMP},
+      planSettleCloseDate = #{planSettleCloseDate,jdbcType=TIMESTAMP},
+      realSettleCloseDate = #{realSettleCloseDate,jdbcType=TIMESTAMP},
+      reportDate = #{reportDate,jdbcType=TIMESTAMP},
+      reportPerson = #{reportPerson,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      finishStatus = #{finishStatus,jdbcType=VARCHAR},
+      auditStatus = #{auditStatus,jdbcType=VARCHAR},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      comOrders = #{comOrders,jdbcType=VARCHAR},
+      combProp = #{combProp,jdbcType=VARCHAR},
+      pp1 = #{pp1,jdbcType=VARCHAR},
+      pp2 = #{pp2,jdbcType=VARCHAR},
+      pp3 = #{pp3,jdbcType=VARCHAR},
+      pp4 = #{pp4,jdbcType=VARCHAR},
+      pp5 = #{pp5,jdbcType=VARCHAR},
+      pp6 = #{pp6,jdbcType=VARCHAR},
+      pp7 = #{pp7,jdbcType=VARCHAR},
+      pp8 = #{pp8,jdbcType=VARCHAR},
+      pp9 = #{pp9,jdbcType=VARCHAR},
+      pp10 = #{pp10,jdbcType=VARCHAR},
+      guidangDate = #{guidangDate,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxSaProjectFinishList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSaProjectFinish" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sa_ProjectFinish
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=}
+    </if>
+    <if test="contractID != null and contractID != ''" >
+     and contractID = #{contractID,jdbcType=VARCHAR}
+    </if>
+    <if test="contractNo != null and contractNo != ''" >
+     and contractNo = #{contractNo,jdbcType=VARCHAR}
+    </if>
+    <if test="contractName != null and contractName != ''" >
+     and contractName = #{contractName,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="contractCost != null and contractCost != ''" >
+     and contractCost = #{contractCost,jdbcType=DECIMAL}
+    </if>
+    <if test="contractMoney != null and contractMoney != ''" >
+     and contractMoney = #{contractMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="projectManager != null and projectManager != ''" >
+     and projectManager = #{projectManager,jdbcType=VARCHAR}
+    </if>
+    <if test="actualStartDate != null and actualStartDate != ''" >
+     and actualStartDate = #{actualStartDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="actualEndDate != null and actualEndDate != ''" >
+     and actualEndDate = #{actualEndDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="csTimeLimit != null and csTimeLimit != ''" >
+     and csTimeLimit = #{csTimeLimit,jdbcType=VARCHAR}
+    </if>
+    <if test="realBeginDate != null and realBeginDate != ''" >
+     and realBeginDate = #{realBeginDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="realEndDate != null and realEndDate != ''" >
+     and realEndDate = #{realEndDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="realSettleEndDate != null and realSettleEndDate != ''" >
+     and realSettleEndDate = #{realSettleEndDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="determineFilingDate != null " >
+     and determine_filing_date = #{determineFilingDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="planSettleCloseDate != null and planSettleCloseDate != ''" >
+     and planSettleCloseDate = #{planSettleCloseDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="realSettleCloseDate != null and realSettleCloseDate != ''" >
+     and realSettleCloseDate = #{realSettleCloseDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="reportDate != null and reportDate != ''" >
+     and reportDate = #{reportDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="reportPerson != null and reportPerson != ''" >
+     and reportPerson = #{reportPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="finishStatus != null and finishStatus != ''" >
+     and finishStatus = #{finishStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="auditStatus != null and auditStatus != ''" >
+     and auditStatus = #{auditStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="comOrders != null and comOrders != ''" >
+     and comOrders = #{comOrders,jdbcType=VARCHAR}
+    </if>
+    <if test="combProp != null and combProp != ''" >
+     and combProp = #{combProp,jdbcType=VARCHAR}
+    </if>
+    <if test="pp1 != null and pp1 != ''" >
+     and pp1 = #{pp1,jdbcType=VARCHAR}
+    </if>
+    <if test="pp2 != null and pp2 != ''" >
+     and pp2 = #{pp2,jdbcType=VARCHAR}
+    </if>
+    <if test="pp3 != null and pp3 != ''" >
+     and pp3 = #{pp3,jdbcType=VARCHAR}
+    </if>
+    <if test="pp4 != null and pp4 != ''" >
+     and pp4 = #{pp4,jdbcType=VARCHAR}
+    </if>
+    <if test="pp5 != null and pp5 != ''" >
+     and pp5 = #{pp5,jdbcType=VARCHAR}
+    </if>
+    <if test="pp6 != null and pp6 != ''" >
+     and pp6 = #{pp6,jdbcType=VARCHAR}
+    </if>
+    <if test="pp7 != null and pp7 != ''" >
+     and pp7 = #{pp7,jdbcType=VARCHAR}
+    </if>
+    <if test="pp8 != null and pp8 != ''" >
+     and pp8 = #{pp8,jdbcType=VARCHAR}
+    </if>
+    <if test="pp9 != null and pp9 != ''" >
+     and pp9 = #{pp9,jdbcType=VARCHAR}
+    </if>
+    <if test="pp10 != null and pp10 != ''" >
+     and pp10 = #{pp10,jdbcType=VARCHAR}
+    </if>
+    <if test="guidangDate != null and guidangDate != ''" >
+     and guidangDate = #{guidangDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSaProjectFinish" parameterType="com.apih5.mybatis.pojo.ZxSaProjectFinish" >
+    <![CDATA[ 
+        update zx_sa_ProjectFinish
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+  
+	<select id="getZxSaProjectUnFinishList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSaProjectFinish" >
+		SELECT
+			zsp.id,
+			zsp.contractID,
+			zsp.contractNo,
+			zsp.contractName,
+			zsp.orgID,
+			zsp.orgName,
+			zsp.contractCost,
+			zsp.contractMoney,
+			zsp.projectManager,
+			zsp.actualStartDate,
+			zsp.actualEndDate,
+			zsp.csTimeLimit,
+			zsp.realBeginDate,
+			zsp.realEndDate,
+			zsp.realSettleEndDate,
+			zsp.determine_filing_date,
+			zsp.reportDate,
+			zsp.reportPerson,
+			zsp.remark,
+			zsp.finishStatus,
+			zsp.auditStatus,
+			zsp.comID,
+			zsp.comName,
+			zsp.comOrders,
+			zsp.combProp,
+			zsp.guidangDate,
+			zsp.del_flag,
+			zsp.create_time,
+			zsp.create_user,
+			zsp.create_user_name,
+			zsp.modify_time,
+			zsp.modify_user,
+			zsp.modify_user_name,
+			zspi.planSettleCloseDate,
+			zspi.realSettleCloseDate 
+		FROM
+			zx_sa_projectfinish AS zsp
+			INNER JOIN zx_sa_projectfinishitem AS zspi ON zsp.id = zspi.mainID 
+			AND zspi.del_flag = '0' 
+			AND zspi.settleTypeCode = #{settleTypeCode,jdbcType=VARCHAR} 
+			AND LEFT ( zspi.realSettleCloseDate, 10 ) &gt;= LEFT ( NOW( ), 10 )
+		WHERE
+			zsp.del_flag = '0' 
+			
+			<!-- AND (( LEFT ( NOW( ), 10 ) &lt;= LEFT ( zsp.realSettleEndDate, 10 ) OR ISNULL( zsp.realSettleEndDate ) )
+			OR ((LEFT ( zsp.realSettleEndDate, 10 ) &lt; LEFT ( NOW( ), 10 )) AND (LEFT ( NOW( ), 10 ) &lt;= LEFT(zsp.realSettleCloseDate, 10)) )) -->
+			<if test="orgID != null and orgID != ''">
+				AND zsp.orgID = #{orgID,jdbcType=VARCHAR}
+			</if>
+			<if test="comID != null and comID != ''">
+				AND zsp.comID = #{comID,jdbcType=VARCHAR}
+			</if>
+	</select>
+	
+</mapper>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.SysFlowUserMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.SysFlowUser" >
+    <id column="sys_flow_user_id" property="sysFlowUserId" jdbcType="CHAR" />
+    <result column="flow_role_id" property="flowRoleId" jdbcType="CHAR" />
+    <result column="top_id" property="topId" jdbcType="CHAR" />
+    <result column="department_id" property="departmentId" jdbcType="CHAR" />
+    <result column="user_key" property="userKey" jdbcType="CHAR" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="department_path" property="departmentPath" jdbcType="VARCHAR" />
+    <result column="value" property="value" jdbcType="CHAR" />
+    <result column="valuePid" property="valuePid" jdbcType="CHAR" />
+    <result column="type" property="type" jdbcType="CHAR" />
+    <result column="label" property="label" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    sys_flow_user_id, flow_role_id, top_id, department_id, user_key, 
+    real_name, department_path, value, valuePid, type, 
+    label, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_flow_user
+    where del_flag = '0' and sys_flow_user_id = #{sysFlowUserId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_flow_user
+    where sys_flow_user_id = #{sysFlowUserId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.SysFlowUser" >
+    insert into sys_flow_user (
+    sys_flow_user_id, flow_role_id, top_id, department_id, user_key, 
+    real_name, department_path, value, valuePid, type, 
+    label, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{sysFlowUserId,jdbcType=CHAR}, #{flowRoleId,jdbcType=CHAR}, #{topId,jdbcType=CHAR}, #{departmentId,jdbcType=CHAR}, #{userKey,jdbcType=CHAR}, 
+    #{realName,jdbcType=VARCHAR}, #{departmentPath,jdbcType=VARCHAR}, #{value,jdbcType=CHAR}, #{valuePid,jdbcType=CHAR}, #{type,jdbcType=CHAR}, 
+    #{label,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+    #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.SysFlowUser" >
+    insert into sys_flow_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sysFlowUserId != null" >
+        sys_flow_user_id,
+      </if>
+      <if test="flowRoleId != null" >
+        flow_role_id,
+      </if>
+      <if test="topId != null" >
+        top_id,
+      </if>
+      <if test="departmentId != null" >
+        department_id,
+      </if>
+      <if test="userKey != null" >
+        user_key,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="departmentPath != null" >
+        department_path,
+      </if>
+      <if test="value != null" >
+        value,
+      </if>
+      <if test="valuePid != null" >
+        valuePid,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="label != null" >
+        label,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sysFlowUserId != null" >
+        #{sysFlowUserId,jdbcType=CHAR},
+      </if>
+      <if test="flowRoleId != null" >
+        #{flowRoleId,jdbcType=CHAR},
+      </if>
+      <if test="topId != null" >
+        #{topId,jdbcType=CHAR},
+      </if>
+      <if test="departmentId != null" >
+        #{departmentId,jdbcType=CHAR},
+      </if>
+      <if test="userKey != null" >
+        #{userKey,jdbcType=CHAR},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentPath != null" >
+        #{departmentPath,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null" >
+        #{value,jdbcType=CHAR},
+      </if>
+      <if test="valuePid != null" >
+        #{valuePid,jdbcType=CHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="label != null" >
+        #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.SysFlowUser" >
+    update sys_flow_user
+    <set >
+      <if test="flowRoleId != null" >
+        flow_role_id = #{flowRoleId,jdbcType=CHAR},
+      </if>
+      <if test="topId != null" >
+        top_id = #{topId,jdbcType=CHAR},
+      </if>
+      <if test="departmentId != null" >
+        department_id = #{departmentId,jdbcType=CHAR},
+      </if>
+      <if test="userKey != null" >
+        user_key = #{userKey,jdbcType=CHAR},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentPath != null" >
+        department_path = #{departmentPath,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null" >
+        value = #{value,jdbcType=CHAR},
+      </if>
+      <if test="valuePid != null" >
+        valuePid = #{valuePid,jdbcType=CHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="label != null" >
+        label = #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sys_flow_user_id = #{sysFlowUserId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.SysFlowUser" >
+    update sys_flow_user set 
+      flow_role_id = #{flowRoleId,jdbcType=CHAR},
+      top_id = #{topId,jdbcType=CHAR},
+      department_id = #{departmentId,jdbcType=CHAR},
+      user_key = #{userKey,jdbcType=CHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      department_path = #{departmentPath,jdbcType=VARCHAR},
+      value = #{value,jdbcType=CHAR},
+      valuePid = #{valuePid,jdbcType=CHAR},
+      type = #{type,jdbcType=CHAR},
+      label = #{label,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where sys_flow_user_id = #{sysFlowUserId,jdbcType=CHAR}
+  </update>
+  <select id="selectBySysFlowUserList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysFlowUser" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_flow_user
+    where del_flag = '0'
+    <if test="sysFlowUserId != null and sysFlowUserId != ''" >
+     and sys_flow_user_id = #{sysFlowUserId,jdbcType=CHAR}
+    </if>
+    <if test="flowRoleId != null and flowRoleId != ''" >
+     and flow_role_id = #{flowRoleId,jdbcType=CHAR}
+    </if>
+    <if test="topId != null and topId != ''" >
+     and top_id = #{topId,jdbcType=CHAR}
+    </if>
+    <if test="departmentId != null and departmentId != ''" >
+     and department_id = #{departmentId,jdbcType=CHAR}
+    </if>
+    <if test="userKey != null and userKey != ''" >
+     and user_key = #{userKey,jdbcType=CHAR}
+    </if>
+    <if test="realName != null and realName != ''" >
+     and real_name = #{realName,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentPath != null and departmentPath != ''" >
+     and department_path = #{departmentPath,jdbcType=VARCHAR}
+    </if>
+    <if test="value != null and value != ''" >
+     and value = #{value,jdbcType=CHAR}
+    </if>
+    <if test="valuePid != null and valuePid != ''" >
+     and valuePid = #{valuePid,jdbcType=CHAR}
+    </if>
+    <if test="type != null and type != ''" >
+     and type = #{type,jdbcType=CHAR}
+    </if>
+    <if test="label != null and label != ''" >
+     and label = #{label,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateSysFlowUser" parameterType="com.apih5.mybatis.pojo.SysFlowUser" >
+    <![CDATA[ 
+        update sys_flow_user
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and sys_flow_user_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.sysFlowUserId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+  <update id="deleteUpdateSysFlowUser" parameterType="com.apih5.mybatis.pojo.SysFlowUser" >
+    update sys_flow_user
+    <set >
+        del_flag = '1',
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+        modify_user = #{modifyUser,jdbcType=CHAR},
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </set>
+    where 1=1 
+     and flow_role_id = #{flowRoleId,jdbcType=CHAR}
+     and top_id = #{topId,jdbcType=CHAR}
+     and value = #{value,jdbcType=CHAR}
+  </update>
+</mapper>

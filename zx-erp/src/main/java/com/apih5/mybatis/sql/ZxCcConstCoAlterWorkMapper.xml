@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCcConstCoAlterWorkMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCcConstCoAlterWork" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="alterId" property="alterId" jdbcType="VARCHAR" />
+    <result column="alterType" property="alterType" jdbcType="VARCHAR" />
+    <result column="muId" property="muId" jdbcType="VARCHAR" />
+    <result column="workId" property="workId" jdbcType="VARCHAR" />
+    <result column="originQty" property="originQty" jdbcType="DECIMAL" />
+    <result column="originPrice" property="originPrice" jdbcType="DECIMAL" />
+    <result column="applyQty" property="applyQty" jdbcType="DECIMAL" />
+    <result column="applyPrice" property="applyPrice" jdbcType="DECIMAL" />
+    <result column="applyAddQty" property="applyAddQty" jdbcType="DECIMAL" />
+    <result column="replyQty" property="replyQty" jdbcType="DECIMAL" />
+    <result column="replyPrice" property="replyPrice" jdbcType="DECIMAL" />
+    <result column="replyAddQty" property="replyAddQty" jdbcType="DECIMAL" />
+    <result column="combProp" property="combProp" jdbcType="VARCHAR" />
+    <result column="mainContractListNo" property="mainContractListNo" jdbcType="VARCHAR" />
+    <result column="listName" property="listName" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="listNo" property="listNo" jdbcType="VARCHAR" />
+    <result column="pp5" property="pp5" jdbcType="VARCHAR" />
+    <result column="mainContractListId" property="mainContractListId" jdbcType="VARCHAR" />
+    <result column="pp7" property="pp7" jdbcType="VARCHAR" />
+    <result column="pp8" property="pp8" jdbcType="VARCHAR" />
+    <result column="pp9" property="pp9" jdbcType="VARCHAR" />
+    <result column="hook" property="hook" jdbcType="VARCHAR" />
+    <result column="changeQty" property="changeQty" jdbcType="DECIMAL" />
+    <result column="changePrice" property="changePrice" jdbcType="DECIMAL" />
+    <result column="contractPrice" property="contractPrice" jdbcType="DECIMAL" />
+    <result column="afterChangeQty" property="afterChangeQty" jdbcType="DECIMAL" />
+    <result column="afterChangePrice" property="afterChangePrice" jdbcType="DECIMAL" />
+    <result column="isLeaf" property="isLeaf" jdbcType="INTEGER" />
+    <result column="requestEdit" property="requestEdit" jdbcType="VARCHAR" />
+    <result column="originPriceNoTax" property="originPriceNoTax" jdbcType="DECIMAL" />
+    <result column="contractCostNoTax" property="contractCostNoTax" jdbcType="DECIMAL" />
+    <result column="taxRate" property="taxRate" jdbcType="VARCHAR" />
+    <result column="afterAmt" property="afterAmt" jdbcType="DECIMAL" />
+    <result column="afterAmtNoTax" property="afterAmtNoTax" jdbcType="DECIMAL" />
+    <result column="afterAmtTax" property="afterAmtTax" jdbcType="DECIMAL" />
+    <result column="ruleId" property="ruleId" jdbcType="VARCHAR" />
+    <result column="ruleName" property="ruleName" jdbcType="VARCHAR" />
+    <result column="gjNum" property="gjNum" jdbcType="INTEGER" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, alterId, alterType, muId, workId, 
+    originQty, originPrice, applyQty, applyPrice, applyAddQty, 
+    replyQty, replyPrice, replyAddQty, combProp, mainContractListNo, 
+    listName, unit, listNo, pp5, mainContractListId, 
+    pp7, pp8, pp9, hook, changeQty, 
+    changePrice, contractPrice, afterChangeQty, afterChangePrice, isLeaf, 
+    requestEdit, originPriceNoTax, contractCostNoTax, taxRate, afterAmt, 
+    afterAmtNoTax, afterAmtTax, ruleId, ruleName, gjNum, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cc_const_coAlterWork
+    where del_flag = '0' and id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_cc_const_coAlterWork
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCcConstCoAlterWork" >
+    insert into zx_cc_const_coAlterWork (
+    id, alterId, alterType, muId, workId, 
+    originQty, originPrice, applyQty, applyPrice, applyAddQty, 
+    replyQty, replyPrice, replyAddQty, combProp, mainContractListNo, 
+    listName, unit, listNo, pp5, mainContractListId, 
+    pp7, pp8, pp9, hook, changeQty, 
+    changePrice, contractPrice, afterChangeQty, afterChangePrice, isLeaf, 
+    requestEdit, originPriceNoTax, contractCostNoTax, taxRate, afterAmt, 
+    afterAmtNoTax, afterAmtTax, ruleId, ruleName, gjNum, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{id,jdbcType=CHAR}, #{alterId,jdbcType=VARCHAR}, #{alterType,jdbcType=VARCHAR}, #{muId,jdbcType=VARCHAR}, #{workId,jdbcType=VARCHAR}, 
+    #{originQty,jdbcType=DECIMAL}, #{originPrice,jdbcType=DECIMAL}, #{applyQty,jdbcType=DECIMAL}, #{applyPrice,jdbcType=DECIMAL}, #{applyAddQty,jdbcType=DECIMAL}, 
+    #{replyQty,jdbcType=DECIMAL}, #{replyPrice,jdbcType=DECIMAL}, #{replyAddQty,jdbcType=DECIMAL}, #{combProp,jdbcType=VARCHAR}, #{mainContractListNo,jdbcType=VARCHAR}, 
+    #{listName,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{listNo,jdbcType=VARCHAR}, #{pp5,jdbcType=VARCHAR}, #{mainContractListId,jdbcType=VARCHAR}, 
+    #{pp7,jdbcType=VARCHAR}, #{pp8,jdbcType=VARCHAR}, #{pp9,jdbcType=VARCHAR}, #{hook,jdbcType=VARCHAR}, #{changeQty,jdbcType=DECIMAL}, 
+    #{changePrice,jdbcType=DECIMAL}, #{contractPrice,jdbcType=DECIMAL}, #{afterChangeQty,jdbcType=DECIMAL}, #{afterChangePrice,jdbcType=DECIMAL}, #{isLeaf,jdbcType=INTEGER}, 
+    #{requestEdit,jdbcType=VARCHAR}, #{originPriceNoTax,jdbcType=DECIMAL}, #{contractCostNoTax,jdbcType=DECIMAL}, #{taxRate,jdbcType=VARCHAR}, #{afterAmt,jdbcType=DECIMAL}, 
+    #{afterAmtNoTax,jdbcType=DECIMAL}, #{afterAmtTax,jdbcType=DECIMAL}, #{ruleId,jdbcType=VARCHAR}, #{ruleName,jdbcType=VARCHAR}, #{gjNum,jdbcType=INTEGER}, 
+    #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+    #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCcConstCoAlterWork" >
+    insert into zx_cc_const_coAlterWork
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="alterId != null" >
+        alterId,
+      </if>
+      <if test="alterType != null" >
+        alterType,
+      </if>
+      <if test="muId != null" >
+        muId,
+      </if>
+      <if test="workId != null" >
+        workId,
+      </if>
+      <if test="originQty != null" >
+        originQty,
+      </if>
+      <if test="originPrice != null" >
+        originPrice,
+      </if>
+      <if test="applyQty != null" >
+        applyQty,
+      </if>
+      <if test="applyPrice != null" >
+        applyPrice,
+      </if>
+      <if test="applyAddQty != null" >
+        applyAddQty,
+      </if>
+      <if test="replyQty != null" >
+        replyQty,
+      </if>
+      <if test="replyPrice != null" >
+        replyPrice,
+      </if>
+      <if test="replyAddQty != null" >
+        replyAddQty,
+      </if>
+      <if test="combProp != null" >
+        combProp,
+      </if>
+      <if test="mainContractListNo != null" >
+        mainContractListNo,
+      </if>
+      <if test="listName != null" >
+        listName,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="listNo != null" >
+        listNo,
+      </if>
+      <if test="pp5 != null" >
+        pp5,
+      </if>
+      <if test="mainContractListId != null" >
+        mainContractListId,
+      </if>
+      <if test="pp7 != null" >
+        pp7,
+      </if>
+      <if test="pp8 != null" >
+        pp8,
+      </if>
+      <if test="pp9 != null" >
+        pp9,
+      </if>
+      <if test="hook != null" >
+        hook,
+      </if>
+      <if test="changeQty != null" >
+        changeQty,
+      </if>
+      <if test="changePrice != null" >
+        changePrice,
+      </if>
+      <if test="contractPrice != null" >
+        contractPrice,
+      </if>
+      <if test="afterChangeQty != null" >
+        afterChangeQty,
+      </if>
+      <if test="afterChangePrice != null" >
+        afterChangePrice,
+      </if>
+      <if test="isLeaf != null" >
+        isLeaf,
+      </if>
+      <if test="requestEdit != null" >
+        requestEdit,
+      </if>
+      <if test="originPriceNoTax != null" >
+        originPriceNoTax,
+      </if>
+      <if test="contractCostNoTax != null" >
+        contractCostNoTax,
+      </if>
+      <if test="taxRate != null" >
+        taxRate,
+      </if>
+      <if test="afterAmt != null" >
+        afterAmt,
+      </if>
+      <if test="afterAmtNoTax != null" >
+        afterAmtNoTax,
+      </if>
+      <if test="afterAmtTax != null" >
+        afterAmtTax,
+      </if>
+      <if test="ruleId != null" >
+        ruleId,
+      </if>
+      <if test="ruleName != null" >
+        ruleName,
+      </if>
+      <if test="gjNum != null" >
+        gjNum,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="alterId != null" >
+        #{alterId,jdbcType=VARCHAR},
+      </if>
+      <if test="alterType != null" >
+        #{alterType,jdbcType=VARCHAR},
+      </if>
+      <if test="muId != null" >
+        #{muId,jdbcType=VARCHAR},
+      </if>
+      <if test="workId != null" >
+        #{workId,jdbcType=VARCHAR},
+      </if>
+      <if test="originQty != null" >
+        #{originQty,jdbcType=DECIMAL},
+      </if>
+      <if test="originPrice != null" >
+        #{originPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="applyQty != null" >
+        #{applyQty,jdbcType=DECIMAL},
+      </if>
+      <if test="applyPrice != null" >
+        #{applyPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="applyAddQty != null" >
+        #{applyAddQty,jdbcType=DECIMAL},
+      </if>
+      <if test="replyQty != null" >
+        #{replyQty,jdbcType=DECIMAL},
+      </if>
+      <if test="replyPrice != null" >
+        #{replyPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="replyAddQty != null" >
+        #{replyAddQty,jdbcType=DECIMAL},
+      </if>
+      <if test="combProp != null" >
+        #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="mainContractListNo != null" >
+        #{mainContractListNo,jdbcType=VARCHAR},
+      </if>
+      <if test="listName != null" >
+        #{listName,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="listNo != null" >
+        #{listNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pp5 != null" >
+        #{pp5,jdbcType=VARCHAR},
+      </if>
+      <if test="mainContractListId != null" >
+        #{mainContractListId,jdbcType=VARCHAR},
+      </if>
+      <if test="pp7 != null" >
+        #{pp7,jdbcType=VARCHAR},
+      </if>
+      <if test="pp8 != null" >
+        #{pp8,jdbcType=VARCHAR},
+      </if>
+      <if test="pp9 != null" >
+        #{pp9,jdbcType=VARCHAR},
+      </if>
+      <if test="hook != null" >
+        #{hook,jdbcType=VARCHAR},
+      </if>
+      <if test="changeQty != null" >
+        #{changeQty,jdbcType=DECIMAL},
+      </if>
+      <if test="changePrice != null" >
+        #{changePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="contractPrice != null" >
+        #{contractPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="afterChangeQty != null" >
+        #{afterChangeQty,jdbcType=DECIMAL},
+      </if>
+      <if test="afterChangePrice != null" >
+        #{afterChangePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="isLeaf != null" >
+        #{isLeaf,jdbcType=INTEGER},
+      </if>
+      <if test="requestEdit != null" >
+        #{requestEdit,jdbcType=VARCHAR},
+      </if>
+      <if test="originPriceNoTax != null" >
+        #{originPriceNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="contractCostNoTax != null" >
+        #{contractCostNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRate != null" >
+        #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="afterAmt != null" >
+        #{afterAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="afterAmtNoTax != null" >
+        #{afterAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="afterAmtTax != null" >
+        #{afterAmtTax,jdbcType=DECIMAL},
+      </if>
+      <if test="ruleId != null" >
+        #{ruleId,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleName != null" >
+        #{ruleName,jdbcType=VARCHAR},
+      </if>
+      <if test="gjNum != null" >
+        #{gjNum,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCcConstCoAlterWork" >
+    update zx_cc_const_coAlterWork
+    <set >
+      <if test="alterId != null" >
+        alterId = #{alterId,jdbcType=VARCHAR},
+      </if>
+      <if test="alterType != null" >
+        alterType = #{alterType,jdbcType=VARCHAR},
+      </if>
+      <if test="muId != null" >
+        muId = #{muId,jdbcType=VARCHAR},
+      </if>
+      <if test="workId != null" >
+        workId = #{workId,jdbcType=VARCHAR},
+      </if>
+      <if test="originQty != null" >
+        originQty = #{originQty,jdbcType=DECIMAL},
+      </if>
+      <if test="originPrice != null" >
+        originPrice = #{originPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="applyQty != null" >
+        applyQty = #{applyQty,jdbcType=DECIMAL},
+      </if>
+      <if test="applyPrice != null" >
+        applyPrice = #{applyPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="applyAddQty != null" >
+        applyAddQty = #{applyAddQty,jdbcType=DECIMAL},
+      </if>
+      <if test="replyQty != null" >
+        replyQty = #{replyQty,jdbcType=DECIMAL},
+      </if>
+      <if test="replyPrice != null" >
+        replyPrice = #{replyPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="replyAddQty != null" >
+        replyAddQty = #{replyAddQty,jdbcType=DECIMAL},
+      </if>
+      <if test="combProp != null" >
+        combProp = #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="mainContractListNo != null" >
+        mainContractListNo = #{mainContractListNo,jdbcType=VARCHAR},
+      </if>
+      <if test="listName != null" >
+        listName = #{listName,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="listNo != null" >
+        listNo = #{listNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pp5 != null" >
+        pp5 = #{pp5,jdbcType=VARCHAR},
+      </if>
+      <if test="mainContractListId != null" >
+        mainContractListId = #{mainContractListId,jdbcType=VARCHAR},
+      </if>
+      <if test="pp7 != null" >
+        pp7 = #{pp7,jdbcType=VARCHAR},
+      </if>
+      <if test="pp8 != null" >
+        pp8 = #{pp8,jdbcType=VARCHAR},
+      </if>
+      <if test="pp9 != null" >
+        pp9 = #{pp9,jdbcType=VARCHAR},
+      </if>
+      <if test="hook != null" >
+        hook = #{hook,jdbcType=VARCHAR},
+      </if>
+      <if test="changeQty != null" >
+        changeQty = #{changeQty,jdbcType=DECIMAL},
+      </if>
+      <if test="changePrice != null" >
+        changePrice = #{changePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="contractPrice != null" >
+        contractPrice = #{contractPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="afterChangeQty != null" >
+        afterChangeQty = #{afterChangeQty,jdbcType=DECIMAL},
+      </if>
+      <if test="afterChangePrice != null" >
+        afterChangePrice = #{afterChangePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="isLeaf != null" >
+        isLeaf = #{isLeaf,jdbcType=INTEGER},
+      </if>
+      <if test="requestEdit != null" >
+        requestEdit = #{requestEdit,jdbcType=VARCHAR},
+      </if>
+      <if test="originPriceNoTax != null" >
+        originPriceNoTax = #{originPriceNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="contractCostNoTax != null" >
+        contractCostNoTax = #{contractCostNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRate != null" >
+        taxRate = #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="afterAmt != null" >
+        afterAmt = #{afterAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="afterAmtNoTax != null" >
+        afterAmtNoTax = #{afterAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="afterAmtTax != null" >
+        afterAmtTax = #{afterAmtTax,jdbcType=DECIMAL},
+      </if>
+      <if test="ruleId != null" >
+        ruleId = #{ruleId,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleName != null" >
+        ruleName = #{ruleName,jdbcType=VARCHAR},
+      </if>
+      <if test="gjNum != null" >
+        gjNum = #{gjNum,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCcConstCoAlterWork" >
+    update zx_cc_const_coAlterWork set 
+      alterId = #{alterId,jdbcType=VARCHAR},
+      alterType = #{alterType,jdbcType=VARCHAR},
+      muId = #{muId,jdbcType=VARCHAR},
+      workId = #{workId,jdbcType=VARCHAR},
+      originQty = #{originQty,jdbcType=DECIMAL},
+      originPrice = #{originPrice,jdbcType=DECIMAL},
+      applyQty = #{applyQty,jdbcType=DECIMAL},
+      applyPrice = #{applyPrice,jdbcType=DECIMAL},
+      applyAddQty = #{applyAddQty,jdbcType=DECIMAL},
+      replyQty = #{replyQty,jdbcType=DECIMAL},
+      replyPrice = #{replyPrice,jdbcType=DECIMAL},
+      replyAddQty = #{replyAddQty,jdbcType=DECIMAL},
+      combProp = #{combProp,jdbcType=VARCHAR},
+      mainContractListNo = #{mainContractListNo,jdbcType=VARCHAR},
+      listName = #{listName,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      listNo = #{listNo,jdbcType=VARCHAR},
+      pp5 = #{pp5,jdbcType=VARCHAR},
+      mainContractListId = #{mainContractListId,jdbcType=VARCHAR},
+      pp7 = #{pp7,jdbcType=VARCHAR},
+      pp8 = #{pp8,jdbcType=VARCHAR},
+      pp9 = #{pp9,jdbcType=VARCHAR},
+      hook = #{hook,jdbcType=VARCHAR},
+      changeQty = #{changeQty,jdbcType=DECIMAL},
+      changePrice = #{changePrice,jdbcType=DECIMAL},
+      contractPrice = #{contractPrice,jdbcType=DECIMAL},
+      afterChangeQty = #{afterChangeQty,jdbcType=DECIMAL},
+      afterChangePrice = #{afterChangePrice,jdbcType=DECIMAL},
+      isLeaf = #{isLeaf,jdbcType=INTEGER},
+      requestEdit = #{requestEdit,jdbcType=VARCHAR},
+      originPriceNoTax = #{originPriceNoTax,jdbcType=DECIMAL},
+      contractCostNoTax = #{contractCostNoTax,jdbcType=DECIMAL},
+      taxRate = #{taxRate,jdbcType=VARCHAR},
+      afterAmt = #{afterAmt,jdbcType=DECIMAL},
+      afterAmtNoTax = #{afterAmtNoTax,jdbcType=DECIMAL},
+      afterAmtTax = #{afterAmtTax,jdbcType=DECIMAL},
+      ruleId = #{ruleId,jdbcType=VARCHAR},
+      ruleName = #{ruleName,jdbcType=VARCHAR},
+      gjNum = #{gjNum,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxCcConstCoAlterWorkList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCcConstCoAlterWork" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cc_const_coAlterWork
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=CHAR}
+    </if>
+    <if test="alterId != null and alterId != ''" >
+     and alterId = #{alterId,jdbcType=VARCHAR}
+    </if>
+    <if test="alterType != null and alterType != ''" >
+     and alterType = #{alterType,jdbcType=VARCHAR}
+    </if>
+    <if test="muId != null and muId != ''" >
+     and muId = #{muId,jdbcType=VARCHAR}
+    </if>
+    <if test="workId != null and workId != ''" >
+     and workId = #{workId,jdbcType=VARCHAR}
+    </if>
+    <if test="originQty != null and originQty != ''" >
+     and originQty = #{originQty,jdbcType=DECIMAL}
+    </if>
+    <if test="originPrice != null and originPrice != ''" >
+     and originPrice = #{originPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="applyQty != null and applyQty != ''" >
+     and applyQty = #{applyQty,jdbcType=DECIMAL}
+    </if>
+    <if test="applyPrice != null and applyPrice != ''" >
+     and applyPrice = #{applyPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="applyAddQty != null and applyAddQty != ''" >
+     and applyAddQty = #{applyAddQty,jdbcType=DECIMAL}
+    </if>
+    <if test="replyQty != null and replyQty != ''" >
+     and replyQty = #{replyQty,jdbcType=DECIMAL}
+    </if>
+    <if test="replyPrice != null and replyPrice != ''" >
+     and replyPrice = #{replyPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="replyAddQty != null and replyAddQty != ''" >
+     and replyAddQty = #{replyAddQty,jdbcType=DECIMAL}
+    </if>
+    <if test="combProp != null and combProp != ''" >
+     and combProp = #{combProp,jdbcType=VARCHAR}
+    </if>
+    <if test="mainContractListNo != null and mainContractListNo != ''" >
+     and mainContractListNo = #{mainContractListNo,jdbcType=VARCHAR}
+    </if>
+    <if test="listName != null and listName != ''" >
+     and listName = #{listName,jdbcType=VARCHAR}
+    </if>
+    <if test="unit != null and unit != ''" >
+     and unit = #{unit,jdbcType=VARCHAR}
+    </if>
+    <if test="listNo != null and listNo != ''" >
+     and listNo = #{listNo,jdbcType=VARCHAR}
+    </if>
+    <if test="pp5 != null and pp5 != ''" >
+     and pp5 = #{pp5,jdbcType=VARCHAR}
+    </if>
+    <if test="mainContractListId != null and mainContractListId != ''" >
+     and mainContractListId = #{mainContractListId,jdbcType=VARCHAR}
+    </if>
+    <if test="pp7 != null and pp7 != ''" >
+     and pp7 = #{pp7,jdbcType=VARCHAR}
+    </if>
+    <if test="pp8 != null and pp8 != ''" >
+     and pp8 = #{pp8,jdbcType=VARCHAR}
+    </if>
+    <if test="pp9 != null and pp9 != ''" >
+     and pp9 = #{pp9,jdbcType=VARCHAR}
+    </if>
+    <if test="hook != null and hook != ''" >
+     and hook = #{hook,jdbcType=VARCHAR}
+    </if>
+    <if test="changeQty != null and changeQty != ''" >
+     and changeQty = #{changeQty,jdbcType=DECIMAL}
+    </if>
+    <if test="changePrice != null and changePrice != ''" >
+     and changePrice = #{changePrice,jdbcType=DECIMAL}
+    </if>
+    <if test="contractPrice != null and contractPrice != ''" >
+     and contractPrice = #{contractPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="afterChangeQty != null and afterChangeQty != ''" >
+     and afterChangeQty = #{afterChangeQty,jdbcType=DECIMAL}
+    </if>
+    <if test="afterChangePrice != null and afterChangePrice != ''" >
+     and afterChangePrice = #{afterChangePrice,jdbcType=DECIMAL}
+    </if>
+    <if test="isLeaf != null and isLeaf != ''" >
+     and isLeaf = #{isLeaf,jdbcType=INTEGER}
+    </if>
+    <if test="requestEdit != null and requestEdit != ''" >
+     and requestEdit = #{requestEdit,jdbcType=VARCHAR}
+    </if>
+    <if test="originPriceNoTax != null and originPriceNoTax != ''" >
+     and originPriceNoTax = #{originPriceNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="contractCostNoTax != null and contractCostNoTax != ''" >
+     and contractCostNoTax = #{contractCostNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="taxRate != null and taxRate != ''" >
+     and taxRate = #{taxRate,jdbcType=VARCHAR}
+    </if>
+    <if test="afterAmt != null and afterAmt != ''" >
+     and afterAmt = #{afterAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="afterAmtNoTax != null and afterAmtNoTax != ''" >
+     and afterAmtNoTax = #{afterAmtNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="afterAmtTax != null and afterAmtTax != ''" >
+     and afterAmtTax = #{afterAmtTax,jdbcType=DECIMAL}
+    </if>
+    <if test="ruleId != null and ruleId != ''" >
+     and ruleId = #{ruleId,jdbcType=VARCHAR}
+    </if>
+    <if test="ruleName != null and ruleName != ''" >
+     and ruleName = #{ruleName,jdbcType=VARCHAR}
+    </if>
+    <if test="gjNum != null and gjNum != ''" >
+     and gjNum = #{gjNum,jdbcType=INTEGER}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxCcConstCoAlterWork" parameterType="com.apih5.mybatis.pojo.ZxCcConstCoAlterWork" >
+    <![CDATA[ 
+        update zx_cc_const_coAlterWork
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

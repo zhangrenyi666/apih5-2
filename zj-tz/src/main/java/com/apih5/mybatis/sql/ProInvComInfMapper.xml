@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ProInvComInfMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ProInvComInf" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="pro_com_name" property="proComName" jdbcType="VARCHAR" />
+    <result column="zczj" property="zczj" jdbcType="DECIMAL" />
+    <result column="register_area" property="registerArea" jdbcType="CHAR" />
+    <result column="fddbr" property="fddbr" jdbcType="VARCHAR" />
+    <result column="register_date" property="registerDate" jdbcType="TIMESTAMP" />
+    <result column="com_zjl" property="comZjl" jdbcType="VARCHAR" />
+    <result column="zjl_tel" property="zjlTel" jdbcType="VARCHAR" />
+    <result column="com_cwfzr" property="comCwfzr" jdbcType="VARCHAR" />
+    <result column="cw_tel" property="cwTel" jdbcType="VARCHAR" />
+    <result column="szgq" property="szgq" jdbcType="DECIMAL" />
+    <result column="gldw" property="gldw" jdbcType="VARCHAR" />
+    <result column="yyzz" property="yyzz" jdbcType="VARCHAR" />
+    <result column="gszc" property="gszc" jdbcType="VARCHAR" />
+    <result column="create_by" property="createBy" jdbcType="CHAR" />
+    <result column="create_org" property="createOrg" jdbcType="CHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="CHAR" />
+    <result column="update_org" property="updateOrg" jdbcType="CHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="inv_pro_id" property="invProId" jdbcType="CHAR" />
+    <result column="xmmc" property="xmmc" jdbcType="CHAR" />
+    <result column="wfgddbmc" property="wfgddbmc" jdbcType="VARCHAR" />
+    <result column="zgjjszgq" property="zgjjszgq" jdbcType="DECIMAL" />
+    <result column="yyzzh" property="yyzzh" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, pro_com_name, zczj, register_area, fddbr, 
+    register_date, com_zjl, zjl_tel, com_cwfzr, cw_tel, 
+    szgq, gldw, yyzz, gszc, create_by, 
+    create_org, create_date, update_by, update_org, update_date, 
+    remarks, del_flag, inv_pro_id, xmmc, wfgddbmc, 
+    zgjjszgq, yyzzh
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from del_flag = '0' and pro_inv_com_inf
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from pro_inv_com_inf
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ProInvComInf" >
+    insert into pro_inv_com_inf (id, pro_com_name, zczj, 
+      register_area, fddbr, register_date, 
+      com_zjl, zjl_tel, com_cwfzr, 
+      cw_tel, szgq, gldw, 
+      yyzz, gszc, create_by, 
+      create_org, create_date, update_by, 
+      update_org, update_date, remarks, 
+      del_flag, inv_pro_id, xmmc, 
+      wfgddbmc, zgjjszgq, yyzzh
+      )
+    values (#{id,jdbcType=CHAR}, #{proComName,jdbcType=VARCHAR}, #{zczj,jdbcType=DECIMAL}, 
+      #{registerArea,jdbcType=CHAR}, #{fddbr,jdbcType=VARCHAR}, #{registerDate,jdbcType=TIMESTAMP}, 
+      #{comZjl,jdbcType=VARCHAR}, #{zjlTel,jdbcType=VARCHAR}, #{comCwfzr,jdbcType=VARCHAR}, 
+      #{cwTel,jdbcType=VARCHAR}, #{szgq,jdbcType=DECIMAL}, #{gldw,jdbcType=VARCHAR}, 
+      #{yyzz,jdbcType=VARCHAR}, #{gszc,jdbcType=VARCHAR}, #{createBy,jdbcType=CHAR}, 
+      #{createOrg,jdbcType=CHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=CHAR}, 
+      #{updateOrg,jdbcType=CHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{invProId,jdbcType=CHAR}, #{xmmc,jdbcType=CHAR}, 
+      #{wfgddbmc,jdbcType=VARCHAR}, #{zgjjszgq,jdbcType=DECIMAL}, #{yyzzh,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ProInvComInf" >
+    insert into pro_inv_com_inf
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="proComName != null" >
+        pro_com_name,
+      </if>
+      <if test="zczj != null" >
+        zczj,
+      </if>
+      <if test="registerArea != null" >
+        register_area,
+      </if>
+      <if test="fddbr != null" >
+        fddbr,
+      </if>
+      <if test="registerDate != null" >
+        register_date,
+      </if>
+      <if test="comZjl != null" >
+        com_zjl,
+      </if>
+      <if test="zjlTel != null" >
+        zjl_tel,
+      </if>
+      <if test="comCwfzr != null" >
+        com_cwfzr,
+      </if>
+      <if test="cwTel != null" >
+        cw_tel,
+      </if>
+      <if test="szgq != null" >
+        szgq,
+      </if>
+      <if test="gldw != null" >
+        gldw,
+      </if>
+      <if test="yyzz != null" >
+        yyzz,
+      </if>
+      <if test="gszc != null" >
+        gszc,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createOrg != null" >
+        create_org,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateOrg != null" >
+        update_org,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="invProId != null" >
+        inv_pro_id,
+      </if>
+      <if test="xmmc != null" >
+        xmmc,
+      </if>
+      <if test="wfgddbmc != null" >
+        wfgddbmc,
+      </if>
+      <if test="zgjjszgq != null" >
+        zgjjszgq,
+      </if>
+      <if test="yyzzh != null" >
+        yyzzh,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="proComName != null" >
+        #{proComName,jdbcType=VARCHAR},
+      </if>
+      <if test="zczj != null" >
+        #{zczj,jdbcType=DECIMAL},
+      </if>
+      <if test="registerArea != null" >
+        #{registerArea,jdbcType=CHAR},
+      </if>
+      <if test="fddbr != null" >
+        #{fddbr,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null" >
+        #{registerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comZjl != null" >
+        #{comZjl,jdbcType=VARCHAR},
+      </if>
+      <if test="zjlTel != null" >
+        #{zjlTel,jdbcType=VARCHAR},
+      </if>
+      <if test="comCwfzr != null" >
+        #{comCwfzr,jdbcType=VARCHAR},
+      </if>
+      <if test="cwTel != null" >
+        #{cwTel,jdbcType=VARCHAR},
+      </if>
+      <if test="szgq != null" >
+        #{szgq,jdbcType=DECIMAL},
+      </if>
+      <if test="gldw != null" >
+        #{gldw,jdbcType=VARCHAR},
+      </if>
+      <if test="yyzz != null" >
+        #{yyzz,jdbcType=VARCHAR},
+      </if>
+      <if test="gszc != null" >
+        #{gszc,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=CHAR},
+      </if>
+      <if test="createOrg != null" >
+        #{createOrg,jdbcType=CHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=CHAR},
+      </if>
+      <if test="updateOrg != null" >
+        #{updateOrg,jdbcType=CHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="invProId != null" >
+        #{invProId,jdbcType=CHAR},
+      </if>
+      <if test="xmmc != null" >
+        #{xmmc,jdbcType=CHAR},
+      </if>
+      <if test="wfgddbmc != null" >
+        #{wfgddbmc,jdbcType=VARCHAR},
+      </if>
+      <if test="zgjjszgq != null" >
+        #{zgjjszgq,jdbcType=DECIMAL},
+      </if>
+      <if test="yyzzh != null" >
+        #{yyzzh,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ProInvComInf" >
+    update pro_inv_com_inf
+    <set >
+      <if test="proComName != null" >
+        pro_com_name = #{proComName,jdbcType=VARCHAR},
+      </if>
+      <if test="zczj != null" >
+        zczj = #{zczj,jdbcType=DECIMAL},
+      </if>
+      <if test="registerArea != null" >
+        register_area = #{registerArea,jdbcType=CHAR},
+      </if>
+      <if test="fddbr != null" >
+        fddbr = #{fddbr,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null" >
+        register_date = #{registerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comZjl != null" >
+        com_zjl = #{comZjl,jdbcType=VARCHAR},
+      </if>
+      <if test="zjlTel != null" >
+        zjl_tel = #{zjlTel,jdbcType=VARCHAR},
+      </if>
+      <if test="comCwfzr != null" >
+        com_cwfzr = #{comCwfzr,jdbcType=VARCHAR},
+      </if>
+      <if test="cwTel != null" >
+        cw_tel = #{cwTel,jdbcType=VARCHAR},
+      </if>
+      <if test="szgq != null" >
+        szgq = #{szgq,jdbcType=DECIMAL},
+      </if>
+      <if test="gldw != null" >
+        gldw = #{gldw,jdbcType=VARCHAR},
+      </if>
+      <if test="yyzz != null" >
+        yyzz = #{yyzz,jdbcType=VARCHAR},
+      </if>
+      <if test="gszc != null" >
+        gszc = #{gszc,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=CHAR},
+      </if>
+      <if test="createOrg != null" >
+        create_org = #{createOrg,jdbcType=CHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=CHAR},
+      </if>
+      <if test="updateOrg != null" >
+        update_org = #{updateOrg,jdbcType=CHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="invProId != null" >
+        inv_pro_id = #{invProId,jdbcType=CHAR},
+      </if>
+      <if test="xmmc != null" >
+        xmmc = #{xmmc,jdbcType=CHAR},
+      </if>
+      <if test="wfgddbmc != null" >
+        wfgddbmc = #{wfgddbmc,jdbcType=VARCHAR},
+      </if>
+      <if test="zgjjszgq != null" >
+        zgjjszgq = #{zgjjszgq,jdbcType=DECIMAL},
+      </if>
+      <if test="yyzzh != null" >
+        yyzzh = #{yyzzh,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ProInvComInf" >
+    update pro_inv_com_inf
+    set       pro_com_name = #{proComName,jdbcType=VARCHAR},
+      zczj = #{zczj,jdbcType=DECIMAL},
+      register_area = #{registerArea,jdbcType=CHAR},
+      fddbr = #{fddbr,jdbcType=VARCHAR},
+      register_date = #{registerDate,jdbcType=TIMESTAMP},
+      com_zjl = #{comZjl,jdbcType=VARCHAR},
+      zjl_tel = #{zjlTel,jdbcType=VARCHAR},
+      com_cwfzr = #{comCwfzr,jdbcType=VARCHAR},
+      cw_tel = #{cwTel,jdbcType=VARCHAR},
+      szgq = #{szgq,jdbcType=DECIMAL},
+      gldw = #{gldw,jdbcType=VARCHAR},
+      yyzz = #{yyzz,jdbcType=VARCHAR},
+      gszc = #{gszc,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=CHAR},
+      create_org = #{createOrg,jdbcType=CHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=CHAR},
+      update_org = #{updateOrg,jdbcType=CHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      inv_pro_id = #{invProId,jdbcType=CHAR},
+      xmmc = #{xmmc,jdbcType=CHAR},
+      wfgddbmc = #{wfgddbmc,jdbcType=VARCHAR},
+      zgjjszgq = #{zgjjszgq,jdbcType=DECIMAL},
+      yyzzh = #{yyzzh,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByProInvComInfList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ProInvComInf" >
+    select 
+    <include refid="Base_Column_List" />,
+    (SELECT  d.label  lab FROM sys_dict  d inner join  sys_dict_category c  on d.category_id = c.id  and  c.del_flag = '0' where  d.del_flag = '0'  and  c.category_code = 'TA'  AND d.value=register_area) AS company3
+    from pro_inv_com_inf
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=}
+    </if>
+    <if test="proComName != null and proComName != ''" >
+     and pro_com_name = #{proComName,jdbcType=VARCHAR}
+    </if>
+    <if test="zczj != null and zczj != ''" >
+     and zczj = #{zczj,jdbcType=DECIMAL}
+    </if>
+    <if test="registerArea != null and registerArea != ''" >
+     and register_area = #{registerArea,jdbcType=CHAR}
+    </if>
+    <if test="fddbr != null and fddbr != ''" >
+     and fddbr = #{fddbr,jdbcType=VARCHAR}
+    </if>
+    <if test="registerDate != null and registerDate != ''" >
+     and register_date = #{registerDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="comZjl != null and comZjl != ''" >
+     and com_zjl = #{comZjl,jdbcType=VARCHAR}
+    </if>
+    <if test="zjlTel != null and zjlTel != ''" >
+     and zjl_tel = #{zjlTel,jdbcType=VARCHAR}
+    </if>
+    <if test="comCwfzr != null and comCwfzr != ''" >
+     and com_cwfzr = #{comCwfzr,jdbcType=VARCHAR}
+    </if>
+    <if test="cwTel != null and cwTel != ''" >
+     and cw_tel = #{cwTel,jdbcType=VARCHAR}
+    </if>
+    <if test="szgq != null and szgq != ''" >
+     and szgq = #{szgq,jdbcType=DECIMAL}
+    </if>
+    <if test="gldw != null and gldw != ''" >
+     and gldw = #{gldw,jdbcType=VARCHAR}
+    </if>
+    <if test="yyzz != null and yyzz != ''" >
+     and yyzz = #{yyzz,jdbcType=VARCHAR}
+    </if>
+    <if test="gszc != null and gszc != ''" >
+     and gszc = #{gszc,jdbcType=VARCHAR}
+    </if>
+    <if test="createBy != null and createBy != ''" >
+     and create_by = #{createBy,jdbcType=CHAR}
+    </if>
+    <if test="createOrg != null and createOrg != ''" >
+     and create_org = #{createOrg,jdbcType=CHAR}
+    </if>
+    <if test="createDate != null and createDate != ''" >
+     and create_date = #{createDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updateBy != null and updateBy != ''" >
+     and update_by = #{updateBy,jdbcType=CHAR}
+    </if>
+    <if test="updateOrg != null and updateOrg != ''" >
+     and update_org = #{updateOrg,jdbcType=CHAR}
+    </if>
+    <if test="updateDate != null and updateDate != ''" >
+     and update_date = #{updateDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="invProId != null and invProId != ''" >
+     and inv_pro_id = #{invProId,jdbcType=CHAR}
+    </if>
+    <if test="xmmc != null and xmmc != ''" >
+     and xmmc = #{xmmc,jdbcType=CHAR}
+    </if>
+    <if test="wfgddbmc != null and wfgddbmc != ''" >
+     and wfgddbmc = #{wfgddbmc,jdbcType=VARCHAR}
+    </if>
+    <if test="zgjjszgq != null and zgjjszgq != ''" >
+     and zgjjszgq = #{zgjjszgq,jdbcType=DECIMAL}
+    </if>
+    <if test="yyzzh != null and yyzzh != ''" >
+     and yyzzh = #{yyzzh,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <delete id="batchDeleteUpdateProInvComInf" parameterType="com.apih5.mybatis.pojo.ProInvComInf" >
+    <![CDATA[ 
+        update pro_inv_com_inf
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

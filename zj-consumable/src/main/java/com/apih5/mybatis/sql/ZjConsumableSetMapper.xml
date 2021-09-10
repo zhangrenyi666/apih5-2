@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjConsumableSetMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjConsumableSet" >
+    <id column="set_id" property="setId" jdbcType="CHAR" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="colour" property="colour" jdbcType="VARCHAR" />
+    <result column="use_state" property="useState" jdbcType="CHAR" />
+    <result column="code_pid" property="codePid" jdbcType="CHAR" />
+    <result column="type_flag" property="typeFlag" jdbcType="CHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    set_id, category, brand, model, colour, 
+    use_state, code_pid, type_flag, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_consumable_set
+    where set_id = #{setId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_consumable_set
+    where set_id = #{setId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjConsumableSet" >
+    insert into zj_consumable_set (set_id, category, brand, 
+      model, colour, use_state, 
+      code_pid, type_flag, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{setId,jdbcType=CHAR}, #{category,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, 
+      #{model,jdbcType=VARCHAR}, #{colour,jdbcType=VARCHAR}, #{useState,jdbcType=CHAR}, 
+      #{codePid,jdbcType=CHAR}, #{typeFlag,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjConsumableSet" >
+    insert into zj_consumable_set
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="setId != null" >
+        set_id,
+      </if>
+      <if test="category != null" >
+        category,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="colour != null" >
+        colour,
+      </if>
+      <if test="useState != null" >
+        use_state,
+      </if>
+      <if test="codePid != null" >
+        code_pid,
+      </if>
+      <if test="typeFlag != null" >
+        type_flag,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="setId != null" >
+        #{setId,jdbcType=CHAR},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="colour != null" >
+        #{colour,jdbcType=VARCHAR},
+      </if>
+      <if test="useState != null" >
+        #{useState,jdbcType=CHAR},
+      </if>
+      <if test="codePid != null" >
+        #{codePid,jdbcType=CHAR},
+      </if>
+      <if test="typeFlag != null" >
+        #{typeFlag,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjConsumableSet" >
+    update zj_consumable_set
+    <set >
+      <if test="category != null" >
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="colour != null" >
+        colour = #{colour,jdbcType=VARCHAR},
+      </if>
+      <if test="useState != null" >
+        use_state = #{useState,jdbcType=CHAR},
+      </if>
+      <if test="codePid != null" >
+        code_pid = #{codePid,jdbcType=CHAR},
+      </if>
+      <if test="typeFlag != null" >
+        type_flag = #{typeFlag,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where set_id = #{setId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjConsumableSet" >
+    update zj_consumable_set
+    set       category = #{category,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      colour = #{colour,jdbcType=VARCHAR},
+      use_state = #{useState,jdbcType=CHAR},
+      code_pid = #{codePid,jdbcType=CHAR},
+      type_flag = #{typeFlag,jdbcType=CHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where set_id = #{setId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjConsumableSetList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjConsumableSet" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_consumable_set
+    where del_flag = '0'
+    <if test="setId != null and setId != ''" >
+     and set_id = #{setId,jdbcType=}
+    </if>
+    <if test="category != null and category != ''" >
+     and category LIKE CONCAT('%', #{category},'%')
+    </if>
+    <if test="brand != null and brand != ''" >
+     and brand LIKE CONCAT('%', #{brand},'%')
+    </if>
+    <if test="model != null and model != ''" >
+     and model LIKE CONCAT('%', #{model},'%')
+    </if>
+    <if test="colour != null and colour != ''" >
+     and colour LIKE CONCAT('%', #{colour},'%')
+    </if>
+    <if test="useState != null and useState != ''" >
+     and use_state = #{useState,jdbcType=CHAR}
+    </if>
+    <if test="codePid != null and codePid != ''" >
+     and code_pid = #{codePid,jdbcType=CHAR}
+    </if>
+    <if test="typeFlag != null and typeFlag != ''" >
+     and type_flag = #{typeFlag,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="categoryEq != null and categoryEq != ''" >
+     and category = #{categoryEq}
+    </if>
+    <if test="brandEq != null and brandEq != ''" >
+     and brand = #{brandEq}
+    </if>
+    <if test="modelEq != null and modelEq != ''" >
+     and model = #{modelEq}
+    </if>
+    <if test="colourEq != null and colourEq != ''" >
+     and colour = #{colourEq}
+    </if>    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjConsumableSet" parameterType="com.apih5.mybatis.pojo.ZjConsumableSet" >
+    <![CDATA[ 
+        update zj_consumable_set
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and set_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.setId} 
+     </foreach>
+  </delete>
+</mapper>

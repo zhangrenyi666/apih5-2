@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxBuYgjLiveStandardMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxBuYgjLiveStandard" >
+    <id column="zx_bu_ygjLiveStandard_id" property="zxBuYgjLiveStandardId" jdbcType="CHAR" />
+    <result column="parentID" property="parentID" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="projType" property="projType" jdbcType="VARCHAR" />
+    <result column="treeCode" property="treeCode" jdbcType="VARCHAR" />
+    <result column="leaf" property="leaf" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="nodeType" property="nodeType" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="count" property="count" jdbcType="DECIMAL" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
+    <result column="activity" property="activity" jdbcType="INTEGER" />
+    <result column="activityDate" property="activityDate" jdbcType="TIMESTAMP" />
+    <result column="pp1" property="pp1" jdbcType="VARCHAR" />
+    <result column="pp2" property="pp2" jdbcType="VARCHAR" />
+    <result column="pp3" property="pp3" jdbcType="VARCHAR" />
+    <result column="pp4" property="pp4" jdbcType="VARCHAR" />
+    <result column="pp5" property="pp5" jdbcType="VARCHAR" />
+    <result column="pp6" property="pp6" jdbcType="VARCHAR" />
+    <result column="pp7" property="pp7" jdbcType="VARCHAR" />
+    <result column="pp8" property="pp8" jdbcType="VARCHAR" />
+    <result column="pp9" property="pp9" jdbcType="VARCHAR" />
+    <result column="pp10" property="pp10" jdbcType="VARCHAR" />
+    <result column="priceTax" property="priceTax" jdbcType="DECIMAL" />
+    <result column="moneyTax" property="moneyTax" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zx_bu_ygjLiveStandard_id, parentID, orgID, projType, treeCode, 
+    leaf, name, nodeType, unit, count, 
+    price, money, activity, activityDate, pp1,
+    pp2, pp3, pp4, pp5, pp6, 
+    pp7, pp8, pp9, pp10, priceTax, 
+    moneyTax, remarks, sort, del_flag, create_time,
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_bu_ygjLiveStandard
+    where del_flag = '0' and zx_bu_ygjLiveStandard_id = #{zxBuYgjLiveStandardId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_bu_ygjLiveStandard
+    where zx_bu_ygjLiveStandard_id = #{zxBuYgjLiveStandardId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxBuYgjLiveStandard" >
+    insert into zx_bu_ygjLiveStandard (
+    zx_bu_ygjLiveStandard_id, parentID, orgID, projType, treeCode, 
+    leaf, name, nodeType, unit, count, 
+    price, money, activity, activityDate, pp1, 
+    pp2, pp3, pp4, pp5, pp6, 
+    pp7, pp8, pp9, pp10, priceTax, 
+    moneyTax, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxBuYgjLiveStandardId,jdbcType=CHAR}, #{parentID,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, #{projType,jdbcType=VARCHAR}, #{treeCode,jdbcType=VARCHAR}, 
+    #{leaf,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{nodeType,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{count,jdbcType=DECIMAL}, 
+    #{price,jdbcType=DECIMAL}, #{money,jdbcType=DECIMAL}, #{activity,jdbcType=INTEGER}, #{activityDate,jdbcType=TIMESTAMP}, #{pp1,jdbcType=VARCHAR}, 
+    #{pp2,jdbcType=VARCHAR}, #{pp3,jdbcType=VARCHAR}, #{pp4,jdbcType=VARCHAR}, #{pp5,jdbcType=VARCHAR}, #{pp6,jdbcType=VARCHAR}, 
+    #{pp7,jdbcType=VARCHAR}, #{pp8,jdbcType=VARCHAR}, #{pp9,jdbcType=VARCHAR}, #{pp10,jdbcType=VARCHAR}, #{priceTax,jdbcType=DECIMAL}, 
+    #{moneyTax,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+    #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxBuYgjLiveStandard" >
+    insert into zx_bu_ygjLiveStandard
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxBuYgjLiveStandardId != null" >
+        zx_bu_ygjLiveStandard_id,
+      </if>
+      <if test="parentID != null" >
+        parentID,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="projType != null" >
+        projType,
+      </if>
+      <if test="treeCode != null" >
+        treeCode,
+      </if>
+      <if test="leaf != null" >
+        leaf,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="nodeType != null" >
+        nodeType,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="count != null" >
+        count,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="activity != null" >
+        activity,
+      </if>
+      <if test="activityDate != null" >
+        activityDate,
+      </if>
+      <if test="pp1 != null" >
+        pp1,
+      </if>
+      <if test="pp2 != null" >
+        pp2,
+      </if>
+      <if test="pp3 != null" >
+        pp3,
+      </if>
+      <if test="pp4 != null" >
+        pp4,
+      </if>
+      <if test="pp5 != null" >
+        pp5,
+      </if>
+      <if test="pp6 != null" >
+        pp6,
+      </if>
+      <if test="pp7 != null" >
+        pp7,
+      </if>
+      <if test="pp8 != null" >
+        pp8,
+      </if>
+      <if test="pp9 != null" >
+        pp9,
+      </if>
+      <if test="pp10 != null" >
+        pp10,
+      </if>
+      <if test="priceTax != null" >
+        priceTax,
+      </if>
+      <if test="moneyTax != null" >
+        moneyTax,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxBuYgjLiveStandardId != null" >
+        #{zxBuYgjLiveStandardId,jdbcType=CHAR},
+      </if>
+      <if test="parentID != null" >
+        #{parentID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="projType != null" >
+        #{projType,jdbcType=VARCHAR},
+      </if>
+      <if test="treeCode != null" >
+        #{treeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="leaf != null" >
+        #{leaf,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeType != null" >
+        #{nodeType,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null" >
+        #{count,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="activity != null" >
+        #{activity,jdbcType=INTEGER},
+      </if>
+      <if test="activityDate != null" >
+        #{activityDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pp1 != null" >
+        #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2 != null" >
+        #{pp2,jdbcType=VARCHAR},
+      </if>
+      <if test="pp3 != null" >
+        #{pp3,jdbcType=VARCHAR},
+      </if>
+      <if test="pp4 != null" >
+        #{pp4,jdbcType=VARCHAR},
+      </if>
+      <if test="pp5 != null" >
+        #{pp5,jdbcType=VARCHAR},
+      </if>
+      <if test="pp6 != null" >
+        #{pp6,jdbcType=VARCHAR},
+      </if>
+      <if test="pp7 != null" >
+        #{pp7,jdbcType=VARCHAR},
+      </if>
+      <if test="pp8 != null" >
+        #{pp8,jdbcType=VARCHAR},
+      </if>
+      <if test="pp9 != null" >
+        #{pp9,jdbcType=VARCHAR},
+      </if>
+      <if test="pp10 != null" >
+        #{pp10,jdbcType=VARCHAR},
+      </if>
+      <if test="priceTax != null" >
+        #{priceTax,jdbcType=DECIMAL},
+      </if>
+      <if test="moneyTax != null" >
+        #{moneyTax,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxBuYgjLiveStandard" >
+    update zx_bu_ygjLiveStandard
+    <set >
+      <if test="parentID != null" >
+        parentID = #{parentID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="projType != null" >
+        projType = #{projType,jdbcType=VARCHAR},
+      </if>
+      <if test="treeCode != null" >
+        treeCode = #{treeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="leaf != null" >
+        leaf = #{leaf,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeType != null" >
+        nodeType = #{nodeType,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null" >
+        count = #{count,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="activity != null" >
+        activity = #{activity,jdbcType=INTEGER},
+      </if>
+      <if test="activityDate != null" >
+        activityDate = #{activityDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pp1 != null" >
+        pp1 = #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2 != null" >
+        pp2 = #{pp2,jdbcType=VARCHAR},
+      </if>
+      <if test="pp3 != null" >
+        pp3 = #{pp3,jdbcType=VARCHAR},
+      </if>
+      <if test="pp4 != null" >
+        pp4 = #{pp4,jdbcType=VARCHAR},
+      </if>
+      <if test="pp5 != null" >
+        pp5 = #{pp5,jdbcType=VARCHAR},
+      </if>
+      <if test="pp6 != null" >
+        pp6 = #{pp6,jdbcType=VARCHAR},
+      </if>
+      <if test="pp7 != null" >
+        pp7 = #{pp7,jdbcType=VARCHAR},
+      </if>
+      <if test="pp8 != null" >
+        pp8 = #{pp8,jdbcType=VARCHAR},
+      </if>
+      <if test="pp9 != null" >
+        pp9 = #{pp9,jdbcType=VARCHAR},
+      </if>
+      <if test="pp10 != null" >
+        pp10 = #{pp10,jdbcType=VARCHAR},
+      </if>
+      <if test="priceTax != null" >
+        priceTax = #{priceTax,jdbcType=DECIMAL},
+      </if>
+      <if test="moneyTax != null" >
+        moneyTax = #{moneyTax,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zx_bu_ygjLiveStandard_id = #{zxBuYgjLiveStandardId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxBuYgjLiveStandard" >
+    update zx_bu_ygjLiveStandard set 
+      parentID = #{parentID,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      projType = #{projType,jdbcType=VARCHAR},
+      treeCode = #{treeCode,jdbcType=VARCHAR},
+      leaf = #{leaf,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      nodeType = #{nodeType,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      count = #{count,jdbcType=DECIMAL},
+      price = #{price,jdbcType=DECIMAL},
+      money = #{money,jdbcType=DECIMAL},
+      activity = #{activity,jdbcType=INTEGER},
+      activityDate = #{activityDate,jdbcType=TIMESTAMP},
+      pp1 = #{pp1,jdbcType=VARCHAR},
+      pp2 = #{pp2,jdbcType=VARCHAR},
+      pp3 = #{pp3,jdbcType=VARCHAR},
+      pp4 = #{pp4,jdbcType=VARCHAR},
+      pp5 = #{pp5,jdbcType=VARCHAR},
+      pp6 = #{pp6,jdbcType=VARCHAR},
+      pp7 = #{pp7,jdbcType=VARCHAR},
+      pp8 = #{pp8,jdbcType=VARCHAR},
+      pp9 = #{pp9,jdbcType=VARCHAR},
+      pp10 = #{pp10,jdbcType=VARCHAR},
+      priceTax = #{priceTax,jdbcType=DECIMAL},
+      moneyTax = #{moneyTax,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zx_bu_ygjLiveStandard_id = #{zxBuYgjLiveStandardId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxBuYgjLiveStandardList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxBuYgjLiveStandard" >
+    select
+    <include refid="Base_Column_List" />
+    from zx_bu_ygjLiveStandard
+    where del_flag = '0'
+    <if test="zxBuYgjLiveStandardId != null and zxBuYgjLiveStandardId != ''" >
+     and zx_bu_ygjLiveStandard_id = #{zxBuYgjLiveStandardId,jdbcType=CHAR}
+    </if>
+    <if test="parentID != null and parentID != ''" >
+     and parentID = #{parentID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="projType != null and projType != ''" >
+     and projType = #{projType,jdbcType=VARCHAR}
+    </if>
+    <if test="treeCode != null and treeCode != ''" >
+     and treeCode = #{treeCode,jdbcType=VARCHAR}
+    </if>
+    <if test="leaf != null and leaf != ''" >
+     and leaf = #{leaf,jdbcType=INTEGER}
+    </if>
+    <if test="name != null and name != ''" >
+     and name = #{name,jdbcType=VARCHAR}
+    </if>
+    <if test="nodeType != null and nodeType != ''" >
+     and nodeType = #{nodeType,jdbcType=VARCHAR}
+    </if>
+    <if test="unit != null and unit != ''" >
+     and unit = #{unit,jdbcType=VARCHAR}
+    </if>
+    <if test="count != null and count != ''" >
+     and count = #{count,jdbcType=DECIMAL}
+    </if>
+    <if test="price != null and price != ''" >
+     and price = #{price,jdbcType=DECIMAL}
+    </if>
+    <if test="money != null and money != ''" >
+     and money = #{money,jdbcType=DECIMAL}
+    </if>
+    <if test="activity != null and activity != ''" >
+     and activity = #{activity,jdbcType=INTEGER}
+    </if>
+    <if test="activityDate != null and activityDate != ''" >
+     and activityDate = #{activityDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="pp1 != null and pp1 != ''" >
+     and pp1 = #{pp1,jdbcType=VARCHAR}
+    </if>
+    <if test="pp2 != null and pp2 != ''" >
+     and pp2 = #{pp2,jdbcType=VARCHAR}
+    </if>
+    <if test="pp3 != null and pp3 != ''" >
+     and pp3 = #{pp3,jdbcType=VARCHAR}
+    </if>
+    <if test="pp4 != null and pp4 != ''" >
+     and pp4 = #{pp4,jdbcType=VARCHAR}
+    </if>
+    <if test="pp5 != null and pp5 != ''" >
+     and pp5 = #{pp5,jdbcType=VARCHAR}
+    </if>
+    <if test="pp6 != null and pp6 != ''" >
+     and pp6 = #{pp6,jdbcType=VARCHAR}
+    </if>
+    <if test="pp7 != null and pp7 != ''" >
+     and pp7 = #{pp7,jdbcType=VARCHAR}
+    </if>
+    <if test="pp8 != null and pp8 != ''" >
+     and pp8 = #{pp8,jdbcType=VARCHAR}
+    </if>
+    <if test="pp9 != null and pp9 != ''" >
+     and pp9 = #{pp9,jdbcType=VARCHAR}
+    </if>
+    <if test="pp10 != null and pp10 != ''" >
+     and pp10 = #{pp10,jdbcType=VARCHAR}
+    </if>
+    <if test="priceTax != null and priceTax != ''" >
+     and priceTax = #{priceTax,jdbcType=DECIMAL}
+    </if>
+    <if test="moneyTax != null and moneyTax != ''" >
+     and moneyTax = #{moneyTax,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY treeCode ASC
+  </select>
+  <delete id="batchDeleteUpdateZxBuYgjLiveStandard" parameterType="com.apih5.mybatis.pojo.ZxBuYgjLiveStandard" >
+    <![CDATA[ 
+        update zx_bu_ygjLiveStandard
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zx_bu_ygjLiveStandard_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxBuYgjLiveStandardId} 
+     </foreach>
+  </delete>
+
+  <select id="selectByZxBuYgjLiveStandardListData" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxBuYgjLiveStandard">
+      SELECT
+	zx_bu_ygjLiveStandard_id,
+	parentID,
+	orgID,
+	projType,
+	treeCode,
+	leaf,
+	NAME,
+	nodeType,
+	unit,
+	count,
+	price,
+	( CASE WHEN treeCode = '0000' THEN (select sum(count * price) from zx_bu_ygjLiveStandard where del_flag = '0' AND leaf = 1 AND activity = 1 AND projType =#{projType})ELSE money END ) AS money,
+	activity,
+	activityDate,
+	pp1,
+	pp2,
+	pp3,
+	pp4,
+	pp5,
+	pp6,
+	pp7,
+	pp8,
+	pp9,
+	pp10,
+	priceTax,
+	( CASE WHEN treeCode = '0000' THEN (select sum(count * priceTax) from zx_bu_ygjLiveStandard where del_flag = '0' AND leaf = 1 AND activity = 1 AND projType = #{projType}) ELSE moneyTax END ) AS moneyTax,
+	remarks,
+	sort,
+	del_flag,
+	create_time,
+	create_user,
+	create_user_name,
+	modify_time,
+	modify_user,
+	modify_user_name
+FROM
+	(
+	(
+SELECT
+	zx_bu_ygjLiveStandard.zx_bu_ygjLiveStandard_id,
+	zx_bu_ygjLiveStandard.parentID,
+	zx_bu_ygjLiveStandard.orgID,
+	zx_bu_ygjLiveStandard.projType,
+	zx_bu_ygjLiveStandard.treeCode,
+	zx_bu_ygjLiveStandard.leaf,
+	zx_bu_ygjLiveStandard.NAME,
+	zx_bu_ygjLiveStandard.nodeType,
+	zx_bu_ygjLiveStandard.unit,
+	zx_bu_ygjLiveStandard.count,
+	zx_bu_ygjLiveStandard.price,
+	sum( leafData.money ) AS money,
+	zx_bu_ygjLiveStandard.activity,
+	zx_bu_ygjLiveStandard.activityDate,
+	zx_bu_ygjLiveStandard.pp1,
+	zx_bu_ygjLiveStandard.pp2,
+	zx_bu_ygjLiveStandard.pp3,
+	zx_bu_ygjLiveStandard.pp4,
+	zx_bu_ygjLiveStandard.pp5,
+	zx_bu_ygjLiveStandard.pp6,
+	zx_bu_ygjLiveStandard.pp7,
+	zx_bu_ygjLiveStandard.pp8,
+	zx_bu_ygjLiveStandard.pp9,
+	zx_bu_ygjLiveStandard.pp10,
+	zx_bu_ygjLiveStandard.priceTax,
+	sum( leafData.moneyTax ) AS moneyTax,
+	zx_bu_ygjLiveStandard.remarks,
+	zx_bu_ygjLiveStandard.sort,
+	zx_bu_ygjLiveStandard.del_flag,
+	zx_bu_ygjLiveStandard.create_time,
+	zx_bu_ygjLiveStandard.create_user,
+	zx_bu_ygjLiveStandard.create_user_name,
+	zx_bu_ygjLiveStandard.modify_time,
+	zx_bu_ygjLiveStandard.modify_user,
+	zx_bu_ygjLiveStandard.modify_user_name
+FROM
+	zx_bu_ygjLiveStandard
+	LEFT JOIN (
+SELECT
+	zx_bu_ygjLiveStandard_id,
+	parentID,
+	orgID,
+	projType,
+	treeCode,
+	leaf,
+	NAME,
+	nodeType,
+	unit,
+	count,
+	price,
+	count * price AS money,
+	activity,
+	activityDate,
+	pp1,
+	pp2,
+	pp3,
+	pp4,
+	pp5,
+	pp6,
+	pp7,
+	pp8,
+	pp9,
+	pp10,
+	priceTax,
+	count * priceTax AS moneyTax,
+	remarks,
+	sort,
+	del_flag,
+	create_time,
+	create_user,
+	create_user_name,
+	modify_time,
+	modify_user,
+	modify_user_name
+FROM
+	zx_bu_ygjLiveStandard
+WHERE
+	del_flag = '0'
+    <if test="zxBuYgjLiveStandardId != null and zxBuYgjLiveStandardId != ''" >
+      and treeCode
+      LIKE
+      CONCAT((select treeCode from zx_bu_ygjLiveStandard where
+      del_flag = '0'
+      and zx_bu_ygjLiveStandard_id = #{zxBuYgjLiveStandardId,jdbcType=CHAR}
+      ), '%')
+    </if>
+	AND leaf = 1
+	AND projType = #{projType}
+	AND activity = 1
+	) AS leafData ON leafData.treeCode LIKE CONCAT( zx_bu_ygjLiveStandard.treeCode, '%' )
+WHERE
+	zx_bu_ygjLiveStandard.del_flag = '0'
+    <if test="zxBuYgjLiveStandardId != null and zxBuYgjLiveStandardId != ''" >
+	and zx_bu_ygjLiveStandard.treeCode
+	LIKE
+          CONCAT((select treeCode from zx_bu_ygjLiveStandard where
+          del_flag = '0'
+      and zx_bu_ygjLiveStandard_id = #{zxBuYgjLiveStandardId,jdbcType=CHAR}
+    ), '%')
+    </if>
+	AND zx_bu_ygjLiveStandard.leaf = 0
+	AND zx_bu_ygjLiveStandard.projType = #{projType}
+  GROUP BY
+	zx_bu_ygjLiveStandard.treeCode
+	)
+    UNION
+	(
+	SELECT
+		zx_bu_ygjLiveStandard_id,
+		parentID,
+		orgID,
+		projType,
+		treeCode,
+		leaf,
+		NAME,
+		nodeType,
+		unit,
+		count,
+		price,
+		count * price AS money,
+		activity,
+		activityDate,
+		pp1,
+		pp2,
+		pp3,
+		pp4,
+		pp5,
+		pp6,
+		pp7,
+		pp8,
+		pp9,
+		pp10,
+		priceTax,
+		count * priceTax AS moneyTax,
+		remarks,
+		sort,
+		del_flag,
+		create_time,
+		create_user,
+		create_user_name,
+		modify_time,
+		modify_user,
+		modify_user_name
+	FROM
+		zx_bu_ygjLiveStandard
+	WHERE
+		del_flag = '0'
+        <if test="zxBuYgjLiveStandardId != null and zxBuYgjLiveStandardId != ''" >
+          and treeCode
+          LIKE
+          CONCAT((select treeCode from zx_bu_ygjLiveStandard where
+          del_flag = '0'
+          and zx_bu_ygjLiveStandard_id = #{zxBuYgjLiveStandardId,jdbcType=CHAR}
+          ), '%')
+        </if>
+		AND leaf = 1
+		AND projType = #{projType}
+	)
+	) AS dataAll
+	GROUP BY
+	  treeCode
+    ORDER BY
+      treeCode
+  </select>
+
+  <update id="updateZxBuYgjLiveStandard" parameterType="com.apih5.mybatis.pojo.ZxBuYgjLiveStandard" >
+    update zx_bu_ygjLiveStandard set
+      leaf = #{leaf,jdbcType=INTEGER},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zx_bu_ygjLiveStandard_id = #{zxBuYgjLiveStandardId,jdbcType=CHAR}
+  </update>
+</mapper>

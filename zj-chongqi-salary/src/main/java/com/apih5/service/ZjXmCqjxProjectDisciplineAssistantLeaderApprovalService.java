@@ -1,0 +1,20 @@
+package com.apih5.service;
+
+import java.util.List;
+import com.apih5.framework.entity.ResponseEntity;
+import com.apih5.mybatis.pojo.ZjXmCqjxProjectDisciplineAssistantLeaderApproval;
+
+public interface ZjXmCqjxProjectDisciplineAssistantLeaderApprovalService {
+
+    public ResponseEntity getZjXmCqjxProjectDisciplineAssistantLeaderApprovalListByCondition(ZjXmCqjxProjectDisciplineAssistantLeaderApproval zjXmCqjxProjectDisciplineAssistantLeaderApproval);
+
+    public ResponseEntity getZjXmCqjxProjectDisciplineAssistantLeaderApprovalDetails(ZjXmCqjxProjectDisciplineAssistantLeaderApproval zjXmCqjxProjectDisciplineAssistantLeaderApproval);
+
+    public ResponseEntity saveZjXmCqjxProjectDisciplineAssistantLeaderApproval(ZjXmCqjxProjectDisciplineAssistantLeaderApproval zjXmCqjxProjectDisciplineAssistantLeaderApproval);
+
+    public ResponseEntity updateZjXmCqjxProjectDisciplineAssistantLeaderApproval(ZjXmCqjxProjectDisciplineAssistantLeaderApproval zjXmCqjxProjectDisciplineAssistantLeaderApproval);
+
+    public ResponseEntity batchDeleteUpdateZjXmCqjxProjectDisciplineAssistantLeaderApproval(List<ZjXmCqjxProjectDisciplineAssistantLeaderApproval> zjXmCqjxProjectDisciplineAssistantLeaderApprovalList);
+
+}
+

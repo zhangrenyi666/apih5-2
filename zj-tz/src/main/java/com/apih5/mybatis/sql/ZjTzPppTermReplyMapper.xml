@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzPppTermReplyMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzPppTermReply" >
+    <id column="ppp_term_reply_id" property="pppTermReplyId" jdbcType="CHAR" />
+    <result column="ppp_term_id" property="pppTermId" jdbcType="CHAR" />
+    <result column="ppp_term_base_id" property="pppTermBaseId" jdbcType="CHAR" />
+    <result column="code_pid" property="codePid" jdbcType="CHAR" />
+    <result column="analysis_key" property="analysisKey" jdbcType="VARCHAR" />
+    <result column="key_term" property="keyTerm" jdbcType="VARCHAR" />
+    <result column="key_analysis_content" property="keyAnalysisContent" jdbcType="VARCHAR" />
+    <result column="number_content" property="numberContent" jdbcType="VARCHAR" />
+    <result column="term" property="term" jdbcType="VARCHAR" />
+    <result column="risk_flag" property="riskFlag" jdbcType="CHAR" />
+    <result column="measure" property="measure" jdbcType="VARCHAR" />
+    <result column="negotiate_flag" property="negotiateFlag" jdbcType="CHAR" />
+    <result column="dept_and_leader" property="deptAndLeader" jdbcType="VARCHAR" />
+    <result column="implement" property="implement" jdbcType="VARCHAR" />
+    <result column="order_flag" property="orderFlag" jdbcType="INTEGER" />
+    <result column="change_flag1" property="changeFlag1" jdbcType="CHAR" />
+    <result column="change_flag2" property="changeFlag2" jdbcType="CHAR" />
+    <result column="change_flag3" property="changeFlag3" jdbcType="CHAR" />
+    <result column="change_flag4" property="changeFlag4" jdbcType="CHAR" />
+    <result column="change_flag5" property="changeFlag5" jdbcType="CHAR" />
+    <result column="change_flag6" property="changeFlag6" jdbcType="CHAR" />
+    <result column="change_flag7" property="changeFlag7" jdbcType="CHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ppp_term_reply_id, ppp_term_id, ppp_term_base_id, code_pid, analysis_key, 
+    key_term, key_analysis_content, number_content, term, risk_flag, 
+    measure, negotiate_flag, dept_and_leader, implement, order_flag, 
+    change_flag1, change_flag2, change_flag3, change_flag4, change_flag5, 
+    change_flag6, change_flag7, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_ppp_term_reply
+    where ppp_term_reply_id = #{pppTermReplyId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_ppp_term_reply
+    where ppp_term_reply_id = #{pppTermReplyId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzPppTermReply" >
+    insert into zj_tz_ppp_term_reply (ppp_term_reply_id, ppp_term_id, ppp_term_base_id, 
+      code_pid, analysis_key, key_term, 
+      key_analysis_content, number_content, term, 
+      risk_flag, measure, negotiate_flag, 
+      dept_and_leader, implement, order_flag, 
+      change_flag1, change_flag2, change_flag3, 
+      change_flag4, change_flag5, change_flag6, 
+      change_flag7, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{pppTermReplyId,jdbcType=CHAR}, #{pppTermId,jdbcType=CHAR}, #{pppTermBaseId,jdbcType=CHAR}, 
+      #{codePid,jdbcType=CHAR}, #{analysisKey,jdbcType=VARCHAR}, #{keyTerm,jdbcType=VARCHAR}, 
+      #{keyAnalysisContent,jdbcType=VARCHAR}, #{numberContent,jdbcType=VARCHAR}, #{term,jdbcType=VARCHAR}, 
+      #{riskFlag,jdbcType=CHAR}, #{measure,jdbcType=VARCHAR}, #{negotiateFlag,jdbcType=CHAR}, 
+      #{deptAndLeader,jdbcType=VARCHAR}, #{implement,jdbcType=VARCHAR}, #{orderFlag,jdbcType=INTEGER}, 
+      #{changeFlag1,jdbcType=CHAR}, #{changeFlag2,jdbcType=CHAR}, #{changeFlag3,jdbcType=CHAR}, 
+      #{changeFlag4,jdbcType=CHAR}, #{changeFlag5,jdbcType=CHAR}, #{changeFlag6,jdbcType=CHAR}, 
+      #{changeFlag7,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzPppTermReply" >
+    insert into zj_tz_ppp_term_reply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pppTermReplyId != null" >
+        ppp_term_reply_id,
+      </if>
+      <if test="pppTermId != null" >
+        ppp_term_id,
+      </if>
+      <if test="pppTermBaseId != null" >
+        ppp_term_base_id,
+      </if>
+      <if test="codePid != null" >
+        code_pid,
+      </if>
+      <if test="analysisKey != null" >
+        analysis_key,
+      </if>
+      <if test="keyTerm != null" >
+        key_term,
+      </if>
+      <if test="keyAnalysisContent != null" >
+        key_analysis_content,
+      </if>
+      <if test="numberContent != null" >
+        number_content,
+      </if>
+      <if test="term != null" >
+        term,
+      </if>
+      <if test="riskFlag != null" >
+        risk_flag,
+      </if>
+      <if test="measure != null" >
+        measure,
+      </if>
+      <if test="negotiateFlag != null" >
+        negotiate_flag,
+      </if>
+      <if test="deptAndLeader != null" >
+        dept_and_leader,
+      </if>
+      <if test="implement != null" >
+        implement,
+      </if>
+      <if test="orderFlag != null" >
+        order_flag,
+      </if>
+      <if test="changeFlag1 != null" >
+        change_flag1,
+      </if>
+      <if test="changeFlag2 != null" >
+        change_flag2,
+      </if>
+      <if test="changeFlag3 != null" >
+        change_flag3,
+      </if>
+      <if test="changeFlag4 != null" >
+        change_flag4,
+      </if>
+      <if test="changeFlag5 != null" >
+        change_flag5,
+      </if>
+      <if test="changeFlag6 != null" >
+        change_flag6,
+      </if>
+      <if test="changeFlag7 != null" >
+        change_flag7,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pppTermReplyId != null" >
+        #{pppTermReplyId,jdbcType=CHAR},
+      </if>
+      <if test="pppTermId != null" >
+        #{pppTermId,jdbcType=CHAR},
+      </if>
+      <if test="pppTermBaseId != null" >
+        #{pppTermBaseId,jdbcType=CHAR},
+      </if>
+      <if test="codePid != null" >
+        #{codePid,jdbcType=CHAR},
+      </if>
+      <if test="analysisKey != null" >
+        #{analysisKey,jdbcType=VARCHAR},
+      </if>
+      <if test="keyTerm != null" >
+        #{keyTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="keyAnalysisContent != null" >
+        #{keyAnalysisContent,jdbcType=VARCHAR},
+      </if>
+      <if test="numberContent != null" >
+        #{numberContent,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null" >
+        #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="riskFlag != null" >
+        #{riskFlag,jdbcType=CHAR},
+      </if>
+      <if test="measure != null" >
+        #{measure,jdbcType=VARCHAR},
+      </if>
+      <if test="negotiateFlag != null" >
+        #{negotiateFlag,jdbcType=CHAR},
+      </if>
+      <if test="deptAndLeader != null" >
+        #{deptAndLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="implement != null" >
+        #{implement,jdbcType=VARCHAR},
+      </if>
+      <if test="orderFlag != null" >
+        #{orderFlag,jdbcType=INTEGER},
+      </if>
+      <if test="changeFlag1 != null" >
+        #{changeFlag1,jdbcType=CHAR},
+      </if>
+      <if test="changeFlag2 != null" >
+        #{changeFlag2,jdbcType=CHAR},
+      </if>
+      <if test="changeFlag3 != null" >
+        #{changeFlag3,jdbcType=CHAR},
+      </if>
+      <if test="changeFlag4 != null" >
+        #{changeFlag4,jdbcType=CHAR},
+      </if>
+      <if test="changeFlag5 != null" >
+        #{changeFlag5,jdbcType=CHAR},
+      </if>
+      <if test="changeFlag6 != null" >
+        #{changeFlag6,jdbcType=CHAR},
+      </if>
+      <if test="changeFlag7 != null" >
+        #{changeFlag7,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzPppTermReply" >
+    update zj_tz_ppp_term_reply
+    <set >
+      <if test="pppTermId != null" >
+        ppp_term_id = #{pppTermId,jdbcType=CHAR},
+      </if>
+      <if test="pppTermBaseId != null" >
+        ppp_term_base_id = #{pppTermBaseId,jdbcType=CHAR},
+      </if>
+      <if test="codePid != null" >
+        code_pid = #{codePid,jdbcType=CHAR},
+      </if>
+      <if test="analysisKey != null" >
+        analysis_key = #{analysisKey,jdbcType=VARCHAR},
+      </if>
+      <if test="keyTerm != null" >
+        key_term = #{keyTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="keyAnalysisContent != null" >
+        key_analysis_content = #{keyAnalysisContent,jdbcType=VARCHAR},
+      </if>
+      <if test="numberContent != null" >
+        number_content = #{numberContent,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null" >
+        term = #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="riskFlag != null" >
+        risk_flag = #{riskFlag,jdbcType=CHAR},
+      </if>
+      <if test="measure != null" >
+        measure = #{measure,jdbcType=VARCHAR},
+      </if>
+      <if test="negotiateFlag != null" >
+        negotiate_flag = #{negotiateFlag,jdbcType=CHAR},
+      </if>
+      <if test="deptAndLeader != null" >
+        dept_and_leader = #{deptAndLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="implement != null" >
+        implement = #{implement,jdbcType=VARCHAR},
+      </if>
+      <if test="orderFlag != null" >
+        order_flag = #{orderFlag,jdbcType=INTEGER},
+      </if>
+      <if test="changeFlag1 != null" >
+        change_flag1 = #{changeFlag1,jdbcType=CHAR},
+      </if>
+      <if test="changeFlag2 != null" >
+        change_flag2 = #{changeFlag2,jdbcType=CHAR},
+      </if>
+      <if test="changeFlag3 != null" >
+        change_flag3 = #{changeFlag3,jdbcType=CHAR},
+      </if>
+      <if test="changeFlag4 != null" >
+        change_flag4 = #{changeFlag4,jdbcType=CHAR},
+      </if>
+      <if test="changeFlag5 != null" >
+        change_flag5 = #{changeFlag5,jdbcType=CHAR},
+      </if>
+      <if test="changeFlag6 != null" >
+        change_flag6 = #{changeFlag6,jdbcType=CHAR},
+      </if>
+      <if test="changeFlag7 != null" >
+        change_flag7 = #{changeFlag7,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ppp_term_reply_id = #{pppTermReplyId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzPppTermReply" >
+    update zj_tz_ppp_term_reply
+    set       ppp_term_id = #{pppTermId,jdbcType=CHAR},
+      ppp_term_base_id = #{pppTermBaseId,jdbcType=CHAR},
+      code_pid = #{codePid,jdbcType=CHAR},
+      analysis_key = #{analysisKey,jdbcType=VARCHAR},
+      key_term = #{keyTerm,jdbcType=VARCHAR},
+      key_analysis_content = #{keyAnalysisContent,jdbcType=VARCHAR},
+      number_content = #{numberContent,jdbcType=VARCHAR},
+      term = #{term,jdbcType=VARCHAR},
+      risk_flag = #{riskFlag,jdbcType=CHAR},
+      measure = #{measure,jdbcType=VARCHAR},
+      negotiate_flag = #{negotiateFlag,jdbcType=CHAR},
+      dept_and_leader = #{deptAndLeader,jdbcType=VARCHAR},
+      implement = #{implement,jdbcType=VARCHAR},
+      order_flag = #{orderFlag,jdbcType=INTEGER},
+      change_flag1 = #{changeFlag1,jdbcType=CHAR},
+      change_flag2 = #{changeFlag2,jdbcType=CHAR},
+      change_flag3 = #{changeFlag3,jdbcType=CHAR},
+      change_flag4 = #{changeFlag4,jdbcType=CHAR},
+      change_flag5 = #{changeFlag5,jdbcType=CHAR},
+      change_flag6 = #{changeFlag6,jdbcType=CHAR},
+      change_flag7 = #{changeFlag7,jdbcType=CHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where ppp_term_reply_id = #{pppTermReplyId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzPppTermReplyList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzPppTermReply" >
+    select 
+    <include refid="Base_Column_List" />,
+    (SELECT issue_name FROM zj_tz_ppp_term  AS t WHERE t.del_flag = '0' AND t.ppp_term_id = t1.ppp_term_id) AS issueName
+    from zj_tz_ppp_term_reply AS t1
+    where del_flag = '0'
+    <if test="pppTermId != null and pppTermId != ''" >
+     and ppp_term_id = #{pppTermId,jdbcType=CHAR}
+    </if>
+    <if test="pppTermBaseId != null and pppTermBaseId != ''" >
+     and ppp_term_base_id = #{pppTermBaseId,jdbcType=CHAR}
+    </if>
+    <if test="codePid != null and codePid != ''" >
+     and code_pid = #{codePid,jdbcType=CHAR}
+    </if>
+    <if test="analysisKey != null and analysisKey != ''" >
+     and analysis_key = #{analysisKey,jdbcType=VARCHAR}
+    </if>
+    <if test="keyTerm != null and keyTerm != ''" >
+     and key_term = #{keyTerm,jdbcType=VARCHAR}
+    </if>
+    <if test="keyAnalysisContent != null and keyAnalysisContent != ''" >
+     and key_analysis_content = #{keyAnalysisContent,jdbcType=VARCHAR}
+    </if>
+    <if test="numberContent != null and numberContent != ''" >
+     and number_content = #{numberContent,jdbcType=VARCHAR}
+    </if>
+    <if test="term != null and term != ''" >
+     and term = #{term,jdbcType=VARCHAR}
+    </if>
+    <if test="riskFlag != null and riskFlag != ''" >
+     and risk_flag = #{riskFlag,jdbcType=CHAR}
+    </if>
+    <if test="measure != null and measure != ''" >
+     and measure = #{measure,jdbcType=VARCHAR}
+    </if>
+    <if test="negotiateFlag != null and negotiateFlag != ''" >
+     and negotiate_flag = #{negotiateFlag,jdbcType=CHAR}
+    </if>
+    <if test="deptAndLeader != null and deptAndLeader != ''" >
+     and dept_and_leader = #{deptAndLeader,jdbcType=VARCHAR}
+    </if>
+    <if test="implement != null and implement != ''" >
+     and implement = #{implement,jdbcType=VARCHAR}
+    </if>
+    <if test="orderFlag != null and orderFlag != ''" >
+     and order_flag = #{orderFlag,jdbcType=INTEGER}
+    </if>
+    <if test="changeFlag1 != null and changeFlag1 != ''" >
+     and change_flag1 = #{changeFlag1,jdbcType=CHAR}
+    </if>
+    <if test="changeFlag2 != null and changeFlag2 != ''" >
+     and change_flag2 = #{changeFlag2,jdbcType=CHAR}
+    </if>
+    <if test="changeFlag3 != null and changeFlag3 != ''" >
+     and change_flag3 = #{changeFlag3,jdbcType=CHAR}
+    </if>
+    <if test="changeFlag4 != null and changeFlag4 != ''" >
+     and change_flag4 = #{changeFlag4,jdbcType=CHAR}
+    </if>
+    <if test="changeFlag5 != null and changeFlag5 != ''" >
+     and change_flag5 = #{changeFlag5,jdbcType=CHAR}
+    </if>
+    <if test="changeFlag6 != null and changeFlag6 != ''" >
+     and change_flag6 = #{changeFlag6,jdbcType=CHAR}
+    </if>
+    <if test="changeFlag7 != null and changeFlag7 != ''" >
+     and change_flag7 = #{changeFlag7,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="groupByFlagCodePid != null and groupByFlagCodePid != ''" >
+     GROUP BY code_pid
+    </if>
+    ORDER BY order_flag ASC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzPppTermReply" parameterType="com.apih5.mybatis.pojo.ZjTzPppTermReply" >
+    <![CDATA[ 
+        update zj_tz_ppp_term_reply
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and ppp_term_reply_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.pppTermReplyId} 
+     </foreach>
+  </delete>
+  
+    <select id="selectByZjTzPppTermReplyListDelFlag" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzPppTermReply" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_ppp_term_reply
+    where del_flag = '1'
+    <if test="pppTermId != null and pppTermId != ''" >
+     and ppp_term_id = #{pppTermId,jdbcType=CHAR}
+    </if>
+    <if test="pppTermBaseId != null and pppTermBaseId != ''" >
+     and ppp_term_base_id = #{pppTermBaseId,jdbcType=CHAR}
+    </if>
+    <if test="codePid != null and codePid != ''" >
+     and code_pid = #{codePid,jdbcType=CHAR}
+    </if>
+    <if test="analysisKey != null and analysisKey != ''" >
+     and analysis_key = #{analysisKey,jdbcType=VARCHAR}
+    </if>
+    <if test="keyTerm != null and keyTerm != ''" >
+     and key_term = #{keyTerm,jdbcType=VARCHAR}
+    </if>
+    <if test="keyAnalysisContent != null and keyAnalysisContent != ''" >
+     and key_analysis_content = #{keyAnalysisContent,jdbcType=VARCHAR}
+    </if>
+    <if test="numberContent != null and numberContent != ''" >
+     and number_content = #{numberContent,jdbcType=VARCHAR}
+    </if>
+    <if test="term != null and term != ''" >
+     and term = #{term,jdbcType=VARCHAR}
+    </if>
+    <if test="riskFlag != null and riskFlag != ''" >
+     and risk_flag = #{riskFlag,jdbcType=CHAR}
+    </if>
+    <if test="measure != null and measure != ''" >
+     and measure = #{measure,jdbcType=VARCHAR}
+    </if>
+    <if test="negotiateFlag != null and negotiateFlag != ''" >
+     and negotiate_flag = #{negotiateFlag,jdbcType=CHAR}
+    </if>
+    <if test="deptAndLeader != null and deptAndLeader != ''" >
+     and dept_and_leader = #{deptAndLeader,jdbcType=VARCHAR}
+    </if>
+    <if test="implement != null and implement != ''" >
+     and implement = #{implement,jdbcType=VARCHAR}
+    </if>
+    <if test="orderFlag != null and orderFlag != ''" >
+     and order_flag = #{orderFlag,jdbcType=INTEGER}
+    </if>
+    <if test="changeFlag1 != null and changeFlag1 != ''" >
+     and change_flag1 = #{changeFlag1,jdbcType=CHAR}
+    </if>
+    <if test="changeFlag2 != null and changeFlag2 != ''" >
+     and change_flag2 = #{changeFlag2,jdbcType=CHAR}
+    </if>
+    <if test="changeFlag3 != null and changeFlag3 != ''" >
+     and change_flag3 = #{changeFlag3,jdbcType=CHAR}
+    </if>
+    <if test="changeFlag4 != null and changeFlag4 != ''" >
+     and change_flag4 = #{changeFlag4,jdbcType=CHAR}
+    </if>
+    <if test="changeFlag5 != null and changeFlag5 != ''" >
+     and change_flag5 = #{changeFlag5,jdbcType=CHAR}
+    </if>
+    <if test="changeFlag6 != null and changeFlag6 != ''" >
+     and change_flag6 = #{changeFlag6,jdbcType=CHAR}
+    </if>
+    <if test="changeFlag7 != null and changeFlag7 != ''" >
+     and change_flag7 = #{changeFlag7,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+</mapper>

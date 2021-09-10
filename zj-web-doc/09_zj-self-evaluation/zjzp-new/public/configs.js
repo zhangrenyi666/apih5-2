@@ -1,0 +1,327 @@
+window.configs = {
+    dev: false,
+    debugConsole: false,
+    canChangeLanguage: true,
+    // 当前语言  "en_US", // en_US | zh_CN(默认)
+    language: function () {
+        var locd = localStorage.getItem('zt17_app_lw_language') || '{}';
+        return JSON.parse(locd).d || "zh_CN";
+    }(),
+    // domain: "http://weixin.fheb.cn:99/apiWoa/",
+    domain: "http://test.apih5.com:9092/web/",
+    // domain: "http://uat.bjzxkj.com:99/apiZt17lw/",
+    // domain: "http://uat.bjzxkj.com:99/lqjtlw/",
+    bugDomain: "http://wt.bjzxkj.com/apiWt/addZxWtQuestionByWeb",
+    //pc端页面地址 只有在微信里面打开移动端页面时候才会跳转
+    // pcPageUrl: "http://oa.bjzxkj.com:88/buildPc/",
+    pcPageUrl: "http://192.168.3.3:99/build/",
+    //是否开启登录 验证码 默认true
+    loginFormIncVerCode: false,
+    appInfo: {
+        // logo: "https://img.ivsky.com/img/tupian/pre/201909/27/bairicao-003.jpg",
+        // id: "zj_sj_jb_ht",
+        //zj_fwh_woa_zl_id
+        id: "zj_xiamengs_renzi",
+        // id: "zj_qyh_woa_zp_id",
+        // id: "zj_qyh_tz_id",
+        // id: "zj_xiamengs_renzi",
+        // id:'zt12_qyh_suopei',
+        // id: "zx_qyh_woa", //zj_qyh_woa_id
+        // id: "zj_qyh_woa_id",
+        // id: "sxdeh_qyh_app_id",
+        // id: "zx_qyh_woa",
+        // title: "框架测试",
+        //正常网站标题和网页中左上角标题(leftTopTitle不存在时)
+        title: "自评系统",
+        titleUS: "framework testing",
+        //pc网页中左上角标题
+        // leftTopTitle: [{
+        //     text: "新版框架测试",
+        //     style: { textAlign: "center",fontSize: "18px",color: "#262626" }
+        // },
+        // {
+        //     text: "架子超长标题换行示例",
+        //     style: { textAlign: "center",fontSize: "12px",color: "#262626" }
+        // }],
+        // leftTopTitleUS: [
+        //     {
+        //         text: "framework testing",
+        //         style: { textAlign: "center",fontSize: "18px",color: "#262626" }
+        //     },
+        //     {
+        //         text: "line breaks for overlong titles on shelves",
+        //         style: { textAlign: "center",fontSize: "12px",color: "#262626" }
+        //     }
+        // ],
+        copyright: "@xxx\u516C\u53F8",
+        copyrightUS: "@xxxcompany",
+        name: "",
+        //code登录方式 给后台的 loginType token错误或者网址为携带code将跳转到提示页面
+        // webCodeLoginType:"6",
+        webCodeLoginType: "",
+        loginType: "1",
+        // 1:普通账号密码；2：手机验证码快捷登录；3/32:企业号授权（也可以在app登录）；4:服务号授权；5、扫码登录  6、app登录  31、会弹出授权窗口的授权
+        mainModule: "/zjzp/",
+        // mainModule: "/zjtz/",
+        helpHref: ""
+    },
+    //百度编辑器cdn地址 默认就是 下面 地址
+    // ueCdn: "http://cdn.apih5.com/lib/react-ueditor/vendor/ueditor/",
+    // ueCdn:"http://localhost:8000/",
+    //登录页面轮播背景配置 配置后注意文件夹/src/view/login/img下是否存在对应的图片
+    //地址也可以直接引用http://xxx || https://xxx
+    loginPageConfig: {
+        bgImgUrl: ["img1.png","img2.png"],
+        //背景图片
+        rowText: ["xxx有限公司","xxxx系统"],
+        //文字描述 一项即一行
+        rowTextUS: ["xxxlimited company","xxxxsystem"] //文字描述 一项即一行
+
+    },
+    //是否可以切换项目 默认true
+    canChangeProject: false,
+    storage: {
+        timeout: 7 * 24 * 60 * 60 * 1000
+    },
+    wxSdk: {
+        enabled: true,
+        debug: false,
+        jsApiList: ["downloadVoice","downloadImage","startRecord","stopRecord","uploadVoice","playVoice","stopVoice","translateVoice","chooseImage","uploadImage","closeWindow","getLocation","openLocation","onVoiceRecordEnd","openDefaultBrowser"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+
+    },
+    apis: {
+        "openFlowHas": "openFlow?hasFlag=1",
+        // 已办流程需要加上这个参数
+        "openFlowHas": "openFlow?hasFlag=1",
+        // 已办流程需要加上这个参数
+
+        /* ----- ↓↓↓  通用接口开始 ↓↓↓ --------*/
+        login: "user/login",
+        //非加密登录
+        // login: "user/login?WEBFlag=Ab25DB", //加密登录
+        editPwd: "user/updateUserPwd",
+        //改密
+        resetPwd: "user/updateUserDefaultPwd",
+        //强制个人重置密码接口
+        resetUserPwd: "user/resetUserPwd",
+        //重置密码 
+        refreshAccessToken: "user/refreshAccessToken",
+        //刷新token 
+        upload: "upload",
+        //上传接口
+        getCorpInfo: "getCorpInfo",
+        //获取公司信息
+        getRouteData: "getRouteData",
+        //获取路由数据
+        getCaptchaCode: "getCaptchaCode",
+        //获取登录验证码
+        getSysWebBgDetails: "getSysWebBgDetails",
+        //获取接口
+        updateSysWebBg: "updateSysWebBg",
+        // 组织机构-部门
+        addSysDepartment: "addSysDepartment",
+        //新增部门
+        updateSysDepartment: "updateSysDepartment",
+        //修改部门信息
+        batchDeleteUpdateSysDepartment: "batchDeleteUpdateSysDepartment",
+        //批量删除部门
+        moveUpdateSysDepartment: "moveUpdateSysDepartment",
+        //移动部门顺序
+        // 组织机构-人员
+        getSysUserListByBg: "user/getSysUserListByBg",
+        // 后台人员-获取
+        addSysUserInfoByBg: "user/addSysUserInfoByBg",
+        // 后台人员-增加
+        updateSysUserInfoByBg: "user/updateSysUserInfoByBg",
+        // 后台人员-修改
+        deleteSysUserInfoByBg: "user/deleteSysUserInfoByBg",
+        // 后台人员-删除
+        // 弹出框-组织机构人员
+        getSysDepartmentAllTree: "getSysDepartmentTree",
+        getSysUserCurrentTreeByZj: "getSysUserCurrentTreeByZj",
+        // 组织机构-部门-获取 
+        getSysDepartmentUserAllTree: "getSysUserTree",
+        // 组织机构-部门+人员-获取
+        // getSysDepartmentTreeByZj  // 中交组织机构-获取【本公司】
+        // getSysDepartmentTreeByZjAddOther  // 中交组织机构-获取【本公司+局】
+        // getSysUserTreeByZj  // 中交人员-获取【本公司】
+        // getSysUserTreeByZjAddOther  // 中交人员-获取【本公司+局】
+        // 收藏人员
+        appGetSysFrequentContactsList: "appGetSysFrequentContactsList",
+        //获取收藏的联系人
+        appAddSysFrequentContacts: "appAddSysFrequentContacts",
+        //添加联系人到收藏
+        appRemoveSysFrequentContacts: "appRemoveSysFrequentContacts",
+        //移除收藏联系人
+        //后台-菜单相关
+        getSysMenuAllTree: "getSysMenuAllTree",
+        //获取菜单树结构
+        addSysMenu: "addSysMenu",
+        //新增菜单
+        updateSysMenu: "updateSysMenu",
+        //修改菜单信息
+        updateSysMenuDetails: "updateSysMenuDetails",
+        batchDeleteUpdateSysMenu: "batchDeleteUpdateSysMenu",
+        //批量删除菜单
+        moveUpdateSysMenu: "moveUpdateSysMenu",
+        //移动菜单顺序
+        getSysMenu: "getSysMenu",
+        //获取菜单详情
+        //后台-权限相关
+        getSysRoleAllTree: "getSysRoleAllTree",
+        // 权限
+        addSysRole: "addSysRole",
+        // 权限
+        updateSysRole: "updateSysRole",
+        // 权限
+        batchDeleteUpdateSysRole: "batchDeleteUpdateSysRole",
+        // 权限
+        getSysRoleUserList: "getSysRoleUserList",
+        // 权限
+        updateSysRoleUser: "updateSysRoleUser",
+        // 权限
+        getSysRoleMenuList: "getSysRoleMenuList",
+        // 权限
+        updateSysRoleMenu: "updateSysRoleMenu",
+        // 权限
+        //后台-流程设置相关
+        getBaseFlowCodeList: "getBaseFlowCodeList",
+        // 流程
+        baseFlowCodeImport: "baseFlowCodeImport",
+        // 流程
+        batchDeleteUpdateBaseFlowCode: "batchDeleteUpdateBaseFlowCode",
+        // 流程
+        getBaseFlowSponsorChooserList: "getBaseFlowSponsorChooserList",
+        // 流程
+        getFlowNameSelectList: "getFlowNameSelectList",
+        // 流程
+        addBaseFlowSponsorChooserByList: "addBaseFlowSponsorChooserByList",
+        // 流程
+        batchDeleteUpdateBaseFlowSponsorChooser: "batchDeleteUpdateBaseFlowSponsorChooser",
+        // 流程
+        updateBaseFlowSponsorChooserByList: "updateBaseFlowSponsorChooserByList",
+        // 流程
+        getBaseFlowStartSettingListByFlow: "getBaseFlowStartSettingListByFlow",
+        //获取流程追加的节点
+        addBaseFlowStartSettingByFlow: "addBaseFlowStartSettingByFlow",
+        //提交流程追加的节点
+        //后台-流程相关
+        createOpenFlow: "createOpenFlow",
+        openFlow: "openFlow",
+        actionFlow: "actionFlow",
+        getTodoList: "getTodoList",
+        getHasTodoList: "getHasTodoList",
+        //字典组织层级[通用]
+        addBaseCode: "addBaseCode",
+        updateBaseCode: "updateBaseCode",
+        getBaseCodeList: "getBaseCodeList",
+        batchDeleteUpdateBaseCode: "batchDeleteUpdateBaseCode",
+        pcUpdateBaseCodeOnTree: "pcUpdateBaseCodeOnTree",
+        //更新数据字典[在树结构上编辑]   
+        pcExchangeBaseCode: "pcExchangeBaseCode",
+        moveUpdateBaseCode: "moveUpdateBaseCode",
+        getBaseCodeTree: "getBaseCodeTree",
+        //联动下拉
+        getBaseCodeSelect: "getBaseCodeSelect",
+        //获取app首页
+        getSysMobilIndex: "getSysMobilIndex",
+        getSysMobilIndexByData: "getSysMobilIndexByData",
+        getSysWoaAddFlowList: "getSysWoaAddFlowList",
+        getSysWoaFlowSelectDetail: "getSysWoaFlowSelectDetail",
+        //项目获取切换等接口
+        getZxQrcodePermissionObjectListByProject: "getZxQrcodePermissionObjectListByProject",
+        changeZxQrcodePermissionProject: "changeZxQrcodePermissionProject",
+        getZtEndPermissionListByProject: "getZtEndPermissionListByProject",
+        changeZtEndProjectManagement: "changeZtEndProjectManagement",
+        //项目获取切换等接口
+        changeCompany: "user/changeCompany",
+        //切换公司
+        getZxWtPermissionListByProject: "getZxWtPermissionListByProject",
+        changeZxWtProject: 'changeZxWtProject',
+        //系统用户组 
+        getSysUserGroupList: "getSysUserGroupList",
+        addSysUserGroup: "addSysUserGroup",
+        batchDeleteUpdateSysUserGroup: "batchDeleteUpdateSysUserGroup",
+        updateSysUserGroup: "updateSysUserGroup",
+        // 其它
+        syncWeChatToSysInfo: "syncWeChatToSysInfo",
+        //同步微信通讯录数据
+        getBaseCodeUIConfig: 'getBaseCodeUIConfig',
+        //查询组织层级前台页面配置
+        getZjWoaFlowSelectDetails: "getZjWoaFlowSelectDetails",
+        //流程列表下拉
+        //移动人员
+        moveUpdateSysUser: "user/moveUpdateSysUser",
+        //获取页面按钮
+        getSysMenuBtn: "getSysMenuBtn",
+        //组织架构新版接口
+        "getSysDepartmentListByCondition": "getSysDepartmentListByCondition",
+        "addSysDepartment": "addSysDepartment",
+        "updateSysDepartment": "updateSysDepartment",
+        "batchDeleteUpdateSysDepartment": "batchDeleteUpdateSysDepartment",
+        //获取角色权限
+        "getSysRoleMenuListByRole": "getSysRoleMenuListByRole",
+
+        /* ----- ↑↑↑  通用接口结束 ↑↑↑ --------*/
+        //  测试使用------------------复制请删除
+        //?其他未知	
+        // addZxHwTlProjectLevel:"addZxHwTlProjectLevel",
+        // getZxHwHomeMobilIndex: "getZxHwHomeMobilIndex",
+        // getIndexviewDetails: "getIndexviewDetails",
+        // getZjFlowPartyFeeUnitList: "getZjFlowPartyFeeUnitList",
+        // getZjFlowPartyFeeDetailAllList: "getZjFlowPartyFeeDetailAllList",
+        // getZxQrcodeTechnicalBasisList: "getZxQrcodeSafetyEducationList?authority=1",
+        // addZxQrcodeTechnicalBasis: "addZxQrcodeTechnicalBasis",
+        // batchDeleteUpdateZxQrcodeTechnicalBasis: "batchDeleteUpdateZxQrcodeTechnicalBasis",
+        // getSysDepartmentListByCondition: "getSysDepartmentListByCondition",
+        // appGetGxProjectLevel: "appGetGxProjectLevel",
+        add: "add",
+        del: "del",
+        update: "update",
+        getZjWoaQfUserInfo: "getZjWoaQfUserInfo",
+        //定时任务
+        "getZxQrtzJobDetailsListByJoin": "getZxQrtzJobDetailsListByJoin",
+        "addZxQrtzJob": "addZxQrtzJob",
+        "removeZxQrtzJob": "removeZxQrtzJob",
+        "pauseZxQrtzJob": "pauseZxQrtzJob",
+        "resumeZxQrtzJob": "resumeZxQrtzJob",
+        "getZxQrtzLogList": "getZxQrtzLogList" // addRow:"addRow",
+        // getZxQrcodeOrganizationLevelList: "getZxQrcodeOrganizationLevelList",
+        // getZjSchemeDetailedListSelectAllList: "getZjSchemeDetailedListSelectAllList",
+        // getZjWoaProjectDataList: "getZjWoaProjectDataList",
+        // getZxHwTlProjectLevelList:"getZxHwTlProjectLevelList",
+        //  测试使用----------------复制请删除
+
+    },
+    projectId: "111233332"
+}; //根据网址参数动态改变config属性值
+//获取地址栏参数，k为键名
+
+function getUrlParam(k) {
+    var m = new RegExp("(^|&)" + k + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(m);
+    if (r != null) return decodeURI(r[2]);
+    return null;
+}
+
+var urlFlag = getUrlParam('flag');
+
+if (urlFlag) {
+    //更改pcPageUrl
+    switch (urlFlag) {
+        case "0":
+            window.configs.pcPageUrl = "http://192.168.3.3:99/build/#/build/todoList";
+            break;
+
+        case "1":
+            window.configs.pcPageUrl = "http://192.168.3.3:99/build/#/build/hasTodoList";
+            break;
+
+        default:
+            break;
+    }
+} //将config中的接口格式化为json输出到控制台直接复制到接口管理的输入框保存即可
+// function configApisToJsonStr(){
+//     console.log(JSON.stringify(window.configs.apis, null, 4))
+// }
+// configApisToJsonStr()

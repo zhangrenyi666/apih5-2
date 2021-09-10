@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSfEduMapper">
+    <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSfEdu">
+        <id column="zxSfEduId" property="zxSfEduId" jdbcType="CHAR"/>
+        <result column="orgName" property="orgName" jdbcType="VARCHAR"/>
+        <result column="orgID" property="orgID" jdbcType="VARCHAR"/>
+        <result column="tranName" property="tranName" jdbcType="VARCHAR"/>
+        <result column="mainUnit" property="mainUnit" jdbcType="VARCHAR"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="materials" property="materials" jdbcType="VARCHAR"/>
+        <result column="teacher" property="teacher" jdbcType="VARCHAR"/>
+        <result column="bizDate" property="bizDate" jdbcType="TIMESTAMP"/>
+        <result column="tranTime" property="tranTime" jdbcType="VARCHAR"/>
+        <result column="tranContext" property="tranContext" jdbcType="VARCHAR"/>
+        <result column="editTime" property="editTime" jdbcType="TIMESTAMP"/>
+        <result column="remarks" property="remarks" jdbcType="VARCHAR"/>
+        <result column="sort" property="sort" jdbcType="INTEGER"/>
+        <result column="del_flag" property="delFlag" jdbcType="CHAR"/>
+        <result column="companyId" property="companyId" jdbcType="VARCHAR" />								
+        <result column="companyName" property="companyName" jdbcType="VARCHAR" />
+        <result column="projectId" property="projectId" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="create_user" property="createUser" jdbcType="CHAR"/>
+        <result column="create_user_name" property="createUserName" jdbcType="VARCHAR"/>
+        <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP"/>
+        <result column="modify_user" property="modifyUser" jdbcType="CHAR"/>
+        <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    zxSfEduId, orgName, orgID, tranName, mainUnit, 
+    address, materials, teacher, bizDate, tranTime, 
+    tranContext, editTime, remarks, sort, del_flag, companyId, companyName, projectId,
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from zx_sf_edu
+        where del_flag = '0'and zxSfEduId = #{zxSfEduId,jdbcType=CHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from zx_sf_edu
+        where zxSfEduId = #{zxSfEduId,jdbcType=CHAR}
+    </delete>
+    <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSfEdu">
+        insert into zx_sf_edu (
+        zxSfEduId, orgName, orgID, tranName, mainUnit,
+        address, materials, teacher, bizDate, tranTime,
+        tranContext, editTime, remarks, sort, del_flag, companyId, companyName, projectId,
+        create_time, create_user, create_user_name, modify_time, modify_user,
+        modify_user_name
+          )
+        values (
+          #{zxSfEduId,jdbcType=CHAR}, #{orgName,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, #{tranName,jdbcType=VARCHAR}, #{mainUnit,jdbcType=VARCHAR},
+        #{address,jdbcType=VARCHAR}, #{materials,jdbcType=VARCHAR}, #{teacher,jdbcType=VARCHAR}, #{bizDate,jdbcType=TIMESTAMP}, #{tranTime,jdbcType=VARCHAR},
+        #{tranContext,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{companyId,jdbcType=CHAR},
+        #{companyName,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR},
+        #{modifyUserName,jdbcType=VARCHAR}
+          )
+    </insert>
+    <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSfEdu">
+        insert into zx_sf_edu
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="zxSfEduId != null">
+                zxSfEduId,
+            </if>
+            <if test="orgName != null">
+                orgName,
+            </if>
+            <if test="orgID != null">
+                orgID,
+            </if>
+            <if test="tranName != null">
+                tranName,
+            </if>
+            <if test="mainUnit != null">
+                mainUnit,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="materials != null">
+                materials,
+            </if>
+            <if test="teacher != null">
+                teacher,
+            </if>
+            <if test="bizDate != null">
+                bizDate,
+            </if>
+            <if test="tranTime != null">
+                tranTime,
+            </if>
+            <if test="tranContext != null">
+                tranContext,
+            </if>
+            <if test="editTime != null">
+                editTime,
+            </if>
+            <if test="remarks != null">
+                remarks,
+            </if>
+            <if test="sort != null">
+                sort,
+            </if>
+            <if test="delFlag != null">
+                del_flag,
+            </if>
+            <if test="companyId != null">
+                companyId,
+            </if>
+            <if test="companyName != null">
+                companyName,
+            </if>
+            <if test="projectId != null">
+                projectId,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createUser != null">
+                create_user,
+            </if>
+            <if test="createUserName != null">
+                create_user_name,
+            </if>
+            <if test="modifyTime != null">
+                modify_time,
+            </if>
+            <if test="modifyUser != null">
+                modify_user,
+            </if>
+            <if test="modifyUserName != null">
+                modify_user_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="zxSfEduId != null">
+                #{zxSfEduId,jdbcType=CHAR},
+            </if>
+            <if test="orgName != null">
+                #{orgName,jdbcType=VARCHAR},
+            </if>
+            <if test="orgID != null">
+                #{orgID,jdbcType=VARCHAR},
+            </if>
+            <if test="tranName != null">
+                #{tranName,jdbcType=VARCHAR},
+            </if>
+            <if test="mainUnit != null">
+                #{mainUnit,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="materials != null">
+                #{materials,jdbcType=VARCHAR},
+            </if>
+            <if test="teacher != null">
+                #{teacher,jdbcType=VARCHAR},
+            </if>
+            <if test="bizDate != null">
+                #{bizDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="tranTime != null">
+                #{tranTime,jdbcType=VARCHAR},
+            </if>
+            <if test="tranContext != null">
+                #{tranContext,jdbcType=VARCHAR},
+            </if>
+            <if test="editTime != null">
+                #{editTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="remarks != null">
+                #{remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="sort != null">
+                #{sort,jdbcType=INTEGER},
+            </if>
+            <if test="delFlag != null">
+                #{delFlag,jdbcType=CHAR},
+            </if>
+            <if test="companyId != null">
+                #{companyId,jdbcType=CHAR},
+            </if>
+            <if test="companyName != null">
+                #{companyName,jdbcType=CHAR},
+            </if>
+            <if test="projectId != null">
+                #{projectId,jdbcType=CHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                #{createUser,jdbcType=CHAR},
+            </if>
+            <if test="createUserName != null">
+                #{createUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyTime != null">
+                #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyUser != null">
+                #{modifyUser,jdbcType=CHAR},
+            </if>
+            <if test="modifyUserName != null">
+                #{modifyUserName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSfEdu">
+        update zx_sf_edu
+        <set>
+            <if test="orgName != null">
+                orgName = #{orgName,jdbcType=VARCHAR},
+            </if>
+            <if test="orgID != null">
+                orgID = #{orgID,jdbcType=VARCHAR},
+            </if>
+            <if test="tranName != null">
+                tranName = #{tranName,jdbcType=VARCHAR},
+            </if>
+            <if test="mainUnit != null">
+                mainUnit = #{mainUnit,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="materials != null">
+                materials = #{materials,jdbcType=VARCHAR},
+            </if>
+            <if test="teacher != null">
+                teacher = #{teacher,jdbcType=VARCHAR},
+            </if>
+            <if test="bizDate != null">
+                bizDate = #{bizDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="tranTime != null">
+                tranTime = #{tranTime,jdbcType=VARCHAR},
+            </if>
+            <if test="tranContext != null">
+                tranContext = #{tranContext,jdbcType=VARCHAR},
+            </if>
+            <if test="editTime != null">
+                editTime = #{editTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="remarks != null">
+                remarks = #{remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="sort != null">
+                sort = #{sort,jdbcType=INTEGER},
+            </if>
+            <if test="delFlag != null">
+                del_flag = #{delFlag,jdbcType=CHAR},
+            </if>
+            <if test="companyId != null">
+                companyId = #{companyId,jdbcType=CHAR},
+            </if>
+            <if test="companyName != null">
+                companyName = #{companyName,jdbcType=CHAR},
+            </if>
+            <if test="projectId != null">
+                projectId = #{projectId,jdbcType=CHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                create_user = #{createUser,jdbcType=CHAR},
+            </if>
+            <if test="createUserName != null">
+                create_user_name = #{createUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyTime != null">
+                modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyUser != null">
+                modify_user = #{modifyUser,jdbcType=CHAR},
+            </if>
+            <if test="modifyUserName != null">
+                modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where zxSfEduId = #{zxSfEduId,jdbcType=CHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSfEdu">
+    update zx_sf_edu set 
+      orgName = #{orgName,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      tranName = #{tranName,jdbcType=VARCHAR},
+      mainUnit = #{mainUnit,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      materials = #{materials,jdbcType=VARCHAR},
+      teacher = #{teacher,jdbcType=VARCHAR},
+      bizDate = #{bizDate,jdbcType=TIMESTAMP},
+      tranTime = #{tranTime,jdbcType=VARCHAR},
+      tranContext = #{tranContext,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      companyId = #{companyId,jdbcType=CHAR},
+      companyName = #{companyName,jdbcType=CHAR},
+      projectId = #{projectId,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSfEduId = #{zxSfEduId,jdbcType=CHAR}
+  </update>
+    <select id="selectByZxSfEduList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSfEdu">
+        select
+        <include refid="Base_Column_List"/>
+        from zx_sf_edu
+        where del_flag = '0'
+        <if test="zxSfEduId != null and zxSfEduId != ''">
+            and zxSfEduId = #{zxSfEduId,jdbcType=CHAR}
+        </if>
+        <if test="orgName != null and orgName != ''">
+            and orgName = #{orgName,jdbcType=VARCHAR}
+        </if>
+        <if test="orgID != null and orgID != ''">
+            and orgID = #{orgID,jdbcType=VARCHAR}
+        </if>
+        <if test="tranName != null and tranName != ''">
+            and tranName = #{tranName,jdbcType=VARCHAR}
+        </if>
+        <if test="mainUnit != null and mainUnit != ''">
+            and mainUnit = #{mainUnit,jdbcType=VARCHAR}
+        </if>
+        <if test="address != null and address != ''">
+            and address = #{address,jdbcType=VARCHAR}
+        </if>
+        <if test="materials != null and materials != ''">
+            and materials = #{materials,jdbcType=VARCHAR}
+        </if>
+        <if test="teacher != null and teacher != ''">
+            and teacher = #{teacher,jdbcType=VARCHAR}
+        </if>
+        <if test="bizDate != null">
+            and bizDate = #{bizDate,jdbcType=DATE}
+        </if>
+        <if test="tranTime != null and tranTime != ''">
+            and tranTime = #{tranTime,jdbcType=VARCHAR}
+        </if>
+        <if test="tranContext != null and tranContext != ''">
+            and tranContext = #{tranContext,jdbcType=VARCHAR}
+        </if>
+        <if test="editTime != null and editTime != ''">
+            and editTime = #{editTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="remarks != null and remarks != ''">
+            and remarks = #{remarks,jdbcType=VARCHAR}
+        </if>
+        <if test="sort != null and sort != ''">
+            and sort = #{sort,jdbcType=INTEGER}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and create_time = #{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="createUser != null and createUser != ''">
+            and create_user = #{createUser,jdbcType=CHAR}
+        </if>
+        <if test="createUserName != null and createUserName != ''">
+            and create_user_name = #{createUserName,jdbcType=VARCHAR}
+        </if>
+        <if test="modifyTime != null and modifyTime != ''">
+            and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="modifyUser != null and modifyUser != ''">
+            and modify_user = #{modifyUser,jdbcType=CHAR}
+        </if>
+        <if test="modifyUserName != null and modifyUserName != ''">
+            and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+        </if>
+        <if test="companyId != null and companyId != ''">
+            and companyId = #{companyId,jdbcType=VARCHAR}
+        </if>
+        <if test="companyName != null and companyName != ''">
+            and companyName = #{companyName,jdbcType=VARCHAR}
+        </if>
+        <if test="projectId != null and projectId != ''">
+            and projectId = #{projectId,jdbcType=VARCHAR}
+        </if>
+        ORDER BY modify_time DESC
+    </select>
+    <delete id="batchDeleteUpdateZxSfEdu" parameterType="com.apih5.mybatis.pojo.ZxSfEdu">
+        <![CDATA[
+        update zx_sf_edu
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSfEduId in 
+     ]]>
+        <foreach collection="param1" item="model" open="(" separator="," close=")">#{model.zxSfEduId}
+        </foreach>
+    </delete>
+    <!-- ↓↓↓扩展↓↓↓ -->
+    <select id="getZxSfEduComList" resultMap="BaseResultMap">
+        select sum(yi) as three,sum( er ) as fugong,sum(san) as huangang,
+        sum(si) as sanlei,sum (wu) as zhuanxiang,sum (liu) as qita, company_id
+        FROM
+        (SELECT CASE empType WHEN 1 THEN perNum END AS yi,
+                 CASE empType WHEN 2 THEN perNum END AS er,
+                 CASE empType WHEN 3 THEN perNum END AS san,
+                 CASE empType WHEN 4 THEN perNum END AS si,
+                 CASE empType WHEN 5 THEN perNum END AS wu,
+                 CASE empType WHEN 6 THEN perNum END AS liu,company_id
+                 FROM
+                 ( SELECT count( b.eduID ) AS perNum,b.empType AS empType,c.company_id AS company_id
+                   FROM zx_ct_contract c
+                   LEFT JOIN zx_sf_edu a ON a.orgID = c.orgID
+                   LEFT JOIN zx_sf_eduitem b ON a.zxSfEduId = b.eduID
+                   GROUP BY b.empType,c.company_id ) AS eduItem
+        ) as companyInfo GROUP BY company_id
+
+    </select>
+
+    <select id="getZxSfEduJuInfo" resultMap="BaseResultMap">
+        select sum(yi) as three,sum( er ) as fugong,sum(san) as huangang,
+        sum(si) as sanlei,sum (wu) as zhuanxiang,sum (liu) as qita
+        FROM
+        (SELECT CASE empType WHEN 1 THEN perNum END AS yi,
+                 CASE empType WHEN 2 THEN perNum END AS er,
+                 CASE empType WHEN 3 THEN perNum END AS san,
+                 CASE empType WHEN 4 THEN perNum END AS si,
+                 CASE empType WHEN 5 THEN perNum END AS wu,
+                 CASE empType WHEN 6 THEN perNum END AS liu,company_id
+                 FROM
+                 ( SELECT count( b.eduID ) AS perNum,b.empType AS empType,c.company_id AS company_id
+                   FROM zx_ct_contract c
+                   LEFT JOIN zx_sf_edu a ON a.orgID = c.orgID
+                   LEFT JOIN zx_sf_eduitem b ON a.zxSfEduId = b.eduID
+                   GROUP BY b.empType,c.company_id ) AS eduItem
+        ) as companyInfo
+
+    </select>
+
+    <select id="getZxSfEduCom" resultMap="BaseResultMap">
+        select sum(yi) as three,sum( er ) as fugong,sum(san) as huangang,
+        sum(si) as sanlei,sum (wu) as zhuanxiang,sum (liu) as qita, company_id
+        FROM
+        (SELECT CASE empType WHEN 1 THEN perNum END AS yi,
+                 CASE empType WHEN 2 THEN perNum END AS er,
+                 CASE empType WHEN 3 THEN perNum END AS san,
+                 CASE empType WHEN 4 THEN perNum END AS si,
+                 CASE empType WHEN 5 THEN perNum END AS wu,
+                 CASE empType WHEN 6 THEN perNum END AS liu,company_id
+                 FROM
+                 ( SELECT count( b.eduID ) AS perNum,b.empType AS empType,c.company_id AS company_id
+                   FROM zx_ct_contract c
+                   LEFT JOIN zx_sf_edu a ON a.orgID = c.orgID
+                   LEFT JOIN zx_sf_eduitem b ON a.zxSfEduId = b.eduID
+                   WHERE c.company_id = #{companyId}
+        <if test="projType != null and projType != ''">
+            and   c.projType = #{projType,jdbcType=VARCHAR}
+        </if>
+                   GROUP BY b.empType,c.company_id ) AS eduItem
+        ) as companyInfo GROUP BY company_id
+
+    </select>
+
+    <select id="getZxSfEduGuiDangList" resultMap="BaseResultMap">
+        SELECT sum( yi ) AS three,sum( er ) AS fugong,sum( san ) AS huangang,
+        sum( si ) AS sanlei,sum( wu ) AS zhuanxiang,sum( liu ) AS qita,orgID
+        FROM
+        (SELECT CASE empType WHEN 1 THEN perNum END AS yi,
+                 CASE empType WHEN 2 THEN perNum END AS er,
+                 CASE empType WHEN 3 THEN perNum END AS san,
+                 CASE empType WHEN 4 THEN perNum END AS si,
+                 CASE empType WHEN 5 THEN perNum END AS wu,
+                 CASE empType WHEN 6 THEN perNum END AS liu,orgID
+                 FROM(SELECT count( b.eduID ) AS perNum,
+                 b.empType AS empType,a.orgID AS orgID
+                 FROM zx_sf_edu a LEFT JOIN zx_sf_eduitem b ON a.zxSfEduId = b.eduID
+                 LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+                 LEFT JOIN sys_project d ON d.department_id = a.orgID
+                 WHERE c.company_id = #{record.companyId} and  DATE_FORMAT( d.doc_date, '%Y%m%d' ) &lt; #{today}
+        <if test="record.projType != null and record.projType != ''">
+            and   c.projType = #{record.projType,jdbcType=VARCHAR}
+        </if>
+        <if test="record.startDate != null ">
+            and   a.bizDate >#{record.startDate}
+        </if>
+        <if test="record.endDate != null ">
+            and  a.bizDate &lt;#{record.endDate}
+        </if>
+                 GROUP BY b.empType,a.orgID ) AS item ) AS info GROUP BY orgID
+    </select>
+
+    <select id="getZxSfEduJiaoGongList" resultMap="BaseResultMap">
+        SELECT sum( yi ) AS three,sum( er ) AS fugong,sum( san ) AS huangang,
+        sum( si ) AS sanlei,sum( wu ) AS zhuanxiang,sum( liu ) AS qita,orgID
+        FROM
+        (SELECT CASE empType WHEN 1 THEN perNum END AS yi,
+                 CASE empType WHEN 2 THEN perNum END AS er,
+                 CASE empType WHEN 3 THEN perNum END AS san,
+                 CASE empType WHEN 4 THEN perNum END AS si,
+                 CASE empType WHEN 5 THEN perNum END AS wu,
+                 CASE empType WHEN 6 THEN perNum END AS liu,orgID
+                 FROM(SELECT count( b.eduID ) AS perNum,
+                 b.empType AS empType,a.orgID AS orgID
+                 FROM zx_sf_edu a LEFT JOIN zx_sf_eduitem b ON a.zxSfEduId = b.eduID
+                 LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+                 LEFT JOIN sys_project d ON d.department_id = a.orgID
+                 WHERE c.company_id = #{record.companyId} and  CASE WHEN ISNULL( d.doc_date ) THEN
+                 DATE_FORMAT( d.delivery_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( d.delivery_date, '%Y%m%d' ) &lt;= #{today}
+                 AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) >#{today} ) END
+        <if test="record.projType != null and record.projType != ''">
+            and   c.projType = #{record.projType,jdbcType=VARCHAR}
+        </if>
+        <if test="startDate != null ">
+            and   a.bizDate >#{record.startDate}
+        </if>
+        <if test="endDate != null ">
+            and  a.bizDate &lt;#{record.endDate}
+        </if>
+                 GROUP BY b.empType,a.orgID ) AS item ) AS info GROUP BY orgID
+    </select>
+
+    <select id="getZxSfEduWanGongList" resultMap="BaseResultMap">
+        SELECT sum( yi ) AS three,sum( er ) AS fugong,sum( san ) AS huangang,
+        sum( si ) AS sanlei,sum( wu ) AS zhuanxiang,sum( liu ) AS qita,orgID
+        FROM
+        (SELECT CASE empType WHEN 1 THEN perNum END AS yi,
+                 CASE empType WHEN 2 THEN perNum END AS er,
+                 CASE empType WHEN 3 THEN perNum END AS san,
+                 CASE empType WHEN 4 THEN perNum END AS si,
+                 CASE empType WHEN 5 THEN perNum END AS wu,
+                 CASE empType WHEN 6 THEN perNum END AS liu,orgID
+                 FROM(SELECT count( b.eduID ) AS perNum,
+                 b.empType AS empType,a.orgID AS orgID
+                 FROM zx_sf_edu a LEFT JOIN zx_sf_eduitem b ON a.zxSfEduId = b.eduID
+                 LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+                 LEFT JOIN sys_project d ON d.department_id = a.orgID
+                 WHERE c.company_id = #{record.companyId} and CASE WHEN ISNULL( d.delivery_date ) THEN
+                 ( CASE WHEN ISNULL( d.doc_date ) THEN DATE_FORMAT( d.main_end_date, '%Y%m%d' ) &lt;= #{today}
+                 ELSE ( DATE_FORMAT( d.main_end_date, '%Y%m%d' )  &lt;= #{today} AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) > #{today} )
+                 END ) ELSE (DATE_FORMAT( d.main_end_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( d.delivery_date, '%Y%m%d' ) > #{today} )
+                 END
+        <if test="record.projType != null and record.projType != ''">
+            and   c.projType = #{record.projType,jdbcType=VARCHAR}
+        </if>
+        <if test="record.startDate != null ">
+            and   a.bizDate >#{record.startDate}
+        </if>
+        <if test="record.endDate != null ">
+            and  a.bizDate &lt;#{record.endDate}
+        </if>
+                 GROUP BY b.empType,a.orgID ) AS item ) AS info GROUP BY orgID
+    </select>
+
+    <select id="getZxSfEduKaiGongList" resultMap="BaseResultMap">
+        SELECT sum( yi ) AS three,sum( er ) AS fugong,sum( san ) AS huangang,
+        sum( si ) AS sanlei,sum( wu ) AS zhuanxiang,sum( liu ) AS qita,orgID
+        FROM
+        (SELECT CASE empType WHEN 1 THEN perNum END AS yi,
+                 CASE empType WHEN 2 THEN perNum END AS er,
+                 CASE empType WHEN 3 THEN perNum END AS san,
+                 CASE empType WHEN 4 THEN perNum END AS si,
+                 CASE empType WHEN 5 THEN perNum END AS wu,
+                 CASE empType WHEN 6 THEN perNum END AS liu,orgID
+                 FROM(SELECT count( b.eduID ) AS perNum,
+                 b.empType AS empType,a.orgID AS orgID
+                 FROM zx_sf_edu a LEFT JOIN zx_sf_eduitem b ON a.zxSfEduId = b.eduID
+                 LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+                 LEFT JOIN sys_project d ON d.department_id = a.orgID
+                 WHERE c.company_id = #{record.companyId} and  CASE WHEN ISNULL( d.main_end_date ) THEN
+                 (CASE WHEN ISNULL( d.delivery_date ) THEN( CASE WHEN ISNULL( d.doc_date )
+                 THEN DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+                 ELSE ( DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+                 AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) > #{today} )
+				END ) ELSE ( DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+				AND DATE_FORMAT( d.delivery_date, '%Y%m%d' ) > #{today} )END )
+				ELSE (DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+				AND DATE_FORMAT( d.main_end_date, '%Y%m%d' ) > #{today} ) END
+        <if test="record.projType != null and record.projType != ''">
+            and   c.projType = #{record.projType,jdbcType=VARCHAR}
+        </if>
+        <if test="record.startDate != null ">
+            and   a.bizDate >#{record.startDate}
+        </if>
+        <if test="record.endDate != null ">
+            and  a.bizDate &lt;#{record.endDate}
+        </if>
+                 GROUP BY b.empType,a.orgID ) AS item ) AS info GROUP BY orgID
+    </select>
+
+    <select id="getZxSfEduGuiDang" resultMap="BaseResultMap">
+        SELECT sum( yi ) AS three,sum( er ) AS fugong,sum( san ) AS huangang,
+        sum( si ) AS sanlei,sum( wu ) AS zhuanxiang,sum( liu ) AS qita
+        FROM
+        (SELECT CASE empType WHEN 1 THEN perNum END AS yi,
+                 CASE empType WHEN 2 THEN perNum END AS er,
+                 CASE empType WHEN 3 THEN perNum END AS san,
+                 CASE empType WHEN 4 THEN perNum END AS si,
+                 CASE empType WHEN 5 THEN perNum END AS wu,
+                 CASE empType WHEN 6 THEN perNum END AS liu,orgID
+                 FROM(SELECT count( b.eduID ) AS perNum,
+                 b.empType AS empType,a.orgID AS orgID
+                 FROM zx_sf_edu a LEFT JOIN zx_sf_eduitem b ON a.zxSfEduId = b.eduID
+                 LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+                 LEFT JOIN sys_project d ON d.department_id = a.orgID
+                 WHERE c.company_id = #{record.companyId} and  DATE_FORMAT( d.doc_date, '%Y%m%d' ) &lt; #{today}
+        <if test="record.projType != null and record.projType != ''">
+            and   c.projType = #{record.projType,jdbcType=VARCHAR}
+        </if>
+        <if test="record.startDate != null ">
+            and   a.bizDate >#{record.startDate}
+        </if>
+        <if test="record.endDate != null ">
+            and  a.bizDate &lt;#{record.endDate}
+        </if>
+                 GROUP BY b.empType,a.orgID ) AS item ) AS info
+    </select>
+
+    <select id="getZxSfEduJiaoGong" resultMap="BaseResultMap">
+        SELECT sum( yi ) AS three,sum( er ) AS fugong,sum( san ) AS huangang,
+        sum( si ) AS sanlei,sum( wu ) AS zhuanxiang,sum( liu ) AS qita
+        FROM
+        (SELECT CASE empType WHEN 1 THEN perNum END AS yi,
+                 CASE empType WHEN 2 THEN perNum END AS er,
+                 CASE empType WHEN 3 THEN perNum END AS san,
+                 CASE empType WHEN 4 THEN perNum END AS si,
+                 CASE empType WHEN 5 THEN perNum END AS wu,
+                 CASE empType WHEN 6 THEN perNum END AS liu,orgID
+                 FROM(SELECT count( b.eduID ) AS perNum,
+                 b.empType AS empType,a.orgID AS orgID
+                 FROM zx_sf_edu a LEFT JOIN zx_sf_eduitem b ON a.zxSfEduId = b.eduID
+                 LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+                 LEFT JOIN sys_project d ON d.department_id = a.orgID
+                 WHERE c.company_id = #{record.companyId} and  CASE WHEN ISNULL( d.doc_date ) THEN
+                 DATE_FORMAT( d.delivery_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( d.delivery_date, '%Y%m%d' ) &lt;= #{today}
+                 AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) >#{today} ) END
+        <if test="record.projType != null and record.projType != ''">
+            and   c.projType = #{record.projType,jdbcType=VARCHAR}
+        </if>
+        <if test="record.startDate != null ">
+            and   a.bizDate >#{record.startDate}
+        </if>
+        <if test="record.endDate != null ">
+            and  a.bizDate &lt;#{record.endDate}
+        </if>
+                 GROUP BY b.empType,a.orgID ) AS item ) AS info
+    </select>
+
+    <select id="getZxSfEduWanGong" resultMap="BaseResultMap">
+        SELECT sum( yi ) AS three,sum( er ) AS fugong,sum( san ) AS huangang,
+        sum( si ) AS sanlei,sum( wu ) AS zhuanxiang,sum( liu ) AS qita
+        FROM
+        (SELECT CASE empType WHEN 1 THEN perNum END AS yi,
+                 CASE empType WHEN 2 THEN perNum END AS er,
+                 CASE empType WHEN 3 THEN perNum END AS san,
+                 CASE empType WHEN 4 THEN perNum END AS si,
+                 CASE empType WHEN 5 THEN perNum END AS wu,
+                 CASE empType WHEN 6 THEN perNum END AS liu,orgID
+                 FROM(SELECT count( b.eduID ) AS perNum,
+                 b.empType AS empType,a.orgID AS orgID
+                 FROM zx_sf_edu a LEFT JOIN zx_sf_eduitem b ON a.zxSfEduId = b.eduID
+                 LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+                 LEFT JOIN sys_project d ON d.department_id = a.orgID
+                 WHERE c.company_id = #{record.companyId} and CASE WHEN ISNULL( d.delivery_date ) THEN
+                 ( CASE WHEN ISNULL( d.doc_date ) THEN DATE_FORMAT( d.main_end_date, '%Y%m%d' ) &lt;= #{today}
+                 ELSE ( DATE_FORMAT( d.main_end_date, '%Y%m%d' )  &lt;= #{today} AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) > #{today} )
+                 END ) ELSE (DATE_FORMAT( d.main_end_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( d.delivery_date, '%Y%m%d' ) > #{today} )
+                 END
+        <if test="record.projType != null and record.projType != ''">
+            and   c.projType = #{record.projType,jdbcType=VARCHAR}
+        </if>
+        <if test="record.startDate != null ">
+            and   a.bizDate >#{record.startDate}
+        </if>
+        <if test="record.endDate != null ">
+            and  a.bizDate &lt;#{record.endDate}
+        </if>
+                 GROUP BY b.empType,a.orgID ) AS item ) AS info
+    </select>
+
+    <select id="getZxSfEduKaiGong" resultMap="BaseResultMap">
+        SELECT sum( yi ) AS three,sum( er ) AS fugong,sum( san ) AS huangang,
+        sum( si ) AS sanlei,sum( wu ) AS zhuanxiang,sum( liu ) AS qita
+        FROM
+        (SELECT CASE empType WHEN 1 THEN perNum END AS yi,
+                 CASE empType WHEN 2 THEN perNum END AS er,
+                 CASE empType WHEN 3 THEN perNum END AS san,
+                 CASE empType WHEN 4 THEN perNum END AS si,
+                 CASE empType WHEN 5 THEN perNum END AS wu,
+                 CASE empType WHEN 6 THEN perNum END AS liu,orgID
+                 FROM(SELECT count( b.eduID ) AS perNum,
+                 b.empType AS empType,a.orgID AS orgID
+                 FROM zx_sf_edu a LEFT JOIN zx_sf_eduitem b ON a.zxSfEduId = b.eduID
+                 LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+                 LEFT JOIN sys_project d ON d.department_id = a.orgID
+                 WHERE c.company_id = #{record.companyId} and  CASE WHEN ISNULL( d.main_end_date ) THEN
+                 (CASE WHEN ISNULL( d.delivery_date ) THEN( CASE WHEN ISNULL( d.doc_date )
+                 THEN DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+                 ELSE ( DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+                 AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) > #{today} )
+				END ) ELSE ( DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+				AND DATE_FORMAT( d.delivery_date, '%Y%m%d' ) > #{today} )END )
+				ELSE (DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+				AND DATE_FORMAT( d.main_end_date, '%Y%m%d' ) > #{today} ) END
+        <if test="record.projType != null and record.projType != ''">
+            and   c.projType = #{record.projType,jdbcType=VARCHAR}
+        </if>
+        <if test="record.startDate != null ">
+            and   a.bizDate >#{record.startDate}
+        </if>
+        <if test="record.endDate != null ">
+            and  a.bizDate &lt;#{record.endDate}
+        </if>    GROUP BY b.empType,a.orgID ) AS item ) AS info
+    </select>
+
+</mapper>

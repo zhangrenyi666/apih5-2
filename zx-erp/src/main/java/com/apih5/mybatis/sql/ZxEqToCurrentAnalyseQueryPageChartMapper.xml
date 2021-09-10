@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqToCurrentAnalyseQueryPageChartMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqToCurrentAnalyseQueryPageChart" >
+    <id column="zxEqToCurrentAnalyseQueryPageChartId" property="zxEqToCurrentAnalyseQueryPageChartId" jdbcType="CHAR" />
+    <result column="year" property="year" jdbcType="VARCHAR" />
+    <result column="amt" property="amt" jdbcType="DECIMAL" />
+    <result column="department_id" property="departmentId" jdbcType="VARCHAR" />
+    <result column="department_path" property="departmentPath" jdbcType="VARCHAR" />
+    <result column="department_name" property="departmentName" jdbcType="VARCHAR" />
+    <result column="resCatalogID" property="resCatalogID" jdbcType="VARCHAR" />
+    <result column="abcType" property="abcType" jdbcType="VARCHAR" />
+    <result column="currentYear" property="currentYear" jdbcType="TIMESTAMP" />
+    <result column="count1" property="count1" jdbcType="DECIMAL" />
+    <result column="orginalValue1" property="orginalValue1" jdbcType="DECIMAL" />
+    <result column="count2" property="count2" jdbcType="DECIMAL" />
+    <result column="orginalValue2" property="orginalValue2" jdbcType="DECIMAL" />
+    <result column="count3" property="count3" jdbcType="DECIMAL" />
+    <result column="orginalValue3" property="orginalValue3" jdbcType="DECIMAL" />
+    <result column="count4" property="count4" jdbcType="DECIMAL" />
+    <result column="orginalValue4" property="orginalValue4" jdbcType="DECIMAL" />
+    <result column="count5" property="count5" jdbcType="DECIMAL" />
+    <result column="orginalValue5" property="orginalValue5" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="resCatalogBsid" property="resCatalogBsid" jdbcType="VARCHAR" />
+    <result column="parentID" property="parentID" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxEqToCurrentAnalyseQueryPageChartId, year, amt, department_id, department_path, 
+    department_name, resCatalogID, abcType, currentYear, count1, 
+    orginalValue1, count2, orginalValue2, count3, orginalValue3, 
+    count4, orginalValue4, count5, orginalValue5, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_ToCurrentAnalyseQueryPageChart
+    where del_flag = '0' and zxEqToCurrentAnalyseQueryPageChartId = #{zxEqToCurrentAnalyseQueryPageChartId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_ToCurrentAnalyseQueryPageChart
+    where zxEqToCurrentAnalyseQueryPageChartId = #{zxEqToCurrentAnalyseQueryPageChartId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqToCurrentAnalyseQueryPageChart" >
+    insert into zx_eq_ToCurrentAnalyseQueryPageChart (
+    zxEqToCurrentAnalyseQueryPageChartId, year, amt, department_id, department_path, 
+    department_name, resCatalogID, abcType, currentYear, count1, 
+    orginalValue1, count2, orginalValue2, count3, orginalValue3, 
+    count4, orginalValue4, count5, orginalValue5, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxEqToCurrentAnalyseQueryPageChartId,jdbcType=CHAR}, #{year,jdbcType=VARCHAR}, #{amt,jdbcType=DECIMAL}, #{departmentId,jdbcType=VARCHAR}, #{departmentPath,jdbcType=VARCHAR}, 
+    #{departmentName,jdbcType=VARCHAR}, #{resCatalogID,jdbcType=VARCHAR}, #{abcType,jdbcType=VARCHAR}, #{currentYear,jdbcType=TIMESTAMP}, #{count1,jdbcType=DECIMAL}, 
+    #{orginalValue1,jdbcType=DECIMAL}, #{count2,jdbcType=DECIMAL}, #{orginalValue2,jdbcType=DECIMAL}, #{count3,jdbcType=DECIMAL}, #{orginalValue3,jdbcType=DECIMAL}, 
+    #{count4,jdbcType=DECIMAL}, #{orginalValue4,jdbcType=DECIMAL}, #{count5,jdbcType=DECIMAL}, #{orginalValue5,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, 
+    #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+    #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqToCurrentAnalyseQueryPageChart" >
+    insert into zx_eq_ToCurrentAnalyseQueryPageChart
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxEqToCurrentAnalyseQueryPageChartId != null" >
+        zxEqToCurrentAnalyseQueryPageChartId,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="amt != null" >
+        amt,
+      </if>
+      <if test="departmentId != null" >
+        department_id,
+      </if>
+      <if test="departmentPath != null" >
+        department_path,
+      </if>
+      <if test="departmentName != null" >
+        department_name,
+      </if>
+      <if test="resCatalogID != null" >
+        resCatalogID,
+      </if>
+      <if test="abcType != null" >
+        abcType,
+      </if>
+      <if test="currentYear != null" >
+        currentYear,
+      </if>
+      <if test="count1 != null" >
+        count1,
+      </if>
+      <if test="orginalValue1 != null" >
+        orginalValue1,
+      </if>
+      <if test="count2 != null" >
+        count2,
+      </if>
+      <if test="orginalValue2 != null" >
+        orginalValue2,
+      </if>
+      <if test="count3 != null" >
+        count3,
+      </if>
+      <if test="orginalValue3 != null" >
+        orginalValue3,
+      </if>
+      <if test="count4 != null" >
+        count4,
+      </if>
+      <if test="orginalValue4 != null" >
+        orginalValue4,
+      </if>
+      <if test="count5 != null" >
+        count5,
+      </if>
+      <if test="orginalValue5 != null" >
+        orginalValue5,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxEqToCurrentAnalyseQueryPageChartId != null" >
+        #{zxEqToCurrentAnalyseQueryPageChartId,jdbcType=CHAR},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null" >
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="departmentId != null" >
+        #{departmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentPath != null" >
+        #{departmentPath,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentName != null" >
+        #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="resCatalogID != null" >
+        #{resCatalogID,jdbcType=VARCHAR},
+      </if>
+      <if test="abcType != null" >
+        #{abcType,jdbcType=VARCHAR},
+      </if>
+      <if test="currentYear != null" >
+        #{currentYear,jdbcType=TIMESTAMP},
+      </if>
+      <if test="count1 != null" >
+        #{count1,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue1 != null" >
+        #{orginalValue1,jdbcType=DECIMAL},
+      </if>
+      <if test="count2 != null" >
+        #{count2,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue2 != null" >
+        #{orginalValue2,jdbcType=DECIMAL},
+      </if>
+      <if test="count3 != null" >
+        #{count3,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue3 != null" >
+        #{orginalValue3,jdbcType=DECIMAL},
+      </if>
+      <if test="count4 != null" >
+        #{count4,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue4 != null" >
+        #{orginalValue4,jdbcType=DECIMAL},
+      </if>
+      <if test="count5 != null" >
+        #{count5,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue5 != null" >
+        #{orginalValue5,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqToCurrentAnalyseQueryPageChart" >
+    update zx_eq_ToCurrentAnalyseQueryPageChart
+    <set >
+      <if test="year != null" >
+        year = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null" >
+        amt = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="departmentId != null" >
+        department_id = #{departmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentPath != null" >
+        department_path = #{departmentPath,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentName != null" >
+        department_name = #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="resCatalogID != null" >
+        resCatalogID = #{resCatalogID,jdbcType=VARCHAR},
+      </if>
+      <if test="abcType != null" >
+        abcType = #{abcType,jdbcType=VARCHAR},
+      </if>
+      <if test="currentYear != null" >
+        currentYear = #{currentYear,jdbcType=TIMESTAMP},
+      </if>
+      <if test="count1 != null" >
+        count1 = #{count1,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue1 != null" >
+        orginalValue1 = #{orginalValue1,jdbcType=DECIMAL},
+      </if>
+      <if test="count2 != null" >
+        count2 = #{count2,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue2 != null" >
+        orginalValue2 = #{orginalValue2,jdbcType=DECIMAL},
+      </if>
+      <if test="count3 != null" >
+        count3 = #{count3,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue3 != null" >
+        orginalValue3 = #{orginalValue3,jdbcType=DECIMAL},
+      </if>
+      <if test="count4 != null" >
+        count4 = #{count4,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue4 != null" >
+        orginalValue4 = #{orginalValue4,jdbcType=DECIMAL},
+      </if>
+      <if test="count5 != null" >
+        count5 = #{count5,jdbcType=DECIMAL},
+      </if>
+      <if test="orginalValue5 != null" >
+        orginalValue5 = #{orginalValue5,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxEqToCurrentAnalyseQueryPageChartId = #{zxEqToCurrentAnalyseQueryPageChartId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqToCurrentAnalyseQueryPageChart" >
+    update zx_eq_ToCurrentAnalyseQueryPageChart set 
+      year = #{year,jdbcType=VARCHAR},
+      amt = #{amt,jdbcType=DECIMAL},
+      department_id = #{departmentId,jdbcType=VARCHAR},
+      department_path = #{departmentPath,jdbcType=VARCHAR},
+      department_name = #{departmentName,jdbcType=VARCHAR},
+      resCatalogID = #{resCatalogID,jdbcType=VARCHAR},
+      abcType = #{abcType,jdbcType=VARCHAR},
+      currentYear = #{currentYear,jdbcType=TIMESTAMP},
+      count1 = #{count1,jdbcType=DECIMAL},
+      orginalValue1 = #{orginalValue1,jdbcType=DECIMAL},
+      count2 = #{count2,jdbcType=DECIMAL},
+      orginalValue2 = #{orginalValue2,jdbcType=DECIMAL},
+      count3 = #{count3,jdbcType=DECIMAL},
+      orginalValue3 = #{orginalValue3,jdbcType=DECIMAL},
+      count4 = #{count4,jdbcType=DECIMAL},
+      orginalValue4 = #{orginalValue4,jdbcType=DECIMAL},
+      count5 = #{count5,jdbcType=DECIMAL},
+      orginalValue5 = #{orginalValue5,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxEqToCurrentAnalyseQueryPageChartId = #{zxEqToCurrentAnalyseQueryPageChartId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxEqToCurrentAnalyseQueryPageChartList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqToCurrentAnalyseQueryPageChart" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_ToCurrentAnalyseQueryPageChart
+    where del_flag = '0'
+    <if test="zxEqToCurrentAnalyseQueryPageChartId != null and zxEqToCurrentAnalyseQueryPageChartId != ''" >
+     and zxEqToCurrentAnalyseQueryPageChartId = #{zxEqToCurrentAnalyseQueryPageChartId,jdbcType=CHAR}
+    </if>
+    <if test="year != null and year != ''" >
+     and year = #{year,jdbcType=VARCHAR}
+    </if>
+    <if test="amt != null and amt != ''" >
+     and amt = #{amt,jdbcType=DECIMAL}
+    </if>
+    <if test="departmentId != null and departmentId != ''" >
+     and department_id = #{departmentId,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentPath != null and departmentPath != ''" >
+     and department_path = #{departmentPath,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentName != null and departmentName != ''" >
+     and department_name = #{departmentName,jdbcType=VARCHAR}
+    </if>
+    <if test="resCatalogID != null and resCatalogID != ''" >
+     and resCatalogID = #{resCatalogID,jdbcType=VARCHAR}
+    </if>
+    <if test="abcType != null and abcType != ''" >
+     and abcType = #{abcType,jdbcType=VARCHAR}
+    </if>
+    <if test="currentYear != null and currentYear != ''" >
+     and currentYear = #{currentYear,jdbcType=TIMESTAMP}
+    </if>
+    <if test="count1 != null and count1 != ''" >
+     and count1 = #{count1,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue1 != null and orginalValue1 != ''" >
+     and orginalValue1 = #{orginalValue1,jdbcType=DECIMAL}
+    </if>
+    <if test="count2 != null and count2 != ''" >
+     and count2 = #{count2,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue2 != null and orginalValue2 != ''" >
+     and orginalValue2 = #{orginalValue2,jdbcType=DECIMAL}
+    </if>
+    <if test="count3 != null and count3 != ''" >
+     and count3 = #{count3,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue3 != null and orginalValue3 != ''" >
+     and orginalValue3 = #{orginalValue3,jdbcType=DECIMAL}
+    </if>
+    <if test="count4 != null and count4 != ''" >
+     and count4 = #{count4,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue4 != null and orginalValue4 != ''" >
+     and orginalValue4 = #{orginalValue4,jdbcType=DECIMAL}
+    </if>
+    <if test="count5 != null and count5 != ''" >
+     and count5 = #{count5,jdbcType=DECIMAL}
+    </if>
+    <if test="orginalValue5 != null and orginalValue5 != ''" >
+     and orginalValue5 = #{orginalValue5,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqToCurrentAnalyseQueryPageChart" parameterType="com.apih5.mybatis.pojo.ZxEqToCurrentAnalyseQueryPageChart" >
+    <![CDATA[ 
+        update zx_eq_ToCurrentAnalyseQueryPageChart
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxEqToCurrentAnalyseQueryPageChartId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxEqToCurrentAnalyseQueryPageChartId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+  <select id="selectZxEqToCurrentAnalyseQueryPageChart" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqToCurrentAnalyseQueryPageChart" >
+  SELECT t.year,t.amt
+		FROM 
+		(
+		SELECT #{currentYear,jdbcType=TIMESTAMP}-4 AS year,
+		(SELECT ifnull(sum(ie.orginalValue),0) FROM zx_eq_Equip ie inner join sys_department sd on sd.department_id = ie.ownerOrgId WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '%'||#{resCatalogBsid,jdbcType=VARCHAR}||'%') or #{resCatalogID,jdbcType=VARCHAR}='') AND YEAR(ie.outFactoryDate)=(#{currentYear,jdbcType=TIMESTAMP}-4) AND ie.abcType LIKE  '%'||#{abcType,jdbcType=VARCHAR}||'%'  and sd.department_path like io.department_id||'%')/10000 AS amt
+		FROM sys_department io WHERE io.department_id=#{orgID,jdbcType=VARCHAR}
+		UNION 
+		SELECT #{currentYear,jdbcType=TIMESTAMP}-3 AS year,
+		(SELECT ifnull(sum(ie.orginalValue),0) FROM zx_eq_Equip ie inner join sys_department sd on sd.department_id = ie.ownerOrgId WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '%'||#{resCatalogBsid,jdbcType=VARCHAR}||'%') or #{resCatalogID,jdbcType=VARCHAR}='') AND YEAR(ie.outFactoryDate)=(#{currentYear,jdbcType=TIMESTAMP}-3) AND ie.abcType LIKE  '%'||#{abcType,jdbcType=VARCHAR}||'%'  and sd.department_path like io.department_id||'%')/10000 AS amt
+		FROM sys_department io WHERE io.department_id=#{orgID,jdbcType=VARCHAR}
+		UNION 
+		SELECT #{currentYear,jdbcType=TIMESTAMP}-2 AS year,
+		(SELECT ifnull(sum(ie.orginalValue),0) FROM zx_eq_Equip ie inner join sys_department sd on sd.department_id = ie.ownerOrgId WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '%'||#{resCatalogBsid,jdbcType=VARCHAR}||'%') or #{resCatalogID,jdbcType=VARCHAR}='') AND YEAR(ie.outFactoryDate)=(#{currentYear,jdbcType=TIMESTAMP}-2) AND ie.abcType LIKE  '%'||#{abcType,jdbcType=VARCHAR}||'%'  and sd.department_path like io.department_id||'%')/10000 AS amt
+		FROM sys_department io WHERE io.department_id=#{orgID,jdbcType=VARCHAR}
+		UNION 
+		SELECT #{currentYear,jdbcType=TIMESTAMP}-1 AS year,
+		(SELECT ifnull(sum(ie.orginalValue),0) FROM zx_eq_Equip ie inner join sys_department sd on sd.department_id = ie.ownerOrgId WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '%'||#{resCatalogBsid,jdbcType=VARCHAR}||'%') or #{resCatalogID,jdbcType=VARCHAR}='') AND YEAR(ie.outFactoryDate)=(#{currentYear,jdbcType=TIMESTAMP}-1) AND ie.abcType LIKE  '%'||#{abcType,jdbcType=VARCHAR}||'%'  and sd.department_path like io.department_id||'%')/10000 AS amt
+		FROM sys_department io WHERE io.department_id=#{orgID,jdbcType=VARCHAR}
+		UNION 
+		SELECT #{currentYear,jdbcType=TIMESTAMP} AS year,
+		(SELECT ifnull(sum(ie.orginalValue),0) FROM zx_eq_Equip ie inner join sys_department sd on sd.department_id = ie.ownerOrgId WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsID FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE '%'||#{resCatalogBsid,jdbcType=VARCHAR}||'%') or #{resCatalogID,jdbcType=VARCHAR}='') AND YEAR(ie.outFactoryDate)=(#{currentYear,jdbcType=TIMESTAMP}) AND ie.abcType LIKE  '%'||#{abcType,jdbcType=VARCHAR}||'%'  and sd.department_path like io.department_id||'%')/10000 AS amt
+		FROM sys_department io WHERE io.department_id=#{orgID,jdbcType=VARCHAR}
+		)t
+  </select>
+  <select id="selectZxEqToCurrentAnalyseQueryPage" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqToCurrentAnalyseQueryPageChart" >
+  SELECT * FROM 
+(
+SELECT io.department_id,io.department_path,io.department_name,#{resCatalogID,jdbcType=VARCHAR} as resCatalogID,#{abcType,jdbcType=VARCHAR} as abcType,#{currentYear,jdbcType=TIMESTAMP} as currentYear,
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM zx_eq_Equip ie WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsId FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE concat('%',#{resCatalogBsid,jdbcType=VARCHAR},'%')) or #{resCatalogID,jdbcType=VARCHAR}='') AND YEAR(ie.outFactoryDate)=(#{currentYear,jdbcType=TIMESTAMP}-4) AND ie.abcType LIKE  concat('%',#{abcType,jdbcType=VARCHAR},'%')  and ie.ownerOrgId IN (SELECT department_id FROM sys_department WHERE department_path like concat(io.department_path,'%'))) AS count1,
+(SELECT sum(ie.orginalValue) FROM zx_eq_Equip ie WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsId FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE concat('%',#{resCatalogBsid,jdbcType=VARCHAR},'%')) or #{resCatalogID,jdbcType=VARCHAR}='') AND YEAR(ie.outFactoryDate)=(#{currentYear,jdbcType=TIMESTAMP}-4) AND ie.abcType LIKE  concat('%',#{abcType,jdbcType=VARCHAR},'%')  and ie.ownerOrgId IN (SELECT department_id FROM sys_department WHERE department_path like concat(io.department_path,'%')))/10000 AS orginalValue1,
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM zx_eq_Equip ie WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsId FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE concat('%',#{resCatalogBsid,jdbcType=VARCHAR},'%')) or #{resCatalogID,jdbcType=VARCHAR}='') AND YEAR(ie.outFactoryDate)=(#{currentYear,jdbcType=TIMESTAMP}-3) AND ie.abcType LIKE  concat('%',#{abcType,jdbcType=VARCHAR},'%')  and ie.ownerOrgId IN (SELECT department_id FROM sys_department WHERE department_path like concat(io.department_path,'%'))) AS count2,
+(SELECT sum(ie.orginalValue) FROM zx_eq_Equip ie WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsId FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE concat('%',#{resCatalogBsid,jdbcType=VARCHAR},'%')) or #{resCatalogID,jdbcType=VARCHAR}='') AND YEAR(ie.outFactoryDate)=(#{currentYear,jdbcType=TIMESTAMP}-3) AND ie.abcType LIKE  concat('%',#{abcType,jdbcType=VARCHAR},'%')  and ie.ownerOrgId IN (SELECT department_id FROM sys_department WHERE department_path like concat(io.department_path,'%')))/10000 AS orginalValue2,
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM zx_eq_Equip ie WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsId FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE concat('%',#{resCatalogBsid,jdbcType=VARCHAR},'%')) or #{resCatalogID,jdbcType=VARCHAR}='') AND YEAR(ie.outFactoryDate)=(#{currentYear,jdbcType=TIMESTAMP}-2) AND ie.abcType LIKE  concat('%',#{abcType,jdbcType=VARCHAR},'%')  and ie.ownerOrgId IN (SELECT department_id FROM sys_department WHERE department_path like concat(io.department_path,'%'))) AS count3,
+(SELECT sum(ie.orginalValue) FROM zx_eq_Equip ie WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsId FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE concat('%',#{resCatalogBsid,jdbcType=VARCHAR},'%')) or #{resCatalogID,jdbcType=VARCHAR}='') AND YEAR(ie.outFactoryDate)=(#{currentYear,jdbcType=TIMESTAMP}-2) AND ie.abcType LIKE  concat('%',#{abcType,jdbcType=VARCHAR},'%')  and ie.ownerOrgId IN (SELECT department_id FROM sys_department WHERE department_path like concat(io.department_path,'%')))/10000 AS orginalValue3,
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM zx_eq_Equip ie WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsId FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE concat('%',#{resCatalogBsid,jdbcType=VARCHAR},'%')) or #{resCatalogID,jdbcType=VARCHAR}='') AND YEAR(ie.outFactoryDate)=(#{currentYear,jdbcType=TIMESTAMP}-1) AND ie.abcType LIKE  concat('%',#{abcType,jdbcType=VARCHAR},'%')  and ie.ownerOrgId IN (SELECT department_id FROM sys_department WHERE department_path like concat(io.department_path,'%'))) AS count4,
+(SELECT sum(ie.orginalValue) FROM zx_eq_Equip ie WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsId FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE concat('%',#{resCatalogBsid,jdbcType=VARCHAR},'%')) or #{resCatalogID,jdbcType=VARCHAR}='') AND YEAR(ie.outFactoryDate)=(#{currentYear,jdbcType=TIMESTAMP}-1) AND ie.abcType LIKE  concat('%',#{abcType,jdbcType=VARCHAR},'%')  and ie.ownerOrgId IN (SELECT department_id FROM sys_department WHERE department_path like concat(io.department_path,'%')))/10000 AS orginalValue4,
+(SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END FROM zx_eq_Equip ie WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsId FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE concat('%',#{resCatalogBsid,jdbcType=VARCHAR},'%')) or #{resCatalogID,jdbcType=VARCHAR}='') AND YEAR(ie.outFactoryDate)=(#{currentYear,jdbcType=TIMESTAMP}) AND ie.abcType LIKE  concat('%',#{abcType,jdbcType=VARCHAR},'%')  and ie.ownerOrgId IN (SELECT department_id FROM sys_department WHERE department_path like concat(io.department_path,'%'))) AS count5,
+(SELECT sum(ie.orginalValue) FROM zx_eq_Equip ie WHERE (ie.resCatalogID IN (SELECT irc.resCategoryMaterialsId FROM zx_eq_rescategory_materials irc WHERE irc.bsid LIKE concat('%',#{resCatalogBsid,jdbcType=VARCHAR},'%')) or #{resCatalogID,jdbcType=VARCHAR}='') AND YEAR(ie.outFactoryDate)=(#{currentYear,jdbcType=TIMESTAMP}) AND ie.abcType LIKE  concat('%',#{abcType,jdbcType=VARCHAR},'%')  and ie.ownerOrgId IN (SELECT department_id FROM sys_department WHERE department_path like concat(io.department_path,'%')))/10000 AS orginalValue5
+FROM sys_department io
+WHERE io.department_parent_id=#{parentID,jdbcType=VARCHAR}
+						   GROUP BY io.department_id,io.department_path,io.department_name
+)t WHERE count1 IS NOT NULL OR orginalValue1 IS NOT NULL OR count2 IS NOT NULL OR orginalValue2 IS NOT NULL OR count3 IS NOT NULL OR orginalValue3 IS NOT NULL
+OR count4 IS NOT NULL OR orginalValue4 IS NOT NULL OR count5 IS NOT NULL  or orginalValue5 IS NOT NULL
+order by department_path
+  </select>
+</mapper>

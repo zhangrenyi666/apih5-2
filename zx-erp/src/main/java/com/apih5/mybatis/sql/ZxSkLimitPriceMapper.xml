@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkLimitPriceMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkLimitPrice" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="orgId" property="orgId" jdbcType="VARCHAR" />
+    <result column="projectName" property="projectName" jdbcType="VARCHAR" />
+    <result column="projectId" property="projectId" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="projectType" property="projectType" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="preparer" property="preparer" jdbcType="VARCHAR" />
+    <result column="reportStatus" property="reportStatus" jdbcType="VARCHAR" />
+    <result column="statusName" property="statusName" jdbcType="VARCHAR" />
+    <result column="statusFlag" property="statusFlag" jdbcType="INTEGER" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="comOrders" property="comOrders" jdbcType="VARCHAR" />
+    <result column="isThisIn" property="isThisIn" jdbcType="VARCHAR" />
+    <result column="prepareDate" property="prepareDate" jdbcType="TIMESTAMP" />
+    <result column="limitNo" property="limitNo" jdbcType="VARCHAR" />
+    <result column="serialNumber" property="serialNumber" jdbcType="VARCHAR" />
+    <result column="beginPer" property="beginPer" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="instProcessId" property="instProcessId" jdbcType="VARCHAR" />
+    <result column="workitemID" property="workitemID" jdbcType="VARCHAR" />
+    <result column="limitType" property="limitType" jdbcType="VARCHAR" />
+    <result column="contractId" property="contractId" jdbcType="VARCHAR" />
+    <result column="contractNo" property="contractNo" jdbcType="VARCHAR" />
+    <result column="adjustHistory " property="adjustHistory " jdbcType="VARCHAR" />
+    <result column="work_id" property="workId" jdbcType="CHAR" />
+    <result column="apih5_flow_status" property="apih5FlowStatus" jdbcType="CHAR" />
+    <result column="opinion_field1" property="opinionField1" jdbcType="VARCHAR" />
+    <result column="opinion_field2" property="opinionField2" jdbcType="VARCHAR" />
+    <result column="opinion_field3" property="opinionField3" jdbcType="VARCHAR" />
+    <result column="opinion_field4" property="opinionField4" jdbcType="VARCHAR" />
+    <result column="opinion_field5" property="opinionField5" jdbcType="VARCHAR" />
+    <result column="opinion_field6" property="opinionField6" jdbcType="VARCHAR" />
+    <result column="opinion_field7" property="opinionField7" jdbcType="VARCHAR" />
+    <result column="opinion_field8" property="opinionField8" jdbcType="VARCHAR" />
+    <result column="opinion_field9" property="opinionField9" jdbcType="VARCHAR" />
+    <result column="opinion_field10" property="opinionField10" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, orgName, orgId, projectName, projectId, 
+    province, projectType, period, preparer, reportStatus, 
+    statusName, statusFlag, editTime, comID, comName, 
+    comOrders, isThisIn, prepareDate, limitNo, serialNumber, 
+    beginPer, status, instProcessId, workitemID, limitType, 
+    contractId, contractNo, adjustHistory , work_id, apih5_flow_status, 
+    opinion_field1, opinion_field2, opinion_field3, opinion_field4, opinion_field5, 
+    opinion_field6, opinion_field7, opinion_field8, opinion_field9, opinion_field10, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_limitPrice
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_limitPrice
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkLimitPrice" >
+    insert into zx_sk_limitPrice (id, orgName, orgId, 
+      projectName, projectId, province, 
+      projectType, period, preparer, 
+      reportStatus, statusName, statusFlag, 
+      editTime, comID, comName, 
+      comOrders, isThisIn, prepareDate, 
+      limitNo, serialNumber, beginPer, 
+      status, instProcessId, workitemID, 
+      limitType, contractId, contractNo, 
+      adjustHistory , work_id, apih5_flow_status, 
+      opinion_field1, opinion_field2, opinion_field3, 
+      opinion_field4, opinion_field5, opinion_field6, 
+      opinion_field7, opinion_field8, opinion_field9, 
+      opinion_field10, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, #{orgId,jdbcType=VARCHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{projectId,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+      #{projectType,jdbcType=VARCHAR}, #{period,jdbcType=VARCHAR}, #{preparer,jdbcType=VARCHAR}, 
+      #{reportStatus,jdbcType=VARCHAR}, #{statusName,jdbcType=VARCHAR}, #{statusFlag,jdbcType=INTEGER}, 
+      #{editTime,jdbcType=TIMESTAMP}, #{comID,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, 
+      #{comOrders,jdbcType=VARCHAR}, #{isThisIn,jdbcType=VARCHAR}, #{prepareDate,jdbcType=TIMESTAMP}, 
+      #{limitNo,jdbcType=VARCHAR}, #{serialNumber,jdbcType=VARCHAR}, #{beginPer,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{instProcessId,jdbcType=VARCHAR}, #{workitemID,jdbcType=VARCHAR}, 
+      #{limitType,jdbcType=VARCHAR}, #{contractId,jdbcType=VARCHAR}, #{contractNo,jdbcType=VARCHAR}, 
+      #{adjustHistory ,jdbcType=VARCHAR}, #{workId,jdbcType=CHAR}, #{apih5FlowStatus,jdbcType=CHAR}, 
+      #{opinionField1,jdbcType=VARCHAR}, #{opinionField2,jdbcType=VARCHAR}, #{opinionField3,jdbcType=VARCHAR}, 
+      #{opinionField4,jdbcType=VARCHAR}, #{opinionField5,jdbcType=VARCHAR}, #{opinionField6,jdbcType=VARCHAR}, 
+      #{opinionField7,jdbcType=VARCHAR}, #{opinionField8,jdbcType=VARCHAR}, #{opinionField9,jdbcType=VARCHAR}, 
+      #{opinionField10,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkLimitPrice" >
+    insert into zx_sk_limitPrice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="orgId != null" >
+        orgId,
+      </if>
+      <if test="projectName != null" >
+        projectName,
+      </if>
+      <if test="projectId != null" >
+        projectId,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="projectType != null" >
+        projectType,
+      </if>
+      <if test="period != null" >
+        period,
+      </if>
+      <if test="preparer != null" >
+        preparer,
+      </if>
+      <if test="reportStatus != null" >
+        reportStatus,
+      </if>
+      <if test="statusName != null" >
+        statusName,
+      </if>
+      <if test="statusFlag != null" >
+        statusFlag,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="comOrders != null" >
+        comOrders,
+      </if>
+      <if test="isThisIn != null" >
+        isThisIn,
+      </if>
+      <if test="prepareDate != null" >
+        prepareDate,
+      </if>
+      <if test="limitNo != null" >
+        limitNo,
+      </if>
+      <if test="serialNumber != null" >
+        serialNumber,
+      </if>
+      <if test="beginPer != null" >
+        beginPer,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="instProcessId != null" >
+        instProcessId,
+      </if>
+      <if test="workitemID != null" >
+        workitemID,
+      </if>
+      <if test="limitType != null" >
+        limitType,
+      </if>
+      <if test="contractId != null" >
+        contractId,
+      </if>
+      <if test="contractNo != null" >
+        contractNo,
+      </if>
+      <if test="adjustHistory  != null" >
+        adjustHistory ,
+      </if>
+      <if test="workId != null" >
+        work_id,
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status,
+      </if>
+      <if test="opinionField1 != null" >
+        opinion_field1,
+      </if>
+      <if test="opinionField2 != null" >
+        opinion_field2,
+      </if>
+      <if test="opinionField3 != null" >
+        opinion_field3,
+      </if>
+      <if test="opinionField4 != null" >
+        opinion_field4,
+      </if>
+      <if test="opinionField5 != null" >
+        opinion_field5,
+      </if>
+      <if test="opinionField6 != null" >
+        opinion_field6,
+      </if>
+      <if test="opinionField7 != null" >
+        opinion_field7,
+      </if>
+      <if test="opinionField8 != null" >
+        opinion_field8,
+      </if>
+      <if test="opinionField9 != null" >
+        opinion_field9,
+      </if>
+      <if test="opinionField10 != null" >
+        opinion_field10,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null" >
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="projectType != null" >
+        #{projectType,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="preparer != null" >
+        #{preparer,jdbcType=VARCHAR},
+      </if>
+      <if test="reportStatus != null" >
+        #{reportStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="statusName != null" >
+        #{statusName,jdbcType=VARCHAR},
+      </if>
+      <if test="statusFlag != null" >
+        #{statusFlag,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="isThisIn != null" >
+        #{isThisIn,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareDate != null" >
+        #{prepareDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="limitNo != null" >
+        #{limitNo,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null" >
+        #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="beginPer != null" >
+        #{beginPer,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="instProcessId != null" >
+        #{instProcessId,jdbcType=VARCHAR},
+      </if>
+      <if test="workitemID != null" >
+        #{workitemID,jdbcType=VARCHAR},
+      </if>
+      <if test="limitType != null" >
+        #{limitType,jdbcType=VARCHAR},
+      </if>
+      <if test="contractId != null" >
+        #{contractId,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null" >
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustHistory  != null" >
+        #{adjustHistory ,jdbcType=VARCHAR},
+      </if>
+      <if test="workId != null" >
+        #{workId,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        #{apih5FlowStatus,jdbcType=CHAR},
+      </if>
+      <if test="opinionField1 != null" >
+        #{opinionField1,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField2 != null" >
+        #{opinionField2,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField3 != null" >
+        #{opinionField3,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField4 != null" >
+        #{opinionField4,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField5 != null" >
+        #{opinionField5,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField6 != null" >
+        #{opinionField6,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField7 != null" >
+        #{opinionField7,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField8 != null" >
+        #{opinionField8,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField9 != null" >
+        #{opinionField9,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField10 != null" >
+        #{opinionField10,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkLimitPrice" >
+    update zx_sk_limitPrice
+    <set >
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null" >
+        orgId = #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        projectName = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        projectId = #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="projectType != null" >
+        projectType = #{projectType,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        period = #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="preparer != null" >
+        preparer = #{preparer,jdbcType=VARCHAR},
+      </if>
+      <if test="reportStatus != null" >
+        reportStatus = #{reportStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="statusName != null" >
+        statusName = #{statusName,jdbcType=VARCHAR},
+      </if>
+      <if test="statusFlag != null" >
+        statusFlag = #{statusFlag,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        comOrders = #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="isThisIn != null" >
+        isThisIn = #{isThisIn,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareDate != null" >
+        prepareDate = #{prepareDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="limitNo != null" >
+        limitNo = #{limitNo,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null" >
+        serialNumber = #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="beginPer != null" >
+        beginPer = #{beginPer,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="instProcessId != null" >
+        instProcessId = #{instProcessId,jdbcType=VARCHAR},
+      </if>
+      <if test="workitemID != null" >
+        workitemID = #{workitemID,jdbcType=VARCHAR},
+      </if>
+      <if test="limitType != null" >
+        limitType = #{limitType,jdbcType=VARCHAR},
+      </if>
+      <if test="contractId != null" >
+        contractId = #{contractId,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null" >
+        contractNo = #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustHistory  != null" >
+        adjustHistory  = #{adjustHistory ,jdbcType=VARCHAR},
+      </if>
+      <if test="workId != null" >
+        work_id = #{workId,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR},
+      </if>
+      <if test="opinionField1 != null" >
+        opinion_field1 = #{opinionField1,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField2 != null" >
+        opinion_field2 = #{opinionField2,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField3 != null" >
+        opinion_field3 = #{opinionField3,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField4 != null" >
+        opinion_field4 = #{opinionField4,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField5 != null" >
+        opinion_field5 = #{opinionField5,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField6 != null" >
+        opinion_field6 = #{opinionField6,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField7 != null" >
+        opinion_field7 = #{opinionField7,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField8 != null" >
+        opinion_field8 = #{opinionField8,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField9 != null" >
+        opinion_field9 = #{opinionField9,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField10 != null" >
+        opinion_field10 = #{opinionField10,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkLimitPrice" >
+    update zx_sk_limitPrice
+    set       orgName = #{orgName,jdbcType=VARCHAR},
+      orgId = #{orgId,jdbcType=VARCHAR},
+      projectName = #{projectName,jdbcType=VARCHAR},
+      projectId = #{projectId,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      projectType = #{projectType,jdbcType=VARCHAR},
+      period = #{period,jdbcType=VARCHAR},
+      preparer = #{preparer,jdbcType=VARCHAR},
+      reportStatus = #{reportStatus,jdbcType=VARCHAR},
+      statusName = #{statusName,jdbcType=VARCHAR},
+      statusFlag = #{statusFlag,jdbcType=INTEGER},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      comOrders = #{comOrders,jdbcType=VARCHAR},
+      isThisIn = #{isThisIn,jdbcType=VARCHAR},
+      prepareDate = #{prepareDate,jdbcType=TIMESTAMP},
+      limitNo = #{limitNo,jdbcType=VARCHAR},
+      serialNumber = #{serialNumber,jdbcType=VARCHAR},
+      beginPer = #{beginPer,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      instProcessId = #{instProcessId,jdbcType=VARCHAR},
+      workitemID = #{workitemID,jdbcType=VARCHAR},
+      limitType = #{limitType,jdbcType=VARCHAR},
+      contractId = #{contractId,jdbcType=VARCHAR},
+      contractNo = #{contractNo,jdbcType=VARCHAR},
+      adjustHistory  = #{adjustHistory ,jdbcType=VARCHAR},
+      work_id = #{workId,jdbcType=CHAR},
+      apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR},
+      opinion_field1 = #{opinionField1,jdbcType=VARCHAR},
+      opinion_field2 = #{opinionField2,jdbcType=VARCHAR},
+      opinion_field3 = #{opinionField3,jdbcType=VARCHAR},
+      opinion_field4 = #{opinionField4,jdbcType=VARCHAR},
+      opinion_field5 = #{opinionField5,jdbcType=VARCHAR},
+      opinion_field6 = #{opinionField6,jdbcType=VARCHAR},
+      opinion_field7 = #{opinionField7,jdbcType=VARCHAR},
+      opinion_field8 = #{opinionField8,jdbcType=VARCHAR},
+      opinion_field9 = #{opinionField9,jdbcType=VARCHAR},
+      opinion_field10 = #{opinionField10,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxSkLimitPriceList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkLimitPrice" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_limitPrice
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="orgId != null and orgId != ''" >
+     and orgId = #{orgId,jdbcType=VARCHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+      and projectName = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and projectId = #{projectId,jdbcType=VARCHAR}
+    </if>
+    <if test="province != null and province != ''" >
+     and province = #{province,jdbcType=VARCHAR}
+    </if>
+    <if test="projectType != null and projectType != ''" >
+     and projectType = #{projectType,jdbcType=VARCHAR}
+    </if>
+    <if test="period != null and period != ''" >
+      and period like CONCAT('%',CONCAT(#{period,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="preparer != null and preparer != ''" >
+     and preparer = #{preparer,jdbcType=VARCHAR}
+    </if>
+    <if test="reportStatus != null and reportStatus != ''" >
+     and reportStatus = #{reportStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="statusName != null and statusName != ''" >
+     and statusName = #{statusName,jdbcType=VARCHAR}
+    </if>
+    <if test="statusFlag != null and statusFlag != ''" >
+     and statusFlag = #{statusFlag,jdbcType=INTEGER}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+      and comName like CONCAT('%',CONCAT(#{comName,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="comOrders != null and comOrders != ''" >
+     and comOrders = #{comOrders,jdbcType=VARCHAR}
+    </if>
+    <if test="isThisIn != null and isThisIn != ''" >
+     and isThisIn = #{isThisIn,jdbcType=VARCHAR}
+    </if>
+    <if test="prepareDate != null and prepareDate != ''" >
+     and prepareDate = #{prepareDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="limitNo != null and limitNo != ''" >
+     and limitNo like CONCAT('%',CONCAT(#{limitNo,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="serialNumber != null and serialNumber != ''" >
+     and serialNumber = #{serialNumber,jdbcType=VARCHAR}
+    </if>
+    <if test="beginPer != null and beginPer != ''" >
+     and beginPer = #{beginPer,jdbcType=VARCHAR}
+    </if>
+    <if test="status != null and status != ''" >
+     and status = #{status,jdbcType=VARCHAR}
+    </if>
+    <if test="instProcessId != null and instProcessId != ''" >
+     and instProcessId = #{instProcessId,jdbcType=VARCHAR}
+    </if>
+    <if test="workitemID != null and workitemID != ''" >
+     and workitemID = #{workitemID,jdbcType=VARCHAR}
+    </if>
+    <if test="limitType != null and limitType != ''" >
+     and limitType = #{limitType,jdbcType=VARCHAR}
+    </if>
+    <if test="contractId != null and contractId != ''" >
+     and contractId = #{contractId,jdbcType=VARCHAR}
+    </if>
+    <if test="contractNo != null and contractNo != ''" >
+     and contractNo = #{contractNo,jdbcType=VARCHAR}
+    </if>
+    <if test="adjustHistory  != null and adjustHistory  != ''" >
+     and adjustHistory  = #{adjustHistory ,jdbcType=VARCHAR}
+    </if>
+    <if test="workId != null and workId != ''" >
+     and work_id = #{workId,jdbcType=CHAR}
+    </if>
+    <if test="apih5FlowStatus != null and apih5FlowStatus != ''" >
+     and apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR}
+    </if>
+    <if test="opinionField1 != null and opinionField1 != ''" >
+     and opinion_field1 = #{opinionField1,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField2 != null and opinionField2 != ''" >
+     and opinion_field2 = #{opinionField2,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField3 != null and opinionField3 != ''" >
+     and opinion_field3 = #{opinionField3,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField4 != null and opinionField4 != ''" >
+     and opinion_field4 = #{opinionField4,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField5 != null and opinionField5 != ''" >
+     and opinion_field5 = #{opinionField5,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField6 != null and opinionField6 != ''" >
+     and opinion_field6 = #{opinionField6,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField7 != null and opinionField7 != ''" >
+     and opinion_field7 = #{opinionField7,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField8 != null and opinionField8 != ''" >
+     and opinion_field8 = #{opinionField8,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField9 != null and opinionField9 != ''" >
+     and opinion_field9 = #{opinionField9,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField10 != null and opinionField10 != ''" >
+     and opinion_field10 = #{opinionField10,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkLimitPrice" parameterType="com.apih5.mybatis.pojo.ZxSkLimitPrice" >
+    <![CDATA[ 
+        update zx_sk_limitPrice
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

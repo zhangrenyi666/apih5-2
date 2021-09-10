@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmSalaryOfficeSalaryDetailsMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmSalaryOfficeSalaryDetails" >
+    <id column="details_id" property="detailsId" jdbcType="CHAR" />
+    <result column="user_key" property="userKey" jdbcType="CHAR" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="id_type" property="idType" jdbcType="CHAR" />
+    <result column="id_number" property="idNumber" jdbcType="VARCHAR" />
+    <result column="user_type" property="userType" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="salary_base" property="salaryBase" jdbcType="DECIMAL" />
+    <result column="attendance_days" property="attendanceDays" jdbcType="DECIMAL" />
+    <result column="calendar_days" property="calendarDays" jdbcType="DECIMAL" />
+    <result column="position_salary" property="positionSalary" jdbcType="DECIMAL" />
+    <result column="level_id" property="levelId" jdbcType="CHAR" />
+    <result column="salary_id" property="salaryId" jdbcType="CHAR" />
+    <result column="level_salary_id" property="levelSalaryId" jdbcType="VARCHAR" />
+    <result column="education_allowance" property="educationAllowance" jdbcType="DECIMAL" />
+    <result column="work_years" property="workYears" jdbcType="DECIMAL" />
+    <result column="year_allowance" property="yearAllowance" jdbcType="DECIMAL" />
+    <result column="title_allowance" property="titleAllowance" jdbcType="DECIMAL" />
+    <result column="child_allowance" property="childAllowance" jdbcType="DECIMAL" />
+    <result column="plateau_allowance" property="plateauAllowance" jdbcType="DECIMAL" />
+    <result column="high_temp_allowance" property="highTempAllowance" jdbcType="DECIMAL" />
+    <result column="certificate_allowance" property="certificateAllowance" jdbcType="DECIMAL" />
+    <result column="performance_allowance" property="performanceAllowance" jdbcType="DECIMAL" />
+    <result column="other_wages" property="otherWages" jdbcType="DECIMAL" />
+    <result column="endowment_insurance" property="endowmentInsurance" jdbcType="DECIMAL" />
+    <result column="unemployment_insurance" property="unemploymentInsurance" jdbcType="DECIMAL" />
+    <result column="medical_insurance" property="medicalInsurance" jdbcType="DECIMAL" />
+    <result column="housing_fund" property="housingFund" jdbcType="DECIMAL" />
+    <result column="enterprise_annuity" property="enterpriseAnnuity" jdbcType="DECIMAL" />
+    <result column="individual_income_tax" property="individualIncomeTax" jdbcType="DECIMAL" />
+    <result column="personal_threshold" property="personalThreshold" jdbcType="DECIMAL" />
+    <result column="personal_special_deduction" property="personalSpecialDeduction" jdbcType="DECIMAL" />
+    <result column="other_taxable_wages" property="otherTaxableWages" jdbcType="DECIMAL" />
+    <result column="communication_allowance" property="communicationAllowance" jdbcType="DECIMAL" />
+    <result column="current_taxable_income" property="currentTaxableIncome" jdbcType="DECIMAL" />
+    <result column="accumulated_taxable_income" property="accumulatedTaxableIncome" jdbcType="DECIMAL" />
+    <result column="accumulated_personal_income_tax" property="accumulatedPersonalIncomeTax" jdbcType="DECIMAL" />
+    <result column="accumulated_individual_income_tax_deducted" property="accumulatedIndividualIncomeTaxDeducted" jdbcType="DECIMAL" />
+    <result column="total_paid" property="totalPaid" jdbcType="DECIMAL" />
+    <result column="opinion_field1" property="opinionField1" jdbcType="VARCHAR" />
+    <result column="opinion_field2" property="opinionField2" jdbcType="VARCHAR" />
+    <result column="opinion_field3" property="opinionField3" jdbcType="VARCHAR" />
+    <result column="opinion_field4" property="opinionField4" jdbcType="VARCHAR" />
+    <result column="opinion_field5" property="opinionField5" jdbcType="VARCHAR" />
+    <result column="apih5_flow_id" property="apih5FlowId" jdbcType="CHAR" />
+    <result column="work_id" property="workId" jdbcType="CHAR" />
+    <result column="apih5_flow_status" property="apih5FlowStatus" jdbcType="CHAR" />
+    <result column="apih5_flow_node_status" property="apih5FlowNodeStatus" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    details_id, user_key, real_name, id_type, id_number, 
+    user_type, project_id, salary_base, attendance_days, calendar_days, 
+    position_salary, level_id, salary_id, level_salary_id, education_allowance, 
+    work_years, year_allowance, title_allowance, child_allowance, plateau_allowance, 
+    high_temp_allowance, certificate_allowance, performance_allowance, other_wages, endowment_insurance, 
+    unemployment_insurance, medical_insurance, housing_fund, enterprise_annuity, individual_income_tax, 
+    personal_threshold, personal_special_deduction, other_taxable_wages, communication_allowance, current_taxable_income, 
+    accumulated_taxable_income, accumulated_personal_income_tax, accumulated_individual_income_tax_deducted, total_paid, opinion_field1, 
+    opinion_field2, opinion_field3, opinion_field4, opinion_field5, apih5_flow_id, 
+    work_id, apih5_flow_status, apih5_flow_node_status, remarks, sort, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_office_salary_details
+    where details_id = #{detailsId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_salary_office_salary_details
+    where details_id = #{detailsId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryOfficeSalaryDetails" >
+    insert into zj_xm_salary_office_salary_details (details_id, user_key, real_name, 
+      id_type, id_number, user_type, 
+      project_id, salary_base, attendance_days, 
+      calendar_days, position_salary, level_id, 
+      salary_id, level_salary_id, education_allowance, 
+      work_years, year_allowance, title_allowance, 
+      child_allowance, plateau_allowance, high_temp_allowance, 
+      certificate_allowance, performance_allowance, other_wages, 
+      endowment_insurance, unemployment_insurance, medical_insurance, 
+      housing_fund, enterprise_annuity, individual_income_tax, 
+      personal_threshold, personal_special_deduction, other_taxable_wages, 
+      communication_allowance, current_taxable_income, accumulated_taxable_income, 
+      accumulated_personal_income_tax, accumulated_individual_income_tax_deducted, total_paid, 
+      opinion_field1, opinion_field2, opinion_field3, 
+      opinion_field4, opinion_field5, apih5_flow_id, 
+      work_id, apih5_flow_status, apih5_flow_node_status, 
+      remarks, sort, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{detailsId,jdbcType=CHAR}, #{userKey,jdbcType=CHAR}, #{realName,jdbcType=VARCHAR}, 
+      #{idType,jdbcType=CHAR}, #{idNumber,jdbcType=VARCHAR}, #{userType,jdbcType=CHAR}, 
+      #{projectId,jdbcType=CHAR}, #{salaryBase,jdbcType=DECIMAL}, #{attendanceDays,jdbcType=DECIMAL}, 
+      #{calendarDays,jdbcType=DECIMAL}, #{positionSalary,jdbcType=DECIMAL}, #{levelId,jdbcType=CHAR}, 
+      #{salaryId,jdbcType=CHAR}, #{levelSalaryId,jdbcType=VARCHAR}, #{educationAllowance,jdbcType=DECIMAL}, 
+      #{workYears,jdbcType=DECIMAL}, #{yearAllowance,jdbcType=DECIMAL}, #{titleAllowance,jdbcType=DECIMAL}, 
+      #{childAllowance,jdbcType=DECIMAL}, #{plateauAllowance,jdbcType=DECIMAL}, #{highTempAllowance,jdbcType=DECIMAL}, 
+      #{certificateAllowance,jdbcType=DECIMAL}, #{performanceAllowance,jdbcType=DECIMAL}, #{otherWages,jdbcType=DECIMAL}, 
+      #{endowmentInsurance,jdbcType=DECIMAL}, #{unemploymentInsurance,jdbcType=DECIMAL}, #{medicalInsurance,jdbcType=DECIMAL}, 
+      #{housingFund,jdbcType=DECIMAL}, #{enterpriseAnnuity,jdbcType=DECIMAL}, #{individualIncomeTax,jdbcType=DECIMAL}, 
+      #{personalThreshold,jdbcType=DECIMAL}, #{personalSpecialDeduction,jdbcType=DECIMAL}, #{otherTaxableWages,jdbcType=DECIMAL}, 
+      #{communicationAllowance,jdbcType=DECIMAL}, #{currentTaxableIncome,jdbcType=DECIMAL}, #{accumulatedTaxableIncome,jdbcType=DECIMAL}, 
+      #{accumulatedPersonalIncomeTax,jdbcType=DECIMAL}, #{accumulatedIndividualIncomeTaxDeducted,jdbcType=DECIMAL}, #{totalPaid,jdbcType=DECIMAL}, 
+      #{opinionField1,jdbcType=VARCHAR}, #{opinionField2,jdbcType=VARCHAR}, #{opinionField3,jdbcType=VARCHAR}, 
+      #{opinionField4,jdbcType=VARCHAR}, #{opinionField5,jdbcType=VARCHAR}, #{apih5FlowId,jdbcType=CHAR}, 
+      #{workId,jdbcType=CHAR}, #{apih5FlowStatus,jdbcType=CHAR}, #{apih5FlowNodeStatus,jdbcType=CHAR}, 
+      #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryOfficeSalaryDetails" >
+    insert into zj_xm_salary_office_salary_details
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="detailsId != null" >
+        details_id,
+      </if>
+      <if test="userKey != null" >
+        user_key,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="idType != null" >
+        id_type,
+      </if>
+      <if test="idNumber != null" >
+        id_number,
+      </if>
+      <if test="userType != null" >
+        user_type,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="salaryBase != null" >
+        salary_base,
+      </if>
+      <if test="attendanceDays != null" >
+        attendance_days,
+      </if>
+      <if test="calendarDays != null" >
+        calendar_days,
+      </if>
+      <if test="positionSalary != null" >
+        position_salary,
+      </if>
+      <if test="levelId != null" >
+        level_id,
+      </if>
+      <if test="salaryId != null" >
+        salary_id,
+      </if>
+      <if test="levelSalaryId != null" >
+        level_salary_id,
+      </if>
+      <if test="educationAllowance != null" >
+        education_allowance,
+      </if>
+      <if test="workYears != null" >
+        work_years,
+      </if>
+      <if test="yearAllowance != null" >
+        year_allowance,
+      </if>
+      <if test="titleAllowance != null" >
+        title_allowance,
+      </if>
+      <if test="childAllowance != null" >
+        child_allowance,
+      </if>
+      <if test="plateauAllowance != null" >
+        plateau_allowance,
+      </if>
+      <if test="highTempAllowance != null" >
+        high_temp_allowance,
+      </if>
+      <if test="certificateAllowance != null" >
+        certificate_allowance,
+      </if>
+      <if test="performanceAllowance != null" >
+        performance_allowance,
+      </if>
+      <if test="otherWages != null" >
+        other_wages,
+      </if>
+      <if test="endowmentInsurance != null" >
+        endowment_insurance,
+      </if>
+      <if test="unemploymentInsurance != null" >
+        unemployment_insurance,
+      </if>
+      <if test="medicalInsurance != null" >
+        medical_insurance,
+      </if>
+      <if test="housingFund != null" >
+        housing_fund,
+      </if>
+      <if test="enterpriseAnnuity != null" >
+        enterprise_annuity,
+      </if>
+      <if test="individualIncomeTax != null" >
+        individual_income_tax,
+      </if>
+      <if test="personalThreshold != null" >
+        personal_threshold,
+      </if>
+      <if test="personalSpecialDeduction != null" >
+        personal_special_deduction,
+      </if>
+      <if test="otherTaxableWages != null" >
+        other_taxable_wages,
+      </if>
+      <if test="communicationAllowance != null" >
+        communication_allowance,
+      </if>
+      <if test="currentTaxableIncome != null" >
+        current_taxable_income,
+      </if>
+      <if test="accumulatedTaxableIncome != null" >
+        accumulated_taxable_income,
+      </if>
+      <if test="accumulatedPersonalIncomeTax != null" >
+        accumulated_personal_income_tax,
+      </if>
+      <if test="accumulatedIndividualIncomeTaxDeducted != null" >
+        accumulated_individual_income_tax_deducted,
+      </if>
+      <if test="totalPaid != null" >
+        total_paid,
+      </if>
+      <if test="opinionField1 != null" >
+        opinion_field1,
+      </if>
+      <if test="opinionField2 != null" >
+        opinion_field2,
+      </if>
+      <if test="opinionField3 != null" >
+        opinion_field3,
+      </if>
+      <if test="opinionField4 != null" >
+        opinion_field4,
+      </if>
+      <if test="opinionField5 != null" >
+        opinion_field5,
+      </if>
+      <if test="apih5FlowId != null" >
+        apih5_flow_id,
+      </if>
+      <if test="workId != null" >
+        work_id,
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status,
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        apih5_flow_node_status,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="detailsId != null" >
+        #{detailsId,jdbcType=CHAR},
+      </if>
+      <if test="userKey != null" >
+        #{userKey,jdbcType=CHAR},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null" >
+        #{idType,jdbcType=CHAR},
+      </if>
+      <if test="idNumber != null" >
+        #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null" >
+        #{userType,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="salaryBase != null" >
+        #{salaryBase,jdbcType=DECIMAL},
+      </if>
+      <if test="attendanceDays != null" >
+        #{attendanceDays,jdbcType=DECIMAL},
+      </if>
+      <if test="calendarDays != null" >
+        #{calendarDays,jdbcType=DECIMAL},
+      </if>
+      <if test="positionSalary != null" >
+        #{positionSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="levelId != null" >
+        #{levelId,jdbcType=CHAR},
+      </if>
+      <if test="salaryId != null" >
+        #{salaryId,jdbcType=CHAR},
+      </if>
+      <if test="levelSalaryId != null" >
+        #{levelSalaryId,jdbcType=VARCHAR},
+      </if>
+      <if test="educationAllowance != null" >
+        #{educationAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="workYears != null" >
+        #{workYears,jdbcType=DECIMAL},
+      </if>
+      <if test="yearAllowance != null" >
+        #{yearAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="titleAllowance != null" >
+        #{titleAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="childAllowance != null" >
+        #{childAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="plateauAllowance != null" >
+        #{plateauAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="highTempAllowance != null" >
+        #{highTempAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="certificateAllowance != null" >
+        #{certificateAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="performanceAllowance != null" >
+        #{performanceAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="otherWages != null" >
+        #{otherWages,jdbcType=DECIMAL},
+      </if>
+      <if test="endowmentInsurance != null" >
+        #{endowmentInsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="unemploymentInsurance != null" >
+        #{unemploymentInsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="medicalInsurance != null" >
+        #{medicalInsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="housingFund != null" >
+        #{housingFund,jdbcType=DECIMAL},
+      </if>
+      <if test="enterpriseAnnuity != null" >
+        #{enterpriseAnnuity,jdbcType=DECIMAL},
+      </if>
+      <if test="individualIncomeTax != null" >
+        #{individualIncomeTax,jdbcType=DECIMAL},
+      </if>
+      <if test="personalThreshold != null" >
+        #{personalThreshold,jdbcType=DECIMAL},
+      </if>
+      <if test="personalSpecialDeduction != null" >
+        #{personalSpecialDeduction,jdbcType=DECIMAL},
+      </if>
+      <if test="otherTaxableWages != null" >
+        #{otherTaxableWages,jdbcType=DECIMAL},
+      </if>
+      <if test="communicationAllowance != null" >
+        #{communicationAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="currentTaxableIncome != null" >
+        #{currentTaxableIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="accumulatedTaxableIncome != null" >
+        #{accumulatedTaxableIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="accumulatedPersonalIncomeTax != null" >
+        #{accumulatedPersonalIncomeTax,jdbcType=DECIMAL},
+      </if>
+      <if test="accumulatedIndividualIncomeTaxDeducted != null" >
+        #{accumulatedIndividualIncomeTaxDeducted,jdbcType=DECIMAL},
+      </if>
+      <if test="totalPaid != null" >
+        #{totalPaid,jdbcType=DECIMAL},
+      </if>
+      <if test="opinionField1 != null" >
+        #{opinionField1,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField2 != null" >
+        #{opinionField2,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField3 != null" >
+        #{opinionField3,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField4 != null" >
+        #{opinionField4,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField5 != null" >
+        #{opinionField5,jdbcType=VARCHAR},
+      </if>
+      <if test="apih5FlowId != null" >
+        #{apih5FlowId,jdbcType=CHAR},
+      </if>
+      <if test="workId != null" >
+        #{workId,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        #{apih5FlowStatus,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        #{apih5FlowNodeStatus,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryOfficeSalaryDetails" >
+    update zj_xm_salary_office_salary_details
+    <set >
+      <if test="userKey != null" >
+        user_key = #{userKey,jdbcType=CHAR},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null" >
+        id_type = #{idType,jdbcType=CHAR},
+      </if>
+      <if test="idNumber != null" >
+        id_number = #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null" >
+        user_type = #{userType,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="salaryBase != null" >
+        salary_base = #{salaryBase,jdbcType=DECIMAL},
+      </if>
+      <if test="attendanceDays != null" >
+        attendance_days = #{attendanceDays,jdbcType=DECIMAL},
+      </if>
+      <if test="calendarDays != null" >
+        calendar_days = #{calendarDays,jdbcType=DECIMAL},
+      </if>
+      <if test="positionSalary != null" >
+        position_salary = #{positionSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="levelId != null" >
+        level_id = #{levelId,jdbcType=CHAR},
+      </if>
+      <if test="salaryId != null" >
+        salary_id = #{salaryId,jdbcType=CHAR},
+      </if>
+      <if test="levelSalaryId != null" >
+        level_salary_id = #{levelSalaryId,jdbcType=VARCHAR},
+      </if>
+      <if test="educationAllowance != null" >
+        education_allowance = #{educationAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="workYears != null" >
+        work_years = #{workYears,jdbcType=DECIMAL},
+      </if>
+      <if test="yearAllowance != null" >
+        year_allowance = #{yearAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="titleAllowance != null" >
+        title_allowance = #{titleAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="childAllowance != null" >
+        child_allowance = #{childAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="plateauAllowance != null" >
+        plateau_allowance = #{plateauAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="highTempAllowance != null" >
+        high_temp_allowance = #{highTempAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="certificateAllowance != null" >
+        certificate_allowance = #{certificateAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="performanceAllowance != null" >
+        performance_allowance = #{performanceAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="otherWages != null" >
+        other_wages = #{otherWages,jdbcType=DECIMAL},
+      </if>
+      <if test="endowmentInsurance != null" >
+        endowment_insurance = #{endowmentInsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="unemploymentInsurance != null" >
+        unemployment_insurance = #{unemploymentInsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="medicalInsurance != null" >
+        medical_insurance = #{medicalInsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="housingFund != null" >
+        housing_fund = #{housingFund,jdbcType=DECIMAL},
+      </if>
+      <if test="enterpriseAnnuity != null" >
+        enterprise_annuity = #{enterpriseAnnuity,jdbcType=DECIMAL},
+      </if>
+      <if test="individualIncomeTax != null" >
+        individual_income_tax = #{individualIncomeTax,jdbcType=DECIMAL},
+      </if>
+      <if test="personalThreshold != null" >
+        personal_threshold = #{personalThreshold,jdbcType=DECIMAL},
+      </if>
+      <if test="personalSpecialDeduction != null" >
+        personal_special_deduction = #{personalSpecialDeduction,jdbcType=DECIMAL},
+      </if>
+      <if test="otherTaxableWages != null" >
+        other_taxable_wages = #{otherTaxableWages,jdbcType=DECIMAL},
+      </if>
+      <if test="communicationAllowance != null" >
+        communication_allowance = #{communicationAllowance,jdbcType=DECIMAL},
+      </if>
+      <if test="currentTaxableIncome != null" >
+        current_taxable_income = #{currentTaxableIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="accumulatedTaxableIncome != null" >
+        accumulated_taxable_income = #{accumulatedTaxableIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="accumulatedPersonalIncomeTax != null" >
+        accumulated_personal_income_tax = #{accumulatedPersonalIncomeTax,jdbcType=DECIMAL},
+      </if>
+      <if test="accumulatedIndividualIncomeTaxDeducted != null" >
+        accumulated_individual_income_tax_deducted = #{accumulatedIndividualIncomeTaxDeducted,jdbcType=DECIMAL},
+      </if>
+      <if test="totalPaid != null" >
+        total_paid = #{totalPaid,jdbcType=DECIMAL},
+      </if>
+      <if test="opinionField1 != null" >
+        opinion_field1 = #{opinionField1,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField2 != null" >
+        opinion_field2 = #{opinionField2,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField3 != null" >
+        opinion_field3 = #{opinionField3,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField4 != null" >
+        opinion_field4 = #{opinionField4,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionField5 != null" >
+        opinion_field5 = #{opinionField5,jdbcType=VARCHAR},
+      </if>
+      <if test="apih5FlowId != null" >
+        apih5_flow_id = #{apih5FlowId,jdbcType=CHAR},
+      </if>
+      <if test="workId != null" >
+        work_id = #{workId,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where details_id = #{detailsId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryOfficeSalaryDetails" >
+    update zj_xm_salary_office_salary_details
+    set       user_key = #{userKey,jdbcType=CHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      id_type = #{idType,jdbcType=CHAR},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      user_type = #{userType,jdbcType=CHAR},
+      project_id = #{projectId,jdbcType=CHAR},
+      salary_base = #{salaryBase,jdbcType=DECIMAL},
+      attendance_days = #{attendanceDays,jdbcType=DECIMAL},
+      calendar_days = #{calendarDays,jdbcType=DECIMAL},
+      position_salary = #{positionSalary,jdbcType=DECIMAL},
+      level_id = #{levelId,jdbcType=CHAR},
+      salary_id = #{salaryId,jdbcType=CHAR},
+      level_salary_id = #{levelSalaryId,jdbcType=VARCHAR},
+      education_allowance = #{educationAllowance,jdbcType=DECIMAL},
+      work_years = #{workYears,jdbcType=DECIMAL},
+      year_allowance = #{yearAllowance,jdbcType=DECIMAL},
+      title_allowance = #{titleAllowance,jdbcType=DECIMAL},
+      child_allowance = #{childAllowance,jdbcType=DECIMAL},
+      plateau_allowance = #{plateauAllowance,jdbcType=DECIMAL},
+      high_temp_allowance = #{highTempAllowance,jdbcType=DECIMAL},
+      certificate_allowance = #{certificateAllowance,jdbcType=DECIMAL},
+      performance_allowance = #{performanceAllowance,jdbcType=DECIMAL},
+      other_wages = #{otherWages,jdbcType=DECIMAL},
+      endowment_insurance = #{endowmentInsurance,jdbcType=DECIMAL},
+      unemployment_insurance = #{unemploymentInsurance,jdbcType=DECIMAL},
+      medical_insurance = #{medicalInsurance,jdbcType=DECIMAL},
+      housing_fund = #{housingFund,jdbcType=DECIMAL},
+      enterprise_annuity = #{enterpriseAnnuity,jdbcType=DECIMAL},
+      individual_income_tax = #{individualIncomeTax,jdbcType=DECIMAL},
+      personal_threshold = #{personalThreshold,jdbcType=DECIMAL},
+      personal_special_deduction = #{personalSpecialDeduction,jdbcType=DECIMAL},
+      other_taxable_wages = #{otherTaxableWages,jdbcType=DECIMAL},
+      communication_allowance = #{communicationAllowance,jdbcType=DECIMAL},
+      current_taxable_income = #{currentTaxableIncome,jdbcType=DECIMAL},
+      accumulated_taxable_income = #{accumulatedTaxableIncome,jdbcType=DECIMAL},
+      accumulated_personal_income_tax = #{accumulatedPersonalIncomeTax,jdbcType=DECIMAL},
+      accumulated_individual_income_tax_deducted = #{accumulatedIndividualIncomeTaxDeducted,jdbcType=DECIMAL},
+      total_paid = #{totalPaid,jdbcType=DECIMAL},
+      opinion_field1 = #{opinionField1,jdbcType=VARCHAR},
+      opinion_field2 = #{opinionField2,jdbcType=VARCHAR},
+      opinion_field3 = #{opinionField3,jdbcType=VARCHAR},
+      opinion_field4 = #{opinionField4,jdbcType=VARCHAR},
+      opinion_field5 = #{opinionField5,jdbcType=VARCHAR},
+      apih5_flow_id = #{apih5FlowId,jdbcType=CHAR},
+      work_id = #{workId,jdbcType=CHAR},
+      apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR},
+      apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where details_id = #{detailsId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmSalaryOfficeSalaryDetailsList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryOfficeSalaryDetails" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_office_salary_details
+    where del_flag = '0'
+    <if test="userKey != null and userKey != ''" >
+     and user_key = #{userKey,jdbcType=CHAR}
+    </if>
+    <if test="realName != null and realName != ''" >
+     and real_name = #{realName,jdbcType=VARCHAR}
+    </if>
+    <if test="idType != null and idType != ''" >
+     and id_type = #{idType,jdbcType=CHAR}
+    </if>
+    <if test="idNumber != null and idNumber != ''" >
+     and id_number = #{idNumber,jdbcType=VARCHAR}
+    </if>
+    <if test="userType != null and userType != ''" >
+     and user_type = #{userType,jdbcType=CHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="salaryBase != null and salaryBase != ''" >
+     and salary_base = #{salaryBase,jdbcType=DECIMAL}
+    </if>
+    <if test="attendanceDays != null and attendanceDays != ''" >
+     and attendance_days = #{attendanceDays,jdbcType=DECIMAL}
+    </if>
+    <if test="calendarDays != null and calendarDays != ''" >
+     and calendar_days = #{calendarDays,jdbcType=DECIMAL}
+    </if>
+    <if test="positionSalary != null and positionSalary != ''" >
+     and position_salary = #{positionSalary,jdbcType=DECIMAL}
+    </if>
+    <if test="levelId != null and levelId != ''" >
+     and level_id = #{levelId,jdbcType=CHAR}
+    </if>
+    <if test="salaryId != null and salaryId != ''" >
+     and salary_id = #{salaryId,jdbcType=CHAR}
+    </if>
+    <if test="levelSalaryId != null and levelSalaryId != ''" >
+     and level_salary_id = #{levelSalaryId,jdbcType=VARCHAR}
+    </if>
+    <if test="educationAllowance != null and educationAllowance != ''" >
+     and education_allowance = #{educationAllowance,jdbcType=DECIMAL}
+    </if>
+    <if test="workYears != null and workYears != ''" >
+     and work_years = #{workYears,jdbcType=DECIMAL}
+    </if>
+    <if test="yearAllowance != null and yearAllowance != ''" >
+     and year_allowance = #{yearAllowance,jdbcType=DECIMAL}
+    </if>
+    <if test="titleAllowance != null and titleAllowance != ''" >
+     and title_allowance = #{titleAllowance,jdbcType=DECIMAL}
+    </if>
+    <if test="childAllowance != null and childAllowance != ''" >
+     and child_allowance = #{childAllowance,jdbcType=DECIMAL}
+    </if>
+    <if test="plateauAllowance != null and plateauAllowance != ''" >
+     and plateau_allowance = #{plateauAllowance,jdbcType=DECIMAL}
+    </if>
+    <if test="highTempAllowance != null and highTempAllowance != ''" >
+     and high_temp_allowance = #{highTempAllowance,jdbcType=DECIMAL}
+    </if>
+    <if test="certificateAllowance != null and certificateAllowance != ''" >
+     and certificate_allowance = #{certificateAllowance,jdbcType=DECIMAL}
+    </if>
+    <if test="performanceAllowance != null and performanceAllowance != ''" >
+     and performance_allowance = #{performanceAllowance,jdbcType=DECIMAL}
+    </if>
+    <if test="otherWages != null and otherWages != ''" >
+     and other_wages = #{otherWages,jdbcType=DECIMAL}
+    </if>
+    <if test="endowmentInsurance != null and endowmentInsurance != ''" >
+     and endowment_insurance = #{endowmentInsurance,jdbcType=DECIMAL}
+    </if>
+    <if test="unemploymentInsurance != null and unemploymentInsurance != ''" >
+     and unemployment_insurance = #{unemploymentInsurance,jdbcType=DECIMAL}
+    </if>
+    <if test="medicalInsurance != null and medicalInsurance != ''" >
+     and medical_insurance = #{medicalInsurance,jdbcType=DECIMAL}
+    </if>
+    <if test="housingFund != null and housingFund != ''" >
+     and housing_fund = #{housingFund,jdbcType=DECIMAL}
+    </if>
+    <if test="enterpriseAnnuity != null and enterpriseAnnuity != ''" >
+     and enterprise_annuity = #{enterpriseAnnuity,jdbcType=DECIMAL}
+    </if>
+    <if test="individualIncomeTax != null and individualIncomeTax != ''" >
+     and individual_income_tax = #{individualIncomeTax,jdbcType=DECIMAL}
+    </if>
+    <if test="personalThreshold != null and personalThreshold != ''" >
+     and personal_threshold = #{personalThreshold,jdbcType=DECIMAL}
+    </if>
+    <if test="personalSpecialDeduction != null and personalSpecialDeduction != ''" >
+     and personal_special_deduction = #{personalSpecialDeduction,jdbcType=DECIMAL}
+    </if>
+    <if test="otherTaxableWages != null and otherTaxableWages != ''" >
+     and other_taxable_wages = #{otherTaxableWages,jdbcType=DECIMAL}
+    </if>
+    <if test="communicationAllowance != null and communicationAllowance != ''" >
+     and communication_allowance = #{communicationAllowance,jdbcType=DECIMAL}
+    </if>
+    <if test="currentTaxableIncome != null and currentTaxableIncome != ''" >
+     and current_taxable_income = #{currentTaxableIncome,jdbcType=DECIMAL}
+    </if>
+    <if test="accumulatedTaxableIncome != null and accumulatedTaxableIncome != ''" >
+     and accumulated_taxable_income = #{accumulatedTaxableIncome,jdbcType=DECIMAL}
+    </if>
+    <if test="accumulatedPersonalIncomeTax != null and accumulatedPersonalIncomeTax != ''" >
+     and accumulated_personal_income_tax = #{accumulatedPersonalIncomeTax,jdbcType=DECIMAL}
+    </if>
+    <if test="accumulatedIndividualIncomeTaxDeducted != null and accumulatedIndividualIncomeTaxDeducted != ''" >
+     and accumulated_individual_income_tax_deducted = #{accumulatedIndividualIncomeTaxDeducted,jdbcType=DECIMAL}
+    </if>
+    <if test="totalPaid != null and totalPaid != ''" >
+     and total_paid = #{totalPaid,jdbcType=DECIMAL}
+    </if>
+    <if test="opinionField1 != null and opinionField1 != ''" >
+     and opinion_field1 = #{opinionField1,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField2 != null and opinionField2 != ''" >
+     and opinion_field2 = #{opinionField2,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField3 != null and opinionField3 != ''" >
+     and opinion_field3 = #{opinionField3,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField4 != null and opinionField4 != ''" >
+     and opinion_field4 = #{opinionField4,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionField5 != null and opinionField5 != ''" >
+     and opinion_field5 = #{opinionField5,jdbcType=VARCHAR}
+    </if>
+    <if test="apih5FlowId != null and apih5FlowId != ''" >
+     and apih5_flow_id = #{apih5FlowId,jdbcType=CHAR}
+    </if>
+    <if test="workId != null and workId != ''" >
+     and work_id = #{workId,jdbcType=CHAR}
+    </if>
+    <if test="apih5FlowStatus != null and apih5FlowStatus != ''" >
+     and apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR}
+    </if>
+    <if test="apih5FlowNodeStatus != null and apih5FlowNodeStatus != ''" >
+     and apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmSalaryOfficeSalaryDetails" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryOfficeSalaryDetails" >
+    <![CDATA[ 
+        update zj_xm_salary_office_salary_details
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and details_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.detailsId} 
+     </foreach>
+  </delete>
+</mapper>

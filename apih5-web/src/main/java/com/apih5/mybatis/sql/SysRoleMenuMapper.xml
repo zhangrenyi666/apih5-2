@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.SysRoleMenuMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.SysRoleMenu" >
+    <id column="role_menu_id" property="roleMenuId" jdbcType="CHAR" />
+    <result column="role_id" property="roleId" jdbcType="CHAR" />
+    <result column="type" property="type" jdbcType="CHAR" />
+    <result column="value" property="value" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="label" property="label" jdbcType="VARCHAR" />
+    <result column="menu_parent_id" property="menuParentId" jdbcType="CHAR" />
+    <result column="menu_flag" property="menuFlag" jdbcType="CHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    role_menu_id, role_id, type, value, title, 
+    label, menu_parent_id, menu_flag, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role_menu
+    where role_menu_id = #{roleMenuId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_role_menu
+    where role_menu_id = #{roleMenuId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.SysRoleMenu" >
+    insert into sys_role_menu (role_menu_id, role_id, type, 
+      value, title, label, 
+      menu_parent_id, menu_flag, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{roleMenuId,jdbcType=CHAR}, #{roleId,jdbcType=CHAR}, #{type,jdbcType=CHAR}, 
+      #{value,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{label,jdbcType=VARCHAR}, 
+      #{menuParentId,jdbcType=CHAR}, #{menuFlag,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.SysRoleMenu" >
+    insert into sys_role_menu
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roleMenuId != null" >
+        role_menu_id,
+      </if>
+      <if test="roleId != null" >
+        role_id,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="value != null" >
+        value,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="label != null" >
+        label,
+      </if>
+      <if test="menuParentId != null" >
+        menu_parent_id,
+      </if>
+      <if test="menuFlag != null" >
+        menu_flag,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roleMenuId != null" >
+        #{roleMenuId,jdbcType=CHAR},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=CHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="value != null" >
+        #{value,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="label != null" >
+        #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="menuParentId != null" >
+        #{menuParentId,jdbcType=CHAR},
+      </if>
+      <if test="menuFlag != null" >
+        #{menuFlag,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.SysRoleMenu" >
+    update sys_role_menu
+    <set >
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=CHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="value != null" >
+        value = #{value,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="label != null" >
+        label = #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="menuParentId != null" >
+        menu_parent_id = #{menuParentId,jdbcType=CHAR},
+      </if>
+      <if test="menuFlag != null" >
+        menu_flag = #{menuFlag,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where role_menu_id = #{roleMenuId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.SysRoleMenu" >
+    update sys_role_menu
+    set       role_id = #{roleId,jdbcType=CHAR},
+      type = #{type,jdbcType=CHAR},
+      value = #{value,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      label = #{label,jdbcType=VARCHAR},
+      menu_parent_id = #{menuParentId,jdbcType=CHAR},
+      menu_flag = #{menuFlag,jdbcType=CHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where role_menu_id = #{roleMenuId,jdbcType=CHAR}
+  </update>
+  <select id="selectBySysRoleMenuList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.SysRoleMenu" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role_menu
+    where del_flag = '0'
+    <if test="roleId != null and roleId != ''" >
+     and role_id = #{roleId,jdbcType=CHAR}
+    </if>
+    <if test="type != null and type != ''" >
+     and type = #{type,jdbcType=CHAR}
+    </if>
+    <if test="value != null and value != ''" >
+     and value = #{value,jdbcType=VARCHAR}
+    </if>
+    <if test="title != null and title != ''" >
+     and title = #{title,jdbcType=VARCHAR}
+    </if>
+    <if test="label != null and label != ''" >
+     and label = #{label,jdbcType=VARCHAR}
+    </if>
+    <if test="menuParentId != null and menuParentId != ''" >
+     and menu_parent_id = #{menuParentId,jdbcType=CHAR}
+    </if>
+    <if test="menuFlag != null and menuFlag != ''" >
+     and menu_flag = #{menuFlag,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY create_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateSysRoleMenu" parameterType="com.apih5.mybatis.pojo.SysRoleMenu" >
+    <![CDATA[ 
+        update sys_role_menu
+        set del_flag = '1'
+        where del_flag = '0' and role_menu_id in 
+     ]]> 
+     <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.roleMenuId} 
+     </foreach>
+  </delete>
+  <!-- 获取菜单ID(list<String>)形式 -->
+  <select id="selectBySysRoleMenuIdList" resultType="java.lang.String" parameterType="java.util.Map"  >
+     select value from sys_role_menu
+     where del_flag = '0' 
+       and menu_flag = #{sysRoleMenu.menuFlag}
+       <if test="sysRoleMenu.menuParentId != null and sysRoleMenu.menuParentId != ''">
+        and menu_parent_id=#{sysRoleMenu.menuParentId}
+       </if> 
+       and role_id in 
+       <foreach item="item" index="index" collection="roleIdList" open="(" separator="," close=")">
+         #{item}
+       </foreach>
+  </select>
+</mapper>

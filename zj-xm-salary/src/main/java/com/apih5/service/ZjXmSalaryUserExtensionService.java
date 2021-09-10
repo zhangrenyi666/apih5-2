@@ -1,0 +1,27 @@
+package com.apih5.service;
+
+import java.util.List;
+import com.apih5.framework.entity.ResponseEntity;
+import com.apih5.mybatis.pojo.ZjXmSalaryUserExtension;
+
+public interface ZjXmSalaryUserExtensionService {
+
+	public ResponseEntity getZjXmSalaryUserExtensionListByCondition(ZjXmSalaryUserExtension zjXmSalaryUserExtension);
+
+	public ResponseEntity getZjXmSalaryUserExtensionDetails(ZjXmSalaryUserExtension zjXmSalaryUserExtension);
+
+	public ResponseEntity saveZjXmSalaryUserExtension(ZjXmSalaryUserExtension zjXmSalaryUserExtension);
+
+	public ResponseEntity updateZjXmSalaryUserExtension(ZjXmSalaryUserExtension zjXmSalaryUserExtension);
+
+	public ResponseEntity batchDeleteUpdateZjXmSalaryUserExtension(
+			List<ZjXmSalaryUserExtension> zjXmSalaryUserExtensionList);
+
+	public ResponseEntity pcGetZjXmSalaryUserExtensionList(ZjXmSalaryUserExtension zjXmSalaryUserExtension);
+
+	public ResponseEntity pcGetZjXmSalaryUserExtensionDetails(ZjXmSalaryUserExtension zjXmSalaryUserExtension);
+
+	public ResponseEntity generateZjXmSalaryUserExtensionAccount(ZjXmSalaryUserExtension zjXmSalaryUserExtension);
+
+	public ResponseEntity getZjXmSalaryUserExtensionListByDept(ZjXmSalaryUserExtension zjXmSalaryUserExtension);
+}

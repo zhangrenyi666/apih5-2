@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmSalaryEducationBackgroundMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmSalaryEducationBackground" >
+    <id column="education_id" property="educationId" jdbcType="CHAR" />
+    <result column="extension_id" property="extensionId" jdbcType="CHAR" />
+    <result column="enrollment_date" property="enrollmentDate" jdbcType="TIMESTAMP" />
+    <result column="graduate_date" property="graduateDate" jdbcType="TIMESTAMP" />
+    <result column="graduate_school" property="graduateSchool" jdbcType="VARCHAR" />
+    <result column="education" property="education" jdbcType="CHAR" />
+    <result column="degree" property="degree" jdbcType="VARCHAR" />
+    <result column="major" property="major" jdbcType="CHAR" />
+    <result column="degree_award_date" property="degreeAwardDate" jdbcType="TIMESTAMP" />
+    <result column="is_first_education" property="isFirstEducation" jdbcType="CHAR" />
+    <result column="is_highest_education" property="isHighestEducation" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    education_id, extension_id, enrollment_date, graduate_date, graduate_school, 
+    education, degree, major, degree_award_date, is_first_education, 
+    is_highest_education, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_education_background
+    where education_id = #{educationId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_salary_education_background
+    where education_id = #{educationId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryEducationBackground" >
+    insert into zj_xm_salary_education_background (education_id, extension_id, enrollment_date, 
+      graduate_date, graduate_school, education, 
+      degree, major, degree_award_date, 
+      is_first_education, is_highest_education, remarks, 
+      sort, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{educationId,jdbcType=CHAR}, #{extensionId,jdbcType=CHAR}, #{enrollmentDate,jdbcType=TIMESTAMP}, 
+      #{graduateDate,jdbcType=TIMESTAMP}, #{graduateSchool,jdbcType=VARCHAR}, #{education,jdbcType=CHAR}, 
+      #{degree,jdbcType=VARCHAR}, #{major,jdbcType=CHAR}, #{degreeAwardDate,jdbcType=TIMESTAMP}, 
+      #{isFirstEducation,jdbcType=CHAR}, #{isHighestEducation,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryEducationBackground" >
+    insert into zj_xm_salary_education_background
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="educationId != null" >
+        education_id,
+      </if>
+      <if test="extensionId != null" >
+        extension_id,
+      </if>
+      <if test="enrollmentDate != null" >
+        enrollment_date,
+      </if>
+      <if test="graduateDate != null" >
+        graduate_date,
+      </if>
+      <if test="graduateSchool != null" >
+        graduate_school,
+      </if>
+      <if test="education != null" >
+        education,
+      </if>
+      <if test="degree != null" >
+        degree,
+      </if>
+      <if test="major != null" >
+        major,
+      </if>
+      <if test="degreeAwardDate != null" >
+        degree_award_date,
+      </if>
+      <if test="isFirstEducation != null" >
+        is_first_education,
+      </if>
+      <if test="isHighestEducation != null" >
+        is_highest_education,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="educationId != null" >
+        #{educationId,jdbcType=CHAR},
+      </if>
+      <if test="extensionId != null" >
+        #{extensionId,jdbcType=CHAR},
+      </if>
+      <if test="enrollmentDate != null" >
+        #{enrollmentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="graduateDate != null" >
+        #{graduateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="graduateSchool != null" >
+        #{graduateSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null" >
+        #{education,jdbcType=CHAR},
+      </if>
+      <if test="degree != null" >
+        #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null" >
+        #{major,jdbcType=CHAR},
+      </if>
+      <if test="degreeAwardDate != null" >
+        #{degreeAwardDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isFirstEducation != null" >
+        #{isFirstEducation,jdbcType=CHAR},
+      </if>
+      <if test="isHighestEducation != null" >
+        #{isHighestEducation,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryEducationBackground" >
+    update zj_xm_salary_education_background
+    <set >
+      <if test="extensionId != null" >
+        extension_id = #{extensionId,jdbcType=CHAR},
+      </if>
+      <if test="enrollmentDate != null" >
+        enrollment_date = #{enrollmentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="graduateDate != null" >
+        graduate_date = #{graduateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="graduateSchool != null" >
+        graduate_school = #{graduateSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null" >
+        education = #{education,jdbcType=CHAR},
+      </if>
+      <if test="degree != null" >
+        degree = #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null" >
+        major = #{major,jdbcType=CHAR},
+      </if>
+      <if test="degreeAwardDate != null" >
+        degree_award_date = #{degreeAwardDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isFirstEducation != null" >
+        is_first_education = #{isFirstEducation,jdbcType=CHAR},
+      </if>
+      <if test="isHighestEducation != null" >
+        is_highest_education = #{isHighestEducation,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where education_id = #{educationId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryEducationBackground" >
+    update zj_xm_salary_education_background
+    set       extension_id = #{extensionId,jdbcType=CHAR},
+      enrollment_date = #{enrollmentDate,jdbcType=TIMESTAMP},
+      graduate_date = #{graduateDate,jdbcType=TIMESTAMP},
+      graduate_school = #{graduateSchool,jdbcType=VARCHAR},
+      education = #{education,jdbcType=CHAR},
+      degree = #{degree,jdbcType=VARCHAR},
+      major = #{major,jdbcType=CHAR},
+      degree_award_date = #{degreeAwardDate,jdbcType=TIMESTAMP},
+      is_first_education = #{isFirstEducation,jdbcType=CHAR},
+      is_highest_education = #{isHighestEducation,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where education_id = #{educationId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmSalaryEducationBackgroundList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryEducationBackground" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_education_background
+    where del_flag = '0'
+    <if test="extensionId != null and extensionId != ''" >
+     and extension_id = #{extensionId,jdbcType=CHAR}
+    </if>
+    <if test="enrollmentDate != null and enrollmentDate != ''" >
+     and enrollment_date = #{enrollmentDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="graduateDate != null and graduateDate != ''" >
+     and graduate_date = #{graduateDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="graduateSchool != null and graduateSchool != ''" >
+     and graduate_school = #{graduateSchool,jdbcType=VARCHAR}
+    </if>
+    <if test="education != null and education != ''" >
+     and education = #{education,jdbcType=CHAR}
+    </if>
+    <if test="degree != null and degree != ''" >
+     and degree = #{degree,jdbcType=VARCHAR}
+    </if>
+    <if test="major != null and major != ''" >
+     and major = #{major,jdbcType=CHAR}
+    </if>
+    <if test="degreeAwardDate != null and degreeAwardDate != ''" >
+     and degree_award_date = #{degreeAwardDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="isFirstEducation != null and isFirstEducation != ''" >
+     and is_first_education = #{isFirstEducation,jdbcType=CHAR}
+    </if>
+    <if test="isHighestEducation != null and isHighestEducation != ''" >
+     and is_highest_education = #{isHighestEducation,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY create_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmSalaryEducationBackground" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryEducationBackground" >
+    <![CDATA[ 
+        update zj_xm_salary_education_background
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and education_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.educationId} 
+     </foreach>
+  </delete>
+  
+  <delete id="batchDeleteZjXmSalaryEducationBackgroundByExtensionId" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryEducationBackground" >
+    <![CDATA[ 
+        update zj_xm_salary_education_background
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and extension_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.extensionId} 
+     </foreach>
+  </delete>
+
+
+</mapper>
+
+

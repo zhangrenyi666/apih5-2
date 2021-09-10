@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>设备盘点记录</title>
+    <link rel="stylesheet" type="text/css" href="../css/inventoryDetail.css">
+    <link rel="stylesheet" type="text/css" href="../lib/layer_mobile/need/layer.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <script src="../lib/jquery/1.9.1/jquery.min.js"></script>
+    <script src="../lib/layer_mobile/layer.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../lib/ajaxfileupload/ajaxfileupload.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/main.js"></script>
+    <!-- <script src="http://weixin.fheb.cn:90/cdn/public/lny.js" type="text/javascript"></script> -->
+    <style>
+        .layui-m-layerbtn span {
+            font-size: 30px;
+        }
+        .layui-m-layerbtn {
+            height: 67px;
+            line-height: 67px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="inventoryDetail">
+        <div class="part1 p-20">
+            <div id="checkRecord" class="content2">设备盘点记录</div>
+            <div id="checkDate" class="content3">2016-11-10 10:45:57</div>
+            <div id="checkPerson" class="content4">-</div>
+        </div>
+        <div class="part2">
+            <div class="title" style="display:none;">
+                <img src="../img/check.png">
+                <span id="checkResult2" class="text">检查正常</span>
+            </div>
+            <ul>
+                <li>
+                    <div class="left">
+                        <span class="text">所属大类</span>
+                    </div>
+                    <div class="right">
+                        <input id="sszclx1Name" class="input" placeholder="" readonly />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">所属小类</span>
+                    </div>
+                    <div class="right">
+                        <input id="sszclx2Name" class="input" placeholder="" readonly />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">资产名称</span>
+                    </div>
+                    <div class="right">
+                        <input id="zcmc" class="input" placeholder="" readonly />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">盘点标题</span>
+                    </div>
+                    <div class="right">
+                        <input id="inventoryTitle" class="input" readonly placeholder="" />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">盘点日期</span>
+                    </div>
+                    <div class="right">
+                        <input type="date" id="pdrq" name="input_date" class="input" placeholder="时间选择" readonly />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">存放地点(前)</span>
+                    </div>
+                    <div class="right">
+                        <input id="cfddidbefore" class="input" placeholder="" readonly />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">存放地点(后)</span>
+                    </div>
+                    <div class="right">
+                        <input id="cfddidafter" class="input" placeholder="必填项" readonly />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">使用部门(前）</span>
+                    </div>
+                    <div class="right">
+                        <input id="sybuidbefore" class="input" placeholder="" readonly />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">使用部门(后)</span>
+                    </div>
+                    <div class="right">
+                        <div id="sybuidafter" class="input"></div>
+                        <input id="sybuidafterValue" type="hidden" />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">使用者(前)</span>
+                    </div>
+                    <div class="right">
+                        <input id="syrbefore" class="input" placeholder="" readonly />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">使用者(后)</span>
+                    </div>
+                    <div class="right">
+                        <div id="syrafter" class="input"></div>
+                        <input id="syrafterValue" type="hidden" />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">盘点结果</span>
+                    </div>
+                    <div class="right">
+                        <input id="pdjg" class="input" readonly />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">资产状态(前)</span>
+                    </div>
+                    <div class="right">
+                        <select class="select b-b" size="1" name="zcztdmbefore" id="zcztdmbefore" disabled>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">资产状态(后)</span>
+                    </div>
+                    <div class="right">
+                        <select class="select b-b" size="1" name="zcztdmafter" id="zcztdmafter" disabled>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">处理状态</span>
+                    </div>
+                    <div class="right">
+                        <select class="select b-b" size="1" name="copeState" disabled id="copeState">
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">处理方案</span>
+                    </div>
+                    <div class="right">
+                        <textarea id="clfa" class="textarea b-b" placeholder="请输入处理方案" readonly></textarea>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">备注</span>
+                    </div>
+                    <div class="right">
+                        <textarea id="remarks" class="textarea b-b" placeholder="请输入备注" readonly></textarea>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">上传图片</span>
+                    </div>
+                    <div class="right">
+                        <div class="uploadFile">
+                            <label for="uploadBtn" name="imageList" class="upload-btn" style="display: none;">
+                                <span style="padding-left: 10px;">添加图片</span>
+                                <input id="uploadBtn" class="inputFile" data-filetype="['jpg','jpeg','png','gif']"
+                                    name="filesName" size="2" type="file" disabled="disabled" />
+                            </label>
+                            <span class="require" style="margin-top: 35px;">上传格式要求：["jpg","jpeg","png","gif"]</span>
+                            <ul class="uploadList" style="margin-top: 20px">
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <div class="btn">
+                <a class="btn-left" id="editInventoryBtn">编辑</a>
+                <a class="btn-right" id="handleAssetsBtn">处理</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        window.login(function () {
+            $('#editInventoryBtn').click(function () {
+                editInventory()
+            })
+
+            $('#handleAssetsBtn').click(function () {
+                handleAssets()
+            })
+
+
+            var recordId;// 记录ID
+            var detailId;// 详情记录ID
+            var dispose;//处理时需要用到的数据
+            var selectDepartmentList = {};// 使用部门（后）
+            var selectMemberList = {};// 使用者（后）
+            var copestate;//处理状态
+            // 页面刷新加载方法
+            window.onload = function () {
+                request();
+                localStorage.removeItem("refreshState");
+                //inventoryDetail();// 盘点记录详情查询
+            }
+
+            // 使用部门后
+            function selectDepartment() {
+                window.location.href = "selectDepartment.html"
+            }
+
+            // 使用者后
+            function selectMember() {
+                window.location.href = "selectMember.html"
+            }
+
+
+            //设置cookie  
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + "; " + expires;
+            }
+            //获取cookie  
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1);
+                    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+                }
+                return "";
+            }
+            function getUrl(k) {//获取地址栏参数，k为键名
+                var m = new RegExp("(^|&)" + k + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(m);
+                if (r != null) return decodeURI(r[2]); return null;
+            };
+
+
+
+            // 编辑(盘点)
+            function editInventory() {
+                if (copestate == '1') {
+                    window.location.href = "inventoryAdd.html?recordid=" + recordId + "&detailid=" + detailId + "&state=update"
+                } else {
+                    layer.open({
+                        content: '资产已被处理过！不能编辑。'
+                        , skin: 'msg'
+                        , time: 1.7 //2秒后自动关闭
+                        , style: 'font-size: 28px;padding: 5px;'
+                    });
+                }
+            }
+
+            //获取盘点列表传递的参数
+            function request() {
+                var url = location.href;
+                var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+                var paraObj = {};
+                for (i = 0; j = paraString[i]; i++) {
+                    paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+                }
+                recordId = noNull(paraObj.recordid);
+                detailId = noNull(paraObj.detailid);
+                var urlData = new Array();
+                urlData = [
+                    {
+                        id: "zcztdmbefore",
+                        url: "getAssetsStateSelectList"
+                    },
+                    {
+                        id: "zcztdmafter",
+                        url: "getAssetsStateSelectList"
+                    },
+                    {
+                        id: "pdjg",
+                        url: "getInventorySelectAllList"
+                    },
+                    {
+                        id: "copeState",
+                        url: "getCopeStateSelectAllList"
+                    },
+                ]
+                $.each(urlData, function (i, item) {
+                    // 资产状态（前）、资产状态（前）、盘点结果、处理状态
+                    setSelect(item.id, item.url);
+                });
+
+                //localData();// 资产详情数据 临时储存
+
+                // 页面加载后清空 选择部门和选择成员临时储存
+                localStorage.removeItem("selectDepartmentList2");
+                localStorage.removeItem("selectMemberList2");
+
+                selectDepartmentList = noNull(JSON.parse(localStorage.getItem("selectDepartmentList")));// 使用部门（后）
+                localStorage.setItem("selectDepartmentList2", JSON.stringify(selectDepartmentList));// 将筛选出的 部门列表数据 传入 新存储
+                localStorage.removeItem("selectDepartmentList");
+                if (selectDepartmentList != "") {
+                    var namelist = "";
+                    $.each(selectDepartmentList, function (i, item) {
+                        namelist += item.name + " "
+                    })
+                    if (namelist.length > 15) {
+                        namelist = namelist.substring(0, 14) + "..."
+                    }
+                    $("#sybuidafter").text(namelist);
+                }
+
+                selectMemberList = noNull(JSON.parse(localStorage.getItem("selectMemberList")));// 使用者（后）
+                localStorage.setItem("selectMemberList2", JSON.stringify(selectMemberList));// 将筛选出的 成员列表数据 传入 新存储
+                localStorage.removeItem("selectMemberList");
+                if (selectMemberList != "") {
+                    var namelist = "";
+                    $.each(selectMemberList, function (i, item) {
+                        namelist += item.name + " "
+                    })
+                    if (namelist.length > 15) {
+                        namelist = namelist.substring(0, 14) + "..."
+                    }
+                    $("#syrafter").text(namelist);
+                }
+                inventoryDetail();// 盘点记录详情查询
+            }
+
+            // 资产状态（前）、资产状态（前）、盘点结果、处理状态
+            function setSelect(selectId, url) {
+
+                l.ajax(url, {}, function (data, message, success) {
+                    if (success) {
+                        var data = noNull(data);// 详情数据
+                        if (data != "") {
+                            var $str = "";
+                            $.each(data, function (i, item) {
+                                $str += "<option value=" + item.dmbh + ">" + item.dmnr + "</option>";
+                            });
+                            $("#" + selectId).append($str);
+                        }
+                    }
+                })
+
+            }
+
+            // 资产详情数据 临时储存
+            function localData() {
+                // 临时储存
+                var assetsDetailData = localStorage.getItem("assetsDetailData");// 资产详情数据 临时储存
+                var paraString = assetsDetailData.split("&");
+                var paraObj = {};
+                for (i = 0; j = paraString[i]; i++) {
+                    paraObj[j.substring(0, j.indexOf("="))] = j.substring(j.indexOf("=") + 1, j.length);
+                }
+                $("#sszclx1Name").val(noNull(paraObj.sszclx1Name));// 所属大类
+                $("#sszclx2Name").val(noNull(paraObj.sszclx2Name));// 所属小类
+                $("#zcmc").val(noNull(paraObj.zcmc));// 资产名称 
+                $("#cfddidbefore").val(noNull(paraObj.cfddName));// 存放地点
+                $("#sybuidbefore").val(noNull(paraObj.sybmq));// 使用部门前
+                $("#syrbefore").val(noNull(paraObj.syzq));// 使用者前
+                $("#zcyddmbefore").val(noNull(paraObj.zcyt));// 资产用途（前）
+                $("#zcztdmbefore").val(noNull(paraObj.zcztdm));// 资产状态ID（前）
+                //localStorage.removeItem("assetsDetailData");
+            }
+
+            // 盘点记录详情查询
+            function inventoryDetail() {
+                var param = {
+                    recordid: detailId
+                }
+
+                l.ajax('getInventoryDetails', param, function (data, messgae, success) {
+                    if (success) {
+                        var data = noNull(data);// 详情数据
+                        dispose = data;
+                        if (data != "") {
+                            copestate = data.copestate;
+                            // console.log(copestate)
+                            $("#inventoryTitle").val(data.inventoryTitle);
+                            $("#sszclx1Name").val(noNull(data.sszclx1Name));// 所属大类
+                            $("#sszclx2Name").val(noNull(data.sszclx2Name));// 所属小类
+                            $("#zcmc").val(noNull(data.zcmc));// 资产名称
+                            $("#checkPerson").text(noNull(data.modifyUser));//盘点人员
+                            $("#pdrq").val(dateFormat(new Date(noNull(data.pdrq)), "yyyy-MM-dd")),// 盘点日期
+                            $("#checkDate").text(dateFormat(new Date(noNull(data.pdrq)), "yyyy-MM-dd"));// 盘点日期
+                            $("#cfddidbefore").val(noNull(data.cfddNameB));// 存放地点(前)
+                            $("#cfddidafter").val(noNull(data.cfddNameA));// 存放地点(后)
+                            $("#sybuidbefore").val(noNull(data.sybuidbeforeName));// 使用部门(前）
+                            $("#sybuidafter").text(noNull(data.sybuidafterName))
+                            if (noNull(data.oaSybmAfter) != "") {
+                                // $("#sybuidafter").text(noNull(data.oaSybmAfter.oaDepartmentList[0].name));// 使用部门(后)
+                                selectDepartmentList = noNull(data.oaSybmAfter.oaDepartmentList);// 使用部门（后）
+                                localStorage.setItem("selectDepartmentList2", JSON.stringify(selectDepartmentList));// 将筛选出的 部门列表数据 传入 新存储
+                            }
+                            $("#syrbefore").val(noNull(data.syrbeforeName));// 使用者(前)
+                            $("#syrafter").text(data.syrafter)
+                            if (noNull(data.oaSyrAfter) != "") {
+                                // $("#syrafter").text(noNull(data.oaSyrAfter.oaMemberList[0].name));// 使用者(后)
+                                selectMemberList = noNull(data.oaSyrAfter.oaMemberList);// 使用者(后)
+                                localStorage.setItem("selectMemberList2", JSON.stringify(selectMemberList));// 将筛选出的 成员列表数据 传入 新存储
+                            }
+                            $("#zcyddmbefore").val(noNull(data.zcyddmbefore));// 资产用途(前)
+                            $("#zcyddmafter").val(noNull(data.zcyddmafter));// 资产用途(后)
+                            $("#zcztdmbefore").val(noNull(data.zcztdmbefore));// 资产状态(前)
+                            $("#zcztdmafter").val(noNull(data.zcztdmafter));// 资产用途(后)
+                            $("#pdjg").val(noNull(data.pdjgmc));// 盘点结果
+                            $("#checkResult").text($("#pdjg").find("option:selected").text());// 盘点结果
+                            //$("#checkResult").text(noNull(data.pdjgmc));// 盘点结果
+                            $("#copeState").val(noNull(data.copestate));// 处理状态
+                            $("#clfa").val(noNull(data.clfa));// 处理方案
+                            $("#remarks").val(noNull(data.remarks));// 备注
+                            updateUploadList(noNull(data.imageList));// 图片列表
+                        }
+                    }
+                })
+            }
+
+            // 处理资产
+            function handleAssets() {
+                if (!(copestate == '1')) {
+                    layer.open({
+                        content: '资产已被处理过！'
+                        , skin: 'msg'
+                        , time: 2 //2秒后自动关闭
+                        , style: 'font-size: 28px;padding: 5px;'
+                    });
+                    return;
+                }
+
+                layer.open({
+                    anim: 'up'
+                    , area: ['500px', '300px']
+                    , content:
+                        '<div>' +
+                        '<div style="text-align: left;padding-left: 40px;">' +
+                        '<input type="radio" id="assetsManagement" name="assets" style="width: 30px;height: 30px;vertical-align: bottom;" value="1" checked />' +
+                        '<label for="assetsManagement" style="font-size: 28px">更新资产管理列表</label>' +
+                        '</div>' +
+                        '<div style="text-align: left;padding-left: 40px;margin-top: 20px;">' +
+                        '<input type="radio" id="assetsHoming" name="assets" style="width: 30px;height: 30px;vertical-align: bottom;" value="2" />' +
+                        '<label for="assetsHoming" style="font-size: 28px">资产归位</label>' +
+                        '</div>' +
+                        '</div>'
+                    , btn: ['<span style="font-size:28px">确认</span>', '<span style="font-size:28px">取消</span>']
+                    , yes: function (index) {
+                        var assetsState = $('input[name=assets]:checked').val();
+                        var url = '';// 处理接口名
+                        if (assetsState == 1) {
+                            url = "updateZjAssetDetails";// 更新资产管理列表
+                        } else if (assetsState == 2) {
+                            url = "updateZjInventoryState";// 资产归位
+                        }
+                        var params = {
+                            currentList: [dispose]
+                        }
+
+                        l.ajax(url, params, function (data, message, success) {
+                            if (success) {
+                                successMsg('处理成功！', -2, 1500);
+                            }
+                        })
+
+
+
+                    }
+                });
+            }
+
+            // 遍历图片列表
+            function updateUploadList(uploadList) {
+                //$(".uploadList li").remove();
+                var $str = "";
+                $.each(uploadList, function (i, item) {
+                    $str += '<li  style="width: 100%; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" data-href="' + item.fileUrl + '" data-name="' + item.fileName + '">',
+                        $str += '<a href="' + item.fileUrl + '" class="text">' + item.fileName + '</a>',
+                        $str += '</li>'
+                });
+                $(".uploadList").append($str)
+            }
+        })
+    </script>
+</body>
+
+</html>

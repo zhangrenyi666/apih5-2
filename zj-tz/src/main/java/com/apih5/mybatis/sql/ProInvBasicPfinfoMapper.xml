@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ProInvBasicPfinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ProInvBasicPfinfo" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="inv_pro_id" property="invProId" jdbcType="CHAR" />
+    <result column="reply_category" property="replyCategory" jdbcType="VARCHAR" />
+    <result column="jaf" property="jaf" jdbcType="DECIMAL" />
+    <result column="zcf" property="zcf" jdbcType="DECIMAL" />
+    <result column="glf" property="glf" jdbcType="DECIMAL" />
+    <result column="jlf" property="jlf" jdbcType="DECIMAL" />
+    <result column="kcsjf" property="kcsjf" jdbcType="DECIMAL" />
+    <result column="oth" property="oth" jdbcType="DECIMAL" />
+    <result column="pfzje" property="pfzje" jdbcType="DECIMAL" />
+    <result column="reply_date" property="replyDate" jdbcType="TIMESTAMP" />
+    <result column="pg_pf" property="pgPf" jdbcType="VARCHAR" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, inv_pro_id, reply_category, jaf, zcf, 
+    glf, jlf, kcsjf, oth, pfzje, 
+    reply_date, pg_pf, bz
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from del_flag = '0' and pro_inv_basic_pfinfo
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from pro_inv_basic_pfinfo
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ProInvBasicPfinfo" >
+    insert into pro_inv_basic_pfinfo (id, inv_pro_id, reply_category, 
+      jaf, zcf, glf, 
+      jlf, kcsjf, oth, 
+      pfzje, reply_date, pg_pf, 
+      bz
+      )
+    values (#{id,jdbcType=CHAR}, #{invProId,jdbcType=CHAR}, #{replyCategory,jdbcType=VARCHAR}, 
+      #{jaf,jdbcType=DECIMAL}, #{zcf,jdbcType=DECIMAL}, #{glf,jdbcType=DECIMAL}, 
+      #{jlf,jdbcType=DECIMAL}, #{kcsjf,jdbcType=DECIMAL}, #{oth,jdbcType=DECIMAL}, 
+      #{pfzje,jdbcType=DECIMAL}, #{replyDate,jdbcType=TIMESTAMP}, #{pgPf,jdbcType=VARCHAR}, 
+      #{bz,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ProInvBasicPfinfo" >
+    insert into pro_inv_basic_pfinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="invProId != null" >
+        inv_pro_id,
+      </if>
+      <if test="replyCategory != null" >
+        reply_category,
+      </if>
+      <if test="jaf != null" >
+        jaf,
+      </if>
+      <if test="zcf != null" >
+        zcf,
+      </if>
+      <if test="glf != null" >
+        glf,
+      </if>
+      <if test="jlf != null" >
+        jlf,
+      </if>
+      <if test="kcsjf != null" >
+        kcsjf,
+      </if>
+      <if test="oth != null" >
+        oth,
+      </if>
+      <if test="pfzje != null" >
+        pfzje,
+      </if>
+      <if test="replyDate != null" >
+        reply_date,
+      </if>
+      <if test="pgPf != null" >
+        pg_pf,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="invProId != null" >
+        #{invProId,jdbcType=CHAR},
+      </if>
+      <if test="replyCategory != null" >
+        #{replyCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="jaf != null" >
+        #{jaf,jdbcType=DECIMAL},
+      </if>
+      <if test="zcf != null" >
+        #{zcf,jdbcType=DECIMAL},
+      </if>
+      <if test="glf != null" >
+        #{glf,jdbcType=DECIMAL},
+      </if>
+      <if test="jlf != null" >
+        #{jlf,jdbcType=DECIMAL},
+      </if>
+      <if test="kcsjf != null" >
+        #{kcsjf,jdbcType=DECIMAL},
+      </if>
+      <if test="oth != null" >
+        #{oth,jdbcType=DECIMAL},
+      </if>
+      <if test="pfzje != null" >
+        #{pfzje,jdbcType=DECIMAL},
+      </if>
+      <if test="replyDate != null" >
+        #{replyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pgPf != null" >
+        #{pgPf,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ProInvBasicPfinfo" >
+    update pro_inv_basic_pfinfo
+    <set >
+      <if test="invProId != null" >
+        inv_pro_id = #{invProId,jdbcType=CHAR},
+      </if>
+      <if test="replyCategory != null" >
+        reply_category = #{replyCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="jaf != null" >
+        jaf = #{jaf,jdbcType=DECIMAL},
+      </if>
+      <if test="zcf != null" >
+        zcf = #{zcf,jdbcType=DECIMAL},
+      </if>
+      <if test="glf != null" >
+        glf = #{glf,jdbcType=DECIMAL},
+      </if>
+      <if test="jlf != null" >
+        jlf = #{jlf,jdbcType=DECIMAL},
+      </if>
+      <if test="kcsjf != null" >
+        kcsjf = #{kcsjf,jdbcType=DECIMAL},
+      </if>
+      <if test="oth != null" >
+        oth = #{oth,jdbcType=DECIMAL},
+      </if>
+      <if test="pfzje != null" >
+        pfzje = #{pfzje,jdbcType=DECIMAL},
+      </if>
+      <if test="replyDate != null" >
+        reply_date = #{replyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pgPf != null" >
+        pg_pf = #{pgPf,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ProInvBasicPfinfo" >
+    update pro_inv_basic_pfinfo
+    set       inv_pro_id = #{invProId,jdbcType=CHAR},
+      reply_category = #{replyCategory,jdbcType=VARCHAR},
+      jaf = #{jaf,jdbcType=DECIMAL},
+      zcf = #{zcf,jdbcType=DECIMAL},
+      glf = #{glf,jdbcType=DECIMAL},
+      jlf = #{jlf,jdbcType=DECIMAL},
+      kcsjf = #{kcsjf,jdbcType=DECIMAL},
+      oth = #{oth,jdbcType=DECIMAL},
+      pfzje = #{pfzje,jdbcType=DECIMAL},
+      reply_date = #{replyDate,jdbcType=TIMESTAMP},
+      pg_pf = #{pgPf,jdbcType=VARCHAR},
+      bz = #{bz,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByProInvBasicPfinfoList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ProInvBasicPfinfo" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_inv_basic_pfinfo
+    where reply_category='02'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=}
+    </if>
+    <if test="invProId != null and invProId != ''" >
+     and inv_pro_id = #{invProId,jdbcType=CHAR}
+    </if>
+    <if test="replyCategory != null and replyCategory != ''" >
+     and reply_category = #{replyCategory,jdbcType=VARCHAR}
+    </if>
+    <if test="jaf != null and jaf != ''" >
+     and jaf = #{jaf,jdbcType=DECIMAL}
+    </if>
+    <if test="zcf != null and zcf != ''" >
+     and zcf = #{zcf,jdbcType=DECIMAL}
+    </if>
+    <if test="glf != null and glf != ''" >
+     and glf = #{glf,jdbcType=DECIMAL}
+    </if>
+    <if test="jlf != null and jlf != ''" >
+     and jlf = #{jlf,jdbcType=DECIMAL}
+    </if>
+    <if test="kcsjf != null and kcsjf != ''" >
+     and kcsjf = #{kcsjf,jdbcType=DECIMAL}
+    </if>
+    <if test="oth != null and oth != ''" >
+     and oth = #{oth,jdbcType=DECIMAL}
+    </if>
+    <if test="pfzje != null and pfzje != ''" >
+     and pfzje = #{pfzje,jdbcType=DECIMAL}
+    </if>
+    <if test="replyDate != null and replyDate != ''" >
+     and reply_date = #{replyDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="pgPf != null and pgPf != ''" >
+     and pg_pf = #{pgPf,jdbcType=VARCHAR}
+    </if>
+    <if test="bz != null and bz != ''" >
+     and bz = #{bz,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <delete id="batchDeleteUpdateProInvBasicPfinfo" parameterType="com.apih5.mybatis.pojo.ProInvBasicPfinfo" >
+    <![CDATA[ 
+        update pro_inv_basic_pfinfo
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

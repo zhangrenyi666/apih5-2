@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSfSWAccidentMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSfSWAccident" >
+    <id column="zxSfSWAccidentId" property="zxSfSWAccidentId" jdbcType="CHAR" />
+    <result column="orgId" property="orgId" jdbcType="VARCHAR" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="manager" property="manager" jdbcType="VARCHAR" />
+    <result column="notes" property="notes" jdbcType="VARCHAR" />
+    <result column="deManager" property="deManager" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="bizDate" property="bizDate" jdbcType="TIMESTAMP" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="company_id" property="companyId" jdbcType="VARCHAR" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="project_id" property="projectId" jdbcType="VARCHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxSfSWAccidentId, orgId, creator, manager, notes, 
+    deManager, period, bizDate, orgName, company_id, 
+    company_name, project_id, project_name, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sf_SWAccident
+    where del_flag = '0' and zxSfSWAccidentId = #{zxSfSWAccidentId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sf_SWAccident
+    where zxSfSWAccidentId = #{zxSfSWAccidentId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSfSWAccident" >
+    insert into zx_sf_SWAccident (
+    zxSfSWAccidentId, orgId, creator, manager, notes, 
+    deManager, period, bizDate, orgName, company_id, 
+    company_name, project_id, project_name, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{zxSfSWAccidentId,jdbcType=CHAR}, #{orgId,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{manager,jdbcType=VARCHAR}, #{notes,jdbcType=VARCHAR}, 
+    #{deManager,jdbcType=VARCHAR}, #{period,jdbcType=VARCHAR}, #{bizDate,jdbcType=TIMESTAMP}, #{orgName,jdbcType=VARCHAR}, #{companyId,jdbcType=VARCHAR}, 
+    #{companyName,jdbcType=VARCHAR}, #{projectId,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSfSWAccident" >
+    insert into zx_sf_SWAccident
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSfSWAccidentId != null" >
+        zxSfSWAccidentId,
+      </if>
+      <if test="orgId != null" >
+        orgId,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="manager != null" >
+        manager,
+      </if>
+      <if test="notes != null" >
+        notes,
+      </if>
+      <if test="deManager != null" >
+        deManager,
+      </if>
+      <if test="period != null" >
+        period,
+      </if>
+      <if test="bizDate != null" >
+        bizDate,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="companyId != null" >
+        company_id,
+      </if>
+      <if test="companyName != null" >
+        company_name,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSfSWAccidentId != null" >
+        #{zxSfSWAccidentId,jdbcType=CHAR},
+      </if>
+      <if test="orgId != null" >
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="manager != null" >
+        #{manager,jdbcType=VARCHAR},
+      </if>
+      <if test="notes != null" >
+        #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="deManager != null" >
+        #{deManager,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="bizDate != null" >
+        #{bizDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSfSWAccident" >
+    update zx_sf_SWAccident
+    <set >
+      <if test="orgId != null" >
+        orgId = #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="manager != null" >
+        manager = #{manager,jdbcType=VARCHAR},
+      </if>
+      <if test="notes != null" >
+        notes = #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="deManager != null" >
+        deManager = #{deManager,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        period = #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="bizDate != null" >
+        bizDate = #{bizDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        company_id = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxSfSWAccidentId = #{zxSfSWAccidentId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSfSWAccident" >
+    update zx_sf_SWAccident set 
+      orgId = #{orgId,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      manager = #{manager,jdbcType=VARCHAR},
+      notes = #{notes,jdbcType=VARCHAR},
+      deManager = #{deManager,jdbcType=VARCHAR},
+      period = #{period,jdbcType=VARCHAR},
+      bizDate = #{bizDate,jdbcType=TIMESTAMP},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      company_id = #{companyId,jdbcType=VARCHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      project_id = #{projectId,jdbcType=VARCHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSfSWAccidentId = #{zxSfSWAccidentId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSfSWAccidentList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSfSWAccident" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sf_SWAccident
+    where del_flag = '0'
+    <if test="zxSfSWAccidentId != null and zxSfSWAccidentId != ''" >
+     and zxSfSWAccidentId = #{zxSfSWAccidentId,jdbcType=CHAR}
+    </if>
+    <if test="orgId != null and orgId != ''" >
+     and orgId = #{orgId,jdbcType=VARCHAR}
+    </if>
+    <if test="creator != null and creator != ''" >
+     and creator = #{creator,jdbcType=VARCHAR}
+    </if>
+    <if test="manager != null and manager != ''" >
+     and manager = #{manager,jdbcType=VARCHAR}
+    </if>
+    <if test="notes != null and notes != ''" >
+     and notes = #{notes,jdbcType=VARCHAR}
+    </if>
+    <if test="deManager != null and deManager != ''" >
+     and deManager = #{deManager,jdbcType=VARCHAR}
+    </if>
+    <if test="period != null and period != ''" >
+     and period = #{period,jdbcType=VARCHAR}
+    </if>
+    <if test="bizDate != null and bizDate != ''" >
+     and bizDate = #{bizDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and company_id = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and company_name = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=VARCHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSfSWAccident" parameterType="com.apih5.mybatis.pojo.ZxSfSWAccident" >
+    <![CDATA[ 
+        update zx_sf_SWAccident
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSfSWAccidentId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSfSWAccidentId} 
+     </foreach>
+  </delete>
+</mapper>

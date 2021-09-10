@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjLzehTeamManagementMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjLzehTeamManagement" >
+    <id column="zj_lzeh_team_management_id" property="zjLzehTeamManagementId" jdbcType="CHAR" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="team_name" property="teamName" jdbcType="VARCHAR" />
+    <result column="team_id" property="teamId" jdbcType="VARCHAR" />
+    <result column="team_person" property="teamPerson" jdbcType="INTEGER" />
+    <result column="team_leader" property="teamLeader" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="company_id" property="companyId" jdbcType="VARCHAR" />
+    <result column="company_abbreviation" property="companyAbbreviation" jdbcType="VARCHAR" />
+    <result column="isScore" property="isScore" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="team_abbreviation" property="teamAbbreviation" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zj_lzeh_team_management_id, company_name, team_name, team_id, team_person, 
+    team_leader, phone, company_id, company_abbreviation, isScore, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name,team_abbreviation
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_lzeh_team_management
+    where del_flag = '0' and zj_lzeh_team_management_id = #{zjLzehTeamManagementId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_lzeh_team_management
+    where zj_lzeh_team_management_id = #{zjLzehTeamManagementId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjLzehTeamManagement" >
+    insert into zj_lzeh_team_management (
+    zj_lzeh_team_management_id, company_name, team_name, team_id, team_person, 
+    team_leader, phone, company_id, company_abbreviation, isScore, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name,team_abbreviation
+      )
+    values (
+      #{zjLzehTeamManagementId,jdbcType=CHAR}, #{companyName,jdbcType=VARCHAR}, #{teamName,jdbcType=VARCHAR}, #{teamId,jdbcType=VARCHAR}, #{teamPerson,jdbcType=INTEGER}, 
+    #{teamLeader,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{companyId,jdbcType=VARCHAR}, #{companyAbbreviation,jdbcType=VARCHAR}, #{isScore,jdbcType=VARCHAR}, 
+    #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+    #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR},#{teamAbbreviation,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjLzehTeamManagement" >
+    insert into zj_lzeh_team_management
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zjLzehTeamManagementId != null" >
+        zj_lzeh_team_management_id,
+      </if>
+      <if test="companyName != null" >
+        company_name,
+      </if>
+      <if test="teamName != null" >
+        team_name,
+      </if>
+      <if test="teamId != null" >
+        team_id,
+      </if>
+      <if test="teamPerson != null" >
+        team_person,
+      </if>
+      <if test="teamLeader != null" >
+        team_leader,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="companyId != null" >
+        company_id,
+      </if>
+      <if test="companyAbbreviation != null" >
+        company_abbreviation,
+      </if>
+      <if test="isScore != null" >
+        isScore,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zjLzehTeamManagementId != null" >
+        #{zjLzehTeamManagementId,jdbcType=CHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="teamName != null" >
+        #{teamName,jdbcType=VARCHAR},
+      </if>
+      <if test="teamId != null" >
+        #{teamId,jdbcType=VARCHAR},
+      </if>
+      <if test="teamPerson != null" >
+        #{teamPerson,jdbcType=INTEGER},
+      </if>
+      <if test="teamLeader != null" >
+        #{teamLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyAbbreviation != null" >
+        #{companyAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="isScore != null" >
+        #{isScore,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjLzehTeamManagement" >
+    update zj_lzeh_team_management
+    <set >
+      <if test="companyName != null" >
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="teamName != null" >
+        team_name = #{teamName,jdbcType=VARCHAR},
+      </if>
+      <if test="teamId != null" >
+        team_id = #{teamId,jdbcType=VARCHAR},
+      </if>
+      <if test="teamPerson != null" >
+        team_person = #{teamPerson,jdbcType=INTEGER},
+      </if>
+      <if test="teamLeader != null" >
+        team_leader = #{teamLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        company_id = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyAbbreviation != null" >
+        company_abbreviation = #{companyAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="isScore != null" >
+        isScore = #{isScore,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zj_lzeh_team_management_id = #{zjLzehTeamManagementId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjLzehTeamManagement" >
+    update zj_lzeh_team_management set 
+      company_name = #{companyName,jdbcType=VARCHAR},
+      team_name = #{teamName,jdbcType=VARCHAR},
+      team_id = #{teamId,jdbcType=VARCHAR},
+      team_person = #{teamPerson,jdbcType=INTEGER},
+      team_leader = #{teamLeader,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      company_id = #{companyId,jdbcType=VARCHAR},
+      company_abbreviation = #{companyAbbreviation,jdbcType=VARCHAR},
+      isScore = #{isScore,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zj_lzeh_team_management_id = #{zjLzehTeamManagementId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjLzehTeamManagementList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjLzehTeamManagement" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_lzeh_team_management
+    where del_flag = '0'
+    <if test="zjLzehTeamManagementId != null and zjLzehTeamManagementId != ''" >
+     and zj_lzeh_team_management_id = #{zjLzehTeamManagementId,jdbcType=CHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and company_name = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="teamName != null and teamName != ''" >
+     and team_name like '%${teamName}%'
+    </if>
+    <if test="teamId != null and teamId != ''" >
+     and team_id = #{teamId,jdbcType=VARCHAR}
+    </if>
+    <if test="teamPerson != null and teamPerson != ''" >
+     and team_person = #{teamPerson,jdbcType=INTEGER}
+    </if>
+    <if test="teamLeader != null and teamLeader != ''" >
+     and team_leader = #{teamLeader,jdbcType=VARCHAR}
+    </if>
+    <if test="phone != null and phone != ''" >
+     and phone = #{phone,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and company_id = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="companyAbbreviation != null and companyAbbreviation != ''" >
+     and company_abbreviation = #{companyAbbreviation,jdbcType=VARCHAR}
+    </if>
+    <if test="isScore != null and isScore != ''" >
+     and isScore = #{isScore,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY create_time DESC
+  </select>
+  <delete id="batchDeleteUpdateZjLzehTeamManagement" parameterType="com.apih5.mybatis.pojo.ZjLzehTeamManagement" >
+    <![CDATA[ 
+        update zj_lzeh_team_management
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zj_lzeh_team_management_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zjLzehTeamManagementId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+  <select id="getCount" resultMap="BaseResultMap">
+    select count(zj_lzeh_team_management_id) as scoreNum
+    from zj_lzeh_team_management
+    where  del_flag = '0' and isScore='1'
+  </select>
+</mapper>

@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCrCustomerExtAttrMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCrCustomerExtAttr" >
+    <id column="zxCrCustomerExtAttr_id" property="zxCrCustomerExtAttrId" jdbcType="CHAR" />
+    <result column="creditStanding" property="creditStanding" jdbcType="VARCHAR" />
+    <result column="pricinpalMobile" property="pricinpalMobile" jdbcType="VARCHAR" />
+    <result column="pricinpalTel" property="pricinpalTel" jdbcType="VARCHAR" />
+    <result column="pricinpalFax" property="pricinpalFax" jdbcType="VARCHAR" />
+    <result column="pricinpalEmail" property="pricinpalEmail" jdbcType="VARCHAR" />
+    <result column="pricinpalPostCode" property="pricinpalPostCode" jdbcType="VARCHAR" />
+    <result column="pricinpalAddr" property="pricinpalAddr" jdbcType="VARCHAR" />
+    <result column="customerID" property="customerID" jdbcType="VARCHAR" />
+    <result column="customerNO" property="customerNO" jdbcType="VARCHAR" />
+    <result column="proOrgID" property="proOrgID" jdbcType="VARCHAR" />
+    <result column="kind" property="kind" jdbcType="VARCHAR" />
+    <result column="personInChargeIdNumber" property="personInChargeIdNumber" jdbcType="VARCHAR" />
+    <result column="customerName" property="customerName" jdbcType="VARCHAR" />
+    <result column="organizationCode" property="organizationCode" jdbcType="VARCHAR" />
+    <result column="relat" property="relat" jdbcType="VARCHAR" />
+    <result column="legalRepresentative" property="legalRepresentative" jdbcType="VARCHAR" />
+    <result column="legalPersonClient" property="legalPersonClient" jdbcType="VARCHAR" />
+    <result column="registrationTime" property="registrationTime" jdbcType="TIMESTAMP" />
+    <result column="unitRegistrationArea" property="unitRegistrationArea" jdbcType="VARCHAR" />
+    <result column="registeredCapital" property="registeredCapital" jdbcType="DECIMAL" />
+    <result column="qualificationCertificateNo" property="qualificationCertificateNo" jdbcType="VARCHAR" />
+    <result column="safetyProductionLicenseNo" property="safetyProductionLicenseNo" jdbcType="VARCHAR" />
+    <result column="scopeAndGradeOfQualification" property="scopeAndGradeOfQualification" jdbcType="VARCHAR" />
+    <result column="natureOfBusiness" property="natureOfBusiness" jdbcType="VARCHAR" />
+    <result column="mobilePhoneOfLegalEntity" property="mobilePhoneOfLegalEntity" jdbcType="VARCHAR" />
+    <result column="companyType" property="companyType" jdbcType="VARCHAR" />
+    <result column="experienceOfInhouseCollaboration" property="experienceOfInhouseCollaboration" jdbcType="VARCHAR" />
+    <result column="projectInService" property="projectInService" jdbcType="VARCHAR" />
+    <result column="fixedLineTelephoneOfMerchants" property="fixedLineTelephoneOfMerchants" jdbcType="VARCHAR" />
+    <result column="faxOfMerchants" property="faxOfMerchants" jdbcType="VARCHAR" />
+    <result column="businessLicenseNumber" property="businessLicenseNumber" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="linkmanName" property="linkmanName" jdbcType="VARCHAR" />
+    <result column="linkmanTel" property="linkmanTel" jdbcType="VARCHAR" />
+    <result column="searchTheCustomerName" property="searchTheCustomerName" jdbcType="VARCHAR" />
+    <result column="projectName" property="projectName" jdbcType="VARCHAR" />
+    <result column="projectId" property="projectId" jdbcType="VARCHAR" />
+    <result column="companyId" property="companyId" jdbcType="VARCHAR" />
+    <result column="companyName" property="companyName" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxCrCustomerExtAttr_id, creditStanding, pricinpalMobile, pricinpalTel, pricinpalFax, 
+    pricinpalEmail, pricinpalPostCode, pricinpalAddr, customerID, customerNO, 
+    proOrgID, kind, personInChargeIdNumber, customerName, organizationCode, 
+    relat, legalRepresentative, legalPersonClient, registrationTime, unitRegistrationArea, 
+    registeredCapital, qualificationCertificateNo, safetyProductionLicenseNo, scopeAndGradeOfQualification, natureOfBusiness, 
+    mobilePhoneOfLegalEntity, companyType, experienceOfInhouseCollaboration, projectInService, fixedLineTelephoneOfMerchants, 
+    faxOfMerchants, businessLicenseNumber, type, linkmanName, linkmanTel,
+    searchTheCustomerName, projectName, projectId, companyId, companyName, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cr_CustomerExtAttr
+    where del_flag = '0' and zxCrCustomerExtAttr_id = #{zxCrCustomerExtAttrId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_cr_CustomerExtAttr
+    where zxCrCustomerExtAttr_id = #{zxCrCustomerExtAttrId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerExtAttr" >
+    insert into zx_cr_CustomerExtAttr (
+    zxCrCustomerExtAttr_id, creditStanding, pricinpalMobile, pricinpalTel, pricinpalFax, 
+    pricinpalEmail, pricinpalPostCode, pricinpalAddr, customerID, customerNO, 
+    proOrgID, kind, personInChargeIdNumber, customerName, organizationCode, 
+    relat, legalRepresentative, legalPersonClient, registrationTime, unitRegistrationArea, 
+    registeredCapital, qualificationCertificateNo, safetyProductionLicenseNo, scopeAndGradeOfQualification, natureOfBusiness, 
+    mobilePhoneOfLegalEntity, companyType, experienceOfInhouseCollaboration, projectInService, fixedLineTelephoneOfMerchants, 
+    faxOfMerchants, businessLicenseNumber, type, linkmanName, linkmanTel,
+    searchTheCustomerName, projectName, projectId, companyId, companyName, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxCrCustomerExtAttrId,jdbcType=CHAR}, #{creditStanding,jdbcType=VARCHAR}, #{pricinpalMobile,jdbcType=VARCHAR}, #{pricinpalTel,jdbcType=VARCHAR}, #{pricinpalFax,jdbcType=VARCHAR}, 
+    #{pricinpalEmail,jdbcType=VARCHAR}, #{pricinpalPostCode,jdbcType=VARCHAR}, #{pricinpalAddr,jdbcType=VARCHAR}, #{customerID,jdbcType=VARCHAR}, #{customerNO,jdbcType=VARCHAR}, 
+    #{proOrgID,jdbcType=VARCHAR}, #{kind,jdbcType=VARCHAR}, #{personInChargeIdNumber,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, #{organizationCode,jdbcType=VARCHAR}, 
+    #{relat,jdbcType=VARCHAR}, #{legalRepresentative,jdbcType=VARCHAR}, #{legalPersonClient,jdbcType=VARCHAR}, #{registrationTime,jdbcType=TIMESTAMP}, #{unitRegistrationArea,jdbcType=VARCHAR}, 
+    #{registeredCapital,jdbcType=DECIMAL}, #{qualificationCertificateNo,jdbcType=VARCHAR}, #{safetyProductionLicenseNo,jdbcType=VARCHAR}, #{scopeAndGradeOfQualification,jdbcType=VARCHAR}, #{natureOfBusiness,jdbcType=VARCHAR}, 
+    #{mobilePhoneOfLegalEntity,jdbcType=VARCHAR}, #{companyType,jdbcType=VARCHAR}, #{experienceOfInhouseCollaboration,jdbcType=VARCHAR}, #{projectInService,jdbcType=VARCHAR}, #{fixedLineTelephoneOfMerchants,jdbcType=VARCHAR},
+    #{faxOfMerchants,jdbcType=VARCHAR}, #{businessLicenseNumber,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{linkmanName,jdbcType=VARCHAR}, #{linkmanTel,jdbcType=VARCHAR}, 
+    #{searchTheCustomerName,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, #{projectId,jdbcType=VARCHAR}, #{companyId,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, 
+    #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+    #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerExtAttr" >
+    insert into zx_cr_CustomerExtAttr
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxCrCustomerExtAttrId != null" >
+        zxCrCustomerExtAttr_id,
+      </if>
+      <if test="creditStanding != null" >
+        creditStanding,
+      </if>
+      <if test="pricinpalMobile != null" >
+        pricinpalMobile,
+      </if>
+      <if test="pricinpalTel != null" >
+        pricinpalTel,
+      </if>
+      <if test="pricinpalFax != null" >
+        pricinpalFax,
+      </if>
+      <if test="pricinpalEmail != null" >
+        pricinpalEmail,
+      </if>
+      <if test="pricinpalPostCode != null" >
+        pricinpalPostCode,
+      </if>
+      <if test="pricinpalAddr != null" >
+        pricinpalAddr,
+      </if>
+      <if test="customerID != null" >
+        customerID,
+      </if>
+      <if test="customerNO != null" >
+        customerNO,
+      </if>
+      <if test="proOrgID != null" >
+        proOrgID,
+      </if>
+      <if test="kind != null" >
+        kind,
+      </if>
+      <if test="personInChargeIdNumber != null" >
+        personInChargeIdNumber,
+      </if>
+      <if test="customerName != null" >
+        customerName,
+      </if>
+      <if test="organizationCode != null" >
+        organizationCode,
+      </if>
+      <if test="relat != null" >
+        relat,
+      </if>
+      <if test="legalRepresentative != null" >
+        legalRepresentative,
+      </if>
+      <if test="legalPersonClient != null" >
+        legalPersonClient,
+      </if>
+      <if test="registrationTime != null" >
+        registrationTime,
+      </if>
+      <if test="unitRegistrationArea != null" >
+        unitRegistrationArea,
+      </if>
+      <if test="registeredCapital != null" >
+        registeredCapital,
+      </if>
+      <if test="qualificationCertificateNo != null" >
+        qualificationCertificateNo,
+      </if>
+      <if test="safetyProductionLicenseNo != null" >
+        safetyProductionLicenseNo,
+      </if>
+      <if test="scopeAndGradeOfQualification != null" >
+        scopeAndGradeOfQualification,
+      </if>
+      <if test="natureOfBusiness != null" >
+        natureOfBusiness,
+      </if>
+      <if test="mobilePhoneOfLegalEntity != null" >
+        mobilePhoneOfLegalEntity,
+      </if>
+      <if test="companyType != null" >
+        companyType,
+      </if>
+      <if test="experienceOfInhouseCollaboration != null" >
+        experienceOfInhouseCollaboration,
+      </if>
+      <if test="projectInService != null" >
+        projectInService,
+      </if>
+      <if test="fixedLineTelephoneOfMerchants != null" >
+        fixedLineTelephoneOfMerchants,
+      </if>
+      <if test="faxOfMerchants != null" >
+        faxOfMerchants,
+      </if>
+      <if test="businessLicenseNumber != null" >
+        businessLicenseNumber,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="linkmanName != null" >
+        linkmanName,
+      </if>
+      <if test="linkmanTel != null" >
+        linkmanTel,
+      </if>
+      <if test="searchTheCustomerName != null" >
+        searchTheCustomerName,
+      </if>
+      <if test="projectName != null" >
+        projectName,
+      </if>
+      <if test="projectId != null" >
+        projectId,
+      </if>
+      <if test="companyId != null" >
+        companyId,
+      </if>
+      <if test="companyName != null" >
+        companyName,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxCrCustomerExtAttrId != null" >
+        #{zxCrCustomerExtAttrId,jdbcType=CHAR},
+      </if>
+      <if test="creditStanding != null" >
+        #{creditStanding,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalMobile != null" >
+        #{pricinpalMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalTel != null" >
+        #{pricinpalTel,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalFax != null" >
+        #{pricinpalFax,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalEmail != null" >
+        #{pricinpalEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalPostCode != null" >
+        #{pricinpalPostCode,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalAddr != null" >
+        #{pricinpalAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="customerID != null" >
+        #{customerID,jdbcType=VARCHAR},
+      </if>
+      <if test="customerNO != null" >
+        #{customerNO,jdbcType=VARCHAR},
+      </if>
+      <if test="proOrgID != null" >
+        #{proOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="kind != null" >
+        #{kind,jdbcType=VARCHAR},
+      </if>
+      <if test="personInChargeIdNumber != null" >
+        #{personInChargeIdNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationCode != null" >
+        #{organizationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="relat != null" >
+        #{relat,jdbcType=VARCHAR},
+      </if>
+      <if test="legalRepresentative != null" >
+        #{legalRepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPersonClient != null" >
+        #{legalPersonClient,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationTime != null" >
+        #{registrationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unitRegistrationArea != null" >
+        #{unitRegistrationArea,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredCapital != null" >
+        #{registeredCapital,jdbcType=DECIMAL},
+      </if>
+      <if test="qualificationCertificateNo != null" >
+        #{qualificationCertificateNo,jdbcType=VARCHAR},
+      </if>
+      <if test="safetyProductionLicenseNo != null" >
+        #{safetyProductionLicenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="scopeAndGradeOfQualification != null" >
+        #{scopeAndGradeOfQualification,jdbcType=VARCHAR},
+      </if>
+      <if test="natureOfBusiness != null" >
+        #{natureOfBusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilePhoneOfLegalEntity != null" >
+        #{mobilePhoneOfLegalEntity,jdbcType=VARCHAR},
+      </if>
+      <if test="companyType != null" >
+        #{companyType,jdbcType=VARCHAR},
+      </if>
+      <if test="experienceOfInhouseCollaboration != null" >
+        #{experienceOfInhouseCollaboration,jdbcType=VARCHAR},
+      </if>
+      <if test="projectInService != null" >
+        #{projectInService,jdbcType=VARCHAR},
+      </if>
+      <if test="fixedLineTelephoneOfMerchants != null" >
+        #{fixedLineTelephoneOfMerchants,jdbcType=VARCHAR},
+      </if>
+      <if test="faxOfMerchants != null" >
+        #{faxOfMerchants,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicenseNumber != null" >
+        #{businessLicenseNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanName != null" >
+        #{linkmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanTel != null" >
+        #{linkmanTel,jdbcType=VARCHAR},
+      </if>
+      <if test="searchTheCustomerName != null" >
+        #{searchTheCustomerName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerExtAttr" >
+    update zx_cr_CustomerExtAttr
+    <set >
+      <if test="creditStanding != null" >
+        creditStanding = #{creditStanding,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalMobile != null" >
+        pricinpalMobile = #{pricinpalMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalTel != null" >
+        pricinpalTel = #{pricinpalTel,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalFax != null" >
+        pricinpalFax = #{pricinpalFax,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalEmail != null" >
+        pricinpalEmail = #{pricinpalEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalPostCode != null" >
+        pricinpalPostCode = #{pricinpalPostCode,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalAddr != null" >
+        pricinpalAddr = #{pricinpalAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="customerID != null" >
+        customerID = #{customerID,jdbcType=VARCHAR},
+      </if>
+      <if test="customerNO != null" >
+        customerNO = #{customerNO,jdbcType=VARCHAR},
+      </if>
+      <if test="proOrgID != null" >
+        proOrgID = #{proOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="kind != null" >
+        kind = #{kind,jdbcType=VARCHAR},
+      </if>
+      <if test="personInChargeIdNumber != null" >
+        personInChargeIdNumber = #{personInChargeIdNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        customerName = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationCode != null" >
+        organizationCode = #{organizationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="relat != null" >
+        relat = #{relat,jdbcType=VARCHAR},
+      </if>
+      <if test="legalRepresentative != null" >
+        legalRepresentative = #{legalRepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPersonClient != null" >
+        legalPersonClient = #{legalPersonClient,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationTime != null" >
+        registrationTime = #{registrationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unitRegistrationArea != null" >
+        unitRegistrationArea = #{unitRegistrationArea,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredCapital != null" >
+        registeredCapital = #{registeredCapital,jdbcType=DECIMAL},
+      </if>
+      <if test="qualificationCertificateNo != null" >
+        qualificationCertificateNo = #{qualificationCertificateNo,jdbcType=VARCHAR},
+      </if>
+      <if test="safetyProductionLicenseNo != null" >
+        safetyProductionLicenseNo = #{safetyProductionLicenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="scopeAndGradeOfQualification != null" >
+        scopeAndGradeOfQualification = #{scopeAndGradeOfQualification,jdbcType=VARCHAR},
+      </if>
+      <if test="natureOfBusiness != null" >
+        natureOfBusiness = #{natureOfBusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilePhoneOfLegalEntity != null" >
+        mobilePhoneOfLegalEntity = #{mobilePhoneOfLegalEntity,jdbcType=VARCHAR},
+      </if>
+      <if test="companyType != null" >
+        companyType = #{companyType,jdbcType=VARCHAR},
+      </if>
+      <if test="experienceOfInhouseCollaboration != null" >
+        experienceOfInhouseCollaboration = #{experienceOfInhouseCollaboration,jdbcType=VARCHAR},
+      </if>
+      <if test="projectInService != null" >
+        projectInService = #{projectInService,jdbcType=VARCHAR},
+      </if>
+      <if test="fixedLineTelephoneOfMerchants != null" >
+        fixedLineTelephoneOfMerchants = #{fixedLineTelephoneOfMerchants,jdbcType=VARCHAR},
+      </if>
+      <if test="faxOfMerchants != null" >
+        faxOfMerchants = #{faxOfMerchants,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicenseNumber != null" >
+        businessLicenseNumber = #{businessLicenseNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanName != null" >
+        linkmanName = #{linkmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanTel != null" >
+        linkmanTel = #{linkmanTel,jdbcType=VARCHAR},
+      </if>
+      <if test="searchTheCustomerName != null" >
+        searchTheCustomerName = #{searchTheCustomerName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        projectName = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        projectId = #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        companyId = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        companyName = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxCrCustomerExtAttr_id = #{zxCrCustomerExtAttrId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerExtAttr" >
+    update zx_cr_CustomerExtAttr set 
+      creditStanding = #{creditStanding,jdbcType=VARCHAR},
+      pricinpalMobile = #{pricinpalMobile,jdbcType=VARCHAR},
+      pricinpalTel = #{pricinpalTel,jdbcType=VARCHAR},
+      pricinpalFax = #{pricinpalFax,jdbcType=VARCHAR},
+      pricinpalEmail = #{pricinpalEmail,jdbcType=VARCHAR},
+      pricinpalPostCode = #{pricinpalPostCode,jdbcType=VARCHAR},
+      pricinpalAddr = #{pricinpalAddr,jdbcType=VARCHAR},
+      customerID = #{customerID,jdbcType=VARCHAR},
+      customerNO = #{customerNO,jdbcType=VARCHAR},
+      proOrgID = #{proOrgID,jdbcType=VARCHAR},
+      kind = #{kind,jdbcType=VARCHAR},
+      personInChargeIdNumber = #{personInChargeIdNumber,jdbcType=VARCHAR},
+      customerName = #{customerName,jdbcType=VARCHAR},
+      organizationCode = #{organizationCode,jdbcType=VARCHAR},
+      relat = #{relat,jdbcType=VARCHAR},
+      legalRepresentative = #{legalRepresentative,jdbcType=VARCHAR},
+      legalPersonClient = #{legalPersonClient,jdbcType=VARCHAR},
+      registrationTime = #{registrationTime,jdbcType=TIMESTAMP},
+      unitRegistrationArea = #{unitRegistrationArea,jdbcType=VARCHAR},
+      registeredCapital = #{registeredCapital,jdbcType=DECIMAL},
+      qualificationCertificateNo = #{qualificationCertificateNo,jdbcType=VARCHAR},
+      safetyProductionLicenseNo = #{safetyProductionLicenseNo,jdbcType=VARCHAR},
+      scopeAndGradeOfQualification = #{scopeAndGradeOfQualification,jdbcType=VARCHAR},
+      natureOfBusiness = #{natureOfBusiness,jdbcType=VARCHAR},
+      mobilePhoneOfLegalEntity = #{mobilePhoneOfLegalEntity,jdbcType=VARCHAR},
+      companyType = #{companyType,jdbcType=VARCHAR},
+      experienceOfInhouseCollaboration = #{experienceOfInhouseCollaboration,jdbcType=VARCHAR},
+      projectInService = #{projectInService,jdbcType=VARCHAR},
+      fixedLineTelephoneOfMerchants = #{fixedLineTelephoneOfMerchants,jdbcType=VARCHAR},
+      faxOfMerchants = #{faxOfMerchants,jdbcType=VARCHAR},
+      businessLicenseNumber = #{businessLicenseNumber,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      linkmanName = #{linkmanName,jdbcType=VARCHAR},
+      linkmanTel = #{linkmanTel,jdbcType=VARCHAR},
+      searchTheCustomerName = #{searchTheCustomerName,jdbcType=VARCHAR},
+      projectName = #{projectName,jdbcType=VARCHAR},
+      projectId = #{projectId,jdbcType=VARCHAR},
+      companyId = #{companyId,jdbcType=VARCHAR},
+      companyName = #{companyName,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxCrCustomerExtAttr_id = #{zxCrCustomerExtAttrId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxCrCustomerExtAttrList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerExtAttr" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cr_CustomerExtAttr
+    where del_flag = '0'
+    <if test="zxCrCustomerExtAttrId != null and zxCrCustomerExtAttrId != ''" >
+     and zxCrCustomerExtAttr_id = #{zxCrCustomerExtAttrId,jdbcType=CHAR}
+    </if>
+    <if test="creditStanding != null and creditStanding != ''" >
+     and creditStanding = #{creditStanding,jdbcType=VARCHAR}
+    </if>
+    <if test="pricinpalMobile != null and pricinpalMobile != ''" >
+     and pricinpalMobile = #{pricinpalMobile,jdbcType=VARCHAR}
+    </if>
+    <if test="pricinpalTel != null and pricinpalTel != ''" >
+     and pricinpalTel = #{pricinpalTel,jdbcType=VARCHAR}
+    </if>
+    <if test="pricinpalFax != null and pricinpalFax != ''" >
+     and pricinpalFax = #{pricinpalFax,jdbcType=VARCHAR}
+    </if>
+    <if test="pricinpalEmail != null and pricinpalEmail != ''" >
+     and pricinpalEmail = #{pricinpalEmail,jdbcType=VARCHAR}
+    </if>
+    <if test="pricinpalPostCode != null and pricinpalPostCode != ''" >
+     and pricinpalPostCode = #{pricinpalPostCode,jdbcType=VARCHAR}
+    </if>
+    <if test="pricinpalAddr != null and pricinpalAddr != ''" >
+     and pricinpalAddr = #{pricinpalAddr,jdbcType=VARCHAR}
+    </if>
+    <if test="customerID != null and customerID != ''" >
+     and customerID = #{customerID,jdbcType=VARCHAR}
+    </if>
+    <if test="customerNO != null and customerNO != ''" >
+     and customerNO = #{customerNO,jdbcType=VARCHAR}
+    </if>
+    <if test="proOrgID != null and proOrgID != ''" >
+     and proOrgID = #{proOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="kind != null and kind != ''" >
+     and kind = #{kind,jdbcType=VARCHAR}
+    </if>
+    <if test="personInChargeIdNumber != null and personInChargeIdNumber != ''" >
+     and personInChargeIdNumber = #{personInChargeIdNumber,jdbcType=VARCHAR}
+    </if>
+    <if test="customerName != null and customerName != ''" >
+     and customerName LIKE CONCAT("%", #{customerName, jdbcType=VARCHAR}, "%")
+    </if>
+    <if test="organizationCode != null and organizationCode != ''" >
+     and organizationCode = #{organizationCode,jdbcType=VARCHAR}
+    </if>
+    <if test="relat != null and relat != ''" >
+     and relat = #{relat,jdbcType=VARCHAR}
+    </if>
+    <if test="legalRepresentative != null and legalRepresentative != ''" >
+     and legalRepresentative = #{legalRepresentative,jdbcType=VARCHAR}
+    </if>
+    <if test="legalPersonClient != null and legalPersonClient != ''" >
+     and legalPersonClient = #{legalPersonClient,jdbcType=VARCHAR}
+    </if>
+    <if test="registrationTime != null and registrationTime != ''" >
+     and registrationTime = #{registrationTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="unitRegistrationArea != null and unitRegistrationArea != ''" >
+     and unitRegistrationArea = #{unitRegistrationArea,jdbcType=VARCHAR}
+    </if>
+    <if test="registeredCapital != null and registeredCapital != ''" >
+     and registeredCapital = #{registeredCapital,jdbcType=DECIMAL}
+    </if>
+    <if test="qualificationCertificateNo != null and qualificationCertificateNo != ''" >
+     and qualificationCertificateNo = #{qualificationCertificateNo,jdbcType=VARCHAR}
+    </if>
+    <if test="safetyProductionLicenseNo != null and safetyProductionLicenseNo != ''" >
+     and safetyProductionLicenseNo = #{safetyProductionLicenseNo,jdbcType=VARCHAR}
+    </if>
+    <if test="scopeAndGradeOfQualification != null and scopeAndGradeOfQualification != ''" >
+     and scopeAndGradeOfQualification = #{scopeAndGradeOfQualification,jdbcType=VARCHAR}
+    </if>
+    <if test="natureOfBusiness != null and natureOfBusiness != ''" >
+     and natureOfBusiness = #{natureOfBusiness,jdbcType=VARCHAR}
+    </if>
+    <if test="mobilePhoneOfLegalEntity != null and mobilePhoneOfLegalEntity != ''" >
+     and mobilePhoneOfLegalEntity = #{mobilePhoneOfLegalEntity,jdbcType=VARCHAR}
+    </if>
+    <if test="companyType != null and companyType != ''" >
+     and companyType = #{companyType,jdbcType=VARCHAR}
+    </if>
+    <if test="experienceOfInhouseCollaboration != null and experienceOfInhouseCollaboration != ''" >
+     and experienceOfInhouseCollaboration = #{experienceOfInhouseCollaboration,jdbcType=VARCHAR}
+    </if>
+    <if test="projectInService != null and projectInService != ''" >
+     and projectInService = #{projectInService,jdbcType=VARCHAR}
+    </if>
+    <if test="fixedLineTelephoneOfMerchants != null and fixedLineTelephoneOfMerchants != ''" >
+     and fixedLineTelephoneOfMerchants = #{fixedLineTelephoneOfMerchants,jdbcType=VARCHAR}
+    </if>
+    <if test="faxOfMerchants != null and faxOfMerchants != ''" >
+     and faxOfMerchants = #{faxOfMerchants,jdbcType=VARCHAR}
+    </if>
+    <if test="businessLicenseNumber != null and businessLicenseNumber != ''" >
+     and businessLicenseNumber = #{businessLicenseNumber,jdbcType=VARCHAR}
+    </if>
+    <if test="type != null and type != ''" >
+     and type = #{type,jdbcType=VARCHAR}
+    </if>
+    <if test="linkmanName != null and linkmanName != ''" >
+     and linkmanName = #{linkmanName,jdbcType=VARCHAR}
+    </if>
+    <if test="linkmanTel != null and linkmanTel != ''" >
+     and linkmanTel = #{linkmanTel,jdbcType=VARCHAR}
+    </if>
+    <if test="searchTheCustomerName != null and searchTheCustomerName != ''" >
+     and searchTheCustomerName = #{searchTheCustomerName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and projectName = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and projectId = #{projectId,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and companyId = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and companyName = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxCrCustomerExtAttr" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerExtAttr" >
+    <![CDATA[ 
+        update zx_cr_CustomerExtAttr
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxCrCustomerExtAttr_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxCrCustomerExtAttrId} 
+     </foreach>
+  </delete>
+   <select id="selectByPrimaryKeyall" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerExtAttr" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cr_CustomerExtAttr
+    where del_flag = '0' 
+    <if test="searchTheCustomerName != null and searchTheCustomerName != ''" >
+    and searchTheCustomerName = #{searchTheCustomerName,jdbcType=VARCHAR}
+     </if>
+     <if test="kind != null and kind != ''" >
+     and kind = #{kind,jdbcType=VARCHAR}
+    </if>
+    <if test="personInChargeIdNumber != null and personInChargeIdNumber != ''" >
+     and personInChargeIdNumber = #{personInChargeIdNumber,jdbcType=VARCHAR}
+    </if>
+	<if test="relat != null and relat != ''" >
+     and relat = #{relat,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerExtAttr" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cr_CustomerExtAttr
+    where del_flag = '0' 
+    <if test="organizationCode != null and organizationCode != ''" >
+    and organizationCode = #{organizationCode,jdbcType=VARCHAR}
+    </if>
+    <if test="kind != null and kind != ''" >
+     and kind = #{kind,jdbcType=VARCHAR}
+    </if>
+    <if test="personInChargeIdNumber != null and personInChargeIdNumber != ''" >
+     and personInChargeIdNumber = #{personInChargeIdNumber,jdbcType=VARCHAR}
+    </if>
+    <if test="relat != null and relat != ''" >
+     and relat = #{relat,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <select id="selectByZxCrCustomerExtAttrListAll" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerExtAttr" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cr_CustomerExtAttr
+    where del_flag = '0'
+    <if test="zxCrCustomerExtAttrId != null and zxCrCustomerExtAttrId != ''" >
+     and zxCrCustomerExtAttr_id = #{zxCrCustomerExtAttrId,jdbcType=CHAR}
+    </if>
+    <if test="type != null and type != ''" >
+     and type = #{type,jdbcType=VARCHAR}
+    </if>
+    <if test="type1 != null and type1 != ''" >
+     or type = #{type1,jdbcType=VARCHAR}
+    </if>
+    <if test="type2 != null and type2 != ''" >
+     or type = #{type2,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <select id="selectByZxCrCustomerExtAttrEngineeringList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerExtAttr" >
+<!--   select zx_cr_CustomerExtAttr.*,
+zx_cr_CustomerInfo.zx_cr_CustomerInfo_id,
+zx_cr_CustomerInfo.orgCertificate,
+zx_cr_CustomerInfo.regMoney,
+zx_cr_CustomerInfo.corparation,
+zx_cr_CustomerInfo.pricinpalIDCard,
+zx_cr_CustomerInfo.licenceNO,
+zx_cr_CustomerInfo.qualificateNo,
+zx_cr_CustomerInfo.taxRegNo,
+zx_cr_CustomerInfo.qualifiLevel,
+zx_cr_CustomerInfo.dateStatus,
+zx_cr_CustomerInfo.strategicSupplier,
+zx_cr_CustomerInfo.creditLineAmt,
+zx_cr_CustomerInfo.referenceOrg,
+zx_cr_CustomerInfo.referenceName,
+zx_cr_CustomerInfo.referencePost,
+zx_cr_CustomerInfo.referencePhone,
+zx_cr_CustomerInfo.usedNames,
+zx_cr_CustomerInfo.isBlack,
+zx_cr_CustomerInfo.orgName,
+zx_cr_CustomerInfo.auditStatus,
+zx_cr_CustomerInfo.province,
+zx_cr_CustomerInfo.area,
+zx_cr_CustomerInfo.scope,
+zx_cr_CustomerInfo.safeCode,
+zx_cr_CustomerInfo.taxpayerNum,
+zx_cr_CustomerInfo.taxpayerType,
+zx_cr_CustomerInfo.bankName,
+zx_cr_CustomerInfo.bankAccount,
+zx_cr_CustomerInfo.useFlag,
+zx_cr_CustomerInfo.realRegMoney,
+zx_cr_CustomerInfo.businessType,
+zx_cr_CustomerInfo.licenceDate,
+zx_cr_CustomerInfo.qualificateDate,
+zx_cr_CustomerInfo.taxRegDate,
+zx_cr_CustomerInfo.safeBookDate,
+zx_cr_CustomerInfo.comOrgName,
+zx_cr_CustomerInfo.isNeedfushen,
+zx_cr_CustomerInfo.fuheStatus,
+zx_cr_CustomerInfo.fushenStatus,
+zx_cr_CustomerInfo.orgID 
+from zx_cr_CustomerExtAttr inner join  zx_cr_CustomerInfo 
+on zx_cr_CustomerExtAttr.organizationCode =  zx_cr_CustomerInfo.orgCertificate 
+<if test="type != null and type != ''" >
+     where zx_cr_CustomerExtAttr.type = #{type,jdbcType=VARCHAR}
+    </if>
+GROUP BY zx_cr_CustomerInfo.orgCertificate -->
+
+  SELECT 
+   zx_cr_CustomerInfo_id as zxCrCustomerExtAttr_id,
+   customerName as customerName,
+   orgCertificate as organizationCode
+   FROM  zx_cr_CustomerInfo 
+   WHERE del_flag = '0'
+     and licenceDate>now()
+	 and qualificateDate>now()
+	 and taxRegDate>now()
+	 and safeBookDate>now()
+     and auditStatus = '2'
+    <if test="zxCrCustomerExtAttrId != null and zxCrCustomerExtAttrId != ''" >
+     and zx_cr_CustomerInfo_id = #{zxCrCustomerExtAttrId,jdbcType=CHAR}
+    </if>
+    <if test="customerName != null and customerName != ''" >
+      and customerName LIKE CONCAT("%", #{customerName, jdbcType=VARCHAR}, "%")
+    </if>
+  </select>
+  
+</mapper>

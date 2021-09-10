@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkResMoveMonthSMPMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkResMoveMonthSMP" >
+    <id column="zxSkResMoveMonthSMPId" property="zxSkResMoveMonthSMPId" jdbcType="CHAR" />
+    <result column="resCode" property="resCode" jdbcType="VARCHAR" />
+    <result column="resName" property="resName" jdbcType="VARCHAR" />
+    <result column="spce" property="spce" jdbcType="DECIMAL" />
+    <result column="stockQty" property="stockQty" jdbcType="DECIMAL" />
+    <result column="resUnit" property="resUnit" jdbcType="DECIMAL" />
+    <result column="stockPrice" property="stockPrice" jdbcType="DECIMAL" />
+    <result column="stockAmt" property="stockAmt" jdbcType="DECIMAL" />
+    <result column="orsQty" property="orsQty" jdbcType="DECIMAL" />
+    <result column="otrQty" property="otrQty" jdbcType="DECIMAL" />
+    <result column="serQty" property="serQty" jdbcType="DECIMAL" />
+    <result column="obuQty" property="obuQty" jdbcType="DECIMAL" />
+    <result column="ocsQty" property="ocsQty" jdbcType="DECIMAL" />
+    <result column="inQty" property="inQty" jdbcType="DECIMAL" />
+    <result column="inAmt" property="inAmt" jdbcType="DECIMAL" />
+    <result column="inPrice" property="inPrice" jdbcType="DECIMAL" />
+    <result column="oswQty" property="oswQty" jdbcType="DECIMAL" />
+    <result column="oswPrice" property="oswPrice" jdbcType="DECIMAL" />
+    <result column="otkQty" property="otkQty" jdbcType="DECIMAL" />
+    <result column="oswAmt" property="oswAmt" jdbcType="DECIMAL" />
+    <result column="otkAmt" property="otkAmt" jdbcType="DECIMAL" />
+    <result column="otkPrice" property="otkPrice" jdbcType="DECIMAL" />
+    <result column="vinQty" property="vinQty" jdbcType="DECIMAL" />
+    <result column="vinAmt" property="vinAmt" jdbcType="DECIMAL" />
+    <result column="thisQty" property="thisQty" jdbcType="DECIMAL" />
+    <result column="thisAmt" property="thisAmt" jdbcType="DECIMAL" />
+    <result column="thisPrice" property="thisPrice" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="appOrgID" property="appOrgID" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="resID" property="resID" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="isFinish" property="isFinish" jdbcType="VARCHAR" />
+    <result column="beginDate" property="beginDate" jdbcType="TIMESTAMP" />
+    <result column="endDate" property="endDate" jdbcType="TIMESTAMP" />
+    
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxSkResMoveMonthSMPId, resCode, resName, spce, stockQty, 
+    resUnit, stockPrice, stockAmt, orsQty, otrQty, 
+    serQty, obuQty, ocsQty, inQty, inAmt, 
+    inPrice, oswQty, oswPrice, otkQty, oswAmt, 
+    otkAmt, otkPrice, vinQty, vinAmt, thisQty, 
+    thisAmt, thisPrice, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_resMoveMonthSMP
+    where del_flag = '0' and zxSkResMoveMonthSMPId = #{zxSkResMoveMonthSMPId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_resMoveMonthSMP
+    where zxSkResMoveMonthSMPId = #{zxSkResMoveMonthSMPId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkResMoveMonthSMP" >
+    insert into zx_sk_resMoveMonthSMP (
+    zxSkResMoveMonthSMPId, resCode, resName, spce, stockQty, 
+    resUnit, stockPrice, stockAmt, orsQty, otrQty, 
+    serQty, obuQty, ocsQty, inQty, inAmt, 
+    inPrice, oswQty, oswPrice, otkQty, oswAmt, 
+    otkAmt, otkPrice, vinQty, vinAmt, thisQty, 
+    thisAmt, thisPrice, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{zxSkResMoveMonthSMPId,jdbcType=CHAR}, #{resCode,jdbcType=VARCHAR}, #{resName,jdbcType=VARCHAR}, #{spce,jdbcType=DECIMAL}, #{stockQty,jdbcType=DECIMAL}, 
+    #{resUnit,jdbcType=DECIMAL}, #{stockPrice,jdbcType=DECIMAL}, #{stockAmt,jdbcType=DECIMAL}, #{orsQty,jdbcType=DECIMAL}, #{otrQty,jdbcType=DECIMAL}, 
+    #{serQty,jdbcType=DECIMAL}, #{obuQty,jdbcType=DECIMAL}, #{ocsQty,jdbcType=DECIMAL}, #{inQty,jdbcType=DECIMAL}, #{inAmt,jdbcType=DECIMAL}, 
+    #{inPrice,jdbcType=DECIMAL}, #{oswQty,jdbcType=DECIMAL}, #{oswPrice,jdbcType=DECIMAL}, #{otkQty,jdbcType=DECIMAL}, #{oswAmt,jdbcType=DECIMAL}, 
+    #{otkAmt,jdbcType=DECIMAL}, #{otkPrice,jdbcType=DECIMAL}, #{vinQty,jdbcType=DECIMAL}, #{vinAmt,jdbcType=DECIMAL}, #{thisQty,jdbcType=DECIMAL}, 
+    #{thisAmt,jdbcType=DECIMAL}, #{thisPrice,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkResMoveMonthSMP" >
+    insert into zx_sk_resMoveMonthSMP
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSkResMoveMonthSMPId != null" >
+        zxSkResMoveMonthSMPId,
+      </if>
+      <if test="resCode != null" >
+        resCode,
+      </if>
+      <if test="resName != null" >
+        resName,
+      </if>
+      <if test="spce != null" >
+        spce,
+      </if>
+      <if test="stockQty != null" >
+        stockQty,
+      </if>
+      <if test="resUnit != null" >
+        resUnit,
+      </if>
+      <if test="stockPrice != null" >
+        stockPrice,
+      </if>
+      <if test="stockAmt != null" >
+        stockAmt,
+      </if>
+      <if test="orsQty != null" >
+        orsQty,
+      </if>
+      <if test="otrQty != null" >
+        otrQty,
+      </if>
+      <if test="serQty != null" >
+        serQty,
+      </if>
+      <if test="obuQty != null" >
+        obuQty,
+      </if>
+      <if test="ocsQty != null" >
+        ocsQty,
+      </if>
+      <if test="inQty != null" >
+        inQty,
+      </if>
+      <if test="inAmt != null" >
+        inAmt,
+      </if>
+      <if test="inPrice != null" >
+        inPrice,
+      </if>
+      <if test="oswQty != null" >
+        oswQty,
+      </if>
+      <if test="oswPrice != null" >
+        oswPrice,
+      </if>
+      <if test="otkQty != null" >
+        otkQty,
+      </if>
+      <if test="oswAmt != null" >
+        oswAmt,
+      </if>
+      <if test="otkAmt != null" >
+        otkAmt,
+      </if>
+      <if test="otkPrice != null" >
+        otkPrice,
+      </if>
+      <if test="vinQty != null" >
+        vinQty,
+      </if>
+      <if test="vinAmt != null" >
+        vinAmt,
+      </if>
+      <if test="thisQty != null" >
+        thisQty,
+      </if>
+      <if test="thisAmt != null" >
+        thisAmt,
+      </if>
+      <if test="thisPrice != null" >
+        thisPrice,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSkResMoveMonthSMPId != null" >
+        #{zxSkResMoveMonthSMPId,jdbcType=CHAR},
+      </if>
+      <if test="resCode != null" >
+        #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="spce != null" >
+        #{spce,jdbcType=DECIMAL},
+      </if>
+      <if test="stockQty != null" >
+        #{stockQty,jdbcType=DECIMAL},
+      </if>
+      <if test="resUnit != null" >
+        #{resUnit,jdbcType=DECIMAL},
+      </if>
+      <if test="stockPrice != null" >
+        #{stockPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="stockAmt != null" >
+        #{stockAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="orsQty != null" >
+        #{orsQty,jdbcType=DECIMAL},
+      </if>
+      <if test="otrQty != null" >
+        #{otrQty,jdbcType=DECIMAL},
+      </if>
+      <if test="serQty != null" >
+        #{serQty,jdbcType=DECIMAL},
+      </if>
+      <if test="obuQty != null" >
+        #{obuQty,jdbcType=DECIMAL},
+      </if>
+      <if test="ocsQty != null" >
+        #{ocsQty,jdbcType=DECIMAL},
+      </if>
+      <if test="inQty != null" >
+        #{inQty,jdbcType=DECIMAL},
+      </if>
+      <if test="inAmt != null" >
+        #{inAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inPrice != null" >
+        #{inPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="oswQty != null" >
+        #{oswQty,jdbcType=DECIMAL},
+      </if>
+      <if test="oswPrice != null" >
+        #{oswPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="otkQty != null" >
+        #{otkQty,jdbcType=DECIMAL},
+      </if>
+      <if test="oswAmt != null" >
+        #{oswAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="otkAmt != null" >
+        #{otkAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="otkPrice != null" >
+        #{otkPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="vinQty != null" >
+        #{vinQty,jdbcType=DECIMAL},
+      </if>
+      <if test="vinAmt != null" >
+        #{vinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisQty != null" >
+        #{thisQty,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmt != null" >
+        #{thisAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisPrice != null" >
+        #{thisPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkResMoveMonthSMP" >
+    update zx_sk_resMoveMonthSMP
+    <set >
+      <if test="resCode != null" >
+        resCode = #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        resName = #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="spce != null" >
+        spce = #{spce,jdbcType=DECIMAL},
+      </if>
+      <if test="stockQty != null" >
+        stockQty = #{stockQty,jdbcType=DECIMAL},
+      </if>
+      <if test="resUnit != null" >
+        resUnit = #{resUnit,jdbcType=DECIMAL},
+      </if>
+      <if test="stockPrice != null" >
+        stockPrice = #{stockPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="stockAmt != null" >
+        stockAmt = #{stockAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="orsQty != null" >
+        orsQty = #{orsQty,jdbcType=DECIMAL},
+      </if>
+      <if test="otrQty != null" >
+        otrQty = #{otrQty,jdbcType=DECIMAL},
+      </if>
+      <if test="serQty != null" >
+        serQty = #{serQty,jdbcType=DECIMAL},
+      </if>
+      <if test="obuQty != null" >
+        obuQty = #{obuQty,jdbcType=DECIMAL},
+      </if>
+      <if test="ocsQty != null" >
+        ocsQty = #{ocsQty,jdbcType=DECIMAL},
+      </if>
+      <if test="inQty != null" >
+        inQty = #{inQty,jdbcType=DECIMAL},
+      </if>
+      <if test="inAmt != null" >
+        inAmt = #{inAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inPrice != null" >
+        inPrice = #{inPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="oswQty != null" >
+        oswQty = #{oswQty,jdbcType=DECIMAL},
+      </if>
+      <if test="oswPrice != null" >
+        oswPrice = #{oswPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="otkQty != null" >
+        otkQty = #{otkQty,jdbcType=DECIMAL},
+      </if>
+      <if test="oswAmt != null" >
+        oswAmt = #{oswAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="otkAmt != null" >
+        otkAmt = #{otkAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="otkPrice != null" >
+        otkPrice = #{otkPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="vinQty != null" >
+        vinQty = #{vinQty,jdbcType=DECIMAL},
+      </if>
+      <if test="vinAmt != null" >
+        vinAmt = #{vinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisQty != null" >
+        thisQty = #{thisQty,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmt != null" >
+        thisAmt = #{thisAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisPrice != null" >
+        thisPrice = #{thisPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxSkResMoveMonthSMPId = #{zxSkResMoveMonthSMPId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkResMoveMonthSMP" >
+    update zx_sk_resMoveMonthSMP set 
+      resCode = #{resCode,jdbcType=VARCHAR},
+      resName = #{resName,jdbcType=VARCHAR},
+      spce = #{spce,jdbcType=DECIMAL},
+      stockQty = #{stockQty,jdbcType=DECIMAL},
+      resUnit = #{resUnit,jdbcType=DECIMAL},
+      stockPrice = #{stockPrice,jdbcType=DECIMAL},
+      stockAmt = #{stockAmt,jdbcType=DECIMAL},
+      orsQty = #{orsQty,jdbcType=DECIMAL},
+      otrQty = #{otrQty,jdbcType=DECIMAL},
+      serQty = #{serQty,jdbcType=DECIMAL},
+      obuQty = #{obuQty,jdbcType=DECIMAL},
+      ocsQty = #{ocsQty,jdbcType=DECIMAL},
+      inQty = #{inQty,jdbcType=DECIMAL},
+      inAmt = #{inAmt,jdbcType=DECIMAL},
+      inPrice = #{inPrice,jdbcType=DECIMAL},
+      oswQty = #{oswQty,jdbcType=DECIMAL},
+      oswPrice = #{oswPrice,jdbcType=DECIMAL},
+      otkQty = #{otkQty,jdbcType=DECIMAL},
+      oswAmt = #{oswAmt,jdbcType=DECIMAL},
+      otkAmt = #{otkAmt,jdbcType=DECIMAL},
+      otkPrice = #{otkPrice,jdbcType=DECIMAL},
+      vinQty = #{vinQty,jdbcType=DECIMAL},
+      vinAmt = #{vinAmt,jdbcType=DECIMAL},
+      thisQty = #{thisQty,jdbcType=DECIMAL},
+      thisAmt = #{thisAmt,jdbcType=DECIMAL},
+      thisPrice = #{thisPrice,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSkResMoveMonthSMPId = #{zxSkResMoveMonthSMPId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSkResMoveMonthSMPList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkResMoveMonthSMP" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_resMoveMonthSMP
+    where del_flag = '0'
+    <if test="zxSkResMoveMonthSMPId != null and zxSkResMoveMonthSMPId != ''" >
+     and zxSkResMoveMonthSMPId = #{zxSkResMoveMonthSMPId,jdbcType=CHAR}
+    </if>
+    <if test="resCode != null and resCode != ''" >
+     and resCode = #{resCode,jdbcType=VARCHAR}
+    </if>
+    <if test="resName != null and resName != ''" >
+     and resName = #{resName,jdbcType=VARCHAR}
+    </if>
+    <if test="spce != null and spce != ''" >
+     and spce = #{spce,jdbcType=DECIMAL}
+    </if>
+    <if test="stockQty != null and stockQty != ''" >
+     and stockQty = #{stockQty,jdbcType=DECIMAL}
+    </if>
+    <if test="resUnit != null and resUnit != ''" >
+     and resUnit = #{resUnit,jdbcType=DECIMAL}
+    </if>
+    <if test="stockPrice != null and stockPrice != ''" >
+     and stockPrice = #{stockPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="stockAmt != null and stockAmt != ''" >
+     and stockAmt = #{stockAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="orsQty != null and orsQty != ''" >
+     and orsQty = #{orsQty,jdbcType=DECIMAL}
+    </if>
+    <if test="otrQty != null and otrQty != ''" >
+     and otrQty = #{otrQty,jdbcType=DECIMAL}
+    </if>
+    <if test="serQty != null and serQty != ''" >
+     and serQty = #{serQty,jdbcType=DECIMAL}
+    </if>
+    <if test="obuQty != null and obuQty != ''" >
+     and obuQty = #{obuQty,jdbcType=DECIMAL}
+    </if>
+    <if test="ocsQty != null and ocsQty != ''" >
+     and ocsQty = #{ocsQty,jdbcType=DECIMAL}
+    </if>
+    <if test="inQty != null and inQty != ''" >
+     and inQty = #{inQty,jdbcType=DECIMAL}
+    </if>
+    <if test="inAmt != null and inAmt != ''" >
+     and inAmt = #{inAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="inPrice != null and inPrice != ''" >
+     and inPrice = #{inPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="oswQty != null and oswQty != ''" >
+     and oswQty = #{oswQty,jdbcType=DECIMAL}
+    </if>
+    <if test="oswPrice != null and oswPrice != ''" >
+     and oswPrice = #{oswPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="otkQty != null and otkQty != ''" >
+     and otkQty = #{otkQty,jdbcType=DECIMAL}
+    </if>
+    <if test="oswAmt != null and oswAmt != ''" >
+     and oswAmt = #{oswAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="otkAmt != null and otkAmt != ''" >
+     and otkAmt = #{otkAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="otkPrice != null and otkPrice != ''" >
+     and otkPrice = #{otkPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="vinQty != null and vinQty != ''" >
+     and vinQty = #{vinQty,jdbcType=DECIMAL}
+    </if>
+    <if test="vinAmt != null and vinAmt != ''" >
+     and vinAmt = #{vinAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="thisQty != null and thisQty != ''" >
+     and thisQty = #{thisQty,jdbcType=DECIMAL}
+    </if>
+    <if test="thisAmt != null and thisAmt != ''" >
+     and thisAmt = #{thisAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="thisPrice != null and thisPrice != ''" >
+     and thisPrice = #{thisPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkResMoveMonthSMP" parameterType="com.apih5.mybatis.pojo.ZxSkResMoveMonthSMP" >
+    <![CDATA[ 
+        update zx_sk_resMoveMonthSMP
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSkResMoveMonthSMPId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSkResMoveMonthSMPId} 
+     </foreach>
+  </delete>
+  <select id="selectZxSkResMoveMonthSMP" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkResMoveMonthSMP" >
+  select resCode, resName, spce, resUnit, 
+	   round(stockQty,3) stockQty, 
+	   round(stockAmt,2) stockAmt,
+	   round(orsQty,3) orsQty, round(otrQty,3) otrQty, 
+	   round(serQty,3) serQty, round(obuQty,3) obuQty, round(ocsQty,3) ocsQty,
+	   round(inAmt,2) inAmt, 
+	   round(oswQty,3) oswQty, round(oswAmt,2) oswAmt, round(trsQty,3) trsQty, 
+	   round(otkQty,3) otkQty, round(outAmt,2) outAmt, round(vinQty,3) vinQty, round(vinAmt,2) vinAmt,
+
+	   round((ifnull(stockQty,0)+ifnull(orsQty,0)+ifnull(otrQty,0)+ifnull(serQty,0)+ifnull(ocsQty,0)-ifnull(oswQty,0)-ifnull(trsQty,0)-ifnull(otkQty,0)+ifnull(vinQty,0)),3) as thisQty,
+
+	   round((ifnull(stockAmt,0)+ifnull(inAmt,0)-ifnull(oswAmt,0)-ifnull(outAmt,0)+ifnull(vinAmt,0)),2) as thisAmt
+from
+(
+	SELECT -- 物资编号、-物资名称
+		   main.resCode,main.resName,null as spce,null as resUnit,
+		   
+		   -- 上月结存(数量、金额）
+		   sum(sot.stockQty) AS stockQty, 
+		   sum(ifnull(sot.stockAmt,0)) AS stockAmt,
+		   -- 本月收入（甲供、其它、自行采购、预收、金额）
+		   sum(vin.orsQty) AS orsQty, sum(vin.otrQty) AS otrQty,
+		   sum(vin.serQty) AS serQty, sum(obu.obuQty) AS obuQty, sum(vin.ocsQty) as ocsQty,
+		   sum(ifnull(vin.serAmt,0)+ifnull(vin.orsAmt,0)+ifnull(vin.otrAmt,0)+ifnull(vin.ocsAmt,0)) AS inAmt,
+		   -- 工程耗用数量、工程耗用金额、加工改制、调拨、金额
+		   sum(vin.oswQty) AS oswQty, sum(vin.oswAmt) AS oswAmt,
+		   sum(vin.trsQty) AS trsQty, sum(vin.otkQty) AS otkQty,
+		   sum(ifnull(vin.trsAmt,0)+ifnull(vin.otkAmt,0)) AS outAmt,
+		   -- 盈亏（数量、金额）
+		   sum(vin.vinQty) AS vinQty, 
+		   sum(ifnull(vin.vinAmt,0)) AS vinAmt
+FROM 
+(
+ 	SELECT DISTINCT irc.ID AS categoryID,irc.catCode AS resCode,irc.catName AS resName,sk.resID
+	FROM zx_sk_rescategory_materials irc 
+	INNER JOIN 
+	(
+		SELECT DISTINCT isti.resID,srm.id as categoryID
+		FROM zx_sk_stocktransitem isti
+		INNER JOIN zx_sk_stocktransfer ist ON isti.billID=ist.ID
+		INNER JOIN Zx_Sk_Resource_Materials ir ON ir.ID=isti.resID
+		inner join zx_ct_supplies_contract ic on ic.orgID=ist.orgID
+		inner join sys_project sp on sp.project_id = ic.orgID
+        inner join zx_sk_rescategory_materials srm on srm.parentID='0002' and catCode = left(ir.resCode,2)
+		<if test="endDate != null" >
+		WHERE ist.busDate&lt;=#{endDate,jdbcType=TIMESTAMP}
+		</if>
+		<if test="orgID != null and orgID != ''" >
+		AND sp.department_path like concat('%',#{orgID,jdbcType=VARCHAR},'%')
+		</if>
+		<if test="isFinish != null and isFinish != ''" >
+		and (
+		#{isFinish,jdbcType=VARCHAR}=0 or (#{isFinish,jdbcType=VARCHAR}=1 and ic.contractStatus =3) or (#{isFinish,jdbcType=VARCHAR}=2 and ic.contractStatus in ('1','2')))
+	</if>
+	)sk ON sk.categoryID = irc.ID
+	WHERE irc.resStyle='mt' 
+	AND irc.parentID='0002' 
+	<if test="resID != null and resID != ''" >
+	AND (irc.ID=#{resID,jdbcType=VARCHAR} OR #{resID,jdbcType=VARCHAR}='')
+	</if>
+)main 
+LEFT JOIN
+(-- 上月结存
+    select sot1.resourceID,sot1.resID,sum(sot1.stockQty) as stockQty,sum(sot1.stockAmt) as stockAmt
+	from 
+	(
+		SELECT  srm.ID as resourceID, isti.resID,
+		       (ifnull(isti.inQty,0)-ifnull(isti.outQty,0)) AS stockQty,
+			   (ifnull(isti.inAmt,0)-ifnull(isti.outAmt,0)) AS stockAmt
+	 	FROM zx_sk_stocktransitem isti INNER JOIN zx_sk_stocktransfer ist ON isti.billID=ist.ID
+				left join zx_ct_Contract ic on ic.orgID=ist.orgID
+				inner join Zx_Sk_Resource_Materials ir on ir.ID=isti.resID
+				inner join sys_project sp on sp.project_id = ist.orgID
+				inner join zx_sk_rescategory_materials srm on srm.parentID='0002' and catCode = left(ir.resCode,2)
+	 	WHERE 
+	 	<if test="beginDate != null" >
+	 	ist.busDate&lt;#{beginDate,jdbcType=TIMESTAMP} AND
+	 	</if> 
+	 	<if test="orgID != null and orgID != ''" >
+		 sp.department_path like concat('%',#{orgID,jdbcType=VARCHAR},'%') AND
+		</if>
+	    ist.billStatus='1' AND ist.billType!='10'
+		<if test="isFinish != null and isFinish != ''" >
+		and (#{isFinish,jdbcType=VARCHAR}=0 or (#{isFinish,jdbcType=VARCHAR}=1 and ic.contractStatus =3) or (#{isFinish,jdbcType=VARCHAR}=2 and ic.contractStatus in ('1','2')))
+	    </if>
+	) sot1
+	
+ 	GROUP BY sot1.resourceID, sot1.resID
+) sot ON sot.resID=main.resID and sot.resourceID=main.categoryID
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -本月收入-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+LEFT JOIN (
+       select jl.resID,
+			  sum(jl.serQty) serQty,
+			  sum(jl.serAmt) as serAmt,sum(jl.orsQty) as orsQty,sum(jl.orsAmt) as orsAmt,sum(jl.otrQty) as otrQty,
+			  sum(jl.otrAmt) as otrAmt,sum(oswQty) as oswQty,sum(jl.oswAmt) as oswAmt,
+			  sum(jl.ocsQty) as ocsQty,sum(jl.ocsAmt) as ocsAmt,
+			  sum(jl.trsQty) as trsQty,sum(jl.trsAmt) as trsAmt,sum(jl.otkQty) as otkQty,sum(jl.otkAmt) as otkAmt,
+			  sum(jl.vinQty) as vinQty,sum(jl.vinAmt) as vinAmt
+       from 
+       (
+			SELECT isti.resID,ist.billType,ist.materialSource,
+			        -- materialSource必填但有数据为空，先查出来edit by wenjw 2018.4.3
+					case when (ist.billType=11 AND (ist.materialSource='0001' or ifnull(ist.materialSource,'')='')) or (ist.billType=12 and (ist.materialSource='0001' or ifnull(ist.materialSource,'')='')) then sum(ifnull(isti.inQty,0)) 
+					else 0 end serQty,-- -- 自行采购-- -- -- 
+					case when (ist.billType=11 AND (ist.materialSource='0001' or ifnull(ist.materialSource,'')='')) or (ist.billType=12 and (ist.materialSource='0001' or ifnull(ist.materialSource,'')='')) then sum(ifnull(isti.inAmt,0)) 
+					else 0 end serAmt,-- -- 自行采购-- -- -- 
+					case when (ist.billType=11 AND ist.materialSource='0002') or (ist.billType=12 and ist.materialSource='0002') then sum(ifnull(isti.inQty,0)) 
+					else 0 end orsQty,-- -- 甲供-- -
+					case when (ist.billType=11 AND ist.materialSource='0002') or (ist.billType=12 and ist.materialSource='0002') then sum(ifnull(isti.inAmt,0)) 
+					else 0 end orsAmt,-- -- 甲供-- -
+					case when (ist.billType=11 AND ist.materialSource='0003') or (ist.billType=12 and ist.materialSource='0003') then sum(ifnull(isti.inQty,0)) 
+					else 0 end otrQty,-- -- 其它-- -- 
+					case when (ist.billType=11 AND ist.materialSource='0003') or (ist.billType=12 and ist.materialSource='0003') then sum(ifnull(isti.inAmt,0)) 
+					else 0 end otrAmt,-- -- 其它-- -- 
+					case when (ist.billType=11 AND ist.materialSource='0004') or (ist.billType=12 and ist.materialSource='0004') then sum(ifnull(isti.inQty,0)) 
+					else 0 end ocsQty,-- -- 甲控-- -- 
+					case when (ist.billType=11 AND ist.materialSource='0004') or (ist.billType=12 and ist.materialSource='0004') then sum(ifnull(isti.inAmt,0)) 
+					else 0 end ocsAmt,-- -- 甲控-- -- 
+
+					case when ist.billType IN (21,22) then sum(ifnull(isti.outQty,0)) 
+					else 0 end  oswQty,-- -- 工程耗用-- -- 
+					case when ist.billType IN (21,22) then sum(ifnull(isti.outAmt,0)) 
+					else 0 end oswAmt,-- -- 工程耗用-- -- 
+					case when ist.billType=45 then sum(ifnull(isti.outQty,0)) 
+					else 0 end trsQty,-- -- 加工改制-- -- 
+					case when ist.billType=45 then sum(ifnull(isti.outAmt,0)) 
+					else 0 end trsAmt,-- -- 加工改制-- -- 
+					case when (ist.billType=16 or ist.billType=17 or ist.billType=30 or ist.billType=33) then sum(ifnull(isti.outQty,0)) 
+					else 0 end otkQty,-- 调拨-- -- -
+					case when (ist.billType=16 or ist.billType=17 or ist.billType=30 or ist.billType=33) then  sum(ifnull(isti.outAmt,0)) 
+					else 0 end otkAmt,-- 调拨-- -- -
+					case when  (ist.billType=18 or ist.billType=24) then sum(ifnull(isti.inQty-isti.outQty,0)) 
+					else 0 end vinQty,-- 盈亏（数量、金额）
+					case when  (ist.billType=18 or ist.billType=24) then sum(ifnull(isti.inAmt-isti.outAmt,0)) 
+					else 0 end vinAmt -- 盈亏（数量、金额）
+
+			FROM zx_sk_stocktransitem isti 
+			INNER JOIN zx_sk_stocktransfer ist ON isti.billID=ist.ID and ist.billStatus='1' 
+			inner join sys_project sp on sp.project_id = ist.orgID 
+			<if test="orgID != null and orgID != ''" >
+			and sp.department_path like concat('%',#{orgID,jdbcType=VARCHAR},'%')
+			</if>	
+			left join zx_ct_Contract ic on ic.orgID=ist.orgID
+			
+			<if test="beginDate != null and endDate != null" >
+			WHERE  ist.busDate BETWEEN #{beginDate,jdbcType=TIMESTAMP} AND #{endDate,jdbcType=TIMESTAMP}
+			</if> 
+			<if test="isFinish != null and isFinish != ''" >
+			and (#{isFinish,jdbcType=VARCHAR}=0 or (#{isFinish,jdbcType=VARCHAR}=1 and ic.contractStatus =3) or (#{isFinish,jdbcType=VARCHAR}=2 and ic.contractStatus in ('1','2'))) 
+			</if>
+			-- and isti.inqty!=0 注释原因,用于读取只有金额的数据
+			GROUP BY isti.resID,ist.billType,ist.materialSource
+        ) jl 
+       group by resID
+) vin ON vin.resID=main.resID
+LEFT JOIN 
+(
+    SELECT isti.resID,sum(ifnull(isti.inQty,0)) obuQty
+    FROM zx_sk_stocktransitem isti 
+	INNER JOIN zx_sk_stocktransfer ist ON isti.billID=ist.ID and ist.billStatus='1'
+	inner join sys_project sp on sp.project_id = ist.orgID 
+	<if test="orgID != null and orgID != ''" >
+	and sp.department_path like concat('%',#{orgID,jdbcType=VARCHAR},'%')
+	</if>
+	left join zx_ct_Contract ic on ic.orgID=ist.orgID
+    WHERE ((ist.billType=11 AND isti.precollecte='1') 
+			or (ist.billType=12 AND (SELECT temp.precollecte FROM zx_sk_stocktransitem temp WHERE temp.ID = isti.itemID) = '1'))
+	<if test="beginDate != null and endDate != null" >
+	AND ist.busDate BETWEEN #{beginDate,jdbcType=TIMESTAMP} AND #{endDate,jdbcType=TIMESTAMP}
+	</if>
+	and isti.inqty!=0 
+	<if test="isFinish != null and isFinish != ''" >
+	and (#{isFinish,jdbcType=VARCHAR}=0 or (#{isFinish,jdbcType=VARCHAR}=1 and ic.contractStatus =3) or (#{isFinish,jdbcType=VARCHAR}=2 and ic.contractStatus in ('1','2')))
+    </if>
+    GROUP BY isti.resID
+)obu ON obu.resID=main.resID
+GROUP BY main.categoryID,main.resCode,main.resName
+) tem
+ where stockQty !=0 or orsQty !=0 or otrQty !=0 or serQty !=0 or oswQty !=0 or trsQty !=0 or otkQty !=0 or vinQty !=0
+ or stockAmt !=0 or oswAmt !=0 or vinAmt !=0 OR inAmt !=0 OR outAmt !=0 OR ocsQty != 0
+order by resCode
+  </select>
+</mapper>

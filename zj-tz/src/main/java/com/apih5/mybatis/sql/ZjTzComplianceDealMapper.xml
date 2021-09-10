@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzComplianceDealMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzComplianceDeal" >
+    <id column="compliance_deal_id" property="complianceDealId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="subproject_info_id" property="subprojectInfoId" jdbcType="CHAR" />
+    <result column="subproject_name" property="subprojectName" jdbcType="VARCHAR" />
+    <result column="establish_date" property="establishDate" jdbcType="DATE" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="base1" property="base1" jdbcType="VARCHAR" />
+    <result column="base2" property="base2" jdbcType="VARCHAR" />
+    <result column="base3" property="base3" jdbcType="VARCHAR" />
+    <result column="base4" property="base4" jdbcType="VARCHAR" />
+    <result column="base5" property="base5" jdbcType="VARCHAR" />
+    <result column="base6" property="base6" jdbcType="VARCHAR" />
+    <result column="base7" property="base7" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    compliance_deal_id, project_id, project_name, subproject_info_id, subproject_name, 
+    establish_date, remarks, base1, base2, base3, 
+    base4, base5, base6, base7, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_compliance_deal
+    where compliance_deal_id = #{complianceDealId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_compliance_deal
+    where compliance_deal_id = #{complianceDealId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzComplianceDeal" >
+    insert into zj_tz_compliance_deal (compliance_deal_id, project_id, project_name, 
+      subproject_info_id, subproject_name, establish_date, 
+      remarks, base1, base2, 
+      base3, base4, base5, 
+      base6, base7, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{complianceDealId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, 
+      #{subprojectInfoId,jdbcType=CHAR}, #{subprojectName,jdbcType=VARCHAR}, #{establishDate,jdbcType=DATE}, 
+      #{remarks,jdbcType=VARCHAR}, #{base1,jdbcType=VARCHAR}, #{base2,jdbcType=VARCHAR}, 
+      #{base3,jdbcType=VARCHAR}, #{base4,jdbcType=VARCHAR}, #{base5,jdbcType=VARCHAR}, 
+      #{base6,jdbcType=VARCHAR}, #{base7,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzComplianceDeal" >
+    insert into zj_tz_compliance_deal
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="complianceDealId != null" >
+        compliance_deal_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="subprojectInfoId != null" >
+        subproject_info_id,
+      </if>
+      <if test="subprojectName != null" >
+        subproject_name,
+      </if>
+      <if test="establishDate != null" >
+        establish_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="base1 != null" >
+        base1,
+      </if>
+      <if test="base2 != null" >
+        base2,
+      </if>
+      <if test="base3 != null" >
+        base3,
+      </if>
+      <if test="base4 != null" >
+        base4,
+      </if>
+      <if test="base5 != null" >
+        base5,
+      </if>
+      <if test="base6 != null" >
+        base6,
+      </if>
+      <if test="base7 != null" >
+        base7,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="complianceDealId != null" >
+        #{complianceDealId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectInfoId != null" >
+        #{subprojectInfoId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectName != null" >
+        #{subprojectName,jdbcType=VARCHAR},
+      </if>
+      <if test="establishDate != null" >
+        #{establishDate,jdbcType=DATE},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="base1 != null" >
+        #{base1,jdbcType=VARCHAR},
+      </if>
+      <if test="base2 != null" >
+        #{base2,jdbcType=VARCHAR},
+      </if>
+      <if test="base3 != null" >
+        #{base3,jdbcType=VARCHAR},
+      </if>
+      <if test="base4 != null" >
+        #{base4,jdbcType=VARCHAR},
+      </if>
+      <if test="base5 != null" >
+        #{base5,jdbcType=VARCHAR},
+      </if>
+      <if test="base6 != null" >
+        #{base6,jdbcType=VARCHAR},
+      </if>
+      <if test="base7 != null" >
+        #{base7,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzComplianceDeal" >
+    update zj_tz_compliance_deal
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectInfoId != null" >
+        subproject_info_id = #{subprojectInfoId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectName != null" >
+        subproject_name = #{subprojectName,jdbcType=VARCHAR},
+      </if>
+      <if test="establishDate != null" >
+        establish_date = #{establishDate,jdbcType=DATE},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="base1 != null" >
+        base1 = #{base1,jdbcType=VARCHAR},
+      </if>
+      <if test="base2 != null" >
+        base2 = #{base2,jdbcType=VARCHAR},
+      </if>
+      <if test="base3 != null" >
+        base3 = #{base3,jdbcType=VARCHAR},
+      </if>
+      <if test="base4 != null" >
+        base4 = #{base4,jdbcType=VARCHAR},
+      </if>
+      <if test="base5 != null" >
+        base5 = #{base5,jdbcType=VARCHAR},
+      </if>
+      <if test="base6 != null" >
+        base6 = #{base6,jdbcType=VARCHAR},
+      </if>
+      <if test="base7 != null" >
+        base7 = #{base7,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where compliance_deal_id = #{complianceDealId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzComplianceDeal" >
+    update zj_tz_compliance_deal
+    set       project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      subproject_info_id = #{subprojectInfoId,jdbcType=CHAR},
+      subproject_name = #{subprojectName,jdbcType=VARCHAR},
+      establish_date = #{establishDate,jdbcType=DATE},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      base1 = #{base1,jdbcType=VARCHAR},
+      base2 = #{base2,jdbcType=VARCHAR},
+      base3 = #{base3,jdbcType=VARCHAR},
+      base4 = #{base4,jdbcType=VARCHAR},
+      base5 = #{base5,jdbcType=VARCHAR},
+      base6 = #{base6,jdbcType=VARCHAR},
+      base7 = #{base7,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where compliance_deal_id = #{complianceDealId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzComplianceDealList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzComplianceDeal" >
+    select 
+    <include refid="Base_Column_List" />,
+    (SELECT company_name FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_compliance_deal AS t WHERE t.del_flag = '0' AND t.compliance_deal_id = t1.compliance_deal_id) ) AS companyName
+    from zj_tz_compliance_deal AS t1
+    where del_flag = '0'
+    <if test="companyName != null and companyName != ''" >
+     and ( SELECT company_name FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_compliance_deal AS t WHERE t.del_flag = '0' AND t.compliance_deal_id = t1.compliance_deal_id) ) LIKE CONCAT('%', #{companyName},'%')
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     and project_id in (${projectIdSql})
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="subprojectInfoId != null and subprojectInfoId != ''" >
+     and subproject_info_id = #{subprojectInfoId,jdbcType=CHAR}
+    </if>
+    <if test="subprojectName != null and subprojectName != ''" >
+     and subproject_name = #{subprojectName,jdbcType=VARCHAR}
+    </if>
+    <if test="establishDate != null" >
+     and establish_date = #{establishDate,jdbcType=DATE}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="base1 != null and base1 != ''" >
+     and base1 = #{base1,jdbcType=VARCHAR}
+    </if>
+    <if test="base2 != null and base2 != ''" >
+     and base2 = #{base2,jdbcType=VARCHAR}
+    </if>
+    <if test="base3 != null and base3 != ''" >
+     and base3 = #{base3,jdbcType=VARCHAR}
+    </if>
+    <if test="base4 != null and base4 != ''" >
+     and base4 = #{base4,jdbcType=VARCHAR}
+    </if>
+    <if test="base5 != null and base5 != ''" >
+     and base5 = #{base5,jdbcType=VARCHAR}
+    </if>
+    <if test="base6 != null and base6 != ''" >
+     and base6 = #{base6,jdbcType=VARCHAR}
+    </if>
+    <if test="base7 != null and base7 != ''" >
+     and base7 = #{base7,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzComplianceDeal" parameterType="com.apih5.mybatis.pojo.ZjTzComplianceDeal" >
+    <![CDATA[ 
+        update zj_tz_compliance_deal
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and compliance_deal_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.complianceDealId} 
+     </foreach>
+  </delete>
+  
+   <update id="updateZjTzComplianceDealProjectShortName" parameterType="com.apih5.mybatis.pojo.ZjTzComplianceDeal">
+		update zj_tz_compliance_deal
+		set project_name = #{projectName,jdbcType=VARCHAR}
+		where del_flag = '0'
+		and project_id = #{projectId,jdbcType=CHAR}
+	</update>
+  
+</mapper>

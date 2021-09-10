@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzBrandResultShowMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzBrandResultShow" >
+    <id column="result_show_id" property="resultShowId" jdbcType="CHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="com_id" property="comId" jdbcType="CHAR" />
+    <result column="company_id" property="companyId" jdbcType="CHAR" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="result_type_id" property="resultTypeId" jdbcType="CHAR" />
+    <result column="result_type_name" property="resultTypeName" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="home_show" property="homeShow" jdbcType="CHAR" />
+    <result column="home_show_time" property="homeShowTime" jdbcType="TIMESTAMP" />
+    <result column="home_show_start_date" property="homeShowStartDate" jdbcType="DATE" />
+    <result column="home_show_end_date" property="homeShowEndDate" jdbcType="DATE" />
+    <result column="release_id" property="releaseId" jdbcType="CHAR" />
+    <result column="release_name" property="releaseName" jdbcType="VARCHAR" />
+    <result column="get_subject_id" property="getSubjectId" jdbcType="VARCHAR" />
+    <result column="result_level_id" property="resultLevelId" jdbcType="VARCHAR" />
+    <result column="get_time" property="getTime" jdbcType="DATE" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+    <result column="result_unit" property="resultUnit" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    result_show_id, title, com_id, company_id, company_name, 
+    result_type_id, result_type_name, content, home_show, home_show_time, 
+    home_show_start_date, home_show_end_date, release_id, release_name, 
+    get_subject_id, result_level_id, get_time, bz, result_unit, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_brand_result_show
+    where result_show_id = #{resultShowId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_brand_result_show
+    where result_show_id = #{resultShowId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzBrandResultShow" >
+    insert into zj_tz_brand_result_show (result_show_id, title, com_id, 
+      company_id, company_name, result_type_id, 
+      result_type_name, content, home_show, 
+      home_show_time, home_show_start_date, home_show_end_date, 
+      release_id, release_name, get_subject_id, result_level_id,
+      get_time, bz, result_unit, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{resultShowId,jdbcType=CHAR}, #{title,jdbcType=VARCHAR}, #{comId,jdbcType=CHAR}, 
+      #{companyId,jdbcType=CHAR}, #{companyName,jdbcType=VARCHAR}, #{resultTypeId,jdbcType=CHAR}, 
+      #{resultTypeName,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{homeShow,jdbcType=CHAR}, 
+      #{homeShowTime,jdbcType=TIMESTAMP}, #{homeShowStartDate,jdbcType=DATE}, #{homeShowEndDate,jdbcType=DATE}, 
+      #{releaseId,jdbcType=CHAR}, #{releaseName,jdbcType=VARCHAR},
+      #{getSubjectId,jdbcType=VARCHAR},#{resultLevelId,jdbcType=VARCHAR}, #{getTime,jdbcType=DATE}, #{bz,jdbcType=VARCHAR},
+      #{resultUnit,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzBrandResultShow" >
+    insert into zj_tz_brand_result_show
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="resultShowId != null" >
+        result_show_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="comId != null" >
+        com_id,
+      </if>
+      <if test="companyId != null" >
+        company_id,
+      </if>
+      <if test="companyName != null" >
+        company_name,
+      </if>
+      <if test="resultTypeId != null" >
+        result_type_id,
+      </if>
+      <if test="resultTypeName != null" >
+        result_type_name,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="homeShow != null" >
+        home_show,
+      </if>
+      <if test="homeShowTime != null" >
+        home_show_time,
+      </if>
+      <if test="homeShowStartDate != null" >
+        home_show_start_date,
+      </if>
+      <if test="homeShowEndDate != null" >
+        home_show_end_date,
+      </if>
+      <if test="releaseId != null" >
+        release_id,
+      </if>
+      <if test="releaseName != null" >
+        release_name,
+      </if>
+      <if test="getSubjectId != null" >
+        get_subject_id,
+      </if>
+      <if test="resultLevelId != null" >
+        result_level_id,
+      </if>
+      <if test="getTime != null" >
+        get_time,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+      <if test="resultUnit != null" >
+        result_unit,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="resultShowId != null" >
+        #{resultShowId,jdbcType=CHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="comId != null" >
+        #{comId,jdbcType=CHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="resultTypeId != null" >
+        #{resultTypeId,jdbcType=CHAR},
+      </if>
+      <if test="resultTypeName != null" >
+        #{resultTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="homeShow != null" >
+        #{homeShow,jdbcType=CHAR},
+      </if>
+      <if test="homeShowTime != null" >
+        #{homeShowTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="homeShowStartDate != null" >
+        #{homeShowStartDate,jdbcType=DATE},
+      </if>
+      <if test="homeShowEndDate != null" >
+        #{homeShowEndDate,jdbcType=DATE},
+      </if>
+      <if test="releaseId != null" >
+        #{releaseId,jdbcType=CHAR},
+      </if>
+      <if test="releaseName != null" >
+        #{releaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="getSubjectId != null" >
+        #{getSubjectId,jdbcType=VARCHAR},
+      </if>
+      <if test="resultLevelId != null" >
+        #{resultLevelId,jdbcType=VARCHAR},
+      </if>
+      <if test="getTime != null" >
+        #{getTime,jdbcType=DATE},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="resultUnit != null" >
+        #{resultUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzBrandResultShow" >
+    update zj_tz_brand_result_show
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="comId != null" >
+        com_id = #{comId,jdbcType=CHAR},
+      </if>
+      <if test="companyId != null" >
+        company_id = #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="companyName != null" >
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="resultTypeId != null" >
+        result_type_id = #{resultTypeId,jdbcType=CHAR},
+      </if>
+      <if test="resultTypeName != null" >
+        result_type_name = #{resultTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="homeShow != null" >
+        home_show = #{homeShow,jdbcType=CHAR},
+      </if>
+      <if test="homeShowTime != null" >
+        home_show_time = #{homeShowTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="homeShowStartDate != null" >
+        home_show_start_date = #{homeShowStartDate,jdbcType=DATE},
+      </if>
+      <if test="homeShowEndDate != null" >
+        home_show_end_date = #{homeShowEndDate,jdbcType=DATE},
+      </if>
+      <if test="releaseId != null" >
+        release_id = #{releaseId,jdbcType=CHAR},
+      </if>
+      <if test="releaseName != null" >
+        release_name = #{releaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="getSubjectId != null" >
+        get_subject_id = #{getSubjectId,jdbcType=VARCHAR},
+      </if>
+      <if test="resultLevelId != null" >
+        result_level_id = #{resultLevelId,jdbcType=VARCHAR},
+      </if>
+      <if test="getTime != null" >
+        get_time = #{getTime,jdbcType=DATE},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="resultUnit != null" >
+        result_unit = #{resultUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where result_show_id = #{resultShowId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzBrandResultShow" >
+    update zj_tz_brand_result_show
+    set       title = #{title,jdbcType=VARCHAR},
+      com_id = #{comId,jdbcType=CHAR},
+      company_id = #{companyId,jdbcType=CHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      result_type_id = #{resultTypeId,jdbcType=CHAR},
+      result_type_name = #{resultTypeName,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      home_show = #{homeShow,jdbcType=CHAR},
+      home_show_time = #{homeShowTime,jdbcType=TIMESTAMP},
+      home_show_start_date = #{homeShowStartDate,jdbcType=DATE},
+      home_show_end_date = #{homeShowEndDate,jdbcType=DATE},
+      release_id = #{releaseId,jdbcType=CHAR},
+      release_name = #{releaseName,jdbcType=VARCHAR},
+      get_subject_id = #{getSubjectId,jdbcType=VARCHAR},
+      result_level_id = #{resultLevelId,jdbcType=VARCHAR},
+      get_time = #{getTime,jdbcType=DATE},
+      bz = #{bz,jdbcType=VARCHAR},
+      result_unit = #{resultUnit,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where result_show_id = #{resultShowId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzBrandResultShowList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzBrandResultShow" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_brand_result_show
+    where del_flag = '0'
+    <if test="title != null and title != ''" >
+     and title = #{title,jdbcType=VARCHAR}
+    </if>
+    <if test="comId != null and comId != ''" >
+     and com_id = #{comId,jdbcType=CHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and company_id = #{companyId,jdbcType=CHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and company_name = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="resultTypeId != null and resultTypeId != ''" >
+     and result_type_id = #{resultTypeId,jdbcType=CHAR}
+    </if>
+    <if test="resultTypeName != null and resultTypeName != ''" >
+     and result_type_name = #{resultTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="content != null and content != ''" >
+     and content = #{content,jdbcType=VARCHAR}
+    </if>
+    <if test="homeShow != null and homeShow != ''" >
+     and home_show = #{homeShow,jdbcType=CHAR}
+    </if>
+    <if test="homeShowTime != null and homeShowTime != ''" >
+     and home_show_time = #{homeShowTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="homeShowStartDate != null" >
+     and home_show_start_date = #{homeShowStartDate,jdbcType=DATE}
+    </if>
+    <if test="homeShowEndDate != null" >
+     and home_show_end_date = #{homeShowEndDate,jdbcType=DATE}
+    </if>
+    <if test="releaseId != null and releaseId != ''" >
+     and release_id = #{releaseId,jdbcType=CHAR}
+    </if>
+    <if test="releaseName != null and releaseName != ''" >
+     and release_name = #{releaseName,jdbcType=VARCHAR}
+    </if>
+    <if test="getSubjectId != null and getSubjectId != ''" >
+     and get_subject_id = #{getSubjectId,jdbcType=VARCHAR}
+    </if>
+    <if test="resultLevelId != null and resultLevelId != ''" >
+     and result_level_id = #{resultLevelId,jdbcType=VARCHAR}
+    </if>
+    <if test="getTime != null and getTime != ''" >
+     and get_time = #{getTime,jdbcType=DATE}
+    </if>
+    <if test="bz != null and bz != ''" >
+     and bz = #{bz,jdbcType=VARCHAR}
+    </if>
+    <if test="resultUnit != null and resultUnit != ''" >
+     and result_unit = #{resultUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzBrandResultShow" parameterType="com.apih5.mybatis.pojo.ZjTzBrandResultShow" >
+    <![CDATA[ 
+        update zj_tz_brand_result_show
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and result_show_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.resultShowId} 
+     </foreach>
+  </delete>
+  <!-- 扩展 -->
+  <delete id="batchReleaseZjTzBrandResultShow" parameterType="com.apih5.mybatis.pojo.ZjTzBrandResultShow" >
+    <![CDATA[ 
+        update zj_tz_brand_result_show
+        set release_id = '1',
+            release_name=#{param2.releaseName},
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and result_show_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.resultShowId} 
+     </foreach>
+  </delete>
+  <delete id="batchRecallZjTzBrandResultShow" parameterType="com.apih5.mybatis.pojo.ZjTzBrandResultShow" >
+    <![CDATA[ 
+        update zj_tz_brand_result_show
+        set release_id = '0',
+            home_show =#{param2.homeShow},
+            release_name=#{param2.releaseName},
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and result_show_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.resultShowId} 
+     </foreach>
+  </delete>
+  <select id="selectZjTzHomeBrandResultShow" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzBrandResultShow">
+  	(SELECT
+  	    1 AS flag,
+	    result_show_id,
+	    title,
+	    content,
+	    modify_time 
+	FROM
+	    zj_tz_brand_result_show 
+	WHERE
+	    del_flag = '0' 
+	    AND home_show = '1' 
+	    AND release_id = '1') UNION ALL
+	(SELECT
+	    2 AS flag,   
+	    result_show_id,
+	    title,
+	    content,
+	    modify_time 
+	FROM
+	    zj_tz_special_result_show 
+	WHERE
+	    del_flag = '0' 
+	    AND home_show = '1' 
+	    AND release_id = '1') UNION ALL
+	(SELECT
+	    3 AS flag,
+	    pro_event_id AS result_show_id,
+	    title,
+	    content,
+	    modify_time 
+	FROM
+	    zj_tz_pro_event 
+	WHERE
+	    del_flag = '0' 
+	    AND home_show = '1') 
+	ORDER BY
+	    modify_time DESC 
+	    LIMIT 12
+  </select>
+  <select id="exportZjTzBrandResultShowList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzBrandResultShow">
+	SELECT
+	    t1.result_show_id,
+	    t1.company_name,
+	    t2.company_name AS manageUnit,
+	    title,
+	    result_type_name,
+	CASE
+	    result_level_id 
+	    WHEN 1 THEN
+	    '国家级' 
+	    WHEN 2 THEN
+	    '省部级' 
+	    WHEN 3 THEN
+	    '市县级' 
+	    WHEN 4 THEN
+	    '中交级' 
+	    WHEN 5 THEN
+	    '局级' ELSE '' 
+	    END result_level_id,
+	    get_time,
+	CASE
+	    get_subject_id 
+	    WHEN 1 THEN
+	    '项目整体' 
+	    WHEN 2 THEN
+	    '项目公司' 
+	    WHEN 3 THEN
+	    '总承包部' 
+	    WHEN 4 THEN
+	    '分部' ELSE '' 
+	    END get_subject_id,
+	    result_unit,
+	    t2.sort1,
+	    t2.pro_no 
+	FROM
+	    zj_tz_brand_result_show t1
+	    LEFT JOIN zj_tz_pro_manage t2 ON t2.project_name = t1.company_name 
+	    AND t2.del_flag = '0' 
+	WHERE
+	    t1.del_flag = '0' 
+	ORDER BY
+	    CAST( sort1 AS DECIMAL ) IS NULL,
+	    pro_no,
+	    company_name
+  </select>
+</mapper>

@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqAssetSellItemMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqAssetSellItem" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="masID" property="masID" jdbcType="VARCHAR" />
+    <result column="equipID" property="equipID" jdbcType="VARCHAR" />
+    <result column="equipName" property="equipName" jdbcType="VARCHAR" />
+    <result column="financeNo" property="financeNo" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="factory" property="factory" jdbcType="VARCHAR" />
+    <result column="outFactoryDate" property="outFactoryDate" jdbcType="TIMESTAMP" />
+    <result column="qty" property="qty" jdbcType="DECIMAL" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="orginalValue" property="orginalValue" jdbcType="DECIMAL" />
+    <result column="deprevalue" property="deprevalue" jdbcType="DECIMAL" />
+    <result column="leftvalue" property="leftvalue" jdbcType="DECIMAL" />
+    <result column="sellValue" property="sellValue" jdbcType="DECIMAL" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="equipNo" property="equipNo" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, masID, equipID, equipName, financeNo, 
+    spec, factory, outFactoryDate, qty, unit, 
+    orginalValue, deprevalue, leftvalue, sellValue, remark, 
+    editTime, model, equipNo, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_AssetSellItem
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_AssetSellItem
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqAssetSellItem" >
+    insert into zx_eq_AssetSellItem (id, masID, equipID, 
+      equipName, financeNo, spec, 
+      factory, outFactoryDate, qty, 
+      unit, orginalValue, deprevalue, 
+      leftvalue, sellValue, remark, 
+      editTime, model, equipNo, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{masID,jdbcType=VARCHAR}, #{equipID,jdbcType=VARCHAR}, 
+      #{equipName,jdbcType=VARCHAR}, #{financeNo,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, 
+      #{factory,jdbcType=VARCHAR}, #{outFactoryDate,jdbcType=TIMESTAMP}, #{qty,jdbcType=DECIMAL}, 
+      #{unit,jdbcType=VARCHAR}, #{orginalValue,jdbcType=DECIMAL}, #{deprevalue,jdbcType=DECIMAL}, 
+      #{leftvalue,jdbcType=DECIMAL}, #{sellValue,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, 
+      #{editTime,jdbcType=TIMESTAMP}, #{model,jdbcType=VARCHAR}, #{equipNo,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqAssetSellItem" >
+    insert into zx_eq_AssetSellItem
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="masID != null" >
+        masID,
+      </if>
+      <if test="equipID != null" >
+        equipID,
+      </if>
+      <if test="equipName != null" >
+        equipName,
+      </if>
+      <if test="financeNo != null" >
+        financeNo,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="factory != null" >
+        factory,
+      </if>
+      <if test="outFactoryDate != null" >
+        outFactoryDate,
+      </if>
+      <if test="qty != null" >
+        qty,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="orginalValue != null" >
+        orginalValue,
+      </if>
+      <if test="deprevalue != null" >
+        deprevalue,
+      </if>
+      <if test="leftvalue != null" >
+        leftvalue,
+      </if>
+      <if test="sellValue != null" >
+        sellValue,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="equipNo != null" >
+        equipNo,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="masID != null" >
+        #{masID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipID != null" >
+        #{equipID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="financeNo != null" >
+        #{financeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="factory != null" >
+        #{factory,jdbcType=VARCHAR},
+      </if>
+      <if test="outFactoryDate != null" >
+        #{outFactoryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="qty != null" >
+        #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="orginalValue != null" >
+        #{orginalValue,jdbcType=DECIMAL},
+      </if>
+      <if test="deprevalue != null" >
+        #{deprevalue,jdbcType=DECIMAL},
+      </if>
+      <if test="leftvalue != null" >
+        #{leftvalue,jdbcType=DECIMAL},
+      </if>
+      <if test="sellValue != null" >
+        #{sellValue,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="equipNo != null" >
+        #{equipNo,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqAssetSellItem" >
+    update zx_eq_AssetSellItem
+    <set >
+      <if test="masID != null" >
+        masID = #{masID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipID != null" >
+        equipID = #{equipID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        equipName = #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="financeNo != null" >
+        financeNo = #{financeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="factory != null" >
+        factory = #{factory,jdbcType=VARCHAR},
+      </if>
+      <if test="outFactoryDate != null" >
+        outFactoryDate = #{outFactoryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="qty != null" >
+        qty = #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="orginalValue != null" >
+        orginalValue = #{orginalValue,jdbcType=DECIMAL},
+      </if>
+      <if test="deprevalue != null" >
+        deprevalue = #{deprevalue,jdbcType=DECIMAL},
+      </if>
+      <if test="leftvalue != null" >
+        leftvalue = #{leftvalue,jdbcType=DECIMAL},
+      </if>
+      <if test="sellValue != null" >
+        sellValue = #{sellValue,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="equipNo != null" >
+        equipNo = #{equipNo,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqAssetSellItem" >
+    update zx_eq_AssetSellItem
+    set       masID = #{masID,jdbcType=VARCHAR},
+      equipID = #{equipID,jdbcType=VARCHAR},
+      equipName = #{equipName,jdbcType=VARCHAR},
+      financeNo = #{financeNo,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      factory = #{factory,jdbcType=VARCHAR},
+      outFactoryDate = #{outFactoryDate,jdbcType=TIMESTAMP},
+      qty = #{qty,jdbcType=DECIMAL},
+      unit = #{unit,jdbcType=VARCHAR},
+      orginalValue = #{orginalValue,jdbcType=DECIMAL},
+      deprevalue = #{deprevalue,jdbcType=DECIMAL},
+      leftvalue = #{leftvalue,jdbcType=DECIMAL},
+      sellValue = #{sellValue,jdbcType=DECIMAL},
+      remark = #{remark,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      model = #{model,jdbcType=VARCHAR},
+      equipNo = #{equipNo,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxEqAssetSellItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqAssetSellItem" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_AssetSellItem
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="masID != null and masID != ''" >
+     and masID = #{masID,jdbcType=VARCHAR}
+    </if>
+    <if test="equipID != null and equipID != ''" >
+     and equipID = #{equipID,jdbcType=VARCHAR}
+    </if>
+    <if test="equipName != null and equipName != ''" >
+     and equipName = #{equipName,jdbcType=VARCHAR}
+    </if>
+    <if test="financeNo != null and financeNo != ''" >
+     and financeNo = #{financeNo,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="factory != null and factory != ''" >
+     and factory = #{factory,jdbcType=VARCHAR}
+    </if>
+    <if test="outFactoryDate != null and outFactoryDate != ''" >
+     and outFactoryDate = #{outFactoryDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="qty != null and qty != ''" >
+     and qty = #{qty,jdbcType=DECIMAL}
+    </if>
+    <if test="unit != null and unit != ''" >
+     and unit = #{unit,jdbcType=VARCHAR}
+    </if>
+    <if test="orginalValue != null and orginalValue != ''" >
+     and orginalValue = #{orginalValue,jdbcType=DECIMAL}
+    </if>
+    <if test="deprevalue != null and deprevalue != ''" >
+     and deprevalue = #{deprevalue,jdbcType=DECIMAL}
+    </if>
+    <if test="leftvalue != null and leftvalue != ''" >
+     and leftvalue = #{leftvalue,jdbcType=DECIMAL}
+    </if>
+    <if test="sellValue != null and sellValue != ''" >
+     and sellValue = #{sellValue,jdbcType=DECIMAL}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="model != null and model != ''" >
+     and model = #{model,jdbcType=VARCHAR}
+    </if>
+    <if test="equipNo != null and equipNo != ''" >
+     and equipNo = #{equipNo,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqAssetSellItem" parameterType="com.apih5.mybatis.pojo.ZxEqAssetSellItem" >
+    <![CDATA[ 
+        update zx_eq_AssetSellItem
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+  
+  <!-- 扩展 -->
+   <select id="ureportZxEqAssetSellItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqAssetSellItem" >
+    select 
+     t1.*,
+    DATE_FORMAT(t1.outFactoryDate,'%Y-%m-%d') AS outFactoryDateStr,
+    t.outOrgName, 
+    t.inOrgName, 
+    t.reason, 
+    DATE_FORMAT(t.busDate,'%Y-%m-%d') AS busDateStr,
+    DATE_FORMAT(t.inDate,'%Y-%m-%d') AS inDateStr,
+    t.approvalNo,
+    t.outman2, 
+    t.outman1, 
+    t.outman5, 
+    t.outman3, 
+    t.outman4, 
+    t.inman1, 
+    t.inman2, 
+    t.inman3,
+    t.remark AS remarkT
+    from zx_eq_AssetSellItem AS t1
+    LEFT JOIN zx_eq_AssetSell AS t ON t1.masID = t.id AND t.del_flag = '0'
+    where t1.del_flag = '0'
+    
+    ORDER BY modify_time DESC 
+  </select>
+</mapper>

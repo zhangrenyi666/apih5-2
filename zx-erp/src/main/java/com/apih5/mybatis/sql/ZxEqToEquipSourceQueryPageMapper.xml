@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqToEquipSourceQueryPageMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqToEquipSourceQueryPage" >
+    <id column="zxEqToEquipSourceQueryPageId" property="zxEqToEquipSourceQueryPageId" jdbcType="CHAR" />
+    <result column="department_name" property="departmentName" jdbcType="VARCHAR" />
+    <result column="count1" property="count1" jdbcType="DECIMAL" />
+    <result column="amt1" property="amt1" jdbcType="DECIMAL" />
+    <result column="count2" property="count2" jdbcType="DECIMAL" />
+    <result column="amt2" property="amt2" jdbcType="DECIMAL" />
+    <result column="count3" property="count3" jdbcType="DECIMAL" />
+    <result column="amt3" property="amt3" jdbcType="DECIMAL" />
+    <result column="count4" property="count4" jdbcType="DECIMAL" />
+    <result column="amt4" property="amt4" jdbcType="DECIMAL" />
+    <result column="resCatalogID" property="resCatalogID" jdbcType="VARCHAR" />
+    <result column="beginDate" property="beginDate" jdbcType="TIMESTAMP" />
+    <result column="endDate" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="parentID" property="parentID" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="resCatalogID" property="resCatalogID" jdbcType="VARCHAR" />
+    <result column="resCatalogBsid" property="resCatalogBsid" jdbcType="VARCHAR" />
+    <result column="beginDate" property="beginDate" jdbcType="TIMESTAMP" />
+    <result column="endDate" property="endDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxEqToEquipSourceQueryPageId, department_name, count1, amt1, count2, 
+    amt2, count3, amt3, count4, amt4, 
+    resCatalogID, beginDate, endDate, remarks, sort, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_toEquipSourceQueryPage
+    where del_flag = '0' and zxEqToEquipSourceQueryPageId = #{zxEqToEquipSourceQueryPageId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_toEquipSourceQueryPage
+    where zxEqToEquipSourceQueryPageId = #{zxEqToEquipSourceQueryPageId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipSourceQueryPage" >
+    insert into zx_eq_toEquipSourceQueryPage (
+    zxEqToEquipSourceQueryPageId, department_name, count1, amt1, count2, 
+    amt2, count3, amt3, count4, amt4, 
+    resCatalogID, beginDate, endDate, remarks, sort, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+      )
+    values (
+      #{zxEqToEquipSourceQueryPageId,jdbcType=CHAR}, #{departmentName,jdbcType=VARCHAR}, #{count1,jdbcType=DECIMAL}, #{amt1,jdbcType=DECIMAL}, #{count2,jdbcType=DECIMAL}, 
+    #{amt2,jdbcType=DECIMAL}, #{count3,jdbcType=DECIMAL}, #{amt3,jdbcType=DECIMAL}, #{count4,jdbcType=DECIMAL}, #{amt4,jdbcType=DECIMAL}, 
+    #{resCatalogID,jdbcType=VARCHAR}, #{beginDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+    #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+    #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipSourceQueryPage" >
+    insert into zx_eq_toEquipSourceQueryPage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxEqToEquipSourceQueryPageId != null" >
+        zxEqToEquipSourceQueryPageId,
+      </if>
+      <if test="departmentName != null" >
+        department_name,
+      </if>
+      <if test="count1 != null" >
+        count1,
+      </if>
+      <if test="amt1 != null" >
+        amt1,
+      </if>
+      <if test="count2 != null" >
+        count2,
+      </if>
+      <if test="amt2 != null" >
+        amt2,
+      </if>
+      <if test="count3 != null" >
+        count3,
+      </if>
+      <if test="amt3 != null" >
+        amt3,
+      </if>
+      <if test="count4 != null" >
+        count4,
+      </if>
+      <if test="amt4 != null" >
+        amt4,
+      </if>
+      <if test="resCatalogID != null" >
+        resCatalogID,
+      </if>
+      <if test="beginDate != null" >
+        beginDate,
+      </if>
+      <if test="endDate != null" >
+        endDate,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxEqToEquipSourceQueryPageId != null" >
+        #{zxEqToEquipSourceQueryPageId,jdbcType=CHAR},
+      </if>
+      <if test="departmentName != null" >
+        #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="count1 != null" >
+        #{count1,jdbcType=DECIMAL},
+      </if>
+      <if test="amt1 != null" >
+        #{amt1,jdbcType=DECIMAL},
+      </if>
+      <if test="count2 != null" >
+        #{count2,jdbcType=DECIMAL},
+      </if>
+      <if test="amt2 != null" >
+        #{amt2,jdbcType=DECIMAL},
+      </if>
+      <if test="count3 != null" >
+        #{count3,jdbcType=DECIMAL},
+      </if>
+      <if test="amt3 != null" >
+        #{amt3,jdbcType=DECIMAL},
+      </if>
+      <if test="count4 != null" >
+        #{count4,jdbcType=DECIMAL},
+      </if>
+      <if test="amt4 != null" >
+        #{amt4,jdbcType=DECIMAL},
+      </if>
+      <if test="resCatalogID != null" >
+        #{resCatalogID,jdbcType=VARCHAR},
+      </if>
+      <if test="beginDate != null" >
+        #{beginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipSourceQueryPage" >
+    update zx_eq_toEquipSourceQueryPage
+    <set >
+      <if test="departmentName != null" >
+        department_name = #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="count1 != null" >
+        count1 = #{count1,jdbcType=DECIMAL},
+      </if>
+      <if test="amt1 != null" >
+        amt1 = #{amt1,jdbcType=DECIMAL},
+      </if>
+      <if test="count2 != null" >
+        count2 = #{count2,jdbcType=DECIMAL},
+      </if>
+      <if test="amt2 != null" >
+        amt2 = #{amt2,jdbcType=DECIMAL},
+      </if>
+      <if test="count3 != null" >
+        count3 = #{count3,jdbcType=DECIMAL},
+      </if>
+      <if test="amt3 != null" >
+        amt3 = #{amt3,jdbcType=DECIMAL},
+      </if>
+      <if test="count4 != null" >
+        count4 = #{count4,jdbcType=DECIMAL},
+      </if>
+      <if test="amt4 != null" >
+        amt4 = #{amt4,jdbcType=DECIMAL},
+      </if>
+      <if test="resCatalogID != null" >
+        resCatalogID = #{resCatalogID,jdbcType=VARCHAR},
+      </if>
+      <if test="beginDate != null" >
+        beginDate = #{beginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        endDate = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxEqToEquipSourceQueryPageId = #{zxEqToEquipSourceQueryPageId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipSourceQueryPage" >
+    update zx_eq_toEquipSourceQueryPage set 
+      department_name = #{departmentName,jdbcType=VARCHAR},
+      count1 = #{count1,jdbcType=DECIMAL},
+      amt1 = #{amt1,jdbcType=DECIMAL},
+      count2 = #{count2,jdbcType=DECIMAL},
+      amt2 = #{amt2,jdbcType=DECIMAL},
+      count3 = #{count3,jdbcType=DECIMAL},
+      amt3 = #{amt3,jdbcType=DECIMAL},
+      count4 = #{count4,jdbcType=DECIMAL},
+      amt4 = #{amt4,jdbcType=DECIMAL},
+      resCatalogID = #{resCatalogID,jdbcType=VARCHAR},
+      beginDate = #{beginDate,jdbcType=TIMESTAMP},
+      endDate = #{endDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxEqToEquipSourceQueryPageId = #{zxEqToEquipSourceQueryPageId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxEqToEquipSourceQueryPageList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipSourceQueryPage" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_toEquipSourceQueryPage
+    where del_flag = '0'
+    <if test="zxEqToEquipSourceQueryPageId != null and zxEqToEquipSourceQueryPageId != ''" >
+     and zxEqToEquipSourceQueryPageId = #{zxEqToEquipSourceQueryPageId,jdbcType=CHAR}
+    </if>
+    <if test="departmentName != null and departmentName != ''" >
+     and department_name = #{departmentName,jdbcType=VARCHAR}
+    </if>
+    <if test="count1 != null and count1 != ''" >
+     and count1 = #{count1,jdbcType=DECIMAL}
+    </if>
+    <if test="amt1 != null and amt1 != ''" >
+     and amt1 = #{amt1,jdbcType=DECIMAL}
+    </if>
+    <if test="count2 != null and count2 != ''" >
+     and count2 = #{count2,jdbcType=DECIMAL}
+    </if>
+    <if test="amt2 != null and amt2 != ''" >
+     and amt2 = #{amt2,jdbcType=DECIMAL}
+    </if>
+    <if test="count3 != null and count3 != ''" >
+     and count3 = #{count3,jdbcType=DECIMAL}
+    </if>
+    <if test="amt3 != null and amt3 != ''" >
+     and amt3 = #{amt3,jdbcType=DECIMAL}
+    </if>
+    <if test="count4 != null and count4 != ''" >
+     and count4 = #{count4,jdbcType=DECIMAL}
+    </if>
+    <if test="amt4 != null and amt4 != ''" >
+     and amt4 = #{amt4,jdbcType=DECIMAL}
+    </if>
+    <if test="resCatalogID != null and resCatalogID != ''" >
+     and resCatalogID = #{resCatalogID,jdbcType=VARCHAR}
+    </if>
+    <if test="beginDate != null and beginDate != ''" >
+     and beginDate = #{beginDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="endDate != null and endDate != ''" >
+     and endDate = #{endDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqToEquipSourceQueryPage" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipSourceQueryPage" >
+    <![CDATA[ 
+        update zx_eq_toEquipSourceQueryPage
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxEqToEquipSourceQueryPageId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxEqToEquipSourceQueryPageId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+  <select id="selectZxEqToEquipSourceQueryPage" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipSourceQueryPage" >
+  SELECT *
+  <if test="resCatalogID != null and resCatalogID != ''" >
+  ,#{resCatalogID,jdbcType=VARCHAR} as resCatalogID,
+  </if>
+  <if test="beginDate != null and beginDate != ''" >
+  #{beginDate,jdbcType=TIMESTAMP} as beginDate,
+  </if>
+  <if test="endDate != null and beginDate != ''" >
+  #{endDate,jdbcType=TIMESTAMP} as endDate 
+  </if>
+  FROM 
+      (
+    	 SELECT io.sort,io.department_id as zxEqToEquipSourceQueryPageId,io.department_name,
+    	 (SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END 
+    	  FROM zx_eq_OuterEquip ie inner join sys_department sd on sd.department_id = ie.orgId 
+    		<if test="beginDate != null and beginDate != ''" >
+    		and (ie.outFactoryDate between #{beginDate,jdbcType=TIMESTAMP} 
+    		</if>
+    		<if test="endDate != null and endDate != ''" >
+    		and #{endDate,jdbcType=TIMESTAMP} 
+    		</if>
+    		<if test="beginDate != null and beginDate != ''" >
+    		or #{beginDate,jdbcType=TIMESTAMP}='') 
+    		</if>
+    	  ) as count1,
+	     (SELECT CASE sum(ie.orginalValue) WHEN 0 THEN NULL ELSE sum(ie.orginalValue) END
+    	  FROM zx_eq_OuterEquip ie inner join sys_department sd on sd.department_id = ie.orgId
+    		<if test="beginDate != null and beginDate != ''" >
+    		and (ie.outFactoryDate between #{beginDate,jdbcType=TIMESTAMP}
+    		</if>
+    		<if test="endDate != null and endDate != ''" > 
+    		and #{endDate,jdbcType=TIMESTAMP}
+    		</if>
+    		<if test="beginDate != null and beginDate != ''" > 
+    		or #{beginDate,jdbcType=TIMESTAMP}='') 
+    		</if>
+    	  ) as amt1,
+	     (SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END 
+	      FROM zx_eq_CooEquip ie inner join zx_eq_CooEquipItem iei ON ie.ID=iei.masID
+	      inner join sys_department sd on sd.department_id = ie.orgId  
+			<if test="beginDate != null and beginDate != ''" >
+			and (iei.outFactoryDate between #{beginDate,jdbcType=TIMESTAMP}
+			</if>
+			<if test="endDate != null and endDate != ''" > 
+			and #{endDate,jdbcType=TIMESTAMP}
+			</if>
+			<if test="beginDate != null and beginDate != ''" > 
+			or #{beginDate,jdbcType=TIMESTAMP}='')
+			</if> 
+	     ) as count2,
+	     (SELECT CASE sum(iei.orginalValue) WHEN 0 THEN NULL ELSE sum(iei.orginalValue) END
+	      FROM zx_eq_CooEquip ie inner join zx_eq_CooEquipItem iei ON ie.ID=iei.masID
+	      inner join sys_department sd on sd.department_id = ie.orgId 
+			<if test="beginDate != null and beginDate != ''" >
+			and (iei.outFactoryDate between #{beginDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="endDate != null and endDate != ''" >
+			and #{endDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="beginDate != null and beginDate != ''" >
+			or #{beginDate,jdbcType=TIMESTAMP}='')
+			</if> 
+	     ) as amt2,
+	     (SELECT CASE count(ie.ID) WHEN 0 THEN NULL ELSE count(ie.ID) END 
+			FROM zx_eq_Equip ie
+            inner join sys_department iesd on ie.useOrgId = iesd.department_id
+	      WHERE ifnull(ie.status,'') not in ('报废','转让外部单位') 
+	        and io.department_path like iesd.department_id||'%'
+	   <if test="beginDate != null and beginDate != ''" >
+			and (ie.outFactoryDate between #{beginDate,jdbcType=TIMESTAMP}
+			</if>
+			<if test="endDate != null and endDate != ''" >
+			 and #{endDate,jdbcType=TIMESTAMP} 
+			 </if>
+			 <if test="beginDate != null and beginDate != ''" >
+			 or #{beginDate,jdbcType=TIMESTAMP}='') 
+			 </if>
+			 and (ie.resCatalogID IN (SELECT ID from zx_eq_rescategory_materials) 
+			 <if test="resCatalogBsid != null and resCatalogBsid != ''" >
+			 where bsid like #{resCatalogBsid,jdbcType=VARCHAR}||'%'
+			 </if>
+			  )
+			 <if test="resCatalogID != null and resCatalogID != ''" >
+			 or #{resCatalogID,jdbcType=VARCHAR}=''
+			 </if>
+			 ) as count3,
+	     (SELECT CASE sum(ie.orginalValue) WHEN 0 THEN NULL ELSE sum(ie.orginalValue) END 
+			FROM zx_eq_Equip ie 
+			inner join sys_department iesd on ie.useOrgId = iesd.department_id
+	      WHERE ifnull(ie.status,'') not in ('报废','转让外部单位') 
+	        and io.department_path like iesd.department_id||'%'
+			<if test="beginDate != null and beginDate != ''" >
+			and (ie.outFactoryDate between #{beginDate,jdbcType=TIMESTAMP}
+			</if>
+			<if test="endDate != null and endDate != ''" > 
+			and #{endDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="beginDate != null and beginDate != ''" >
+			or #{beginDate,jdbcType=TIMESTAMP}='') 
+			</if>
+			and (ie.resCatalogID IN (SELECT ID from zx_eq_rescategory_materials 
+			<if test="resCatalogBsid != null and resCatalogBsid != ''" >
+			where bsid like #{resCatalogBsid,jdbcType=VARCHAR}||'%'
+			</if>
+			)
+			<if test="resCatalogID != null and resCatalogID != ''" >
+			or #{resCatalogID,jdbcType=VARCHAR}='')
+			</if>
+			)) as amt3,
+	     <if test="beginDate != null and beginDate != ''" >
+	     (
+	     </if>
+	     (SELECT ifnull(count(ie.ID),0) 
+    	  FROM zx_eq_OuterEquip ie inner join sys_department sd on sd.department_id = ie.orgId 
+    	  <if test="beginDate != null and beginDate != ''" >
+    		and (ie.outFactoryDate between #{beginDate,jdbcType=TIMESTAMP} 
+    		</if>
+    		<if test="endDate != null and endDate != ''" >
+    		and #{endDate,jdbcType=TIMESTAMP} 
+    		</if>
+    		<if test="beginDate != null and beginDate != ''" >
+    		or #{beginDate,jdbcType=TIMESTAMP}='') 
+    		</if>
+    		)+
+    	  (SELECT ifnull(count(ie.ID),0) 
+	      FROM zx_eq_CooEquip ie inner join zx_eq_CooEquipItem iei ON ie.ID=iei.masID
+	      inner join sys_department sd on sd.department_id = ie.orgId
+	      <if test="beginDate != null and beginDate != ''" >
+			and (iei.outFactoryDate between #{beginDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="endDate != null and endDate != ''" >
+			and #{endDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="beginDate != null and beginDate != ''" >
+			or #{beginDate,jdbcType=TIMESTAMP}='') 
+			</if>
+			)+
+		  (SELECT ifnull(count(ie.ID),0) 
+			FROM zx_eq_Equip ie 
+			inner join sys_department iesd on ie.useOrgId = iesd.department_id
+	      WHERE ifnull(ie.status,'') not in ('报废','转让外部单位') 
+	        and io.department_path like iesd.department_id||'%'
+	        <if test="beginDate != null and beginDate != ''" >
+			and (ie.outFactoryDate between #{beginDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="endDate != null and endDate != ''" >
+			and #{endDate,jdbcType=TIMESTAMP}
+			</if>
+			<if test="beginDate != null and beginDate != ''" >
+			or #{beginDate,jdbcType=TIMESTAMP}='')
+			</if>
+			<if test="resCatalogBsid != null and resCatalogBsid != ''" >
+			  and (ie.resCatalogID IN (SELECT ID from zx_eq_rescategory_materials where bsid like #{resCatalogBsid,jdbcType=VARCHAR}||'%') 
+			  </if>
+			  <if test="resCatalogID != null and resCatalogID != ''" >
+			  or #{resCatalogID,jdbcType=VARCHAR}=''))
+			  </if>
+    	  ) as count4,
+	     <if test="beginDate != null and beginDate != ''" >
+	     (
+	     </if>
+	     (SELECT ifnull(sum(ie.orginalValue),0)
+    	  FROM zx_eq_OuterEquip ie inner join sys_department sd on sd.department_id = ie.orgId 
+    	   <if test="beginDate != null and beginDate != ''" >
+    		and (ie.outFactoryDate between #{beginDate,jdbcType=TIMESTAMP} 
+    		</if>
+    		<if test="endDate != null and endDate != ''" >
+    		and #{endDate,jdbcType=TIMESTAMP} 
+    		</if>
+    		<if test="beginDate != null and endDate != ''" >
+    		or #{beginDate,jdbcType=TIMESTAMP}='')
+    		</if> 
+    	  )
+			+
+	      (SELECT ifnull(sum(iei.orginalValue),0)
+			  FROM zx_eq_CooEquip ie inner join zx_eq_CooEquipItem iei ON ie.ID=iei.masID
+			  inner join sys_department sd on sd.department_id = ie.orgId
+			    <if test="beginDate != null and beginDate != ''" >
+				and (iei.outFactoryDate between #{beginDate,jdbcType=TIMESTAMP}
+				</if>
+				 <if test="endDate != null and endDate != ''" >
+				and #{endDate,jdbcType=TIMESTAMP}
+				</if>
+				<if test="beginDate != null and beginDate != ''" >
+				or #{beginDate,jdbcType=TIMESTAMP}='')
+				</if> 
+	      )
+	        +
+	      (SELECT ifnull(sum(ie.orginalValue),0) 
+			FROM zx_eq_Equip ie 
+			inner join sys_department iesd on ie.useOrgId = iesd.department_id
+	      WHERE ifnull(ie.status,'') not in ('报废','转让外部单位') 
+	        and io.department_path like iesd.department_id||'%'
+	        <if test="beginDate != null and beginDate != ''" >
+			and (ie.outFactoryDate between #{beginDate,jdbcType=TIMESTAMP}
+			</if>
+			 <if test="endDate != null and endDate != ''" >
+			and #{endDate,jdbcType=TIMESTAMP}
+			</if>
+			<if test="beginDate != null and beginDate != ''" > 
+			or #{beginDate,jdbcType=TIMESTAMP}='')
+			</if>
+			 and (ie.resCatalogID IN (SELECT ID from zx_eq_rescategory_materials 
+			  <if test="resCatalogBsid != null and resCatalogBsid != ''" >
+			 where bsid like #{resCatalogBsid,jdbcType=VARCHAR}||'%')
+			 </if>
+			 <if test="resCatalogID != null and resCatalogID != ''" >
+			 or #{resCatalogID,jdbcType=VARCHAR}=''))
+			 </if>
+			 
+	     ))) as amt4
+	     FROM sys_department io
+	     <if test="parentID != null and parentID != ''" >
+	     WHERE io.department_parent_ID=#{parentID,jdbcType=VARCHAR}
+	     </if>
+	     GROUP BY io.sort,io.department_ID,io.department_name
+      )t WHERE count1 IS NOT NULL OR amt1 IS NOT NULL OR count2 IS NOT NULL OR amt2 IS NOT NULL OR amt3 IS NOT NULL 
+      OR count3 IS NOT NULL 
+      order by sort
+  </select>
+</mapper>

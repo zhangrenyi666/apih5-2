@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.BaseFlowSponsorChooserMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.BaseFlowSponsorChooser" >
+    <id column="sponsor_chooser_id" property="sponsorChooserId" jdbcType="CHAR" />
+    <result column="flow_node_custom" property="flowNodeCustom" jdbcType="VARCHAR" />
+    <result column="apih5_flow_id" property="apih5FlowId" jdbcType="VARCHAR" />
+    <result column="start_node_id" property="startNodeId" jdbcType="VARCHAR" />
+    <result column="end_node_id" property="endNodeId" jdbcType="VARCHAR" />
+    <result column="sponsor_ids" property="sponsorIds" jdbcType="VARCHAR" />
+    <result column="chooser_ids" property="chooserIds" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    sponsor_chooser_id, flow_node_custom, apih5_flow_id, start_node_id, end_node_id, 
+    sponsor_ids, chooser_ids, remarks, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectBySponsorChooserList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.BaseFlowSponsorChooser" >
+    select 
+    <include refid="Base_Column_List" />,
+    (SELECT apih5_flow_name FROM base_flow_code WHERE del_flag = 0 AND apih5_flow_id = chooser.apih5_flow_id LIMIT 0,1) AS apih5FlowName,
+    (SELECT apih5_node_name FROM base_flow_code WHERE del_flag = 0 AND flow_code_id = chooser.start_node_id) AS startNodeName,
+    (SELECT apih5_node_name FROM base_flow_code WHERE del_flag = 0 AND flow_code_id = chooser.end_node_id) AS endNodeName
+    from base_flow_sponsor_chooser chooser
+    where del_flag = '0'
+    <if test="flowNodeCustom != null and flowNodeCustom != ''" >
+     and flow_node_custom = #{flowNodeCustom,jdbcType=VARCHAR}
+    </if>
+    <if test="apih5FlowId != null and apih5FlowId != ''" >
+     and apih5_flow_id = #{apih5FlowId,jdbcType=VARCHAR}
+    </if>
+    <if test="startNodeId != null and startNodeId != ''" >
+     and start_node_id = #{startNodeId,jdbcType=VARCHAR}
+    </if>
+    <if test="endNodeId != null and endNodeId != ''" >
+     and end_node_id = #{endNodeId,jdbcType=VARCHAR}
+    </if>
+    <if test="sponsorIds != null and sponsorIds != ''" >
+     and sponsor_ids = #{sponsorIds,jdbcType=VARCHAR}
+    </if>
+    <if test="chooserIds != null and chooserIds != ''" >
+     and chooser_ids = #{chooserIds,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY create_time DESC 
+  </select>  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_flow_sponsor_chooser
+    where sponsor_chooser_id = #{sponsorChooserId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from base_flow_sponsor_chooser
+    where sponsor_chooser_id = #{sponsorChooserId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.BaseFlowSponsorChooser" >
+    insert into base_flow_sponsor_chooser (sponsor_chooser_id, flow_node_custom, apih5_flow_id, 
+      start_node_id, end_node_id, sponsor_ids, 
+      chooser_ids, remarks, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{sponsorChooserId,jdbcType=CHAR}, #{flowNodeCustom,jdbcType=VARCHAR}, #{apih5FlowId,jdbcType=VARCHAR}, 
+      #{startNodeId,jdbcType=VARCHAR}, #{endNodeId,jdbcType=VARCHAR}, #{sponsorIds,jdbcType=VARCHAR}, 
+      #{chooserIds,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.BaseFlowSponsorChooser" >
+    insert into base_flow_sponsor_chooser
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sponsorChooserId != null" >
+        sponsor_chooser_id,
+      </if>
+      <if test="flowNodeCustom != null" >
+        flow_node_custom,
+      </if>
+      <if test="apih5FlowId != null" >
+        apih5_flow_id,
+      </if>
+      <if test="startNodeId != null" >
+        start_node_id,
+      </if>
+      <if test="endNodeId != null" >
+        end_node_id,
+      </if>
+      <if test="sponsorIds != null" >
+        sponsor_ids,
+      </if>
+      <if test="chooserIds != null" >
+        chooser_ids,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sponsorChooserId != null" >
+        #{sponsorChooserId,jdbcType=CHAR},
+      </if>
+      <if test="flowNodeCustom != null" >
+        #{flowNodeCustom,jdbcType=VARCHAR},
+      </if>
+      <if test="apih5FlowId != null" >
+        #{apih5FlowId,jdbcType=VARCHAR},
+      </if>
+      <if test="startNodeId != null" >
+        #{startNodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="endNodeId != null" >
+        #{endNodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="sponsorIds != null" >
+        #{sponsorIds,jdbcType=VARCHAR},
+      </if>
+      <if test="chooserIds != null" >
+        #{chooserIds,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.BaseFlowSponsorChooser" >
+    update base_flow_sponsor_chooser
+    <set >
+      <if test="flowNodeCustom != null" >
+        flow_node_custom = #{flowNodeCustom,jdbcType=VARCHAR},
+      </if>
+      <if test="apih5FlowId != null" >
+        apih5_flow_id = #{apih5FlowId,jdbcType=VARCHAR},
+      </if>
+      <if test="startNodeId != null" >
+        start_node_id = #{startNodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="endNodeId != null" >
+        end_node_id = #{endNodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="sponsorIds != null" >
+        sponsor_ids = #{sponsorIds,jdbcType=VARCHAR},
+      </if>
+      <if test="chooserIds != null" >
+        chooser_ids = #{chooserIds,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sponsor_chooser_id = #{sponsorChooserId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.BaseFlowSponsorChooser" >
+    update base_flow_sponsor_chooser
+    set       flow_node_custom = #{flowNodeCustom,jdbcType=VARCHAR},
+      apih5_flow_id = #{apih5FlowId,jdbcType=VARCHAR},
+      start_node_id = #{startNodeId,jdbcType=VARCHAR},
+      end_node_id = #{endNodeId,jdbcType=VARCHAR},
+      sponsor_ids = #{sponsorIds,jdbcType=VARCHAR},
+      chooser_ids = #{chooserIds,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where sponsor_chooser_id = #{sponsorChooserId,jdbcType=CHAR}
+  </update>
+  <select id="selectByBaseFlowSponsorChooserList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.BaseFlowSponsorChooser" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_flow_sponsor_chooser
+    where del_flag = '0'
+    <if test="flowNodeCustom != null and flowNodeCustom != ''" >
+     and flow_node_custom = #{flowNodeCustom,jdbcType=VARCHAR}
+    </if>
+    <if test="apih5FlowId != null and apih5FlowId != ''" >
+     and apih5_flow_id = #{apih5FlowId,jdbcType=VARCHAR}
+    </if>
+    <if test="startNodeId != null and startNodeId != ''" >
+     and start_node_id = #{startNodeId,jdbcType=VARCHAR}
+    </if>
+    <if test="endNodeId != null and endNodeId != ''" >
+     and end_node_id = #{endNodeId,jdbcType=VARCHAR}
+    </if>
+    <if test="sponsorIds != null and sponsorIds != ''" >
+     and sponsor_ids = #{sponsorIds,jdbcType=VARCHAR}
+    </if>
+    <if test="chooserIds != null and chooserIds != ''" >
+     and chooser_ids = #{chooserIds,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY create_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateBaseFlowSponsorChooser" parameterType="com.apih5.mybatis.pojo.BaseFlowSponsorChooser" >
+    <![CDATA[ 
+        update base_flow_sponsor_chooser
+        set del_flag = '1'
+        where del_flag = '0' and sponsor_chooser_id in 
+     ]]> 
+     <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.sponsorChooserId} 
+     </foreach>
+  </delete>
+</mapper>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>设备验收详情</title>
+    <link rel="stylesheet" type="text/css" href="../css/discountDetail.css">
+    <link rel="stylesheet" type="text/css" href="../lib/layer_mobile/need/layer.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <script src="../lib/jquery/1.9.1/jquery.min.js"></script>
+    <script src="../lib/layer_mobile/layer.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/main.js"></script>
+    <!-- <script src="http://weixin.fheb.cn:90/cdn/public/lny.js" type="text/javascript"></script> -->
+</head>
+
+<body>
+    <div class="discountDetail">
+        <div class="part1">
+            <!-- <img src="../img/greenCorrect_128.png"> -->
+            <!-- <div id="checkResult" class="content1 normalText">-</div> -->
+            <div id="checkRecord" class="content2">设备验收详情</div>
+            <div id="checkDate" class="content3">time</div>
+            <div id="checkPerson" class="content4">-</div>
+        </div>
+        <div class="part2">
+            <ul>
+                <li>
+                    <div class="left">
+                        <span class="text">所属大类</span>
+                    </div>
+                    <div class="right">
+                        <input id="sszclx1Name" class="input" placeholder="" readonly />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">所属小类</span>
+                    </div>
+                    <div class="right">
+                        <input id="sszclx2Name" class="input" placeholder="" readonly />
+                    </div>
+                </li>
+
+                <li>
+                    <div class="left">
+                        <span class="text">资产名称</span>
+                    </div>
+                    <div class="right">
+                        <input id="zcmc" class="input" placeholder="" readonly />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text"> 规格型号</span>
+                        <!-- <span class="star">*</span> -->
+                    </div>
+                    <div class="right">
+                        <input id="ggxh" class="input" placeholder="必填项" readonly />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">验收单号</span>
+                        <!-- <span class="star">*</span> -->
+                    </div>
+                    <div class="right">
+                        <input id="ysdh" class="input" placeholder="必填项" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">验收状态</span>
+                        <!-- <span class="star">*</span> -->
+                    </div>
+                    <div class="right">
+                        <select name="" class="input" id="checkState" readonly disabled>
+                            <option value='0'>全部</option>
+                            <option value='1'>合格</option>
+                            <option value='2'>不合格</option>
+                        </select>
+                        <!-- <input id="checkState" class="input" placeholder="必填项" disabled /> -->
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">财务编号</span>
+                    </div>
+                    <div class="right">
+                        <input id="cwbh" class="input" placeholder="" readonly />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">入账日期</span>
+                    </div>
+                    <div class="right">
+                        <input type="date" id="rzrq" name="input_date" class="input" readonly placeholder="时间选择" />
+                    </div>
+                </li>
+
+                <li>
+                    <div class="left">
+                        <span class="text">验收说明</span>
+                    </div>
+                    <div class="right">
+                        <textarea id="zcysRemarks" class="textarea b-b" placeholder="请输入验收说明" readonly></textarea>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <div class="footer">
+            <div class="btn">
+                <a onclick="editInventory()">编辑</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var recordid;// 记录ID
+        var sszcid = getUrlParam('sszcid');
+
+        var selectDepartmentList = {};// 使用部门（后）
+        var selectMemberList = {};// 使用者（后）
+
+        window.login(function () {
+
+            // var code = getUrl('token')
+            // setCookie('code', code, 30)
+            // console.log(code);
+
+
+            // 页面刷新加载方法
+            window.onload = function () {
+                request();
+                localStorage.removeItem("refreshState");
+                //repairDetail();// 折旧记录详情查询
+            }
+
+            //获取折旧列表传递的参数
+            function request() {
+                var url = location.href;
+                var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+                var paraObj = {};
+                for (i = 0; j = paraString[i]; i++) {
+                    paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+                }
+                recordid = noNull(paraObj.recordid);
+                repairDetail();// 折旧记录详情查询
+            }
+
+            //设置cookie  
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + "; " + expires;
+            }
+            //获取cookie  
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1);
+                    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+                }
+                return "";
+            }
+            function getUrl(k) {//获取地址栏参数，k为键名
+                var m = new RegExp("(^|&)" + k + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(m);
+                if (r != null) return decodeURI(r[2]); return null;
+            };
+
+
+            // 折旧记录详情查询
+            function repairDetail() {
+                var param = {
+                    recordid: recordid,
+                }
+                // console.log('参数是：',param)
+
+                l.ajax('getWeChatCheckDetails', param, function (data, message, success) {
+                    if (success) {
+                        var data = noNull(data);// 详情数据
+                        if (data != "") {
+                            $('#checkPerson').text(noNull(data.createUser))
+                            $('#checkDate').text(noNull(noNull(dateFormat(new Date(noNull(data.createTime)), "yyyy-MM-dd"))))
+                            $('#checkResult').text(noNull(data.checkState == '1' ? '合格' : '不合格'))
+                            $("#zcmc").val(noNull(data.zcmc));// 资产名称
+                            $("#checkDate").text(noNull(dateFormat(new Date(noNull(data.createTime)), "yyyy-MM-dd")));// 创建时间
+                            $("#sszclx1Name").val(noNull(data.sszclx1Name));// 所属大类
+                            $("#sszclx2Name").val(noNull(data.sszclx2Name));// 所属小类
+                            $("#cwbh").val(noNull(data.cwbh));// 财务编号
+                            $("#ggxh").val(noNull(data.ggxh));// 规格型号
+                            $("#ysdh").val(noNull(data.ysdh));// 验收单号
+                            $('#rzrq').val(noNull(dateFormat(new Date(noNull(data.rzrq)), "yyyy-MM-dd")))
+                            $("#checkState").val(noNull(data.checkState));// 验收状态
+                            $("#zcysRemarks").val(noNull(data.remarks));// 验收说明
+                        }
+                    }
+                })
+
+                // $.ajax({
+                //     url: API + 'getWeChatZjCheckDetails',
+                //     type: 'POST',
+                //     dataType: 'json',
+                //     data: JSON.stringify(param),
+                //     contentType: "application/json; charset=utf-8",
+                //     beforeSend: function (xhr) {
+                //         xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+                //         // 新增携带token请求
+                //         var token = window.getUserInfo().token
+                //         xhr.setRequestHeader('token', token);//
+                //     },
+                //     success: function (rel) {
+
+
+                //         if (rel.success == true) {
+                //             var data = noNull(rel.data);// 详情数据
+                //             if (data != "") {
+                //                 $('#checkPerson').text(noNull(data.createUser))
+                //                 $('#checkDate').text(noNull(noNull(dateFormat(new Date(noNull(data.createTime)), "yyyy-MM-dd"))))
+                //                 $('#checkResult').text(noNull(data.checkState == '1' ? '合格' : '不合格'))
+                //                 $("#zcmc").val(noNull(data.zcmc));// 资产名称
+                //                 $("#checkDate").text(noNull(dateFormat(new Date(noNull(data.createTime)), "yyyy-MM-dd")));// 创建时间
+                //                 $("#sszclx1Name").val(noNull(data.sszclx1Name));// 所属大类
+                //                 $("#sszclx2Name").val(noNull(data.sszclx2Name));// 所属小类
+                //                 $("#cwbh").val(noNull(data.cwbh));// 财务编号
+                //                 $("#ggxh").val(noNull(data.ggxh));// 规格型号
+                //                 $("#ysdh").val(noNull(data.ysdh));// 验收单号
+                //                 $('#rzrq').val(noNull(dateFormat(new Date(noNull(data.rzrq)), "yyyy-MM-dd")))
+                //                 $("#checkState").val(noNull(data.checkState));// 验收状态
+                //                 $("#zcysRemarks").val(noNull(data.remarks));// 验收说明
+                //             }
+                //         }
+                //     },
+                //     error: function (err) {
+                //         console.log(err);
+                //     }
+                // })
+            }
+
+
+
+
+        })
+
+        // 返回上级页面
+        function goBack() {
+            window.history.go(-1);
+        }
+        //打开编辑页
+        function editInventory() {
+            window.location.href = "assetsCheckListAdd.html?recordid=" + recordid + '&sszcid=' + sszcid
+            // console.log(123)
+        }
+
+    </script>
+</body>
+
+</html>

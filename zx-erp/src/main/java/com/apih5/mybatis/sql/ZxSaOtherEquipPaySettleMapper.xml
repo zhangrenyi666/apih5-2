@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSaOtherEquipPaySettleMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSaOtherEquipPaySettle" >
+    <id column="zxSaOtherEquipPaySettleId" property="zxSaOtherEquipPaySettleId" jdbcType="CHAR" />
+    <result column="checkUpOtherAmt" property="checkUpOtherAmt" jdbcType="DECIMAL" />
+    <result column="thisAmtNoTax" property="thisAmtNoTax" jdbcType="DECIMAL" />
+    <result column="thisAmtTax" property="thisAmtTax" jdbcType="DECIMAL" />
+    <result column="contrType" property="contrType" jdbcType="VARCHAR" />
+    <result column="thisAmt" property="thisAmt" jdbcType="DECIMAL" />
+    <result column="inOutAmt" property="inOutAmt" jdbcType="DECIMAL" />
+    <result column="upFineAmt" property="upFineAmt" jdbcType="DECIMAL" />
+    <result column="otherAmt" property="otherAmt" jdbcType="DECIMAL" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="orgId" property="orgId" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="zxCtOtherManageId" property="zxCtOtherManageId" jdbcType="VARCHAR" />
+    <result column="zxSaOtherEquipSettleId" property="zxSaOtherEquipSettleId" jdbcType="VARCHAR" />
+    <result column="billNo" property="billNo" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="totalAmt" property="totalAmt" jdbcType="DECIMAL" />
+    <result column="upInOutAmt" property="upInOutAmt" jdbcType="DECIMAL" />
+    <result column="fineAmt" property="fineAmt" jdbcType="DECIMAL" />
+    <result column="foodAmt" property="foodAmt" jdbcType="DECIMAL" />
+    <result column="upFoodAmt" property="upFoodAmt" jdbcType="DECIMAL" />
+    <result column="upOtherAmt" property="upOtherAmt" jdbcType="DECIMAL" />
+    <result column="upAmt" property="upAmt" jdbcType="DECIMAL" />
+    <result column="comId" property="comId" jdbcType="VARCHAR" />
+    <result column="comOrders" property="comOrders" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxSaOtherEquipPaySettleId, checkUpOtherAmt, thisAmtNoTax, thisAmtTax, contrType, 
+    thisAmt, inOutAmt, upFineAmt, otherAmt, comName, 
+    orgId, orgName, zxCtOtherManageId, zxSaOtherEquipSettleId, billNo, 
+    period, totalAmt, upInOutAmt, fineAmt, foodAmt, 
+    upFoodAmt, upOtherAmt, upAmt, comId, comOrders, 
+    remark, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sa_other_equip_pay_settle
+    where del_flag = '0' and zxSaOtherEquipPaySettleId = #{zxSaOtherEquipPaySettleId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sa_other_equip_pay_settle
+    where zxSaOtherEquipPaySettleId = #{zxSaOtherEquipPaySettleId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipPaySettle" >
+    insert into zx_sa_other_equip_pay_settle (
+    zxSaOtherEquipPaySettleId, checkUpOtherAmt, thisAmtNoTax, thisAmtTax, contrType, 
+    thisAmt, inOutAmt, upFineAmt, otherAmt, comName, 
+    orgId, orgName, zxCtOtherManageId, zxSaOtherEquipSettleId, billNo, 
+    period, totalAmt, upInOutAmt, fineAmt, foodAmt, 
+    upFoodAmt, upOtherAmt, upAmt, comId, comOrders, 
+    remark, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxSaOtherEquipPaySettleId,jdbcType=CHAR}, #{checkUpOtherAmt,jdbcType=DECIMAL}, #{thisAmtNoTax,jdbcType=DECIMAL}, #{thisAmtTax,jdbcType=DECIMAL}, #{contrType,jdbcType=VARCHAR}, 
+    #{thisAmt,jdbcType=DECIMAL}, #{inOutAmt,jdbcType=DECIMAL}, #{upFineAmt,jdbcType=DECIMAL}, #{otherAmt,jdbcType=DECIMAL}, #{comName,jdbcType=VARCHAR}, 
+    #{orgId,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, #{zxCtOtherManageId,jdbcType=VARCHAR}, #{zxSaOtherEquipSettleId,jdbcType=VARCHAR}, #{billNo,jdbcType=VARCHAR}, 
+    #{period,jdbcType=VARCHAR}, #{totalAmt,jdbcType=DECIMAL}, #{upInOutAmt,jdbcType=DECIMAL}, #{fineAmt,jdbcType=DECIMAL}, #{foodAmt,jdbcType=DECIMAL}, 
+    #{upFoodAmt,jdbcType=DECIMAL}, #{upOtherAmt,jdbcType=DECIMAL}, #{upAmt,jdbcType=DECIMAL}, #{comId,jdbcType=VARCHAR}, #{comOrders,jdbcType=VARCHAR}, 
+    #{remark,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+    #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipPaySettle" >
+    insert into zx_sa_other_equip_pay_settle
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSaOtherEquipPaySettleId != null" >
+        zxSaOtherEquipPaySettleId,
+      </if>
+      <if test="checkUpOtherAmt != null" >
+        checkUpOtherAmt,
+      </if>
+      <if test="thisAmtNoTax != null" >
+        thisAmtNoTax,
+      </if>
+      <if test="thisAmtTax != null" >
+        thisAmtTax,
+      </if>
+      <if test="contrType != null" >
+        contrType,
+      </if>
+      <if test="thisAmt != null" >
+        thisAmt,
+      </if>
+      <if test="inOutAmt != null" >
+        inOutAmt,
+      </if>
+      <if test="upFineAmt != null" >
+        upFineAmt,
+      </if>
+      <if test="otherAmt != null" >
+        otherAmt,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="orgId != null" >
+        orgId,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="zxCtOtherManageId != null" >
+        zxCtOtherManageId,
+      </if>
+      <if test="zxSaOtherEquipSettleId != null" >
+        zxSaOtherEquipSettleId,
+      </if>
+      <if test="billNo != null" >
+        billNo,
+      </if>
+      <if test="period != null" >
+        period,
+      </if>
+      <if test="totalAmt != null" >
+        totalAmt,
+      </if>
+      <if test="upInOutAmt != null" >
+        upInOutAmt,
+      </if>
+      <if test="fineAmt != null" >
+        fineAmt,
+      </if>
+      <if test="foodAmt != null" >
+        foodAmt,
+      </if>
+      <if test="upFoodAmt != null" >
+        upFoodAmt,
+      </if>
+      <if test="upOtherAmt != null" >
+        upOtherAmt,
+      </if>
+      <if test="upAmt != null" >
+        upAmt,
+      </if>
+      <if test="comId != null" >
+        comId,
+      </if>
+      <if test="comOrders != null" >
+        comOrders,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSaOtherEquipPaySettleId != null" >
+        #{zxSaOtherEquipPaySettleId,jdbcType=CHAR},
+      </if>
+      <if test="checkUpOtherAmt != null" >
+        #{checkUpOtherAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmtNoTax != null" >
+        #{thisAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmtTax != null" >
+        #{thisAmtTax,jdbcType=DECIMAL},
+      </if>
+      <if test="contrType != null" >
+        #{contrType,jdbcType=VARCHAR},
+      </if>
+      <if test="thisAmt != null" >
+        #{thisAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inOutAmt != null" >
+        #{inOutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upFineAmt != null" >
+        #{upFineAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="otherAmt != null" >
+        #{otherAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null" >
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="zxCtOtherManageId != null" >
+        #{zxCtOtherManageId,jdbcType=VARCHAR},
+      </if>
+      <if test="zxSaOtherEquipSettleId != null" >
+        #{zxSaOtherEquipSettleId,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null" >
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAmt != null" >
+        #{totalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upInOutAmt != null" >
+        #{upInOutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="fineAmt != null" >
+        #{fineAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="foodAmt != null" >
+        #{foodAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upFoodAmt != null" >
+        #{upFoodAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upOtherAmt != null" >
+        #{upOtherAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upAmt != null" >
+        #{upAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="comId != null" >
+        #{comId,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipPaySettle" >
+    update zx_sa_other_equip_pay_settle
+    <set >
+      <if test="checkUpOtherAmt != null" >
+        checkUpOtherAmt = #{checkUpOtherAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmtNoTax != null" >
+        thisAmtNoTax = #{thisAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmtTax != null" >
+        thisAmtTax = #{thisAmtTax,jdbcType=DECIMAL},
+      </if>
+      <if test="contrType != null" >
+        contrType = #{contrType,jdbcType=VARCHAR},
+      </if>
+      <if test="thisAmt != null" >
+        thisAmt = #{thisAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="inOutAmt != null" >
+        inOutAmt = #{inOutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upFineAmt != null" >
+        upFineAmt = #{upFineAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="otherAmt != null" >
+        otherAmt = #{otherAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null" >
+        orgId = #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="zxCtOtherManageId != null" >
+        zxCtOtherManageId = #{zxCtOtherManageId,jdbcType=VARCHAR},
+      </if>
+      <if test="zxSaOtherEquipSettleId != null" >
+        zxSaOtherEquipSettleId = #{zxSaOtherEquipSettleId,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null" >
+        billNo = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        period = #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAmt != null" >
+        totalAmt = #{totalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upInOutAmt != null" >
+        upInOutAmt = #{upInOutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="fineAmt != null" >
+        fineAmt = #{fineAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="foodAmt != null" >
+        foodAmt = #{foodAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upFoodAmt != null" >
+        upFoodAmt = #{upFoodAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upOtherAmt != null" >
+        upOtherAmt = #{upOtherAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upAmt != null" >
+        upAmt = #{upAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="comId != null" >
+        comId = #{comId,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        comOrders = #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxSaOtherEquipPaySettleId = #{zxSaOtherEquipPaySettleId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipPaySettle" >
+    update zx_sa_other_equip_pay_settle set 
+      checkUpOtherAmt = #{checkUpOtherAmt,jdbcType=DECIMAL},
+      thisAmtNoTax = #{thisAmtNoTax,jdbcType=DECIMAL},
+      thisAmtTax = #{thisAmtTax,jdbcType=DECIMAL},
+      contrType = #{contrType,jdbcType=VARCHAR},
+      thisAmt = #{thisAmt,jdbcType=DECIMAL},
+      inOutAmt = #{inOutAmt,jdbcType=DECIMAL},
+      upFineAmt = #{upFineAmt,jdbcType=DECIMAL},
+      otherAmt = #{otherAmt,jdbcType=DECIMAL},
+      comName = #{comName,jdbcType=VARCHAR},
+      orgId = #{orgId,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      zxCtOtherManageId = #{zxCtOtherManageId,jdbcType=VARCHAR},
+      zxSaOtherEquipSettleId = #{zxSaOtherEquipSettleId,jdbcType=VARCHAR},
+      billNo = #{billNo,jdbcType=VARCHAR},
+      period = #{period,jdbcType=VARCHAR},
+      totalAmt = #{totalAmt,jdbcType=DECIMAL},
+      upInOutAmt = #{upInOutAmt,jdbcType=DECIMAL},
+      fineAmt = #{fineAmt,jdbcType=DECIMAL},
+      foodAmt = #{foodAmt,jdbcType=DECIMAL},
+      upFoodAmt = #{upFoodAmt,jdbcType=DECIMAL},
+      upOtherAmt = #{upOtherAmt,jdbcType=DECIMAL},
+      upAmt = #{upAmt,jdbcType=DECIMAL},
+      comId = #{comId,jdbcType=VARCHAR},
+      comOrders = #{comOrders,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSaOtherEquipPaySettleId = #{zxSaOtherEquipPaySettleId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSaOtherEquipPaySettleList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipPaySettle" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sa_other_equip_pay_settle
+    where del_flag = '0'
+    <if test="zxSaOtherEquipPaySettleId != null and zxSaOtherEquipPaySettleId != ''" >
+     and zxSaOtherEquipPaySettleId = #{zxSaOtherEquipPaySettleId,jdbcType=CHAR}
+    </if>
+    <if test="checkUpOtherAmt != null and checkUpOtherAmt != ''" >
+     and checkUpOtherAmt = #{checkUpOtherAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="thisAmtNoTax != null and thisAmtNoTax != ''" >
+     and thisAmtNoTax = #{thisAmtNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="thisAmtTax != null and thisAmtTax != ''" >
+     and thisAmtTax = #{thisAmtTax,jdbcType=DECIMAL}
+    </if>
+    <if test="contrType != null and contrType != ''" >
+     and contrType = #{contrType,jdbcType=VARCHAR}
+    </if>
+    <if test="thisAmt != null and thisAmt != ''" >
+     and thisAmt = #{thisAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="inOutAmt != null and inOutAmt != ''" >
+     and inOutAmt = #{inOutAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="upFineAmt != null and upFineAmt != ''" >
+     and upFineAmt = #{upFineAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="otherAmt != null and otherAmt != ''" >
+     and otherAmt = #{otherAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="orgId != null and orgId != ''" >
+     and orgId = #{orgId,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="zxCtOtherManageId != null and zxCtOtherManageId != ''" >
+     and zxCtOtherManageId = #{zxCtOtherManageId,jdbcType=VARCHAR}
+    </if>
+    <if test="zxSaOtherEquipSettleId != null and zxSaOtherEquipSettleId != ''" >
+     and zxSaOtherEquipSettleId = #{zxSaOtherEquipSettleId,jdbcType=VARCHAR}
+    </if>
+    <if test="billNo != null and billNo != ''" >
+     and billNo = #{billNo,jdbcType=VARCHAR}
+    </if>
+    <if test="period != null and period != ''" >
+     and period = #{period,jdbcType=VARCHAR}
+    </if>
+    <if test="totalAmt != null and totalAmt != ''" >
+     and totalAmt = #{totalAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="upInOutAmt != null and upInOutAmt != ''" >
+     and upInOutAmt = #{upInOutAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="fineAmt != null and fineAmt != ''" >
+     and fineAmt = #{fineAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="foodAmt != null and foodAmt != ''" >
+     and foodAmt = #{foodAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="upFoodAmt != null and upFoodAmt != ''" >
+     and upFoodAmt = #{upFoodAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="upOtherAmt != null and upOtherAmt != ''" >
+     and upOtherAmt = #{upOtherAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="upAmt != null and upAmt != ''" >
+     and upAmt = #{upAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="comId != null and comId != ''" >
+     and comId = #{comId,jdbcType=VARCHAR}
+    </if>
+    <if test="comOrders != null and comOrders != ''" >
+     and comOrders = #{comOrders,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY create_time
+  </select>
+  <delete id="batchDeleteUpdateZxSaOtherEquipPaySettle" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipPaySettle" >
+    <![CDATA[ 
+        update zx_sa_other_equip_pay_settle
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSaOtherEquipPaySettleId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSaOtherEquipPaySettleId} 
+     </foreach>
+  </delete>
+  <select id="selectTotalAmt" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipPaySettle" >
+        SELECT
+			(
+				SELECT totalAmt
+				FROM zx_sa_other_equip_pay_settle
+				WHERE del_flag = '0'
+				AND zxCtOtherManageId = #{zxCtOtherManageId,jdbcType=VARCHAR}
+				AND period &lt;= #{period,jdbcType=VARCHAR}
+				ORDER BY create_time DESC
+				LIMIT 1
+			) AS upAmt
+	</select>
+</mapper>

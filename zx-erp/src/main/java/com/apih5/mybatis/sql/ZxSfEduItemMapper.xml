@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSfEduItemMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSfEduItem" >
+    <id column="zxSfEduItemId" property="zxSfEduItemId" jdbcType="CHAR" />
+    <result column="eduID" property="eduID" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="empType" property="empType" jdbcType="VARCHAR" />
+    <result column="idCard" property="idCard" jdbcType="VARCHAR" />
+    <result column="tranContext" property="tranContext" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxSfEduItemId, eduID, name, empType, idCard, 
+    tranContext, editTime, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sf_eduItem
+    where del_flag = '0' and zxSfEduItemId = #{zxSfEduItemId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sf_eduItem
+    where zxSfEduItemId = #{zxSfEduItemId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSfEduItem" >
+    insert into zx_sf_eduItem (
+    zxSfEduItemId, eduID, name, empType, idCard, 
+    tranContext, editTime, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{zxSfEduItemId,jdbcType=CHAR}, #{eduID,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{empType,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, 
+    #{tranContext,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSfEduItem" >
+    insert into zx_sf_eduItem
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSfEduItemId != null" >
+        zxSfEduItemId,
+      </if>
+      <if test="eduID != null" >
+        eduID,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="empType != null" >
+        empType,
+      </if>
+      <if test="idCard != null" >
+        idCard,
+      </if>
+      <if test="tranContext != null" >
+        tranContext,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSfEduItemId != null" >
+        #{zxSfEduItemId,jdbcType=CHAR},
+      </if>
+      <if test="eduID != null" >
+        #{eduID,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="empType != null" >
+        #{empType,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="tranContext != null" >
+        #{tranContext,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSfEduItem" >
+    update zx_sf_eduItem
+    <set >
+      <if test="eduID != null" >
+        eduID = #{eduID,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="empType != null" >
+        empType = #{empType,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        idCard = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="tranContext != null" >
+        tranContext = #{tranContext,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxSfEduItemId = #{zxSfEduItemId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSfEduItem" >
+    update zx_sf_eduItem set 
+      eduID = #{eduID,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      empType = #{empType,jdbcType=VARCHAR},
+      idCard = #{idCard,jdbcType=VARCHAR},
+      tranContext = #{tranContext,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSfEduItemId = #{zxSfEduItemId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSfEduItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSfEduItem" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sf_eduItem
+    where del_flag = '0'
+    <if test="zxSfEduItemId != null and zxSfEduItemId != ''" >
+     and zxSfEduItemId = #{zxSfEduItemId,jdbcType=CHAR}
+    </if>
+    <if test="eduID != null and eduID != ''" >
+     and eduID = #{eduID,jdbcType=VARCHAR}
+    </if>
+    <if test="name != null and name != ''" >
+     and name = #{name,jdbcType=VARCHAR}
+    </if>
+    <if test="empType != null and empType != ''" >
+     and empType = #{empType,jdbcType=VARCHAR}
+    </if>
+    <if test="idCard != null and idCard != ''" >
+     and idCard = #{idCard,jdbcType=VARCHAR}
+    </if>
+    <if test="tranContext != null and tranContext != ''" >
+     and tranContext = #{tranContext,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSfEduItem" parameterType="com.apih5.mybatis.pojo.ZxSfEduItem" >
+    <![CDATA[ 
+        update zx_sf_eduItem
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSfEduItemId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSfEduItemId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+  <select id="uReportForm" resultMap="BaseResultMap">
+ SELECT
+    a.zxSfEduItemId,
+	@rownum := @rownum + 1 AS xuhao,
+	a.name,
+	a.empType,
+	a.idCard,
+	a.tranContext,
+	a.remarks
+FROM
+	( SELECT @rownum := 0 ) r,
+	zx_sf_eduitem a
+	LEFT JOIN zx_sf_edu b ON a.eduID = b.zxSfEduId
+    where b.del_flag = '0'
+    <if test="orgID != null and orgID != ''" >
+      and b.orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="tranContext != null and tranContext != ''" >
+      and a.tranContext = #{tranContext,jdbcType=VARCHAR}
+    </if>
+  </select>
+
+</mapper>

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzDesignAdvistoryUnitStandardMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzDesignAdvistoryUnitStandard" >
+    <id column="design_advistory_unit_standard_id" property="designAdvistoryUnitStandardId" jdbcType="CHAR" />
+    <result column="unit_name" property="unitName" jdbcType="VARCHAR" />
+    <result column="org_code" property="orgCode" jdbcType="VARCHAR" />
+    <result column="unit_type_id" property="unitTypeId" jdbcType="CHAR" />
+    <result column="unit_type_name" property="unitTypeName" jdbcType="VARCHAR" />
+    <result column="in_out_unit_id" property="inOutUnitId" jdbcType="CHAR" />
+    <result column="in_out_unit_name" property="inOutUnitName" jdbcType="VARCHAR" />
+    <result column="library_id" property="libraryId" jdbcType="CHAR" />
+    <result column="library_name" property="libraryName" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    design_advistory_unit_standard_id, unit_name, org_code, unit_type_id, unit_type_name, 
+    in_out_unit_id, in_out_unit_name, library_id, library_name, remarks, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_design_advistory_unit_standard
+    where design_advistory_unit_standard_id = #{designAdvistoryUnitStandardId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_design_advistory_unit_standard
+    where design_advistory_unit_standard_id = #{designAdvistoryUnitStandardId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzDesignAdvistoryUnitStandard" >
+    insert into zj_tz_design_advistory_unit_standard (design_advistory_unit_standard_id, unit_name, org_code, 
+      unit_type_id, unit_type_name, in_out_unit_id, 
+      in_out_unit_name, library_id, library_name, 
+      remarks, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{designAdvistoryUnitStandardId,jdbcType=CHAR}, #{unitName,jdbcType=VARCHAR}, #{orgCode,jdbcType=VARCHAR}, 
+      #{unitTypeId,jdbcType=CHAR}, #{unitTypeName,jdbcType=VARCHAR}, #{inOutUnitId,jdbcType=CHAR}, 
+      #{inOutUnitName,jdbcType=VARCHAR}, #{libraryId,jdbcType=CHAR}, #{libraryName,jdbcType=VARCHAR}, 
+      #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzDesignAdvistoryUnitStandard" >
+    insert into zj_tz_design_advistory_unit_standard
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="designAdvistoryUnitStandardId != null" >
+        design_advistory_unit_standard_id,
+      </if>
+      <if test="unitName != null" >
+        unit_name,
+      </if>
+      <if test="orgCode != null" >
+        org_code,
+      </if>
+      <if test="unitTypeId != null" >
+        unit_type_id,
+      </if>
+      <if test="unitTypeName != null" >
+        unit_type_name,
+      </if>
+      <if test="inOutUnitId != null" >
+        in_out_unit_id,
+      </if>
+      <if test="inOutUnitName != null" >
+        in_out_unit_name,
+      </if>
+      <if test="libraryId != null" >
+        library_id,
+      </if>
+      <if test="libraryName != null" >
+        library_name,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="designAdvistoryUnitStandardId != null" >
+        #{designAdvistoryUnitStandardId,jdbcType=CHAR},
+      </if>
+      <if test="unitName != null" >
+        #{unitName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="unitTypeId != null" >
+        #{unitTypeId,jdbcType=CHAR},
+      </if>
+      <if test="unitTypeName != null" >
+        #{unitTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="inOutUnitId != null" >
+        #{inOutUnitId,jdbcType=CHAR},
+      </if>
+      <if test="inOutUnitName != null" >
+        #{inOutUnitName,jdbcType=VARCHAR},
+      </if>
+      <if test="libraryId != null" >
+        #{libraryId,jdbcType=CHAR},
+      </if>
+      <if test="libraryName != null" >
+        #{libraryName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzDesignAdvistoryUnitStandard" >
+    update zj_tz_design_advistory_unit_standard
+    <set >
+      <if test="unitName != null" >
+        unit_name = #{unitName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        org_code = #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="unitTypeId != null" >
+        unit_type_id = #{unitTypeId,jdbcType=CHAR},
+      </if>
+      <if test="unitTypeName != null" >
+        unit_type_name = #{unitTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="inOutUnitId != null" >
+        in_out_unit_id = #{inOutUnitId,jdbcType=CHAR},
+      </if>
+      <if test="inOutUnitName != null" >
+        in_out_unit_name = #{inOutUnitName,jdbcType=VARCHAR},
+      </if>
+      <if test="libraryId != null" >
+        library_id = #{libraryId,jdbcType=CHAR},
+      </if>
+      <if test="libraryName != null" >
+        library_name = #{libraryName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where design_advistory_unit_standard_id = #{designAdvistoryUnitStandardId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzDesignAdvistoryUnitStandard" >
+    update zj_tz_design_advistory_unit_standard
+    set       unit_name = #{unitName,jdbcType=VARCHAR},
+      org_code = #{orgCode,jdbcType=VARCHAR},
+      unit_type_id = #{unitTypeId,jdbcType=CHAR},
+      unit_type_name = #{unitTypeName,jdbcType=VARCHAR},
+      in_out_unit_id = #{inOutUnitId,jdbcType=CHAR},
+      in_out_unit_name = #{inOutUnitName,jdbcType=VARCHAR},
+      library_id = #{libraryId,jdbcType=CHAR},
+      library_name = #{libraryName,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where design_advistory_unit_standard_id = #{designAdvistoryUnitStandardId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzDesignAdvistoryUnitStandardList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzDesignAdvistoryUnitStandard" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_design_advistory_unit_standard
+    where del_flag = '0'
+    <if test="unitName != null and unitName != ''" >
+     and unit_name LIKE CONCAT('%', #{unitName},'%')
+    </if>
+    <if test="orgCode != null and orgCode != ''" >
+     and org_code = #{orgCode,jdbcType=VARCHAR}
+    </if>
+    <if test="unitTypeId != null and unitTypeId != ''" >
+     and unit_type_id = #{unitTypeId,jdbcType=CHAR}
+    </if>
+    <if test="unitTypeName != null and unitTypeName != ''" >
+	 and unit_type_name = #{unitTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="inOutUnitId != null and inOutUnitId != ''" >
+     and in_out_unit_id = #{inOutUnitId,jdbcType=CHAR}
+    </if>
+    <if test="inOutUnitName != null and inOutUnitName != ''" >
+     and in_out_unit_name = #{inOutUnitName,jdbcType=VARCHAR}
+    </if>
+    <if test="libraryId != null and libraryId != ''" >
+     and library_id = #{libraryId,jdbcType=CHAR}
+    </if>
+    <if test="libraryName != null and libraryName != ''" >
+     and library_name = #{libraryName,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzDesignAdvistoryUnitStandard" parameterType="com.apih5.mybatis.pojo.ZjTzDesignAdvistoryUnitStandard" >
+    <![CDATA[ 
+        update zj_tz_design_advistory_unit_standard
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and design_advistory_unit_standard_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.designAdvistoryUnitStandardId} 
+     </foreach>
+  </delete>
+</mapper>

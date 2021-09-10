@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCtContrProcessMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCtContrProcess" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="parentID" property="parentID" jdbcType="VARCHAR" />
+    <result column="treeNode" property="treeNode" jdbcType="VARCHAR" />
+    <result column="oldTreeNode" property="oldTreeNode" jdbcType="VARCHAR" />
+    <result column="processNo" property="processNo" jdbcType="VARCHAR" />
+    <result column="processName" property="processName" jdbcType="VARCHAR" />
+    <result column="processUnit" property="processUnit" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="priceType" property="priceType" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="deleted" property="deleted" jdbcType="CHAR" />
+    <result column="isLeaf" property="isLeaf" jdbcType="CHAR" />
+    <result column="isGroup" property="isGroup" jdbcType="VARCHAR" />
+    <result column="editUserID" property="editUserID" jdbcType="VARCHAR" />
+    <result column="editUserName" property="editUserName" jdbcType="VARCHAR" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="isProcess" property="isProcess" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, parentID, treeNode, oldTreeNode, processNo, 
+    processName, processUnit, content, priceType, remark, 
+    deleted, isLeaf, isGroup, editUserID, editUserName, 
+    comID, comName, editTime, isProcess, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_ContrProcess
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_ct_ContrProcess
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCtContrProcess" >
+    insert into zx_ct_ContrProcess (id, parentID, treeNode, 
+      oldTreeNode, processNo, processName, 
+      processUnit, content, priceType, 
+      remark, deleted, isLeaf, 
+      isGroup, editUserID, editUserName, 
+      comID, comName, editTime, 
+      isProcess, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{parentID,jdbcType=VARCHAR}, #{treeNode,jdbcType=VARCHAR}, 
+      #{oldTreeNode,jdbcType=VARCHAR}, #{processNo,jdbcType=VARCHAR}, #{processName,jdbcType=VARCHAR}, 
+      #{processUnit,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{priceType,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{deleted,jdbcType=CHAR}, #{isLeaf,jdbcType=CHAR}, 
+      #{isGroup,jdbcType=VARCHAR}, #{editUserID,jdbcType=VARCHAR}, #{editUserName,jdbcType=VARCHAR}, 
+      #{comID,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, 
+      #{isProcess,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCtContrProcess" >
+    insert into zx_ct_ContrProcess
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="parentID != null" >
+        parentID,
+      </if>
+      <if test="treeNode != null" >
+        treeNode,
+      </if>
+      <if test="oldTreeNode != null" >
+        oldTreeNode,
+      </if>
+      <if test="processNo != null" >
+        processNo,
+      </if>
+      <if test="processName != null" >
+        processName,
+      </if>
+      <if test="processUnit != null" >
+        processUnit,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="priceType != null" >
+        priceType,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="isLeaf != null" >
+        isLeaf,
+      </if>
+      <if test="isGroup != null" >
+        isGroup,
+      </if>
+      <if test="editUserID != null" >
+        editUserID,
+      </if>
+      <if test="editUserName != null" >
+        editUserName,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="isProcess != null" >
+        isProcess,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="parentID != null" >
+        #{parentID,jdbcType=VARCHAR},
+      </if>
+      <if test="treeNode != null" >
+        #{treeNode,jdbcType=VARCHAR},
+      </if>
+      <if test="oldTreeNode != null" >
+        #{oldTreeNode,jdbcType=VARCHAR},
+      </if>
+      <if test="processNo != null" >
+        #{processNo,jdbcType=VARCHAR},
+      </if>
+      <if test="processName != null" >
+        #{processName,jdbcType=VARCHAR},
+      </if>
+      <if test="processUnit != null" >
+        #{processUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="priceType != null" >
+        #{priceType,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=CHAR},
+      </if>
+      <if test="isLeaf != null" >
+        #{isLeaf,jdbcType=CHAR},
+      </if>
+      <if test="isGroup != null" >
+        #{isGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="editUserID != null" >
+        #{editUserID,jdbcType=VARCHAR},
+      </if>
+      <if test="editUserName != null" >
+        #{editUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isProcess != null" >
+        #{isProcess,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCtContrProcess" >
+    update zx_ct_ContrProcess
+    <set >
+      <if test="parentID != null" >
+        parentID = #{parentID,jdbcType=VARCHAR},
+      </if>
+      <if test="treeNode != null" >
+        treeNode = #{treeNode,jdbcType=VARCHAR},
+      </if>
+      <if test="oldTreeNode != null" >
+        oldTreeNode = #{oldTreeNode,jdbcType=VARCHAR},
+      </if>
+      <if test="processNo != null" >
+        processNo = #{processNo,jdbcType=VARCHAR},
+      </if>
+      <if test="processName != null" >
+        processName = #{processName,jdbcType=VARCHAR},
+      </if>
+      <if test="processUnit != null" >
+        processUnit = #{processUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="priceType != null" >
+        priceType = #{priceType,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=CHAR},
+      </if>
+      <if test="isLeaf != null" >
+        isLeaf = #{isLeaf,jdbcType=CHAR},
+      </if>
+      <if test="isGroup != null" >
+        isGroup = #{isGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="editUserID != null" >
+        editUserID = #{editUserID,jdbcType=VARCHAR},
+      </if>
+      <if test="editUserName != null" >
+        editUserName = #{editUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isProcess != null" >
+        isProcess = #{isProcess,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCtContrProcess" >
+    update zx_ct_ContrProcess
+    set       parentID = #{parentID,jdbcType=VARCHAR},
+      treeNode = #{treeNode,jdbcType=VARCHAR},
+      oldTreeNode = #{oldTreeNode,jdbcType=VARCHAR},
+      processNo = #{processNo,jdbcType=VARCHAR},
+      processName = #{processName,jdbcType=VARCHAR},
+      processUnit = #{processUnit,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      priceType = #{priceType,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      deleted = #{deleted,jdbcType=CHAR},
+      isLeaf = #{isLeaf,jdbcType=CHAR},
+      isGroup = #{isGroup,jdbcType=VARCHAR},
+      editUserID = #{editUserID,jdbcType=VARCHAR},
+      editUserName = #{editUserName,jdbcType=VARCHAR},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      isProcess = #{isProcess,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxCtContrProcessList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtContrProcess" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_ContrProcess
+    where del_flag = '0'
+    <if test="parentID != null and parentID != ''" >
+     and parentID = #{parentID,jdbcType=VARCHAR}
+    </if>
+    <if test="treeNode != null and treeNode != ''" >
+     and treeNode like CONCAT('%', #{treeNode,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="oldTreeNode != null and oldTreeNode != ''" >
+     and oldTreeNode = #{oldTreeNode,jdbcType=VARCHAR}
+    </if>
+    <if test="processNo != null and processNo != ''" >
+     and processNo = #{processNo,jdbcType=VARCHAR}
+    </if>
+    <if test="processName != null and processName != ''" >
+     and processName = #{processName,jdbcType=VARCHAR}
+    </if>
+    <if test="processUnit != null and processUnit != ''" >
+     and processUnit = #{processUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="content != null and content != ''" >
+     and content = #{content,jdbcType=VARCHAR}
+    </if>
+    <if test="priceType != null and priceType != ''" >
+     and priceType = #{priceType,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="deleted != null and deleted != ''" >
+     and deleted = #{deleted,jdbcType=CHAR}
+    </if>
+    <if test="isLeaf != null and isLeaf != ''" >
+     and isLeaf = #{isLeaf,jdbcType=CHAR}
+    </if>
+    <if test="isGroup != null and isGroup != ''" >
+     and isGroup = #{isGroup,jdbcType=VARCHAR}
+    </if>
+    <if test="editUserID != null and editUserID != ''" >
+     and editUserID = #{editUserID,jdbcType=VARCHAR}
+    </if>
+    <if test="editUserName != null and editUserName != ''" >
+     and editUserName = #{editUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="isProcess != null and isProcess != ''" >
+     and isProcess = #{isProcess,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY processNo ASC 
+  </select>
+  <delete id="batchDeleteUpdateZxCtContrProcess" parameterType="com.apih5.mybatis.pojo.ZxCtContrProcess" >
+    <![CDATA[ 
+        update zx_ct_ContrProcess
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+  
+   <select id="getZxCtContrProcessItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtContrProcess" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_ContrProcess
+    where del_flag = '0'
+    and parentID !='-1' 
+    <if test="parentID != null and parentID != ''" >
+     and parentID = #{parentID,jdbcType=VARCHAR}
+    </if>
+    <if test="treeNode != null and treeNode != ''" >
+     and treeNode LIKE CONCAT('%', #{treeNode},'%')
+    </if>
+    <if test="oldTreeNode != null and oldTreeNode != ''" >
+     and oldTreeNode = #{oldTreeNode,jdbcType=VARCHAR}
+    </if>
+    <if test="processNo != null and processNo != ''" >
+     and processNo = #{processNo,jdbcType=VARCHAR}
+    </if>
+    <if test="processName != null and processName != ''" >
+     and processName = #{processName,jdbcType=VARCHAR}
+    </if>
+    <if test="processUnit != null and processUnit != ''" >
+     and processUnit = #{processUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="content != null and content != ''" >
+     and content = #{content,jdbcType=VARCHAR}
+    </if>
+    <if test="priceType != null and priceType != ''" >
+     and priceType = #{priceType,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="deleted != null and deleted != ''" >
+     and deleted = #{deleted,jdbcType=CHAR}
+    </if>
+    <if test="isLeaf != null and isLeaf != ''" >
+     and isLeaf = #{isLeaf,jdbcType=CHAR}
+    </if>
+    <if test="isGroup != null and isGroup != ''" >
+     and isGroup = #{isGroup,jdbcType=VARCHAR}
+    </if>
+    <if test="editUserID != null and editUserID != ''" >
+     and editUserID = #{editUserID,jdbcType=VARCHAR}
+    </if>
+    <if test="editUserName != null and editUserName != ''" >
+     and editUserName = #{editUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="isProcess != null and isProcess != ''" >
+     and isProcess = #{isProcess,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY processNo ASC 
+  </select>
+  
+   <select id="gcsgGetZxCtContrProcessList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtContrProcess" >
+    select 
+          ccp.*,
+          IFNULL(gj.ct_contr_process_guajie_id,'') as ctContrProcessGuajieId
+    from zx_ct_ContrProcess ccp left join zx_gcsg_ct_contr_process_guajie gj
+                                on ccp.id = gj.processID
+                                and gj.del_flag = '0'
+                                <if test="applyAlterWorksId != null and applyAlterWorksId != ''" >
+                                and gj.apply_alter_works_id = #{applyAlterWorksId,jdbcType=VARCHAR}
+                                </if>
+                                <if test="ctContrApplyId != null and ctContrApplyId != ''" >
+                                and gj.ct_contr_apply_id = #{ctContrApplyId,jdbcType=VARCHAR}
+                                </if>
+                                <if test="ctContractId != null and ctContractId != ''" >
+                                and gj.ct_contract_id = #{ctContractId,jdbcType=VARCHAR}
+                                </if>
+                                <if test="ccWorksId != null and ccWorksId != ''" >
+                                and gj.cc_works_id = #{ccWorksId,jdbcType=VARCHAR}
+                                </if>
+    where ccp.del_flag = '0'
+    <if test="parentID != null and parentID != ''" >
+     and ccp.parentID = #{parentID,jdbcType=VARCHAR}
+    </if>
+    <if test="treeNode != null and treeNode != ''" >
+     and ccp.treeNode like CONCAT('%',  #{treeNode,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="oldTreeNode != null and oldTreeNode != ''" >
+     and ccp.oldTreeNode = #{oldTreeNode,jdbcType=VARCHAR}
+    </if>
+    <if test="processNo != null and processNo != ''" >
+     and ccp.processNo = #{processNo,jdbcType=VARCHAR}
+    </if>
+    <if test="processName != null and processName != ''" >
+     and ccp.processName = #{processName,jdbcType=VARCHAR}
+    </if>
+    <if test="processUnit != null and processUnit != ''" >
+     and ccp.processUnit = #{processUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="content != null and content != ''" >
+     and ccp.content = #{content,jdbcType=VARCHAR}
+    </if>
+    <if test="priceType != null and priceType != ''" >
+     and ccp.priceType = #{priceType,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and ccp.remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="deleted != null and deleted != ''" >
+     and ccp.deleted = #{deleted,jdbcType=CHAR}
+    </if>
+    <if test="isLeaf != null and isLeaf != ''" >
+     and ccp.isLeaf = #{isLeaf,jdbcType=CHAR}
+    </if>
+    <if test="isGroup != null and isGroup != ''" >
+     and ccp.isGroup = #{isGroup,jdbcType=VARCHAR}
+    </if>
+    <if test="editUserID != null and editUserID != ''" >
+     and ccp.editUserID = #{editUserID,jdbcType=VARCHAR}
+    </if>
+    <if test="editUserName != null and editUserName != ''" >
+     and ccp.editUserName = #{editUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and ccp.comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and ccp.comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="isProcess != null and isProcess != ''" >
+     and ccp.isProcess = #{isProcess,jdbcType=VARCHAR}
+    </if>
+    ORDER BY ccp.processNo ASC 
+  </select>
+  
+</mapper>

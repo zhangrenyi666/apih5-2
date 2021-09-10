@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.SysCompanyMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.framework.api.sysdb.entity.SysCompany" >
+    <id column="company_id" property="companyId" jdbcType="CHAR" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="company_url" property="companyUrl" jdbcType="VARCHAR" />
+    <result column="company_remarks" property="companyRemarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    company_id, company_name, company_url, company_remarks, del_flag, 
+    create_time, create_user, modify_time, modify_user
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_company
+    where company_id = #{companyId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_company
+    where company_id = #{companyId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.framework.api.sysdb.entity.SysCompany" >
+    insert into sys_company (company_id, company_name, company_url, 
+      company_remarks, del_flag, create_time, 
+      create_user, modify_time, modify_user
+      )
+    values (#{companyId,jdbcType=CHAR}, #{companyName,jdbcType=VARCHAR}, #{companyUrl,jdbcType=VARCHAR}, 
+      #{companyRemarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.framework.api.sysdb.entity.SysCompany" >
+    insert into sys_company
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="companyId != null" >
+        company_id,
+      </if>
+      <if test="companyName != null" >
+        company_name,
+      </if>
+      <if test="companyUrl != null" >
+        company_url,
+      </if>
+      <if test="companyRemarks != null" >
+        company_remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="companyId != null" >
+        #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyUrl != null" >
+        #{companyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="companyRemarks != null" >
+        #{companyRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.framework.api.sysdb.entity.SysCompany" >
+    update sys_company
+    <set >
+      <if test="companyName != null" >
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyUrl != null" >
+        company_url = #{companyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="companyRemarks != null" >
+        company_remarks = #{companyRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+    </set>
+    where company_id = #{companyId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.framework.api.sysdb.entity.SysCompany" >
+    update sys_company
+    set       company_name = #{companyName,jdbcType=VARCHAR},
+      company_url = #{companyUrl,jdbcType=VARCHAR},
+      company_remarks = #{companyRemarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR}
+    where company_id = #{companyId,jdbcType=CHAR}
+  </update>
+  <select id="selectBySysCompanyList" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.SysCompany" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_company
+    where del_flag = '0'
+    <if test="companyId != null and companyId != ''" >
+     and company_id = #{companyId,jdbcType=CHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and company_name = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="companyUrl != null and companyUrl != ''" >
+     and company_url = #{companyUrl,jdbcType=VARCHAR}
+    </if>
+    <if test="companyRemarks != null and companyRemarks != ''" >
+     and company_remarks = #{companyRemarks,jdbcType=VARCHAR}
+    </if>
+    ORDER BY create_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateSysCompany" parameterType="com.apih5.framework.api.sysdb.entity.SysCompany" >
+    <![CDATA[ 
+        update sys_company
+        set del_flag = '1'
+        where del_flag = '0' and company_id in 
+     ]]> 
+     <foreach collection="list" item = "model" open="(" separator="," close=")">#{model.companyId} 
+     </foreach>
+  </delete>
+  
+  <select id="getSysCompanySelect" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.SysCompany" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_company
+    where del_flag = '0'
+    ORDER BY create_time ASC 
+  </select>
+  <select id="getSysCompanyByUserKey" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.SysCompany" >
+    select 
+    t1.*
+    from sys_company t1, sys_user_company t2
+    where t1.company_id = t2.company_id
+    and t1.del_flag = '0'
+    and t2.del_flag = '0'
+    <if test="userKey != null and userKey != ''" >
+     and t2.user_key = #{userKey,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <select id="getSysDepartmentListByMobile" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.SysUser" >
+       SELECT
+		t3.department_id,
+		t3.department_name,
+		t3.department_remarks,
+		t1.user_key as userKey
+		FROM
+		sys_user AS t1
+		INNER JOIN sys_user_department AS t2 ON t1.user_key = t2.user_key
+		INNER JOIN sys_department AS t3 ON t2.department_id = t3.department_id
+		where t1.del_flag = '0'
+		<if test="_parameter != null">
+			and t1.mobile = #{_parameter.mobile}  
+		</if>
+   </select>
+  
+</mapper>

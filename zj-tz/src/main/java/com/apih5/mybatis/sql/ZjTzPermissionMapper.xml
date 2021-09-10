@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzPermissionMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzPermission" >
+    <id column="permission_id" property="permissionId" jdbcType="CHAR" />
+    <result column="permission_name" property="permissionName" jdbcType="VARCHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="project_short_name" property="projectShortName" jdbcType="VARCHAR" />
+    <result column="ext1" property="ext1" jdbcType="CHAR" />
+    <result column="ext2" property="ext2" jdbcType="VARCHAR" />
+    <result column="ext3" property="ext3" jdbcType="CHAR" />
+    <result column="ext4" property="ext4" jdbcType="VARCHAR" />
+    <result column="ext5" property="ext5" jdbcType="CHAR" />
+    <result column="ext6" property="ext6" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    permission_id, permission_name, project_id, project_name, project_short_name, 
+    ext1, ext2, ext3, ext4, ext5, 
+    ext6, remark, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_permission
+    where permission_id = #{permissionId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_permission
+    where permission_id = #{permissionId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzPermission" >
+    insert into zj_tz_permission (permission_id, permission_name, project_id, 
+      project_name, project_short_name, ext1, 
+      ext2, ext3, ext4, 
+      ext5, ext6, remark, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{permissionId,jdbcType=CHAR}, #{permissionName,jdbcType=VARCHAR}, #{projectId,jdbcType=CHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{projectShortName,jdbcType=VARCHAR}, #{ext1,jdbcType=CHAR}, 
+      #{ext2,jdbcType=VARCHAR}, #{ext3,jdbcType=CHAR}, #{ext4,jdbcType=VARCHAR}, 
+      #{ext5,jdbcType=CHAR}, #{ext6,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzPermission" >
+    insert into zj_tz_permission
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="permissionId != null" >
+        permission_id,
+      </if>
+      <if test="permissionName != null" >
+        permission_name,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="projectShortName != null" >
+        project_short_name,
+      </if>
+      <if test="ext1 != null" >
+        ext1,
+      </if>
+      <if test="ext2 != null" >
+        ext2,
+      </if>
+      <if test="ext3 != null" >
+        ext3,
+      </if>
+      <if test="ext4 != null" >
+        ext4,
+      </if>
+      <if test="ext5 != null" >
+        ext5,
+      </if>
+      <if test="ext6 != null" >
+        ext6,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="permissionId != null" >
+        #{permissionId,jdbcType=CHAR},
+      </if>
+      <if test="permissionName != null" >
+        #{permissionName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectShortName != null" >
+        #{projectShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="ext1 != null" >
+        #{ext1,jdbcType=CHAR},
+      </if>
+      <if test="ext2 != null" >
+        #{ext2,jdbcType=VARCHAR},
+      </if>
+      <if test="ext3 != null" >
+        #{ext3,jdbcType=CHAR},
+      </if>
+      <if test="ext4 != null" >
+        #{ext4,jdbcType=VARCHAR},
+      </if>
+      <if test="ext5 != null" >
+        #{ext5,jdbcType=CHAR},
+      </if>
+      <if test="ext6 != null" >
+        #{ext6,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzPermission" >
+    update zj_tz_permission
+    <set >
+      <if test="permissionName != null" >
+        permission_name = #{permissionName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectShortName != null" >
+        project_short_name = #{projectShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="ext1 != null" >
+        ext1 = #{ext1,jdbcType=CHAR},
+      </if>
+      <if test="ext2 != null" >
+        ext2 = #{ext2,jdbcType=VARCHAR},
+      </if>
+      <if test="ext3 != null" >
+        ext3 = #{ext3,jdbcType=CHAR},
+      </if>
+      <if test="ext4 != null" >
+        ext4 = #{ext4,jdbcType=VARCHAR},
+      </if>
+      <if test="ext5 != null" >
+        ext5 = #{ext5,jdbcType=CHAR},
+      </if>
+      <if test="ext6 != null" >
+        ext6 = #{ext6,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where permission_id = #{permissionId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzPermission" >
+    update zj_tz_permission
+    set       permission_name = #{permissionName,jdbcType=VARCHAR},
+      project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      project_short_name = #{projectShortName,jdbcType=VARCHAR},
+      ext1 = #{ext1,jdbcType=CHAR},
+      ext2 = #{ext2,jdbcType=VARCHAR},
+      ext3 = #{ext3,jdbcType=CHAR},
+      ext4 = #{ext4,jdbcType=VARCHAR},
+      ext5 = #{ext5,jdbcType=CHAR},
+      ext6 = #{ext6,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where permission_id = #{permissionId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzPermissionList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzPermission" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_permission
+    where del_flag = '0'
+    <if test="permissionName != null and permissionName != ''" >
+     and permission_name = #{permissionName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectShortName != null and projectShortName != ''" >
+     and project_short_name = #{projectShortName,jdbcType=VARCHAR}
+    </if>
+    <if test="ext1 != null and ext1 != ''" >
+     and ext1 = #{ext1,jdbcType=CHAR}
+    </if>
+    <if test="ext2 != null and ext2 != ''" >
+     and ext2 = #{ext2,jdbcType=VARCHAR}
+    </if>
+    <if test="ext3 != null and ext3 != ''" >
+     and ext3 = #{ext3,jdbcType=CHAR}
+    </if>
+    <if test="ext4 != null and ext4 != ''" >
+     and ext4 = #{ext4,jdbcType=VARCHAR}
+    </if>
+    <if test="ext5 != null and ext5 != ''" >
+     and ext5 = #{ext5,jdbcType=CHAR}
+    </if>
+    <if test="ext6 != null and ext6 != ''" >
+     and ext6 = #{ext6,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzPermission" parameterType="com.apih5.mybatis.pojo.ZjTzPermission" >
+    <![CDATA[ 
+        update zj_tz_permission
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and permission_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.permissionId} 
+     </foreach>
+  </delete>
+   <!-- 扩展 -->
+  <select id="selectZjTzPermissionListByProject" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzPermission" >
+	    SELECT DISTINCT
+	        t.*,
+	        t3.company_id as company_id,
+	        t3.company_name as companyName,
+	        t3.pro_process_id
+	    FROM zj_tz_permission AS t
+	        INNER JOIN zj_tz_permission_user AS t2 ON t.permission_id = t2.permission_id AND t2.del_flag = '0'
+	        INNER JOIN zj_tz_pro_manage AS t3 ON t.project_id = t3.project_id AND t3.del_flag = '0'
+	    WHERE
+	        t.del_flag = '0'
+	        AND t2.VALUE IN (${value})
+	        <if test="projectShortName != null and projectShortName != ''" >
+	        AND t3.project_short_name LIKE CONCAT('%', #{projectShortName,jdbcType=VARCHAR}, '%')
+	        </if>
+	        <if test="_parameter != null and _parameter.type != null and _parameter.type != ''">
+	        AND (${type})
+	        </if>
+  </select>
+</mapper>

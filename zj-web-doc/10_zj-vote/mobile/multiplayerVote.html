@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>投票</title>
+    <script src="http://static.apih5.cn/votetemp/vue.min.js"></script>
+
+    <script
+      type="text/javascript"
+      src="http://static.apih5.cn/votetemp/style1/js/jquery-2.1.0.js"
+    ></script>
+    <script src="./client_js/layer_mobile.js"></script>
+    <script src="./client_js/login.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <div v-show="!data"><center :class="'noData'">暂无数据</center></div>
+      <!-- 数据区域 -->
+      <div v-show="data" v-cloak>
+        <!-- 标题 -->
+        <div :class="'title'">
+          <h3>{{ title }}</h3>
+        </div>
+
+        <!-- 时间 -->
+        <div :class="'date'">
+          <div>开始时间：{{ startDate | dateF }}</div>
+          <div>结束时间：{{ endDate | dateF }}</div>
+        </div>
+        <div :class="'desc'" v-cloak>请投选 {{ selectionVoteCount }}人</div>
+
+        <ul class="container">
+          <li v-for="item in data">
+            <div :class="'imgCon'">
+              <img :class="'img'" :src="item.imgurl" alt="" />
+            </div>
+
+            <div class="infoCon">
+              <div v-for="v in item.info">
+                <span>{{ v.label }}</span>
+                <span :class="'value'">{{ v.value }}</span>
+              </div>
+            </div>
+
+            <div v-if="over" :class="'buttoned'">
+              停止投票({{ item.voteTotalNum }})
+            </div>
+            <div v-else-if="item.isVoteFlag === '1'" :class="'buttoned'">
+              已投票 ({{ item.voteTotalNum }})
+            </div>
+            <div
+              v-else="!over"
+              :class="'button'"
+              @click="vote(item.candidateId)"
+            >
+              投票({{ item.voteTotalNum }})
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      // var app = new Vue({
+      //   el: "#app",
+      //   data: {
+      //     loading: true,
+      //     data: [
+      //       {
+      //         imgurl:
+      //           "https://publicdomainarchive.com/wp-content/uploads/2014/03/public-domain-images-free-stock-photos-high-quality-resolution-downloads-around-the-house-1-1000x666.jpg",
+      //         info: [
+      //           {
+      //             label: "姓名",
+      //             value: "张三"
+      //           },
+      //           {
+      //             label: "公司",
+      //             value: "公司字段公司司字段公司字段公司字段"
+      //           }
+      //         ]
+      //       },
+      //       {
+      //         imgurl:
+      //           "https://images.pexels.com/photos/1250426/pexels-photo-1250426.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350",
+      //         info: [
+      //           {
+      //             label: "姓名",
+      //             value: "张三"
+      //           },
+      //           {
+      //             label: "公司",
+      //             value: "司字段公司字段"
+      //           }
+      //         ]
+      //       }
+      //     ],
+
+      //     api: window.api,
+      //     button: "button",
+      //     title: "",
+      //     startDate: "",
+      //     endDate: "",
+      //     over: false,
+      //     selectionVoteCount: "0"
+      //   }
+      // });
+
+      window.login(function() {
+        var app = new Vue({
+          el: "#app",
+          data: {
+            loading: true,
+            data: [],
+            api: window.api,
+            button: "button",
+            title: "",
+            startDate: "",
+            endDate: "",
+            over: false,
+            selectionVoteCount: "0"
+          },
+          filters: {
+            dateF: function(value) {
+              //过滤时间
+              if (value) {
+                //24小时制
+                var myDate = new Date(value);
+                var _date =
+                  myDate.getFullYear() +
+                  "-" +
+                  sup(myDate.getMonth() + 1) +
+                  "-" +
+                  sup(myDate.getDate());
+                var _time =
+                  sup(myDate.getHours()) +
+                  ":" +
+                  sup(myDate.getMinutes()) +
+                  ":" +
+                  sup(myDate.getSeconds());
+                function sup(n) {
+                  return n < 10 ? "0" + n : n;
+                }
+                return _date + " " + _time;
+              } else {
+                return "";
+              }
+            }
+          },
+          methods: {
+            vote: function(candidateId) {
+              var _this = this;
+              var params = {
+                voteId: window.getUrlParam("voteId"),
+                candidateId: candidateId
+              };
+              window.myAjax("saveVoteResult", params, function(result) {
+                if (result.success) {
+                  _this.refresh();
+                }
+              });
+            },
+            refresh: function() {
+              //刷新方法
+              var params = {
+                voteId: window.getUrlParam("voteId"),
+                previewFlag: 1
+              };
+              var _v = this; //this指向vue
+              window.myAjax("getVoteCandidateListByPc", params, function(
+                result
+              ) {
+                var data = result.data,
+                  success = result.success,
+                  message = result.message;
+
+                if (success && data && data.voteCandidateList.length > 0) {
+                  //处理数据格式
+                  var voteCandidateList = data.voteCandidateList;
+
+                  //格式化数据
+                  for (var i = 0; i < voteCandidateList.length; i++) {
+                    var _info = _v.renderInfo(voteCandidateList[i]);
+                    voteCandidateList[i].info = _info;
+
+                    var _image =
+                      voteCandidateList[i].image &&
+                      voteCandidateList[i].image.split("|");
+                    voteCandidateList[i].imgurl = _v.api + _image[1];
+                  }
+
+                  //设置数据
+                  _v.data = voteCandidateList;
+                  _v.title = data.voteTitle;
+                  _v.startDate = data.startDate;
+                  _v.endDate = data.endDate;
+                  _v.selectionVoteCount = data.selectionVoteCount;
+                  _v.over = new Date().getTime() > data.endDate;
+                } else {
+                  this.data = false;
+                }
+              });
+            },
+            renderInfo: function(item) {
+              var _tit = [
+                "titleOne",
+                "titleTwo",
+                "titleThree",
+                "titleFour",
+                "titleFive"
+              ];
+              var _con = [
+                "contentOne",
+                "contentTwo",
+                "contentThree",
+                "contentFour",
+                "contentFive"
+              ];
+              var _arr = [];
+              for (var key in item) {
+                for (let i = 0; i < _tit.length; i++) {
+                  if (key === _tit[i] && item[key]) {
+                    _arr.push({
+                      label: item[key],
+                      value: item[_con[i]]
+                    });
+                  }
+                }
+              }
+              return _arr;
+            }
+          },
+          created: function() {
+            this.refresh();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+<style scoped>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .noData {
+    color: #ccc;
+    padding-top: 20px;
+  }
+
+  .container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+  }
+
+  .title {
+    padding: 10px;
+    text-align: center;
+  }
+
+  [v-cloak] {
+    opacity: 0;
+  }
+
+  .desc {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+  }
+
+  .container li {
+    display: block;
+    list-style: none;
+    border: 1px solid #f1f1f1fa;
+    box-sizing: border-box;
+    /* flex-basis: 46%; */
+    width: 48%;
+    margin: 1%;
+    padding: 10px;
+    background: rgba(204, 204, 204, 0.103);
+    border-radius: 5px;
+    position: relative;
+  }
+  .container li .infoCon {
+    /* height: 10vh; */
+    width: 100%;
+    padding: 12px 0;
+    font-size: 15px;
+    box-sizing: border-box;
+    padding-bottom: 30px;
+  }
+  .container li .infoCon > div .value {
+    padding-left: 6px;
+    font-size: 14px;
+    color: #333;
+  }
+  .container li .imgCon {
+    width: 100%;
+    height: 20vh;
+    overflow: hidden;
+    /* padding: 6px; */
+    box-sizing: border-box;
+  }
+  .container li .img {
+    /* width: 100%; */
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .container li .button {
+    /* width: 100%; */
+    text-align: center;
+    padding: 5px 0;
+    box-sizing: border-box;
+    background: #1097f8;
+    color: white;
+    border-radius: 3px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    /* margin-top: 10px; */
+
+    position: absolute;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+  }
+
+  .container li .buttoned {
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+    box-sizing: border-box;
+    color: rgba(248, 245, 245, 0.651);
+    border-radius: 3px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    background: rgba(16, 151, 248, 0.525);
+  }
+
+  .container li .button:hover {
+    background: #108ee9;
+  }
+
+  .date {
+    color: #666;
+    font-size: 14px;
+    padding-left: 10px;
+  }
+</style>

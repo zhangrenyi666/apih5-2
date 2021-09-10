@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmSalaryTrainingSituationMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmSalaryTrainingSituation" >
+    <id column="training_id" property="trainingId" jdbcType="CHAR" />
+    <result column="extension_id" property="extensionId" jdbcType="CHAR" />
+    <result column="start_date" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="end_date" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="training_name" property="trainingName" jdbcType="VARCHAR" />
+    <result column="training_type" property="trainingType" jdbcType="CHAR" />
+    <result column="training_mode" property="trainingMode" jdbcType="CHAR" />
+    <result column="training_hours" property="trainingHours" jdbcType="DECIMAL" />
+    <result column="training_result" property="trainingResult" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    training_id, extension_id, start_date, end_date, training_name, 
+    training_type, training_mode, training_hours, training_result, remarks, sort, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_training_situation
+    where training_id = #{trainingId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_salary_training_situation
+    where training_id = #{trainingId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryTrainingSituation" >
+    insert into zj_xm_salary_training_situation (training_id, extension_id, start_date, 
+      end_date, training_name, training_type, 
+      training_mode, training_hours, training_result, remarks, 
+      sort, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{trainingId,jdbcType=CHAR}, #{extensionId,jdbcType=CHAR}, #{startDate,jdbcType=TIMESTAMP}, 
+      #{endDate,jdbcType=TIMESTAMP}, #{trainingName,jdbcType=VARCHAR}, #{trainingType,jdbcType=CHAR}, 
+      #{trainingMode,jdbcType=CHAR}, #{trainingHours,jdbcType=DECIMAL}, 
+      #{trainingResult,jdbcType=VARCHAR}, 
+      #{remarks,jdbcType=VARCHAR}, 
+      #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryTrainingSituation" >
+    insert into zj_xm_salary_training_situation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="trainingId != null" >
+        training_id,
+      </if>
+      <if test="extensionId != null" >
+        extension_id,
+      </if>
+      <if test="startDate != null" >
+        start_date,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+      <if test="trainingName != null" >
+        training_name,
+      </if>
+      <if test="trainingType != null" >
+        training_type,
+      </if>
+      <if test="trainingMode != null" >
+        training_mode,
+      </if>
+      <if test="trainingHours != null" >
+        training_hours,
+      </if>
+      <if test="trainingResult != null" >
+        training_result,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="trainingId != null" >
+        #{trainingId,jdbcType=CHAR},
+      </if>
+      <if test="extensionId != null" >
+        #{extensionId,jdbcType=CHAR},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trainingName != null" >
+        #{trainingName,jdbcType=VARCHAR},
+      </if>
+      <if test="trainingType != null" >
+        #{trainingType,jdbcType=CHAR},
+      </if>
+      <if test="trainingMode != null" >
+        #{trainingMode,jdbcType=CHAR},
+      </if>
+      <if test="trainingHours != null" >
+        #{trainingHours,jdbcType=DECIMAL},
+      </if>
+      <if test="trainingResult != null" >
+        #{trainingResult,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryTrainingSituation" >
+    update zj_xm_salary_training_situation
+    <set >
+      <if test="extensionId != null" >
+        extension_id = #{extensionId,jdbcType=CHAR},
+      </if>
+      <if test="startDate != null" >
+        start_date = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trainingName != null" >
+        training_name = #{trainingName,jdbcType=VARCHAR},
+      </if>
+      <if test="trainingType != null" >
+        training_type = #{trainingType,jdbcType=CHAR},
+      </if>
+      <if test="trainingMode != null" >
+        training_mode = #{trainingMode,jdbcType=CHAR},
+      </if>
+      <if test="trainingHours != null" >
+        training_hours = #{trainingHours,jdbcType=DECIMAL},
+      </if>
+      <if test="trainingResult != null" >
+        training_result = #{trainingResult,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where training_id = #{trainingId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryTrainingSituation" >
+    update zj_xm_salary_training_situation
+    set       extension_id = #{extensionId,jdbcType=CHAR},
+      start_date = #{startDate,jdbcType=TIMESTAMP},
+      end_date = #{endDate,jdbcType=TIMESTAMP},
+      training_name = #{trainingName,jdbcType=VARCHAR},
+      training_type = #{trainingType,jdbcType=CHAR},
+      training_mode = #{trainingMode,jdbcType=CHAR},
+      training_hours = #{trainingHours,jdbcType=DECIMAL},
+      training_result = #{trainingResult,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where training_id = #{trainingId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmSalaryTrainingSituationList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryTrainingSituation" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_salary_training_situation
+    where del_flag = '0'
+    <if test="extensionId != null and extensionId != ''" >
+     and extension_id = #{extensionId,jdbcType=CHAR}
+    </if>
+    <if test="startDate != null and startDate != ''" >
+     and start_date = #{startDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="endDate != null and endDate != ''" >
+     and end_date = #{endDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="trainingName != null and trainingName != ''" >
+     and training_name = #{trainingName,jdbcType=VARCHAR}
+    </if>
+    <if test="trainingType != null and trainingType != ''" >
+     and training_type = #{trainingType,jdbcType=CHAR}
+    </if>
+    <if test="trainingMode != null and trainingMode != ''" >
+     and training_mode = #{trainingMode,jdbcType=CHAR}
+    </if>
+    <if test="trainingHours != null and trainingHours != ''" >
+     and training_hours = #{trainingHours,jdbcType=DECIMAL}
+    </if>
+    <if test="trainingResult != null and trainingResult != ''" >
+     and training_result = #{trainingResult,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY create_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmSalaryTrainingSituation" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryTrainingSituation" >
+    <![CDATA[ 
+        update zj_xm_salary_training_situation
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and training_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.trainingId} 
+     </foreach>
+  </delete>
+  
+  <delete id="batchDeleteZjXmSalaryTrainingSituationByExtensionId" parameterType="com.apih5.mybatis.pojo.ZjXmSalaryTrainingSituation" >
+    <![CDATA[ 
+        update zj_xm_salary_training_situation
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and extension_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.extensionId} 
+     </foreach>
+  </delete>
+
+</mapper>

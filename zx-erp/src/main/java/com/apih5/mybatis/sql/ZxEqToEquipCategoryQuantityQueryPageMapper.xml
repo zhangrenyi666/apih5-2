@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqToEquipCategoryQuantityQueryPageMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQuantityQueryPage" >
+    <id column="zxEqToEquipCategoryQuantityQueryPageId" property="zxEqToEquipCategoryQuantityQueryPageId" jdbcType="CHAR" />
+    <result column="department_name" property="departmentName" jdbcType="VARCHAR" />
+    <result column="queryDate" property="queryDate" jdbcType="TIMESTAMP" />
+    <result column="selfNum1" property="selfNum1" jdbcType="DECIMAL" />
+    <result column="leaseNum1" property="leaseNum1" jdbcType="DECIMAL" />
+    <result column="outBringNum" property="outBringNum" jdbcType="DECIMAL" />
+    <result column="selfNum2" property="selfNum2" jdbcType="DECIMAL" />
+    <result column="leaseNum2" property="leaseNum2" jdbcType="DECIMAL" />
+    <result column="outBringNum2" property="outBringNum2" jdbcType="DECIMAL" />
+    <result column="selfNum3" property="selfNum3" jdbcType="DECIMAL" />
+    <result column="leaseNum3" property="leaseNum3" jdbcType="DECIMAL" />
+    <result column="outBringNum3" property="outBringNum3" jdbcType="DECIMAL" />
+    <result column="selfNum4" property="selfNum4" jdbcType="DECIMAL" />
+    <result column="leaseNum4" property="leaseNum4" jdbcType="DECIMAL" />
+    <result column="outBringNum4" property="outBringNum4" jdbcType="DECIMAL" />
+    <result column="selfNum5" property="selfNum5" jdbcType="DECIMAL" />
+    <result column="leaseNum5" property="leaseNum5" jdbcType="DECIMAL" />
+    <result column="outBringNum5" property="outBringNum5" jdbcType="DECIMAL" />
+    <result column="selfNum6" property="selfNum6" jdbcType="DECIMAL" />
+    <result column="leaseNum6" property="leaseNum6" jdbcType="DECIMAL" />
+    <result column="outBringNum6" property="outBringNum6" jdbcType="DECIMAL" />
+    <result column="selfNum7" property="selfNum7" jdbcType="DECIMAL" />
+    <result column="leaseNum7" property="leaseNum7" jdbcType="DECIMAL" />
+    <result column="outBringNum7" property="outBringNum7" jdbcType="DECIMAL" />
+    <result column="selfNum8" property="selfNum8" jdbcType="DECIMAL" />
+    <result column="leaseNum8" property="leaseNum8" jdbcType="DECIMAL" />
+    <result column="outBringNum8" property="outBringNum8" jdbcType="DECIMAL" />
+    <result column="selfNum9" property="selfNum9" jdbcType="DECIMAL" />
+    <result column="leaseNum9" property="leaseNum9" jdbcType="DECIMAL" />
+    <result column="outBringNum9" property="outBringNum9" jdbcType="DECIMAL" />
+    <result column="catname" property="catname" jdbcType="VARCHAR" />
+    <result column="selfNum" property="selfNum" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="parentID" property="parentID" jdbcType="VARCHAR" />
+    <result column="queryDate" property="queryDate" jdbcType="TIMESTAMP" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxEqToEquipCategoryQuantityQueryPageId, department_name, queryDate, selfNum1, leaseNum1, 
+    outBringNum, selfNum2, leaseNum2, outBringNum2, selfNum3, 
+    leaseNum3, outBringNum3, selfNum4, leaseNum4, outBringNum4, 
+    selfNum5, leaseNum5, outBringNum5, selfNum6, leaseNum6, 
+    outBringNum6, selfNum7, leaseNum7, outBringNum7, selfNum8, 
+    leaseNum8, outBringNum8, selfNum9, leaseNum9, outBringNum9, 
+    catname, selfNum, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_toEquipCategoryQuantityQueryPage
+    where del_flag = '0' and zxEqToEquipCategoryQuantityQueryPageId = #{zxEqToEquipCategoryQuantityQueryPageId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_toEquipCategoryQuantityQueryPage
+    where zxEqToEquipCategoryQuantityQueryPageId = #{zxEqToEquipCategoryQuantityQueryPageId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQuantityQueryPage" >
+    insert into zx_eq_toEquipCategoryQuantityQueryPage (
+    zxEqToEquipCategoryQuantityQueryPageId, department_name, queryDate, selfNum1, leaseNum1, 
+    outBringNum, selfNum2, leaseNum2, outBringNum2, selfNum3, 
+    leaseNum3, outBringNum3, selfNum4, leaseNum4, outBringNum4, 
+    selfNum5, leaseNum5, outBringNum5, selfNum6, leaseNum6, 
+    outBringNum6, selfNum7, leaseNum7, outBringNum7, selfNum8, 
+    leaseNum8, outBringNum8, selfNum9, leaseNum9, outBringNum9, 
+    catname, selfNum, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{zxEqToEquipCategoryQuantityQueryPageId,jdbcType=CHAR}, #{departmentName,jdbcType=VARCHAR}, #{queryDate,jdbcType=TIMESTAMP}, #{selfNum1,jdbcType=DECIMAL}, #{leaseNum1,jdbcType=DECIMAL}, 
+    #{outBringNum,jdbcType=DECIMAL}, #{selfNum2,jdbcType=DECIMAL}, #{leaseNum2,jdbcType=DECIMAL}, #{outBringNum2,jdbcType=DECIMAL}, #{selfNum3,jdbcType=DECIMAL}, 
+    #{leaseNum3,jdbcType=DECIMAL}, #{outBringNum3,jdbcType=DECIMAL}, #{selfNum4,jdbcType=DECIMAL}, #{leaseNum4,jdbcType=DECIMAL}, #{outBringNum4,jdbcType=DECIMAL}, 
+    #{selfNum5,jdbcType=DECIMAL}, #{leaseNum5,jdbcType=DECIMAL}, #{outBringNum5,jdbcType=DECIMAL}, #{selfNum6,jdbcType=DECIMAL}, #{leaseNum6,jdbcType=DECIMAL}, 
+    #{outBringNum6,jdbcType=DECIMAL}, #{selfNum7,jdbcType=DECIMAL}, #{leaseNum7,jdbcType=DECIMAL}, #{outBringNum7,jdbcType=DECIMAL}, #{selfNum8,jdbcType=DECIMAL}, 
+    #{leaseNum8,jdbcType=DECIMAL}, #{outBringNum8,jdbcType=DECIMAL}, #{selfNum9,jdbcType=DECIMAL}, #{leaseNum9,jdbcType=DECIMAL}, #{outBringNum9,jdbcType=DECIMAL}, 
+    #{catname,jdbcType=VARCHAR}, #{selfNum,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQuantityQueryPage" >
+    insert into zx_eq_toEquipCategoryQuantityQueryPage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxEqToEquipCategoryQuantityQueryPageId != null" >
+        zxEqToEquipCategoryQuantityQueryPageId,
+      </if>
+      <if test="departmentName != null" >
+        department_name,
+      </if>
+      <if test="queryDate != null" >
+        queryDate,
+      </if>
+      <if test="selfNum1 != null" >
+        selfNum1,
+      </if>
+      <if test="leaseNum1 != null" >
+        leaseNum1,
+      </if>
+      <if test="outBringNum != null" >
+        outBringNum,
+      </if>
+      <if test="selfNum2 != null" >
+        selfNum2,
+      </if>
+      <if test="leaseNum2 != null" >
+        leaseNum2,
+      </if>
+      <if test="outBringNum2 != null" >
+        outBringNum2,
+      </if>
+      <if test="selfNum3 != null" >
+        selfNum3,
+      </if>
+      <if test="leaseNum3 != null" >
+        leaseNum3,
+      </if>
+      <if test="outBringNum3 != null" >
+        outBringNum3,
+      </if>
+      <if test="selfNum4 != null" >
+        selfNum4,
+      </if>
+      <if test="leaseNum4 != null" >
+        leaseNum4,
+      </if>
+      <if test="outBringNum4 != null" >
+        outBringNum4,
+      </if>
+      <if test="selfNum5 != null" >
+        selfNum5,
+      </if>
+      <if test="leaseNum5 != null" >
+        leaseNum5,
+      </if>
+      <if test="outBringNum5 != null" >
+        outBringNum5,
+      </if>
+      <if test="selfNum6 != null" >
+        selfNum6,
+      </if>
+      <if test="leaseNum6 != null" >
+        leaseNum6,
+      </if>
+      <if test="outBringNum6 != null" >
+        outBringNum6,
+      </if>
+      <if test="selfNum7 != null" >
+        selfNum7,
+      </if>
+      <if test="leaseNum7 != null" >
+        leaseNum7,
+      </if>
+      <if test="outBringNum7 != null" >
+        outBringNum7,
+      </if>
+      <if test="selfNum8 != null" >
+        selfNum8,
+      </if>
+      <if test="leaseNum8 != null" >
+        leaseNum8,
+      </if>
+      <if test="outBringNum8 != null" >
+        outBringNum8,
+      </if>
+      <if test="selfNum9 != null" >
+        selfNum9,
+      </if>
+      <if test="leaseNum9 != null" >
+        leaseNum9,
+      </if>
+      <if test="outBringNum9 != null" >
+        outBringNum9,
+      </if>
+      <if test="catname != null" >
+        catname,
+      </if>
+      <if test="selfNum != null" >
+        selfNum,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxEqToEquipCategoryQuantityQueryPageId != null" >
+        #{zxEqToEquipCategoryQuantityQueryPageId,jdbcType=CHAR},
+      </if>
+      <if test="departmentName != null" >
+        #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="queryDate != null" >
+        #{queryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="selfNum1 != null" >
+        #{selfNum1,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum1 != null" >
+        #{leaseNum1,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum != null" >
+        #{outBringNum,jdbcType=DECIMAL},
+      </if>
+      <if test="selfNum2 != null" >
+        #{selfNum2,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum2 != null" >
+        #{leaseNum2,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum2 != null" >
+        #{outBringNum2,jdbcType=DECIMAL},
+      </if>
+      <if test="selfNum3 != null" >
+        #{selfNum3,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum3 != null" >
+        #{leaseNum3,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum3 != null" >
+        #{outBringNum3,jdbcType=DECIMAL},
+      </if>
+      <if test="selfNum4 != null" >
+        #{selfNum4,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum4 != null" >
+        #{leaseNum4,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum4 != null" >
+        #{outBringNum4,jdbcType=DECIMAL},
+      </if>
+      <if test="selfNum5 != null" >
+        #{selfNum5,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum5 != null" >
+        #{leaseNum5,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum5 != null" >
+        #{outBringNum5,jdbcType=DECIMAL},
+      </if>
+      <if test="selfNum6 != null" >
+        #{selfNum6,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum6 != null" >
+        #{leaseNum6,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum6 != null" >
+        #{outBringNum6,jdbcType=DECIMAL},
+      </if>
+      <if test="selfNum7 != null" >
+        #{selfNum7,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum7 != null" >
+        #{leaseNum7,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum7 != null" >
+        #{outBringNum7,jdbcType=DECIMAL},
+      </if>
+      <if test="selfNum8 != null" >
+        #{selfNum8,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum8 != null" >
+        #{leaseNum8,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum8 != null" >
+        #{outBringNum8,jdbcType=DECIMAL},
+      </if>
+      <if test="selfNum9 != null" >
+        #{selfNum9,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum9 != null" >
+        #{leaseNum9,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum9 != null" >
+        #{outBringNum9,jdbcType=DECIMAL},
+      </if>
+      <if test="catname != null" >
+        #{catname,jdbcType=VARCHAR},
+      </if>
+      <if test="selfNum != null" >
+        #{selfNum,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQuantityQueryPage" >
+    update zx_eq_toEquipCategoryQuantityQueryPage
+    <set >
+      <if test="departmentName != null" >
+        department_name = #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="queryDate != null" >
+        queryDate = #{queryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="selfNum1 != null" >
+        selfNum1 = #{selfNum1,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum1 != null" >
+        leaseNum1 = #{leaseNum1,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum != null" >
+        outBringNum = #{outBringNum,jdbcType=DECIMAL},
+      </if>
+      <if test="selfNum2 != null" >
+        selfNum2 = #{selfNum2,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum2 != null" >
+        leaseNum2 = #{leaseNum2,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum2 != null" >
+        outBringNum2 = #{outBringNum2,jdbcType=DECIMAL},
+      </if>
+      <if test="selfNum3 != null" >
+        selfNum3 = #{selfNum3,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum3 != null" >
+        leaseNum3 = #{leaseNum3,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum3 != null" >
+        outBringNum3 = #{outBringNum3,jdbcType=DECIMAL},
+      </if>
+      <if test="selfNum4 != null" >
+        selfNum4 = #{selfNum4,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum4 != null" >
+        leaseNum4 = #{leaseNum4,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum4 != null" >
+        outBringNum4 = #{outBringNum4,jdbcType=DECIMAL},
+      </if>
+      <if test="selfNum5 != null" >
+        selfNum5 = #{selfNum5,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum5 != null" >
+        leaseNum5 = #{leaseNum5,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum5 != null" >
+        outBringNum5 = #{outBringNum5,jdbcType=DECIMAL},
+      </if>
+      <if test="selfNum6 != null" >
+        selfNum6 = #{selfNum6,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum6 != null" >
+        leaseNum6 = #{leaseNum6,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum6 != null" >
+        outBringNum6 = #{outBringNum6,jdbcType=DECIMAL},
+      </if>
+      <if test="selfNum7 != null" >
+        selfNum7 = #{selfNum7,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum7 != null" >
+        leaseNum7 = #{leaseNum7,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum7 != null" >
+        outBringNum7 = #{outBringNum7,jdbcType=DECIMAL},
+      </if>
+      <if test="selfNum8 != null" >
+        selfNum8 = #{selfNum8,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum8 != null" >
+        leaseNum8 = #{leaseNum8,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum8 != null" >
+        outBringNum8 = #{outBringNum8,jdbcType=DECIMAL},
+      </if>
+      <if test="selfNum9 != null" >
+        selfNum9 = #{selfNum9,jdbcType=DECIMAL},
+      </if>
+      <if test="leaseNum9 != null" >
+        leaseNum9 = #{leaseNum9,jdbcType=DECIMAL},
+      </if>
+      <if test="outBringNum9 != null" >
+        outBringNum9 = #{outBringNum9,jdbcType=DECIMAL},
+      </if>
+      <if test="catname != null" >
+        catname = #{catname,jdbcType=VARCHAR},
+      </if>
+      <if test="selfNum != null" >
+        selfNum = #{selfNum,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxEqToEquipCategoryQuantityQueryPageId = #{zxEqToEquipCategoryQuantityQueryPageId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQuantityQueryPage" >
+    update zx_eq_toEquipCategoryQuantityQueryPage set 
+      department_name = #{departmentName,jdbcType=VARCHAR},
+      queryDate = #{queryDate,jdbcType=TIMESTAMP},
+      selfNum1 = #{selfNum1,jdbcType=DECIMAL},
+      leaseNum1 = #{leaseNum1,jdbcType=DECIMAL},
+      outBringNum = #{outBringNum,jdbcType=DECIMAL},
+      selfNum2 = #{selfNum2,jdbcType=DECIMAL},
+      leaseNum2 = #{leaseNum2,jdbcType=DECIMAL},
+      outBringNum2 = #{outBringNum2,jdbcType=DECIMAL},
+      selfNum3 = #{selfNum3,jdbcType=DECIMAL},
+      leaseNum3 = #{leaseNum3,jdbcType=DECIMAL},
+      outBringNum3 = #{outBringNum3,jdbcType=DECIMAL},
+      selfNum4 = #{selfNum4,jdbcType=DECIMAL},
+      leaseNum4 = #{leaseNum4,jdbcType=DECIMAL},
+      outBringNum4 = #{outBringNum4,jdbcType=DECIMAL},
+      selfNum5 = #{selfNum5,jdbcType=DECIMAL},
+      leaseNum5 = #{leaseNum5,jdbcType=DECIMAL},
+      outBringNum5 = #{outBringNum5,jdbcType=DECIMAL},
+      selfNum6 = #{selfNum6,jdbcType=DECIMAL},
+      leaseNum6 = #{leaseNum6,jdbcType=DECIMAL},
+      outBringNum6 = #{outBringNum6,jdbcType=DECIMAL},
+      selfNum7 = #{selfNum7,jdbcType=DECIMAL},
+      leaseNum7 = #{leaseNum7,jdbcType=DECIMAL},
+      outBringNum7 = #{outBringNum7,jdbcType=DECIMAL},
+      selfNum8 = #{selfNum8,jdbcType=DECIMAL},
+      leaseNum8 = #{leaseNum8,jdbcType=DECIMAL},
+      outBringNum8 = #{outBringNum8,jdbcType=DECIMAL},
+      selfNum9 = #{selfNum9,jdbcType=DECIMAL},
+      leaseNum9 = #{leaseNum9,jdbcType=DECIMAL},
+      outBringNum9 = #{outBringNum9,jdbcType=DECIMAL},
+      catname = #{catname,jdbcType=VARCHAR},
+      selfNum = #{selfNum,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxEqToEquipCategoryQuantityQueryPageId = #{zxEqToEquipCategoryQuantityQueryPageId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxEqToEquipCategoryQuantityQueryPageList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQuantityQueryPage" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_toEquipCategoryQuantityQueryPage
+    where del_flag = '0'
+    <if test="zxEqToEquipCategoryQuantityQueryPageId != null and zxEqToEquipCategoryQuantityQueryPageId != ''" >
+     and zxEqToEquipCategoryQuantityQueryPageId = #{zxEqToEquipCategoryQuantityQueryPageId,jdbcType=CHAR}
+    </if>
+    <if test="departmentName != null and departmentName != ''" >
+     and department_name = #{departmentName,jdbcType=VARCHAR}
+    </if>
+    <if test="queryDate != null and queryDate != ''" >
+     and queryDate = #{queryDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="selfNum1 != null and selfNum1 != ''" >
+     and selfNum1 = #{selfNum1,jdbcType=DECIMAL}
+    </if>
+    <if test="leaseNum1 != null and leaseNum1 != ''" >
+     and leaseNum1 = #{leaseNum1,jdbcType=DECIMAL}
+    </if>
+    <if test="outBringNum != null and outBringNum != ''" >
+     and outBringNum = #{outBringNum,jdbcType=DECIMAL}
+    </if>
+    <if test="selfNum2 != null and selfNum2 != ''" >
+     and selfNum2 = #{selfNum2,jdbcType=DECIMAL}
+    </if>
+    <if test="leaseNum2 != null and leaseNum2 != ''" >
+     and leaseNum2 = #{leaseNum2,jdbcType=DECIMAL}
+    </if>
+    <if test="outBringNum2 != null and outBringNum2 != ''" >
+     and outBringNum2 = #{outBringNum2,jdbcType=DECIMAL}
+    </if>
+    <if test="selfNum3 != null and selfNum3 != ''" >
+     and selfNum3 = #{selfNum3,jdbcType=DECIMAL}
+    </if>
+    <if test="leaseNum3 != null and leaseNum3 != ''" >
+     and leaseNum3 = #{leaseNum3,jdbcType=DECIMAL}
+    </if>
+    <if test="outBringNum3 != null and outBringNum3 != ''" >
+     and outBringNum3 = #{outBringNum3,jdbcType=DECIMAL}
+    </if>
+    <if test="selfNum4 != null and selfNum4 != ''" >
+     and selfNum4 = #{selfNum4,jdbcType=DECIMAL}
+    </if>
+    <if test="leaseNum4 != null and leaseNum4 != ''" >
+     and leaseNum4 = #{leaseNum4,jdbcType=DECIMAL}
+    </if>
+    <if test="outBringNum4 != null and outBringNum4 != ''" >
+     and outBringNum4 = #{outBringNum4,jdbcType=DECIMAL}
+    </if>
+    <if test="selfNum5 != null and selfNum5 != ''" >
+     and selfNum5 = #{selfNum5,jdbcType=DECIMAL}
+    </if>
+    <if test="leaseNum5 != null and leaseNum5 != ''" >
+     and leaseNum5 = #{leaseNum5,jdbcType=DECIMAL}
+    </if>
+    <if test="outBringNum5 != null and outBringNum5 != ''" >
+     and outBringNum5 = #{outBringNum5,jdbcType=DECIMAL}
+    </if>
+    <if test="selfNum6 != null and selfNum6 != ''" >
+     and selfNum6 = #{selfNum6,jdbcType=DECIMAL}
+    </if>
+    <if test="leaseNum6 != null and leaseNum6 != ''" >
+     and leaseNum6 = #{leaseNum6,jdbcType=DECIMAL}
+    </if>
+    <if test="outBringNum6 != null and outBringNum6 != ''" >
+     and outBringNum6 = #{outBringNum6,jdbcType=DECIMAL}
+    </if>
+    <if test="selfNum7 != null and selfNum7 != ''" >
+     and selfNum7 = #{selfNum7,jdbcType=DECIMAL}
+    </if>
+    <if test="leaseNum7 != null and leaseNum7 != ''" >
+     and leaseNum7 = #{leaseNum7,jdbcType=DECIMAL}
+    </if>
+    <if test="outBringNum7 != null and outBringNum7 != ''" >
+     and outBringNum7 = #{outBringNum7,jdbcType=DECIMAL}
+    </if>
+    <if test="selfNum8 != null and selfNum8 != ''" >
+     and selfNum8 = #{selfNum8,jdbcType=DECIMAL}
+    </if>
+    <if test="leaseNum8 != null and leaseNum8 != ''" >
+     and leaseNum8 = #{leaseNum8,jdbcType=DECIMAL}
+    </if>
+    <if test="outBringNum8 != null and outBringNum8 != ''" >
+     and outBringNum8 = #{outBringNum8,jdbcType=DECIMAL}
+    </if>
+    <if test="selfNum9 != null and selfNum9 != ''" >
+     and selfNum9 = #{selfNum9,jdbcType=DECIMAL}
+    </if>
+    <if test="leaseNum9 != null and leaseNum9 != ''" >
+     and leaseNum9 = #{leaseNum9,jdbcType=DECIMAL}
+    </if>
+    <if test="outBringNum9 != null and outBringNum9 != ''" >
+     and outBringNum9 = #{outBringNum9,jdbcType=DECIMAL}
+    </if>
+    <if test="catname != null and catname != ''" >
+     and catname = #{catname,jdbcType=VARCHAR}
+    </if>
+    <if test="selfNum != null and selfNum != ''" >
+     and selfNum = #{selfNum,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqToEquipCategoryQuantityQueryPage" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQuantityQueryPage" >
+    <![CDATA[ 
+        update zx_eq_toEquipCategoryQuantityQueryPage
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxEqToEquipCategoryQuantityQueryPageId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxEqToEquipCategoryQuantityQueryPageId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+   <select id="selectZxEqToEquipCategoryQuantityQueryPage" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQuantityQueryPage" >
+  DROP TABLE IF EXISTS equipnumdatatabletemp;
+
+CREATE TABLE `equipnumdatatabletemp` (
+  `id` varchar(100) NOT NULL COMMENT '主键id',
+  `ownerOrgID` varchar(255) COMMENT '所属机构ID',
+  `useOrgID` varchar(255) COMMENT '使用机构ID',
+  `resCatalogID` varchar(255) COMMENT '设备分类ID',
+  `selfNum` int default 0 comment '',
+    `leaseNum` int default 0 comment '',
+	  `outBringNum` int default 0 comment '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=330 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+insert into `equipnumdatatabletemp`
+(
+	select data.* 
+	from (
+
+	select e.ID,e.ownerOrgID,e.useOrgID,e.resCatalogID,1 as selfNum, 0 as leaseNum,0 as outBringNum
+	from zx_eq_Equip as e
+	where DATE_FORMAT(e.regdate,'%Y%m%d')&lt;=#{queryDate,jdbcType=TIMESTAMP}
+	  and not exists (select 1 from zx_eq_EquipScrape es where ifnull(es.auditStatus,'')='3' and DATE_FORMAT(es.scrapeDate,'%Y%m%d') &lt;= #{queryDate,jdbcType=TIMESTAMP} and es.equipID=e.ID)
+	  and not exists (select 1 from zx_eq_AssetSell s inner join zx_eq_AssetSellItem si on si.masID=s.ID where ifnull(s.auditStatus,'')='4' and DATE_FORMAT(s.busDate,'%Y%m%d') &lt;= #{queryDate,jdbcType=TIMESTAMP} and si.equipID=e.ID)
+	union all
+
+	select distinct msi.equipID as ID,ms.outOrgID as ownerOrgID,e.useOrgID,e.resCatalogID,1 as selfNum, 0 as leaseNum,0 as outBringNum
+	from zx_eq_MoveSupervisorItem msi 
+	inner join zx_eq_MoveSupervisor ms on msi.masID=ms.ID
+	inner join zx_eq_Equip e on msi.equipID=e.ID
+	where ms.auditStatus in ('2','4') 
+	  and DATE_FORMAT(e.regdate,'%Y%m%d') &lt;= #{queryDate,jdbcType=TIMESTAMP} 
+	  and DATE_FORMAT(ms.busDate,'%Y%m%d') &gt; #{queryDate,jdbcType=TIMESTAMP}
+	union all
+
+	select oe.ID,oe.supplierID as ownerOrgID,oe.orgID as useOrgID,ci.zx_eq_rescategory_id as resCatalogID,0 as selfNum, 1 as leaseNum,0 as outBringNum 
+	from zx_eq_OuterEquip oe
+	inner join zx_ct_eq_contritem ci on oe.contrItem = ci.zx_ct_eq_contritem_ID
+	where DATE_FORMAT(oe.inDate,'%Y%m%d') &lt;= #{queryDate,jdbcType=TIMESTAMP} and (oe.outDate is null or DATE_FORMAT(oe.outDate,'%Y%m%d') &gt; #{queryDate,jdbcType=TIMESTAMP})
+	union all
+
+	select cei.ID,ce.subUnitID as ownerOrgID,ce.orgID as useOrgID,rcp.ID as resCatalogID,0 as selfNum, 0 as leaseNum,1 as outBringNum 
+	from zx_eq_CooEquipItem cei
+	inner join zx_eq_CooEquip ce on cei.masID = ce.ID
+	inner join zx_eq_rescategory rc on rc.ID = cei.equipID
+	inner join zx_eq_rescategory rcp on rcp.parentID = '0003' and rc.bsid||'' like ''||rcp.bsid||'%'
+	where DATE_FORMAT(cei.beginDate,'%Y%m%d') &lt;= #{queryDate,jdbcType=TIMESTAMP} and (cei.endDate is null or DATE_FORMAT(cei.endDate,'%Y%m%d') &gt; #{queryDate,jdbcType=TIMESTAMP})
+	) data
+);
+SELECT * FROM 
+(
+SELECT io.sort,io.department_id as ID,io.department_name,#{queryDate,jdbcType=TIMESTAMP} as queryDate,
+(SELECT sum(ie.selfNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030001%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS selfNum1,
+(SELECT sum(ie.leaseNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030001%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS leaseNum1,
+(SELECT sum(ie.outBringNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030001%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS outBringNum1,
+
+(SELECT sum(ie.selfNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030002%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS selfNum2,
+(SELECT sum(ie.leaseNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030002%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS leaseNum2,
+(SELECT sum(ie.outBringNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030002%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS outBringNum2,
+
+(SELECT sum(ie.selfNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030003%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS selfNum3,
+(SELECT sum(ie.leaseNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030003%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS leaseNum3,
+(SELECT sum(ie.outBringNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030003%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS outBringNum3,
+
+(SELECT sum(ie.selfNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030004%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS selfNum4,
+(SELECT sum(ie.leaseNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030004%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS leaseNum4,
+(SELECT sum(ie.outBringNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030004%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS outBringNum4,
+
+(SELECT sum(ie.selfNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030005%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS selfNum5,
+(SELECT sum(ie.leaseNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030005%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS leaseNum5,
+(SELECT sum(ie.outBringNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030005%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS outBringNum5,
+
+(SELECT sum(ie.selfNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030006%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS selfNum6,
+(SELECT sum(ie.leaseNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030006%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS leaseNum6,
+(SELECT sum(ie.outBringNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030006%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS outBringNum6,
+
+(SELECT sum(ie.selfNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030007%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS selfNum7,
+(SELECT sum(ie.leaseNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030007%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS leaseNum7,
+(SELECT sum(ie.outBringNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030007%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS outBringNum7,
+
+(SELECT sum(ie.selfNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030008%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS selfNum8,
+(SELECT sum(ie.leaseNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030008%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS leaseNum8,
+(SELECT sum(ie.outBringNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030008%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS outBringNum8,
+
+(SELECT sum(ie.selfNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030009%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS selfNum9,
+(SELECT sum(ie.leaseNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030009%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS leaseNum9,
+(SELECT sum(ie.outBringNum) FROM equipnumdatatabletemp ie WHERE (ie.resCatalogID IN (SELECT irc.ID FROM zx_eq_rescategory irc WHERE irc.bsid LIKE '00030009%')) and ie.useOrgID IN (select sp.project_id from sys_department sp where department_path like io.department_path || '%')) AS outBringNum9
+FROM sys_department io
+WHERE io.department_parent_id=#{parentID,jdbcType=VARCHAR}
+GROUP BY io.sort,io.department_id,io.department_name
+)t WHERE selfNum1 IS NOT NULL OR leaseNum1 IS NOT NULL OR outBringNum1 IS NOT NULL OR 
+         selfNum2 IS NOT NULL OR leaseNum2 IS NOT NULL OR outBringNum2 IS NOT NULL OR
+         selfNum3 IS NOT NULL OR leaseNum3 IS NOT NULL OR outBringNum3 IS NOT NULL OR
+         selfNum4 IS NOT NULL OR leaseNum4 IS NOT NULL OR outBringNum4 IS NOT NULL OR
+         selfNum5 IS NOT NULL OR leaseNum5 IS NOT NULL OR outBringNum5 IS NOT NULL OR
+         selfNum6 IS NOT NULL OR leaseNum6 IS NOT NULL OR outBringNum6 IS NOT NULL OR
+         selfNum7 IS NOT NULL OR leaseNum7 IS NOT NULL OR outBringNum7 IS NOT NULL OR
+         selfNum8 IS NOT NULL OR leaseNum8 IS NOT NULL OR outBringNum8 IS NOT NULL OR
+         selfNum9 IS NOT NULL OR leaseNum9 IS NOT NULL OR outBringNum9 IS NOT NULL
+         order by sort
+  
+  </select>
+  <select id="selectZxEqToEquipCategoryQuantityQueryPageChart" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQuantityQueryPage" >
+  DROP TABLE IF EXISTS equipnumdatatabletemp;
+CREATE TABLE `equipnumdatatabletemp` (
+  `id` varchar(100) NOT NULL COMMENT '主键id',
+  `ownerOrgID` varchar(255) COMMENT '所属机构ID',
+  `useOrgID` varchar(255) COMMENT '使用机构ID',
+  `resCatalogID` varchar(255) COMMENT '设备分类ID',
+  `selfNum` int default 0 comment '',
+    `leaseNum` int default 0 comment '',
+	  `outBringNum` int default 0 comment '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=330 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+insert into `equipnumdatatabletemp`
+(
+	select data.* 
+	from (
+	select e.ID,e.ownerOrgID,e.useOrgID,e.resCatalogID,1 as selfNum, 0 as leaseNum,0 as outBringNum
+	from zx_eq_Equip as e
+	where DATE_FORMAT(e.regdate,'%Y%m%d')&gt;=#{queryDate,jdbcType=TIMESTAMP}
+	  and not exists (select 1 from zx_eq_EquipScrape es where ifnull(es.auditStatus,'')='3' and DATE_FORMAT(es.scrapeDate,'%Y%m%d') &gt;= #{queryDate,jdbcType=TIMESTAMP} and es.equipID=e.ID)
+	  and not exists (select 1 from zx_eq_AssetSell s inner join zx_eq_AssetSellItem si on si.masID=s.ID where ifnull(s.auditStatus,'')='4' and DATE_FORMAT(s.busDate,'%Y%m%d') &gt;= #{queryDate,jdbcType=TIMESTAMP} and si.equipID=e.ID)
+	union all
+	select distinct msi.equipID as ID,ms.outOrgID as ownerOrgID,e.useOrgID,e.resCatalogID,1 as selfNum, 0 as leaseNum,0 as outBringNum
+	from zx_eq_MoveSupervisorItem msi 
+	inner join zx_eq_MoveSupervisor ms on msi.masID=ms.ID
+	inner join zx_eq_Equip e on msi.equipID=e.ID
+	where ms.auditStatus in ('2','4') 
+	  and DATE_FORMAT(e.regdate,'%Y%m%d') &gt;= #{queryDate,jdbcType=TIMESTAMP} 
+	  and DATE_FORMAT(ms.busDate,'%Y%m%d') &lt; #{queryDate,jdbcType=TIMESTAMP}
+	union all
+	select oe.ID,oe.supplierID as ownerOrgID,oe.orgID as useOrgID,ci.zx_eq_rescategory_id as resCatalogID,0 as selfNum, 1 as leaseNum,0 as outBringNum 
+	from zx_eq_OuterEquip oe
+	inner join zx_ct_eq_contritem ci on oe.contrItem = ci.zx_ct_eq_contritem_ID
+	where DATE_FORMAT(oe.inDate,'%Y%m%d') &gt;= #{queryDate,jdbcType=TIMESTAMP} and (oe.outDate is null or DATE_FORMAT(oe.outDate,'%Y%m%d') &lt; #{queryDate,jdbcType=TIMESTAMP})
+	union all
+	select cei.ID,ce.subUnitID as ownerOrgID,ce.orgID as useOrgID,rcp.ID as resCatalogID,0 as selfNum, 0 as leaseNum,1 as outBringNum 
+	from zx_eq_CooEquipItem cei
+	inner join zx_eq_CooEquip ce on cei.masID = ce.ID
+	inner join zx_eq_rescategory rc on rc.ID = cei.equipID
+	inner join zx_eq_rescategory rcp on rcp.parentID = '0003' and rc.bsid||'' like ''||rcp.bsid||'%'
+	where DATE_FORMAT(cei.beginDate,'%Y%m%d') &gt;= #{queryDate,jdbcType=TIMESTAMP} and (cei.endDate is null or DATE_FORMAT(cei.endDate,'%Y%m%d') &lt; #{queryDate,jdbcType=TIMESTAMP})
+	) data
+);
+SELECT case irc.catname when '土方、准备作业机械' then '土方机械' when '石方开采及加工机械' then '石方机械' else irc.catname end as catname,sum(t.selfNum) as selfNum
+FROM (
+    SELECT ie.ID ID, subString(irc.bsid,0,9) bsid, ie.selfNum 
+    FROM `equipnumdatatabletemp` ie 
+    INNER JOIN zx_eq_rescategory irc ON irc.ID=ie.resCatalogID
+    where ie.useOrgID IN (SELECT project_id FROM sys_project WHERE department_id LIKE (select department_id from sys_department where department_id=#{orgID,jdbcType=VARCHAR}))
+)t 
+INNER JOIN zx_eq_rescategory irc ON t.bsid=irc.bsid
+where irc.parentID='0003'
+GROUP BY irc.catName
+  </select>
+  <select id="selectZxEqToEquipCategoryQuantityQueryPageRentOut" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQuantityQueryPage" >
+  DROP TABLE IF EXISTS equipnumdatatabletemp;
+CREATE TABLE `equipnumdatatabletemp` (
+  `id` varchar(100) NOT NULL COMMENT '主键id',
+  `ownerOrgID` varchar(255) COMMENT '所属机构ID',
+  `useOrgID` varchar(255) COMMENT '使用机构ID',
+  `resCatalogID` varchar(255) COMMENT '设备分类ID',
+  `selfNum` int default 0 comment '',
+    `leaseNum` int default 0 comment '',
+	  `outBringNum` int default 0 comment '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=330 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+insert into `equipnumdatatabletemp`
+(
+	select data.* 
+	from (
+	select e.ID,e.ownerOrgID,e.useOrgID,e.resCatalogID,1 as selfNum, 0 as leaseNum,0 as outBringNum
+	from zx_eq_Equip as e
+	where DATE_FORMAT(e.regdate,'%Y%m%d')&gt;=#{queryDate,jdbcType=TIMESTAMP}
+	  and not exists (select 1 from zx_eq_EquipScrape es where ifnull(es.auditStatus,'')='3' and DATE_FORMAT(es.scrapeDate,'%Y%m%d') &gt;= #{queryDate,jdbcType=TIMESTAMP} and es.equipID=e.ID)
+	  and not exists (select 1 from zx_eq_AssetSell s inner join zx_eq_AssetSellItem si on si.masID=s.ID where ifnull(s.auditStatus,'')='4' and DATE_FORMAT(s.busDate,'%Y%m%d') &gt;= #{queryDate,jdbcType=TIMESTAMP} and si.equipID=e.ID)
+	union all
+	select distinct msi.equipID as ID,ms.outOrgID as ownerOrgID,e.useOrgID,e.resCatalogID,1 as selfNum, 0 as leaseNum,0 as outBringNum
+	from zx_eq_MoveSupervisorItem msi 
+	inner join zx_eq_MoveSupervisor ms on msi.masID=ms.ID
+	inner join zx_eq_Equip e on msi.equipID=e.ID
+	where ms.auditStatus in ('2','4') 
+	  and DATE_FORMAT(e.regdate,'%Y%m%d') &gt;= #{queryDate,jdbcType=TIMESTAMP} 
+	  and DATE_FORMAT(ms.busDate,'%Y%m%d') &lt; #{queryDate,jdbcType=TIMESTAMP}
+	union all
+	select oe.ID,oe.supplierID as ownerOrgID,oe.orgID as useOrgID,ci.zx_eq_rescategory_id as resCatalogID,0 as selfNum, 1 as leaseNum,0 as outBringNum 
+	from zx_eq_OuterEquip oe
+	inner join zx_ct_eq_contritem ci on oe.contrItem = ci.zx_ct_eq_contritem_ID
+	where DATE_FORMAT(oe.inDate,'%Y%m%d') &gt;= #{queryDate,jdbcType=TIMESTAMP} and (oe.outDate is null or DATE_FORMAT(oe.outDate,'%Y%m%d') &lt; #{queryDate,jdbcType=TIMESTAMP})
+	union all
+	select cei.ID,ce.subUnitID as ownerOrgID,ce.orgID as useOrgID,rcp.ID as resCatalogID,0 as selfNum, 0 as leaseNum,1 as outBringNum 
+	from zx_eq_CooEquipItem cei
+	inner join zx_eq_CooEquip ce on cei.masID = ce.ID
+	inner join zx_eq_rescategory rc on rc.ID = cei.equipID
+	inner join zx_eq_rescategory rcp on rcp.parentID = '0003' and rc.bsid||'' like ''||rcp.bsid||'%'
+	where DATE_FORMAT(cei.beginDate,'%Y%m%d') &gt;= #{queryDate,jdbcType=TIMESTAMP} and (cei.endDate is null or DATE_FORMAT(cei.endDate,'%Y%m%d') &lt; #{queryDate,jdbcType=TIMESTAMP})
+	) data
+);
+SELECT case irc.catname when '土方、准备作业机械' then '土方机械' when '石方开采及加工机械' then '石方机械' else irc.catname end as catname,sum(t.leaseNum) as leaseNum
+FROM (
+    SELECT ie.ID ID, subString(irc.bsid,0,9) bsid, ie.leaseNum 
+    FROM `equipnumdatatabletemp` ie 
+    INNER JOIN zx_eq_rescategory irc ON irc.ID=ie.resCatalogID
+    where ie.useOrgID IN (SELECT project_id FROM sys_project WHERE department_id LIKE (select department_id from sys_department where department_id=#{orgID,jdbcType=TIMESTAMP}))
+)t 
+INNER JOIN zx_eq_rescategory irc ON t.bsid=irc.bsid
+where irc.parentID='0003'
+GROUP BY irc.catName
+  </select>
+  <select id="selectZxEqToEquipCategoryQuantityQueryPageCooperationUnit" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqToEquipCategoryQuantityQueryPage" >
+  DROP TABLE IF EXISTS equipnumdatatabletemp;
+CREATE TABLE `equipnumdatatabletemp` (
+  `id` varchar(100) NOT NULL COMMENT '主键id',
+  `ownerOrgID` varchar(255) COMMENT '所属机构ID',
+  `useOrgID` varchar(255) COMMENT '使用机构ID',
+  `resCatalogID` varchar(255) COMMENT '设备分类ID',
+  `selfNum` int default 0 comment '',
+    `leaseNum` int default 0 comment '',
+	  `outBringNum` int default 0 comment '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=330 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+insert into `equipnumdatatabletemp`
+(
+	select data.* 
+	from (
+	select e.ID,e.ownerOrgID,e.useOrgID,e.resCatalogID,1 as selfNum, 0 as leaseNum,0 as outBringNum
+	from zx_eq_Equip as e
+	where DATE_FORMAT(e.regdate,'%Y%m%d')&gt;=#{queryDate,jdbcType=TIMESTAMP}
+	  and not exists (select 1 from zx_eq_EquipScrape es where ifnull(es.auditStatus,'')='3' and DATE_FORMAT(es.scrapeDate,'%Y%m%d') &gt;= #{queryDate,jdbcType=TIMESTAMP} and es.equipID=e.ID)
+	  and not exists (select 1 from zx_eq_AssetSell s inner join zx_eq_AssetSellItem si on si.masID=s.ID where ifnull(s.auditStatus,'')='4' and DATE_FORMAT(s.busDate,'%Y%m%d') &gt;= #{queryDate,jdbcType=TIMESTAMP} and si.equipID=e.ID)
+	union all
+	select distinct msi.equipID as ID,ms.outOrgID as ownerOrgID,e.useOrgID,e.resCatalogID,1 as selfNum, 0 as leaseNum,0 as outBringNum
+	from zx_eq_MoveSupervisorItem msi 
+	inner join zx_eq_MoveSupervisor ms on msi.masID=ms.ID
+	inner join zx_eq_Equip e on msi.equipID=e.ID
+	where ms.auditStatus in ('2','4') 
+	  and DATE_FORMAT(e.regdate,'%Y%m%d') &gt;= #{queryDate,jdbcType=TIMESTAMP} 
+	  and DATE_FORMAT(ms.busDate,'%Y%m%d') &lt; #{queryDate,jdbcType=TIMESTAMP}
+	union all
+	select oe.ID,oe.supplierID as ownerOrgID,oe.orgID as useOrgID,ci.zx_eq_rescategory_id as resCatalogID,0 as selfNum, 1 as leaseNum,0 as outBringNum 
+	from zx_eq_OuterEquip oe
+	inner join zx_ct_eq_contritem ci on oe.contrItem = ci.zx_ct_eq_contritem_ID
+	where DATE_FORMAT(oe.inDate,'%Y%m%d') &gt;= #{queryDate,jdbcType=TIMESTAMP} and (oe.outDate is null or DATE_FORMAT(oe.outDate,'%Y%m%d') &lt; #{queryDate,jdbcType=TIMESTAMP})
+	union all
+	select cei.ID,ce.subUnitID as ownerOrgID,ce.orgID as useOrgID,rcp.ID as resCatalogID,0 as selfNum, 0 as leaseNum,1 as outBringNum 
+	from zx_eq_CooEquipItem cei
+	inner join zx_eq_CooEquip ce on cei.masID = ce.ID
+	inner join zx_eq_rescategory rc on rc.ID = cei.equipID
+	inner join zx_eq_rescategory rcp on rcp.parentID = '0003' and rc.bsid||'' like ''||rcp.bsid||'%'
+	where DATE_FORMAT(cei.beginDate,'%Y%m%d') &gt;= #{queryDate,jdbcType=TIMESTAMP} and (cei.endDate is null or DATE_FORMAT(cei.endDate,'%Y%m%d') &lt; #{queryDate,jdbcType=TIMESTAMP})
+	) data
+);
+SELECT case irc.catname when '土方、准备作业机械' then '土方机械' when '石方开采及加工机械' then '石方机械' else irc.catname end as catname,sum(t.outBringNum) as outBringNum
+FROM (
+    SELECT ie.ID ID, subString(irc.bsid,0,9) bsid, ie.outBringNum 
+    FROM `equipnumdatatabletemp` ie 
+    INNER JOIN zx_eq_rescategory irc ON irc.ID=ie.resCatalogID
+    where ie.useOrgID IN (SELECT project_id FROM sys_project WHERE department_id LIKE (select department_id from sys_department where department_id=#{orgID,jdbcType=TIMESTAMP}))
+)t 
+INNER JOIN zx_eq_rescategory irc ON t.bsid=irc.bsid
+where irc.parentID='0003'
+GROUP BY irc.catName
+  </select>
+</mapper>

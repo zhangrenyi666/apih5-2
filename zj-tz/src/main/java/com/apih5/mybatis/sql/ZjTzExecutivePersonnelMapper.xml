@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzExecutivePersonnelMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzExecutivePersonnel" >
+    <id column="executive_personnel_id" property="executivePersonnelId" jdbcType="CHAR" />
+    <result column="executive_meet_id" property="executiveMeetId" jdbcType="CHAR" />
+    <result column="shareholder_name" property="shareholderName" jdbcType="VARCHAR" />
+    <result column="proportion" property="proportion" jdbcType="VARCHAR" />
+    <result column="directorz" property="directorz" jdbcType="VARCHAR" />
+    <result column="directorz_old" property="directorzOld" jdbcType="VARCHAR" />
+    <result column="director" property="director" jdbcType="VARCHAR" />
+    <result column="director_old" property="directorOld" jdbcType="VARCHAR" />
+    <result column="supervisorz" property="supervisorz" jdbcType="VARCHAR" />
+    <result column="supervisorz_old" property="supervisorzOld" jdbcType="VARCHAR" />
+    <result column="supervisor" property="supervisor" jdbcType="VARCHAR" />
+    <result column="supervisor_old" property="supervisorOld" jdbcType="VARCHAR" />
+    <result column="manager" property="manager" jdbcType="VARCHAR" />
+    <result column="manager_old" property="managerOld" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="order_num" property="orderNum" jdbcType="INTEGER" />
+    <result column="chief1" property="chief1" jdbcType="VARCHAR" />
+    <result column="chief2" property="chief2" jdbcType="VARCHAR" />
+    <result column="chief3" property="chief3" jdbcType="VARCHAR" />
+    <result column="share_type_id" property="shareTypeId" jdbcType="CHAR" />
+    <result column="share_type" property="shareType" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    executive_personnel_id, executive_meet_id, shareholder_name, proportion, directorz, 
+    directorz_old, director, director_old, supervisorz, supervisorz_old, 
+    supervisor, supervisor_old, manager, manager_old, remarks, 
+    order_num, chief1, chief2, chief3, share_type_id, 
+    share_type, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_executive_personnel
+    where executive_personnel_id = #{executivePersonnelId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_executive_personnel
+    where executive_personnel_id = #{executivePersonnelId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzExecutivePersonnel" >
+    insert into zj_tz_executive_personnel (executive_personnel_id, executive_meet_id, shareholder_name, 
+      proportion, directorz, directorz_old, 
+      director, director_old, supervisorz, 
+      supervisorz_old, supervisor, supervisor_old, 
+      manager, manager_old, remarks, 
+      order_num, chief1, chief2, 
+      chief3, share_type_id, share_type, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{executivePersonnelId,jdbcType=CHAR}, #{executiveMeetId,jdbcType=CHAR}, #{shareholderName,jdbcType=VARCHAR}, 
+      #{proportion,jdbcType=VARCHAR}, #{directorz,jdbcType=VARCHAR}, #{directorzOld,jdbcType=VARCHAR}, 
+      #{director,jdbcType=VARCHAR}, #{directorOld,jdbcType=VARCHAR}, #{supervisorz,jdbcType=VARCHAR}, 
+      #{supervisorzOld,jdbcType=VARCHAR}, #{supervisor,jdbcType=VARCHAR}, #{supervisorOld,jdbcType=VARCHAR}, 
+      #{manager,jdbcType=VARCHAR}, #{managerOld,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{orderNum,jdbcType=INTEGER}, #{chief1,jdbcType=VARCHAR}, #{chief2,jdbcType=VARCHAR}, 
+      #{chief3,jdbcType=VARCHAR}, #{shareTypeId,jdbcType=CHAR}, #{shareType,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzExecutivePersonnel" >
+    insert into zj_tz_executive_personnel
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="executivePersonnelId != null" >
+        executive_personnel_id,
+      </if>
+      <if test="executiveMeetId != null" >
+        executive_meet_id,
+      </if>
+      <if test="shareholderName != null" >
+        shareholder_name,
+      </if>
+      <if test="proportion != null" >
+        proportion,
+      </if>
+      <if test="directorz != null" >
+        directorz,
+      </if>
+      <if test="directorzOld != null" >
+        directorz_old,
+      </if>
+      <if test="director != null" >
+        director,
+      </if>
+      <if test="directorOld != null" >
+        director_old,
+      </if>
+      <if test="supervisorz != null" >
+        supervisorz,
+      </if>
+      <if test="supervisorzOld != null" >
+        supervisorz_old,
+      </if>
+      <if test="supervisor != null" >
+        supervisor,
+      </if>
+      <if test="supervisorOld != null" >
+        supervisor_old,
+      </if>
+      <if test="manager != null" >
+        manager,
+      </if>
+      <if test="managerOld != null" >
+        manager_old,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="orderNum != null" >
+        order_num,
+      </if>
+      <if test="chief1 != null" >
+        chief1,
+      </if>
+      <if test="chief2 != null" >
+        chief2,
+      </if>
+      <if test="chief3 != null" >
+        chief3,
+      </if>
+      <if test="shareTypeId != null" >
+        share_type_id,
+      </if>
+      <if test="shareType != null" >
+        share_type,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="executivePersonnelId != null" >
+        #{executivePersonnelId,jdbcType=CHAR},
+      </if>
+      <if test="executiveMeetId != null" >
+        #{executiveMeetId,jdbcType=CHAR},
+      </if>
+      <if test="shareholderName != null" >
+        #{shareholderName,jdbcType=VARCHAR},
+      </if>
+      <if test="proportion != null" >
+        #{proportion,jdbcType=VARCHAR},
+      </if>
+      <if test="directorz != null" >
+        #{directorz,jdbcType=VARCHAR},
+      </if>
+      <if test="directorzOld != null" >
+        #{directorzOld,jdbcType=VARCHAR},
+      </if>
+      <if test="director != null" >
+        #{director,jdbcType=VARCHAR},
+      </if>
+      <if test="directorOld != null" >
+        #{directorOld,jdbcType=VARCHAR},
+      </if>
+      <if test="supervisorz != null" >
+        #{supervisorz,jdbcType=VARCHAR},
+      </if>
+      <if test="supervisorzOld != null" >
+        #{supervisorzOld,jdbcType=VARCHAR},
+      </if>
+      <if test="supervisor != null" >
+        #{supervisor,jdbcType=VARCHAR},
+      </if>
+      <if test="supervisorOld != null" >
+        #{supervisorOld,jdbcType=VARCHAR},
+      </if>
+      <if test="manager != null" >
+        #{manager,jdbcType=VARCHAR},
+      </if>
+      <if test="managerOld != null" >
+        #{managerOld,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNum != null" >
+        #{orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="chief1 != null" >
+        #{chief1,jdbcType=VARCHAR},
+      </if>
+      <if test="chief2 != null" >
+        #{chief2,jdbcType=VARCHAR},
+      </if>
+      <if test="chief3 != null" >
+        #{chief3,jdbcType=VARCHAR},
+      </if>
+      <if test="shareTypeId != null" >
+        #{shareTypeId,jdbcType=CHAR},
+      </if>
+      <if test="shareType != null" >
+        #{shareType,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzExecutivePersonnel" >
+    update zj_tz_executive_personnel
+    <set >
+      <if test="executiveMeetId != null" >
+        executive_meet_id = #{executiveMeetId,jdbcType=CHAR},
+      </if>
+      <if test="shareholderName != null" >
+        shareholder_name = #{shareholderName,jdbcType=VARCHAR},
+      </if>
+      <if test="proportion != null" >
+        proportion = #{proportion,jdbcType=VARCHAR},
+      </if>
+      <if test="directorz != null" >
+        directorz = #{directorz,jdbcType=VARCHAR},
+      </if>
+      <if test="directorzOld != null" >
+        directorz_old = #{directorzOld,jdbcType=VARCHAR},
+      </if>
+      <if test="director != null" >
+        director = #{director,jdbcType=VARCHAR},
+      </if>
+      <if test="directorOld != null" >
+        director_old = #{directorOld,jdbcType=VARCHAR},
+      </if>
+      <if test="supervisorz != null" >
+        supervisorz = #{supervisorz,jdbcType=VARCHAR},
+      </if>
+      <if test="supervisorzOld != null" >
+        supervisorz_old = #{supervisorzOld,jdbcType=VARCHAR},
+      </if>
+      <if test="supervisor != null" >
+        supervisor = #{supervisor,jdbcType=VARCHAR},
+      </if>
+      <if test="supervisorOld != null" >
+        supervisor_old = #{supervisorOld,jdbcType=VARCHAR},
+      </if>
+      <if test="manager != null" >
+        manager = #{manager,jdbcType=VARCHAR},
+      </if>
+      <if test="managerOld != null" >
+        manager_old = #{managerOld,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNum != null" >
+        order_num = #{orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="chief1 != null" >
+        chief1 = #{chief1,jdbcType=VARCHAR},
+      </if>
+      <if test="chief2 != null" >
+        chief2 = #{chief2,jdbcType=VARCHAR},
+      </if>
+      <if test="chief3 != null" >
+        chief3 = #{chief3,jdbcType=VARCHAR},
+      </if>
+      <if test="shareTypeId != null" >
+        share_type_id = #{shareTypeId,jdbcType=CHAR},
+      </if>
+      <if test="shareType != null" >
+        share_type = #{shareType,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where executive_personnel_id = #{executivePersonnelId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzExecutivePersonnel" >
+    update zj_tz_executive_personnel
+    set       executive_meet_id = #{executiveMeetId,jdbcType=CHAR},
+      shareholder_name = #{shareholderName,jdbcType=VARCHAR},
+      proportion = #{proportion,jdbcType=VARCHAR},
+      directorz = #{directorz,jdbcType=VARCHAR},
+      directorz_old = #{directorzOld,jdbcType=VARCHAR},
+      director = #{director,jdbcType=VARCHAR},
+      director_old = #{directorOld,jdbcType=VARCHAR},
+      supervisorz = #{supervisorz,jdbcType=VARCHAR},
+      supervisorz_old = #{supervisorzOld,jdbcType=VARCHAR},
+      supervisor = #{supervisor,jdbcType=VARCHAR},
+      supervisor_old = #{supervisorOld,jdbcType=VARCHAR},
+      manager = #{manager,jdbcType=VARCHAR},
+      manager_old = #{managerOld,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      order_num = #{orderNum,jdbcType=INTEGER},
+      chief1 = #{chief1,jdbcType=VARCHAR},
+      chief2 = #{chief2,jdbcType=VARCHAR},
+      chief3 = #{chief3,jdbcType=VARCHAR},
+      share_type_id = #{shareTypeId,jdbcType=CHAR},
+      share_type = #{shareType,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where executive_personnel_id = #{executivePersonnelId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzExecutivePersonnelList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzExecutivePersonnel" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_executive_personnel
+    where del_flag = '0'
+    <if test="executiveMeetId != null and executiveMeetId != ''" >
+     and executive_meet_id = #{executiveMeetId,jdbcType=CHAR}
+    </if>
+    <if test="shareholderName != null and shareholderName != ''" >
+     and shareholder_name = #{shareholderName,jdbcType=VARCHAR}
+    </if>
+    <if test="proportion != null and proportion != ''" >
+     and proportion = #{proportion,jdbcType=VARCHAR}
+    </if>
+    <if test="directorz != null and directorz != ''" >
+     and directorz = #{directorz,jdbcType=VARCHAR}
+    </if>
+    <if test="directorzOld != null and directorzOld != ''" >
+     and directorz_old = #{directorzOld,jdbcType=VARCHAR}
+    </if>
+    <if test="director != null and director != ''" >
+     and director = #{director,jdbcType=VARCHAR}
+    </if>
+    <if test="directorOld != null and directorOld != ''" >
+     and director_old = #{directorOld,jdbcType=VARCHAR}
+    </if>
+    <if test="supervisorz != null and supervisorz != ''" >
+     and supervisorz = #{supervisorz,jdbcType=VARCHAR}
+    </if>
+    <if test="supervisorzOld != null and supervisorzOld != ''" >
+     and supervisorz_old = #{supervisorzOld,jdbcType=VARCHAR}
+    </if>
+    <if test="supervisor != null and supervisor != ''" >
+     and supervisor = #{supervisor,jdbcType=VARCHAR}
+    </if>
+    <if test="supervisorOld != null and supervisorOld != ''" >
+     and supervisor_old = #{supervisorOld,jdbcType=VARCHAR}
+    </if>
+    <if test="manager != null and manager != ''" >
+     and manager = #{manager,jdbcType=VARCHAR}
+    </if>
+    <if test="managerOld != null and managerOld != ''" >
+     and manager_old = #{managerOld,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="orderNum != null and orderNum != ''" >
+     and order_num = #{orderNum,jdbcType=INTEGER}
+    </if>
+    <if test="chief1 != null and chief1 != ''" >
+     and chief1 = #{chief1,jdbcType=VARCHAR}
+    </if>
+    <if test="chief2 != null and chief2 != ''" >
+     and chief2 = #{chief2,jdbcType=VARCHAR}
+    </if>
+    <if test="chief3 != null and chief3 != ''" >
+     and chief3 = #{chief3,jdbcType=VARCHAR}
+    </if>
+    <if test="shareTypeId != null and shareTypeId != ''" >
+     and share_type_id = #{shareTypeId,jdbcType=CHAR}
+    </if>
+    <if test="shareType != null and shareType != ''" >
+     and share_type = #{shareType,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzExecutivePersonnel" parameterType="com.apih5.mybatis.pojo.ZjTzExecutivePersonnel" >
+    <![CDATA[ 
+        update zj_tz_executive_personnel
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and executive_personnel_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.executivePersonnelId} 
+     </foreach>
+  </delete>
+   
+  <!-- 扩展 -->
+  <select id="uReportZjTzExecutivePersonnelList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzExecutivePersonnel" >
+    SELECT
+    (SELECT sort1 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_executive_meet AS t WHERE t.del_flag = '0' AND t.executive_meet_id = t1.executive_meet_id) ) AS sort1,
+    (SELECT pro_no FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_executive_meet AS t WHERE t.del_flag = '0' AND t.executive_meet_id = t1.executive_meet_id) ) AS proNo,
+    
+(SELECT project_id FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_executive_meet AS t WHERE t.del_flag = '0' AND t.executive_meet_id = t1.executive_meet_id) ) AS projectId,
+(SELECT company_name FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_executive_meet AS t WHERE t.del_flag = '0' AND t.executive_meet_id = t1.executive_meet_id) ) AS companyName,
+(SELECT project_name FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_executive_meet AS t WHERE t.del_flag = '0' AND t.executive_meet_id = t1.executive_meet_id) ) AS projectName,
+(SELECT company1 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_executive_meet AS t WHERE t.del_flag = '0' AND t.executive_meet_id = t1.executive_meet_id) ) AS company1,
+(SELECT company4/10000 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_executive_meet AS t WHERE t.del_flag = '0' AND t.executive_meet_id = t1.executive_meet_id) ) AS company4,
+(SELECT company3 FROM zj_tz_pro_manage AS m WHERE m.del_flag = '0' AND m.project_id = (SELECT project_id FROM zj_tz_executive_meet AS t WHERE t.del_flag = '0' AND t.executive_meet_id = t1.executive_meet_id) ) AS company3,
+(SELECT legal FROM zj_tz_executive_meet AS m WHERE m.del_flag = '0' AND m.executive_meet_id = t1.executive_meet_id ) AS legal,
+share_type,
+share_type_id,
+shareholder_name,
+proportion,
+directorz,
+director,
+supervisorz,
+supervisor,
+manager,
+remarks
+FROM
+	zj_tz_executive_personnel AS t1
+WHERE
+	EXISTS (SELECT executive_meet_id FROM zj_tz_executive_meet AS tt WHERE tt.del_flag = '0' AND tt.executive_meet_id = t1.executive_meet_id)
+AND del_flag = '0'
+	<if test="projectId != null and projectId != ''" >
+     and (SELECT project_id FROM zj_tz_executive_meet AS t WHERE t.del_flag = '0' AND t.executive_meet_id = t1.executive_meet_id ) = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     and (SELECT project_id FROM zj_tz_executive_meet AS t WHERE t.del_flag = '0' AND t.executive_meet_id = t1.executive_meet_id ) in (${projectIdSql})
+    </if>
+  
+  <if test="groupByFlag != null and groupByFlag != ''" >
+   GROUP BY projectId
+  </if>
+  ORDER BY CAST(sort1 AS DECIMAL),proNo
+ </select>
+</mapper>

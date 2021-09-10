@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmJxQuarterlyAssessmentMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmJxQuarterlyAssessment" >
+    <id column="assessment_id" property="assessmentId" jdbcType="CHAR" />
+    <result column="year_month" property="yearMonth" jdbcType="TIMESTAMP" />
+    <result column="quarter" property="quarter" jdbcType="CHAR" />
+    <result column="assessment_title" property="assessmentTitle" jdbcType="VARCHAR" />
+    <result column="notice_content" property="noticeContent" jdbcType="VARCHAR" />
+    <result column="notice_status" property="noticeStatus" jdbcType="CHAR" />
+    <result column="assessment_status" property="assessmentStatus" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    assessment_id, `year_month`, quarter, assessment_title, notice_content, 
+    notice_status, assessment_status, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_quarterly_assessment
+    where del_flag = '0' and assessment_id = #{assessmentId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_jx_quarterly_assessment
+    where assessment_id = #{assessmentId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyAssessment" >
+    insert into zj_xm_jx_quarterly_assessment (
+    assessment_id, `year_month`, quarter, assessment_title, notice_content, 
+    notice_status, assessment_status, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{assessmentId,jdbcType=CHAR}, #{yearMonth,jdbcType=TIMESTAMP}, #{quarter,jdbcType=CHAR}, #{assessmentTitle,jdbcType=VARCHAR}, #{noticeContent,jdbcType=VARCHAR}, 
+    #{noticeStatus,jdbcType=CHAR}, #{assessmentStatus,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyAssessment" >
+    insert into zj_xm_jx_quarterly_assessment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="assessmentId != null" >
+        assessment_id,
+      </if>
+      <if test="yearMonth != null" >
+        `year_month`,
+      </if>
+      <if test="quarter != null" >
+        quarter,
+      </if>
+      <if test="assessmentTitle != null" >
+        assessment_title,
+      </if>
+      <if test="noticeContent != null" >
+        notice_content,
+      </if>
+      <if test="noticeStatus != null" >
+        notice_status,
+      </if>
+      <if test="assessmentStatus != null" >
+        assessment_status,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="assessmentId != null" >
+        #{assessmentId,jdbcType=CHAR},
+      </if>
+      <if test="yearMonth != null" >
+        #{yearMonth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="quarter != null" >
+        #{quarter,jdbcType=CHAR},
+      </if>
+      <if test="assessmentTitle != null" >
+        #{assessmentTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeContent != null" >
+        #{noticeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeStatus != null" >
+        #{noticeStatus,jdbcType=CHAR},
+      </if>
+      <if test="assessmentStatus != null" >
+        #{assessmentStatus,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyAssessment" >
+    update zj_xm_jx_quarterly_assessment
+    <set >
+      <if test="yearMonth != null" >
+        `year_month` = #{yearMonth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="quarter != null" >
+        quarter = #{quarter,jdbcType=CHAR},
+      </if>
+      <if test="assessmentTitle != null" >
+        assessment_title = #{assessmentTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeContent != null" >
+        notice_content = #{noticeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeStatus != null" >
+        notice_status = #{noticeStatus,jdbcType=CHAR},
+      </if>
+      <if test="assessmentStatus != null" >
+        assessment_status = #{assessmentStatus,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where assessment_id = #{assessmentId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyAssessment" >
+    update zj_xm_jx_quarterly_assessment set 
+      `year_month` = #{yearMonth,jdbcType=TIMESTAMP},
+      quarter = #{quarter,jdbcType=CHAR},
+      assessment_title = #{assessmentTitle,jdbcType=VARCHAR},
+      notice_content = #{noticeContent,jdbcType=VARCHAR},
+      notice_status = #{noticeStatus,jdbcType=CHAR},
+      assessment_status = #{assessmentStatus,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where assessment_id = #{assessmentId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmJxQuarterlyAssessmentList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyAssessment" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_quarterly_assessment
+    where del_flag = '0'
+    <if test="assessmentId != null and assessmentId != ''" >
+     and assessment_id = #{assessmentId,jdbcType=CHAR}
+    </if>
+    <if test="yearMonth != null" >
+     and date_format(`year_month`, '%Y-%m') = date_format(#{yearMonth,jdbcType=TIMESTAMP},'%Y-%m')
+    </if>
+    <if test="quarter != null and quarter != ''" >
+     and quarter = #{quarter,jdbcType=CHAR}
+    </if>
+    <if test="assessmentTitle != null and assessmentTitle != ''" >
+     and assessment_title = #{assessmentTitle,jdbcType=VARCHAR}
+    </if>
+    <if test="noticeContent != null and noticeContent != ''" >
+     and notice_content = #{noticeContent,jdbcType=VARCHAR}
+    </if>
+    <if test="noticeStatus != null and noticeStatus != ''" >
+     and notice_status = #{noticeStatus,jdbcType=CHAR}
+    </if>
+    <if test="assessmentStatus != null and assessmentStatus != ''" >
+     and assessment_status = #{assessmentStatus,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY `year_month` ASC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmJxQuarterlyAssessment" parameterType="com.apih5.mybatis.pojo.ZjXmJxQuarterlyAssessment" >
+    <![CDATA[ 
+        update zj_xm_jx_quarterly_assessment
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and assessment_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.assessmentId} 
+     </foreach>
+  </delete>
+</mapper>

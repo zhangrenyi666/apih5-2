@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCrCustomerInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCrCustomerInfo" >
+    <id column="zx_cr_CustomerInfo_id" property="zxCrCustomerInfoId" jdbcType="CHAR" />
+    <result column="orgCertificate" property="orgCertificate" jdbcType="VARCHAR" />
+    <result column="customerName" property="customerName" jdbcType="VARCHAR" />
+    <result column="regMoney" property="regMoney" jdbcType="DECIMAL" />
+    <result column="corparation" property="corparation" jdbcType="VARCHAR" />
+    <result column="pricinpalIDCard" property="pricinpalIDCard" jdbcType="VARCHAR" />
+    <result column="pricinpalMobile" property="pricinpalMobile" jdbcType="VARCHAR" />
+    <result column="pricinpalAddr" property="pricinpalAddr" jdbcType="VARCHAR" />
+    <result column="licenceNO" property="licenceNO" jdbcType="VARCHAR" />
+    <result column="qualificateNo" property="qualificateNo" jdbcType="VARCHAR" />
+    <result column="taxRegNo" property="taxRegNo" jdbcType="VARCHAR" />
+    <result column="qualifiLevel" property="qualifiLevel" jdbcType="VARCHAR" />
+    <result column="dateStatus" property="dateStatus" jdbcType="VARCHAR" />
+    <result column="strategicSupplier" property="strategicSupplier" jdbcType="VARCHAR" />
+    <result column="creditLineAmt" property="creditLineAmt" jdbcType="DECIMAL" />
+    <result column="referenceOrg" property="referenceOrg" jdbcType="VARCHAR" />
+    <result column="referenceName" property="referenceName" jdbcType="VARCHAR" />
+    <result column="referencePost" property="referencePost" jdbcType="VARCHAR" />
+    <result column="referencePhone" property="referencePhone" jdbcType="VARCHAR" />
+    <result column="usedNames" property="usedNames" jdbcType="VARCHAR" />
+    <result column="isBlack" property="isBlack" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="auditStatus" property="auditStatus" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="scope" property="scope" jdbcType="VARCHAR" />
+    <result column="safeCode" property="safeCode" jdbcType="VARCHAR" />
+    <result column="taxpayerNum" property="taxpayerNum" jdbcType="VARCHAR" />
+    <result column="taxpayerType" property="taxpayerType" jdbcType="VARCHAR" />
+    <result column="bankName" property="bankName" jdbcType="VARCHAR" />
+    <result column="bankAccount" property="bankAccount" jdbcType="VARCHAR" />
+    <result column="useFlag" property="useFlag" jdbcType="VARCHAR" />
+    <result column="realRegMoney" property="realRegMoney" jdbcType="DECIMAL" />
+    <result column="businessType" property="businessType" jdbcType="VARCHAR" />
+    <result column="licenceDate" property="licenceDate" jdbcType="TIMESTAMP" />
+    <result column="qualificateDate" property="qualificateDate" jdbcType="TIMESTAMP" />
+    <result column="taxRegDate" property="taxRegDate" jdbcType="TIMESTAMP" />
+    <result column="safeBookDate" property="safeBookDate" jdbcType="TIMESTAMP" />
+    <result column="comOrgName" property="comOrgName" jdbcType="VARCHAR" />
+    <result column="isNeedfushen" property="isNeedfushen" jdbcType="VARCHAR" />
+    <result column="fuheStatus" property="fuheStatus" jdbcType="VARCHAR" />
+    <result column="fushenStatus" property="fushenStatus" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="companyName" property="companyName" jdbcType="VARCHAR" />
+    <result column="companyId" property="companyId" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="quLevel" property="quLevel" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zx_cr_CustomerInfo_id, orgCertificate, customerName, regMoney, corparation, 
+    pricinpalIDCard, pricinpalMobile, pricinpalAddr, licenceNO, qualificateNo, 
+    taxRegNo, qualifiLevel, dateStatus, strategicSupplier, creditLineAmt, 
+    referenceOrg, referenceName, referencePost, referencePhone, usedNames, 
+    isBlack, orgName, auditStatus, province, area, 
+    scope, safeCode, taxpayerNum, taxpayerType, bankName, 
+    bankAccount, useFlag, realRegMoney, businessType, licenceDate, 
+    qualificateDate, taxRegDate, safeBookDate, comOrgName, isNeedfushen, 
+    fuheStatus, fushenStatus, orgID, companyName, companyId, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cr_CustomerInfo
+    where del_flag = '0' and zx_cr_CustomerInfo_id = #{zxCrCustomerInfoId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_cr_CustomerInfo
+    where zx_cr_CustomerInfo_id = #{zxCrCustomerInfoId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerInfo" >
+    insert into zx_cr_CustomerInfo (
+    zx_cr_CustomerInfo_id, orgCertificate, customerName, regMoney, corparation, 
+    pricinpalIDCard, pricinpalMobile, pricinpalAddr, licenceNO, qualificateNo, 
+    taxRegNo, qualifiLevel, dateStatus, strategicSupplier, creditLineAmt, 
+    referenceOrg, referenceName, referencePost, referencePhone, usedNames, 
+    isBlack, orgName, auditStatus, province, area, 
+    scope, safeCode, taxpayerNum, taxpayerType, bankName, 
+    bankAccount, useFlag, realRegMoney, businessType, licenceDate, 
+    qualificateDate, taxRegDate, safeBookDate, comOrgName, isNeedfushen, 
+    fuheStatus, fushenStatus, orgID, companyName, companyId, 
+    remarks, sort, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxCrCustomerInfoId,jdbcType=CHAR}, #{orgCertificate,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, #{regMoney,jdbcType=DECIMAL}, #{corparation,jdbcType=VARCHAR}, 
+    #{pricinpalIDCard,jdbcType=VARCHAR}, #{pricinpalMobile,jdbcType=VARCHAR}, #{pricinpalAddr,jdbcType=VARCHAR}, #{licenceNO,jdbcType=VARCHAR}, #{qualificateNo,jdbcType=VARCHAR}, 
+    #{taxRegNo,jdbcType=VARCHAR}, #{qualifiLevel,jdbcType=VARCHAR}, #{dateStatus,jdbcType=VARCHAR}, #{strategicSupplier,jdbcType=VARCHAR}, #{creditLineAmt,jdbcType=DECIMAL}, 
+    #{referenceOrg,jdbcType=VARCHAR}, #{referenceName,jdbcType=VARCHAR}, #{referencePost,jdbcType=VARCHAR}, #{referencePhone,jdbcType=VARCHAR}, #{usedNames,jdbcType=VARCHAR}, 
+    #{isBlack,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, #{auditStatus,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, 
+    #{scope,jdbcType=VARCHAR}, #{safeCode,jdbcType=VARCHAR}, #{taxpayerNum,jdbcType=VARCHAR}, #{taxpayerType,jdbcType=VARCHAR}, #{bankName,jdbcType=VARCHAR}, 
+    #{bankAccount,jdbcType=VARCHAR}, #{useFlag,jdbcType=VARCHAR}, #{realRegMoney,jdbcType=DECIMAL}, #{businessType,jdbcType=VARCHAR}, #{licenceDate,jdbcType=TIMESTAMP}, 
+    #{qualificateDate,jdbcType=TIMESTAMP}, #{taxRegDate,jdbcType=TIMESTAMP}, #{safeBookDate,jdbcType=TIMESTAMP}, #{comOrgName,jdbcType=VARCHAR}, #{isNeedfushen,jdbcType=VARCHAR}, 
+    #{fuheStatus,jdbcType=VARCHAR}, #{fushenStatus,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{companyId,jdbcType=VARCHAR}, 
+    #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+    #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerInfo" >
+    insert into zx_cr_CustomerInfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxCrCustomerInfoId != null" >
+        zx_cr_CustomerInfo_id,
+      </if>
+      <if test="orgCertificate != null" >
+        orgCertificate,
+      </if>
+      <if test="customerName != null" >
+        customerName,
+      </if>
+      <if test="regMoney != null" >
+        regMoney,
+      </if>
+      <if test="corparation != null" >
+        corparation,
+      </if>
+      <if test="pricinpalIDCard != null" >
+        pricinpalIDCard,
+      </if>
+      <if test="pricinpalMobile != null" >
+        pricinpalMobile,
+      </if>
+      <if test="pricinpalAddr != null" >
+        pricinpalAddr,
+      </if>
+      <if test="licenceNO != null" >
+        licenceNO,
+      </if>
+      <if test="qualificateNo != null" >
+        qualificateNo,
+      </if>
+      <if test="taxRegNo != null" >
+        taxRegNo,
+      </if>
+      <if test="qualifiLevel != null" >
+        qualifiLevel,
+      </if>
+      <if test="dateStatus != null" >
+        dateStatus,
+      </if>
+      <if test="strategicSupplier != null" >
+        strategicSupplier,
+      </if>
+      <if test="creditLineAmt != null" >
+        creditLineAmt,
+      </if>
+      <if test="referenceOrg != null" >
+        referenceOrg,
+      </if>
+      <if test="referenceName != null" >
+        referenceName,
+      </if>
+      <if test="referencePost != null" >
+        referencePost,
+      </if>
+      <if test="referencePhone != null" >
+        referencePhone,
+      </if>
+      <if test="usedNames != null" >
+        usedNames,
+      </if>
+      <if test="isBlack != null" >
+        isBlack,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="auditStatus != null" >
+        auditStatus,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="scope != null" >
+        scope,
+      </if>
+      <if test="safeCode != null" >
+        safeCode,
+      </if>
+      <if test="taxpayerNum != null" >
+        taxpayerNum,
+      </if>
+      <if test="taxpayerType != null" >
+        taxpayerType,
+      </if>
+      <if test="bankName != null" >
+        bankName,
+      </if>
+      <if test="bankAccount != null" >
+        bankAccount,
+      </if>
+      <if test="useFlag != null" >
+        useFlag,
+      </if>
+      <if test="realRegMoney != null" >
+        realRegMoney,
+      </if>
+      <if test="businessType != null" >
+        businessType,
+      </if>
+      <if test="licenceDate != null" >
+        licenceDate,
+      </if>
+      <if test="qualificateDate != null" >
+        qualificateDate,
+      </if>
+      <if test="taxRegDate != null" >
+        taxRegDate,
+      </if>
+      <if test="safeBookDate != null" >
+        safeBookDate,
+      </if>
+      <if test="comOrgName != null" >
+        comOrgName,
+      </if>
+      <if test="isNeedfushen != null" >
+        isNeedfushen,
+      </if>
+      <if test="fuheStatus != null" >
+        fuheStatus,
+      </if>
+      <if test="fushenStatus != null" >
+        fushenStatus,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="companyName != null" >
+        companyName,
+      </if>
+      <if test="companyId != null" >
+        companyId,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxCrCustomerInfoId != null" >
+        #{zxCrCustomerInfoId,jdbcType=CHAR},
+      </if>
+      <if test="orgCertificate != null" >
+        #{orgCertificate,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="regMoney != null" >
+        #{regMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="corparation != null" >
+        #{corparation,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalIDCard != null" >
+        #{pricinpalIDCard,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalMobile != null" >
+        #{pricinpalMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalAddr != null" >
+        #{pricinpalAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="licenceNO != null" >
+        #{licenceNO,jdbcType=VARCHAR},
+      </if>
+      <if test="qualificateNo != null" >
+        #{qualificateNo,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRegNo != null" >
+        #{taxRegNo,jdbcType=VARCHAR},
+      </if>
+      <if test="qualifiLevel != null" >
+        #{qualifiLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="dateStatus != null" >
+        #{dateStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="strategicSupplier != null" >
+        #{strategicSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="creditLineAmt != null" >
+        #{creditLineAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="referenceOrg != null" >
+        #{referenceOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="referenceName != null" >
+        #{referenceName,jdbcType=VARCHAR},
+      </if>
+      <if test="referencePost != null" >
+        #{referencePost,jdbcType=VARCHAR},
+      </if>
+      <if test="referencePhone != null" >
+        #{referencePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="usedNames != null" >
+        #{usedNames,jdbcType=VARCHAR},
+      </if>
+      <if test="isBlack != null" >
+        #{isBlack,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null" >
+        #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="safeCode != null" >
+        #{safeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxpayerNum != null" >
+        #{taxpayerNum,jdbcType=VARCHAR},
+      </if>
+      <if test="taxpayerType != null" >
+        #{taxpayerType,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null" >
+        #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="useFlag != null" >
+        #{useFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="realRegMoney != null" >
+        #{realRegMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="businessType != null" >
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="licenceDate != null" >
+        #{licenceDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="qualificateDate != null" >
+        #{qualificateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="taxRegDate != null" >
+        #{taxRegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="safeBookDate != null" >
+        #{safeBookDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comOrgName != null" >
+        #{comOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="isNeedfushen != null" >
+        #{isNeedfushen,jdbcType=VARCHAR},
+      </if>
+      <if test="fuheStatus != null" >
+        #{fuheStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fushenStatus != null" >
+        #{fushenStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerInfo" >
+    update zx_cr_CustomerInfo
+    <set >
+      <if test="orgCertificate != null" >
+        orgCertificate = #{orgCertificate,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        customerName = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="regMoney != null" >
+        regMoney = #{regMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="corparation != null" >
+        corparation = #{corparation,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalIDCard != null" >
+        pricinpalIDCard = #{pricinpalIDCard,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalMobile != null" >
+        pricinpalMobile = #{pricinpalMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="pricinpalAddr != null" >
+        pricinpalAddr = #{pricinpalAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="licenceNO != null" >
+        licenceNO = #{licenceNO,jdbcType=VARCHAR},
+      </if>
+      <if test="qualificateNo != null" >
+        qualificateNo = #{qualificateNo,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRegNo != null" >
+        taxRegNo = #{taxRegNo,jdbcType=VARCHAR},
+      </if>
+      <if test="qualifiLevel != null" >
+        qualifiLevel = #{qualifiLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="dateStatus != null" >
+        dateStatus = #{dateStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="strategicSupplier != null" >
+        strategicSupplier = #{strategicSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="creditLineAmt != null" >
+        creditLineAmt = #{creditLineAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="referenceOrg != null" >
+        referenceOrg = #{referenceOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="referenceName != null" >
+        referenceName = #{referenceName,jdbcType=VARCHAR},
+      </if>
+      <if test="referencePost != null" >
+        referencePost = #{referencePost,jdbcType=VARCHAR},
+      </if>
+      <if test="referencePhone != null" >
+        referencePhone = #{referencePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="usedNames != null" >
+        usedNames = #{usedNames,jdbcType=VARCHAR},
+      </if>
+      <if test="isBlack != null" >
+        isBlack = #{isBlack,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        auditStatus = #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null" >
+        scope = #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="safeCode != null" >
+        safeCode = #{safeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxpayerNum != null" >
+        taxpayerNum = #{taxpayerNum,jdbcType=VARCHAR},
+      </if>
+      <if test="taxpayerType != null" >
+        taxpayerType = #{taxpayerType,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        bankName = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null" >
+        bankAccount = #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="useFlag != null" >
+        useFlag = #{useFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="realRegMoney != null" >
+        realRegMoney = #{realRegMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="businessType != null" >
+        businessType = #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="licenceDate != null" >
+        licenceDate = #{licenceDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="qualificateDate != null" >
+        qualificateDate = #{qualificateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="taxRegDate != null" >
+        taxRegDate = #{taxRegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="safeBookDate != null" >
+        safeBookDate = #{safeBookDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comOrgName != null" >
+        comOrgName = #{comOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="isNeedfushen != null" >
+        isNeedfushen = #{isNeedfushen,jdbcType=VARCHAR},
+      </if>
+      <if test="fuheStatus != null" >
+        fuheStatus = #{fuheStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fushenStatus != null" >
+        fushenStatus = #{fushenStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        companyName = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        companyId = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zx_cr_CustomerInfo_id = #{zxCrCustomerInfoId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerInfo" >
+    update zx_cr_CustomerInfo set 
+      orgCertificate = #{orgCertificate,jdbcType=VARCHAR},
+      customerName = #{customerName,jdbcType=VARCHAR},
+      regMoney = #{regMoney,jdbcType=DECIMAL},
+      corparation = #{corparation,jdbcType=VARCHAR},
+      pricinpalIDCard = #{pricinpalIDCard,jdbcType=VARCHAR},
+      pricinpalMobile = #{pricinpalMobile,jdbcType=VARCHAR},
+      pricinpalAddr = #{pricinpalAddr,jdbcType=VARCHAR},
+      licenceNO = #{licenceNO,jdbcType=VARCHAR},
+      qualificateNo = #{qualificateNo,jdbcType=VARCHAR},
+      taxRegNo = #{taxRegNo,jdbcType=VARCHAR},
+      qualifiLevel = #{qualifiLevel,jdbcType=VARCHAR},
+      dateStatus = #{dateStatus,jdbcType=VARCHAR},
+      strategicSupplier = #{strategicSupplier,jdbcType=VARCHAR},
+      creditLineAmt = #{creditLineAmt,jdbcType=DECIMAL},
+      referenceOrg = #{referenceOrg,jdbcType=VARCHAR},
+      referenceName = #{referenceName,jdbcType=VARCHAR},
+      referencePost = #{referencePost,jdbcType=VARCHAR},
+      referencePhone = #{referencePhone,jdbcType=VARCHAR},
+      usedNames = #{usedNames,jdbcType=VARCHAR},
+      isBlack = #{isBlack,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      auditStatus = #{auditStatus,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      scope = #{scope,jdbcType=VARCHAR},
+      safeCode = #{safeCode,jdbcType=VARCHAR},
+      taxpayerNum = #{taxpayerNum,jdbcType=VARCHAR},
+      taxpayerType = #{taxpayerType,jdbcType=VARCHAR},
+      bankName = #{bankName,jdbcType=VARCHAR},
+      bankAccount = #{bankAccount,jdbcType=VARCHAR},
+      useFlag = #{useFlag,jdbcType=VARCHAR},
+      realRegMoney = #{realRegMoney,jdbcType=DECIMAL},
+      businessType = #{businessType,jdbcType=VARCHAR},
+      licenceDate = #{licenceDate,jdbcType=TIMESTAMP},
+      qualificateDate = #{qualificateDate,jdbcType=TIMESTAMP},
+      taxRegDate = #{taxRegDate,jdbcType=TIMESTAMP},
+      safeBookDate = #{safeBookDate,jdbcType=TIMESTAMP},
+      comOrgName = #{comOrgName,jdbcType=VARCHAR},
+      isNeedfushen = #{isNeedfushen,jdbcType=VARCHAR},
+      fuheStatus = #{fuheStatus,jdbcType=VARCHAR},
+      fushenStatus = #{fushenStatus,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      companyName = #{companyName,jdbcType=VARCHAR},
+      companyId = #{companyId,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zx_cr_CustomerInfo_id = #{zxCrCustomerInfoId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxCrCustomerInfoList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerInfo" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cr_CustomerInfo
+    where del_flag = '0'
+    <if test="zxCrCustomerInfoId != null and zxCrCustomerInfoId != ''" >
+     and zx_cr_CustomerInfo_id = #{zxCrCustomerInfoId,jdbcType=CHAR}
+    </if>
+    <if test="orgCertificate != null and orgCertificate != ''" >
+     and orgCertificate = #{orgCertificate,jdbcType=VARCHAR}
+    </if>
+    <if test="customerName != null and customerName != ''" >
+     and customerName = #{customerName,jdbcType=VARCHAR}
+    </if>
+    <if test="regMoney != null and regMoney != ''" >
+     and regMoney = #{regMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="corparation != null and corparation != ''" >
+     and corparation = #{corparation,jdbcType=VARCHAR}
+    </if>
+    <if test="pricinpalIDCard != null and pricinpalIDCard != ''" >
+     and pricinpalIDCard = #{pricinpalIDCard,jdbcType=VARCHAR}
+    </if>
+    <if test="pricinpalMobile != null and pricinpalMobile != ''" >
+     and pricinpalMobile = #{pricinpalMobile,jdbcType=VARCHAR}
+    </if>
+    <if test="pricinpalAddr != null and pricinpalAddr != ''" >
+     and pricinpalAddr = #{pricinpalAddr,jdbcType=VARCHAR}
+    </if>
+    <if test="licenceNO != null and licenceNO != ''" >
+     and licenceNO = #{licenceNO,jdbcType=VARCHAR}
+    </if>
+    <if test="qualificateNo != null and qualificateNo != ''" >
+     and qualificateNo = #{qualificateNo,jdbcType=VARCHAR}
+    </if>
+    <if test="taxRegNo != null and taxRegNo != ''" >
+     and taxRegNo = #{taxRegNo,jdbcType=VARCHAR}
+    </if>
+    <if test="qualifiLevel != null and qualifiLevel != ''" >
+     and qualifiLevel = #{qualifiLevel,jdbcType=VARCHAR}
+    </if>
+    <if test="dateStatus != null and dateStatus != ''" >
+     and dateStatus = #{dateStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="strategicSupplier != null and strategicSupplier != ''" >
+     and strategicSupplier = #{strategicSupplier,jdbcType=VARCHAR}
+    </if>
+    <if test="creditLineAmt != null and creditLineAmt != ''" >
+     and creditLineAmt = #{creditLineAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="referenceOrg != null and referenceOrg != ''" >
+     and referenceOrg = #{referenceOrg,jdbcType=VARCHAR}
+    </if>
+    <if test="referenceName != null and referenceName != ''" >
+     and referenceName = #{referenceName,jdbcType=VARCHAR}
+    </if>
+    <if test="referencePost != null and referencePost != ''" >
+     and referencePost = #{referencePost,jdbcType=VARCHAR}
+    </if>
+    <if test="referencePhone != null and referencePhone != ''" >
+     and referencePhone = #{referencePhone,jdbcType=VARCHAR}
+    </if>
+    <if test="usedNames != null and usedNames != ''" >
+     and usedNames = #{usedNames,jdbcType=VARCHAR}
+    </if>
+    <if test="isBlack != null and isBlack != ''" >
+     and isBlack = #{isBlack,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="auditStatus != null and auditStatus != ''" >
+     and auditStatus = #{auditStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="province != null and province != ''" >
+     and province = #{province,jdbcType=VARCHAR}
+    </if>
+    <if test="area != null and area != ''" >
+     and area = #{area,jdbcType=VARCHAR}
+    </if>
+    <if test="scope != null and scope != ''" >
+     and scope = #{scope,jdbcType=VARCHAR}
+    </if>
+    <if test="safeCode != null and safeCode != ''" >
+     and safeCode = #{safeCode,jdbcType=VARCHAR}
+    </if>
+    <if test="taxpayerNum != null and taxpayerNum != ''" >
+     and taxpayerNum = #{taxpayerNum,jdbcType=VARCHAR}
+    </if>
+    <if test="taxpayerType != null and taxpayerType != ''" >
+     and taxpayerType = #{taxpayerType,jdbcType=VARCHAR}
+    </if>
+    <if test="bankName != null and bankName != ''" >
+     and bankName = #{bankName,jdbcType=VARCHAR}
+    </if>
+    <if test="bankAccount != null and bankAccount != ''" >
+     and bankAccount = #{bankAccount,jdbcType=VARCHAR}
+    </if>
+    <if test="useFlag != null and useFlag != ''" >
+     and useFlag = #{useFlag,jdbcType=VARCHAR}
+    </if>
+    <if test="realRegMoney != null and realRegMoney != ''" >
+     and realRegMoney = #{realRegMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="businessType != null and businessType != ''" >
+     and businessType = #{businessType,jdbcType=VARCHAR}
+    </if>
+    <if test="licenceDate != null and licenceDate != ''" >
+     and licenceDate = #{licenceDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="qualificateDate != null and qualificateDate != ''" >
+     and qualificateDate = #{qualificateDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="taxRegDate != null and taxRegDate != ''" >
+     and taxRegDate = #{taxRegDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="safeBookDate != null and safeBookDate != ''" >
+     and safeBookDate = #{safeBookDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="comOrgName != null and comOrgName != ''" >
+     and comOrgName = #{comOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="isNeedfushen != null and isNeedfushen != ''" >
+     and isNeedfushen = #{isNeedfushen,jdbcType=VARCHAR}
+    </if>
+    <if test="fuheStatus != null and fuheStatus != ''" >
+     and fuheStatus = #{fuheStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="fushenStatus != null and fushenStatus != ''" >
+     and fushenStatus = #{fushenStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and companyName = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and companyId = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxCrCustomerInfo" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerInfo" >
+    <![CDATA[ 
+        update zx_cr_CustomerInfo
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zx_cr_CustomerInfo_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxCrCustomerInfoId} 
+     </foreach>
+  </delete>
+    <select id="selectAll" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerInfo" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cr_CustomerInfo
+    </select>
+    <select id="selectByZxCrCustomerInfoListOne" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCrCustomerInfo" >
+    select 
+    a.zx_cr_customerinfo_id,
+	 a.orgID,
+    a.customerName,
+       a.orgName,
+	   a.licenceNO,
+	   b.quLevel as qualifiLevel,
+	   a.safeCode,
+	   b.editTime
+    from zx_cr_CustomerInfo a  left join  zx_cr_CustomerInfoQa b on a.zx_cr_customerinfo_id=b.bisID
+    where a.del_flag = '0'
+    <if test="zxCrCustomerInfoId != null and zxCrCustomerInfoId != ''" >
+     and a.zx_cr_CustomerInfo_id = #{zxCrCustomerInfoId,jdbcType=CHAR}
+    </if>
+  </select>
+</mapper>

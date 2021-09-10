@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxScGroupSchemeMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxScGroupScheme" >
+    <id column="zxScGroupSchemeId" property="zxScGroupSchemeId" jdbcType="CHAR" />
+    <result column="schemeNo" property="schemeNo" jdbcType="VARCHAR" />
+    <result column="schemeName" property="schemeName" jdbcType="VARCHAR" />
+    <result column="projectId" property="projectId" jdbcType="VARCHAR" />
+    <result column="projectName" property="projectName" jdbcType="VARCHAR" />
+    <result column="comId" property="comId" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="projectType" property="projectType" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="contrDuration" property="contrDuration" jdbcType="VARCHAR" />
+    <result column="planDate" property="planDate" jdbcType="TIMESTAMP" />
+    <result column="contrEndDate" property="contrEndDate" jdbcType="TIMESTAMP" />
+    <result column="contractAmt" property="contractAmt" jdbcType="DECIMAL" />
+    <result column="projManager" property="projManager" jdbcType="VARCHAR" />
+    <result column="projEngineer" property="projEngineer" jdbcType="VARCHAR" />
+    <result column="engineerTel" property="engineerTel" jdbcType="VARCHAR" />
+    <result column="schemeAppro" property="schemeAppro" jdbcType="VARCHAR" />
+    <result column="approTel" property="approTel" jdbcType="VARCHAR" />
+    <result column="beginer" property="beginer" jdbcType="VARCHAR" />
+    <result column="apih5_flow_status" property="apih5FlowStatus" jdbcType="VARCHAR" />
+    <result column="instProcessId" property="instProcessId" jdbcType="VARCHAR" />
+    <result column="workitemId" property="workitemId" jdbcType="VARCHAR" />
+    <result column="comOrders" property="comOrders" jdbcType="VARCHAR" />
+    <result column="bizDate" property="bizDate" jdbcType="TIMESTAMP" />
+    <result column="passTime" property="passTime" jdbcType="TIMESTAMP" />
+    <result column="serialNumber" property="serialNumber" jdbcType="VARCHAR" />
+    <result column="companyId" property="companyId" jdbcType="VARCHAR" />
+    <result column="companyName" property="companyName" jdbcType="VARCHAR" />
+    <result column="opinion_fieId1" property="opinionFieId1" jdbcType="VARCHAR" />
+    <result column="opinion_fieId2" property="opinionFieId2" jdbcType="VARCHAR" />
+    <result column="opinion_fieId3" property="opinionFieId3" jdbcType="VARCHAR" />
+    <result column="opinion_fieId4" property="opinionFieId4" jdbcType="VARCHAR" />
+    <result column="opinion_fieId5" property="opinionFieId5" jdbcType="VARCHAR" />
+    <result column="opinion_fieId6" property="opinionFieId6" jdbcType="VARCHAR" />
+    <result column="opinion_fieId7" property="opinionFieId7" jdbcType="VARCHAR" />
+    <result column="opinion_fieId8" property="opinionFieId8" jdbcType="VARCHAR" />
+    <result column="opinion_fieId9" property="opinionFieId9" jdbcType="VARCHAR" />
+    <result column="opinion_fieId10" property="opinionFieId10" jdbcType="VARCHAR" />
+    <result column="flow_id" property="flowId" jdbcType="CHAR" />
+    <result column="work_id" property="workId" jdbcType="CHAR" />
+    <result column="apih5_flow_node_status" property="apih5FlowNodeStatus" jdbcType="CHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxScGroupSchemeId, schemeNo, schemeName, projectId, projectName, 
+    comId, comName, projectType, province, contrDuration, 
+    planDate, contrEndDate, contractAmt, projManager, projEngineer, 
+    engineerTel, schemeAppro, approTel, beginer, apih5_flow_status, 
+    instProcessId, workitemId, comOrders, bizDate, passTime, 
+    serialNumber, companyId, companyName, opinion_fieId1, opinion_fieId2, 
+    opinion_fieId3, opinion_fieId4, opinion_fieId5, opinion_fieId6, opinion_fieId7, 
+    opinion_fieId8, opinion_fieId9, opinion_fieId10, flow_id, work_id, 
+    apih5_flow_node_status, remark, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sc_GroupScheme
+    where del_flag = '0' and zxScGroupSchemeId = #{zxScGroupSchemeId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sc_GroupScheme
+    where zxScGroupSchemeId = #{zxScGroupSchemeId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxScGroupScheme" >
+    insert into zx_sc_GroupScheme (
+    zxScGroupSchemeId, schemeNo, schemeName, projectId, projectName, 
+    comId, comName, projectType, province, contrDuration, 
+    planDate, contrEndDate, contractAmt, projManager, projEngineer, 
+    engineerTel, schemeAppro, approTel, beginer, apih5_flow_status, 
+    instProcessId, workitemId, comOrders, bizDate, passTime, 
+    serialNumber, companyId, companyName, opinion_fieId1, opinion_fieId2, 
+    opinion_fieId3, opinion_fieId4, opinion_fieId5, opinion_fieId6, opinion_fieId7, 
+    opinion_fieId8, opinion_fieId9, opinion_fieId10, flow_id, work_id, 
+    apih5_flow_node_status, remark, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxScGroupSchemeId,jdbcType=CHAR}, #{schemeNo,jdbcType=VARCHAR}, #{schemeName,jdbcType=VARCHAR}, #{projectId,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, 
+    #{comId,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, #{projectType,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{contrDuration,jdbcType=VARCHAR}, 
+    #{planDate,jdbcType=TIMESTAMP}, #{contrEndDate,jdbcType=TIMESTAMP}, #{contractAmt,jdbcType=DECIMAL}, #{projManager,jdbcType=VARCHAR}, #{projEngineer,jdbcType=VARCHAR}, 
+    #{engineerTel,jdbcType=VARCHAR}, #{schemeAppro,jdbcType=VARCHAR}, #{approTel,jdbcType=VARCHAR}, #{beginer,jdbcType=VARCHAR}, #{apih5FlowStatus,jdbcType=VARCHAR}, 
+    #{instProcessId,jdbcType=VARCHAR}, #{workitemId,jdbcType=VARCHAR}, #{comOrders,jdbcType=VARCHAR}, #{bizDate,jdbcType=TIMESTAMP}, #{passTime,jdbcType=TIMESTAMP}, 
+    #{serialNumber,jdbcType=VARCHAR}, #{companyId,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{opinionFieId1,jdbcType=VARCHAR}, #{opinionFieId2,jdbcType=VARCHAR}, 
+    #{opinionFieId3,jdbcType=VARCHAR}, #{opinionFieId4,jdbcType=VARCHAR}, #{opinionFieId5,jdbcType=VARCHAR}, #{opinionFieId6,jdbcType=VARCHAR}, #{opinionFieId7,jdbcType=VARCHAR}, 
+    #{opinionFieId8,jdbcType=VARCHAR}, #{opinionFieId9,jdbcType=VARCHAR}, #{opinionFieId10,jdbcType=VARCHAR}, #{flowId,jdbcType=CHAR}, #{workId,jdbcType=CHAR}, 
+    #{apih5FlowNodeStatus,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+    #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxScGroupScheme" >
+    insert into zx_sc_GroupScheme
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxScGroupSchemeId != null" >
+        zxScGroupSchemeId,
+      </if>
+      <if test="schemeNo != null" >
+        schemeNo,
+      </if>
+      <if test="schemeName != null" >
+        schemeName,
+      </if>
+      <if test="projectId != null" >
+        projectId,
+      </if>
+      <if test="projectName != null" >
+        projectName,
+      </if>
+      <if test="comId != null" >
+        comId,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="projectType != null" >
+        projectType,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="contrDuration != null" >
+        contrDuration,
+      </if>
+      <if test="planDate != null" >
+        planDate,
+      </if>
+      <if test="contrEndDate != null" >
+        contrEndDate,
+      </if>
+      <if test="contractAmt != null" >
+        contractAmt,
+      </if>
+      <if test="projManager != null" >
+        projManager,
+      </if>
+      <if test="projEngineer != null" >
+        projEngineer,
+      </if>
+      <if test="engineerTel != null" >
+        engineerTel,
+      </if>
+      <if test="schemeAppro != null" >
+        schemeAppro,
+      </if>
+      <if test="approTel != null" >
+        approTel,
+      </if>
+      <if test="beginer != null" >
+        beginer,
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status,
+      </if>
+      <if test="instProcessId != null" >
+        instProcessId,
+      </if>
+      <if test="workitemId != null" >
+        workitemId,
+      </if>
+      <if test="comOrders != null" >
+        comOrders,
+      </if>
+      <if test="bizDate != null" >
+        bizDate,
+      </if>
+      <if test="passTime != null" >
+        passTime,
+      </if>
+      <if test="serialNumber != null" >
+        serialNumber,
+      </if>
+      <if test="companyId != null" >
+        companyId,
+      </if>
+      <if test="companyName != null" >
+        companyName,
+      </if>
+      <if test="opinionFieId1 != null" >
+        opinion_fieId1,
+      </if>
+      <if test="opinionFieId2 != null" >
+        opinion_fieId2,
+      </if>
+      <if test="opinionFieId3 != null" >
+        opinion_fieId3,
+      </if>
+      <if test="opinionFieId4 != null" >
+        opinion_fieId4,
+      </if>
+      <if test="opinionFieId5 != null" >
+        opinion_fieId5,
+      </if>
+      <if test="opinionFieId6 != null" >
+        opinion_fieId6,
+      </if>
+      <if test="opinionFieId7 != null" >
+        opinion_fieId7,
+      </if>
+      <if test="opinionFieId8 != null" >
+        opinion_fieId8,
+      </if>
+      <if test="opinionFieId9 != null" >
+        opinion_fieId9,
+      </if>
+      <if test="opinionFieId10 != null" >
+        opinion_fieId10,
+      </if>
+      <if test="flowId != null" >
+        flow_id,
+      </if>
+      <if test="workId != null" >
+        work_id,
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        apih5_flow_node_status,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxScGroupSchemeId != null" >
+        #{zxScGroupSchemeId,jdbcType=CHAR},
+      </if>
+      <if test="schemeNo != null" >
+        #{schemeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="schemeName != null" >
+        #{schemeName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="comId != null" >
+        #{comId,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectType != null" >
+        #{projectType,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="contrDuration != null" >
+        #{contrDuration,jdbcType=VARCHAR},
+      </if>
+      <if test="planDate != null" >
+        #{planDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contrEndDate != null" >
+        #{contrEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contractAmt != null" >
+        #{contractAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="projManager != null" >
+        #{projManager,jdbcType=VARCHAR},
+      </if>
+      <if test="projEngineer != null" >
+        #{projEngineer,jdbcType=VARCHAR},
+      </if>
+      <if test="engineerTel != null" >
+        #{engineerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="schemeAppro != null" >
+        #{schemeAppro,jdbcType=VARCHAR},
+      </if>
+      <if test="approTel != null" >
+        #{approTel,jdbcType=VARCHAR},
+      </if>
+      <if test="beginer != null" >
+        #{beginer,jdbcType=VARCHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        #{apih5FlowStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="instProcessId != null" >
+        #{instProcessId,jdbcType=VARCHAR},
+      </if>
+      <if test="workitemId != null" >
+        #{workitemId,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="bizDate != null" >
+        #{bizDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="passTime != null" >
+        #{passTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serialNumber != null" >
+        #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId1 != null" >
+        #{opinionFieId1,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId2 != null" >
+        #{opinionFieId2,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId3 != null" >
+        #{opinionFieId3,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId4 != null" >
+        #{opinionFieId4,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId5 != null" >
+        #{opinionFieId5,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId6 != null" >
+        #{opinionFieId6,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId7 != null" >
+        #{opinionFieId7,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId8 != null" >
+        #{opinionFieId8,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId9 != null" >
+        #{opinionFieId9,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId10 != null" >
+        #{opinionFieId10,jdbcType=VARCHAR},
+      </if>
+      <if test="flowId != null" >
+        #{flowId,jdbcType=CHAR},
+      </if>
+      <if test="workId != null" >
+        #{workId,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        #{apih5FlowNodeStatus,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxScGroupScheme" >
+    update zx_sc_GroupScheme
+    <set >
+      <if test="schemeNo != null" >
+        schemeNo = #{schemeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="schemeName != null" >
+        schemeName = #{schemeName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        projectId = #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        projectName = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="comId != null" >
+        comId = #{comId,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectType != null" >
+        projectType = #{projectType,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="contrDuration != null" >
+        contrDuration = #{contrDuration,jdbcType=VARCHAR},
+      </if>
+      <if test="planDate != null" >
+        planDate = #{planDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contrEndDate != null" >
+        contrEndDate = #{contrEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contractAmt != null" >
+        contractAmt = #{contractAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="projManager != null" >
+        projManager = #{projManager,jdbcType=VARCHAR},
+      </if>
+      <if test="projEngineer != null" >
+        projEngineer = #{projEngineer,jdbcType=VARCHAR},
+      </if>
+      <if test="engineerTel != null" >
+        engineerTel = #{engineerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="schemeAppro != null" >
+        schemeAppro = #{schemeAppro,jdbcType=VARCHAR},
+      </if>
+      <if test="approTel != null" >
+        approTel = #{approTel,jdbcType=VARCHAR},
+      </if>
+      <if test="beginer != null" >
+        beginer = #{beginer,jdbcType=VARCHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status = #{apih5FlowStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="instProcessId != null" >
+        instProcessId = #{instProcessId,jdbcType=VARCHAR},
+      </if>
+      <if test="workitemId != null" >
+        workitemId = #{workitemId,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        comOrders = #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="bizDate != null" >
+        bizDate = #{bizDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="passTime != null" >
+        passTime = #{passTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serialNumber != null" >
+        serialNumber = #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        companyId = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        companyName = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId1 != null" >
+        opinion_fieId1 = #{opinionFieId1,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId2 != null" >
+        opinion_fieId2 = #{opinionFieId2,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId3 != null" >
+        opinion_fieId3 = #{opinionFieId3,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId4 != null" >
+        opinion_fieId4 = #{opinionFieId4,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId5 != null" >
+        opinion_fieId5 = #{opinionFieId5,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId6 != null" >
+        opinion_fieId6 = #{opinionFieId6,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId7 != null" >
+        opinion_fieId7 = #{opinionFieId7,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId8 != null" >
+        opinion_fieId8 = #{opinionFieId8,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId9 != null" >
+        opinion_fieId9 = #{opinionFieId9,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionFieId10 != null" >
+        opinion_fieId10 = #{opinionFieId10,jdbcType=VARCHAR},
+      </if>
+      <if test="flowId != null" >
+        flow_id = #{flowId,jdbcType=CHAR},
+      </if>
+      <if test="workId != null" >
+        work_id = #{workId,jdbcType=CHAR},
+      </if>
+      <if test="apih5FlowNodeStatus != null" >
+        apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxScGroupSchemeId = #{zxScGroupSchemeId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxScGroupScheme" >
+    update zx_sc_GroupScheme set 
+      schemeNo = #{schemeNo,jdbcType=VARCHAR},
+      schemeName = #{schemeName,jdbcType=VARCHAR},
+      projectId = #{projectId,jdbcType=VARCHAR},
+      projectName = #{projectName,jdbcType=VARCHAR},
+      comId = #{comId,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      projectType = #{projectType,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      contrDuration = #{contrDuration,jdbcType=VARCHAR},
+      planDate = #{planDate,jdbcType=TIMESTAMP},
+      contrEndDate = #{contrEndDate,jdbcType=TIMESTAMP},
+      contractAmt = #{contractAmt,jdbcType=DECIMAL},
+      projManager = #{projManager,jdbcType=VARCHAR},
+      projEngineer = #{projEngineer,jdbcType=VARCHAR},
+      engineerTel = #{engineerTel,jdbcType=VARCHAR},
+      schemeAppro = #{schemeAppro,jdbcType=VARCHAR},
+      approTel = #{approTel,jdbcType=VARCHAR},
+      beginer = #{beginer,jdbcType=VARCHAR},
+      apih5_flow_status = #{apih5FlowStatus,jdbcType=VARCHAR},
+      instProcessId = #{instProcessId,jdbcType=VARCHAR},
+      workitemId = #{workitemId,jdbcType=VARCHAR},
+      comOrders = #{comOrders,jdbcType=VARCHAR},
+      bizDate = #{bizDate,jdbcType=TIMESTAMP},
+      passTime = #{passTime,jdbcType=TIMESTAMP},
+      serialNumber = #{serialNumber,jdbcType=VARCHAR},
+      companyId = #{companyId,jdbcType=VARCHAR},
+      companyName = #{companyName,jdbcType=VARCHAR},
+      opinion_fieId1 = #{opinionFieId1,jdbcType=VARCHAR},
+      opinion_fieId2 = #{opinionFieId2,jdbcType=VARCHAR},
+      opinion_fieId3 = #{opinionFieId3,jdbcType=VARCHAR},
+      opinion_fieId4 = #{opinionFieId4,jdbcType=VARCHAR},
+      opinion_fieId5 = #{opinionFieId5,jdbcType=VARCHAR},
+      opinion_fieId6 = #{opinionFieId6,jdbcType=VARCHAR},
+      opinion_fieId7 = #{opinionFieId7,jdbcType=VARCHAR},
+      opinion_fieId8 = #{opinionFieId8,jdbcType=VARCHAR},
+      opinion_fieId9 = #{opinionFieId9,jdbcType=VARCHAR},
+      opinion_fieId10 = #{opinionFieId10,jdbcType=VARCHAR},
+      flow_id = #{flowId,jdbcType=CHAR},
+      work_id = #{workId,jdbcType=CHAR},
+      apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxScGroupSchemeId = #{zxScGroupSchemeId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxScGroupSchemeList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxScGroupScheme" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sc_GroupScheme
+    where del_flag = '0'
+    <if test="zxScGroupSchemeId != null and zxScGroupSchemeId != ''" >
+     and zxScGroupSchemeId = #{zxScGroupSchemeId,jdbcType=CHAR}
+    </if>
+    <if test="schemeNo != null and schemeNo != ''" >
+     and schemeNo = #{schemeNo,jdbcType=VARCHAR}
+    </if>
+    <if test="schemeName != null and schemeName != ''" >
+     and schemeName = #{schemeName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and projectId = #{projectId,jdbcType=VARCHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and projectName = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="comId != null and comId != ''" >
+     and comId = #{comId,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectType != null and projectType != ''" >
+     and projectType = #{projectType,jdbcType=VARCHAR}
+    </if>
+    <if test="province != null and province != ''" >
+     and province = #{province,jdbcType=VARCHAR}
+    </if>
+    <if test="contrDuration != null and contrDuration != ''" >
+     and contrDuration = #{contrDuration,jdbcType=VARCHAR}
+    </if>
+    <if test="planDate != null and planDate != ''" >
+     and planDate = #{planDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="contrEndDate != null and contrEndDate != ''" >
+     and contrEndDate = #{contrEndDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="contractAmt != null and contractAmt != ''" >
+     and contractAmt = #{contractAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="projManager != null and projManager != ''" >
+     and projManager = #{projManager,jdbcType=VARCHAR}
+    </if>
+    <if test="projEngineer != null and projEngineer != ''" >
+     and projEngineer = #{projEngineer,jdbcType=VARCHAR}
+    </if>
+    <if test="engineerTel != null and engineerTel != ''" >
+     and engineerTel = #{engineerTel,jdbcType=VARCHAR}
+    </if>
+    <if test="schemeAppro != null and schemeAppro != ''" >
+     and schemeAppro = #{schemeAppro,jdbcType=VARCHAR}
+    </if>
+    <if test="approTel != null and approTel != ''" >
+     and approTel = #{approTel,jdbcType=VARCHAR}
+    </if>
+    <if test="beginer != null and beginer != ''" >
+     and beginer = #{beginer,jdbcType=VARCHAR}
+    </if>
+    <if test="apih5FlowStatus != null and apih5FlowStatus != ''" >
+     and apih5_flow_status = #{apih5FlowStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="instProcessId != null and instProcessId != ''" >
+     and instProcessId = #{instProcessId,jdbcType=VARCHAR}
+    </if>
+    <if test="workitemId != null and workitemId != ''" >
+     and workitemId = #{workitemId,jdbcType=VARCHAR}
+    </if>
+    <if test="comOrders != null and comOrders != ''" >
+     and comOrders = #{comOrders,jdbcType=VARCHAR}
+    </if>
+    <if test="bizDate != null and bizDate != ''" >
+     and bizDate = #{bizDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="passTime != null and passTime != ''" >
+     and passTime = #{passTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="serialNumber != null and serialNumber != ''" >
+     and serialNumber = #{serialNumber,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and companyId = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and companyName = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionFieId1 != null and opinionFieId1 != ''" >
+     and opinion_fieId1 = #{opinionFieId1,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionFieId2 != null and opinionFieId2 != ''" >
+     and opinion_fieId2 = #{opinionFieId2,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionFieId3 != null and opinionFieId3 != ''" >
+     and opinion_fieId3 = #{opinionFieId3,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionFieId4 != null and opinionFieId4 != ''" >
+     and opinion_fieId4 = #{opinionFieId4,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionFieId5 != null and opinionFieId5 != ''" >
+     and opinion_fieId5 = #{opinionFieId5,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionFieId6 != null and opinionFieId6 != ''" >
+     and opinion_fieId6 = #{opinionFieId6,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionFieId7 != null and opinionFieId7 != ''" >
+     and opinion_fieId7 = #{opinionFieId7,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionFieId8 != null and opinionFieId8 != ''" >
+     and opinion_fieId8 = #{opinionFieId8,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionFieId9 != null and opinionFieId9 != ''" >
+     and opinion_fieId9 = #{opinionFieId9,jdbcType=VARCHAR}
+    </if>
+    <if test="opinionFieId10 != null and opinionFieId10 != ''" >
+     and opinion_fieId10 = #{opinionFieId10,jdbcType=VARCHAR}
+    </if>
+    <if test="flowId != null and flowId != ''" >
+     and flow_id = #{flowId,jdbcType=CHAR}
+    </if>
+    <if test="workId != null and workId != ''" >
+     and work_id = #{workId,jdbcType=CHAR}
+    </if>
+    <if test="apih5FlowNodeStatus != null and apih5FlowNodeStatus != ''" >
+     and apih5_flow_node_status = #{apih5FlowNodeStatus,jdbcType=CHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxScGroupScheme" parameterType="com.apih5.mybatis.pojo.ZxScGroupScheme" >
+    <![CDATA[ 
+        update zx_sc_GroupScheme
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxScGroupSchemeId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxScGroupSchemeId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+  <select id="getLastIssueSchemeNoByProjectId" parameterType="java.lang.String" resultType="java.lang.String">
+    SELECT schemeNo from zx_sc_GroupScheme
+    WHERE YEAR(bizDate) = YEAR(Now())
+      and projectId = #{projectId,jdbcType=VARCHAR}
+    ORDER BY schemeNo desc
+      LIMIT 1
+  </select>
+</mapper>

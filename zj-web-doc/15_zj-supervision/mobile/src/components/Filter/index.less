@@ -1,0 +1,203 @@
+﻿// 导入主less
+@url-base: "../../";
+@import "@{url-base}main.less";
+// 声明模块名
+@pageName: filter;
+// 通用类名
+.@{mainName} {
+    &-@{pageName} {
+        z-index: 99;
+        background-color: @color-white;
+        display: flex;
+        top: 0;
+        left: 0;
+        right: 0;
+        position: relative;
+        align-items: center;
+        height: 44px;
+        padding: 0 5px;
+        &Box {
+            height: 44px;
+        }
+        &:after {
+            content: " ";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: 1px;
+            border-bottom: 1px solid #efeff4;
+            color: #D7D6DC;
+            transform-origin: 0 100%;
+            transform: scaleY(0.5);
+        }
+        &.cur {
+            &:after {
+                border-bottom: 1px solid @color-blue;
+            }
+        }
+        &-btn {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            padding-left: .5em;
+            padding-right: .5em;
+            box-sizing: border-box;
+            text-decoration: none;
+            flex: 1;
+            width: 0;
+            height: 30px;
+            line-height: 32px;
+            border-radius: @border-radius;
+            -webkit-tap-highlight-color: transparent;
+            background-color: @color-lightgray;
+            span {
+                display: block;
+                flex: 1;
+                font-size: 13px;
+                text-align: center;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+        &-btn+&-btn {
+            margin-left: 10px;
+        }
+        &-btn.on {
+            color: @color-blue;
+            background-color: @color-white;
+            &:after {
+                content: "";
+                width: 200%;
+                height: 200%;
+                position: absolute;
+                top: 0;
+                left: 0px;
+                border: 1px solid @color-blue;
+                -webkit-transform: scale(.5);
+                transform: scale(.5);
+                -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;
+                box-sizing: border-box;
+                border-radius: 2*@border-radius;
+            }
+        }
+        &-btn.cur {
+            border-radius: @border-radius @border-radius 0 0;
+            background-color: @color-white;
+            color: @color-blue;
+            &:after {
+                content: " ";
+                width: 200%;
+                height: 250%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border: 1px solid @color-blue;
+                border-bottom: 1px solid @color-white;
+                -webkit-transform: scale(.5);
+                transform: scale(.5);
+                -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;
+                box-sizing: border-box;
+                background-color: @color-white;
+                border-radius: 2*@border-radius 2*@border-radius 0 0;
+                z-index: -1
+            }
+        }
+        &-dialog {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+            &.show {
+                display: flex;
+            }
+            &-hd {
+                background-color: transparent;
+            }
+            &-bd {
+                background-color: fade(@color-white, 98);
+                ul {
+                    max-height: 220px;
+                    margin: 0;
+                    padding: 10px 5px;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-content: flex-start;
+                    li {
+                        width: 48%;
+                        display: flex;
+                        transition: all .2s;
+                        border-bottom: 1px transparent solid;
+                        align-items: center;
+                        svg {
+                            color: @color-white
+                        }
+                        &:nth-child(2n) {
+                            margin-left: 4%
+                        }
+                        &:active {
+                            background-color: @color-lightgray;
+                        }
+                        &.on {
+                            border-color: @color-blue;
+                            color: @color-blue;
+                            svg {
+                                color: @color-blue
+                            }
+                        }
+                    }
+                }
+                &-item {
+                    flex: 1;
+                    padding: 0 2px;
+                    height: 44px;
+                    line-height: 50px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+                &-btn {
+                    flex: 1 1 0%;
+                    text-align: center;
+                    position: relative;
+                    &Box {
+                        height: 44px;
+                        line-height: 44px;
+                        display: flex;
+                    }
+                    &.reset {
+                        color: @color-blue;
+                        background: #ffffff;
+                        &:before {
+                            content: " ";
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            right: 0;
+                            border-top: 1px solid @color-gray;
+                            transform-origin: 0 0;
+                            transform: scaleY(0.5);
+                        }
+                    }
+                    &.sure {
+                        background-color: @color-blue;
+                        color: @color-white;
+                    }
+                }
+            }
+            &-ft {
+                background-color: fade(@color-black, 68);
+                flex: 1
+            }
+        }
+    }
+}

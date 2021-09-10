@@ -1,0 +1,2144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSfProjectEmpMainMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSfProjectEmpMain" >
+    <id column="zxSfProjectEmpMainId" property="zxSfProjectEmpMainId" jdbcType="CHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="reporter" property="reporter" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="companyId" property="companyId" jdbcType="VARCHAR" />
+    <result column="projectId" property="projectId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxSfProjectEmpMainId, orgID, orgName, reporter, editTime, companyId, projectId, remarks,
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sf_projectEmpMain
+    where del_flag = '0' and zxSfProjectEmpMainId = #{zxSfProjectEmpMainId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sf_projectEmpMain
+    where zxSfProjectEmpMainId = #{zxSfProjectEmpMainId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSfProjectEmpMain" >
+    insert into zx_sf_projectEmpMain (
+    zxSfProjectEmpMainId, orgID, orgName, reporter, editTime, companyId, projectId, remarks,
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+        #{zxSfProjectEmpMainId,jdbcType=CHAR}, #{orgID,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, #{reporter,jdbcType=VARCHAR}, #{editTime,jdbcType=VARCHAR},
+        #{companyId,jdbcType=VARCHAR}, #{projectId,jdbcType=VARCHAR},  #{remarks,jdbcType=VARCHAR},
+        #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR},
+        #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSfProjectEmpMain" >
+    insert into zx_sf_projectEmpMain
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+        <if test="zxSfProjectEmpMainId != null" >
+            zxSfProjectEmpMainId,
+        </if>
+        <if test="orgID != null" >
+            orgID,
+        </if>
+        <if test="orgName != null" >
+            orgName,
+        </if>
+        <if test="reporter != null" >
+            reporter,
+        </if>
+        <if test="editTime != null" >
+            editTime,
+        </if>
+        <if test="companyId != null" >
+            companyId,
+        </if>
+        <if test="projectId != null" >
+            projectId,
+        </if>
+        <if test="remarks != null" >
+            remarks,
+        </if>
+        <if test="sort != null" >
+            sort,
+        </if>
+        <if test="delFlag != null" >
+            del_flag,
+        </if>
+        <if test="createTime != null" >
+            create_time,
+        </if>
+        <if test="createUser != null" >
+            create_user,
+        </if>
+        <if test="createUserName != null" >
+            create_user_name,
+        </if>
+        <if test="modifyTime != null" >
+            modify_time,
+        </if>
+        <if test="modifyUser != null" >
+            modify_user,
+        </if>
+        <if test="modifyUserName != null" >
+            modify_user_name,
+        </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSfProjectEmpMainId != null" >
+        #{zxSfProjectEmpMainId,jdbcType=CHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="reporter != null" >
+        #{reporter,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=VARCHAR},
+      </if>
+        <if test="companyId != null" >
+            #{companyId,jdbcType=VARCHAR},
+        </if>
+        <if test="projectId != null" >
+            #{projectId,jdbcType=VARCHAR},
+        </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSfProjectEmpMain" >
+    update zx_sf_projectEmpMain
+    <set >
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="reporter != null" >
+        reporter = #{reporter,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=VARCHAR},
+      </if>
+        <if test="companyId != null" >
+            companyId = #{companyId,jdbcType=VARCHAR},
+        </if>
+        <if test="projectId != null" >
+            projectId = #{projectId,jdbcType=VARCHAR},
+        </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxSfProjectEmpMainId = #{zxSfProjectEmpMainId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSfProjectEmpMain" >
+    update zx_sf_projectEmpMain set 
+      orgID = #{orgID,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      reporter = #{reporter,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=VARCHAR},
+      companyId = #{companyId,jdbcType=VARCHAR},
+      projectId = #{projectId,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSfProjectEmpMainId = #{zxSfProjectEmpMainId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSfProjectEmpMainList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSfProjectEmpMain" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sf_projectEmpMain
+    where del_flag = '0'
+    <if test="zxSfProjectEmpMainId != null and zxSfProjectEmpMainId != ''" >
+     and zxSfProjectEmpMainId = #{zxSfProjectEmpMainId,jdbcType=CHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="reporter != null and reporter != ''" >
+     and reporter = #{reporter,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=VARCHAR}
+    </if>
+      <if test="companyId != null and companyId != ''" >
+          and companyId = #{companyId,jdbcType=VARCHAR}
+      </if>
+      <if test="projectId != null and projectId != ''" >
+          and projectId = #{projectId,jdbcType=VARCHAR}
+      </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSfProjectEmpMain" parameterType="com.apih5.mybatis.pojo.ZxSfProjectEmpMain" >
+    <![CDATA[ 
+        update zx_sf_projectEmpMain
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSfProjectEmpMainId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSfProjectEmpMainId} 
+     </foreach>
+  </delete>
+  <!-- ↓↓↓扩展↓↓↓ -->
+
+    <select id="getZxSfProEmpMainJuInfo" resultMap="BaseResultMap">
+    SELECT
+	IFNULL( sum( yi ), 0 ) AS daxue,
+	IFNULL( sum( er ), 0 ) AS zhongzhuan,
+	IFNULL( sum( san ), 0 ) AS gaozhong,
+	IFNULL( sum( si ), 0 ) AS chuzhong,
+	IFNULL( sum( wu ), 0 ) AS wu,
+	company_id
+FROM
+	(
+SELECT
+CASE
+	eduLevel
+	WHEN 1 THEN
+	perNum
+	END AS yi,
+CASE
+	eduLevel
+	WHEN 2 THEN
+	perNum
+	END AS er,
+CASE
+	eduLevel
+	WHEN 3 THEN
+	perNum
+	END AS san,
+CASE
+	eduLevel
+	WHEN 4 THEN
+	perNum
+	END AS si,
+CASE
+	eduLevel
+	WHEN 5 THEN
+	perNum
+	END AS wu,
+	company_id
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+	b.eduLevel AS eduLevel,
+	c.company_id AS company_id
+FROM
+	zx_ct_contract c
+	LEFT JOIN zx_sf_projectempmain a ON a.orgID = c.orgID
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+GROUP BY
+	b.eduLevel,
+	c.company_id
+	) AS empItem
+	) AS companyInfo
+GROUP BY
+	company_id
+  </select>
+
+  <select id="getJuInfo" resultMap="BaseResultMap">
+    SELECT
+	IFNULL( sum( yi ), 0 ) AS daxue,
+	IFNULL( sum( er ), 0 ) AS zhongzhuan,
+	IFNULL( sum( san ), 0 ) AS gaozhong,
+	IFNULL( sum( si ), 0 ) AS chuzhong,
+	IFNULL( sum( wu ), 0 ) AS wu,
+	company_id
+FROM
+	(
+SELECT
+CASE
+	eduLevel
+	WHEN 1 THEN
+	perNum
+	END AS yi,
+CASE
+	eduLevel
+	WHEN 2 THEN
+	perNum
+	END AS er,
+CASE
+	eduLevel
+	WHEN 3 THEN
+	perNum
+	END AS san,
+CASE
+	eduLevel
+	WHEN 4 THEN
+	perNum
+	END AS si,
+CASE
+	eduLevel
+	WHEN 5 THEN
+	perNum
+	END AS wu,
+	company_id
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+	b.eduLevel AS eduLevel,
+	c.company_id AS company_id
+FROM
+	zx_ct_contract c
+	LEFT JOIN zx_sf_projectempmain a ON a.orgID = c.orgID
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+GROUP BY
+	b.eduLevel,
+	c.company_id
+	) AS empItem
+	) AS companyInfo
+  </select>
+
+  <select id="getZxSfProEmpMainComInfo" resultMap="BaseResultMap">
+    SELECT
+	IFNULL( sum( yi ), 0 ) AS daxue,
+	IFNULL( sum( er ), 0 ) AS zhongzhuan,
+	IFNULL( sum( san ), 0 ) AS gaozhong,
+	IFNULL( sum( si ), 0 ) AS chuzhong,
+	IFNULL( sum( wu ), 0 ) AS wu,
+	company_id
+FROM
+	(
+SELECT
+CASE
+	eduLevel
+	WHEN 1 THEN
+	perNum
+	END AS yi,
+CASE
+	eduLevel
+	WHEN 2 THEN
+	perNum
+	END AS er,
+CASE
+	eduLevel
+	WHEN 3 THEN
+	perNum
+	END AS san,
+CASE
+	eduLevel
+	WHEN 4 THEN
+	perNum
+	END AS si,
+CASE
+	eduLevel
+	WHEN 5 THEN
+	perNum
+	END AS wu,
+	company_id
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+	b.eduLevel AS eduLevel,
+	c.company_id AS company_id
+FROM
+	zx_ct_contract c
+	LEFT JOIN zx_sf_projectempmain a ON a.orgID = c.orgID
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+GROUP BY
+	b.eduLevel,
+	c.company_id
+	) AS empItem
+	) AS companyInfo
+	WHERE company_id=#{companyId}
+GROUP BY
+	company_id
+  </select>
+
+    <select id="getZxSfProEmpMainGuiDang" resultMap="BaseResultMap">
+        SELECT
+	IFNULL( sum( yi ), 0 ) AS daxue,
+	IFNULL( sum( er ), 0 ) AS zhongzhuan,
+	IFNULL( sum( san ), 0 ) AS gaozhong,
+	IFNULL( sum( si ), 0 ) AS chuzhong,
+	IFNULL( sum( wu ), 0 ) AS wu
+FROM
+	(
+SELECT
+CASE
+	eduLevel
+	WHEN 1 THEN
+	perNum
+	END AS yi,
+CASE
+	eduLevel
+	WHEN 2 THEN
+	perNum
+	END AS er,
+CASE
+	eduLevel
+	WHEN 3 THEN
+	perNum
+	END AS san,
+CASE
+	eduLevel
+	WHEN 4 THEN
+	perNum
+	END AS si,
+CASE
+	eduLevel
+	WHEN 5 THEN
+	perNum
+	END AS wu,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+	b.eduLevel AS eduLevel,
+	a.orgID AS orgID
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) &lt; #{today}
+GROUP BY
+	b.eduLevel,
+	a.orgID
+	) AS empItem
+	) AS companyInfo
+    </select>
+
+    <select id="getZxSfProEmpMainJiaoGong" resultMap="BaseResultMap">
+        SELECT
+	IFNULL( sum( yi ), 0 ) AS daxue,
+	IFNULL( sum( er ), 0 ) AS zhongzhuan,
+	IFNULL( sum( san ), 0 ) AS gaozhong,
+	IFNULL( sum( si ), 0 ) AS chuzhong,
+	IFNULL( sum( wu ), 0 ) AS wu
+FROM
+	(
+SELECT
+CASE
+	eduLevel
+	WHEN 1 THEN
+	perNum
+	END AS yi,
+CASE
+	eduLevel
+	WHEN 2 THEN
+	perNum
+	END AS er,
+CASE
+	eduLevel
+	WHEN 3 THEN
+	perNum
+	END AS san,
+CASE
+	eduLevel
+	WHEN 4 THEN
+	perNum
+	END AS si,
+CASE
+	eduLevel
+	WHEN 5 THEN
+	perNum
+	END AS wu,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+	b.eduLevel AS eduLevel,
+	a.orgID AS orgID
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.doc_date ) THEN
+                 DATE_FORMAT( d.delivery_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( d.delivery_date, '%Y%m%d' ) &lt;= #{today}
+                 AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) >#{today} ) END
+GROUP BY
+	b.eduLevel,
+	a.orgID
+	) AS empItem
+	) AS companyInfo
+    </select>
+
+    <select id="getZxSfProEmpMainWanGong" resultMap="BaseResultMap">
+        SELECT
+	IFNULL( sum( yi ), 0 ) AS daxue,
+	IFNULL( sum( er ), 0 ) AS zhongzhuan,
+	IFNULL( sum( san ), 0 ) AS gaozhong,
+	IFNULL( sum( si ), 0 ) AS chuzhong,
+	IFNULL( sum( wu ), 0 ) AS wu
+FROM
+	(
+SELECT
+CASE
+	eduLevel
+	WHEN 1 THEN
+	perNum
+	END AS yi,
+CASE
+	eduLevel
+	WHEN 2 THEN
+	perNum
+	END AS er,
+CASE
+	eduLevel
+	WHEN 3 THEN
+	perNum
+	END AS san,
+CASE
+	eduLevel
+	WHEN 4 THEN
+	perNum
+	END AS si,
+CASE
+	eduLevel
+	WHEN 5 THEN
+	perNum
+	END AS wu,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+	b.eduLevel AS eduLevel,
+	a.orgID AS orgID
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.delivery_date ) THEN
+                 ( CASE WHEN ISNULL( d.doc_date ) THEN DATE_FORMAT( b.main_end_date, '%Y%m%d' ) &lt;= #{today}
+                 ELSE ( DATE_FORMAT( d.main_end_date, '%Y%m%d' )  &lt;= #{today} AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) > #{today} )
+                 END ) ELSE (DATE_FORMAT( d.main_end_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( d.delivery_date, '%Y%m%d' ) > #{today} )
+                 END
+GROUP BY
+	b.eduLevel,
+	a.orgID
+	) AS empItem
+	) AS companyInfo
+    </select>
+
+    <select id="getZxSfProEmpMainKaiGong" resultMap="BaseResultMap">
+        SELECT
+	IFNULL( sum( yi ), 0 ) AS daxue,
+	IFNULL( sum( er ), 0 ) AS zhongzhuan,
+	IFNULL( sum( san ), 0 ) AS gaozhong,
+	IFNULL( sum( si ), 0 ) AS chuzhong,
+	IFNULL( sum( wu ), 0 ) AS wu
+FROM
+	(
+SELECT
+CASE
+	eduLevel
+	WHEN 1 THEN
+	perNum
+	END AS yi,
+CASE
+	eduLevel
+	WHEN 2 THEN
+	perNum
+	END AS er,
+CASE
+	eduLevel
+	WHEN 3 THEN
+	perNum
+	END AS san,
+CASE
+	eduLevel
+	WHEN 4 THEN
+	perNum
+	END AS si,
+CASE
+	eduLevel
+	WHEN 5 THEN
+	perNum
+	END AS wu,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+	b.eduLevel AS eduLevel,
+	a.orgID AS orgID
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.main_end_date ) THEN
+                 (CASE WHEN ISNULL( d.delivery_date ) THEN( CASE WHEN ISNULL( d.doc_date )
+                 THEN DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+                 ELSE ( DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+                 AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) > #{today} )
+				END ) ELSE ( DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+				AND DATE_FORMAT( d.delivery_date, '%Y%m%d' ) > #{today} )END )
+				ELSE (DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+				AND DATE_FORMAT( d.main_end_date, '%Y%m%d' ) > #{today} ) END
+GROUP BY
+	b.eduLevel,
+	a.orgID
+	) AS empItem
+	) AS companyInfo
+    </select>
+
+    <select id="getZxSfProEmpMainGuiDangList" resultMap="BaseResultMap">
+        SELECT
+	IFNULL( sum( yi ), 0 ) AS daxue,
+	IFNULL( sum( er ), 0 ) AS zhongzhuan,
+	IFNULL( sum( san ), 0 ) AS gaozhong,
+	IFNULL( sum( si ), 0 ) AS chuzhong,
+	IFNULL( sum( wu ), 0 ) AS wu,
+	orgID
+FROM
+	(
+SELECT
+CASE
+	eduLevel
+	WHEN 1 THEN
+	perNum
+	END AS yi,
+CASE
+	eduLevel
+	WHEN 2 THEN
+	perNum
+	END AS er,
+CASE
+	eduLevel
+	WHEN 3 THEN
+	perNum
+	END AS san,
+CASE
+	eduLevel
+	WHEN 4 THEN
+	perNum
+	END AS si,
+CASE
+	eduLevel
+	WHEN 5 THEN
+	perNum
+	END AS wu,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+	b.eduLevel AS eduLevel,
+	a.orgID AS orgID
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) &lt; #{today}
+GROUP BY
+	b.eduLevel,
+	a.orgID
+	) AS empItem
+	) AS companyInfo GROUP BY orgID
+    </select>
+
+    <select id="getZxSfProEmpMainJiaoGongList" resultMap="BaseResultMap">
+        SELECT
+	IFNULL( sum( yi ), 0 ) AS daxue,
+	IFNULL( sum( er ), 0 ) AS zhongzhuan,
+	IFNULL( sum( san ), 0 ) AS gaozhong,
+	IFNULL( sum( si ), 0 ) AS chuzhong,
+	IFNULL( sum( wu ), 0 ) AS wu,
+	orgID
+FROM
+	(
+SELECT
+CASE
+	eduLevel
+	WHEN 1 THEN
+	perNum
+	END AS yi,
+CASE
+	eduLevel
+	WHEN 2 THEN
+	perNum
+	END AS er,
+CASE
+	eduLevel
+	WHEN 3 THEN
+	perNum
+	END AS san,
+CASE
+	eduLevel
+	WHEN 4 THEN
+	perNum
+	END AS si,
+CASE
+	eduLevel
+	WHEN 5 THEN
+	perNum
+	END AS wu,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+	b.eduLevel AS eduLevel,
+	a.orgID AS orgID
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.doc_date ) THEN
+                 DATE_FORMAT( d.delivery_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( d.delivery_date, '%Y%m%d' ) &lt;= #{today}
+                 AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) >#{today} ) END
+GROUP BY
+	b.eduLevel,
+	a.orgID
+	) AS empItem
+	) AS companyInfo GROUP BY orgID
+    </select>
+
+    <select id="getZxSfProEmpMainWanGongList" resultMap="BaseResultMap">
+        SELECT
+	IFNULL( sum( yi ), 0 ) AS daxue,
+	IFNULL( sum( er ), 0 ) AS zhongzhuan,
+	IFNULL( sum( san ), 0 ) AS gaozhong,
+	IFNULL( sum( si ), 0 ) AS chuzhong,
+	IFNULL( sum( wu ), 0 ) AS wu,
+	orgID
+FROM
+	(
+SELECT
+CASE
+	eduLevel
+	WHEN 1 THEN
+	perNum
+	END AS yi,
+CASE
+	eduLevel
+	WHEN 2 THEN
+	perNum
+	END AS er,
+CASE
+	eduLevel
+	WHEN 3 THEN
+	perNum
+	END AS san,
+CASE
+	eduLevel
+	WHEN 4 THEN
+	perNum
+	END AS si,
+CASE
+	eduLevel
+	WHEN 5 THEN
+	perNum
+	END AS wu,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+	b.eduLevel AS eduLevel,
+	a.orgID AS orgID
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.delivery_date ) THEN
+                 ( CASE WHEN ISNULL( d.doc_date ) THEN DATE_FORMAT( d.main_end_date, '%Y%m%d' ) &lt;= #{today}
+                 ELSE ( DATE_FORMAT( d.main_end_date, '%Y%m%d' )  &lt;= #{today} AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) > #{today} )
+                 END ) ELSE (DATE_FORMAT( d.main_end_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( d.delivery_date, '%Y%m%d' ) > #{today} )
+                 END
+GROUP BY
+	b.eduLevel,
+	a.orgID
+	) AS empItem
+	) AS companyInfo GROUP BY orgID
+    </select>
+
+    <select id="getZxSfProEmpMainKaiGongList" resultMap="BaseResultMap">
+        SELECT
+	IFNULL( sum( yi ), 0 ) AS daxue,
+	IFNULL( sum( er ), 0 ) AS zhongzhuan,
+	IFNULL( sum( san ), 0 ) AS gaozhong,
+	IFNULL( sum( si ), 0 ) AS chuzhong,
+	IFNULL( sum( wu ), 0 ) AS wu,
+	orgID
+FROM
+	(
+SELECT
+CASE
+	eduLevel
+	WHEN 1 THEN
+	perNum
+	END AS yi,
+CASE
+	eduLevel
+	WHEN 2 THEN
+	perNum
+	END AS er,
+CASE
+	eduLevel
+	WHEN 3 THEN
+	perNum
+	END AS san,
+CASE
+	eduLevel
+	WHEN 4 THEN
+	perNum
+	END AS si,
+CASE
+	eduLevel
+	WHEN 5 THEN
+	perNum
+	END AS wu,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+	b.eduLevel AS eduLevel,
+	a.orgID AS orgID
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.main_end_date ) THEN
+                 (CASE WHEN ISNULL( d.delivery_date ) THEN( CASE WHEN ISNULL( d.doc_date )
+                 THEN DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+                 ELSE ( DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+                 AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) > #{today} )
+				END ) ELSE ( DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+				AND DATE_FORMAT( d.delivery_date, '%Y%m%d' ) > #{today} )END )
+				ELSE (DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+				AND DATE_FORMAT( d.main_end_date, '%Y%m%d' ) > #{today} ) END
+GROUP BY
+	b.eduLevel,
+	a.orgID
+	) AS empItem
+	) AS companyInfo GROUP BY orgID
+    </select>
+
+    <select id="getZhiChengComList" resultMap="BaseResultMap">
+       SELECT
+	IFNULL( sum( wu ), 0 ) AS wu,
+	IFNULL( sum( chuji ), 0 ) AS chuji,
+	IFNULL( sum( zhongji ), 0 ) AS zhongji,
+	IFNULL( sum( gaoji ), 0 ) AS gaoji,
+	IFNULL( sum( yes ), 0 ) AS yes,
+	company_id
+FROM(
+SELECT
+CASE
+	WHEN title='无' and isExpert = 'no'  THEN
+	perNum
+	END AS wu,
+CASE
+	WHEN title='初级' and isExpert = 'no' THEN
+	perNum
+	END AS chuji,
+CASE
+	WHEN title='中级' and isExpert = 'no' THEN
+	perNum
+	END AS zhongji,
+CASE
+	WHEN title='高级' and isExpert = 'no' THEN
+	perNum
+	END AS gaoji,
+CASE
+	WHEN isExpert = 'yes' THEN
+	perNum
+	END AS yes,
+	company_id
+FROM
+	(
+	SELECT
+	count( b.mainID ) AS perNum,
+	b.title AS title,
+	c.company_id AS company_id,
+	b.isExpert AS isExpert
+FROM
+	zx_ct_contract c
+	LEFT JOIN zx_sf_projectempmain a ON a.orgID = c.orgID
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+GROUP BY
+	b.title,
+	c.company_id,
+	b.isExpert
+	)as item)AS companyInfo
+GROUP BY
+	company_id
+    </select>
+
+
+    <select id="getZhiChengJuInfo" resultMap="BaseResultMap">
+       SELECT
+	IFNULL( sum( wu ), 0 ) AS wu,
+	IFNULL( sum( chuji ), 0 ) AS chuji,
+	IFNULL( sum( zhongji ), 0 ) AS zhongji,
+	IFNULL( sum( gaoji ), 0 ) AS gaoji,
+	IFNULL( sum( yes ), 0 ) AS yes,
+	company_id
+FROM(
+SELECT
+CASE
+	WHEN title='无' and isExpert = 'no'  THEN
+	perNum
+	END AS wu,
+CASE
+	WHEN title='初级' and isExpert = 'no' THEN
+	perNum
+	END AS chuji,
+CASE
+	WHEN title='中级' and isExpert = 'no' THEN
+	perNum
+	END AS zhongji,
+CASE
+	WHEN title='高级' and isExpert = 'no' THEN
+	perNum
+	END AS gaoji,
+CASE
+	WHEN isExpert = 'yes' THEN
+	perNum
+	END AS yes,
+	company_id
+FROM
+	(
+	SELECT
+	count( b.mainID ) AS perNum,
+	b.title AS title,
+	c.company_id AS company_id,
+	b.isExpert AS isExpert
+FROM
+	zx_ct_contract c
+	LEFT JOIN zx_sf_projectempmain a ON a.orgID = c.orgID
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+GROUP BY
+	b.title,
+	c.company_id,
+	b.isExpert
+	)as item)AS companyInfo
+    </select>
+
+
+    <select id="getZhiChengComInfo" resultMap="BaseResultMap">
+       SELECT
+	IFNULL( sum( wu ), 0 ) AS wu,
+	IFNULL( sum( chuji ), 0 ) AS chuji,
+	IFNULL( sum( zhongji ), 0 ) AS zhongji,
+	IFNULL( sum( gaoji ), 0 ) AS gaoji,
+	IFNULL( sum( yes ), 0 ) AS yes,
+	company_id
+FROM(
+SELECT
+CASE
+	WHEN title='无' and isExpert = 'no'  THEN
+	perNum
+	END AS wu,
+CASE
+	WHEN title='初级' and isExpert = 'no' THEN
+	perNum
+	END AS chuji,
+CASE
+	WHEN title='中级' and isExpert = 'no' THEN
+	perNum
+	END AS zhongji,
+CASE
+	WHEN title='高级' and isExpert = 'no' THEN
+	perNum
+	END AS gaoji,
+CASE
+	WHEN isExpert = 'yes' THEN
+	perNum
+	END AS yes,
+	company_id
+FROM
+	(
+	SELECT
+	count( b.mainID ) AS perNum,
+	b.title AS title,
+	c.company_id AS company_id,
+	b.isExpert AS isExpert
+FROM
+	zx_ct_contract c
+	LEFT JOIN zx_sf_projectempmain a ON a.orgID = c.orgID
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+GROUP BY
+	b.title,
+	c.company_id,
+	b.isExpert
+	)as item)AS companyInfo
+	WHERE company_id=#{companyId}
+GROUP BY
+	company_id
+    </select>
+
+    <select id="getZhiChengGuiDang" resultMap="BaseResultMap">
+         SELECT
+	IFNULL( sum( wu ), 0 ) AS wu,
+	IFNULL( sum( chuji ), 0 ) AS chuji,
+	IFNULL( sum( zhongji ), 0 ) AS zhongji,
+	IFNULL( sum( gaoji ), 0 ) AS gaoji,
+	IFNULL( sum( yes ), 0 ) AS yes
+FROM
+	(
+SELECT
+CASE
+	WHEN title='无' and isExpert = 'no'  THEN
+	perNum
+	END AS wu,
+CASE
+	WHEN title='初级' and isExpert = 'no' THEN
+	perNum
+	END AS chuji,
+CASE
+	WHEN title='中级' and isExpert = 'no' THEN
+	perNum
+	END AS zhongji,
+CASE
+	WHEN title='高级' and isExpert = 'no' THEN
+	perNum
+	END AS gaoji,
+CASE
+	WHEN isExpert = 'yes' THEN
+	perNum
+	END AS yes
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+  b.title AS title,
+	a.orgID AS orgID,
+	b.isExpert AS isExpert
+
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) &lt; #{today}
+GROUP BY
+	b.title,
+	a.orgID,
+	b.isExpert
+	) AS empItem
+	) AS companyInfo
+    </select>
+
+    <select id="getZhiChengJiaoGong" resultMap="BaseResultMap">
+         SELECT
+	IFNULL( sum( wu ), 0 ) AS wu,
+	IFNULL( sum( chuji ), 0 ) AS chuji,
+	IFNULL( sum( zhongji ), 0 ) AS zhongji,
+	IFNULL( sum( gaoji ), 0 ) AS gaoji,
+	IFNULL( sum( yes ), 0 ) AS yes
+FROM
+	(
+SELECT
+CASE
+	WHEN title='无' and isExpert = 'no'  THEN
+	perNum
+	END AS wu,
+CASE
+	WHEN title='初级' and isExpert = 'no' THEN
+	perNum
+	END AS chuji,
+CASE
+	WHEN title='中级' and isExpert = 'no' THEN
+	perNum
+	END AS zhongji,
+CASE
+	WHEN title='高级' and isExpert = 'no' THEN
+	perNum
+	END AS gaoji,
+CASE
+	WHEN isExpert = 'yes' THEN
+	perNum
+	END AS yes
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+  b.title AS title,
+	a.orgID AS orgID,
+	b.isExpert AS isExpert
+
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.doc_date ) THEN
+                 DATE_FORMAT( d.delivery_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( d.delivery_date, '%Y%m%d' ) &lt;= #{today}
+                 AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) >#{today} ) END
+GROUP BY
+	b.title,
+	a.orgID,
+	b.isExpert
+	) AS empItem
+	) AS companyInfo
+    </select>
+
+
+    <select id="getZhiChengWanGong" resultMap="BaseResultMap">
+         SELECT
+	IFNULL( sum( wu ), 0 ) AS wu,
+	IFNULL( sum( chuji ), 0 ) AS chuji,
+	IFNULL( sum( zhongji ), 0 ) AS zhongji,
+	IFNULL( sum( gaoji ), 0 ) AS gaoji,
+	IFNULL( sum( yes ), 0 ) AS yes
+FROM
+	(
+SELECT
+CASE
+	WHEN title='无' and isExpert = 'no'  THEN
+	perNum
+	END AS wu,
+CASE
+	WHEN title='初级' and isExpert = 'no' THEN
+	perNum
+	END AS chuji,
+CASE
+	WHEN title='中级' and isExpert = 'no' THEN
+	perNum
+	END AS zhongji,
+CASE
+	WHEN title='高级' and isExpert = 'no' THEN
+	perNum
+	END AS gaoji,
+CASE
+	WHEN isExpert = 'yes' THEN
+	perNum
+	END AS yes
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+  b.title AS title,
+	a.orgID AS orgID,
+	b.isExpert AS isExpert
+
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.delivery_date ) THEN
+                 ( CASE WHEN ISNULL( d.doc_date ) THEN DATE_FORMAT( d.main_end_date, '%Y%m%d' ) &lt;= #{today}
+                 ELSE ( DATE_FORMAT( d.main_end_date, '%Y%m%d' )  &lt;= #{today} AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) > #{today} )
+                 END ) ELSE (DATE_FORMAT( d.main_end_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( d.delivery_date, '%Y%m%d' ) > #{today} )
+                 END
+GROUP BY
+	b.title,
+	a.orgID,
+	b.isExpert
+	) AS empItem
+	) AS companyInfo
+    </select>
+
+    <select id="getZhiChengKaiGong" resultMap="BaseResultMap">
+        SELECT
+	IFNULL( sum( wu ), 0 ) AS wu,
+	IFNULL( sum( chuji ), 0 ) AS chuji,
+	IFNULL( sum( zhongji ), 0 ) AS zhongji,
+	IFNULL( sum( gaoji ), 0 ) AS gaoji,
+	IFNULL( sum( yes ), 0 ) AS yes
+FROM
+	(
+SELECT
+CASE
+
+WHEN
+	title = '无'
+	AND isExpert = 'no' THEN
+	perNum
+END AS wu,
+CASE
+
+		WHEN title = '初级'
+		AND isExpert = 'no' THEN
+			perNum
+		END AS chuji,
+	CASE
+
+			WHEN title = '中级'
+			AND isExpert = 'no' THEN
+				perNum
+			END AS zhongji,
+		CASE
+
+				WHEN title = '高级'
+				AND isExpert = 'no' THEN
+					perNum
+				END AS gaoji,
+			CASE
+
+					WHEN isExpert = 'yes' THEN
+					perNum
+				END AS yes
+			FROM
+				(
+				SELECT
+					count( b.mainID ) AS perNum,
+					b.title AS title,
+					a.orgID AS orgID,
+					b.isExpert AS isExpert
+				FROM
+					zx_sf_projectempmain a
+					LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+					LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+					LEFT JOIN sys_project d ON d.department_id = a.orgID
+				WHERE
+					c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.main_end_date ) THEN
+					(
+					CASE
+
+							WHEN ISNULL( d.delivery_date ) THEN
+							(
+							CASE
+
+									WHEN ISNULL( d.doc_date ) THEN
+									DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+								ELSE ( DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+									AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) > #{today} )
+								END ) ELSE (
+								DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+
+								AND DATE_FORMAT( d.delivery_date, '%Y%m%d' ) > #{today} )END )
+								ELSE (
+									DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+
+									AND DATE_FORMAT( d.main_end_date, '%Y%m%d' ) > #{today} ) END
+
+									GROUP BY
+										b.title,
+										a.orgID,
+										b.isExpert
+									) AS empItem
+) AS companyInfo
+    </select>
+
+    <select id="getZhiChengGuiDangList" resultMap="BaseResultMap">
+         SELECT
+	IFNULL( sum( wu ), 0 ) AS wu,
+	IFNULL( sum( chuji ), 0 ) AS chuji,
+	IFNULL( sum( zhongji ), 0 ) AS zhongji,
+	IFNULL( sum( gaoji ), 0 ) AS gaoji,
+	IFNULL( sum( yes ), 0 ) AS yes,
+	orgID
+FROM
+	(
+SELECT
+CASE
+	WHEN title='无' and isExpert = 'no'  THEN
+	perNum
+	END AS wu,
+CASE
+	WHEN title='初级' and isExpert = 'no' THEN
+	perNum
+	END AS chuji,
+CASE
+	WHEN title='中级' and isExpert = 'no' THEN
+	perNum
+	END AS zhongji,
+CASE
+	WHEN title='高级' and isExpert = 'no' THEN
+	perNum
+	END AS gaoji,
+CASE
+	WHEN isExpert = 'yes' THEN
+	perNum
+	END AS yes,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+  b.title AS title,
+	a.orgID AS orgID,
+	b.isExpert AS isExpert
+
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) &lt; #{today}
+GROUP BY
+	b.title,
+	a.orgID,
+	b.isExpert
+	) AS empItem
+	) AS companyInfo GROUP BY orgID
+    </select>
+
+    <select id="getZhiChengJiaoGongList" resultMap="BaseResultMap">
+         SELECT
+	IFNULL( sum( wu ), 0 ) AS wu,
+	IFNULL( sum( chuji ), 0 ) AS chuji,
+	IFNULL( sum( zhongji ), 0 ) AS zhongji,
+	IFNULL( sum( gaoji ), 0 ) AS gaoji,
+	IFNULL( sum( yes ), 0 ) AS yes,
+	orgID
+FROM
+	(
+SELECT
+CASE
+	WHEN title='无' and isExpert = 'no'  THEN
+	perNum
+	END AS wu,
+CASE
+	WHEN title='初级' and isExpert = 'no' THEN
+	perNum
+	END AS chuji,
+CASE
+	WHEN title='中级' and isExpert = 'no' THEN
+	perNum
+	END AS zhongji,
+CASE
+	WHEN title='高级' and isExpert = 'no' THEN
+	perNum
+	END AS gaoji,
+CASE
+	WHEN isExpert = 'yes' THEN
+	perNum
+	END AS yes,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+  b.title AS title,
+	a.orgID AS orgID,
+	b.isExpert AS isExpert
+
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.doc_date ) THEN
+                 DATE_FORMAT( d.delivery_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( d.delivery_date, '%Y%m%d' ) &lt;= #{today}
+                 AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) >#{today} ) END
+GROUP BY
+	b.title,
+	a.orgID,
+	b.isExpert
+	) AS empItem
+	) AS companyInfo GROUP BY orgID
+    </select>
+
+    <select id="getZhiChengWanGongList" resultMap="BaseResultMap">
+         SELECT
+	IFNULL( sum( wu ), 0 ) AS wu,
+	IFNULL( sum( chuji ), 0 ) AS chuji,
+	IFNULL( sum( zhongji ), 0 ) AS zhongji,
+	IFNULL( sum( gaoji ), 0 ) AS gaoji,
+	IFNULL( sum( yes ), 0 ) AS yes,
+	orgID
+FROM
+	(
+SELECT
+CASE
+	WHEN title='无' and isExpert = 'no'  THEN
+	perNum
+	END AS wu,
+CASE
+	WHEN title='初级' and isExpert = 'no' THEN
+	perNum
+	END AS chuji,
+CASE
+	WHEN title='中级' and isExpert = 'no' THEN
+	perNum
+	END AS zhongji,
+CASE
+	WHEN title='高级' and isExpert = 'no' THEN
+	perNum
+	END AS gaoji,
+CASE
+	WHEN isExpert = 'yes' THEN
+	perNum
+	END AS yes,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+  b.title AS title,
+	a.orgID AS orgID,
+	b.isExpert AS isExpert
+
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.delivery_date ) THEN
+                 ( CASE WHEN ISNULL( d.doc_date ) THEN DATE_FORMAT( d.main_end_date, '%Y%m%d' ) &lt;= #{today}
+                 ELSE ( DATE_FORMAT( d.main_end_date, '%Y%m%d' )  &lt;= #{today} AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) > #{today} )
+                 END ) ELSE (DATE_FORMAT( d.main_end_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( d.delivery_date, '%Y%m%d' ) > #{today} )
+                 END
+GROUP BY
+	b.title,
+	a.orgID,
+	b.isExpert
+	) AS empItem
+	) AS companyInfo GROUP BY orgID
+    </select>
+
+    <select id="getZhiChengKaiGongList" resultMap="BaseResultMap">
+         SELECT
+	IFNULL( sum( wu ), 0 ) AS wu,
+	IFNULL( sum( chuji ), 0 ) AS chuji,
+	IFNULL( sum( zhongji ), 0 ) AS zhongji,
+	IFNULL( sum( gaoji ), 0 ) AS gaoji,
+	IFNULL( sum( yes ), 0 ) AS yes,
+	orgID
+FROM
+	(
+SELECT
+CASE
+	WHEN title='无' and isExpert = 'no'  THEN
+	perNum
+	END AS wu,
+CASE
+	WHEN title='初级' and isExpert = 'no' THEN
+	perNum
+	END AS chuji,
+CASE
+	WHEN title='中级' and isExpert = 'no' THEN
+	perNum
+	END AS zhongji,
+CASE
+	WHEN title='高级' and isExpert = 'no' THEN
+	perNum
+	END AS gaoji,
+CASE
+	WHEN isExpert = 'yes' THEN
+	perNum
+	END AS yes,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+  b.title AS title,
+	a.orgID AS orgID,
+	b.isExpert AS isExpert
+
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.main_end_date ) THEN
+					(
+					CASE
+
+							WHEN ISNULL( d.delivery_date ) THEN
+							(
+							CASE
+
+									WHEN ISNULL( d.doc_date ) THEN
+									DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+								ELSE ( DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+									AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) > #{today} )
+								END ) ELSE (
+								DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+
+								AND DATE_FORMAT( d.delivery_date, '%Y%m%d' ) > #{today} )END )
+								ELSE (
+									DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+
+									AND DATE_FORMAT( d.main_end_date, '%Y%m%d' ) > #{today} ) END
+GROUP BY
+	b.title,
+	a.orgID,
+	b.isExpert
+	) AS empItem
+	) AS companyInfo GROUP BY orgID
+    </select>
+
+    <select id="getWorkAgeComList" resultMap="BaseResultMap">
+        SELECT
+        IFNULL( sum( less2 ), 0 ) AS less2,
+        IFNULL( sum( 2to5 ), 0 ) AS 2to5,
+        IFNULL( sum( 5to10 ), 0 ) AS 5to10,
+        IFNULL( sum( more10 ), 0 ) AS more10,
+        company_id
+        FROM(
+        SELECT
+        CASE
+        WHEN workAge='less2' THEN
+        perNum
+        END AS less2,
+        CASE
+        WHEN workAge='2to5' THEN
+        perNum
+        END AS 2to5,
+        CASE
+        WHEN workAge='5to10' THEN
+        perNum
+        END AS 5to10,
+        CASE
+        WHEN workAge='more10' THEN
+        perNum
+        END AS more10,
+        company_id
+        FROM
+        (
+        SELECT
+        count( b.mainID ) AS perNum,
+        elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10') as workAge,
+        c.company_id AS company_id
+        FROM
+        zx_ct_contract c
+        LEFT JOIN zx_sf_projectempmain a ON a.orgID = c.orgID
+        LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+        GROUP BY
+        elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10'),
+        c.company_id)as item)as companyInfo
+        GROUP BY
+        company_id
+    </select>
+
+    <select id="getWorkAgeJuInfo" resultMap="BaseResultMap">
+        SELECT
+        IFNULL( sum( less2 ), 0 ) AS less2,
+        IFNULL( sum( 2to5 ), 0 ) AS 2to5,
+        IFNULL( sum( 5to10 ), 0 ) AS 5to10,
+        IFNULL( sum( more10 ), 0 ) AS more10,
+        company_id
+        FROM(
+        SELECT
+        CASE
+        WHEN workAge='less2' THEN
+        perNum
+        END AS less2,
+        CASE
+        WHEN workAge='2to5' THEN
+        perNum
+        END AS 2to5,
+        CASE
+        WHEN workAge='5to10' THEN
+        perNum
+        END AS 5to10,
+        CASE
+        WHEN workAge='more10' THEN
+        perNum
+        END AS more10,
+        company_id
+        FROM
+        (
+        SELECT
+        count( b.mainID ) AS perNum,
+        elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10') as workAge,
+        c.company_id AS company_id
+        FROM
+        zx_ct_contract c
+        LEFT JOIN zx_sf_projectempmain a ON a.orgID = c.orgID
+        LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+        GROUP BY
+        elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10'),
+        c.company_id)as item)as companyInfo
+    </select>
+
+    <select id="getWorkAgeComInfo" resultMap="BaseResultMap">
+        SELECT
+        IFNULL( sum( less2 ), 0 ) AS less2,
+        IFNULL( sum( 2to5 ), 0 ) AS 2to5,
+        IFNULL( sum( 5to10 ), 0 ) AS 5to10,
+        IFNULL( sum( more10 ), 0 ) AS more10,
+        company_id
+        FROM(
+        SELECT
+        CASE
+        WHEN workAge='less2' THEN
+        perNum
+        END AS less2,
+        CASE
+        WHEN workAge='2to5' THEN
+        perNum
+        END AS 2to5,
+        CASE
+        WHEN workAge='5to10' THEN
+        perNum
+        END AS 5to10,
+        CASE
+        WHEN workAge='more10' THEN
+        perNum
+        END AS more10,
+        company_id
+        FROM
+        (
+        SELECT
+        count( b.mainID ) AS perNum,
+        elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10') as workAge,
+        c.company_id AS company_id
+        FROM
+        zx_ct_contract c
+        LEFT JOIN zx_sf_projectempmain a ON a.orgID = c.orgID
+        LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+        GROUP BY
+        elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10'),
+        c.company_id)as item)as companyInfo
+        WHERE company_id =#{companyId}
+        GROUP BY
+        company_id
+    </select>
+
+
+
+
+    <select id="getWorkAgeGuiDang" resultMap="BaseResultMap">
+        SELECT
+	IFNULL( sum( less2 ), 0 ) AS less2,
+	IFNULL( sum( 2to5 ), 0 ) AS 2to5,
+	IFNULL( sum( 5to10 ), 0 ) AS 5to10,
+	IFNULL( sum( more10 ), 0 ) AS more10,
+	orgID
+FROM(
+	SELECT
+CASE
+	WHEN workAge='less2' THEN
+	perNum
+	END AS less2,
+CASE
+	WHEN workAge='2to5' THEN
+	perNum
+	END AS 2to5,
+CASE
+	WHEN workAge='5to10' THEN
+	perNum
+	END AS 5to10,
+CASE
+	WHEN workAge='more10' THEN
+	perNum
+	END AS more10,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+ elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10') as workAge,
+	a.orgID AS orgID
+
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) &lt; #{today}
+GROUP BY
+	elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10'),
+	a.orgID
+	) AS empItem
+	) AS companyInfo
+    </select>
+
+
+    <select id="getWorkAgeGuiDangList" resultMap="BaseResultMap">
+        SELECT
+	IFNULL( sum( less2 ), 0 ) AS less2,
+	IFNULL( sum( 2to5 ), 0 ) AS 2to5,
+	IFNULL( sum( 5to10 ), 0 ) AS 5to10,
+	IFNULL( sum( more10 ), 0 ) AS more10,
+	orgID
+FROM(
+	SELECT
+CASE
+	WHEN workAge='less2' THEN
+	perNum
+	END AS less2,
+CASE
+	WHEN workAge='2to5' THEN
+	perNum
+	END AS 2to5,
+CASE
+	WHEN workAge='5to10' THEN
+	perNum
+	END AS 5to10,
+CASE
+	WHEN workAge='more10' THEN
+	perNum
+	END AS more10,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+ elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10') as workAge,
+	a.orgID AS orgID
+
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) &lt; #{today}
+GROUP BY
+	elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10'),
+	a.orgID
+	) AS empItem
+	) AS companyInfo GROUP BY orgID
+    </select>
+
+    <select id="getWorkAgeJiaoGong" resultMap="BaseResultMap">
+        SELECT
+	IFNULL( sum( less2 ), 0 ) AS less2,
+	IFNULL( sum( 2to5 ), 0 ) AS 2to5,
+	IFNULL( sum( 5to10 ), 0 ) AS 5to10,
+	IFNULL( sum( more10 ), 0 ) AS more10,
+	orgID
+FROM(
+	SELECT
+CASE
+	WHEN workAge='less2' THEN
+	perNum
+	END AS less2,
+CASE
+	WHEN workAge='2to5' THEN
+	perNum
+	END AS 2to5,
+CASE
+	WHEN workAge='5to10' THEN
+	perNum
+	END AS 5to10,
+CASE
+	WHEN workAge='more10' THEN
+	perNum
+	END AS more10,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+ elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10') as workAge,
+	a.orgID AS orgID
+
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.doc_date ) THEN
+                 DATE_FORMAT( d.delivery_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( d.delivery_date, '%Y%m%d' ) &lt;= #{today}
+                 AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) >#{today} ) END
+GROUP BY
+	elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10'),
+	a.orgID
+	) AS empItem
+	) AS companyInfo
+    </select>
+
+
+    <select id="getWorkAgeJiaoGongList" resultMap="BaseResultMap">
+        SELECT
+	IFNULL( sum( less2 ), 0 ) AS less2,
+	IFNULL( sum( 2to5 ), 0 ) AS 2to5,
+	IFNULL( sum( 5to10 ), 0 ) AS 5to10,
+	IFNULL( sum( more10 ), 0 ) AS more10,
+	orgID
+FROM(
+	SELECT
+CASE
+	WHEN workAge='less2' THEN
+	perNum
+	END AS less2,
+CASE
+	WHEN workAge='2to5' THEN
+	perNum
+	END AS 2to5,
+CASE
+	WHEN workAge='5to10' THEN
+	perNum
+	END AS 5to10,
+CASE
+	WHEN workAge='more10' THEN
+	perNum
+	END AS more10,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+ elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10') as workAge,
+	a.orgID AS orgID
+
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.doc_date ) THEN
+                 DATE_FORMAT( d.delivery_date, '%Y%m%d' ) &lt;= #{today} ELSE ( DATE_FORMAT( d.delivery_date, '%Y%m%d' ) &lt;= #{today}
+                 AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) >#{today} ) END
+GROUP BY
+	elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10'),
+	a.orgID
+	) AS empItem
+	) AS companyInfo GROUP BY orgID
+    </select>
+
+
+
+    <select id="getWorkAgeWanGong" resultMap="BaseResultMap">
+        SELECT
+	IFNULL( sum( less2 ), 0 ) AS less2,
+	IFNULL( sum( 2to5 ), 0 ) AS 2to5,
+	IFNULL( sum( 5to10 ), 0 ) AS 5to10,
+	IFNULL( sum( more10 ), 0 ) AS more10,
+	orgID
+FROM(
+	SELECT
+CASE
+	WHEN workAge='less2' THEN
+	perNum
+	END AS less2,
+CASE
+	WHEN workAge='2to5' THEN
+	perNum
+	END AS 2to5,
+CASE
+	WHEN workAge='5to10' THEN
+	perNum
+	END AS 5to10,
+CASE
+	WHEN workAge='more10' THEN
+	perNum
+	END AS more10,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+ elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10') as workAge,
+	a.orgID AS orgID
+
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.delivery_date ) THEN
+                 ( CASE WHEN ISNULL( d.doc_date ) THEN DATE_FORMAT( d.main_end_date, '%Y%m%d' ) &lt;= #{today}
+                 ELSE ( DATE_FORMAT( d.main_end_date, '%Y%m%d' )  &lt;= #{today} AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) > #{today} )
+                 END ) ELSE (DATE_FORMAT( d.main_end_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( d.delivery_date, '%Y%m%d' ) > #{today} )
+                 END
+GROUP BY
+	elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10'),
+	a.orgID
+	) AS empItem
+	) AS companyInfo
+    </select>
+
+    <select id="getWorkAgeWanGongList" resultMap="BaseResultMap">
+        SELECT
+	IFNULL( sum( less2 ), 0 ) AS less2,
+	IFNULL( sum( 2to5 ), 0 ) AS 2to5,
+	IFNULL( sum( 5to10 ), 0 ) AS 5to10,
+	IFNULL( sum( more10 ), 0 ) AS more10,
+	orgID
+FROM(
+	SELECT
+CASE
+	WHEN workAge='less2' THEN
+	perNum
+	END AS less2,
+CASE
+	WHEN workAge='2to5' THEN
+	perNum
+	END AS 2to5,
+CASE
+	WHEN workAge='5to10' THEN
+	perNum
+	END AS 5to10,
+CASE
+	WHEN workAge='more10' THEN
+	perNum
+	END AS more10,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+ elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10') as workAge,
+	a.orgID AS orgID
+
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+	c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.delivery_date ) THEN
+                 ( CASE WHEN ISNULL( d.doc_date ) THEN DATE_FORMAT( d.main_end_date, '%Y%m%d' ) &lt;= #{today}
+                 ELSE ( DATE_FORMAT( d.main_end_date, '%Y%m%d' )  &lt;= #{today} AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) > #{today} )
+                 END ) ELSE (DATE_FORMAT( d.main_end_date, '%Y%m%d' ) &lt;= #{today} AND DATE_FORMAT( d.delivery_date, '%Y%m%d' ) > #{today} )
+                 END
+GROUP BY
+	elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10'),
+	a.orgID
+	) AS empItem
+	) AS companyInfo GROUP BY orgID
+    </select>
+
+    <select id="getWorkAgeKaiGong" resultMap="BaseResultMap">
+        SELECT
+	IFNULL( sum( less2 ), 0 ) AS less2,
+	IFNULL( sum( 2to5 ), 0 ) AS 2to5,
+	IFNULL( sum( 5to10 ), 0 ) AS 5to10,
+	IFNULL( sum( more10 ), 0 ) AS more10,
+	orgID
+FROM(
+	SELECT
+CASE
+	WHEN workAge='less2' THEN
+	perNum
+	END AS less2,
+CASE
+	WHEN workAge='2to5' THEN
+	perNum
+	END AS 2to5,
+CASE
+	WHEN workAge='5to10' THEN
+	perNum
+	END AS 5to10,
+CASE
+	WHEN workAge='more10' THEN
+	perNum
+	END AS more10,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+ elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10') as workAge,
+	a.orgID AS orgID
+
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+		c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.main_end_date ) THEN
+					(
+					CASE
+
+							WHEN ISNULL( d.delivery_date ) THEN
+							(
+							CASE
+
+									WHEN ISNULL( d.doc_date ) THEN
+									DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+								ELSE ( DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+									AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) > #{today} )
+								END ) ELSE (
+								DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+
+								AND DATE_FORMAT( d.delivery_date, '%Y%m%d' ) > #{today} )END )
+								ELSE (
+									DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+
+									AND DATE_FORMAT( d.main_end_date, '%Y%m%d' ) > #{today} ) END
+GROUP BY
+	elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10'),
+	a.orgID
+	) AS empItem
+	) AS companyInfo
+    </select>
+
+    <select id="getWorkAgeKaiGongList" resultMap="BaseResultMap">
+        SELECT
+	IFNULL( sum( less2 ), 0 ) AS less2,
+	IFNULL( sum( 2to5 ), 0 ) AS 2to5,
+	IFNULL( sum( 5to10 ), 0 ) AS 5to10,
+	IFNULL( sum( more10 ), 0 ) AS more10,
+	orgID
+FROM(
+	SELECT
+CASE
+	WHEN workAge='less2' THEN
+	perNum
+	END AS less2,
+CASE
+	WHEN workAge='2to5' THEN
+	perNum
+	END AS 2to5,
+CASE
+	WHEN workAge='5to10' THEN
+	perNum
+	END AS 5to10,
+CASE
+	WHEN workAge='more10' THEN
+	perNum
+	END AS more10,
+	orgID
+FROM
+	(
+SELECT
+	count( b.mainID ) AS perNum,
+ elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10') as workAge,
+	a.orgID AS orgID
+
+FROM
+	zx_sf_projectempmain a
+	LEFT JOIN zx_sf_projectemployee b ON a.zxSfProjectEmpMainId = b.mainID
+	LEFT JOIN zx_ct_contract c ON a.orgID = c.orgID
+	LEFT JOIN sys_project d ON d.department_id = a.orgID
+WHERE
+		c.company_id = #{record.companyId} AND CASE WHEN ISNULL( d.main_end_date ) THEN
+					(
+					CASE
+
+							WHEN ISNULL( d.delivery_date ) THEN
+							(
+							CASE
+
+									WHEN ISNULL( d.doc_date ) THEN
+									DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+								ELSE ( DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+									AND DATE_FORMAT( d.doc_date, '%Y%m%d' ) > #{today} )
+								END ) ELSE (
+								DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+
+								AND DATE_FORMAT( d.delivery_date, '%Y%m%d' ) > #{today} )END )
+								ELSE (
+									DATE_FORMAT( d.actual_start_date, '%Y%m%d' ) &lt;= #{today}
+
+									AND DATE_FORMAT( d.main_end_date, '%Y%m%d' ) > #{today} ) END
+GROUP BY
+	elt(interval(b.workAge,0, 2, 5, 10), 'less2', '2to5', '5to10', 'more10'),
+	a.orgID
+	) AS empItem
+	) AS companyInfo GROUP BY orgID
+    </select>
+
+</mapper>

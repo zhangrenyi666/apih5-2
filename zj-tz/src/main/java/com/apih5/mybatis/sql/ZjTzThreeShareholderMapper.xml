@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzThreeShareholderMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzThreeShareholder" >
+    <id column="three_shareholder_id" property="threeShareholderId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="year_date" property="yearDate" jdbcType="DATE" />
+    <result column="year_str" property="yearStr" jdbcType="VARCHAR" />
+    <result column="meet_number_id" property="meetNumberId" jdbcType="CHAR" />
+    <result column="meet_number_name" property="meetNumberName" jdbcType="VARCHAR" />
+    <result column="meet_type_id" property="meetTypeId" jdbcType="CHAR" />
+    <result column="meet_type_name" property="meetTypeName" jdbcType="VARCHAR" />
+    <result column="meet_date" property="meetDate" jdbcType="DATE" />
+    <result column="meet_place" property="meetPlace" jdbcType="VARCHAR" />
+    <result column="meet_vote_id" property="meetVoteId" jdbcType="CHAR" />
+    <result column="meet_vote_name" property="meetVoteName" jdbcType="VARCHAR" />
+    <result column="original_id" property="originalId" jdbcType="CHAR" />
+    <result column="original_name" property="originalName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    three_shareholder_id, project_id, project_name, year_date, year_str, 
+    meet_number_id, meet_number_name, meet_type_id, meet_type_name, meet_date, 
+    meet_place, meet_vote_id, meet_vote_name, original_id, original_name, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_three_shareholder
+    where three_shareholder_id = #{threeShareholderId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_three_shareholder
+    where three_shareholder_id = #{threeShareholderId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzThreeShareholder" >
+    insert into zj_tz_three_shareholder (three_shareholder_id, project_id, project_name, 
+      year_date, year_str, meet_number_id, 
+      meet_number_name, meet_type_id, meet_type_name, 
+      meet_date, meet_place, meet_vote_id, 
+      meet_vote_name, original_id, original_name, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{threeShareholderId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, 
+      #{yearDate,jdbcType=DATE}, #{yearStr,jdbcType=VARCHAR}, #{meetNumberId,jdbcType=CHAR}, 
+      #{meetNumberName,jdbcType=VARCHAR}, #{meetTypeId,jdbcType=CHAR}, #{meetTypeName,jdbcType=VARCHAR}, 
+      #{meetDate,jdbcType=DATE}, #{meetPlace,jdbcType=VARCHAR}, #{meetVoteId,jdbcType=CHAR}, 
+      #{meetVoteName,jdbcType=VARCHAR}, #{originalId,jdbcType=CHAR}, #{originalName,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzThreeShareholder" >
+    insert into zj_tz_three_shareholder
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="threeShareholderId != null" >
+        three_shareholder_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="yearDate != null" >
+        year_date,
+      </if>
+      <if test="yearStr != null" >
+        year_str,
+      </if>
+      <if test="meetNumberId != null" >
+        meet_number_id,
+      </if>
+      <if test="meetNumberName != null" >
+        meet_number_name,
+      </if>
+      <if test="meetTypeId != null" >
+        meet_type_id,
+      </if>
+      <if test="meetTypeName != null" >
+        meet_type_name,
+      </if>
+      <if test="meetDate != null" >
+        meet_date,
+      </if>
+      <if test="meetPlace != null" >
+        meet_place,
+      </if>
+      <if test="meetVoteId != null" >
+        meet_vote_id,
+      </if>
+      <if test="meetVoteName != null" >
+        meet_vote_name,
+      </if>
+      <if test="originalId != null" >
+        original_id,
+      </if>
+      <if test="originalName != null" >
+        original_name,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="threeShareholderId != null" >
+        #{threeShareholderId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="yearDate != null" >
+        #{yearDate,jdbcType=DATE},
+      </if>
+      <if test="yearStr != null" >
+        #{yearStr,jdbcType=VARCHAR},
+      </if>
+      <if test="meetNumberId != null" >
+        #{meetNumberId,jdbcType=CHAR},
+      </if>
+      <if test="meetNumberName != null" >
+        #{meetNumberName,jdbcType=VARCHAR},
+      </if>
+      <if test="meetTypeId != null" >
+        #{meetTypeId,jdbcType=CHAR},
+      </if>
+      <if test="meetTypeName != null" >
+        #{meetTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="meetDate != null" >
+        #{meetDate,jdbcType=DATE},
+      </if>
+      <if test="meetPlace != null" >
+        #{meetPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="meetVoteId != null" >
+        #{meetVoteId,jdbcType=CHAR},
+      </if>
+      <if test="meetVoteName != null" >
+        #{meetVoteName,jdbcType=VARCHAR},
+      </if>
+      <if test="originalId != null" >
+        #{originalId,jdbcType=CHAR},
+      </if>
+      <if test="originalName != null" >
+        #{originalName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzThreeShareholder" >
+    update zj_tz_three_shareholder
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="yearDate != null" >
+        year_date = #{yearDate,jdbcType=DATE},
+      </if>
+      <if test="yearStr != null" >
+        year_str = #{yearStr,jdbcType=VARCHAR},
+      </if>
+      <if test="meetNumberId != null" >
+        meet_number_id = #{meetNumberId,jdbcType=CHAR},
+      </if>
+      <if test="meetNumberName != null" >
+        meet_number_name = #{meetNumberName,jdbcType=VARCHAR},
+      </if>
+      <if test="meetTypeId != null" >
+        meet_type_id = #{meetTypeId,jdbcType=CHAR},
+      </if>
+      <if test="meetTypeName != null" >
+        meet_type_name = #{meetTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="meetDate != null" >
+        meet_date = #{meetDate,jdbcType=DATE},
+      </if>
+      <if test="meetPlace != null" >
+        meet_place = #{meetPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="meetVoteId != null" >
+        meet_vote_id = #{meetVoteId,jdbcType=CHAR},
+      </if>
+      <if test="meetVoteName != null" >
+        meet_vote_name = #{meetVoteName,jdbcType=VARCHAR},
+      </if>
+      <if test="originalId != null" >
+        original_id = #{originalId,jdbcType=CHAR},
+      </if>
+      <if test="originalName != null" >
+        original_name = #{originalName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where three_shareholder_id = #{threeShareholderId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzThreeShareholder" >
+    update zj_tz_three_shareholder
+    set       project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      year_date = #{yearDate,jdbcType=DATE},
+      year_str = #{yearStr,jdbcType=VARCHAR},
+      meet_number_id = #{meetNumberId,jdbcType=CHAR},
+      meet_number_name = #{meetNumberName,jdbcType=VARCHAR},
+      meet_type_id = #{meetTypeId,jdbcType=CHAR},
+      meet_type_name = #{meetTypeName,jdbcType=VARCHAR},
+      meet_date = #{meetDate,jdbcType=DATE},
+      meet_place = #{meetPlace,jdbcType=VARCHAR},
+      meet_vote_id = #{meetVoteId,jdbcType=CHAR},
+      meet_vote_name = #{meetVoteName,jdbcType=VARCHAR},
+      original_id = #{originalId,jdbcType=CHAR},
+      original_name = #{originalName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where three_shareholder_id = #{threeShareholderId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzThreeShareholderList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzThreeShareholder" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_three_shareholder AS d
+    where del_flag = '0'
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     and project_id in (${projectIdSql})
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="yearDate != null" >
+     and year_date = #{yearDate,jdbcType=DATE}
+    </if>
+    <if test="yearStr != null and yearStr != ''" >
+     and year_str = #{yearStr,jdbcType=VARCHAR}
+    </if>
+    <if test="meetNumberId != null and meetNumberId != ''" >
+     and meet_number_id = #{meetNumberId,jdbcType=CHAR}
+    </if>
+    <if test="meetNumberName != null and meetNumberName != ''" >
+     and meet_number_name = #{meetNumberName,jdbcType=VARCHAR}
+    </if>
+    <if test="meetTypeId != null and meetTypeId != ''" >
+     and meet_type_id = #{meetTypeId,jdbcType=CHAR}
+    </if>
+    <if test="meetTypeName != null and meetTypeName != ''" >
+     and meet_type_name = #{meetTypeName,jdbcType=VARCHAR}
+    </if>
+    <if test="meetDate != null" >
+     and meet_date = #{meetDate,jdbcType=DATE}
+    </if>
+    <if test="meetPlace != null and meetPlace != ''" >
+     and meet_place = #{meetPlace,jdbcType=VARCHAR}
+    </if>
+    <if test="meetVoteId != null and meetVoteId != ''" >
+     and meet_vote_id = #{meetVoteId,jdbcType=CHAR}
+    </if>
+    <if test="meetVoteName != null and meetVoteName != ''" >
+     and meet_vote_name = #{meetVoteName,jdbcType=VARCHAR}
+    </if>
+    <if test="originalId != null and originalId != ''" >
+     and original_id = #{originalId,jdbcType=CHAR}
+    </if>
+    <if test="originalName != null and originalName != ''" >
+     and original_name = #{originalName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <!--增加时间检索条件 -->
+	<if test="startTime != null">
+	 AND DATE_FORMAT(meet_date,'%Y-%m-%d %H:%i:%s') &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %H:%i:%s')
+	</if>
+	<if test="endTime != null">
+	 AND DATE_FORMAT(meet_date,'%Y-%m-%d %H:%i:%s') &lt;= DATE_FORMAT(CONCAT(#{endTime},'23:59:59'),'%Y-%m-%d %H:%i:%s')
+	</if>
+	ORDER BY CAST( (SELECT m.sort1 FROM zj_tz_pro_manage AS m  WHERE m.del_flag = '0' AND m.project_id = d.project_id) AS DECIMAL ),
+    (SELECT m.pro_no FROM zj_tz_pro_manage AS m  WHERE m.del_flag = '0' AND m.project_id = d.project_id), 
+    year_str, meet_number_id ASC
+	 <!-- ORDER BY year_str, convert((SELECT m.project_name FROM zj_tz_pro_manage AS m  WHERE m.del_flag = '0' AND m.project_id = d.project_id) using gbk) ASC, meet_number_id ASC -->  
+  </select>
+  <delete id="batchDeleteUpdateZjTzThreeShareholder" parameterType="com.apih5.mybatis.pojo.ZjTzThreeShareholder" >
+    <![CDATA[ 
+        update zj_tz_three_shareholder
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and three_shareholder_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.threeShareholderId} 
+     </foreach>
+  </delete>
+  
+   <update id="updateZjTzThreeShareholderProjectShortName" parameterType="com.apih5.mybatis.pojo.ZjTzThreeShareholder">
+		update zj_tz_three_shareholder
+		set project_name = #{projectName,jdbcType=VARCHAR}
+		where del_flag = '0'
+		and project_id = #{projectId,jdbcType=CHAR}
+	</update>
+</mapper>

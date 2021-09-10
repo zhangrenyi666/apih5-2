@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzRiskMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzRisk" >
+    <id column="risk_id" property="riskId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="subproject_info_id" property="subprojectInfoId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="num1" property="num1" jdbcType="INTEGER" />
+    <result column="num2" property="num2" jdbcType="INTEGER" />
+    <result column="num3" property="num3" jdbcType="INTEGER" />
+    <result column="num4" property="num4" jdbcType="INTEGER" />
+    <result column="release_id" property="releaseId" jdbcType="CHAR" />
+    <result column="release_name" property="releaseName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    risk_id, project_id, subproject_info_id, project_name, num1, 
+    num2, num3, num4, release_id, release_name, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />,
+    (SELECT subproject_name FROM zj_tz_pro_subproject_info WHERE subproject_info_id = risk.subproject_info_id) AS subprojectInfoName
+    from zj_tz_risk AS risk
+    where risk_id = #{riskId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_risk
+    where risk_id = #{riskId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzRisk" >
+    insert into zj_tz_risk (risk_id, project_id, subproject_info_id, 
+      project_name, num1, num2, 
+      num3, num4, release_id, 
+      release_name, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{riskId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{subprojectInfoId,jdbcType=CHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{num1,jdbcType=INTEGER}, #{num2,jdbcType=INTEGER}, 
+      #{num3,jdbcType=INTEGER}, #{num4,jdbcType=INTEGER}, #{releaseId,jdbcType=CHAR}, 
+      #{releaseName,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzRisk" >
+    insert into zj_tz_risk
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="riskId != null" >
+        risk_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="subprojectInfoId != null" >
+        subproject_info_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="num1 != null" >
+        num1,
+      </if>
+      <if test="num2 != null" >
+        num2,
+      </if>
+      <if test="num3 != null" >
+        num3,
+      </if>
+      <if test="num4 != null" >
+        num4,
+      </if>
+      <if test="releaseId != null" >
+        release_id,
+      </if>
+      <if test="releaseName != null" >
+        release_name,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="riskId != null" >
+        #{riskId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectInfoId != null" >
+        #{subprojectInfoId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="num1 != null" >
+        #{num1,jdbcType=INTEGER},
+      </if>
+      <if test="num2 != null" >
+        #{num2,jdbcType=INTEGER},
+      </if>
+      <if test="num3 != null" >
+        #{num3,jdbcType=INTEGER},
+      </if>
+      <if test="num4 != null" >
+        #{num4,jdbcType=INTEGER},
+      </if>
+      <if test="releaseId != null" >
+        #{releaseId,jdbcType=CHAR},
+      </if>
+      <if test="releaseName != null" >
+        #{releaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzRisk" >
+    update zj_tz_risk
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="subprojectInfoId != null" >
+        subproject_info_id = #{subprojectInfoId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="num1 != null" >
+        num1 = #{num1,jdbcType=INTEGER},
+      </if>
+      <if test="num2 != null" >
+        num2 = #{num2,jdbcType=INTEGER},
+      </if>
+      <if test="num3 != null" >
+        num3 = #{num3,jdbcType=INTEGER},
+      </if>
+      <if test="num4 != null" >
+        num4 = #{num4,jdbcType=INTEGER},
+      </if>
+      <if test="releaseId != null" >
+        release_id = #{releaseId,jdbcType=CHAR},
+      </if>
+      <if test="releaseName != null" >
+        release_name = #{releaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where risk_id = #{riskId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzRisk" >
+    update zj_tz_risk
+    set       project_id = #{projectId,jdbcType=CHAR},
+      subproject_info_id = #{subprojectInfoId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      num1 = #{num1,jdbcType=INTEGER},
+      num2 = #{num2,jdbcType=INTEGER},
+      num3 = #{num3,jdbcType=INTEGER},
+      num4 = #{num4,jdbcType=INTEGER},
+      release_id = #{releaseId,jdbcType=CHAR},
+      release_name = #{releaseName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where risk_id = #{riskId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzRiskList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzRisk" >
+    select 
+    <include refid="Base_Column_List" />,
+    (SELECT subproject_name FROM zj_tz_pro_subproject_info WHERE subproject_info_id = risk.subproject_info_id) AS subprojectInfoName
+    from zj_tz_risk AS risk
+    where del_flag = '0'
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     and project_id in (${projectIdSql})
+    </if>
+    <if test="subprojectInfoId != null and subprojectInfoId != ''" >
+     and subproject_info_id = #{subprojectInfoId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="num1 != null and num1 != ''" >
+     and num1 = #{num1,jdbcType=INTEGER}
+    </if>
+    <if test="num2 != null and num2 != ''" >
+     and num2 = #{num2,jdbcType=INTEGER}
+    </if>
+    <if test="num3 != null and num3 != ''" >
+     and num3 = #{num3,jdbcType=INTEGER}
+    </if>
+    <if test="num4 != null and num4 != ''" >
+     and num4 = #{num4,jdbcType=INTEGER}
+    </if>
+    <if test="releaseId != null and releaseId != ''" >
+     and release_id = #{releaseId,jdbcType=CHAR}
+    </if>
+    <if test="releaseName != null and releaseName != ''" >
+     and release_name = #{releaseName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="ext1SeeFlag != null and ext1SeeFlag != ''" >
+     and release_id IN ('1','2')
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzRisk" parameterType="com.apih5.mybatis.pojo.ZjTzRisk" >
+    <![CDATA[ 
+        update zj_tz_risk
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and risk_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.riskId} 
+     </foreach>
+  </delete>
+  <!-- 扩展 -->
+   <delete id="batchRecallZjTzRisk" parameterType="com.apih5.mybatis.pojo.ZjTzRisk" >
+    <![CDATA[ 
+        update zj_tz_risk
+        set release_id = #{param2.releaseId},
+            release_name=#{param2.releaseName},
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and risk_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.riskId} 
+     </foreach>
+  </delete>
+</mapper>

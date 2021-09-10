@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.SysDepartmentMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+    <id column="department_id" property="departmentId" jdbcType="CHAR" />
+    <result column="department_name" property="departmentName" jdbcType="VARCHAR" />
+    <result column="department_parent_id" property="departmentParentId" jdbcType="VARCHAR" />
+    <result column="department_path" property="departmentPath" jdbcType="VARCHAR" />
+    <result column="department_path_name" property="departmentPathName" jdbcType="VARCHAR" />
+    <result column="department_flag" property="departmentFlag" jdbcType="CHAR" />
+    <result column="department_flag_name" property="departmentFlagName" jdbcType="VARCHAR" />
+    <result column="company_id" property="companyId" jdbcType="CHAR" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="conf_up" property="confUp" jdbcType="VARCHAR" />
+    <result column="conf_down" property="confDown" jdbcType="VARCHAR" />
+    <result column="other_id" property="otherId" jdbcType="VARCHAR" />
+    <result column="department_remarks" property="departmentRemarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    department_id, department_name, department_parent_id, department_path, department_path_name, 
+    department_flag, department_flag_name, company_id, company_name, project_id, 
+    project_name, conf_up, conf_down, other_id, department_remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_department
+    where del_flag = '0'
+    and department_id = #{departmentId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_department
+    where department_id = #{departmentId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+    insert into sys_department (department_id, department_name, department_parent_id, 
+      department_path, department_path_name, department_flag, 
+      department_flag_name, company_id, company_name, 
+      project_id, project_name, conf_up, 
+      conf_down, other_id, department_remarks, 
+      sort, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{departmentId,jdbcType=CHAR}, #{departmentName,jdbcType=VARCHAR}, #{departmentParentId,jdbcType=VARCHAR}, 
+      #{departmentPath,jdbcType=VARCHAR}, #{departmentPathName,jdbcType=VARCHAR}, #{departmentFlag,jdbcType=CHAR}, 
+      #{departmentFlagName,jdbcType=VARCHAR}, #{companyId,jdbcType=CHAR}, #{companyName,jdbcType=VARCHAR}, 
+      #{projectId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, #{confUp,jdbcType=VARCHAR}, 
+      #{confDown,jdbcType=VARCHAR}, #{otherId,jdbcType=VARCHAR}, #{departmentRemarks,jdbcType=VARCHAR}, 
+      #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+    insert into sys_department
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="departmentId != null" >
+        department_id,
+      </if>
+      <if test="departmentName != null" >
+        department_name,
+      </if>
+      <if test="departmentParentId != null" >
+        department_parent_id,
+      </if>
+      <if test="departmentPath != null" >
+        department_path,
+      </if>
+      <if test="departmentPathName != null" >
+        department_path_name,
+      </if>
+      <if test="departmentFlag != null" >
+        department_flag,
+      </if>
+      <if test="departmentFlagName != null" >
+        department_flag_name,
+      </if>
+      <if test="companyId != null" >
+        company_id,
+      </if>
+      <if test="companyName != null" >
+        company_name,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="confUp != null" >
+        conf_up,
+      </if>
+      <if test="confDown != null" >
+        conf_down,
+      </if>
+      <if test="otherId != null" >
+        other_id,
+      </if>
+      <if test="departmentRemarks != null" >
+        department_remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="departmentId != null" >
+        #{departmentId,jdbcType=CHAR},
+      </if>
+      <if test="departmentName != null" >
+        #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentParentId != null" >
+        #{departmentParentId,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentPath != null" >
+        #{departmentPath,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentPathName != null" >
+        #{departmentPathName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentFlag != null" >
+        #{departmentFlag,jdbcType=CHAR},
+      </if>
+      <if test="departmentFlagName != null" >
+        #{departmentFlagName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="confUp != null" >
+        #{confUp,jdbcType=VARCHAR},
+      </if>
+      <if test="confDown != null" >
+        #{confDown,jdbcType=VARCHAR},
+      </if>
+      <if test="otherId != null" >
+        #{otherId,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentRemarks != null" >
+        #{departmentRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+    update sys_department
+    <set >
+      <if test="departmentName != null" >
+        department_name = #{departmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentParentId != null" >
+        department_parent_id = #{departmentParentId,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentPath != null" >
+        department_path = #{departmentPath,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentPathName != null" >
+        department_path_name = #{departmentPathName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentFlag != null" >
+        department_flag = #{departmentFlag,jdbcType=CHAR},
+      </if>
+      <if test="departmentFlagName != null" >
+        department_flag_name = #{departmentFlagName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        company_id = #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="companyName != null" >
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="confUp != null" >
+        conf_up = #{confUp,jdbcType=VARCHAR},
+      </if>
+      <if test="confDown != null" >
+        conf_down = #{confDown,jdbcType=VARCHAR},
+      </if>
+      <if test="otherId != null" >
+        other_id = #{otherId,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentRemarks != null" >
+        department_remarks = #{departmentRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where department_id = #{departmentId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+    update sys_department
+    set       department_name = #{departmentName,jdbcType=VARCHAR},
+      department_parent_id = #{departmentParentId,jdbcType=VARCHAR},
+      department_path = #{departmentPath,jdbcType=VARCHAR},
+      department_path_name = #{departmentPathName,jdbcType=VARCHAR},
+      department_flag = #{departmentFlag,jdbcType=CHAR},
+      department_flag_name = #{departmentFlagName,jdbcType=VARCHAR},
+      company_id = #{companyId,jdbcType=CHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      conf_up = #{confUp,jdbcType=VARCHAR},
+      conf_down = #{confDown,jdbcType=VARCHAR},
+      other_id = #{otherId,jdbcType=VARCHAR},
+      department_remarks = #{departmentRemarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where department_id = #{departmentId,jdbcType=CHAR}
+  </update>
+  <select id="selectBySysDepartmentList" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_department
+    where del_flag = '0'
+    <if test="departmentId != null and departmentId != ''" >
+     and department_id = #{departmentId,jdbcType=CHAR}
+    </if>
+    <if test="departmentName != null and departmentName != ''" >
+     and department_name like CONCAT('%', #{departmentName,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="departmentParentId != null and departmentParentId != ''" >
+     and department_parent_id = #{departmentParentId,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentPath != null and departmentPath != ''" >
+     and department_path like CONCAT('%', #{departmentPath,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="departmentPathName != null and departmentPathName != ''" >
+     and department_path_name = #{departmentPathName,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentFlag != null and departmentFlag != ''" >
+     and department_flag = #{departmentFlag,jdbcType=CHAR}
+    </if>
+    <if test="departmentFlagName != null and departmentFlagName != ''" >
+     and department_flag_name = #{departmentFlagName,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and company_id = #{companyId,jdbcType=CHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and company_name = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="confUp != null and confUp != ''" >
+     and conf_up = #{confUp,jdbcType=VARCHAR}
+    </if>
+    <if test="confDown != null and confDown != ''" >
+     and conf_down like CONCAT('%', #{confDown,jdbcType=VARCHAR}, '%') 
+    </if>
+    <if test="otherId != null and otherId != ''" >
+     and other_id = #{otherId,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentRemarks != null and departmentRemarks != ''" >
+     and department_remarks = #{departmentRemarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    ORDER BY sort,department_name 
+  </select>
+  <delete id="batchDeleteUpdateSysDepartment" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+    <![CDATA[ 
+        update sys_department
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and department_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.departmentId} 
+     </foreach>
+  </delete>
+  <!--扩展 -->
+  <select id="selectSysDepartmentByUserkey" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+    select 
+    	t2.department_id,
+    	t2.department_name,
+    	t2.department_path,
+    	t2.department_flag,
+    	t2.project_id,
+    	t2.project_name
+	FROM
+	sys_user_department AS t1
+	INNER JOIN sys_department AS t2 ON t1.department_id = t2.department_id
+    where t1.del_flag = '0' 
+    <if test="_parameter != null and _parameter.userKey != null and _parameter.userKey != ''">
+	    and t1.user_key = #{_parameter.userKey} 
+    </if>
+    <if test="departmentFlag != null and departmentFlag != ''" >
+     and t2.department_flag = #{departmentFlag,jdbcType=CHAR}
+    </if>
+    <if test="departmentPath != null and departmentPath != ''" >
+     and t2.department_path like CONCAT('%', #{departmentPath,jdbcType=VARCHAR}, '%')
+    </if>
+  </select>
+  <select id="getSysDepartmentProjectByUserkey" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+    select 
+    	t2.department_id,
+    	t2.department_name,
+    	t2.department_path,
+    	t2.department_flag,
+    	t2.project_id,
+    	t2.project_name
+	FROM
+	sys_user_department AS t1
+	INNER JOIN sys_department AS t2 ON t1.department_id = t2.department_id
+    where t1.del_flag = '0' 
+     <if test="_parameter != null and _parameter.userKey != null and _parameter.userKey != ''">
+        and t1.user_key = #{_parameter.userKey} 
+    </if>
+    UNION ALL
+    select 
+        t2.department_id,
+        t2.department_name,
+        t2.department_path,
+        t2.department_flag,
+        t2.project_id,
+        t2.project_name
+    FROM sys_user_department AS t1
+    INNER JOIN sys_project AS t2 ON t1.department_id = t2.department_id
+    where t1.del_flag = '0' 
+     <if test="_parameter != null and _parameter.userKey != null and _parameter.userKey != ''">
+        and t1.user_key = #{_parameter.userKey} 
+    </if> 
+  </select>
+  <select id="getSysDepartmentListByUserkey" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+    select
+    distinct t1.*
+    from sys_department t1, sys_user_department t2
+    where t1.department_id = t2.department_id
+    and t1.del_flag = '0'
+    and t2.del_flag = '0'
+    and t2.user_key = #{userKey,jdbcType=VARCHAR}
+    order by t1.sort
+  </select>
+  <!-- 模糊检索姓名、电话、部门等 -->
+  <select id="selectSysDepartmentUserListByLike" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+    SELECT DISTINCT
+		t3.department_id,
+		t3.department_name,
+		t3.department_path,
+		t3.department_path_name,
+		t1.user_key as userKey,
+		t1.real_name as realName
+	FROM sys_user AS t1
+		INNER JOIN sys_user_department AS t2 ON t1.user_key = t2.user_key 
+		INNER JOIN sys_department AS t3 ON t2.department_id = t3.department_id
+        AND t1.del_flag = '0' AND t2.del_flag='0' AND t3.del_flag='0'
+	where 1=1
+          <!-- <if test="accountAppType != null and accountAppType != ''" >
+             and t1.account_app_type = #{accountAppType,jdbcType=CHAR}
+          </if> -->
+          <if test="departmentId != null and departmentId != ''" >
+             and t3.department_id = #{departmentId,jdbcType=CHAR}
+          </if>
+		  <if test="departmentPath != null and departmentPath != ''" >
+		     and t3.department_path like CONCAT('%', #{departmentPath,jdbcType=VARCHAR}, '%')
+		  </if>
+		  and (t1.real_name like CONCAT('%',#{realName,jdbcType=VARCHAR},'%') 
+    	       or t1.user_id like CONCAT('%',#{realName,jdbcType=VARCHAR},'%') 
+    	       or t1.mobile like CONCAT('%',#{realName,jdbcType=VARCHAR},'%'))
+   	order by t1.sort, t1.real_name
+  </select>
+  
+  <delete id="batchDeleteByDepIdAndUserList" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+    <![CDATA[
+        update sys_user_department
+        set del_flag = '1'
+        where user_key in
+     ]]> 
+     <foreach collection="sysUserList" item = "model" open="(" separator="," close=")">#{model.userKey} 
+     </foreach>
+     <if test="departmentId != null and departmentId != ''" >
+      and department_id = #{departmentId,jdbcType=VARCHAR}
+     </if>
+  </delete>
+  <select id="getSysDepartmentListByMobile" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+       SELECT
+		t3.department_id,
+		t3.department_name,
+		t3.department_remarks,
+		t1.user_key as userKey
+		FROM
+		sys_user AS t1
+		INNER JOIN sys_user_department AS t2 ON t1.user_key = t2.user_key
+		INNER JOIN sys_department AS t3 ON t2.department_id = t3.department_id 
+        and t1.del_flag='0' and t2.del_flag='0' and t3.del_flag='0'
+		where 1=1 
+		<if test="_parameter != null">
+			and t1.mobile = #{_parameter.mobile}
+		</if>
+		<if test="_parameter != null">
+			and t1.account_app_type = #{_parameter.accountAppType}
+		</if> 
+      </select>
+      <select id="countRepeatSysDepartmentName" resultType="int" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+        select 
+	     count(*) 
+	    from sys_department
+	    where del_flag = '0'
+	    <if test="departmentId != null and departmentId != ''" >
+	     and department_id = #{departmentId,jdbcType=CHAR}
+	    </if>
+	    <if test="departmentName != null and departmentName != ''" >
+	     and department_name = #{departmentName,jdbcType=VARCHAR}
+	    </if>
+	    <if test="departmentParentId != null and departmentParentId != ''" >
+	     and department_parent_id = #{departmentParentId,jdbcType=VARCHAR}
+	    </if>
+      </select>
+      <!-- 临时使用，旧oa替换后此方法需要删除 -->
+  	  <select id="tempSyncZjSysInfoDepartment" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+       	SELECT department_id
+		FROM (
+		    SELECT m.oa_id as department_id FROM zjyj.base_department m 
+		    UNION ALL
+		    SELECT t2.department_id as department_id FROM sys_department t2
+		) tbl
+		GROUP BY department_id 
+		HAVING count(*) = 1
+		ORDER BY department_id;
+      </select>
+      <select id="tempSelectSysDepartment" resultType="int" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+	    select count(*) from zjyj.base_department m where m.oa_id = #{departmentId,jdbcType=CHAR}
+	  </select>
+	   <insert id="tempInsertSyncZjSysInfo" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+	    INSERT INTO sys_department (department_id,department_name,department_parent_id,other_id,sort,del_flag)
+		(SELECT t.oa_id,t.`name`,t.parent_id,t.wechat_id,999,t.del_flg from zjyj.base_department t where t.oa_id = #{departmentId,jdbcType=CHAR}) 
+	  </insert>
+	  <select id="tempBySysDepartmentList" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+	    select 
+	    <include refid="Base_Column_List" />
+	    from sys_department
+	    where del_flag = '0' and (department_path is null or department_path = '') 
+	    ORDER BY sort 
+	  </select>
+	  <update id="batchUpdateSysDepartment" parameterType="java.util.List">
+          <foreach collection="list" item="item" index="index" open="" close="" separator=";" >  
+               update sys_department
+                <set>
+                  department_name = #{item.departmentName,jdbcType=VARCHAR},
+                  department_parent_id = #{item.departmentParentId,jdbcType=VARCHAR},
+                  department_path = #{item.departmentPath,jdbcType=VARCHAR},
+                  department_path_name = #{item.departmentPathName,jdbcType=VARCHAR},
+                  department_flag = #{item.departmentFlag,jdbcType=CHAR},
+                  other_id = #{item.otherId,jdbcType=VARCHAR},
+                  department_remarks = #{item.departmentRemarks,jdbcType=VARCHAR},
+                  sort = #{item.sort,jdbcType=INTEGER},
+                  del_flag = #{item.delFlag,jdbcType=CHAR},
+                  create_time = #{item.createTime,jdbcType=TIMESTAMP},
+                  create_user = #{item.createUser,jdbcType=CHAR},
+                  create_user_name = #{item.createUserName,jdbcType=VARCHAR},
+                  modify_time = #{item.modifyTime,jdbcType=TIMESTAMP},
+                  modify_user = #{item.modifyUser,jdbcType=CHAR},
+                  modify_user_name = #{item.modifyUserName,jdbcType=VARCHAR}
+                </set>  
+                 where department_id = #{item.departmentId,jdbcType=CHAR}
+         </foreach>  
+    </update>
+    
+    <select id="countSysDepartmentListByCondition" resultType="int" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+    select 
+            count(*)
+    from sys_department
+    where del_flag = '0'
+    <if test="departmentName != null and departmentName != ''" >
+     and department_name = #{departmentName,jdbcType=VARCHAR}
+    </if>
+    <if test="departmentParentId != null and departmentParentId != ''" >
+     and departmentParentId = #{departmentParentId,jdbcType=CHAR}
+    </if>
+    <if test="departmentPath != null and departmentPath != ''" >
+     and department_path like CONCAT('%', #{departmentPath,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="departmentPathName != null and departmentPathName != ''" >
+     and department_path_name like CONCAT('%',  #{departmentPathName,jdbcType=VARCHAR}, '%')
+    </if>
+  </select>
+  
+  <update id="batchUpdateDepartmentPathAndDepartmentPathName" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+      update sys_department
+       set  
+         department_path = REPLACE(department_path, #{oldDepartmentPath,jdbcType=VARCHAR}, #{departmentPath,jdbcType=VARCHAR}),
+         department_path_name = REPLACE(department_path_name, #{oldDepartmentPathName,jdbcType=VARCHAR}, #{departmentPathName,jdbcType=VARCHAR}) 
+       where del_flag = '0'
+       and department_path like CONCAT(#{oldDepartmentPath,jdbcType=VARCHAR}, '%') 
+  </update>
+  <!-- 此方法用于tree，人员信息转部门信息 -->
+  <select id="getUserListByCompanyId" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.SysUser" >
+       select 
+       		distinct t1.user_key as department_id,
+        	t1.real_Name as realName,
+        	t3.department_name as department_name,
+        	t3.department_path_name as department_path_name,
+        	t1.mobile, 
+        	t2.department_id as department_parent_id,
+        	'2' as type
+       from sys_user t1 
+       INNER JOIN sys_user_department t2 on t1.user_key = t2.user_key
+       INNER JOIN sys_department t3 on t2.department_id = t3.department_id
+       where t1.del_flag = '0' and t2.del_flag = '0' 
+       <if test="_parameter != null and _parameter.companyId != null and _parameter.companyId != ''">
+        	and t3.department_path like CONCAT('%',#{companyId,jdbcType=VARCHAR},'%') 
+       </if>
+       <if test="ext != null and ext != ''" >
+        and t1.ext = #{ext,jdbcType=VARCHAR}
+       </if>
+       <if test="_parameter != null and _parameter.accountAppType != null and _parameter.accountAppType != ''">
+        and t1.account_app_type = #{accountAppType,jdbcType=VARCHAR}
+       </if>
+       <if test="_parameter != null and _parameter.search != null and _parameter.search != ''">
+		    and (real_name like CONCAT('%',#{_parameter.search},'%') 
+		    	or user_id like CONCAT('%',#{_parameter.search},'%') 
+		    	or mobile like CONCAT('%',#{_parameter.search},'%') 
+		    )
+	   </if>
+       order by t1.sort,t1.real_name
+       <if test="_parameter != null and _parameter.limit > 0">
+	   	limit #{_parameter.page}, #{_parameter.limit}
+	   </if>
+   </select>
+   <select id="selectSysDepartmentListBySync" resultMap="BaseResultMap" parameterType="com.apih5.framework.api.sysdb.entity.SysDepartment" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_department
+    where 1=1
+   		<if test="modifyTime != null" >
+        	and modify_time &gt;= #{modifyTime,jdbcType=TIMESTAMP}
+      	</if>
+   </select>
+</mapper>

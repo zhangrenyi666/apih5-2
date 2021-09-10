@@ -1,0 +1,20 @@
+server:
+  port: 8088
+  address: 192.168.3.129
+
+##oracle的方式
+master:
+  datasource:
+    driverClassName: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@10.11.51.220:1521/orcl
+    username: task_oa
+    password: zjqf_2019
+    allow: 127.0.0.1   #IP白名单，可以访问数据监控 http://id:port/项目/druid/sql.html
+  enable: true
+
+slave:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/apih5?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
+    username: root
+    password: root

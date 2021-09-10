@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjLzehTeamScoreItemMapper">
+    <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjLzehTeamScoreItem">
+        <id column="zj_lzeh_team_item_id" property="zjLzehTeamItemId" jdbcType="CHAR"/>
+        <result column="zj_lzeh_team_score_id" property="zjLzehTeamScoreId" jdbcType="VARCHAR"/>
+        <result column="team_id" property="teamId" jdbcType="VARCHAR"/>
+        <result column="buildProgress" property="buildProgress" jdbcType="DECIMAL"/>
+        <result column="buildSafe" property="buildSafe" jdbcType="DECIMAL"/>
+        <result column="buildQuality" property="buildQuality" jdbcType="DECIMAL"/>
+        <result column="buildCivilized" property="buildCivilized" jdbcType="DECIMAL"/>
+        <result column="monthScore" property="monthScore" jdbcType="DECIMAL"/>
+        <result column="monthRank" property="monthRank" jdbcType="INTEGER"/>
+        <result column="remarks" property="remarks" jdbcType="VARCHAR"/>
+        <result column="sort" property="sort" jdbcType="INTEGER"/>
+        <result column="del_flag" property="delFlag" jdbcType="CHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="create_user" property="createUser" jdbcType="CHAR"/>
+        <result column="create_user_name" property="createUserName" jdbcType="VARCHAR"/>
+        <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP"/>
+        <result column="modify_user" property="modifyUser" jdbcType="CHAR"/>
+        <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR"/>
+        <!--<result column="team_name" property="teamName" jdbcType="VARCHAR"/>-->
+        <!--<result column="company_name" property="companyName" jdbcType="VARCHAR"/>-->
+    </resultMap>
+    <sql id="Base_Column_List">
+    zj_lzeh_team_item_id, zj_lzeh_team_score_id, team_id, buildProgress, buildSafe,
+    buildQuality, buildCivilized, monthScore, monthRank, remarks,
+    sort, del_flag, create_time, create_user, create_user_name,
+    modify_time, modify_user, modify_user_name
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from zj_lzeh_team_score_item
+        where del_flag = '0' and zj_lzeh_team_item_id = #{zjLzehTeamItemId,jdbcType=CHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from zj_lzeh_team_score_item
+    where zj_lzeh_team_item_id = #{zjLzehTeamItemId,jdbcType=CHAR}
+  </delete>
+    <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjLzehTeamScoreItem">
+    insert into zj_lzeh_team_score_item (
+    zj_lzeh_team_item_id, zj_lzeh_team_score_id, team_id, buildProgress, buildSafe, 
+    buildQuality, buildCivilized, monthScore, monthRank, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zjLzehTeamItemId,jdbcType=CHAR}, #{zjLzehTeamScoreId,jdbcType=VARCHAR}, #{teamId,jdbcType=VARCHAR}, #{buildProgress,jdbcType=DECIMAL}, #{buildSafe,jdbcType=DECIMAL}, 
+    #{buildQuality,jdbcType=DECIMAL}, #{buildCivilized,jdbcType=DECIMAL}, #{monthScore,jdbcType=DECIMAL}, #{monthRank,jdbcType=INTEGER}, #{remarks,jdbcType=VARCHAR}, 
+    #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+    #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjLzehTeamScoreItem">
+        insert into zj_lzeh_team_score_item
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="zjLzehTeamItemId != null">
+                zj_lzeh_team_item_id,
+            </if>
+            <if test="zjLzehTeamScoreId != null">
+                zj_lzeh_team_score_id,
+            </if>
+            <if test="teamId != null">
+                team_id,
+            </if>
+            <if test="buildProgress != null">
+                buildProgress,
+            </if>
+            <if test="buildSafe != null">
+                buildSafe,
+            </if>
+            <if test="buildQuality != null">
+                buildQuality,
+            </if>
+            <if test="buildCivilized != null">
+                buildCivilized,
+            </if>
+            <if test="monthScore != null">
+                monthScore,
+            </if>
+            <if test="monthRank != null">
+                monthRank,
+            </if>
+            <if test="remarks != null">
+                remarks,
+            </if>
+            <if test="sort != null">
+                sort,
+            </if>
+            <if test="delFlag != null">
+                del_flag,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createUser != null">
+                create_user,
+            </if>
+            <if test="createUserName != null">
+                create_user_name,
+            </if>
+            <if test="modifyTime != null">
+                modify_time,
+            </if>
+            <if test="modifyUser != null">
+                modify_user,
+            </if>
+            <if test="modifyUserName != null">
+                modify_user_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="zjLzehTeamItemId != null">
+                #{zjLzehTeamItemId,jdbcType=CHAR},
+            </if>
+            <if test="zjLzehTeamScoreId != null">
+                #{zjLzehTeamScoreId,jdbcType=VARCHAR},
+            </if>
+            <if test="teamId != null">
+                #{teamId,jdbcType=VARCHAR},
+            </if>
+            <if test="buildProgress != null">
+                #{buildProgress,jdbcType=DECIMAL},
+            </if>
+            <if test="buildSafe != null">
+                #{buildSafe,jdbcType=DECIMAL},
+            </if>
+            <if test="buildQuality != null">
+                #{buildQuality,jdbcType=DECIMAL},
+            </if>
+            <if test="buildCivilized != null">
+                #{buildCivilized,jdbcType=DECIMAL},
+            </if>
+            <if test="monthScore != null">
+                #{monthScore,jdbcType=DECIMAL},
+            </if>
+            <if test="monthRank != null">
+                #{monthRank,jdbcType=INTEGER},
+            </if>
+            <if test="remarks != null">
+                #{remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="sort != null">
+                #{sort,jdbcType=INTEGER},
+            </if>
+            <if test="delFlag != null">
+                #{delFlag,jdbcType=CHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                #{createUser,jdbcType=CHAR},
+            </if>
+            <if test="createUserName != null">
+                #{createUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyTime != null">
+                #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyUser != null">
+                #{modifyUser,jdbcType=CHAR},
+            </if>
+            <if test="modifyUserName != null">
+                #{modifyUserName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjLzehTeamScoreItem">
+        update zj_lzeh_team_score_item
+        <set>
+            <if test="zjLzehTeamScoreId != null">
+                zj_lzeh_team_score_id = #{zjLzehTeamScoreId,jdbcType=VARCHAR},
+            </if>
+            <if test="teamId != null">
+                team_id = #{teamId,jdbcType=VARCHAR},
+            </if>
+            <if test="buildProgress != null">
+                buildProgress = #{buildProgress,jdbcType=DECIMAL},
+            </if>
+            <if test="buildSafe != null">
+                buildSafe = #{buildSafe,jdbcType=DECIMAL},
+            </if>
+            <if test="buildQuality != null">
+                buildQuality = #{buildQuality,jdbcType=DECIMAL},
+            </if>
+            <if test="buildCivilized != null">
+                buildCivilized = #{buildCivilized,jdbcType=DECIMAL},
+            </if>
+            <if test="monthScore != null">
+                monthScore = #{monthScore,jdbcType=DECIMAL},
+            </if>
+            <if test="monthRank != null">
+                monthRank = #{monthRank,jdbcType=INTEGER},
+            </if>
+            <if test="remarks != null">
+                remarks = #{remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="sort != null">
+                sort = #{sort,jdbcType=INTEGER},
+            </if>
+            <if test="delFlag != null">
+                del_flag = #{delFlag,jdbcType=CHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                create_user = #{createUser,jdbcType=CHAR},
+            </if>
+            <if test="createUserName != null">
+                create_user_name = #{createUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyTime != null">
+                modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyUser != null">
+                modify_user = #{modifyUser,jdbcType=CHAR},
+            </if>
+            <if test="modifyUserName != null">
+                modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where zj_lzeh_team_item_id = #{zjLzehTeamItemId,jdbcType=CHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjLzehTeamScoreItem">
+    update zj_lzeh_team_score_item set 
+      zj_lzeh_team_score_id = #{zjLzehTeamScoreId,jdbcType=VARCHAR},
+      team_id = #{teamId,jdbcType=VARCHAR},
+      buildProgress = #{buildProgress,jdbcType=DECIMAL},
+      buildSafe = #{buildSafe,jdbcType=DECIMAL},
+      buildQuality = #{buildQuality,jdbcType=DECIMAL},
+      buildCivilized = #{buildCivilized,jdbcType=DECIMAL},
+      monthScore = #{monthScore,jdbcType=DECIMAL},
+      monthRank = #{monthRank,jdbcType=INTEGER},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zj_lzeh_team_item_id = #{zjLzehTeamItemId,jdbcType=CHAR}
+  </update>
+    <select id="selectByZjLzehTeamScoreItemList" resultMap="BaseResultMap"
+            parameterType="com.apih5.mybatis.pojo.ZjLzehTeamScoreItem">
+        select
+        a.zj_lzeh_team_item_id, a.zj_lzeh_team_score_id, a.team_id, a.buildProgress, a.buildSafe,
+        a.buildQuality, a.buildCivilized,a.monthScore, a.monthRank, a.remarks,
+        a.sort, a.del_flag, a.create_time, a.create_user, a.create_user_name,
+        a.modify_time, a.modify_user, a.modify_user_name,b.company_name as companyName ,b.team_name as teamName
+        from zj_lzeh_team_score_item a left join zj_lzeh_team_management b
+        on a.team_id=b.zj_lzeh_team_management_id
+        where a.del_flag = '0'
+        <if test="zjLzehTeamItemId != null and zjLzehTeamItemId != ''">
+            and a.zj_lzeh_team_item_id = #{zjLzehTeamItemId,jdbcType=CHAR}
+        </if>
+        <if test="zjLzehTeamScoreId != null and zjLzehTeamScoreId != ''">
+            and a.zj_lzeh_team_score_id = #{zjLzehTeamScoreId,jdbcType=VARCHAR}
+        </if>
+        <if test="teamId != null and teamId != ''">
+            and a.team_id = #{teamId,jdbcType=VARCHAR}
+        </if>
+        <if test="buildProgress != null and buildProgress != ''">
+            and a.buildProgress = #{buildProgress,jdbcType=DECIMAL}
+        </if>
+        <if test="buildSafe != null and buildSafe != ''">
+            and a.buildSafe = #{buildSafe,jdbcType=DECIMAL}
+        </if>
+        <if test="buildQuality != null and buildQuality != ''">
+            and a.buildQuality = #{buildQuality,jdbcType=DECIMAL}
+        </if>
+        <if test="buildCivilized != null and buildCivilized != ''">
+            and a.buildCivilized = #{buildCivilized,jdbcType=DECIMAL}
+        </if>
+        <if test="monthScore != null and monthScore != ''">
+            and a.monthScore = #{monthScore,jdbcType=DECIMAL}
+        </if>
+        <if test="monthRank != null and monthRank != ''">
+            and a.monthRank = #{monthRank,jdbcType=INTEGER}
+        </if>
+        <if test="remarks != null and remarks != ''">
+            and a.remarks = #{remarks,jdbcType=VARCHAR}
+        </if>
+        <if test="sort != null and sort != ''">
+            and a.sort = #{sort,jdbcType=INTEGER}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.create_time = #{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="createUser != null and createUser != ''">
+            and a.create_user = #{createUser,jdbcType=CHAR}
+        </if>
+        <if test="createUserName != null and createUserName != ''">
+            and a.create_user_name = #{createUserName,jdbcType=VARCHAR}
+        </if>
+        <if test="modifyTime != null and modifyTime != ''">
+            and a.modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="modifyUser != null and modifyUser != ''">
+            and a.modify_user = #{modifyUser,jdbcType=CHAR}
+        </if>
+        <if test="modifyUserName != null and modifyUserName != ''">
+            and a.modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+        </if>
+        ORDER BY a.modify_time DESC
+    </select>
+    <delete id="batchDeleteUpdateZjLzehTeamScoreItem" parameterType="com.apih5.mybatis.pojo.ZjLzehTeamScoreItem">
+        <![CDATA[
+        update zj_lzeh_team_score_item
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zj_lzeh_team_item_id in 
+     ]]>
+        <foreach collection="param1" item="model" open="(" separator="," close=")">#{model.zjLzehTeamItemId}
+        </foreach>
+    </delete>
+    <!-- ↓↓↓扩展↓↓↓ -->
+
+    <select id="getInfoListByTeamScoreId" resultMap="BaseResultMap">
+    select  a.zj_lzeh_team_item_id, a.zj_lzeh_team_score_id, a.team_id, a.buildProgress, a.buildSafe,
+    a.buildQuality, a.buildCivilized, a.monthScore,  a.remarks,@rownum := @rownum + 1 AS monthRank,
+    b.company_name,b.team_name
+    from ( SELECT @rownum := 0 ) r,
+    zj_lzeh_team_score_item a
+    left join zj_lzeh_team_management b on a.team_id =b.zj_lzeh_team_management_id
+    where a.zj_lzeh_team_score_id = #{zjLzehTeamScoreId}
+    order by monthScore desc
+  </select>
+
+
+    <select id="getScoreInfo" resultMap="BaseResultMap">
+    select monthScore, b.scoreMonth
+    from zj_lzeh_team_score_item a
+    left join zj_lzeh_team_score b on a.zj_lzeh_team_score_id = b.zj_lzeh_team_score_id
+    where a.del_flag='0' and a.team_id =#{teamId} and date_format(b.scoreMonth,'%Y') = date_format(#{scoreMonth},'%Y')
+    order by b.scoreMonth desc
+  </select>
+
+    <select id="getAvgScoreInfo" resultMap="BaseResultMap">
+    SELECT
+	CASE WHEN  date_format( b.scoreMonth, '%m' ) = '01' THEN
+	(
+	SELECT
+		avg( a.monthScore )
+	FROM
+		zj_lzeh_team_score_item a
+		LEFT JOIN zj_lzeh_team_score b ON a.zj_lzeh_team_score_id = b.zj_lzeh_team_score_id
+	WHERE
+		a.del_flag='0' and a.team_id = #{teamId} and date_format(b.scoreMonth,'%Y') =date_format(#{scoreMonth},'%Y') and date_format(b.scoreMonth,'%m') &lt;='01' GROUP BY a.team_id
+		)
+	WHEN date_format( b.scoreMonth, '%m' ) = '02' THEN
+	(
+	SELECT
+		avg( a.monthScore )
+	FROM
+		zj_lzeh_team_score_item a
+		LEFT JOIN zj_lzeh_team_score b ON a.zj_lzeh_team_score_id = b.zj_lzeh_team_score_id
+	WHERE
+		a.del_flag='0' and a.team_id = #{teamId} and date_format(b.scoreMonth,'%Y') =date_format(#{scoreMonth},'%Y') and date_format(b.scoreMonth,'%m') &lt;='02' GROUP BY a.team_id
+		)
+	WHEN date_format( b.scoreMonth, '%m' ) = '03' THEN
+	(
+	SELECT
+		avg( a.monthScore )
+	FROM
+		zj_lzeh_team_score_item a
+		LEFT JOIN zj_lzeh_team_score b ON a.zj_lzeh_team_score_id = b.zj_lzeh_team_score_id
+	WHERE
+		a.del_flag='0' and a.team_id = #{teamId} and date_format(b.scoreMonth,'%Y') =date_format(#{scoreMonth},'%Y') and date_format(b.scoreMonth,'%m') &lt;='03' GROUP BY a.team_id
+		)
+	WHEN date_format( b.scoreMonth, '%m' ) = '04' THEN
+	(
+	SELECT
+		avg( a.monthScore )
+	FROM
+		zj_lzeh_team_score_item a
+		LEFT JOIN zj_lzeh_team_score b ON a.zj_lzeh_team_score_id = b.zj_lzeh_team_score_id
+	WHERE
+		a.del_flag='0' and a.team_id = #{teamId} and date_format(b.scoreMonth,'%Y') =date_format(#{scoreMonth},'%Y') and date_format(b.scoreMonth,'%m') &lt;='04' GROUP BY a.team_id
+		)
+	WHEN date_format( b.scoreMonth, '%m' ) = '05' THEN
+	(
+	SELECT
+		avg( a.monthScore )
+	FROM
+		zj_lzeh_team_score_item a
+		LEFT JOIN zj_lzeh_team_score b ON a.zj_lzeh_team_score_id = b.zj_lzeh_team_score_id
+	WHERE
+		a.del_flag='0' and a.team_id = #{teamId} and date_format(b.scoreMonth,'%Y') =date_format(#{scoreMonth},'%Y') and date_format(b.scoreMonth,'%m') &lt;='05' GROUP BY a.team_id
+		)
+	WHEN date_format( b.scoreMonth, '%m' ) = '06' THEN
+	(
+	SELECT
+		avg( a.monthScore )
+	FROM
+		zj_lzeh_team_score_item a
+		LEFT JOIN zj_lzeh_team_score b ON a.zj_lzeh_team_score_id = b.zj_lzeh_team_score_id
+	WHERE
+		a.del_flag='0' and a.team_id = #{teamId} and date_format(b.scoreMonth,'%Y') =date_format(#{scoreMonth},'%Y') and date_format(b.scoreMonth,'%m') &lt;='06' GROUP BY a.team_id
+		)
+	WHEN date_format( b.scoreMonth, '%m' ) = '07' THEN
+	(
+	SELECT
+		avg( a.monthScore )
+	FROM
+		zj_lzeh_team_score_item a
+		LEFT JOIN zj_lzeh_team_score b ON a.zj_lzeh_team_score_id = b.zj_lzeh_team_score_id
+	WHERE
+		a.del_flag='0' and a.team_id = #{teamId} and date_format(b.scoreMonth,'%Y') =date_format(#{scoreMonth},'%Y') and date_format(b.scoreMonth,'%m') &lt;='07' GROUP BY a.team_id
+		)
+	WHEN date_format( b.scoreMonth, '%m' ) = '08' THEN
+	(
+	SELECT
+		avg( a.monthScore )
+	FROM
+		zj_lzeh_team_score_item a
+		LEFT JOIN zj_lzeh_team_score b ON a.zj_lzeh_team_score_id = b.zj_lzeh_team_score_id
+	WHERE
+		a.del_flag='0' and a.team_id = #{teamId} and date_format(b.scoreMonth,'%Y') =date_format(#{scoreMonth},'%Y') and date_format(b.scoreMonth,'%m') &lt;='08' GROUP BY a.team_id
+		)
+	WHEN date_format( b.scoreMonth, '%m' ) = '09' THEN
+	(
+	SELECT
+		avg( a.monthScore )
+	FROM
+		zj_lzeh_team_score_item a
+		LEFT JOIN zj_lzeh_team_score b ON a.zj_lzeh_team_score_id = b.zj_lzeh_team_score_id
+	WHERE
+		a.del_flag='0' and a.team_id = #{teamId} and date_format(b.scoreMonth,'%Y') =date_format(#{scoreMonth},'%Y') and date_format(b.scoreMonth,'%m') &lt;='09' GROUP BY a.team_id
+		)
+	WHEN date_format( b.scoreMonth, '%m' ) = '10' THEN
+	(
+	SELECT
+		avg( a.monthScore )
+	FROM
+		zj_lzeh_team_score_item a
+		LEFT JOIN zj_lzeh_team_score b ON a.zj_lzeh_team_score_id = b.zj_lzeh_team_score_id
+	WHERE
+		a.del_flag='0' and a.team_id = #{teamId} and date_format(b.scoreMonth,'%Y') =date_format(#{scoreMonth},'%Y') and date_format(b.scoreMonth,'%m') &lt;='10' GROUP BY a.team_id
+		)
+	WHEN date_format( b.scoreMonth, '%m' ) = '11' THEN
+	(
+	SELECT
+		avg( a.monthScore )
+	FROM
+		zj_lzeh_team_score_item a
+		LEFT JOIN zj_lzeh_team_score b ON a.zj_lzeh_team_score_id = b.zj_lzeh_team_score_id
+	WHERE
+		a.del_flag='0' and a.team_id = #{teamId} and date_format(b.scoreMonth,'%Y') =date_format(#{scoreMonth},'%Y') and date_format(b.scoreMonth,'%m') &lt;='11' GROUP BY a.team_id
+		)
+	WHEN date_format( b.scoreMonth, '%m' ) = '12' THEN
+	(
+	SELECT
+		avg( a.monthScore )
+	FROM
+		zj_lzeh_team_score_item a
+		LEFT JOIN zj_lzeh_team_score b ON a.zj_lzeh_team_score_id = b.zj_lzeh_team_score_id
+	WHERE
+		a.del_flag='0' and a.team_id = #{teamId} and date_format(b.scoreMonth,'%Y') =date_format(#{scoreMonth},'%Y') and date_format(b.scoreMonth,'%m') &lt;='12' GROUP BY a.team_id
+		) END AS avgScore,b.scoreMonth
+	FROM
+	zj_lzeh_team_score_item a
+	LEFT JOIN zj_lzeh_team_score b ON a.zj_lzeh_team_score_id = b.zj_lzeh_team_score_id
+	WHERE
+	a.del_flag='0' and a.team_id = #{teamId} and date_format(b.scoreMonth,'%Y') =date_format(#{scoreMonth},'%Y')
+	ORDER BY
+	b.scoreMonth  DESC
+
+  </select>
+
+    <select id="getInfoListByMonth" resultMap="BaseResultMap">
+    select  a.zj_lzeh_team_item_id, a.zj_lzeh_team_score_id, a.team_id, a.monthScore,@rownum := @rownum + 1 AS monthRank,
+    b.company_name,b.team_name,CONCAT(b.company_abbreviation,b.team_abbreviation)as teamName
+    from ( SELECT @rownum := 0 ) r,
+    zj_lzeh_team_score_item a
+    left join zj_lzeh_team_management b on a.team_id =b.zj_lzeh_team_management_id
+    left join zj_lzeh_team_score c on a.zj_lzeh_team_score_id = c.zj_lzeh_team_score_id
+    where a.del_flag = '0' and date_format(c.scoreMonth,'%Y%m') =date_format(#{scoreMonth},'%Y%m')
+    order by monthScore desc
+  </select>
+
+    <select id="getChartByMonth" resultMap="BaseResultMap">
+    select  a.team_id,avg(a.monthScore) as avgScore
+    from
+    zj_lzeh_team_score_item a
+    left join zj_lzeh_team_management b on a.team_id = b.zj_lzeh_team_management_id
+    left join zj_lzeh_team_score c on a.zj_lzeh_team_score_id = c.zj_lzeh_team_score_id
+    where a.del_flag = '0' and  date_format(c.scoreMonth,'%Y') =date_format(#{scoreMonth},'%Y')
+    and date_format(c.scoreMonth,'%m') &lt;=date_format(#{scoreMonth},'%m')
+    group by  a.team_id
+  </select>
+
+</mapper>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ProInvHgxyMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ProInvHgxy" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="inv_htinfo_id" property="invHtinfoId" jdbcType="CHAR" />
+    <result column="htmc" property="htmc" jdbcType="VARCHAR" />
+    <result column="htjf" property="htjf" jdbcType="VARCHAR" />
+    <result column="htyf" property="htyf" jdbcType="VARCHAR" />
+    <result column="hgje" property="hgje" jdbcType="DECIMAL" />
+    <result column="qdrq" property="qdrq" jdbcType="TIMESTAMP" />
+    <result column="hgxyfj" property="hgxyfj" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, inv_htinfo_id, htmc, htjf, htyf, 
+    hgje, qdrq, hgxyfj
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from del_flag = '0' and pro_inv_hgxy
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from pro_inv_hgxy
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ProInvHgxy" >
+    insert into pro_inv_hgxy (id, inv_htinfo_id, htmc, 
+      htjf, htyf, hgje, 
+      qdrq, hgxyfj
+      )
+    values (#{id,jdbcType=CHAR}, #{invHtinfoId,jdbcType=CHAR}, #{htmc,jdbcType=VARCHAR}, 
+      #{htjf,jdbcType=VARCHAR}, #{htyf,jdbcType=VARCHAR}, #{hgje,jdbcType=DECIMAL}, 
+      #{qdrq,jdbcType=TIMESTAMP}, #{hgxyfj,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ProInvHgxy" >
+    insert into pro_inv_hgxy
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="invHtinfoId != null" >
+        inv_htinfo_id,
+      </if>
+      <if test="htmc != null" >
+        htmc,
+      </if>
+      <if test="htjf != null" >
+        htjf,
+      </if>
+      <if test="htyf != null" >
+        htyf,
+      </if>
+      <if test="hgje != null" >
+        hgje,
+      </if>
+      <if test="qdrq != null" >
+        qdrq,
+      </if>
+      <if test="hgxyfj != null" >
+        hgxyfj,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="invHtinfoId != null" >
+        #{invHtinfoId,jdbcType=CHAR},
+      </if>
+      <if test="htmc != null" >
+        #{htmc,jdbcType=VARCHAR},
+      </if>
+      <if test="htjf != null" >
+        #{htjf,jdbcType=VARCHAR},
+      </if>
+      <if test="htyf != null" >
+        #{htyf,jdbcType=VARCHAR},
+      </if>
+      <if test="hgje != null" >
+        #{hgje,jdbcType=DECIMAL},
+      </if>
+      <if test="qdrq != null" >
+        #{qdrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hgxyfj != null" >
+        #{hgxyfj,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ProInvHgxy" >
+    update pro_inv_hgxy
+    <set >
+      <if test="invHtinfoId != null" >
+        inv_htinfo_id = #{invHtinfoId,jdbcType=CHAR},
+      </if>
+      <if test="htmc != null" >
+        htmc = #{htmc,jdbcType=VARCHAR},
+      </if>
+      <if test="htjf != null" >
+        htjf = #{htjf,jdbcType=VARCHAR},
+      </if>
+      <if test="htyf != null" >
+        htyf = #{htyf,jdbcType=VARCHAR},
+      </if>
+      <if test="hgje != null" >
+        hgje = #{hgje,jdbcType=DECIMAL},
+      </if>
+      <if test="qdrq != null" >
+        qdrq = #{qdrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hgxyfj != null" >
+        hgxyfj = #{hgxyfj,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ProInvHgxy" >
+    update pro_inv_hgxy
+    set       inv_htinfo_id = #{invHtinfoId,jdbcType=CHAR},
+      htmc = #{htmc,jdbcType=VARCHAR},
+      htjf = #{htjf,jdbcType=VARCHAR},
+      htyf = #{htyf,jdbcType=VARCHAR},
+      hgje = #{hgje,jdbcType=DECIMAL},
+      qdrq = #{qdrq,jdbcType=TIMESTAMP},
+      hgxyfj = #{hgxyfj,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByProInvHgxyList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ProInvHgxy" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_inv_hgxy
+    where 1 = 1
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=}
+    </if>
+    <if test="invHtinfoId != null and invHtinfoId != ''" >
+     and inv_htinfo_id = #{invHtinfoId,jdbcType=CHAR}
+    </if>
+    <if test="htmc != null and htmc != ''" >
+     and htmc = #{htmc,jdbcType=VARCHAR}
+    </if>
+    <if test="htjf != null and htjf != ''" >
+     and htjf = #{htjf,jdbcType=VARCHAR}
+    </if>
+    <if test="htyf != null and htyf != ''" >
+     and htyf = #{htyf,jdbcType=VARCHAR}
+    </if>
+    <if test="hgje != null and hgje != ''" >
+     and hgje = #{hgje,jdbcType=DECIMAL}
+    </if>
+    <if test="qdrq != null and qdrq != ''" >
+     and qdrq = #{qdrq,jdbcType=TIMESTAMP}
+    </if>
+    <if test="hgxyfj != null and hgxyfj != ''" >
+     and hgxyfj = #{hgxyfj,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <delete id="batchDeleteUpdateProInvHgxy" parameterType="com.apih5.mybatis.pojo.ProInvHgxy" >
+    <![CDATA[ 
+        update pro_inv_hgxy
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

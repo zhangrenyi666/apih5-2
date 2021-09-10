@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzAerialVideoMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzAerialVideo" >
+    <id column="aerial_video" property="aerialVideo" jdbcType="CHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="company_id" property="companyId" jdbcType="CHAR" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_short_name" property="projectShortName" jdbcType="VARCHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="pro_no" property="proNo" jdbcType="VARCHAR" />
+    <result column="key_flag" property="keyFlag" jdbcType="CHAR" />
+    <result column="year_date" property="yearDate" jdbcType="DATE" />
+    <result column="year_str" property="yearStr" jdbcType="VARCHAR" />
+    <result column="issue" property="issue" jdbcType="VARCHAR" />
+    <result column="video_name" property="videoName" jdbcType="VARCHAR" />
+    <result column="video_preview_url" property="videoPreviewUrl" jdbcType="VARCHAR" />
+    <result column="video_down_url" property="videoDownUrl" jdbcType="VARCHAR" />
+    <result column="video_size" property="videoSize" jdbcType="VARCHAR" />
+    <result column="video_type" property="videoType" jdbcType="VARCHAR" />
+    <result column="video_uid" property="videoUid" jdbcType="VARCHAR" />
+    <result column="image_name" property="imageName" jdbcType="VARCHAR" />
+    <result column="image_url" property="imageUrl" jdbcType="VARCHAR" />
+    <result column="size" property="size" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="thumb_url" property="thumbUrl" jdbcType="VARCHAR" />
+    <result column="mobile_url" property="mobileUrl" jdbcType="VARCHAR" />
+    <result column="mobile_thumb_url" property="mobileThumbUrl" jdbcType="VARCHAR" />
+    <result column="relative_url" property="relativeUrl" jdbcType="VARCHAR" />
+    <result column="relative_thumb_url" property="relativeThumbUrl" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    aerial_video, sort, company_id, company_name, project_id, 
+    project_short_name, project_name, pro_no, key_flag, year_date, 
+    year_str, issue, video_name, video_preview_url, video_down_url, 
+    video_size, video_type, video_uid, image_name, image_url, 
+    size, type, thumb_url, mobile_url, mobile_thumb_url, 
+    relative_url, relative_thumb_url, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_aerial_video
+    where aerial_video = #{aerialVideo,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_aerial_video
+    where aerial_video = #{aerialVideo,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzAerialVideo" >
+    insert into zj_tz_aerial_video (aerial_video, sort, company_id, 
+      company_name, project_id, project_short_name, 
+      project_name, pro_no, key_flag, 
+      year_date, year_str, issue, 
+      video_name, video_preview_url, video_down_url, 
+      video_size, video_type, video_uid, 
+      image_name, image_url, size, 
+      type, thumb_url, mobile_url, 
+      mobile_thumb_url, relative_url, relative_thumb_url, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{aerialVideo,jdbcType=CHAR}, #{sort,jdbcType=INTEGER}, #{companyId,jdbcType=CHAR}, 
+      #{companyName,jdbcType=VARCHAR}, #{projectId,jdbcType=CHAR}, #{projectShortName,jdbcType=VARCHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{proNo,jdbcType=VARCHAR}, #{keyFlag,jdbcType=CHAR}, 
+      #{yearDate,jdbcType=DATE}, #{yearStr,jdbcType=VARCHAR}, #{issue,jdbcType=VARCHAR}, 
+      #{videoName,jdbcType=VARCHAR}, #{videoPreviewUrl,jdbcType=VARCHAR}, #{videoDownUrl,jdbcType=VARCHAR}, 
+      #{videoSize,jdbcType=VARCHAR}, #{videoType,jdbcType=VARCHAR}, #{videoUid,jdbcType=VARCHAR}, 
+      #{imageName,jdbcType=VARCHAR}, #{imageUrl,jdbcType=VARCHAR}, #{size,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{thumbUrl,jdbcType=VARCHAR}, #{mobileUrl,jdbcType=VARCHAR}, 
+      #{mobileThumbUrl,jdbcType=VARCHAR}, #{relativeUrl,jdbcType=VARCHAR}, #{relativeThumbUrl,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzAerialVideo" >
+    insert into zj_tz_aerial_video
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="aerialVideo != null" >
+        aerial_video,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="companyId != null" >
+        company_id,
+      </if>
+      <if test="companyName != null" >
+        company_name,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectShortName != null" >
+        project_short_name,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="proNo != null" >
+        pro_no,
+      </if>
+      <if test="keyFlag != null" >
+        key_flag,
+      </if>
+      <if test="yearDate != null" >
+        year_date,
+      </if>
+      <if test="yearStr != null" >
+        year_str,
+      </if>
+      <if test="issue != null" >
+        issue,
+      </if>
+      <if test="videoName != null" >
+        video_name,
+      </if>
+      <if test="videoPreviewUrl != null" >
+        video_preview_url,
+      </if>
+      <if test="videoDownUrl != null" >
+        video_down_url,
+      </if>
+      <if test="videoSize != null" >
+        video_size,
+      </if>
+      <if test="videoType != null" >
+        video_type,
+      </if>
+      <if test="videoUid != null" >
+        video_uid,
+      </if>
+      <if test="imageName != null" >
+        image_name,
+      </if>
+      <if test="imageUrl != null" >
+        image_url,
+      </if>
+      <if test="size != null" >
+        size,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="thumbUrl != null" >
+        thumb_url,
+      </if>
+      <if test="mobileUrl != null" >
+        mobile_url,
+      </if>
+      <if test="mobileThumbUrl != null" >
+        mobile_thumb_url,
+      </if>
+      <if test="relativeUrl != null" >
+        relative_url,
+      </if>
+      <if test="relativeThumbUrl != null" >
+        relative_thumb_url,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="aerialVideo != null" >
+        #{aerialVideo,jdbcType=CHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectShortName != null" >
+        #{projectShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="proNo != null" >
+        #{proNo,jdbcType=VARCHAR},
+      </if>
+      <if test="keyFlag != null" >
+        #{keyFlag,jdbcType=CHAR},
+      </if>
+      <if test="yearDate != null" >
+        #{yearDate,jdbcType=DATE},
+      </if>
+      <if test="yearStr != null" >
+        #{yearStr,jdbcType=VARCHAR},
+      </if>
+      <if test="issue != null" >
+        #{issue,jdbcType=VARCHAR},
+      </if>
+      <if test="videoName != null" >
+        #{videoName,jdbcType=VARCHAR},
+      </if>
+      <if test="videoPreviewUrl != null" >
+        #{videoPreviewUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="videoDownUrl != null" >
+        #{videoDownUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="videoSize != null" >
+        #{videoSize,jdbcType=VARCHAR},
+      </if>
+      <if test="videoType != null" >
+        #{videoType,jdbcType=VARCHAR},
+      </if>
+      <if test="videoUid != null" >
+        #{videoUid,jdbcType=VARCHAR},
+      </if>
+      <if test="imageName != null" >
+        #{imageName,jdbcType=VARCHAR},
+      </if>
+      <if test="imageUrl != null" >
+        #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbUrl != null" >
+        #{thumbUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileUrl != null" >
+        #{mobileUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileThumbUrl != null" >
+        #{mobileThumbUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="relativeUrl != null" >
+        #{relativeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="relativeThumbUrl != null" >
+        #{relativeThumbUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzAerialVideo" >
+    update zj_tz_aerial_video
+    <set >
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null" >
+        company_id = #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="companyName != null" >
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectShortName != null" >
+        project_short_name = #{projectShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="proNo != null" >
+        pro_no = #{proNo,jdbcType=VARCHAR},
+      </if>
+      <if test="keyFlag != null" >
+        key_flag = #{keyFlag,jdbcType=CHAR},
+      </if>
+      <if test="yearDate != null" >
+        year_date = #{yearDate,jdbcType=DATE},
+      </if>
+      <if test="yearStr != null" >
+        year_str = #{yearStr,jdbcType=VARCHAR},
+      </if>
+      <if test="issue != null" >
+        issue = #{issue,jdbcType=VARCHAR},
+      </if>
+      <if test="videoName != null" >
+        video_name = #{videoName,jdbcType=VARCHAR},
+      </if>
+      <if test="videoPreviewUrl != null" >
+        video_preview_url = #{videoPreviewUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="videoDownUrl != null" >
+        video_down_url = #{videoDownUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="videoSize != null" >
+        video_size = #{videoSize,jdbcType=VARCHAR},
+      </if>
+      <if test="videoType != null" >
+        video_type = #{videoType,jdbcType=VARCHAR},
+      </if>
+      <if test="videoUid != null" >
+        video_uid = #{videoUid,jdbcType=VARCHAR},
+      </if>
+      <if test="imageName != null" >
+        image_name = #{imageName,jdbcType=VARCHAR},
+      </if>
+      <if test="imageUrl != null" >
+        image_url = #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        size = #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbUrl != null" >
+        thumb_url = #{thumbUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileUrl != null" >
+        mobile_url = #{mobileUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileThumbUrl != null" >
+        mobile_thumb_url = #{mobileThumbUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="relativeUrl != null" >
+        relative_url = #{relativeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="relativeThumbUrl != null" >
+        relative_thumb_url = #{relativeThumbUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where aerial_video = #{aerialVideo,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzAerialVideo" >
+    update zj_tz_aerial_video
+    set       sort = #{sort,jdbcType=INTEGER},
+      company_id = #{companyId,jdbcType=CHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      project_id = #{projectId,jdbcType=CHAR},
+      project_short_name = #{projectShortName,jdbcType=VARCHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      pro_no = #{proNo,jdbcType=VARCHAR},
+      key_flag = #{keyFlag,jdbcType=CHAR},
+      year_date = #{yearDate,jdbcType=DATE},
+      year_str = #{yearStr,jdbcType=VARCHAR},
+      issue = #{issue,jdbcType=VARCHAR},
+      video_name = #{videoName,jdbcType=VARCHAR},
+      video_preview_url = #{videoPreviewUrl,jdbcType=VARCHAR},
+      video_down_url = #{videoDownUrl,jdbcType=VARCHAR},
+      video_size = #{videoSize,jdbcType=VARCHAR},
+      video_type = #{videoType,jdbcType=VARCHAR},
+      video_uid = #{videoUid,jdbcType=VARCHAR},
+      image_name = #{imageName,jdbcType=VARCHAR},
+      image_url = #{imageUrl,jdbcType=VARCHAR},
+      size = #{size,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      thumb_url = #{thumbUrl,jdbcType=VARCHAR},
+      mobile_url = #{mobileUrl,jdbcType=VARCHAR},
+      mobile_thumb_url = #{mobileThumbUrl,jdbcType=VARCHAR},
+      relative_url = #{relativeUrl,jdbcType=VARCHAR},
+      relative_thumb_url = #{relativeThumbUrl,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where aerial_video = #{aerialVideo,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzAerialVideoList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzAerialVideo" >
+    select 
+    <include refid="Base_Column_List" />,
+    (SELECT sort1 FROM zj_tz_pro_manage AS p WHERE del_flag = '0' AND p.project_id = v.project_id  ) AS companySort
+    from zj_tz_aerial_video AS v
+    where del_flag = '0'
+    <if test="aerialVideo != null and aerialVideo != ''" >
+     and aerial_video = #{aerialVideo,jdbcType=}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and company_id = #{companyId,jdbcType=CHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and company_name LIKE CONCAT('%', #{companyName},'%')
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     and project_id in (${projectIdSql})
+    </if>
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="proId != null and proId != ''" >
+     and project_id = #{proId,jdbcType=CHAR}
+    </if>
+    <if test="projectShortName != null and projectShortName != ''" >
+     and project_short_name LIKE CONCAT('%', #{projectShortName},'%')
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and project_name LIKE CONCAT('%', #{projectName},'%')
+    </if>
+    <if test="proNo != null and proNo != ''" >
+     and pro_no LIKE CONCAT('%', #{proNo},'%')
+    </if>
+    <if test="keyFlag != null and keyFlag != ''" >
+     and key_flag = #{keyFlag,jdbcType=CHAR}
+    </if>
+    <if test="yearDate != null" >
+     and LEFT(year_date, 7) = LEFT(#{yearDate,jdbcType=TIMESTAMP}, 7)
+    </if>
+    <if test="yearStr != null and yearStr != ''" >
+     and year_str = #{yearStr,jdbcType=VARCHAR}
+    </if>
+    <if test="issue != null and issue != ''" >
+     and issue = #{issue,jdbcType=VARCHAR}
+    </if>
+    <if test="videoName != null and videoName != ''" >
+     and video_name LIKE CONCAT('%', #{videoName},'%')
+    </if>
+    <if test="videoPreviewUrl != null and videoPreviewUrl != ''" >
+     and video_preview_url = #{videoPreviewUrl,jdbcType=VARCHAR}
+    </if>
+    <if test="videoDownUrl != null and videoDownUrl != ''" >
+     and video_down_url = #{videoDownUrl,jdbcType=VARCHAR}
+    </if>
+    <if test="videoSize != null and videoSize != ''" >
+     and video_size = #{videoSize,jdbcType=VARCHAR}
+    </if>
+    <if test="videoType != null and videoType != ''" >
+     and video_type = #{videoType,jdbcType=VARCHAR}
+    </if>
+    <if test="videoUid != null and videoUid != ''" >
+     and video_uid = #{videoUid,jdbcType=VARCHAR}
+    </if>
+    <if test="imageName != null and imageName != ''" >
+     and image_name = #{imageName,jdbcType=VARCHAR}
+    </if>
+    <if test="imageUrl != null and imageUrl != ''" >
+     and image_url = #{imageUrl,jdbcType=VARCHAR}
+    </if>
+    <if test="size != null and size != ''" >
+     and size = #{size,jdbcType=VARCHAR}
+    </if>
+    <if test="type != null and type != ''" >
+     and type = #{type,jdbcType=VARCHAR}
+    </if>
+    <if test="thumbUrl != null and thumbUrl != ''" >
+     and thumb_url = #{thumbUrl,jdbcType=VARCHAR}
+    </if>
+    <if test="mobileUrl != null and mobileUrl != ''" >
+     and mobile_url = #{mobileUrl,jdbcType=VARCHAR}
+    </if>
+    <if test="mobileThumbUrl != null and mobileThumbUrl != ''" >
+     and mobile_thumb_url = #{mobileThumbUrl,jdbcType=VARCHAR}
+    </if>
+    <if test="relativeUrl != null and relativeUrl != ''" >
+     and relative_url = #{relativeUrl,jdbcType=VARCHAR}
+    </if>
+    <if test="relativeThumbUrl != null and relativeThumbUrl != ''" >
+     and relative_thumb_url = #{relativeThumbUrl,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY LEFT(year_date,7) DESC, CAST(companySort AS DECIMAL) ASC, pro_no ASC, sort ASC
+  </select>
+  <delete id="batchDeleteUpdateZjTzAerialVideo" parameterType="com.apih5.mybatis.pojo.ZjTzAerialVideo" >
+    <![CDATA[ 
+        update zj_tz_aerial_video
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and aerial_video in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.aerialVideo} 
+     </foreach>
+  </delete>
+</mapper>

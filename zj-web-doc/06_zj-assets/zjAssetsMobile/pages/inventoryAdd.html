@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>盘点新增</title>
+    <link rel="stylesheet" type="text/css" href="../css/inventoryAdd.css">
+    <link rel="stylesheet" type="text/css" href="../lib/layer_mobile/need/layer.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <script type="application/javascript" src="../lib/jquery/1.9.1/jquery.min.js"></script>
+    <script src="../lib/layer_mobile/layer.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../lib/ajaxfileupload/ajaxfileupload.js"></script>
+    <script type="application/javascript" src="../js/common.js"></script>
+    <script src="../js/main.js"></script>
+    <!-- <script src="http://weixin.fheb.cn:90/cdn/public/lny.js" type="text/javascript"></script> -->
+    <style>
+        .layui-m-layerbtn span {
+            font-size: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="inventoryAdd">
+        <div class="part2">
+            <div class="title">
+                <img src="">
+                <span id="checkResult2" class="text"></span>
+            </div>
+            <ul>
+                <li>
+                    <div class="left">
+                        <span class="text">所属小类</span>
+                    </div>
+                    <div class="right">
+                        <input id="sszclx2Name" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">资产名称</span>
+                    </div>
+                    <div class="right">
+                        <input id="zcmc" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">盘点标题</span>
+                        <span class="star">*</span>
+                    </div>
+                    <div class="right">
+                        <input id="inventoryTitle" class="input b" placeholder="请输入盘点标题" />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">盘点日期</span>
+                    </div>
+                    <div class="right">
+                        <input type="date" id="pdrq" name="input_date" class="input" placeholder="时间选择" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">资产状态(前)</span>
+                    </div>
+                    <div class="right">
+                        <input id="zcztdmbefore" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">资产状态(后)</span>
+                        <span class="star">*</span>
+                    </div>
+                    <div class="right">
+                        <select class="select b-b" size="1" name="zcztdmafter" id="zcztdmafter">
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">存放地点(前)</span>
+                    </div>
+                    <div class="right">
+                        <input id="cfddidbefore" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">存放地点(后)</span>
+                        <span class="star">*</span>
+                    </div>
+                    <div class="right">
+                        <select class="select b-b" size="1" name="cfddidafter" id="cfddidafter">
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">使用部门(前)</span>
+                    </div>
+                    <div class="right">
+                        <input id="sybuidbefore" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">使用部门(后)</span>
+                        <span class="star">*</span>
+                    </div>
+                    <div class="right">
+                        <select class="select b-b" size="1" name="sybuidafter" id="sybuidafter">
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">使用者(前)</span>
+                    </div>
+                    <div class="right">
+                        <input id="syrbefore" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">使用者(后)</span>
+                        <span class="star">*</span>
+                    </div>
+                    <div class="right">
+                        <input id="syrafter" type="text" class="input b" />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">盘点结果</span>
+                        <span class="star">*</span>
+                    </div>
+                    <div class="right">
+                        <select class="select b-b" size="1" id="pdjg">
+                        </select>
+                    </div>
+                </li>
+                <li id="copeStateFlag">
+                    <div class="left">
+                        <span class="text">处理状态</span>
+                        <span class="star">*</span>
+                    </div>
+                    <div class="right">
+                        <select class="select b-b" size="1" name="copeState" id="copeState" disabled>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">处理方案</span>
+                    </div>
+                    <div class="right">
+                        <textarea id="clfa" class="textarea b-b" placeholder="请输入处理方案"></textarea>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">备注</span>
+                    </div>
+                    <div class="right">
+                        <textarea id="remarks" class="textarea b-b" placeholder="请输入备注"></textarea>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">上传图片</span>
+                    </div>
+                    <div class="right">
+                        <div class="uploadFile">
+                            <label for="uploadBtn" name="imageList" class="upload-btn">
+                                <span style="padding-left: 10px;">添加图片</span>
+                                <input id="uploadBtn" class="inputFile" data-filetype="['jpg','jpeg','png','gif']"
+                                    name="filesName" size="2" type="file" />
+                            </label>
+                            <span class="require">上传格式要求：["jpg","jpeg","png","gif"]</span>
+                            <ul class="uploadList" style="margin-top: 20px">
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <a id="save" class="btn save" onclick="">保存</a>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+
+
+        var recordId = getUrlParam('recordid');// 记录ID
+        var detailId;// 详情记录ID
+        var state;// 业务状态
+        var sszclx1Name;// 所属大类
+        var sszclx2Name;// 所属小类
+        var zcmc;// 资产名称
+        var cfdd1;// 存放地点
+        var sybm;// 使用部门（前）
+        var syr;// 使用者（前）
+        var zcztdm;// 资产状态ID（前）
+        var selectDepartmentList = {};// 使用部门（后）
+        var selectMemberList = {};// 使用者（后）
+        var refreshState;
+        var inventoryTitle;//盘点标题
+        var copeStateFlag;//处理状态
+        var pdjgmc;//盘点结果
+        var record;//
+        var isHaveInventoryTitle;//用于判断使用哪个盘点接口
+
+        var localStorageIds = [//本地要存储的项 填写id
+            {
+                id: '#zcztdmafter'
+            },
+            {
+                id: '#pdjg'
+            },
+            {
+                id: '#copeState'
+            },
+            {
+                id: '#sybuidafter'
+            }
+        ];
+
+        // 清除选中项
+        function clearItem(dom) {
+            dom.parent().remove();//删除可见范围中选中项
+        }
+
+        window.login(function () {
+
+            // 页面刷新加载方法
+            window.onload = function () {
+                request();// 获取盘点列表传递的参数
+                // 为update时，为更新，为其他时，则为新增
+                if (state == "update") {
+                    localStorage.removeItem('wangAssetsDetailData');
+                    $("#checkResult2").text("盘点记录更新");
+                    $('.title img').attr('src', '../img/svg/edit.svg');
+                    refreshState = JSON.parse(localStorage.getItem("refreshState"));
+                    $("#save").attr("onclick", "update()");
+                    if (refreshState == false) {
+                        localStorage.removeItem("refreshState");
+                        var inventoryData = JSON.parse(localStorage.getItem("inventoryData"));
+                        // console.log(inventoryData)
+                        $("#zcztdmafter").val(inventoryData.zcztdmafter);// 资产状态(后)
+                        $('#sybuidafter').val(inventoryData.sybuidafter);//使用部门后
+                        $("#pdjg").val(inventoryData.pdjgdm);// 盘点结果
+                        $("#copeState").val(inventoryData.copestate);// 处理状态
+                        updateUploadList(noNull(inventoryData.imageList));// 图片列表
+                    } else {
+                        inventoryDetail(inventoryData);// 盘点记录详情查询
+                        localStorage.removeItem("refreshState");
+                        localStorage.removeItem("inventoryData");
+                    }
+                } else {
+                    // console.log('新增页')
+                    $('#copeStateFlag').hide();
+                    $("#pdrq").val(dateFormat(new Date(), "yyyy-MM-dd")),// 盘点日期
+                        $("#checkResult2").text("盘点记录新增");
+                    $('.title img').attr('src', '../img/svg/add.svg');
+                    $("#save").attr("onclick", "add()");
+
+                    // localData();// 资产详情数据 临时储存
+                    getInventoryData();//获取本地储存的数据
+                    var inventoryData = JSON.parse(localStorage.getItem("inventoryData"));
+                    if (inventoryData) {
+                        updateUploadList(noNull(inventoryData.imageList));// 图片列表
+                    }
+                    // console.log(inventoryData)
+                    // localData();// 资产详情数据 临时储存
+                }
+                wangLocalGet(localStorageIds)
+            }
+
+
+
+
+
+            //设置cookie  
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + "; " + expires;
+            }
+            //获取cookie  
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1);
+                    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+                }
+                return "";
+            }
+            function getUrl(k) {//获取地址栏参数，k为键名
+                var m = new RegExp("(^|&)" + k + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(m);
+                if (r != null) return decodeURI(r[2]); return null;
+            };
+
+
+
+            //资产新增页详情查询
+            function getInventoryData() {
+                var data = JSON.parse(localStorage.getItem("wangAssetsDetailData"));
+                record = noNull(data.record);
+                if (data.inventoryTitle) {
+                    $("#inventoryTitle").attr('disabled', 'disabled')
+                    $("#inventoryTitle").val(data.inventoryTitle);
+                    isHaveInventoryTitle = true;
+                } else {
+                    isHaveInventoryTitle = false;
+                }
+
+                $("#sszclx2Name").val(noNull(data.sszclx2Name));// 所属小类
+                $("#zcmc").val(noNull(data.zcmc));// 资产名称
+                $("#cfddidbefore").val(noNull(data.cfddmc));// 存放地点(前) 
+                $("#sybuidbefore").val(noNull(data.sybmName));// 使用部门(前)
+                $("#syrbefore").val(noNull(data.syr));// 使用人(前)
+                $('#zcztdmbefore').val(data.zcztName);// 资产状态前
+            }
+
+            // 获取盘点列表传递的参数
+            function request() {
+                // url传递参数
+                var url = location.href;
+                var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+                var paraObj = {};
+                for (i = 0; j = paraString[i]; i++) {
+                    paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+                }
+                recordId = noNull(paraObj.recordid);
+                detailId = noNull(paraObj.detailid);
+                state = noNull(paraObj.state);
+                var urlData = new Array();
+                urlData = [
+                    {
+                        id: "zcztdmafter",
+                        url: "getAssetsStateSelectList"
+                    },
+                    {
+                        id: "pdjg",
+                        url: "getInventorySelectAllList"
+                    },
+                    {
+                        id: "copeState",
+                        url: "getCopeStateSelectAllList"
+                    },
+                    {
+                        id: 'cfddidafter',
+                        url: 'getAssetsPlaceAllList'
+                    },
+                    {
+                        id: 'sybuidafter',
+                        url: 'getDepartmentSelectAllList'
+                    }
+                ]
+                $.each(urlData, function (i, item) {
+                    // 资产状态（前）、资产状态（前）、盘点结果、处理状态
+                    setSelect(item.id, item.url);
+                });
+
+                // 页面加载后清空 选择部门和选择成员临时储存
+                localStorage.removeItem("selectDepartmentList2");
+                localStorage.removeItem("selectMemberList2");
+                selectDepartmentList = noNull(JSON.parse(localStorage.getItem("selectDepartmentList")));// 使用部门（后）
+                localStorage.setItem("selectDepartmentList2", JSON.stringify(selectDepartmentList));// 将筛选出的 部门列表数据 传入 新存储
+                localStorage.removeItem("selectDepartmentList");
+                if (selectDepartmentList != "") {
+                    var namelist = "";
+                    $.each(selectDepartmentList, function (i, item) {
+                        namelist += item.name + " "
+                    })
+                    if (namelist.length > 15) {
+                        namelist = namelist.substring(0, 14) + "..."
+                    }
+                    $("#sybuidafter").text(namelist);
+                }
+
+                selectMemberList = noNull(JSON.parse(localStorage.getItem("selectMemberList")));// 使用者（后）
+                localStorage.setItem("selectMemberList2", JSON.stringify(selectMemberList));// 将筛选出的 成员列表数据 传入 新存储
+                localStorage.removeItem("selectMemberList");
+                if (selectMemberList != "") {
+                    var namelist = "";
+                    $.each(selectMemberList, function (i, item) {
+                        namelist += item.name + " "
+                    })
+                    if (namelist.length > 15) {
+                        namelist = namelist.substring(0, 14) + "..."
+                    }
+                    $("#syrafter").text(namelist);
+                }
+            }
+
+
+
+            // 资产详情数据 临时储存
+            function localData() {
+                // 临时储存
+                var assetsDetailData = localStorage.getItem("assetsDetailData");// 资产详情数据 临时储存
+
+                var paraString = assetsDetailData.split("&");
+                var paraObj = {};
+                for (i = 0; j = paraString[i]; i++) {
+                    paraObj[j.substring(0, j.indexOf("="))] = j.substring(j.indexOf("=") + 1, j.length);
+                    // console.log(paraObj)
+                }
+                $("#sszclx1Name").val(noNull(paraObj.sszclx1Name));// 所属大类
+                $("#sszclx2Name").val(noNull(paraObj.sszclx2Name));// 所属小类
+                $("#zcmc").val(noNull(paraObj.zcmc));// 资产名称
+                $("#cfddidbefore").val(noNull(paraObj.cfdd1));// 存放地点
+                $("#sybuidbefore").val(noNull(paraObj.sybmq));// 使用部门
+                $("#syrbefore").val(noNull(paraObj.syzq));// 使用者
+                $("#zcztdmbefore").val(noNull(paraObj.zcztdm));// 资产状态ID（前）
+                $("#copeState").val(noNull(paraObj.copestate));// 处理状态
+                $("#syrafter").val(paraObj.syrafter);
+
+                //localStorage.removeItem("assetsDetailData");
+            }
+
+            // 资产状态（前）、资产状态（前）、盘点结果、处理状态
+            function setSelect(selectId, url) {
+
+                l.ajax(url, {}, function (data, message, success) {
+                    if (success) {
+                        var data = noNull(data);// 详情数据
+                        // console.log(data)
+                        if (data != "") {
+                            var $str = "";
+                            $.each(data, function (i, item) {
+                                var text;
+                                var values;
+                                //name
+                                if (item.bmmc) {
+                                    text = item.bmmc
+                                } else if(item.cfddmc){
+                                    text = item.cfddmc
+                                }else if(item.dmnr) {
+                                    text = item.dmnr
+                                }
+                                //id
+                                if (item.bmbh) {
+                                    values = item.bmbh
+                                } else if(item.recordid){
+                                    values = item.recordid
+                                }else if(item.dmbh){
+                                    values = item.dmbh
+                                }
+                                $str += "<option value=" + values + ">" + text + "</option>";
+                            });
+                            $("#" + selectId).append($str);
+                        }
+                    }
+                })
+            }
+
+            // 使用部门后
+            function selectDepartment() {
+                // console.log('使用部门后')
+                var zcztdmbefore = $("#zcztdmbefore").val();// 资产状态(前)
+                var zcztdmafter = $("#zcztdmafter").val();// 资产状态(后)
+                var pdjgdm = $("#pdjg").val();// 盘点结果
+                var copestate = $("#copeState").val();// 处理状态
+                var imageList = [];// 图片数据列表
+                $(".uploadList li").each(function (i, item) {
+                    imageList[i] = {
+                        fileName: noNull(item.getAttribute("data-name")),
+                        fileUrl: noNull(item.getAttribute("data-href"))
+                    };
+                })
+                var inventoryData = {
+                    zcztdmbefore: zcztdmbefore,
+                    zcztdmafter: zcztdmafter,
+                    pdjgdm: pdjgdm,
+                    copestate: copestate,
+                    imageList: imageList
+                }
+                localStorage.setItem("inventoryData", JSON.stringify(inventoryData));
+                // console.log( '本地储存数据：',localStorage.getItem("inventoryData"))
+                window.location.href = "selectDepartment.html"
+            }
+
+            // ------------------------为解决本地储存一些问题
+            wangLocalAdd(localStorageIds);
+
+            // 使用者后
+            function selectMember() {
+                var zcztdmbefore = $("#zcztdmbefore").val();// 资产状态(前)
+                var zcztdmafter = $("#zcztdmafter").val();// 资产状态(后)
+                var pdjg = $("#pdjg").val();// 盘点结果
+                var copestate = $("#copeState").val();// 处理状态
+                var imageList = [];// 图片数据列表
+                $(".uploadList li").each(function (i, item) {
+                    imageList[i] = {
+                        fileName: noNull(item.getAttribute("data-name")),
+                        fileUrl: noNull(item.getAttribute("data-href"))
+                    };
+                })
+                var inventoryData = {
+                    zcztdmbefore: zcztdmbefore,
+                    zcztdmafter: zcztdmafter,
+                    pdjgdm: pdjg,
+                    copestate: copestate,
+                    imageList: imageList
+                }
+                localStorage.setItem("inventoryData", JSON.stringify(inventoryData));
+                window.location.href = "selectMember.html"
+            }
+
+            // 盘点记录详情查询
+            function inventoryDetail() {
+                var param = {
+                    recordid: detailId
+                }
+
+                l.ajax('getInventoryDetails', param, function (data, message, success) {
+                    if (success) {
+                        var data = noNull(data);// 详情数据
+                        if (data != "") {
+                            $("#sszclx1Name").val(noNull(data.sszclx1Name));// 所属大类
+                            $("#sszclx2Name").val(noNull(data.sszclx2Name));// 所属小类
+                            $("#zcmc").val(noNull(data.zcmc));// 资产名称
+                            $("#pdrq").val(dateFormat(new Date(noNull(data.pdrq)), "yyyy-MM-dd"));// 盘点日期
+                            $("#cfddidbefore").val(noNull(data.cfddidbefore));// 存放地点(前)
+                            $("#cfddidafter").val(noNull(data.cfddidafter));// 存放地点(后)                      
+                            $("#sybuidbefore").val(noNull(data.sybuidbeforeName));// 使用部门(前）
+                            $("#sybuidafter").val(noNull(data.sybuidafter));//使用部门后
+                            $("#syrbefore").val(noNull(data.syrbeforeName));// 使用者(前)
+                            if (noNull(data.oaSyrAfter) != "") {         
+                                selectMemberList = noNull(data.oaSyrAfter.oaMemberList);// 使用者(后)
+                                localStorage.setItem("selectMemberList2", JSON.stringify(selectMemberList));// 将筛选出的 成员列表数据 传入 新存储
+                            }
+                            $("#syrafter").val(noNull(data.syrafter));
+                            $("#zcztdmbefore").val(noNull(data.zcztdmbefore));// 资产状态(前)
+                            $("#zcztdmafter").val(noNull(data.zcztdmafter));// 资产状态(后)
+                            $("#pdjg").val(noNull(data.pdjgdm));// 盘点结果
+                            $("#copeState").val(noNull(data.copestate));// 处理状态
+                            $("#clfa").val(noNull(data.clfa));// 处理方案
+                            $("#remarks").val(noNull(data.remarks));// 备注
+                            $("#inventoryTitle").val(data.inventoryTitle);//处理状态                         
+                            updateUploadList(noNull(data.imageList));// 图片列表
+                        }
+                    }
+                })
+
+            }
+
+
+
+            //图片上传
+            $("body").off('change', '#uploadBtn').on('change', '#uploadBtn', function () {
+                var accessoryList = [];
+                var index = layer.open({
+                    type: 2
+                    , content: '上传中...'
+                    , style: 'font-size: 28px'
+                });
+                $.ajaxFileUpload({
+                    url: API + 'uploadFiles.do', //用于文件上传的服务器端请求地址
+                    secureuri: false, //是否需要安全协议，一般设置为false
+                    fileElementId: 'uploadBtn', //文件上传域的ID
+                    dataType: 'text', //返回值类型 一般设置为json
+                    data: {
+                        projectName: 'zj-assets'
+                    },
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+                        // 新增携带token请求
+                        var token = window.getUserInfo().token;
+                        xhr.setRequestHeader('token', token);//
+                    },
+                    complete: function (result) {
+                        layer.closeAll('loading');
+                    },
+                    success: function (data, status) { //服务器成功响应处理函数
+                        data = JSON.parse(data);
+                        if (data.success == "true") {
+                            accessoryList.push({
+                                fileName: data.fileName,
+                                fileUrl: window.api + data.fileUrl
+                            })
+                            updateUploadList(accessoryList)
+                        } else {
+                            console.log(data.message)
+                        }
+                    },
+                    error: function (data, status, e) {//服务器响应失败处理函数
+                        console.log('错误：', e)
+                    }
+                })
+            })
+
+            $('.uploadList').on('click', 'li', function () {
+                imgLayer($(this).attr('data-href'))
+            })
+
+            // 遍历图片列表
+            function updateUploadList(uploadList) {
+                var $str = "";
+                $.each(uploadList, function (i, item) {
+                    $str += '<li data-href="' + item.fileUrl + '" data-name="' + item.fileName + '">';
+                    $str += '<div style="width: 70%; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"  class="text">' + item.fileName + '</div>';
+                    $str += '<img class="img" onclick="clearItem($(this))" src="../img/close.png" />';
+                    $str += '</li>';
+                });
+                $(".uploadList").append($str)
+            }
+
+        })
+
+        // 资产盘点列表修改
+        function update() {
+            localStorage.removeItem('zcztdmafter');//移除资产状态后的本地存储
+            var cfddidafter = noNull($("#cfddidafter").val());// 存放地点(后)         
+            var zcztdmafter = $("#zcztdmafter").val();// 资产状态(后)
+            var inventoryTitle = $("#inventoryTitle").val();// 盘点标题
+            var sybuidafter = $("#sybuidafter").val();//使用部门（后）
+            var pdjg = $("#pdjg").val();// 盘点结果
+            if (inventoryTitle == "") {
+                layer.open({
+                    content: '盘点标题是必填的！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (cfddidafter == "") {
+                layer.open({
+                    content: '存放地点是必填的！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (zcztdmafter == "") {
+                layer.open({
+                    content: '请选择资产状态！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (sybuidafter == "") {
+                layer.open({
+                    content: '使用部门是必填的！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (sybuidafter == null) {
+                layer.open({
+                    content: '使用部门是必填的！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if ($("#syrafter").val() == '') {
+                layer.open({
+                    content: '使用者是必填的！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (pdjg == "") {
+                layer.open({
+                    content: '请选择盘点结果！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            }
+            var imageList = [];
+            $(".uploadList li").each(function (i, item) {
+                imageList[i] = {
+                    fileName: noNull(item.getAttribute("data-name")),
+                    fileUrl: noNull(item.getAttribute("data-href"))
+                };
+            })
+            var param = {
+                inventoryTitle: noNull(inventoryTitle),//盘点标题
+                recordid: noNull(detailId),// 记录ID
+                sszcid: noNull(recordId),// 资产ID
+                pdrq: dateToUnix($("#pdrq").val()),// 盘点日期
+                cfddidafter: noNull($("#cfddidafter").val()),// 存放地点(后)
+                sybuidafter: noNull($('#sybuidafter').val()),// 使用部门(后)
+                syrafter: noNull($("#syrafter").val()),// 使用者(后)
+                zcztdmafter: noNull($("#zcztdmafter").val()),// 资产状态(后)
+                pdjgdm: noNull($("#pdjg").val()),// 盘点结果
+                copestate: noNull($("#copeState").val()),// 处理状态
+                clfa: noNull($("#clfa").val()),// 处理方案
+                remarks: noNull($("#remarks").val()),// 备注
+                imageList: imageList
+            }
+
+            l.ajax('updateInventory', param, function (data, message, success) {
+                if (success) {
+                    successMsg('修改成功！', -2, 1500);
+                }
+            })
+
+        }
+
+
+        // 盘点记录新增
+        function add() {
+
+            var cfddidafter = noNull($("#cfddidafter").val());// 存放地点(后)
+            var zcztdmafter = $("#zcztdmafter").val();// 资产状态(后)
+            var inventoryTitle = $("#inventoryTitle").val();// 盘点标题		
+            var sybuidafter = $("#sybuidafter").val();//使用部门（后）
+            var pdjg = $("#pdjg").val();// 盘点结果			
+            if (inventoryTitle == "") {
+                layer.open({
+                    content: '盘点标题是必填的！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (cfddidafter == "") {
+                layer.open({
+                    content: '存放地点是必填的！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (zcztdmafter == "") {
+                layer.open({
+                    content: '请选择资产状态！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (sybuidafter == "") {
+                layer.open({
+                    content: '使用部门是必填的！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (sybuidafter == null) {
+                layer.open({
+                    content: '使用部门是必填的！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if ($("#syrafter").val() == '') {
+                layer.open({
+                    content: '使用者是必填的！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (pdjg == "") {
+                layer.open({
+                    content: '请选择盘点结果！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            }
+            var imageList = [];
+            $(".uploadList li").each(function (i, item) {
+                imageList[i] = {
+                    fileName: noNull(item.getAttribute("data-name")),
+                    fileUrl: noNull(item.getAttribute("data-href"))
+                };
+            });
+            var param = {
+                record: record,
+                recordid: getUrlParam('recordid'),// 记录ID,
+                inventoryTitle: noNull(inventoryTitle),//盘点标题
+                sszcid: noNull(recordId),// 资产ID
+                sszclx1Name: $("#sszclx1Name").val(),// 所属大类
+                sszclx2Name: $("#sszclx2Name").val(),// 所属小类
+                pdrq: dateToUnix($("#pdrq").val()),// 盘点日期
+                cfddidafter: noNull($("#cfddidafter").val()),// 存放地点(后)
+                sybuidafter: noNull($("#sybuidafter").val()),// 使用部门(后)
+                syrafter: $("#syrafter").val(),// 使用者(后)
+                zcztdmafter: noNull($("#zcztdmafter").val()),// 资产状态(后)
+                pdjgdm: noNull($("#pdjg").val()),// 盘点结果
+                copestate: noNull($("#copeState").val()),// 处理状态
+                clfa: noNull($("#clfa").val()),// 处理方案
+                remarks: noNull($("#remarks").val()),// 备注
+                imageList: imageList
+            }
+
+            var addInventory;
+            if (isHaveInventoryTitle) {
+                addInventory = 'addInventoryHaveTitle'; //     
+            } else {
+                addInventory = 'addInventory';
+            }
+
+            l.ajax(addInventory, param, function (data, message, success) {
+                if (success) {
+                    successMsg('新增成功！', -1, 1500);
+                }
+            })
+
+
+        }
+
+
+    </script>
+</body>
+
+</html>

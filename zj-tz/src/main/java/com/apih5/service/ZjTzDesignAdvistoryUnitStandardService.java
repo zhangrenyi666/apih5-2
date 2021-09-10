@@ -1,0 +1,24 @@
+package com.apih5.service;
+
+import java.util.List;
+import com.apih5.framework.entity.ResponseEntity;
+import com.apih5.mybatis.pojo.ZjTzDesignAdvistoryUnitStandard;
+
+public interface ZjTzDesignAdvistoryUnitStandardService {
+
+    public ResponseEntity getZjTzDesignAdvistoryUnitStandardListByCondition(ZjTzDesignAdvistoryUnitStandard zjTzDesignAdvistoryUnitStandard);
+
+    public ResponseEntity getZjTzDesignAdvistoryUnitStandardDetails(ZjTzDesignAdvistoryUnitStandard zjTzDesignAdvistoryUnitStandard);
+
+    public ResponseEntity saveZjTzDesignAdvistoryUnitStandard(ZjTzDesignAdvistoryUnitStandard zjTzDesignAdvistoryUnitStandard);
+
+    public ResponseEntity updateZjTzDesignAdvistoryUnitStandard(ZjTzDesignAdvistoryUnitStandard zjTzDesignAdvistoryUnitStandard);
+
+    public ResponseEntity batchDeleteUpdateZjTzDesignAdvistoryUnitStandard(List<ZjTzDesignAdvistoryUnitStandard> zjTzDesignAdvistoryUnitStandardList);
+
+	public ResponseEntity setZjTzDesignAdvistoryUnitStandardLibrary(ZjTzDesignAdvistoryUnitStandard zjTzDesignAdvistoryUnitStandard);
+
+	public ResponseEntity getZjTzDesignAdvistoryUnitStandardListForHard(ZjTzDesignAdvistoryUnitStandard zjTzDesignAdvistoryUnitStandard);
+
+}
+

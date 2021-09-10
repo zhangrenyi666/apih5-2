@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxBuYgjResTechnicsMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxBuYgjResTechnics" >
+    <id column="zx_bu_ygjResTechnics_id" property="zxBuYgjResTechnicsId" jdbcType="CHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="billID" property="billID" jdbcType="VARCHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="orderFlag" property="orderFlag" jdbcType="INTEGER" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
+    <result column="standardTechID" property="standardTechID" jdbcType="VARCHAR" />
+    <result column="techType" property="techType" jdbcType="INTEGER" />
+    <result column="comPrice" property="comPrice" jdbcType="DECIMAL" />
+    <result column="techOrder" property="techOrder" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="qty" property="qty" jdbcType="DECIMAL" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="budgetBookID" property="budgetBookID" jdbcType="VARCHAR" />
+    <result column="isGroup" property="isGroup" jdbcType="VARCHAR" />
+    <result column="isGroupDoRes" property="isGroupDoRes" jdbcType="VARCHAR" />
+    <result column="areaName" property="areaName" jdbcType="VARCHAR" />
+    <result column="technicAmt" property="technicAmt" jdbcType="DECIMAL" />
+    <result column="downAmt" property="downAmt" jdbcType="DECIMAL" />
+    <result column="upAmt" property="upAmt" jdbcType="DECIMAL" />
+    <result column="taxRate" property="taxRate" jdbcType="DECIMAL" />
+    <result column="taxPrice" property="taxPrice" jdbcType="DECIMAL" />
+    <result column="finPrice" property="finPrice" jdbcType="DECIMAL" />
+    <result column="finTaxRate" property="finTaxRate" jdbcType="DECIMAL" />
+    <result column="finTaxPrice" property="finTaxPrice" jdbcType="DECIMAL" />
+    <result column="remPrice" property="remPrice" jdbcType="DECIMAL" />
+    <result column="remTaxRate" property="remTaxRate" jdbcType="DECIMAL" />
+    <result column="remTaxPrice" property="remTaxPrice" jdbcType="DECIMAL" />
+    <result column="finQty" property="finQty" jdbcType="DECIMAL" />
+    <result column="remQty" property="remQty" jdbcType="DECIMAL" />
+    <result column="techNon" property="techNon" jdbcType="VARCHAR" />
+    <result column="formulaStr" property="formulaStr" jdbcType="VARCHAR" />
+    <result column="formulaStr2" property="formulaStr2" jdbcType="VARCHAR" />
+    <result column="workName" property="workName" jdbcType="VARCHAR" />
+    <result column="pp1" property="pp1" jdbcType="VARCHAR" />
+    <result column="technicType" property="technicType" jdbcType="VARCHAR" />
+    <result column="standardWorkID" property="standardWorkID" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zx_bu_ygjResTechnics_id, name, billID, orgID, orderFlag, 
+    money, standardTechID, techType, comPrice, techOrder, 
+    price, qty, unit, budgetBookID, isGroup, 
+    isGroupDoRes, areaName, technicAmt, downAmt, upAmt, 
+    taxRate, taxPrice, finPrice, finTaxRate, finTaxPrice, 
+    remPrice, remTaxRate, remTaxPrice, finQty, remQty, 
+    techNon, formulaStr, formulaStr2, workName, pp1, 
+    technicType, standardWorkID, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_bu_ygjResTechnics
+    where del_flag = '0' and zx_bu_ygjResTechnics_id = #{zxBuYgjResTechnicsId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_bu_ygjResTechnics
+    where zx_bu_ygjResTechnics_id = #{zxBuYgjResTechnicsId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxBuYgjResTechnics" >
+    insert into zx_bu_ygjResTechnics (
+    zx_bu_ygjResTechnics_id, name, billID, orgID, orderFlag, 
+    money, standardTechID, techType, comPrice, techOrder, 
+    price, qty, unit, budgetBookID, isGroup, 
+    isGroupDoRes, areaName, technicAmt, downAmt, upAmt, 
+    taxRate, taxPrice, finPrice, finTaxRate, finTaxPrice, 
+    remPrice, remTaxRate, remTaxPrice, finQty, remQty, 
+    techNon, formulaStr, formulaStr2, workName, pp1, 
+    technicType, standardWorkID, remarks, sort, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+      )
+    values (
+      #{zxBuYgjResTechnicsId,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{billID,jdbcType=VARCHAR}, #{orgID,jdbcType=VARCHAR}, #{orderFlag,jdbcType=INTEGER}, 
+    #{money,jdbcType=DECIMAL}, #{standardTechID,jdbcType=VARCHAR}, #{techType,jdbcType=INTEGER}, #{comPrice,jdbcType=DECIMAL}, #{techOrder,jdbcType=VARCHAR}, 
+    #{price,jdbcType=DECIMAL}, #{qty,jdbcType=DECIMAL}, #{unit,jdbcType=VARCHAR}, #{budgetBookID,jdbcType=VARCHAR}, #{isGroup,jdbcType=VARCHAR}, 
+    #{isGroupDoRes,jdbcType=VARCHAR}, #{areaName,jdbcType=VARCHAR}, #{technicAmt,jdbcType=DECIMAL}, #{downAmt,jdbcType=DECIMAL}, #{upAmt,jdbcType=DECIMAL}, 
+    #{taxRate,jdbcType=DECIMAL}, #{taxPrice,jdbcType=DECIMAL}, #{finPrice,jdbcType=DECIMAL}, #{finTaxRate,jdbcType=DECIMAL}, #{finTaxPrice,jdbcType=DECIMAL}, 
+    #{remPrice,jdbcType=DECIMAL}, #{remTaxRate,jdbcType=DECIMAL}, #{remTaxPrice,jdbcType=DECIMAL}, #{finQty,jdbcType=DECIMAL}, #{remQty,jdbcType=DECIMAL}, 
+    #{techNon,jdbcType=VARCHAR}, #{formulaStr,jdbcType=VARCHAR}, #{formulaStr2,jdbcType=VARCHAR}, #{workName,jdbcType=VARCHAR}, #{pp1,jdbcType=VARCHAR}, 
+    #{technicType,jdbcType=VARCHAR}, #{standardWorkID,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, 
+    #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+    #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxBuYgjResTechnics" >
+    insert into zx_bu_ygjResTechnics
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxBuYgjResTechnicsId != null" >
+        zx_bu_ygjResTechnics_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="billID != null" >
+        billID,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="orderFlag != null" >
+        orderFlag,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="standardTechID != null" >
+        standardTechID,
+      </if>
+      <if test="techType != null" >
+        techType,
+      </if>
+      <if test="comPrice != null" >
+        comPrice,
+      </if>
+      <if test="techOrder != null" >
+        techOrder,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="qty != null" >
+        qty,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="budgetBookID != null" >
+        budgetBookID,
+      </if>
+      <if test="isGroup != null" >
+        isGroup,
+      </if>
+      <if test="isGroupDoRes != null" >
+        isGroupDoRes,
+      </if>
+      <if test="areaName != null" >
+        areaName,
+      </if>
+      <if test="technicAmt != null" >
+        technicAmt,
+      </if>
+      <if test="downAmt != null" >
+        downAmt,
+      </if>
+      <if test="upAmt != null" >
+        upAmt,
+      </if>
+      <if test="taxRate != null" >
+        taxRate,
+      </if>
+      <if test="taxPrice != null" >
+        taxPrice,
+      </if>
+      <if test="finPrice != null" >
+        finPrice,
+      </if>
+      <if test="finTaxRate != null" >
+        finTaxRate,
+      </if>
+      <if test="finTaxPrice != null" >
+        finTaxPrice,
+      </if>
+      <if test="remPrice != null" >
+        remPrice,
+      </if>
+      <if test="remTaxRate != null" >
+        remTaxRate,
+      </if>
+      <if test="remTaxPrice != null" >
+        remTaxPrice,
+      </if>
+      <if test="finQty != null" >
+        finQty,
+      </if>
+      <if test="remQty != null" >
+        remQty,
+      </if>
+      <if test="techNon != null" >
+        techNon,
+      </if>
+      <if test="formulaStr != null" >
+        formulaStr,
+      </if>
+      <if test="formulaStr2 != null" >
+        formulaStr2,
+      </if>
+      <if test="workName != null" >
+        workName,
+      </if>
+      <if test="pp1 != null" >
+        pp1,
+      </if>
+      <if test="technicType != null" >
+        technicType,
+      </if>
+      <if test="standardWorkID != null" >
+        standardWorkID,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxBuYgjResTechnicsId != null" >
+        #{zxBuYgjResTechnicsId,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="billID != null" >
+        #{billID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orderFlag != null" >
+        #{orderFlag,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="standardTechID != null" >
+        #{standardTechID,jdbcType=VARCHAR},
+      </if>
+      <if test="techType != null" >
+        #{techType,jdbcType=INTEGER},
+      </if>
+      <if test="comPrice != null" >
+        #{comPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="techOrder != null" >
+        #{techOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="qty != null" >
+        #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="budgetBookID != null" >
+        #{budgetBookID,jdbcType=VARCHAR},
+      </if>
+      <if test="isGroup != null" >
+        #{isGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="isGroupDoRes != null" >
+        #{isGroupDoRes,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null" >
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="technicAmt != null" >
+        #{technicAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="downAmt != null" >
+        #{downAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upAmt != null" >
+        #{upAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRate != null" >
+        #{taxRate,jdbcType=DECIMAL},
+      </if>
+      <if test="taxPrice != null" >
+        #{taxPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="finPrice != null" >
+        #{finPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="finTaxRate != null" >
+        #{finTaxRate,jdbcType=DECIMAL},
+      </if>
+      <if test="finTaxPrice != null" >
+        #{finTaxPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="remPrice != null" >
+        #{remPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="remTaxRate != null" >
+        #{remTaxRate,jdbcType=DECIMAL},
+      </if>
+      <if test="remTaxPrice != null" >
+        #{remTaxPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="finQty != null" >
+        #{finQty,jdbcType=DECIMAL},
+      </if>
+      <if test="remQty != null" >
+        #{remQty,jdbcType=DECIMAL},
+      </if>
+      <if test="techNon != null" >
+        #{techNon,jdbcType=VARCHAR},
+      </if>
+      <if test="formulaStr != null" >
+        #{formulaStr,jdbcType=VARCHAR},
+      </if>
+      <if test="formulaStr2 != null" >
+        #{formulaStr2,jdbcType=VARCHAR},
+      </if>
+      <if test="workName != null" >
+        #{workName,jdbcType=VARCHAR},
+      </if>
+      <if test="pp1 != null" >
+        #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="technicType != null" >
+        #{technicType,jdbcType=VARCHAR},
+      </if>
+      <if test="standardWorkID != null" >
+        #{standardWorkID,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxBuYgjResTechnics" >
+    update zx_bu_ygjResTechnics
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="billID != null" >
+        billID = #{billID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orderFlag != null" >
+        orderFlag = #{orderFlag,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="standardTechID != null" >
+        standardTechID = #{standardTechID,jdbcType=VARCHAR},
+      </if>
+      <if test="techType != null" >
+        techType = #{techType,jdbcType=INTEGER},
+      </if>
+      <if test="comPrice != null" >
+        comPrice = #{comPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="techOrder != null" >
+        techOrder = #{techOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="qty != null" >
+        qty = #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="budgetBookID != null" >
+        budgetBookID = #{budgetBookID,jdbcType=VARCHAR},
+      </if>
+      <if test="isGroup != null" >
+        isGroup = #{isGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="isGroupDoRes != null" >
+        isGroupDoRes = #{isGroupDoRes,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null" >
+        areaName = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="technicAmt != null" >
+        technicAmt = #{technicAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="downAmt != null" >
+        downAmt = #{downAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upAmt != null" >
+        upAmt = #{upAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRate != null" >
+        taxRate = #{taxRate,jdbcType=DECIMAL},
+      </if>
+      <if test="taxPrice != null" >
+        taxPrice = #{taxPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="finPrice != null" >
+        finPrice = #{finPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="finTaxRate != null" >
+        finTaxRate = #{finTaxRate,jdbcType=DECIMAL},
+      </if>
+      <if test="finTaxPrice != null" >
+        finTaxPrice = #{finTaxPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="remPrice != null" >
+        remPrice = #{remPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="remTaxRate != null" >
+        remTaxRate = #{remTaxRate,jdbcType=DECIMAL},
+      </if>
+      <if test="remTaxPrice != null" >
+        remTaxPrice = #{remTaxPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="finQty != null" >
+        finQty = #{finQty,jdbcType=DECIMAL},
+      </if>
+      <if test="remQty != null" >
+        remQty = #{remQty,jdbcType=DECIMAL},
+      </if>
+      <if test="techNon != null" >
+        techNon = #{techNon,jdbcType=VARCHAR},
+      </if>
+      <if test="formulaStr != null" >
+        formulaStr = #{formulaStr,jdbcType=VARCHAR},
+      </if>
+      <if test="formulaStr2 != null" >
+        formulaStr2 = #{formulaStr2,jdbcType=VARCHAR},
+      </if>
+      <if test="workName != null" >
+        workName = #{workName,jdbcType=VARCHAR},
+      </if>
+      <if test="pp1 != null" >
+        pp1 = #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="technicType != null" >
+        technicType = #{technicType,jdbcType=VARCHAR},
+      </if>
+      <if test="standardWorkID != null" >
+        standardWorkID = #{standardWorkID,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zx_bu_ygjResTechnics_id = #{zxBuYgjResTechnicsId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxBuYgjResTechnics" >
+    update zx_bu_ygjResTechnics set 
+      name = #{name,jdbcType=VARCHAR},
+      billID = #{billID,jdbcType=VARCHAR},
+      orgID = #{orgID,jdbcType=VARCHAR},
+      orderFlag = #{orderFlag,jdbcType=INTEGER},
+      money = #{money,jdbcType=DECIMAL},
+      standardTechID = #{standardTechID,jdbcType=VARCHAR},
+      techType = #{techType,jdbcType=INTEGER},
+      comPrice = #{comPrice,jdbcType=DECIMAL},
+      techOrder = #{techOrder,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      qty = #{qty,jdbcType=DECIMAL},
+      unit = #{unit,jdbcType=VARCHAR},
+      budgetBookID = #{budgetBookID,jdbcType=VARCHAR},
+      isGroup = #{isGroup,jdbcType=VARCHAR},
+      isGroupDoRes = #{isGroupDoRes,jdbcType=VARCHAR},
+      areaName = #{areaName,jdbcType=VARCHAR},
+      technicAmt = #{technicAmt,jdbcType=DECIMAL},
+      downAmt = #{downAmt,jdbcType=DECIMAL},
+      upAmt = #{upAmt,jdbcType=DECIMAL},
+      taxRate = #{taxRate,jdbcType=DECIMAL},
+      taxPrice = #{taxPrice,jdbcType=DECIMAL},
+      finPrice = #{finPrice,jdbcType=DECIMAL},
+      finTaxRate = #{finTaxRate,jdbcType=DECIMAL},
+      finTaxPrice = #{finTaxPrice,jdbcType=DECIMAL},
+      remPrice = #{remPrice,jdbcType=DECIMAL},
+      remTaxRate = #{remTaxRate,jdbcType=DECIMAL},
+      remTaxPrice = #{remTaxPrice,jdbcType=DECIMAL},
+      finQty = #{finQty,jdbcType=DECIMAL},
+      remQty = #{remQty,jdbcType=DECIMAL},
+      techNon = #{techNon,jdbcType=VARCHAR},
+      formulaStr = #{formulaStr,jdbcType=VARCHAR},
+      formulaStr2 = #{formulaStr2,jdbcType=VARCHAR},
+      workName = #{workName,jdbcType=VARCHAR},
+      pp1 = #{pp1,jdbcType=VARCHAR},
+      technicType = #{technicType,jdbcType=VARCHAR},
+      standardWorkID = #{standardWorkID,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zx_bu_ygjResTechnics_id = #{zxBuYgjResTechnicsId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxBuYgjResTechnicsList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxBuYgjResTechnics" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_bu_ygjResTechnics
+    where del_flag = '0'
+    <if test="zxBuYgjResTechnicsId != null and zxBuYgjResTechnicsId != ''" >
+     and zx_bu_ygjResTechnics_id = #{zxBuYgjResTechnicsId,jdbcType=CHAR}
+    </if>
+    <if test="name != null and name != ''" >
+     and name = #{name,jdbcType=VARCHAR}
+    </if>
+    <if test="billID != null and billID != ''" >
+     and billID = #{billID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="orderFlag != null and orderFlag != ''" >
+     and orderFlag = #{orderFlag,jdbcType=INTEGER}
+    </if>
+    <if test="money != null and money != ''" >
+     and money = #{money,jdbcType=DECIMAL}
+    </if>
+    <if test="standardTechID != null and standardTechID != ''" >
+     and standardTechID = #{standardTechID,jdbcType=VARCHAR}
+    </if>
+    <if test="techType != null and techType != ''" >
+     and techType = #{techType,jdbcType=INTEGER}
+    </if>
+    <if test="comPrice != null and comPrice != ''" >
+     and comPrice = #{comPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="techOrder != null and techOrder != ''" >
+     and techOrder = #{techOrder,jdbcType=VARCHAR}
+    </if>
+    <if test="price != null and price != ''" >
+     and price = #{price,jdbcType=DECIMAL}
+    </if>
+    <if test="qty != null and qty != ''" >
+     and qty = #{qty,jdbcType=DECIMAL}
+    </if>
+    <if test="unit != null and unit != ''" >
+     and unit = #{unit,jdbcType=VARCHAR}
+    </if>
+    <if test="budgetBookID != null and budgetBookID != ''" >
+     and budgetBookID = #{budgetBookID,jdbcType=VARCHAR}
+    </if>
+    <if test="isGroup != null and isGroup != ''" >
+     and isGroup = #{isGroup,jdbcType=VARCHAR}
+    </if>
+    <if test="isGroupDoRes != null and isGroupDoRes != ''" >
+     and isGroupDoRes = #{isGroupDoRes,jdbcType=VARCHAR}
+    </if>
+    <if test="areaName != null and areaName != ''" >
+     and areaName = #{areaName,jdbcType=VARCHAR}
+    </if>
+    <if test="technicAmt != null and technicAmt != ''" >
+     and technicAmt = #{technicAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="downAmt != null and downAmt != ''" >
+     and downAmt = #{downAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="upAmt != null and upAmt != ''" >
+     and upAmt = #{upAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="taxRate != null and taxRate != ''" >
+     and taxRate = #{taxRate,jdbcType=DECIMAL}
+    </if>
+    <if test="taxPrice != null and taxPrice != ''" >
+     and taxPrice = #{taxPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="finPrice != null and finPrice != ''" >
+     and finPrice = #{finPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="finTaxRate != null and finTaxRate != ''" >
+     and finTaxRate = #{finTaxRate,jdbcType=DECIMAL}
+    </if>
+    <if test="finTaxPrice != null and finTaxPrice != ''" >
+     and finTaxPrice = #{finTaxPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="remPrice != null and remPrice != ''" >
+     and remPrice = #{remPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="remTaxRate != null and remTaxRate != ''" >
+     and remTaxRate = #{remTaxRate,jdbcType=DECIMAL}
+    </if>
+    <if test="remTaxPrice != null and remTaxPrice != ''" >
+     and remTaxPrice = #{remTaxPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="finQty != null and finQty != ''" >
+     and finQty = #{finQty,jdbcType=DECIMAL}
+    </if>
+    <if test="remQty != null and remQty != ''" >
+     and remQty = #{remQty,jdbcType=DECIMAL}
+    </if>
+    <if test="techNon != null and techNon != ''" >
+     and techNon = #{techNon,jdbcType=VARCHAR}
+    </if>
+    <if test="formulaStr != null and formulaStr != ''" >
+     and formulaStr = #{formulaStr,jdbcType=VARCHAR}
+    </if>
+    <if test="formulaStr2 != null and formulaStr2 != ''" >
+     and formulaStr2 = #{formulaStr2,jdbcType=VARCHAR}
+    </if>
+    <if test="workName != null and workName != ''" >
+     and workName = #{workName,jdbcType=VARCHAR}
+    </if>
+    <if test="pp1 != null and pp1 != ''" >
+     and pp1 = #{pp1,jdbcType=VARCHAR}
+    </if>
+    <if test="technicType != null and technicType != ''" >
+     and technicType = #{technicType,jdbcType=VARCHAR}
+    </if>
+    <if test="standardWorkID != null and standardWorkID != ''" >
+     and standardWorkID = #{standardWorkID,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY techOrder ASC
+  </select>
+  <delete id="batchDeleteUpdateZxBuYgjResTechnics" parameterType="com.apih5.mybatis.pojo.ZxBuYgjResTechnics" >
+    <![CDATA[ 
+        update zx_bu_ygjResTechnics
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zx_bu_ygjResTechnics_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxBuYgjResTechnicsId} 
+     </foreach>
+  </delete>
+  <select id="getWorkNoArrWorkNameArr" parameterType="java.lang.String" resultType="com.apih5.mybatis.pojo.ZxBuWorks">
+    select GROUP_CONCAT(zx_bu_works_id)as zxBuWorksId, GROUP_CONCAT(workNo) as workNo, GROUP_CONCAT(workName) as workName
+      from zx_bu_works
+        where zx_bu_works_id in
+          (select billID from zx_bu_ygjrestechnics where zx_bu_ygjrestechnics_id in
+              (select standardTechID from zx_bu_ygjrestechnics where del_flag = '0'
+                and billID = #{id})
+          GROUP BY billID)
+  </select>
+
+  <delete id="batchDeleteUpdateRemoveRelevanceZxBuYgjResTechnics" parameterType="com.apih5.mybatis.pojo.ZxBuYgjResTechnics">
+    <![CDATA[
+        update zx_bu_ygjResTechnics
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0'
+        and billID = #{param2.billID}
+        and orgID = #{param2.orgID}
+        and standardTechID in
+     ]]>
+    <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model}
+    </foreach>
+  </delete>
+
+  <delete id="batchDeleteUpdateZxBuYgjResTechnicsByBillID" parameterType="com.apih5.mybatis.pojo.ZxBuYgjResTechnics" >
+    <![CDATA[
+        update zx_bu_ygjResTechnics
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and billID in
+     ]]>
+    <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.billID}
+    </foreach>
+  </delete>
+
+  <select id="selectByBaseZxBuYgjResTechnics" parameterType="com.apih5.mybatis.pojo.ZxBuYgjResTechnics" resultMap="BaseResultMap">
+    select
+      <include refid="Base_Column_List" />
+    from zx_bu_ygjResTechnics
+      where del_flag = '0'
+        and zx_bu_ygjResTechnics_id in
+    <foreach collection="zxBuYgjResTechnicsListNew" item = "model" open="(" separator="," close=")">#{model.standardTechID}
+    </foreach>
+  </select>
+</mapper>

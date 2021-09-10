@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzOtherManagementSystemMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzOtherManagementSystem" >
+    <id column="other_id" property="otherId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="subprojects_id" property="subprojectsId" jdbcType="VARCHAR" />
+    <result column="subprojects_name" property="subprojectsName" jdbcType="VARCHAR" />
+    <result column="other_title" property="otherTitle" jdbcType="VARCHAR" />
+    <result column="other_content" property="otherContent" jdbcType="VARCHAR" />
+    <result column="other_register_date" property="otherRegisterDate" jdbcType="TIMESTAMP" />
+    <result column="other_register_user" property="otherRegisterUser" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    other_id, project_id, project_name, subprojects_id, subprojects_name, 
+    other_title, other_content, other_register_date, other_register_user, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_qhse_other_management_system
+    where other_id = #{otherId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_qhse_other_management_system
+    where other_id = #{otherId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzOtherManagementSystem" >
+    insert into zj_tz_qhse_other_management_system (other_id, project_id, project_name, 
+      subprojects_id, subprojects_name, other_title, 
+      other_content, other_register_date, other_register_user, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{otherId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, 
+      #{subprojectsId,jdbcType=VARCHAR}, #{subprojectsName,jdbcType=VARCHAR}, #{otherTitle,jdbcType=VARCHAR}, 
+      #{otherContent,jdbcType=VARCHAR}, #{otherRegisterDate,jdbcType=TIMESTAMP}, #{otherRegisterUser,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzOtherManagementSystem" >
+    insert into zj_tz_qhse_other_management_system
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="otherId != null" >
+        other_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="subprojectsId != null" >
+        subprojects_id,
+      </if>
+      <if test="subprojectsName != null" >
+        subprojects_name,
+      </if>
+      <if test="otherTitle != null" >
+        other_title,
+      </if>
+      <if test="otherContent != null" >
+        other_content,
+      </if>
+      <if test="otherRegisterDate != null" >
+        other_register_date,
+      </if>
+      <if test="otherRegisterUser != null" >
+        other_register_user,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="otherId != null" >
+        #{otherId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectsId != null" >
+        #{subprojectsId,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectsName != null" >
+        #{subprojectsName,jdbcType=VARCHAR},
+      </if>
+      <if test="otherTitle != null" >
+        #{otherTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="otherContent != null" >
+        #{otherContent,jdbcType=VARCHAR},
+      </if>
+      <if test="otherRegisterDate != null" >
+        #{otherRegisterDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="otherRegisterUser != null" >
+        #{otherRegisterUser,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzOtherManagementSystem" >
+    update zj_tz_qhse_other_management_system
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectsId != null" >
+        subprojects_id = #{subprojectsId,jdbcType=VARCHAR},
+      </if>
+      <if test="subprojectsName != null" >
+        subprojects_name = #{subprojectsName,jdbcType=VARCHAR},
+      </if>
+      <if test="otherTitle != null" >
+        other_title = #{otherTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="otherContent != null" >
+        other_content = #{otherContent,jdbcType=VARCHAR},
+      </if>
+      <if test="otherRegisterDate != null" >
+        other_register_date = #{otherRegisterDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="otherRegisterUser != null" >
+        other_register_user = #{otherRegisterUser,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where other_id = #{otherId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzOtherManagementSystem" >
+    update zj_tz_qhse_other_management_system
+    set       project_id = #{projectId,jdbcType=CHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      subprojects_id = #{subprojectsId,jdbcType=VARCHAR},
+      subprojects_name = #{subprojectsName,jdbcType=VARCHAR},
+      other_title = #{otherTitle,jdbcType=VARCHAR},
+      other_content = #{otherContent,jdbcType=VARCHAR},
+      other_register_date = #{otherRegisterDate,jdbcType=TIMESTAMP},
+      other_register_user = #{otherRegisterUser,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where other_id = #{otherId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzOtherManagementSystemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzOtherManagementSystem" >
+    select 
+    zj_tz_qhse_other_management_system.other_id, zj_tz_qhse_other_management_system.project_id, zj_tz_pro_manage.project_name, 
+    zj_tz_qhse_other_management_system.subprojects_id, zj_tz_qhse_other_management_system.subprojects_name, zj_tz_qhse_other_management_system.other_title, 
+    zj_tz_qhse_other_management_system.other_content, zj_tz_qhse_other_management_system.other_register_date, zj_tz_qhse_other_management_system.other_register_user, 
+    zj_tz_qhse_other_management_system.del_flag, zj_tz_qhse_other_management_system.create_time, zj_tz_qhse_other_management_system.create_user, 
+    zj_tz_qhse_other_management_system.create_user_name, zj_tz_qhse_other_management_system.modify_time, zj_tz_qhse_other_management_system.modify_user, 
+    zj_tz_qhse_other_management_system.modify_user_name
+    from zj_tz_qhse_other_management_system left join zj_tz_pro_manage on zj_tz_pro_manage.project_id = zj_tz_qhse_other_management_system.project_id and zj_tz_pro_manage.del_flag = '0'
+    where zj_tz_qhse_other_management_system.del_flag = '0'
+    <if test="projectId != null and projectId != ''" >
+     and zj_tz_qhse_other_management_system.project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+     and zj_tz_qhse_other_management_system.project_id in (${projectIdSql})
+    </if>        
+    <if test="projectName != null and projectName != ''" >
+     <!-- and project_name = #{projectName,jdbcType=VARCHAR} -->
+     and zj_tz_pro_manage.project_name like CONCAT('%', #{projectName,jdbcType=VARCHAR}, '%')      
+    </if>
+    <if test="subprojectsId != null and subprojectsId != ''" >
+     and zj_tz_qhse_other_management_system.subprojects_id = #{subprojectsId,jdbcType=VARCHAR}
+    </if>
+    <if test="subprojectsName != null and subprojectsName != ''" >
+     and zj_tz_qhse_other_management_system.subprojects_name = #{subprojectsName,jdbcType=VARCHAR}
+    </if>
+    <if test="otherTitle != null and otherTitle != ''" >
+     <!-- and other_title = #{otherTitle,jdbcType=VARCHAR} -->
+          and zj_tz_qhse_other_management_system.other_title like CONCAT('%', #{otherTitle,jdbcType=VARCHAR}, '%')    
+    </if>
+    <if test="otherContent != null and otherContent != ''" >
+     and zj_tz_qhse_other_management_system.other_content = #{otherContent,jdbcType=VARCHAR}
+    </if>
+    <if test="otherRegisterDate != null" >
+     and zj_tz_qhse_other_management_system.other_register_date = #{otherRegisterDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="otherRegisterUser != null and otherRegisterUser != ''" >
+     and zj_tz_qhse_other_management_system.other_register_user = #{otherRegisterUser,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and zj_tz_qhse_other_management_system.create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and zj_tz_qhse_other_management_system.modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY zj_tz_qhse_other_management_system.modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjTzOtherManagementSystem" parameterType="com.apih5.mybatis.pojo.ZjTzOtherManagementSystem" >
+    <![CDATA[ 
+        update zj_tz_qhse_other_management_system
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and other_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.otherId} 
+     </foreach>
+  </delete>
+</mapper>

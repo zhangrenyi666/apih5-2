@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjTzProjectEmployeeMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjTzProjectEmployee" >
+    <id column="project_employee_id" property="projectEmployeeId" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="CHAR" />
+    <result column="year_and_month" property="yearAndMonth" jdbcType="TIMESTAMP" />
+    <result column="employee_number" property="employeeNumber" jdbcType="INTEGER" />
+    <result column="register_user" property="registerUser" jdbcType="CHAR" />
+    <result column="register_time" property="registerTime" jdbcType="TIMESTAMP" />
+    <result column="register_units" property="registerUnits" jdbcType="CHAR" />
+    <result column="audit_status" property="auditStatus" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    project_employee_id, project_id, year_and_month, employee_number, register_user, 
+    register_time, register_units, audit_status, remarks, del_flag, 
+    create_time, create_user, create_user_name, modify_time, modify_user, 
+    modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_project_employee
+    where project_employee_id = #{projectEmployeeId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_tz_project_employee
+    where project_employee_id = #{projectEmployeeId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjTzProjectEmployee" >
+    insert into zj_tz_project_employee (project_employee_id, project_id, year_and_month, 
+      employee_number, register_user, register_time, 
+      register_units, audit_status, remarks, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{projectEmployeeId,jdbcType=CHAR}, #{projectId,jdbcType=CHAR}, #{yearAndMonth,jdbcType=TIMESTAMP}, 
+      #{employeeNumber,jdbcType=INTEGER}, #{registerUser,jdbcType=CHAR}, #{registerTime,jdbcType=TIMESTAMP}, 
+      #{registerUnits,jdbcType=CHAR}, #{auditStatus,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjTzProjectEmployee" >
+    insert into zj_tz_project_employee
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="projectEmployeeId != null" >
+        project_employee_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="yearAndMonth != null" >
+        year_and_month,
+      </if>
+      <if test="employeeNumber != null" >
+        employee_number,
+      </if>
+      <if test="registerUser != null" >
+        register_user,
+      </if>
+      <if test="registerTime != null" >
+        register_time,
+      </if>
+      <if test="registerUnits != null" >
+        register_units,
+      </if>
+      <if test="auditStatus != null" >
+        audit_status,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="projectEmployeeId != null" >
+        #{projectEmployeeId,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="yearAndMonth != null" >
+        #{yearAndMonth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="employeeNumber != null" >
+        #{employeeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="registerUser != null" >
+        #{registerUser,jdbcType=CHAR},
+      </if>
+      <if test="registerTime != null" >
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registerUnits != null" >
+        #{registerUnits,jdbcType=CHAR},
+      </if>
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjTzProjectEmployee" >
+    update zj_tz_project_employee
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=CHAR},
+      </if>
+      <if test="yearAndMonth != null" >
+        year_and_month = #{yearAndMonth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="employeeNumber != null" >
+        employee_number = #{employeeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="registerUser != null" >
+        register_user = #{registerUser,jdbcType=CHAR},
+      </if>
+      <if test="registerTime != null" >
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registerUnits != null" >
+        register_units = #{registerUnits,jdbcType=CHAR},
+      </if>
+      <if test="auditStatus != null" >
+        audit_status = #{auditStatus,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where project_employee_id = #{projectEmployeeId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjTzProjectEmployee" >
+    update zj_tz_project_employee
+    set       project_id = #{projectId,jdbcType=CHAR},
+      year_and_month = #{yearAndMonth,jdbcType=TIMESTAMP},
+      employee_number = #{employeeNumber,jdbcType=INTEGER},
+      register_user = #{registerUser,jdbcType=CHAR},
+      register_time = #{registerTime,jdbcType=TIMESTAMP},
+      register_units = #{registerUnits,jdbcType=CHAR},
+      audit_status = #{auditStatus,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where project_employee_id = #{projectEmployeeId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjTzProjectEmployeeList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjTzProjectEmployee" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_tz_project_employee
+    where del_flag = '0'
+    <if test="projectId != null and projectId != ''" >
+     and project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="_parameter != null and _parameter.projectIdSql != null and _parameter.projectIdSql != ''">
+      and project_id in (${projectIdSql})
+    </if>
+    <if test="yearAndMonth != null" >
+     and year_and_month = #{yearAndMonth,jdbcType=TIMESTAMP}
+    </if>
+    <if test="employeeNumber != null and employeeNumber != ''" >
+     and employee_number = #{employeeNumber,jdbcType=INTEGER}
+    </if>
+    <if test="registerUser != null and registerUser != ''" >
+     and register_user like CONCAT('%',CONCAT(#{registerUser,jdbcType=CHAR},'%'))
+    </if>
+    <if test="time != null" >
+      and DATE_FORMAT(register_time,"%Y-%m") = DATE_FORMAT(#{time},"%Y-%m")
+    </if>
+    <if test="timeList != null" >
+      and register_time BETWEEN
+      <foreach collection="timeList" index="index" item="item" separator="AND">
+        DATE_FORMAT(#{item},"%Y-%m-%d")
+      </foreach>
+    </if>
+    <if test="registerUnits != null and registerUnits != ''" >
+     and register_units like CONCAT('%',CONCAT(#{registerUnits,jdbcType=CHAR},'%'))
+    </if>
+    <if test="auditStatus != null and auditStatus != ''" >
+     and audit_status = #{auditStatus,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY register_time DESC
+  </select>
+
+
+  <delete id="batchDeleteUpdateZjTzProjectEmployee" parameterType="com.apih5.mybatis.pojo.ZjTzProjectEmployee" >
+    <![CDATA[ 
+        update zj_tz_project_employee
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and project_employee_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.projectEmployeeId} 
+     </foreach>
+  </delete>
+
+  <!-- 扩展 -->
+  <update id="checkZjTzProjectEmployee" parameterType="com.apih5.mybatis.pojo.ZjTzProjectEmployee">
+    <![CDATA[
+      update zj_tz_project_employee
+      set   audit_status=#{param2.auditStatus},
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+      where del_flag = '0' and project_employee_id in
+      ]]>
+    <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.projectEmployeeId}
+    </foreach>
+  </update>
+  <update id="recallZjTzProjectEmployee" parameterType="com.apih5.mybatis.pojo.ZjTzProjectEmployee">
+    <![CDATA[
+      update zj_tz_project_employee
+      set   audit_status=#{param2.auditStatus},
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+      where del_flag = '0' and project_employee_id in
+      ]]>
+    <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.projectEmployeeId}
+    </foreach>
+  </update>
+
+
+
+  <resultMap id="BaseResultMapMultilist" type="com.apih5.mybatis.pojo.ZjTzProjectEmployee" autoMapping="true" >
+    <id column="project_employee_id" property="projectEmployeeId" jdbcType="CHAR" />
+    <collection property="projectAndEmployeeList" ofType="com.apih5.mybatis.pojo.ZjTzEmployeeInfo" autoMapping="true">
+      <id property="employeeInfoId" column="employee_info_id" jdbcType="CHAR"/>
+    </collection>
+  </resultMap>
+
+  <!--修改查询多表-->
+  <select id="selectByZjTzProjectEmployeeListMultilist" resultMap="BaseResultMapMultilist" parameterType="com.apih5.mybatis.pojo.ZjTzProjectEmployee" >
+    select *
+    from zj_tz_project_employee
+    left JOIN zj_tz_project_and_employee
+    on zj_tz_project_employee.project_employee_id = zj_tz_project_and_employee.project_employee_id
+    left JOIN zj_tz_employee_info
+    on zj_tz_project_and_employee.employee_info_id = zj_tz_employee_info.employee_info_id
+    where zj_tz_project_employee.del_flag = '0'
+    <if test="projectId != null and projectId != ''" >
+      and zj_tz_project_employee.project_id = #{projectId,jdbcType=CHAR}
+    </if>
+    <if test="yearAndMonth != null and yearAndMonth != ''" >
+      and zj_tz_project_employee.year_and_month = #{yearAndMonth,jdbcType=TIMESTAMP}
+    </if>
+    <if test="employeeNumber != null and employeeNumber != ''" >
+      and zj_tz_project_employee.employee_number = #{employeeNumber,jdbcType=INTEGER}
+    </if>
+    <if test="registerUser != null and registerUser != ''" >
+      and zj_tz_project_employee.register_user = #{registerUser,jdbcType=CHAR}
+    </if>
+    <if test="registerTime != null" >
+      and zj_tz_project_employee.register_time = #{registerTime,jdbcType=DATE}
+    </if>
+    <if test="registerUnits != null and registerUnits != ''" >
+      and zj_tz_project_employee.register_units = #{registerUnits,jdbcType=CHAR}
+    </if>
+    <if test="auditStatus != null and auditStatus != ''" >
+      and zj_tz_project_employee.audit_status = #{auditStatus,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+      and zj_tz_project_employee.remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+      and zj_tz_project_employee.create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+      and zj_tz_project_employee.modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY zj_tz_project_employee.modify_time DESC
+  </select>
+
+  <update id="updataPersonNumber" parameterType="com.apih5.mybatis.pojo.ZjTzProjectEmployee">
+      update zj_tz_project_employee
+      set employee_number = #{employeeNumber}
+      where project_employee_id = #{projectEmployeeId}
+  </update>
+
+
+
+</mapper>

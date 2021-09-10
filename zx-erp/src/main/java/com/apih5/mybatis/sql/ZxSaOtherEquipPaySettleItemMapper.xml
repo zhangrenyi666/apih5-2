@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSaOtherEquipPaySettleItemMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSaOtherEquipPaySettleItem" >
+    <id column="zxSaOtherEquipPaySettleItemId" property="zxSaOtherEquipPaySettleItemId" jdbcType="CHAR" />
+    <result column="thisAmtNoTax" property="thisAmtNoTax" jdbcType="DECIMAL" />
+    <result column="thisAmtTax" property="thisAmtTax" jdbcType="DECIMAL" />
+    <result column="taxRate" property="taxRate" jdbcType="VARCHAR" />
+    <result column="contrType" property="contrType" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="VARCHAR" />
+    <result column="comOrders" property="comOrders" jdbcType="VARCHAR" />
+    <result column="zxSaOtherEquipPaySettleId" property="zxSaOtherEquipPaySettleId" jdbcType="VARCHAR" />
+    <result column="billNo" property="billNo" jdbcType="VARCHAR" />
+    <result column="zxCtOtherManageId" property="zxCtOtherManageId" jdbcType="VARCHAR" />
+    <result column="orderNum" property="orderNum" jdbcType="VARCHAR" />
+    <result column="payId" property="payId" jdbcType="VARCHAR" />
+    <result column="payNo" property="payNo" jdbcType="VARCHAR" />
+    <result column="payType" property="payType" jdbcType="VARCHAR" />
+    <result column="payName" property="payName" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="qty" property="qty" jdbcType="DECIMAL" />
+    <result column="upQty" property="upQty" jdbcType="DECIMAL" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="thisAmt" property="thisAmt" jdbcType="DECIMAL" />
+    <result column="upAmt" property="upAmt" jdbcType="DECIMAL" />
+    <result column="comId" property="comId" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="isFixed" property="isFixed" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zxSaOtherEquipPaySettleItemId, thisAmtNoTax, thisAmtTax, taxRate, contrType, 
+    period, comOrders, zxSaOtherEquipPaySettleId, billNo, zxCtOtherManageId, 
+    orderNum, payId, payNo, payType, payName, 
+    unit, qty, upQty, price, thisAmt, 
+    upAmt, comId, comName, isFixed, remark, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sa_other_equip_pay_settle_item
+    where del_flag = '0' and zxSaOtherEquipPaySettleItemId = #{zxSaOtherEquipPaySettleItemId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sa_other_equip_pay_settle_item
+    where zxSaOtherEquipPaySettleItemId = #{zxSaOtherEquipPaySettleItemId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipPaySettleItem" >
+    insert into zx_sa_other_equip_pay_settle_item (
+    zxSaOtherEquipPaySettleItemId, thisAmtNoTax, thisAmtTax, taxRate, contrType, 
+    period, comOrders, zxSaOtherEquipPaySettleId, billNo, zxCtOtherManageId, 
+    orderNum, payId, payNo, payType, payName, 
+    unit, qty, upQty, price, thisAmt, 
+    upAmt, comId, comName, isFixed, remark, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxSaOtherEquipPaySettleItemId,jdbcType=CHAR}, #{thisAmtNoTax,jdbcType=DECIMAL}, #{thisAmtTax,jdbcType=DECIMAL}, #{taxRate,jdbcType=VARCHAR}, #{contrType,jdbcType=VARCHAR}, 
+    #{period,jdbcType=VARCHAR}, #{comOrders,jdbcType=VARCHAR}, #{zxSaOtherEquipPaySettleId,jdbcType=VARCHAR}, #{billNo,jdbcType=VARCHAR}, #{zxCtOtherManageId,jdbcType=VARCHAR}, 
+    #{orderNum,jdbcType=VARCHAR}, #{payId,jdbcType=VARCHAR}, #{payNo,jdbcType=VARCHAR}, #{payType,jdbcType=VARCHAR}, #{payName,jdbcType=VARCHAR}, 
+    #{unit,jdbcType=VARCHAR}, #{qty,jdbcType=DECIMAL}, #{upQty,jdbcType=DECIMAL}, #{price,jdbcType=DECIMAL}, #{thisAmt,jdbcType=DECIMAL}, 
+    #{upAmt,jdbcType=DECIMAL}, #{comId,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, #{isFixed,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+    #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+    #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipPaySettleItem" >
+    insert into zx_sa_other_equip_pay_settle_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxSaOtherEquipPaySettleItemId != null" >
+        zxSaOtherEquipPaySettleItemId,
+      </if>
+      <if test="thisAmtNoTax != null" >
+        thisAmtNoTax,
+      </if>
+      <if test="thisAmtTax != null" >
+        thisAmtTax,
+      </if>
+      <if test="taxRate != null" >
+        taxRate,
+      </if>
+      <if test="contrType != null" >
+        contrType,
+      </if>
+      <if test="period != null" >
+        period,
+      </if>
+      <if test="comOrders != null" >
+        comOrders,
+      </if>
+      <if test="zxSaOtherEquipPaySettleId != null" >
+        zxSaOtherEquipPaySettleId,
+      </if>
+      <if test="billNo != null" >
+        billNo,
+      </if>
+      <if test="zxCtOtherManageId != null" >
+        zxCtOtherManageId,
+      </if>
+      <if test="orderNum != null" >
+        orderNum,
+      </if>
+      <if test="payId != null" >
+        payId,
+      </if>
+      <if test="payNo != null" >
+        payNo,
+      </if>
+      <if test="payType != null" >
+        payType,
+      </if>
+      <if test="payName != null" >
+        payName,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="qty != null" >
+        qty,
+      </if>
+      <if test="upQty != null" >
+        upQty,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="thisAmt != null" >
+        thisAmt,
+      </if>
+      <if test="upAmt != null" >
+        upAmt,
+      </if>
+      <if test="comId != null" >
+        comId,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="isFixed != null" >
+        isFixed,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxSaOtherEquipPaySettleItemId != null" >
+        #{zxSaOtherEquipPaySettleItemId,jdbcType=CHAR},
+      </if>
+      <if test="thisAmtNoTax != null" >
+        #{thisAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmtTax != null" >
+        #{thisAmtTax,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRate != null" >
+        #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="contrType != null" >
+        #{contrType,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="zxSaOtherEquipPaySettleId != null" >
+        #{zxSaOtherEquipPaySettleId,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null" >
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="zxCtOtherManageId != null" >
+        #{zxCtOtherManageId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNum != null" >
+        #{orderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="payId != null" >
+        #{payId,jdbcType=VARCHAR},
+      </if>
+      <if test="payNo != null" >
+        #{payNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null" >
+        #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="payName != null" >
+        #{payName,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="qty != null" >
+        #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="upQty != null" >
+        #{upQty,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmt != null" >
+        #{thisAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upAmt != null" >
+        #{upAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="comId != null" >
+        #{comId,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="isFixed != null" >
+        #{isFixed,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipPaySettleItem" >
+    update zx_sa_other_equip_pay_settle_item
+    <set >
+      <if test="thisAmtNoTax != null" >
+        thisAmtNoTax = #{thisAmtNoTax,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmtTax != null" >
+        thisAmtTax = #{thisAmtTax,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRate != null" >
+        taxRate = #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="contrType != null" >
+        contrType = #{contrType,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        period = #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        comOrders = #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="zxSaOtherEquipPaySettleId != null" >
+        zxSaOtherEquipPaySettleId = #{zxSaOtherEquipPaySettleId,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null" >
+        billNo = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="zxCtOtherManageId != null" >
+        zxCtOtherManageId = #{zxCtOtherManageId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNum != null" >
+        orderNum = #{orderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="payId != null" >
+        payId = #{payId,jdbcType=VARCHAR},
+      </if>
+      <if test="payNo != null" >
+        payNo = #{payNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null" >
+        payType = #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="payName != null" >
+        payName = #{payName,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="qty != null" >
+        qty = #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="upQty != null" >
+        upQty = #{upQty,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="thisAmt != null" >
+        thisAmt = #{thisAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="upAmt != null" >
+        upAmt = #{upAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="comId != null" >
+        comId = #{comId,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="isFixed != null" >
+        isFixed = #{isFixed,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zxSaOtherEquipPaySettleItemId = #{zxSaOtherEquipPaySettleItemId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipPaySettleItem" >
+    update zx_sa_other_equip_pay_settle_item set 
+      thisAmtNoTax = #{thisAmtNoTax,jdbcType=DECIMAL},
+      thisAmtTax = #{thisAmtTax,jdbcType=DECIMAL},
+      taxRate = #{taxRate,jdbcType=VARCHAR},
+      contrType = #{contrType,jdbcType=VARCHAR},
+      period = #{period,jdbcType=VARCHAR},
+      comOrders = #{comOrders,jdbcType=VARCHAR},
+      zxSaOtherEquipPaySettleId = #{zxSaOtherEquipPaySettleId,jdbcType=VARCHAR},
+      billNo = #{billNo,jdbcType=VARCHAR},
+      zxCtOtherManageId = #{zxCtOtherManageId,jdbcType=VARCHAR},
+      orderNum = #{orderNum,jdbcType=VARCHAR},
+      payId = #{payId,jdbcType=VARCHAR},
+      payNo = #{payNo,jdbcType=VARCHAR},
+      payType = #{payType,jdbcType=VARCHAR},
+      payName = #{payName,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      qty = #{qty,jdbcType=DECIMAL},
+      upQty = #{upQty,jdbcType=DECIMAL},
+      price = #{price,jdbcType=DECIMAL},
+      thisAmt = #{thisAmt,jdbcType=DECIMAL},
+      upAmt = #{upAmt,jdbcType=DECIMAL},
+      comId = #{comId,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      isFixed = #{isFixed,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zxSaOtherEquipPaySettleItemId = #{zxSaOtherEquipPaySettleItemId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSaOtherEquipPaySettleItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipPaySettleItem" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sa_other_equip_pay_settle_item
+    where del_flag = '0'
+    <if test="zxSaOtherEquipPaySettleItemId != null and zxSaOtherEquipPaySettleItemId != ''" >
+     and zxSaOtherEquipPaySettleItemId = #{zxSaOtherEquipPaySettleItemId,jdbcType=CHAR}
+    </if>
+    <if test="thisAmtNoTax != null and thisAmtNoTax != ''" >
+     and thisAmtNoTax = #{thisAmtNoTax,jdbcType=DECIMAL}
+    </if>
+    <if test="thisAmtTax != null and thisAmtTax != ''" >
+     and thisAmtTax = #{thisAmtTax,jdbcType=DECIMAL}
+    </if>
+    <if test="taxRate != null and taxRate != ''" >
+     and taxRate = #{taxRate,jdbcType=VARCHAR}
+    </if>
+    <if test="contrType != null and contrType != ''" >
+     and contrType = #{contrType,jdbcType=VARCHAR}
+    </if>
+    <if test="period != null and period != ''" >
+     and period = #{period,jdbcType=VARCHAR}
+    </if>
+    <if test="comOrders != null and comOrders != ''" >
+     and comOrders = #{comOrders,jdbcType=VARCHAR}
+    </if>
+    <if test="zxSaOtherEquipPaySettleId != null and zxSaOtherEquipPaySettleId != ''" >
+     and zxSaOtherEquipPaySettleId = #{zxSaOtherEquipPaySettleId,jdbcType=VARCHAR}
+    </if>
+    <if test="billNo != null and billNo != ''" >
+     and billNo = #{billNo,jdbcType=VARCHAR}
+    </if>
+    <if test="zxCtOtherManageId != null and zxCtOtherManageId != ''" >
+     and zxCtOtherManageId = #{zxCtOtherManageId,jdbcType=VARCHAR}
+    </if>
+    <if test="orderNum != null and orderNum != ''" >
+     and orderNum = #{orderNum,jdbcType=VARCHAR}
+    </if>
+    <if test="payId != null and payId != ''" >
+     and payId = #{payId,jdbcType=VARCHAR}
+    </if>
+    <if test="payNo != null and payNo != ''" >
+     and payNo = #{payNo,jdbcType=VARCHAR}
+    </if>
+    <if test="payType != null and payType != ''" >
+     and payType = #{payType,jdbcType=VARCHAR}
+    </if>
+    <if test="payName != null and payName != ''" >
+     and payName = #{payName,jdbcType=VARCHAR}
+    </if>
+    <if test="unit != null and unit != ''" >
+     and unit = #{unit,jdbcType=VARCHAR}
+    </if>
+    <if test="qty != null and qty != ''" >
+     and qty = #{qty,jdbcType=DECIMAL}
+    </if>
+    <if test="upQty != null and upQty != ''" >
+     and upQty = #{upQty,jdbcType=DECIMAL}
+    </if>
+    <if test="price != null and price != ''" >
+     and price = #{price,jdbcType=DECIMAL}
+    </if>
+    <if test="thisAmt != null and thisAmt != ''" >
+     and thisAmt = #{thisAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="upAmt != null and upAmt != ''" >
+     and upAmt = #{upAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="comId != null and comId != ''" >
+     and comId = #{comId,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="isFixed != null and isFixed != ''" >
+     and isFixed = #{isFixed,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY create_time
+  </select>
+  <delete id="batchDeleteUpdateZxSaOtherEquipPaySettleItem" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipPaySettleItem" >
+    <![CDATA[ 
+        update zx_sa_other_equip_pay_settle_item
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zxSaOtherEquipPaySettleItemId in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxSaOtherEquipPaySettleItemId} 
+     </foreach>
+  </delete>
+  <select id="selectUpQtyAndAmt" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipPaySettleItem" >
+        SELECT
+			(
+				SELECT thisAmt
+				FROM zx_sa_other_equip_pay_settle_item
+				WHERE del_flag = '0'
+				AND zxCtOtherManageId = #{zxCtOtherManageId,jdbcType=VARCHAR}
+				AND period &lt;= #{period,jdbcType=VARCHAR}
+				AND payId = #{payId,jdbcType=VARCHAR}
+				ORDER BY create_time DESC
+				LIMIT 1
+			) AS upAmt,
+			(
+				SELECT qty
+				FROM zx_sa_other_equip_pay_settle_item
+				WHERE del_flag = '0'
+				AND zxCtOtherManageId = #{zxCtOtherManageId,jdbcType=VARCHAR}
+				AND period &lt;= #{period,jdbcType=VARCHAR}
+				AND payId = #{payId,jdbcType=VARCHAR}
+				ORDER BY create_time DESC
+				LIMIT 1
+			) AS upQty
+  </select>
+  <select id="repeatOtherEquipPaySettleItemCheck" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSaOtherEquipPaySettleItem" >
+    select
+    <include refid="Base_Column_List" />
+    from zx_sa_other_equip_pay_settle_item
+    where del_flag = '0'
+    <if test="zxSaOtherEquipPaySettleItemId != null and zxSaOtherEquipPaySettleItemId != ''" >
+      and zxSaOtherEquipPaySettleItemId != #{zxSaOtherEquipPaySettleItemId,jdbcType=CHAR}
+    </if>
+    <if test="zxSaOtherEquipPaySettleId != null and zxSaOtherEquipPaySettleId != ''" >
+      and zxSaOtherEquipPaySettleId = #{zxSaOtherEquipPaySettleId,jdbcType=VARCHAR}
+    </if>
+    <if test="payId != null and payId != ''" >
+      and payId = #{payId,jdbcType=VARCHAR}
+    </if>
+    ORDER BY create_time
+  </select>
+</mapper>

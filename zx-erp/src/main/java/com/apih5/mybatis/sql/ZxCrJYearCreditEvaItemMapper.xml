@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCrJYearCreditEvaItemMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCrJYearCreditEvaItem" >
+    <id column="zx_cr_JYearCreditEvaItem_id" property="zxCrJYearCreditEvaItemId" jdbcType="CHAR" />
+    <result column="masterID" property="masterID" jdbcType="VARCHAR" />
+    <result column="customerId" property="customerId" jdbcType="VARCHAR" />
+    <result column="orgCertificate" property="orgCertificate" jdbcType="VARCHAR" />
+    <result column="customerName" property="customerName" jdbcType="VARCHAR" />
+    <result column="chargeMan" property="chargeMan" jdbcType="VARCHAR" />
+    <result column="projectID" property="projectID" jdbcType="VARCHAR" />
+    <result column="projectName" property="projectName" jdbcType="VARCHAR" />
+    <result column="inDate" property="inDate" jdbcType="TIMESTAMP" />
+    <result column="outDate" property="outDate" jdbcType="TIMESTAMP" />
+    <result column="contractAmt" property="contractAmt" jdbcType="DECIMAL" />
+    <result column="projectNum" property="projectNum" jdbcType="INTEGER" />
+    <result column="catName" property="catName" jdbcType="VARCHAR" />
+    <result column="catID" property="catID" jdbcType="VARCHAR" />
+    <result column="catCode" property="catCode" jdbcType="VARCHAR" />
+    <result column="checkNum" property="checkNum" jdbcType="VARCHAR" />
+    <result column="firstSoce" property="firstSoce" jdbcType="VARCHAR" />
+    <result column="firstLevel" property="firstLevel" jdbcType="VARCHAR" />
+    <result column="secondScore" property="secondScore" jdbcType="VARCHAR" />
+    <result column="secondLevel" property="secondLevel" jdbcType="VARCHAR" />
+    <result column="dLevel" property="dLevel" jdbcType="VARCHAR" />
+    <result column="lastScore" property="lastScore" jdbcType="VARCHAR" />
+    <result column="lastLevel" property="lastLevel" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="comOrders" property="comOrders" jdbcType="VARCHAR" />
+    <result column="quartEvalID" property="quartEvalID" jdbcType="VARCHAR" />
+    <result column="orderNo" property="orderNo" jdbcType="VARCHAR" />
+    <result column="compNum" property="compNum" jdbcType="VARCHAR" />
+    <result column="combProp" property="combProp" jdbcType="VARCHAR" />
+    <result column="scoreOfAdditionSubtraction" property="scoreOfAdditionSubtraction" jdbcType="VARCHAR" />
+    <result column="revisedScoresOfRelevantDepartments" property="revisedScoresOfRelevantDepartments" jdbcType="VARCHAR" />
+    <result column="informedDuringInspection" property="informedDuringInspection" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    zx_cr_JYearCreditEvaItem_id, masterID, customerId, orgCertificate, customerName, 
+    chargeMan, projectID, projectName, inDate, outDate, 
+    contractAmt, projectNum, catName, catID, catCode, resID,
+    checkNum, firstSoce, firstLevel, secondScore, secondLevel, 
+    DLevel, lastScore, lastLevel, editTime, comID, 
+    comName, comOrders, periodYear, quartEvalID, orderNo, compNum,
+    combProp, scoreOfAdditionSubtraction, revisedScoresOfRelevantDepartments, informedDuringInspection, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cr_JYearCreditEvaItem
+    where del_flag = '0' and zx_cr_JYearCreditEvaItem_id = #{zxCrJYearCreditEvaItemId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_cr_JYearCreditEvaItem
+    where zx_cr_JYearCreditEvaItem_id = #{zxCrJYearCreditEvaItemId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCrJYearCreditEvaItem" >
+    insert into zx_cr_JYearCreditEvaItem (
+    zx_cr_JYearCreditEvaItem_id, masterID, customerId, orgCertificate, customerName, 
+    chargeMan, projectID, projectName, inDate, outDate, 
+    contractAmt, projectNum, catName, catID, catCode, 
+    checkNum, firstSoce, firstLevel, secondScore, secondLevel, 
+    DLevel, lastScore, lastLevel, editTime, comID, 
+    comName, comOrders, quartEvalID, orderNo, compNum, 
+    combProp, scoreOfAdditionSubtraction, revisedScoresOfRelevantDepartments, informedDuringInspection, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxCrJYearCreditEvaItemId,jdbcType=CHAR}, #{masterID,jdbcType=VARCHAR}, #{customerId,jdbcType=VARCHAR}, #{orgCertificate,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, 
+    #{chargeMan,jdbcType=VARCHAR}, #{projectID,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, #{inDate,jdbcType=TIMESTAMP}, #{outDate,jdbcType=TIMESTAMP}, 
+    #{contractAmt,jdbcType=DECIMAL}, #{projectNum,jdbcType=INTEGER}, #{catName,jdbcType=VARCHAR}, #{catID,jdbcType=VARCHAR}, #{catCode,jdbcType=VARCHAR}, 
+    #{checkNum,jdbcType=VARCHAR}, #{firstSoce,jdbcType=VARCHAR}, #{firstLevel,jdbcType=VARCHAR}, #{secondScore,jdbcType=VARCHAR}, #{secondLevel,jdbcType=VARCHAR}, 
+    #{dLevel,jdbcType=VARCHAR}, #{lastScore,jdbcType=VARCHAR}, #{lastLevel,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, #{comID,jdbcType=VARCHAR}, 
+    #{comName,jdbcType=VARCHAR}, #{comOrders,jdbcType=VARCHAR}, #{quartEvalID,jdbcType=VARCHAR}, #{orderNo,jdbcType=VARCHAR}, #{compNum,jdbcType=VARCHAR}, 
+    #{combProp,jdbcType=VARCHAR}, #{scoreOfAdditionSubtraction,jdbcType=VARCHAR}, #{revisedScoresOfRelevantDepartments,jdbcType=VARCHAR}, #{informedDuringInspection,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+    #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+    #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCrJYearCreditEvaItem" >
+    insert into zx_cr_JYearCreditEvaItem
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zxCrJYearCreditEvaItemId != null" >
+        zx_cr_JYearCreditEvaItem_id,
+      </if>
+      <if test="masterID != null" >
+        masterID,
+      </if>
+      <if test="customerId != null" >
+        customerId,
+      </if>
+      <if test="orgCertificate != null" >
+        orgCertificate,
+      </if>
+      <if test="customerName != null" >
+        customerName,
+      </if>
+      <if test="chargeMan != null" >
+        chargeMan,
+      </if>
+      <if test="projectID != null" >
+        projectID,
+      </if>
+      <if test="projectName != null" >
+        projectName,
+      </if>
+      <if test="inDate != null" >
+        inDate,
+      </if>
+      <if test="outDate != null" >
+        outDate,
+      </if>
+      <if test="contractAmt != null" >
+        contractAmt,
+      </if>
+      <if test="projectNum != null" >
+        projectNum,
+      </if>
+      <if test="catName != null" >
+        catName,
+      </if>
+      <if test="catID != null" >
+        catID,
+      </if>
+      <if test="catCode != null" >
+        catCode,
+      </if>
+      <if test="checkNum != null" >
+        checkNum,
+      </if>
+      <if test="firstSoce != null" >
+        firstSoce,
+      </if>
+      <if test="firstLevel != null" >
+        firstLevel,
+      </if>
+      <if test="secondScore != null" >
+        secondScore,
+      </if>
+      <if test="secondLevel != null" >
+        secondLevel,
+      </if>
+      <if test="dLevel != null" >
+        dLevel,
+      </if>
+      <if test="lastScore != null" >
+        lastScore,
+      </if>
+      <if test="lastLevel != null" >
+        lastLevel,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="comOrders != null" >
+        comOrders,
+      </if>
+      <if test="quartEvalID != null" >
+        quartEvalID,
+      </if>
+      <if test="orderNo != null" >
+        orderNo,
+      </if>
+      <if test="compNum != null" >
+        compNum,
+      </if>
+      <if test="combProp != null" >
+        combProp,
+      </if>
+      <if test="scoreOfAdditionSubtraction != null" >
+        scoreOfAdditionSubtraction,
+      </if>
+      <if test="revisedScoresOfRelevantDepartments != null" >
+        revisedScoresOfRelevantDepartments,
+      </if>
+      <if test="informedDuringInspection != null" >
+        informedDuringInspection,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zxCrJYearCreditEvaItemId != null" >
+        #{zxCrJYearCreditEvaItemId,jdbcType=CHAR},
+      </if>
+      <if test="masterID != null" >
+        #{masterID,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null" >
+        #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCertificate != null" >
+        #{orgCertificate,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeMan != null" >
+        #{chargeMan,jdbcType=VARCHAR},
+      </if>
+      <if test="projectID != null" >
+        #{projectID,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="inDate != null" >
+        #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outDate != null" >
+        #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contractAmt != null" >
+        #{contractAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="projectNum != null" >
+        #{projectNum,jdbcType=INTEGER},
+      </if>
+      <if test="catName != null" >
+        #{catName,jdbcType=VARCHAR},
+      </if>
+      <if test="catID != null" >
+        #{catID,jdbcType=VARCHAR},
+      </if>
+      <if test="catCode != null" >
+        #{catCode,jdbcType=VARCHAR},
+      </if>
+      <if test="checkNum != null" >
+        #{checkNum,jdbcType=VARCHAR},
+      </if>
+      <if test="firstSoce != null" >
+        #{firstSoce,jdbcType=VARCHAR},
+      </if>
+      <if test="firstLevel != null" >
+        #{firstLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="secondScore != null" >
+        #{secondScore,jdbcType=VARCHAR},
+      </if>
+      <if test="secondLevel != null" >
+        #{secondLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="dLevel != null" >
+        #{dLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="lastScore != null" >
+        #{lastScore,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLevel != null" >
+        #{lastLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="quartEvalID != null" >
+        #{quartEvalID,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null" >
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="compNum != null" >
+        #{compNum,jdbcType=VARCHAR},
+      </if>
+      <if test="combProp != null" >
+        #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreOfAdditionSubtraction != null" >
+        #{scoreOfAdditionSubtraction,jdbcType=VARCHAR},
+      </if>
+      <if test="revisedScoresOfRelevantDepartments != null" >
+        #{revisedScoresOfRelevantDepartments,jdbcType=VARCHAR},
+      </if>
+      <if test="informedDuringInspection != null" >
+        #{informedDuringInspection,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCrJYearCreditEvaItem" >
+    update zx_cr_JYearCreditEvaItem
+    <set >
+      <if test="masterID != null" >
+        masterID = #{masterID,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null" >
+        customerId = #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCertificate != null" >
+        orgCertificate = #{orgCertificate,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        customerName = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeMan != null" >
+        chargeMan = #{chargeMan,jdbcType=VARCHAR},
+      </if>
+      <if test="projectID != null" >
+        projectID = #{projectID,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        projectName = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="inDate != null" >
+        inDate = #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outDate != null" >
+        outDate = #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contractAmt != null" >
+        contractAmt = #{contractAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="projectNum != null" >
+        projectNum = #{projectNum,jdbcType=INTEGER},
+      </if>
+      <if test="catName != null" >
+        catName = #{catName,jdbcType=VARCHAR},
+      </if>
+      <if test="catID != null" >
+        catID = #{catID,jdbcType=VARCHAR},
+      </if>
+      <if test="catCode != null" >
+        catCode = #{catCode,jdbcType=VARCHAR},
+      </if>
+      <if test="checkNum != null" >
+        checkNum = #{checkNum,jdbcType=VARCHAR},
+      </if>
+      <if test="firstSoce != null" >
+        firstSoce = #{firstSoce,jdbcType=VARCHAR},
+      </if>
+      <if test="firstLevel != null" >
+        firstLevel = #{firstLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="secondScore != null" >
+        secondScore = #{secondScore,jdbcType=VARCHAR},
+      </if>
+      <if test="secondLevel != null" >
+        secondLevel = #{secondLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="dLevel != null" >
+        dLevel = #{dLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="lastScore != null" >
+        lastScore = #{lastScore,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLevel != null" >
+        lastLevel = #{lastLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="comOrders != null" >
+        comOrders = #{comOrders,jdbcType=VARCHAR},
+      </if>
+      <if test="quartEvalID != null" >
+        quartEvalID = #{quartEvalID,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null" >
+        orderNo = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="compNum != null" >
+        compNum = #{compNum,jdbcType=VARCHAR},
+      </if>
+      <if test="combProp != null" >
+        combProp = #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreOfAdditionSubtraction != null" >
+        scoreOfAdditionSubtraction = #{scoreOfAdditionSubtraction,jdbcType=VARCHAR},
+      </if>
+      <if test="revisedScoresOfRelevantDepartments != null" >
+        revisedScoresOfRelevantDepartments = #{revisedScoresOfRelevantDepartments,jdbcType=VARCHAR},
+      </if>
+      <if test="informedDuringInspection != null" >
+        informedDuringInspection = #{informedDuringInspection,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where zx_cr_JYearCreditEvaItem_id = #{zxCrJYearCreditEvaItemId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCrJYearCreditEvaItem" >
+    update zx_cr_JYearCreditEvaItem set 
+      masterID = #{masterID,jdbcType=VARCHAR},
+      customerId = #{customerId,jdbcType=VARCHAR},
+      orgCertificate = #{orgCertificate,jdbcType=VARCHAR},
+      customerName = #{customerName,jdbcType=VARCHAR},
+      chargeMan = #{chargeMan,jdbcType=VARCHAR},
+      projectID = #{projectID,jdbcType=VARCHAR},
+      projectName = #{projectName,jdbcType=VARCHAR},
+      inDate = #{inDate,jdbcType=TIMESTAMP},
+      outDate = #{outDate,jdbcType=TIMESTAMP},
+      contractAmt = #{contractAmt,jdbcType=DECIMAL},
+      projectNum = #{projectNum,jdbcType=INTEGER},
+      catName = #{catName,jdbcType=VARCHAR},
+      catID = #{catID,jdbcType=VARCHAR},
+      catCode = #{catCode,jdbcType=VARCHAR},
+      checkNum = #{checkNum,jdbcType=VARCHAR},
+      firstSoce = #{firstSoce,jdbcType=VARCHAR},
+      firstLevel = #{firstLevel,jdbcType=VARCHAR},
+      secondScore = #{secondScore,jdbcType=VARCHAR},
+      secondLevel = #{secondLevel,jdbcType=VARCHAR},
+      DLevel = #{dLevel,jdbcType=VARCHAR},
+      lastScore = #{lastScore,jdbcType=VARCHAR},
+      lastLevel = #{lastLevel,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      comOrders = #{comOrders,jdbcType=VARCHAR},
+      quartEvalID = #{quartEvalID,jdbcType=VARCHAR},
+      orderNo = #{orderNo,jdbcType=VARCHAR},
+      compNum = #{compNum,jdbcType=VARCHAR},
+      combProp = #{combProp,jdbcType=VARCHAR},
+      scoreOfAdditionSubtraction = #{scoreOfAdditionSubtraction,jdbcType=VARCHAR},
+      revisedScoresOfRelevantDepartments = #{revisedScoresOfRelevantDepartments,jdbcType=VARCHAR},
+      informedDuringInspection = #{informedDuringInspection,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where zx_cr_JYearCreditEvaItem_id = #{zxCrJYearCreditEvaItemId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxCrJYearCreditEvaItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCrJYearCreditEvaItem" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cr_JYearCreditEvaItem
+    where del_flag = '0'
+    <if test="zxCrJYearCreditEvaItemId != null and zxCrJYearCreditEvaItemId != ''" >
+     and zx_cr_JYearCreditEvaItem_id = #{zxCrJYearCreditEvaItemId,jdbcType=CHAR}
+    </if>
+    <if test="masterID != null and masterID != ''" >
+     and masterID = #{masterID,jdbcType=VARCHAR}
+    </if>
+    <if test="customerId != null and customerId != ''" >
+     and customerId = #{customerId,jdbcType=VARCHAR}
+    </if>
+    <if test="orgCertificate != null and orgCertificate != ''" >
+     and orgCertificate = #{orgCertificate,jdbcType=VARCHAR}
+    </if>
+    <if test="customerName != null and customerName != ''" >
+     and customerName = #{customerName,jdbcType=VARCHAR}
+    </if>
+    <if test="chargeMan != null and chargeMan != ''" >
+     and chargeMan = #{chargeMan,jdbcType=VARCHAR}
+    </if>
+    <if test="projectID != null and projectID != ''" >
+     and projectID = #{projectID,jdbcType=VARCHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and projectName = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="inDate != null and inDate != ''" >
+     and inDate = #{inDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="outDate != null and outDate != ''" >
+     and outDate = #{outDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="contractAmt != null and contractAmt != ''" >
+     and contractAmt = #{contractAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="projectNum != null and projectNum != ''" >
+     and projectNum = #{projectNum,jdbcType=INTEGER}
+    </if>
+    <if test="catName != null and catName != ''" >
+     and catName = #{catName,jdbcType=VARCHAR}
+    </if>
+    <if test="catID != null and catID != ''" >
+     and catID = #{catID,jdbcType=VARCHAR}
+    </if>
+    <if test="catCode != null and catCode != ''" >
+     and catCode = #{catCode,jdbcType=VARCHAR}
+    </if>
+    <if test="resID != null and resID != ''" >
+      and resID = #{resID,jdbcType=VARCHAR}
+    </if>
+    <if test="checkNum != null and checkNum != ''" >
+     and checkNum = #{checkNum,jdbcType=VARCHAR}
+    </if>
+    <if test="firstSoce != null and firstSoce != ''" >
+     and firstSoce = #{firstSoce,jdbcType=VARCHAR}
+    </if>
+    <if test="firstLevel != null and firstLevel != ''" >
+     and firstLevel = #{firstLevel,jdbcType=VARCHAR}
+    </if>
+    <if test="secondScore != null and secondScore != ''" >
+     and secondScore = #{secondScore,jdbcType=VARCHAR}
+    </if>
+    <if test="secondLevel != null and secondLevel != ''" >
+     and secondLevel = #{secondLevel,jdbcType=VARCHAR}
+    </if>
+    <if test="dLevel != null and dLevel != ''" >
+     and DLevel = #{dLevel,jdbcType=VARCHAR}
+    </if>
+    <if test="lastScore != null and lastScore != ''" >
+     and lastScore = #{lastScore,jdbcType=VARCHAR}
+    </if>
+    <if test="lastLevel != null and lastLevel != ''" >
+     and lastLevel = #{lastLevel,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="comOrders != null and comOrders != ''" >
+     and comOrders = #{comOrders,jdbcType=VARCHAR}
+    </if>
+    <if test="periodYear != null and periodYear != ''" >
+      and periodYear = #{periodYear,jdbcType=VARCHAR}
+    </if>
+    <if test="quartEvalID != null and quartEvalID != ''" >
+     and quartEvalID = #{quartEvalID,jdbcType=VARCHAR}
+    </if>
+    <if test="orderNo != null and orderNo != ''" >
+     and orderNo = #{orderNo,jdbcType=VARCHAR}
+    </if>
+    <if test="compNum != null and compNum != ''" >
+     and compNum = #{compNum,jdbcType=VARCHAR}
+    </if>
+    <if test="combProp != null and combProp != ''" >
+     and combProp = #{combProp,jdbcType=VARCHAR}
+    </if>
+    <if test="scoreOfAdditionSubtraction != null and scoreOfAdditionSubtraction != ''" >
+     and scoreOfAdditionSubtraction = #{scoreOfAdditionSubtraction,jdbcType=VARCHAR}
+    </if>
+    <if test="revisedScoresOfRelevantDepartments != null and revisedScoresOfRelevantDepartments != ''" >
+     and revisedScoresOfRelevantDepartments = #{revisedScoresOfRelevantDepartments,jdbcType=VARCHAR}
+    </if>
+    <if test="informedDuringInspection != null and informedDuringInspection != ''" >
+     and informedDuringInspection = #{informedDuringInspection,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxCrJYearCreditEvaItem" parameterType="com.apih5.mybatis.pojo.ZxCrJYearCreditEvaItem" >
+    <![CDATA[ 
+        update zx_cr_JYearCreditEvaItem
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and zx_cr_JYearCreditEvaItem_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.zxCrJYearCreditEvaItemId} 
+     </foreach>
+  </delete>
+  <select id="selectInit" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCrJYearCreditEvaItem" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_cr_JYearCreditEvaItem
+    where del_flag = '0'
+    <if test="masterID != null and masterID != ''" >
+     and masterID = #{masterID,jdbcType=VARCHAR}
+    </if>
+    <if test="projectName != null and projectName != ''" >
+     and projectName = #{projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="catID != null and catID != ''" >
+     and catID = #{catID,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <insert id="insertInit" parameterType="com.apih5.mybatis.pojo.ZxCrJYearCreditEvaItem" >
+    insert into zx_cr_JYearCreditEvaItem (
+    zx_cr_JYearCreditEvaItem_id, masterID, customerId, orgCertificate, customerName, 
+    chargeMan, projectID, projectName, inDate, outDate, 
+    contractAmt, projectNum, catName, catID, catCode, resID,
+    checkNum, firstSoce, firstLevel, secondScore, secondLevel, 
+    DLevel, lastScore, lastLevel, editTime, comID, 
+    comName, comOrders, periodYear, quartEvalID, orderNo, compNum,
+    combProp, scoreOfAdditionSubtraction, revisedScoresOfRelevantDepartments, informedDuringInspection, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{zxCrJYearCreditEvaItemId,jdbcType=CHAR}, #{masterID,jdbcType=VARCHAR}, #{customerId,jdbcType=VARCHAR}, #{orgCertificate,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, 
+    #{chargeMan,jdbcType=VARCHAR}, #{projectID,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, #{inDate,jdbcType=TIMESTAMP}, #{outDate,jdbcType=TIMESTAMP}, 
+    #{contractAmt,jdbcType=DECIMAL}, #{projectNum,jdbcType=INTEGER}, #{catName,jdbcType=VARCHAR}, #{catID,jdbcType=VARCHAR}, #{catCode,jdbcType=VARCHAR}, #{resID,jdbcType=VARCHAR},
+      #{checkNum,jdbcType=VARCHAR}, #{firstSoce,jdbcType=VARCHAR}, #{firstLevel,jdbcType=VARCHAR}, #{secondScore,jdbcType=VARCHAR}, #{secondLevel,jdbcType=VARCHAR},
+    #{dLevel,jdbcType=VARCHAR}, #{lastScore,jdbcType=VARCHAR}, #{lastLevel,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, #{comID,jdbcType=VARCHAR}, 
+    #{comName,jdbcType=VARCHAR}, #{comOrders,jdbcType=VARCHAR}, #{periodYear,jdbcType=VARCHAR}, #{quartEvalID,jdbcType=VARCHAR}, #{orderNo,jdbcType=VARCHAR}, #{compNum,jdbcType=VARCHAR},
+    #{combProp,jdbcType=VARCHAR}, #{scoreOfAdditionSubtraction,jdbcType=VARCHAR}, #{revisedScoresOfRelevantDepartments,jdbcType=VARCHAR}, #{informedDuringInspection,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+    #{sort,jdbcType=INTEGER}, 0, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+    #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+</mapper>

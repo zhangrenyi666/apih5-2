@@ -1,0 +1,201 @@
+.mobileForm.QnnForm{
+  height: 100vh;   
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
+.QnnForm { 
+  height: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  padding: 8px;
+  // padding-right: 0;
+  padding-bottom: 44px;
+  box-sizing: border-box;
+  background: white;
+  :global {
+    //移动版样式
+    .mobileItem.ant-form-item {
+      padding: 8px 0px;
+      margin-bottom: 0px; 
+      animation: itemAni 6s linear 1;
+    }
+    .ComponentCol {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    .mobileItem {
+      padding-left: 6px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+    //   border-bottom: 1px solid #f1f1f1;
+      border-bottom: 1px solid rgb(238, 235, 235);
+      .am-list-item {
+        // border: 1px solid #d9d9d9;
+        padding: 0;
+        box-sizing: border-box;
+        min-height: auto;
+        .am-list-line .am-list-content {
+          // font-size: 14px;
+        //   font-size: 16px;
+          font-size: 15px;
+        }
+        .am-list-extra {
+          text-align: left;
+          color: #666;
+          flex-basis: 100%; // font-size: 14px;
+        //   font-size: 16px;
+          font-size: 15px;
+          // padding-left: 9px;
+        }
+        .am-list-arrow {
+          width: 10px;
+          height: 10px;
+        }
+      }
+      .ant-form-item-required:before {
+        content: "";
+        margin-right: 0;
+        display: none;
+      }
+      .ant-form-item-required:after {
+        display: inline-block;
+        content: "*";
+        font-family: SimSun;
+        line-height: 1;
+        font-size: 14px;
+        color: #f5222d;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        // top:40%;
+      }
+      .ant-input,
+      .ant-select-selection,
+      .am-list-item,
+      .ant-input-number-input,
+      .ant-input-number {
+        border: none;  
+        border-radius: 0px;
+        // font-size: 16px;
+        font-size: 15px;
+        padding: 0;
+      }
+      .ant-input:focus,
+      .ant-input-number:focus {
+        box-shadow: none;
+      }
+      .ant-cascader-picker:focus .ant-cascader-input,
+      .has-error .ant-input-number:focus,
+      .ant-input-number-focused,
+      .ant-select-selection {
+        box-shadow: none;
+      }
+      .ant-input:hover,
+      .ant-input-number:hover {
+        border-color: transparent;
+        border-right-width: 1px !important;
+      }
+      .ant-select-selection__rendered {
+        margin: 0;
+      }
+      .ant-form-item-label {
+        margin: 4px 0px;
+        padding: 0;
+        line-height: 30px;
+        height: 32px;
+        label {
+          width: 100%;
+          max-width: 110px;
+          display: block;
+          //   color: #333;
+          color: #777777;
+          font-size: 15px;
+          text-align: justify;
+          text-align-last: justify;
+          padding-right: 28px;
+        }
+      }
+      .ant-select-disabled .ant-select-selection,
+      .ant-input-disabled,
+      .ant-input-number-disabled {
+        // color: #888;
+        color: rgb(182, 179, 179);
+        background: white;
+      } //附件组件
+      .ant-form-item-control-wrapper {
+        padding-right: 8px;
+      }
+      textarea.ant-input {
+        padding: 0;
+      }
+
+      .ant-input-prefix {
+        left: -20px;
+      }
+      .ant-input-group-addon {
+        border: 0;
+        background: transparent;
+        padding: 0 6px;
+      }
+    }
+
+    .mobileItem.placeholder {
+      .am-list-extra {
+        color: #c8c8c8;
+        padding-left: 0;
+      }
+    }
+    .mobileItem.disabled {
+      //   color: #bfbfbf;
+      color: rgb(182, 179, 179);
+      label {
+        // color: #888;
+        color: rgb(182, 179, 179);
+      }
+    }
+    .mobileItem.Component {
+      padding: 0px;
+    }
+    .mobileItem2 {
+      width: 100%;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 0 8px 8px 0px;
+    }
+  }
+  .btnCon {
+    position: fixed;
+    // position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    box-shadow: 0 0 4px 4px fade(#efefef, 20);
+    z-index: 2;
+    border-top: 1px solid #efefef;
+    // padding: 6px 8px;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-around;
+    :global(.ant-btn) {
+      margin: 6px 8px;
+      height: 39px;
+      flex: 1;
+      line-height: 39px; 
+    }
+  }
+}
+
+@keyframes itemAni{
+    0%{ 
+        opacity: 0;
+    }
+    100%{
+        height: auto; 
+        opacity: 1;
+    }
+}

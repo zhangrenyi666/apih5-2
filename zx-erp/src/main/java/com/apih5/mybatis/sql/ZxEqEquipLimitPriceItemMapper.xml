@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqEquipLimitPriceItemMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqEquipLimitPriceItem" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="mainID" property="mainID" jdbcType="VARCHAR" />
+    <result column="resCatalogID" property="resCatalogID" jdbcType="VARCHAR" />
+    <result column="equipID" property="equipID" jdbcType="VARCHAR" />
+    <result column="equipNo" property="equipNo" jdbcType="VARCHAR" />
+    <result column="equipName" property="equipName" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="factory" property="factory" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="workTime" property="workTime" jdbcType="VARCHAR" />
+    <result column="rentContent" property="rentContent" jdbcType="VARCHAR" />
+    <result column="ranyouQingkuang" property="ranyouQingkuang" jdbcType="VARCHAR" />
+    <result column="rentPrice" property="rentPrice" jdbcType="DECIMAL" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="apih5_flow_status" property="apih5FlowStatus" jdbcType="CHAR" />
+    <result column="isDriver" property="isDriver" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, mainID, resCatalogID, equipID, equipNo, 
+    equipName, province, factory, spec, workTime, 
+    rentContent, ranyouQingkuang, rentPrice, remark, apih5_flow_status, 
+    isDriver, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_EquipLimitPriceItem
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_EquipLimitPriceItem
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqEquipLimitPriceItem" >
+    insert into zx_eq_EquipLimitPriceItem (id, mainID, resCatalogID, 
+      equipID, equipNo, equipName, 
+      province, factory, spec, 
+      workTime, rentContent, ranyouQingkuang, 
+      rentPrice, remark, apih5_flow_status, 
+      isDriver, del_flag, create_time, 
+      create_user, create_user_name, modify_time, 
+      modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{mainID,jdbcType=VARCHAR}, #{resCatalogID,jdbcType=VARCHAR}, 
+      #{equipID,jdbcType=VARCHAR}, #{equipNo,jdbcType=VARCHAR}, #{equipName,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{factory,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, 
+      #{workTime,jdbcType=VARCHAR}, #{rentContent,jdbcType=VARCHAR}, #{ranyouQingkuang,jdbcType=VARCHAR}, 
+      #{rentPrice,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, #{apih5FlowStatus,jdbcType=CHAR}, 
+      #{isDriver,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqEquipLimitPriceItem" >
+    insert into zx_eq_EquipLimitPriceItem
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mainID != null" >
+        mainID,
+      </if>
+      <if test="resCatalogID != null" >
+        resCatalogID,
+      </if>
+      <if test="equipID != null" >
+        equipID,
+      </if>
+      <if test="equipNo != null" >
+        equipNo,
+      </if>
+      <if test="equipName != null" >
+        equipName,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="factory != null" >
+        factory,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="workTime != null" >
+        workTime,
+      </if>
+      <if test="rentContent != null" >
+        rentContent,
+      </if>
+      <if test="ranyouQingkuang != null" >
+        ranyouQingkuang,
+      </if>
+      <if test="rentPrice != null" >
+        rentPrice,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status,
+      </if>
+      <if test="isDriver != null" >
+        isDriver,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="mainID != null" >
+        #{mainID,jdbcType=VARCHAR},
+      </if>
+      <if test="resCatalogID != null" >
+        #{resCatalogID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipID != null" >
+        #{equipID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipNo != null" >
+        #{equipNo,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="factory != null" >
+        #{factory,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="workTime != null" >
+        #{workTime,jdbcType=VARCHAR},
+      </if>
+      <if test="rentContent != null" >
+        #{rentContent,jdbcType=VARCHAR},
+      </if>
+      <if test="ranyouQingkuang != null" >
+        #{ranyouQingkuang,jdbcType=VARCHAR},
+      </if>
+      <if test="rentPrice != null" >
+        #{rentPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        #{apih5FlowStatus,jdbcType=CHAR},
+      </if>
+      <if test="isDriver != null" >
+        #{isDriver,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqEquipLimitPriceItem" >
+    update zx_eq_EquipLimitPriceItem
+    <set >
+      <if test="mainID != null" >
+        mainID = #{mainID,jdbcType=VARCHAR},
+      </if>
+      <if test="resCatalogID != null" >
+        resCatalogID = #{resCatalogID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipID != null" >
+        equipID = #{equipID,jdbcType=VARCHAR},
+      </if>
+      <if test="equipNo != null" >
+        equipNo = #{equipNo,jdbcType=VARCHAR},
+      </if>
+      <if test="equipName != null" >
+        equipName = #{equipName,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="factory != null" >
+        factory = #{factory,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="workTime != null" >
+        workTime = #{workTime,jdbcType=VARCHAR},
+      </if>
+      <if test="rentContent != null" >
+        rentContent = #{rentContent,jdbcType=VARCHAR},
+      </if>
+      <if test="ranyouQingkuang != null" >
+        ranyouQingkuang = #{ranyouQingkuang,jdbcType=VARCHAR},
+      </if>
+      <if test="rentPrice != null" >
+        rentPrice = #{rentPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="apih5FlowStatus != null" >
+        apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR},
+      </if>
+      <if test="isDriver != null" >
+        isDriver = #{isDriver,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqEquipLimitPriceItem" >
+    update zx_eq_EquipLimitPriceItem
+    set       mainID = #{mainID,jdbcType=VARCHAR},
+      resCatalogID = #{resCatalogID,jdbcType=VARCHAR},
+      equipID = #{equipID,jdbcType=VARCHAR},
+      equipNo = #{equipNo,jdbcType=VARCHAR},
+      equipName = #{equipName,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      factory = #{factory,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      workTime = #{workTime,jdbcType=VARCHAR},
+      rentContent = #{rentContent,jdbcType=VARCHAR},
+      ranyouQingkuang = #{ranyouQingkuang,jdbcType=VARCHAR},
+      rentPrice = #{rentPrice,jdbcType=DECIMAL},
+      remark = #{remark,jdbcType=VARCHAR},
+      apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR},
+      isDriver = #{isDriver,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxEqEquipLimitPriceItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqEquipLimitPriceItem" >
+    select 
+    p1.*,
+    p.period AS period, 
+    p.orgName AS orgName
+    from zx_eq_EquipLimitPriceItem AS p1
+    LEFT JOIN zx_eq_equiplimitprice AS p ON p1.mainID = p.id
+    where p1.del_flag = '0'
+    <if test="mainID != null and mainID != ''" >
+     and p1.mainID = #{mainID,jdbcType=VARCHAR}
+    </if>
+    <if test="resCatalogID != null and resCatalogID != ''" >
+     and p1.resCatalogID = #{resCatalogID,jdbcType=VARCHAR}
+    </if>
+    <if test="equipID != null and equipID != ''" >
+     and p1.equipID = #{equipID,jdbcType=VARCHAR}
+    </if>
+    <if test="equipNo != null and equipNo != ''" >
+     and p1.equipNo = #{equipNo,jdbcType=VARCHAR}
+    </if>
+    <if test="equipName != null and equipName != ''" >
+     and p1.equipName = #{equipName,jdbcType=VARCHAR}
+    </if>
+    <if test="province != null and province != ''" >
+     and p1.province = #{province,jdbcType=VARCHAR}
+    </if>
+    <if test="factory != null and factory != ''" >
+     and p1.factory = #{factory,jdbcType=VARCHAR}
+    </if>
+    <if test="spec != null and spec != ''" >
+     and p1.spec = #{spec,jdbcType=VARCHAR}
+    </if>
+    <if test="workTime != null and workTime != ''" >
+     and p1.workTime = #{workTime,jdbcType=VARCHAR}
+    </if>
+    <if test="rentContent != null and rentContent != ''" >
+     and p1.rentContent = #{rentContent,jdbcType=VARCHAR}
+    </if>
+    <if test="ranyouQingkuang != null and ranyouQingkuang != ''" >
+     and p1.ranyouQingkuang = #{ranyouQingkuang,jdbcType=VARCHAR}
+    </if>
+    <if test="rentPrice != null and rentPrice != ''" >
+     and p1.rentPrice = #{rentPrice,jdbcType=DECIMAL}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and p1.remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="apih5FlowStatus != null and apih5FlowStatus != ''" >
+     and p1.apih5_flow_status = #{apih5FlowStatus,jdbcType=CHAR}
+    </if>
+    <if test="isDriver != null and isDriver != ''" >
+     and p1.isDriver = #{isDriver,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and p1.create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and p1.modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+     <if test="comID != null and comID != ''" >
+     and p.comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    ORDER BY p1.modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqEquipLimitPriceItem" parameterType="com.apih5.mybatis.pojo.ZxEqEquipLimitPriceItem" >
+    <![CDATA[ 
+        update zx_eq_EquipLimitPriceItem
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+  
+   <select id="getLimitPriceForm" resultMap="BaseResultMap">
+    SELECT m.orgName
+      ,mi.equipName,mi.province,mi.factory
+      ,mi.spec
+      ,case when mi.workTime ='1' then '单班' when mi.workTime ='2' then '双班' else '' end as workTime
+      ,case when mi.rentContent ='1' then '六个月以下' when mi.rentContent ='2' then '六个月及以上' else '' end as rentContent
+      ,case when mi.ranyouQingkuang ='1' then '甲方承担' when mi.ranyouQingkuang ='2' then '乙方承担' else '' end as ranyouQingkuang
+      ,mi.rentPrice,
+      case when mi.isDriver='yes' then '是' when mi.isDriver='no' then '否' else '' end as isDriver,mi.remark
+      FROM zx_eq_equiplimitprice  AS m
+      INNER JOIN zx_eq_equiplimitpriceitem AS mi ON m.ID = mi.mainID
+  </select>
+</mapper>

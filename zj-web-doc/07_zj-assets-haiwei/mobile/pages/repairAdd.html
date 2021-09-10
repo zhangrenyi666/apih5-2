@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>维修新增</title>
+    <link rel="stylesheet" type="text/css" href="../css/repairAdd.css">
+    <link rel="stylesheet" type="text/css" href="../lib/layer_mobile/need/layer.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <script type="application/javascript" src="../lib/jquery/1.9.1/jquery.min.js"></script>
+    <script src="../lib/layer_mobile/layer.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../lib/ajaxfileupload/ajaxfileupload.js"></script>
+    <script type="application/javascript" src="../js/common.js"></script>
+    <script src="../js/main.js"></script>
+    <!-- <script src="http://weixin.fheb.cn:90/cdn/public/lny.js" type="text/javascript"></script> -->
+    <style>
+        .layui-m-layerbtn span {
+            font-size: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="repairAdd">
+        <div class="part2">
+            <div class="title">
+                <img src="../img/check.png">
+                <span id="checkResult2" class="text"></span>
+            </div>
+            <ul>
+                <li>
+                    <div class="left">
+                        <span class="text">所属大类</span>
+                    </div>
+                    <div class="right">
+                        <input id="sszclx1Name" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">所属小类</span>
+                    </div>
+                    <div class="right">
+                        <input id="sszclx2Name" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">资产名称</span>
+                    </div>
+                    <div class="right">
+                        <input id="zcmc" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">规定使用年限(年)</span>
+                    </div>
+                    <div class="right">
+                        <input id="synx" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li id="ysynxFlag" style="display: none">
+                    <div class="left">
+                        <span class="text">已使用年限(年)</span>
+                    </div>
+                    <div class="right">
+                        <input id="ysynx" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">保修天数(天)</span>
+                    </div>
+                    <div class="right">
+                        <input id="bxts" class="input" placeholder="" disabled />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">报修日期</span>
+                        <span class="star">*</span>
+                    </div>
+                    <div class="right">
+                        <input type="date" id="bxrq" name="input_date" class="input b" placeholder="时间选择" />
+                    </div>
+                </li>
+                <li class="wxzt">
+                    <div class="left">
+                        <span class="text">维修状态</span>
+                        <span class="star">*</span>
+                    </div>
+                    <div class="right">
+                        <select class="select b-b" size="1" id="wxztdm">
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">维修方</span>
+                        <span class="star">*</span>
+                    </div>
+                    <div class="right">
+                        <input id="wxf" class="input b" placeholder="必填项" />
+                    </div>
+                </li>
+                <li class="wxzq-li">
+                    <div class="left">
+                        <span class="text">维修周期(天)</span>
+                        <span class="star">*</span>
+                    </div>
+                    <div class="right">
+                        <input id="wxzq" class="input b" placeholder="必填项" />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">维修费用(元)</span>
+                    </div>
+                    <div class="right">
+                        <input id="wxfy" class="input b" />
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">故障说明</span>
+                    </div>
+                    <div class="right">
+                        <textarea id="gzsm" class="textarea b-b" placeholder="请输入故障说明"></textarea>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        <span class="text">方案说明</span>
+                    </div>
+                    <div class="right">
+                        <textarea id="fasm" class="textarea b-b" placeholder="请输入方案说明"></textarea>
+                    </div>
+                </li>
+                <li class="wcrq-li">
+                    <div class="left">
+                        <span class="text">完成日期</span>
+                    </div>
+                    <div class="right">
+                        <input type="date" id="wxrq" name="input_date" class="input b" placeholder="时间选择" />
+                    </div>
+                </li>
+
+                <li>
+                    <div class="left">
+                        <span class="text">资产图片</span>
+                    </div>
+                    <div class="right">
+                        <div class="uploadFile">
+                            <label for="uploadBtn" name="imageList" class="upload-btn">
+                                <span style="padding-left: 10px;">添加图片</span>
+                                <input id="uploadBtn" class="inputFile" data-filetype="['jpg','jpeg','png','gif']" name="filesName" size="2" type="file"
+                                />
+                            </label>
+                            <span class="require">上传格式要求：["jpg","jpeg","png","gif"]</span>
+                            <ul class="uploadList" style="margin-top: 20px">
+                                <!--<li>-->
+                                <!--<a href="" class="text">cookie.jpg</a>-->
+                                <!--<img class="img" onclick="clearItem($(this))" src="../img/close.png" />-->
+                                <!--</li>-->
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <a id="save" class="btn" onclick="">保存</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        var recordId;// 记录ID
+        var detailId;// 详情记录ID
+        var state;// 业务状态
+        var sszclx1Name;// 所属大类
+        var sszclx2Name;// 所属小类
+        var zcmc;// 资产名称
+        var cfdd1;// 存放地点
+        var sybm;// 使用部门（前）
+        var syr;// 使用者（前）
+        var zcyt;// 资产用途（前）
+        var zcztdm;// 资产状态ID（前）
+        var selectDepartmentList = {};// 使用部门（后）
+        var selectMemberList = {};// 使用者（后）
+        var wxzt;
+
+        
+
+            // 清除图片选中项
+            function clearItem(dom) {
+                dom.parent().remove();//删除可见范围中选中项
+            }
+
+
+        window.login(function () {
+
+
+            // var code = getUrl('token')
+            // setCookie('code', code, 30)
+            // console.log(code);
+
+            $('#bxrq').val(dateFormat(new Date(), "yyyy-MM-dd")) //设置默认日期
+            $('#wxrq').val(dateFormat(new Date(), "yyyy-MM-dd")) //设置默认日期
+
+            // 页面刷新加载方法
+            window.onload = function () {
+                request();// 获取维修列表传递的参数
+                // 为update时，为更新，为其他时，则为新增
+                if (state == "update") {
+                    $('.wxzq-li').hide();
+                    wxzt = true;//控制维修状态是否显示
+                    $("#checkResult2").text("维修记录更新");
+                    $('.title img').attr('src', '../img/svg/edit.svg');
+                    $("#save").attr("onclick", "update()");
+                    repairDetail();// 维修记录详情查询
+                } else {
+                    $('.wxzt').hide();
+                    $('.wxzq-li').hide();
+                    $('.wcrq-li').hide();
+                    $("#checkResult2").text("维修记录新增");
+                    $('.title img').attr('src', '../img/svg/add.svg');
+                    $("#save").attr("onclick", "add()");
+                    $("#ysynxFlag").attr("style", "display:none");
+                    localData();// 资产详情数据 临时储存
+                }
+            }
+
+            // 获取维修列表传递的参数
+            function request() {
+                // url传递参数
+                var url = location.href;
+                var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+                var paraObj = {};
+                for (i = 0; j = paraString[i]; i++) {
+                    paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+                }
+                recordId = noNull(paraObj.recordid);
+                detailId = noNull(paraObj.detailid);
+                state = noNull(paraObj.state);
+
+                setSelect();// 维修状态(下拉列表)
+            }
+
+            //设置cookie  
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + "; " + expires;
+            }
+            //获取cookie  
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1);
+                    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+                }
+                return "";
+            }
+            function getUrl(k) {//获取地址栏参数，k为键名
+                var m = new RegExp("(^|&)" + k + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(m);
+                if (r != null) return decodeURI(r[2]); return null;
+            };
+
+
+
+            // 资产详情数据 临时储存
+            function localData() {
+                // 临时储存
+                var assetsDetailData = localStorage.getItem("assetsDetailData");// 资产详情数据 临时储存
+                var paraString = assetsDetailData.split("&");
+                var paraObj = {};
+                for (i = 0; j = paraString[i]; i++) {
+                    paraObj[j.substring(0, j.indexOf("="))] = j.substring(j.indexOf("=") + 1, j.length);
+                }
+                $("#sszclx1Name").val(noNull(paraObj.sszclx1Name));// 所属大类
+                $("#sszclx2Name").val(noNull(paraObj.sszclx2Name));// 所属小类
+                $("#zcmc").val(noNull(paraObj.zcmc));// 资产名称
+                $("#synx").val(noNull(paraObj.synx));// 规定使用年限(年)
+                $("#ysynx").val(noNull(paraObj.ysynx));// 已使用年限(年)
+                $("#bxts").val(noNull(paraObj.bxts));// 保修天数(天)
+            }
+
+            // 维修状态下拉菜单(全部)
+            function setSelect() {
+
+                l.ajax('getMaintainStateSelectAllList', {}, function (data, message, success) {
+                    if (success) {
+                        var data = noNull(data);// 详情数据
+                        if (data != "") {
+                            var $str = "";
+                            $.each(data, function (i, item) {
+                                $str += "<option value=" + item.dmbh + ">" + item.dmnr + "</option>";
+                            });
+                            $("#wxztdm").append($str);
+                        }
+                    }
+                })
+
+ 
+            }
+
+            // 维修记录详情查询
+            function repairDetail() {
+                var param = {
+                    recordid: detailId
+                }
+
+                l.ajax('getAssetsRepairDetails', param, function (data, message, success) {
+                    if (success) {
+                        var data = noNull(data);// 详情数据
+                        if (data != "") {
+                            $("#sszclx1Name").val(noNull(data.sszclx1Name));// 所属大类
+                            $("#sszclx2Name").val(noNull(data.sszclx2Name));// 所属小类
+                            $("#zcmc").val(noNull(data.zcmc));// 资产名称
+                            $("#synx").val(noNull(data.synx));// 规定使用年限(年)
+                            $("#ysynx").val(noNull(data.ysynx));// 已使用年限(年)
+                            $("#bxts").val(noNull(data.bxts));// 保修天数(天)
+                            $("#bxrq").val(dateFormat(new Date(noNull(data.bxrq)), "yyyy-MM-dd")),// 报修日期
+                                $("#wxztdm").val(noNull(data.wxztdm));// 维修状态
+                            $("#wxf").val(noNull(data.wxf));// 维修方
+                            $("#wxzq").val(noNull(data.wxzq));// 维修周期(天)
+                            $("#wxfy").val(noNull(data.wxfy));// 维修费用(元)
+                            $("#gzsm").val(noNull(data.gzsm));// 故障说明
+                            $("#fasm").val(noNull(data.fasm));// 方案说明
+                            $("#wxrq").val(dateFormat(new Date(noNull(data.wxrq)), "yyyy-MM-dd")),// 完成日期
+                                updateUploadList(noNull(data.imageList));// 图片列表
+                        }
+                    }
+                })
+
+ 
+
+            }
+
+
+            //图片上传
+            $("body").off('change', '#uploadBtn').on('change', '#uploadBtn', function () {
+                var accessoryList = [];
+                var index = layer.open({
+                    type: 2
+                    , content: '上传中...'
+                    , style: 'font-size: 28px'
+                });
+                $.ajaxFileUpload({
+                    url: API + 'uploadFiles.do', //用于文件上传的服务器端请求地址
+                    secureuri: false, //是否需要安全协议，一般设置为false
+                    fileElementId: 'uploadBtn', //文件上传域的ID
+                    dataType: 'text', //返回值类型 一般设置为json
+                    data: {
+                        projectName: 'zj-assets-haiwei'
+                    },
+                    complete: function (result) {
+                        layer.closeAll('loading');
+                    },
+                    success: function (data, status) { //服务器成功响应处理函数
+                        data = JSON.parse(data);
+                        if (data.success == "true") {
+                            accessoryList.push({
+                                fileName: data.fileName,
+                                fileUrl: window.api + data.fileUrl
+                            })
+                            updateUploadList(accessoryList)
+                        } else {
+                            console.log(data.message)
+                        }
+                    },
+                    error: function (data, status, e) {//服务器响应失败处理函数
+                        console.log(e)
+                    }
+                })
+            })
+
+            $('.uploadList').on('click', 'li', function () {
+                imgLayer($(this).attr('data-href'))
+            })
+
+            // 遍历图片列表
+            function updateUploadList(uploadList) {
+                //$(".uploadList li").remove();
+                var $str = "";
+                $.each(uploadList, function (i, item) {
+                    $str += '<li data-href="' + item.fileUrl + '" data-name="' + item.fileName + '">';
+                    $str += '<div style="width: 70%; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" class="text">' + item.fileName + '</div>';
+                    $str += '<img class="img" onclick="clearItem($(this))" src="../img/close.png" />';
+                    $str += '</li>';
+
+                    // $str += '<li data-href="' + item.fileUrl + '" data-name="' + item.fileName + '">',
+                    //         $str += 	'<a href="' + item.fileUrl + '" class="text">' + item.fileName + '</a>',
+                    //         $str += 	'<img class="img" onclick="clearItem($(this))" src="../img/close.png" />',
+                    //         $str += '</li>'
+                });
+                $(".uploadList").append($str)
+            }
+
+
+
+        })
+
+        // 维修记录新增
+        function add() {
+            var bxrq = noNull($("#bxrq").val());// 报修日期
+            var wxztdm = $("#wxztdm").val();// 维修状态
+            var wxf = $("#wxf").val();// 维修方
+            var wxzq = $("#wxzq").val();// 维修周期(天)
+            if (bxrq == "") {
+                layer.open({
+                    content: '报修日期是必填的！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            }
+            else if (wxf == "") {
+                layer.open({
+                    content: '维修方是必填的！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (wxzq == "") {
+                // layer.open({
+                //     content: '维修周期是必填的！'
+                //     ,btn: '确定'
+                //     ,style: 'font-size: 28px'
+                //     ,yes: function(index){
+                //         layer.close(index);
+                //     }
+                // });
+                // return;
+            }
+            var imageList = [];
+            $(".uploadList li").each(function (i, item) {
+                imageList[i] = {
+                    fileName: noNull(item.getAttribute("data-name")),
+                    fileUrl: noNull(item.getAttribute("data-href"))
+                };
+            });
+            var param = {
+                sszcid: noNull(recordId),// 资产ID
+                bxrq: noNull(dateToUnix($("#bxrq").val())),// 保修日期
+                wxztdm: noNull($("#wxztdm").val()),// 维修状态
+                wxf: noNull($("#wxf").val()),// 维修方
+                wxzq: noNull($("#wxzq").val()),// 维修周期(天)
+                wxfy: noNull($("#wxfy").val()),// 维修费用(元)
+                gzsm: noNull($("#gzsm").val()),// 故障说明
+                fasm: noNull($("#fasm").val()),// 方案说明
+                wxrq: noNull(dateToUnix($("#wxrq").val())),// 完成日期
+                imageList: imageList
+            }
+            // console.log('addRepair-param',param)
+
+
+            l.ajax('addRepair', param, function (data, message, success) {
+                if (success) {
+                    successMsg('新增成功', -1, 1500);
+                }
+            })
+            // $.ajax({
+            //     url: API + 'addZjRepair',
+            //     type: 'POST',
+            //     dataType: 'json',
+            //     data: JSON.stringify(param),
+            //     contentType: "application/json; charset=utf-8",
+            //     beforeSend: function (xhr) {
+            //         xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            //         // 新增携带token请求
+            //         var token = window.getUserInfo().token
+            //         xhr.setRequestHeader('token', token);//
+            //     },
+            //     success: function (rel) {
+            //         if (rel.success == true) {
+            //             successMsg('新增成功', -1, 1500);
+            //         } else {
+            //             layer.open({
+            //                 content: noNull(rel.message)
+            //                 , btn: '确定'
+            //                 , style: 'font-size: 28px'
+            //                 , yes: function (index) {
+            //                     layer.close(index);
+            //                 }
+            //             });
+            //         }
+            //     },
+            //     error: function (err) {
+            //         console.log(err);
+            //     }
+            // })
+        }
+
+        // 资产维修列表修改
+        function update() {
+            var bxrq = noNull($("#bxrq").val());// 报修日期
+            var wxztdm = $("#wxztdm").val();// 维修状态
+            var wxf = $("#wxf").val();// 维修方
+            var wxzq = $("#wxzq").val();// 维修周期(天)
+            if (bxrq == "") {
+                layer.open({
+                    content: '报修日期是必填的！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (wxztdm == "") {
+                layer.open({
+                    content: '请选择维修状态！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (wxf == "") {
+                layer.open({
+                    content: '维修方是必填的！'
+                    , btn: '确定'
+                    , style: 'font-size: 28px'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+                return;
+            } else if (wxzq == "") {
+                // layer.open({
+                //     content: '维修周期是必填的！'
+                //     ,btn: '确定'
+                //     ,style: 'font-size: 28px'
+                //     ,yes: function(index){
+                //         layer.close(index);
+                //     }
+                // });
+                // return;
+            }
+            var imageList = [];
+            $(".uploadList li").each(function (i, item) {
+                imageList[i] = {
+                    fileName: noNull(item.getAttribute("data-name")),
+                    fileUrl: noNull(item.getAttribute("data-href"))
+                };
+            })
+            var param = {
+                recordid: noNull(detailId),// 维修记录ID
+                sszcid: noNull(recordId),// 资产ID
+                bxrq: noNull(dateToUnix($("#bxrq").val())),// 保修日期
+                wxztdm: noNull($("#wxztdm").val()),// 维修状态
+                wxf: noNull($("#wxf").val()),// 维修方
+                wxzq: noNull($("#wxzq").val()),// 维修周期(天)
+                wxfy: noNull($("#wxfy").val()),// 维修费用(元)
+                gzsm: noNull($("#gzsm").val()),// 故障说明
+                fasm: noNull($("#fasm").val()),// 方案说明
+                wxrq: noNull(dateToUnix($("#wxrq").val())),// 完成日期
+                imageList: imageList
+            }
+            // console.log('params',param)
+
+            l.ajax('updateRepair', param, function (data, message, success) {
+                if (success) {
+                    successMsg('编辑成功', -2, 1500);
+                }
+            })
+
+
+            
+        }
+
+    </script>
+</body>
+
+</html>

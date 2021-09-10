@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCtCloudEcoMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCtCloudEco" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="serialNumber" property="serialNumber" jdbcType="CHAR" />
+    <result column="schemeNo" property="schemeNo" jdbcType="VARCHAR" />
+    <result column="schemeName" property="schemeName" jdbcType="VARCHAR" />
+    <result column="doFinishTime" property="doFinishTime" jdbcType="TIMESTAMP" />
+    <result column="schemeStatus" property="schemeStatus" jdbcType="VARCHAR" />
+    <result column="thirdUnit" property="thirdUnit" jdbcType="VARCHAR" />
+    <result column="packageNo" property="packageNo" jdbcType="VARCHAR" />
+    <result column="packageName" property="packageName" jdbcType="VARCHAR" />
+    <result column="scaledAmount" property="scaledAmount" jdbcType="DECIMAL" />
+    <result column="winningUnit" property="winningUnit" jdbcType="VARCHAR" />
+    <result column="demandUnit" property="demandUnit" jdbcType="VARCHAR" />
+    <result column="orgCertificate" property="orgCertificate" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="winRemark" property="winRemark" jdbcType="VARCHAR" />
+    <result column="projectType" property="projectType" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, serialNumber, schemeNo, schemeName, doFinishTime, 
+    schemeStatus, thirdUnit, packageNo, packageName, scaledAmount, 
+    winningUnit, demandUnit, orgCertificate, remark, editTime, 
+    winRemark, projectType, del_flag, create_time, create_user, 
+    create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_CloudEco
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_ct_CloudEco
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCtCloudEco" >
+    insert into zx_ct_CloudEco (id, serialNumber, schemeNo, 
+      schemeName, doFinishTime, schemeStatus, 
+      thirdUnit, packageNo, packageName, 
+      scaledAmount, winningUnit, demandUnit, 
+      orgCertificate, remark, editTime, 
+      winRemark, projectType, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{serialNumber,jdbcType=CHAR}, #{schemeNo,jdbcType=VARCHAR}, 
+      #{schemeName,jdbcType=VARCHAR}, #{doFinishTime,jdbcType=TIMESTAMP}, #{schemeStatus,jdbcType=VARCHAR}, 
+      #{thirdUnit,jdbcType=VARCHAR}, #{packageNo,jdbcType=VARCHAR}, #{packageName,jdbcType=VARCHAR}, 
+      #{scaledAmount,jdbcType=DECIMAL}, #{winningUnit,jdbcType=VARCHAR}, #{demandUnit,jdbcType=VARCHAR}, 
+      #{orgCertificate,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, 
+      #{winRemark,jdbcType=VARCHAR}, #{projectType,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCtCloudEco" >
+    insert into zx_ct_CloudEco
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="serialNumber != null" >
+        serialNumber,
+      </if>
+      <if test="schemeNo != null" >
+        schemeNo,
+      </if>
+      <if test="schemeName != null" >
+        schemeName,
+      </if>
+      <if test="doFinishTime != null" >
+        doFinishTime,
+      </if>
+      <if test="schemeStatus != null" >
+        schemeStatus,
+      </if>
+      <if test="thirdUnit != null" >
+        thirdUnit,
+      </if>
+      <if test="packageNo != null" >
+        packageNo,
+      </if>
+      <if test="packageName != null" >
+        packageName,
+      </if>
+      <if test="scaledAmount != null" >
+        scaledAmount,
+      </if>
+      <if test="winningUnit != null" >
+        winningUnit,
+      </if>
+      <if test="demandUnit != null" >
+        demandUnit,
+      </if>
+      <if test="orgCertificate != null" >
+        orgCertificate,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="winRemark != null" >
+        winRemark,
+      </if>
+      <if test="projectType != null" >
+        projectType,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null" >
+        #{serialNumber,jdbcType=CHAR},
+      </if>
+      <if test="schemeNo != null" >
+        #{schemeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="schemeName != null" >
+        #{schemeName,jdbcType=VARCHAR},
+      </if>
+      <if test="doFinishTime != null" >
+        #{doFinishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="schemeStatus != null" >
+        #{schemeStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdUnit != null" >
+        #{thirdUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="packageNo != null" >
+        #{packageNo,jdbcType=VARCHAR},
+      </if>
+      <if test="packageName != null" >
+        #{packageName,jdbcType=VARCHAR},
+      </if>
+      <if test="scaledAmount != null" >
+        #{scaledAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="winningUnit != null" >
+        #{winningUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="demandUnit != null" >
+        #{demandUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCertificate != null" >
+        #{orgCertificate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="winRemark != null" >
+        #{winRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="projectType != null" >
+        #{projectType,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCtCloudEco" >
+    update zx_ct_CloudEco
+    <set >
+      <if test="serialNumber != null" >
+        serialNumber = #{serialNumber,jdbcType=CHAR},
+      </if>
+      <if test="schemeNo != null" >
+        schemeNo = #{schemeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="schemeName != null" >
+        schemeName = #{schemeName,jdbcType=VARCHAR},
+      </if>
+      <if test="doFinishTime != null" >
+        doFinishTime = #{doFinishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="schemeStatus != null" >
+        schemeStatus = #{schemeStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdUnit != null" >
+        thirdUnit = #{thirdUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="packageNo != null" >
+        packageNo = #{packageNo,jdbcType=VARCHAR},
+      </if>
+      <if test="packageName != null" >
+        packageName = #{packageName,jdbcType=VARCHAR},
+      </if>
+      <if test="scaledAmount != null" >
+        scaledAmount = #{scaledAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="winningUnit != null" >
+        winningUnit = #{winningUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="demandUnit != null" >
+        demandUnit = #{demandUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCertificate != null" >
+        orgCertificate = #{orgCertificate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="winRemark != null" >
+        winRemark = #{winRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="projectType != null" >
+        projectType = #{projectType,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCtCloudEco" >
+    update zx_ct_CloudEco
+    set       serialNumber = #{serialNumber,jdbcType=CHAR},
+      schemeNo = #{schemeNo,jdbcType=VARCHAR},
+      schemeName = #{schemeName,jdbcType=VARCHAR},
+      doFinishTime = #{doFinishTime,jdbcType=TIMESTAMP},
+      schemeStatus = #{schemeStatus,jdbcType=VARCHAR},
+      thirdUnit = #{thirdUnit,jdbcType=VARCHAR},
+      packageNo = #{packageNo,jdbcType=VARCHAR},
+      packageName = #{packageName,jdbcType=VARCHAR},
+      scaledAmount = #{scaledAmount,jdbcType=DECIMAL},
+      winningUnit = #{winningUnit,jdbcType=VARCHAR},
+      demandUnit = #{demandUnit,jdbcType=VARCHAR},
+      orgCertificate = #{orgCertificate,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      winRemark = #{winRemark,jdbcType=VARCHAR},
+      projectType = #{projectType,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxCtCloudEcoList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtCloudEco" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_CloudEco
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=CHAR}
+    </if>
+    <if test="serialNumber != null and serialNumber != ''" >
+     and serialNumber = #{serialNumber,jdbcType=CHAR}
+    </if>
+    <if test="schemeNo != null and schemeNo != ''" >
+     and schemeNo = #{schemeNo,jdbcType=VARCHAR}
+    </if>
+    <if test="schemeName != null and schemeName != ''" >
+     and schemeName = #{schemeName,jdbcType=VARCHAR}
+    </if>
+    <if test="doFinishTime != null and doFinishTime != ''" >
+     and doFinishTime = #{doFinishTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="schemeStatus != null and schemeStatus != ''" >
+     and schemeStatus = #{schemeStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="thirdUnit != null and thirdUnit != ''" >
+     and thirdUnit = #{thirdUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="packageNo != null and packageNo != ''" >
+     and packageNo = #{packageNo,jdbcType=VARCHAR}
+    </if>
+    <if test="packageName != null and packageName != ''" >
+     and packageName = #{packageName,jdbcType=VARCHAR}
+    </if>
+    <if test="scaledAmount != null and scaledAmount != ''" >
+     and scaledAmount = #{scaledAmount,jdbcType=DECIMAL}
+    </if>
+    <if test="winningUnit != null and winningUnit != ''" >
+     and winningUnit = #{winningUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="demandUnit != null and demandUnit != ''" >
+     and demandUnit = #{demandUnit,jdbcType=VARCHAR}
+    </if>
+    <if test="orgCertificate != null and orgCertificate != ''" >
+     and orgCertificate = #{orgCertificate,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="winRemark != null and winRemark != ''" >
+     and winRemark = #{winRemark,jdbcType=VARCHAR}
+    </if>
+    <if test="projectType != null and projectType != ''" >
+     and projectType = #{projectType,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxCtCloudEco" parameterType="com.apih5.mybatis.pojo.ZxCtCloudEco" >
+    <![CDATA[ 
+        update zx_ct_CloudEco
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+  
+  <select id="getZxCtCloudEcoByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    SELECT
+	      cco.*,
+          IF((SELECT count(1) FROM `zx_cr_customerinfo` 
+                              WHERE del_flag = '0'
+	                            AND (orgCertificate = cco.orgCertificate 
+	                             OR customerName = cco.winningUnit)) > 0, '1', '0') AS isRela 
+      FROM  `zx_ct_cloudeco` AS cco 
+      WHERE cco.del_flag = '0'
+        AND cco.id = #{id,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

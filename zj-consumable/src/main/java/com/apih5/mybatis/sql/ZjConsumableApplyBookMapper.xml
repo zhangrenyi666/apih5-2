@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjConsumableApplyBookMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjConsumableApplyBook" >
+    <id column="apply_book_id" property="applyBookId" jdbcType="CHAR" />
+    <result column="set_id" property="setId" jdbcType="CHAR" />
+    <result column="apply_id" property="applyId" jdbcType="CHAR" />
+    <result column="dept_name" property="deptName" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="app_date" property="appDate" jdbcType="TIMESTAMP" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="colour" property="colour" jdbcType="VARCHAR" />
+    <result column="apply_num" property="applyNum" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="apply_date" property="applyDate" jdbcType="TIMESTAMP" />
+    <result column="use_status" property="useStatus" jdbcType="CHAR" />
+    <result column="use_date" property="useDate" jdbcType="TIMESTAMP" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    apply_book_id, set_id, apply_id, dept_name, name, 
+    app_date, category, brand, model, colour, 
+    apply_num, status, apply_date, use_status, use_date, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_consumable_apply_book
+    where apply_book_id = #{applyBookId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_consumable_apply_book
+    where apply_book_id = #{applyBookId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjConsumableApplyBook" >
+    insert into zj_consumable_apply_book (apply_book_id, set_id, apply_id, 
+      dept_name, name, app_date, 
+      category, brand, model, 
+      colour, apply_num, status, 
+      apply_date, use_status, use_date, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{applyBookId,jdbcType=CHAR}, #{setId,jdbcType=CHAR}, #{applyId,jdbcType=CHAR}, 
+      #{deptName,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{appDate,jdbcType=TIMESTAMP}, 
+      #{category,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, 
+      #{colour,jdbcType=VARCHAR}, #{applyNum,jdbcType=INTEGER}, #{status,jdbcType=CHAR}, 
+      #{applyDate,jdbcType=TIMESTAMP}, #{useStatus,jdbcType=CHAR}, #{useDate,jdbcType=TIMESTAMP}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjConsumableApplyBook" >
+    insert into zj_consumable_apply_book
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="applyBookId != null" >
+        apply_book_id,
+      </if>
+      <if test="setId != null" >
+        set_id,
+      </if>
+      <if test="applyId != null" >
+        apply_id,
+      </if>
+      <if test="deptName != null" >
+        dept_name,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="appDate != null" >
+        app_date,
+      </if>
+      <if test="category != null" >
+        category,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="colour != null" >
+        colour,
+      </if>
+      <if test="applyNum != null" >
+        apply_num,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="applyDate != null" >
+        apply_date,
+      </if>
+      <if test="useStatus != null" >
+        use_status,
+      </if>
+      <if test="useDate != null" >
+        use_date,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="applyBookId != null" >
+        #{applyBookId,jdbcType=CHAR},
+      </if>
+      <if test="setId != null" >
+        #{setId,jdbcType=CHAR},
+      </if>
+      <if test="applyId != null" >
+        #{applyId,jdbcType=CHAR},
+      </if>
+      <if test="deptName != null" >
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="appDate != null" >
+        #{appDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="colour != null" >
+        #{colour,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNum != null" >
+        #{applyNum,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="applyDate != null" >
+        #{applyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="useStatus != null" >
+        #{useStatus,jdbcType=CHAR},
+      </if>
+      <if test="useDate != null" >
+        #{useDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjConsumableApplyBook" >
+    update zj_consumable_apply_book
+    <set >
+      <if test="setId != null" >
+        set_id = #{setId,jdbcType=CHAR},
+      </if>
+      <if test="applyId != null" >
+        apply_id = #{applyId,jdbcType=CHAR},
+      </if>
+      <if test="deptName != null" >
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name ,jdbcType=VARCHAR},
+      </if>
+      <if test="appDate != null" >
+        app_date = #{appDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="category != null" >
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="colour != null" >
+        colour = #{colour,jdbcType=VARCHAR},
+      </if>
+      <if test="applyNum != null" >
+        apply_num = #{applyNum,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="applyDate != null" >
+        apply_date = #{applyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="useStatus != null" >
+        use_status = #{useStatus,jdbcType=CHAR},
+      </if>
+      <if test="useDate != null" >
+        use_date = #{useDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where apply_book_id = #{applyBookId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjConsumableApplyBook" >
+    update zj_consumable_apply_book
+    set       set_id = #{setId,jdbcType=CHAR},
+      apply_id = #{applyId,jdbcType=CHAR},
+      dept_name = #{deptName,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      app_date = #{appDate,jdbcType=TIMESTAMP},
+      category = #{category,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      colour = #{colour,jdbcType=VARCHAR},
+      apply_num = #{applyNum,jdbcType=INTEGER},
+      status = #{status,jdbcType=CHAR},
+      apply_date = #{applyDate,jdbcType=TIMESTAMP},
+      use_status = #{useStatus,jdbcType=CHAR},
+      use_date = #{useDate,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where apply_book_id = #{applyBookId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjConsumableApplyBookList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjConsumableApplyBook" >
+    select 
+    <include refid="Base_Column_List" />,
+    DATE_FORMAT(app_date,'%Y-%m-%d') AS appDateStr,
+    DATE_FORMAT(apply_date,'%Y-%m-%d') AS applyDateStr,
+    DATE_FORMAT(use_date,'%Y-%m-%d') AS useDateStr
+    from zj_consumable_apply_book
+    where del_flag = '0'
+    <if test="setId != null and setId != ''" >
+     and set_id = #{setId,jdbcType=CHAR}
+    </if>
+    <if test="applyId != null and applyId != ''" >
+     and apply_id = #{applyId,jdbcType=CHAR}
+    </if>
+    <if test="deptName != null and deptName != ''" >
+     and dept_name LIKE CONCAT('%', #{deptName},'%')
+    </if>
+    <if test="name != null and name != ''" >
+     and name LIKE CONCAT('%', #{name},'%')
+    </if>
+    <if test="appDate != null" >
+     and app_date = #{appDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="category != null and category != ''" >
+     and category LIKE CONCAT('%', #{category},'%')
+    </if>
+    <if test="brand != null and brand != ''" >
+     and brand LIKE CONCAT('%', #{brand},'%')
+    </if>
+    <if test="model != null and model != ''" >
+     and model LIKE CONCAT('%', #{model},'%')
+    </if>
+    <if test="colour != null and colour != ''" >
+     and colour LIKE CONCAT('%', #{colour},'%')
+    </if>
+    <if test="applyNum != null and applyNum != ''" >
+     and apply_num = #{applyNum,jdbcType=INTEGER}
+    </if>
+    <if test="status != null and status != ''" >
+     and status = #{status,jdbcType=CHAR}
+    </if>
+    <if test="applyDate != null" >
+     and apply_date = #{applyDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="useStatus != null and useStatus != ''" >
+     and use_status = #{useStatus,jdbcType=CHAR}
+    </if>
+    <if test="useDate != null" >
+     and use_date = #{useDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <!--增加时间检索条件 -->
+	<if test="applyStartTime != null">
+	 AND DATE_FORMAT(apply_date,'%Y-%m-%d %H:%i:%s') &gt;= DATE_FORMAT(#{applyStartTime},'%Y-%m-%d %H:%i:%s')
+	</if>
+	<if test="applyEndTime != null">
+	 AND DATE_FORMAT(apply_date,'%Y-%m-%d %H:%i:%s') &lt;= DATE_FORMAT(CONCAT(#{applyEndTime},'23:59:59'),'%Y-%m-%d %H:%i:%s')
+	</if>
+	<!--增加时间检索条件 -->
+	<if test="appStartTime != null">
+	 AND DATE_FORMAT(app_date,'%Y-%m-%d %H:%i:%s') &gt;= DATE_FORMAT(#{appStartTime},'%Y-%m-%d %H:%i:%s')
+	</if>
+	<if test="appEndTime != null">
+	 AND DATE_FORMAT(app_date,'%Y-%m-%d %H:%i:%s') &lt;= DATE_FORMAT(CONCAT(#{appEndTime},'23:59:59'),'%Y-%m-%d %H:%i:%s')
+	</if>
+	<!--增加时间检索条件 -->
+	<if test="useStartTime != null">
+	 AND DATE_FORMAT(use_date,'%Y-%m-%d %H:%i:%s') &gt;= DATE_FORMAT(#{useStartTime},'%Y-%m-%d %H:%i:%s')
+	</if>
+	<if test="useEndTime != null">
+	 AND DATE_FORMAT(use_date,'%Y-%m-%d %H:%i:%s') &lt;= DATE_FORMAT(CONCAT(#{useEndTime},'23:59:59'),'%Y-%m-%d %H:%i:%s')
+	</if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjConsumableApplyBook" parameterType="com.apih5.mybatis.pojo.ZjConsumableApplyBook" >
+    <![CDATA[ 
+        update zj_consumable_apply_book
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and apply_book_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.applyBookId} 
+     </foreach>
+  </delete>
+</mapper>

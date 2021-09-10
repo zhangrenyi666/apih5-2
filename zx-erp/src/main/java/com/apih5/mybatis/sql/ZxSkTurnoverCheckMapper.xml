@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkTurnoverCheckMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkTurnoverCheck" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="billNo" property="billNo" jdbcType="VARCHAR" />
+    <result column="invoiceNo" property="invoiceNo" jdbcType="VARCHAR" />
+    <result column="busDate" property="busDate" jdbcType="TIMESTAMP" />
+    <result column="materialSource" property="materialSource" jdbcType="VARCHAR" />
+    <result column="ysdNo" property="ysdNo" jdbcType="VARCHAR" />
+    <result column="ysdID" property="ysdID" jdbcType="VARCHAR" />
+    <result column="amt" property="amt" jdbcType="DECIMAL" />
+    <result column="consignee" property="consignee" jdbcType="VARCHAR" />
+    <result column="billStatus" property="billStatus" jdbcType="VARCHAR" />
+    <result column="purchType" property="purchType" jdbcType="VARCHAR" />
+    <result column="contractID" property="contractID" jdbcType="VARCHAR" />
+    <result column="contractName" property="contractName" jdbcType="VARCHAR" />
+    <result column="outOrgID" property="outOrgID" jdbcType="VARCHAR" />
+    <result column="outOrgName" property="outOrgName" jdbcType="VARCHAR" />
+    <result column="taxRate" property="taxRate" jdbcType="VARCHAR" />
+    <result column="isDeduct" property="isDeduct" jdbcType="VARCHAR" />
+    <result column="companyId" property="companyId" jdbcType="VARCHAR" />
+    <result column="companyName" property="companyName" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, orgID, orgName, billNo, invoiceNo, 
+    busDate, materialSource, ysdNo, ysdID, amt, 
+    consignee, billStatus, purchType, contractID, contractName, 
+    outOrgID, outOrgName, taxRate, isDeduct, companyId, 
+    companyName, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_turnoverCheck
+    where del_flag = '0' and id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_turnoverCheck
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverCheck" >
+    insert into zx_sk_turnoverCheck (
+    id, orgID, orgName, billNo, invoiceNo, 
+    busDate, materialSource, ysdNo, ysdID, amt, 
+    consignee, billStatus, purchType, contractID, contractName, 
+    outOrgID, outOrgName, taxRate, isDeduct, companyId, 
+    companyName, remarks, sort, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{id,jdbcType=CHAR}, #{orgID,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, #{billNo,jdbcType=VARCHAR}, #{invoiceNo,jdbcType=VARCHAR}, 
+    #{busDate,jdbcType=TIMESTAMP}, #{materialSource,jdbcType=VARCHAR}, #{ysdNo,jdbcType=VARCHAR}, #{ysdID,jdbcType=VARCHAR}, #{amt,jdbcType=DECIMAL}, 
+    #{consignee,jdbcType=VARCHAR}, #{billStatus,jdbcType=VARCHAR}, #{purchType,jdbcType=VARCHAR}, #{contractID,jdbcType=VARCHAR}, #{contractName,jdbcType=VARCHAR}, 
+    #{outOrgID,jdbcType=VARCHAR}, #{outOrgName,jdbcType=VARCHAR}, #{taxRate,jdbcType=VARCHAR}, #{isDeduct,jdbcType=VARCHAR}, #{companyId,jdbcType=VARCHAR}, 
+    #{companyName,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+    #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverCheck" >
+    insert into zx_sk_turnoverCheck
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="billNo != null" >
+        billNo,
+      </if>
+      <if test="invoiceNo != null" >
+        invoiceNo,
+      </if>
+      <if test="busDate != null" >
+        busDate,
+      </if>
+      <if test="materialSource != null" >
+        materialSource,
+      </if>
+      <if test="ysdNo != null" >
+        ysdNo,
+      </if>
+      <if test="ysdID != null" >
+        ysdID,
+      </if>
+      <if test="amt != null" >
+        amt,
+      </if>
+      <if test="consignee != null" >
+        consignee,
+      </if>
+      <if test="billStatus != null" >
+        billStatus,
+      </if>
+      <if test="purchType != null" >
+        purchType,
+      </if>
+      <if test="contractID != null" >
+        contractID,
+      </if>
+      <if test="contractName != null" >
+        contractName,
+      </if>
+      <if test="outOrgID != null" >
+        outOrgID,
+      </if>
+      <if test="outOrgName != null" >
+        outOrgName,
+      </if>
+      <if test="taxRate != null" >
+        taxRate,
+      </if>
+      <if test="isDeduct != null" >
+        isDeduct,
+      </if>
+      <if test="companyId != null" >
+        companyId,
+      </if>
+      <if test="companyName != null" >
+        companyName,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null" >
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNo != null" >
+        #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="busDate != null" >
+        #{busDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="materialSource != null" >
+        #{materialSource,jdbcType=VARCHAR},
+      </if>
+      <if test="ysdNo != null" >
+        #{ysdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ysdID != null" >
+        #{ysdID,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null" >
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="consignee != null" >
+        #{consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="billStatus != null" >
+        #{billStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="purchType != null" >
+        #{purchType,jdbcType=VARCHAR},
+      </if>
+      <if test="contractID != null" >
+        #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="contractName != null" >
+        #{contractName,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgID != null" >
+        #{outOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgName != null" >
+        #{outOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRate != null" >
+        #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeduct != null" >
+        #{isDeduct,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverCheck" >
+    update zx_sk_turnoverCheck
+    <set >
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null" >
+        billNo = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNo != null" >
+        invoiceNo = #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="busDate != null" >
+        busDate = #{busDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="materialSource != null" >
+        materialSource = #{materialSource,jdbcType=VARCHAR},
+      </if>
+      <if test="ysdNo != null" >
+        ysdNo = #{ysdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ysdID != null" >
+        ysdID = #{ysdID,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null" >
+        amt = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="consignee != null" >
+        consignee = #{consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="billStatus != null" >
+        billStatus = #{billStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="purchType != null" >
+        purchType = #{purchType,jdbcType=VARCHAR},
+      </if>
+      <if test="contractID != null" >
+        contractID = #{contractID,jdbcType=VARCHAR},
+      </if>
+      <if test="contractName != null" >
+        contractName = #{contractName,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgID != null" >
+        outOrgID = #{outOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgName != null" >
+        outOrgName = #{outOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRate != null" >
+        taxRate = #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeduct != null" >
+        isDeduct = #{isDeduct,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null" >
+        companyId = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        companyName = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverCheck" >
+    update zx_sk_turnoverCheck set 
+      orgID = #{orgID,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      billNo = #{billNo,jdbcType=VARCHAR},
+      invoiceNo = #{invoiceNo,jdbcType=VARCHAR},
+      busDate = #{busDate,jdbcType=TIMESTAMP},
+      materialSource = #{materialSource,jdbcType=VARCHAR},
+      ysdNo = #{ysdNo,jdbcType=VARCHAR},
+      ysdID = #{ysdID,jdbcType=VARCHAR},
+      amt = #{amt,jdbcType=DECIMAL},
+      consignee = #{consignee,jdbcType=VARCHAR},
+      billStatus = #{billStatus,jdbcType=VARCHAR},
+      purchType = #{purchType,jdbcType=VARCHAR},
+      contractID = #{contractID,jdbcType=VARCHAR},
+      contractName = #{contractName,jdbcType=VARCHAR},
+      outOrgID = #{outOrgID,jdbcType=VARCHAR},
+      outOrgName = #{outOrgName,jdbcType=VARCHAR},
+      taxRate = #{taxRate,jdbcType=VARCHAR},
+      isDeduct = #{isDeduct,jdbcType=VARCHAR},
+      companyId = #{companyId,jdbcType=VARCHAR},
+      companyName = #{companyName,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSkTurnoverCheckList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverCheck" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_turnoverCheck
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=CHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="billNo != null and billNo != ''" >
+      and billNo like CONCAT('%',CONCAT(#{billNo,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="invoiceNo != null and invoiceNo != ''" >
+      and invoiceNo like CONCAT('%',CONCAT(#{invoiceNo,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="busDate != null and busDate != ''" >
+     and busDate = #{busDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="materialSource != null and materialSource != ''" >
+     and materialSource = #{materialSource,jdbcType=VARCHAR}
+    </if>
+    <if test="ysdNo != null and ysdNo != ''" >
+      and ysdNo like CONCAT('%',CONCAT(#{ysdNo,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="ysdID != null and ysdID != ''" >
+     and ysdID = #{ysdID,jdbcType=VARCHAR}
+    </if>
+    <if test="amtList != null" >
+      and amt BETWEEN
+      <foreach collection="amtList" index="index" item="item" separator="AND">
+        #{item}
+      </foreach>
+    </if>
+    <if test="consignee != null and consignee != ''" >
+     and consignee = #{consignee,jdbcType=VARCHAR}
+    </if>
+    <if test="billStatus != null and billStatus != ''" >
+     and billStatus = #{billStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="purchType != null and purchType != ''" >
+     and purchType = #{purchType,jdbcType=VARCHAR}
+    </if>
+    <if test="contractID != null and contractID != ''" >
+     and contractID = #{contractID,jdbcType=VARCHAR}
+    </if>
+    <if test="contractName != null and contractName != ''" >
+     and contractName = #{contractName,jdbcType=VARCHAR}
+    </if>
+    <if test="outOrgID != null and outOrgID != ''" >
+     and outOrgID = #{outOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="outOrgName != null and outOrgName != ''" >
+     and outOrgName = #{outOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="taxRate != null and taxRate != ''" >
+     and taxRate = #{taxRate,jdbcType=VARCHAR}
+    </if>
+    <if test="isDeduct != null and isDeduct != ''" >
+     and isDeduct = #{isDeduct,jdbcType=VARCHAR}
+    </if>
+    <if test="companyId != null and companyId != ''" >
+     and companyId = #{companyId,jdbcType=VARCHAR}
+    </if>
+    <if test="companyName != null and companyName != ''" >
+     and companyName = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="timeList != null" >
+     and create_time BETWEEN
+      <foreach collection="timeList" index="index" item="item" separator="AND">
+        DATE_FORMAT(#{item},"%Y-%m-%d")
+      </foreach>
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkTurnoverCheck" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverCheck" >
+    <![CDATA[ 
+        update zx_sk_turnoverCheck
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+  <resultMap id="zxSkTurnoverCheckMap" type="com.apih5.mybatis.pojo.ZxSkTurnoverIn" autoMapping="true">
+    <id column="inID" property="id" />
+    <collection property="zxSkTurnoverInItemList" ofType="com.apih5.mybatis.pojo.ZxSkTurnoverInItem" autoMapping="true">
+      <id column="id" property="id"/>
+      <result column="inQtyNew" property="inQty"/>
+      <result column="batchNoID" property="batchNo"/>
+      <result column="feeSum" property="oldFeeSum"/>
+      <result column="feeSum" property="feeSum"/>
+    </collection>
+  </resultMap>
+  <select id="getZxSkTurnoverCheckReceive" resultMap="zxSkTurnoverCheckMap" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverCheck">
+      select
+      zx_sk_turnoverin.id as inID,
+      zx_sk_turnoverin.billNo,
+      zx_sk_turnoverin.orgName,
+      zx_sk_turnoverin.orgID,
+      zx_sk_turnoverin.materialSource,
+      zx_sk_turnoverin.busDate,
+      zx_sk_turnoverin.taxRate,
+      zx_sk_turnoverin.isDeduct,
+      zx_sk_turnoverin.billNo as stockTransBillNo,
+      zx_sk_turnoverinitem.inQty - sum(IF(a.inQty IS NULL,0.00,a.inQty)) as inQtyNew,
+      zx_sk_turnoverinitem.inQty - sum(IF(a.inQty IS NULL,0.00,a.inQty)) as oldQty,
+      zx_sk_turnoverinitem.id as batchNoID,
+      zx_sk_turnoverinitem.*
+      from zx_sk_turnoverin
+              inner join zx_sk_turnoverinitem
+                  on zx_sk_turnoverin.id = zx_sk_turnoverinitem.billID
+              left join
+										(select inQty,batchNo from zx_sk_turnoverCheckItem
+												left join zx_sk_turnoverCheck
+													on zx_sk_turnoverCheckItem.billID = zx_sk_turnoverCheck.id
+                      where zx_sk_turnoverCheckItem.del_flag = 0
+                      and zx_sk_turnoverCheck.del_flag = 0
+                      and zx_sk_turnoverCheck.billStatus = 1
+                      and zx_sk_turnoverCheck.orgID = #{orgID}
+                      and zx_sk_turnoverCheck.outOrgID = #{outOrgID}
+											) as a
+                        on zx_sk_turnoverinitem.id = a.batchNo
+      where
+          zx_sk_turnoverin.del_flag = 0
+          and zx_sk_turnoverinitem.del_flag = 0
+          and zx_sk_turnoverin.status = 1
+          and zx_sk_turnoverinitem.precollecte = 1
+          and zx_sk_turnoverin.orgID = #{orgID}
+          and zx_sk_turnoverin.outOrgID = #{outOrgID}
+          GROUP BY 	zx_sk_turnoverinitem.id
+  </select>
+  <select id="getOldRemainAmt" resultType="com.apih5.mybatis.pojo.ZxSkTurnoverCheckItem" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverCheck">
+    select b.batchNo,sum(b.remainAmt) as remainAmt from
+    (SELECT
+    zx_sk_turnoverCheckItem.batchNo,
+    (select IF(sum(zx_sk_turnoverCheckItem.remainAmt) IS NULL,0.00,sum(zx_sk_turnoverCheckItem.remainAmt))
+    from zx_sk_turnoverCheck
+    left join zx_sk_turnoverCheckItem
+    on zx_sk_turnoverCheck.id = zx_sk_turnoverCheckItem.billID
+    where zx_sk_turnoverCheckItem.del_flag = 0
+    AND zx_sk_turnoverCheck.orgID = #{zxSkTurnoverCheck.orgID}
+    AND zx_sk_turnoverCheck.outOrgID = #{zxSkTurnoverCheck.outOrgID}
+    and zx_sk_turnoverCheck.billStatus = 1) +
+    <foreach collection="zxSkTurnoverInItemList" item="model" index="index" separator=" "
+             open="case zx_sk_turnoverCheckItem.batchNo" close="end">
+      when #{model.batchNo} then #{model.remainAmt}
+    </foreach>
+    as remainAmt
+    FROM
+    zx_sk_turnoverCheck
+    LEFT JOIN zx_sk_turnoverCheckItem ON zx_sk_turnoverCheck.id = zx_sk_turnoverCheckItem.billID
+    WHERE
+    zx_sk_turnoverCheck.del_flag = 0
+    AND zx_sk_turnoverCheckItem.del_flag = 0
+    AND zx_sk_turnoverCheck.orgID = #{zxSkTurnoverCheck.orgID}
+    AND zx_sk_turnoverCheck.outOrgID = #{zxSkTurnoverCheck.outOrgID}
+    AND zx_sk_turnoverCheckItem.batchNo IN
+    <foreach collection="zxSkTurnoverInItemList" item="model" open = "(" separator = "," close = ")">
+      #{model.batchNo}
+    </foreach>
+    UNION
+    select batchNo,
+    (originalQty -
+    <foreach collection="zxSkTurnoverInItemList" item = "model" index="index" separator=" " open="case zx_sk_turnoverstock.batchNo" close="end">
+      when #{model.batchNo} then #{model.inQty}
+    </foreach>
+    - (select IF(sum(zx_sk_turnoverCheckItem.inQty) IS NULL,0.00,sum(zx_sk_turnoverCheckItem.inQty))
+    from zx_sk_turnoverCheck
+    left join zx_sk_turnoverCheckItem
+    on zx_sk_turnoverCheck.id = zx_sk_turnoverCheckItem.billID
+    where zx_sk_turnoverCheckItem.del_flag = 0
+      AND zx_sk_turnoverCheck.orgID = #{zxSkTurnoverCheck.orgID}
+      AND zx_sk_turnoverCheck.outOrgID = #{zxSkTurnoverCheck.outOrgID}
+      and zx_sk_turnoverCheck.billStatus = 1)) * stockPrice as remainAmt
+    from zx_sk_turnoverstock
+      where del_flag = 0
+        and batchNo in
+          <foreach collection = "zxSkTurnoverInItemList" item = "model" open = "(" separator = "," close = ")" > #{model.batchNo}
+          </foreach>) as b
+    GROUP BY b.batchNo
+  </select>
+  <update id="updateStockRemainAmt" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverCheckItem">
+    update zx_sk_turnoverstock set remainAmt =
+    remainAmt +
+    (
+    <foreach collection="oldRemainAmt" item = "model" index="index" separator=" " open="case zx_sk_turnoverstock.batchNo" close="end">
+    when #{model.batchNo} then #{model.remainAmt}
+    </foreach>
+    -
+    (originalQty*stockPrice)
+    ),
+    ,zx_sk_turnoverstock.modify_time=
+    <foreach collection="zxSkTurnOverFeeShareItemListNew" item = "model" index="index" separator=" " open="case zx_sk_turnoverstock.batchNo" close="end">
+      when #{model.batchNo} then #{model.modifyTime,jdbcType=TIMESTAMP}
+    </foreach>
+    ,zx_sk_turnoverstock.modify_user=
+    <foreach collection="zxSkTurnOverFeeShareItemListNew" item = "model" index="index" separator=" " open="case zx_sk_turnoverstock.batchNo" close="end">
+      when #{model.batchNo} then #{model.modifyUser}
+    </foreach>
+    ,zx_sk_turnoverstock.modify_user_name=
+    <foreach collection="zxSkTurnOverFeeShareItemListNew" item = "model" index="index" separator=" " open="case zx_sk_turnoverstock.batchNo" close="end">
+      when #{model.batchNo} then #{model.modifyUserName}
+    </foreach>
+    where
+    zx_sk_turnoverstock.del_flag = 0
+    and zx_sk_turnoverstock.batchNo in
+    <foreach collection = "oldRemainAmt" item = "model" open = "(" separator = "," close = ")" >
+      #{model.batchNo}
+    </foreach>
+  </update>
+  <select id="getZxSkTurnoverCheckListForReport" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverCheck" >
+    select itc.orgName,itc.billNo,itc.invoiceNo,itc.busDate,
+    case itc.materialSource when '1' then '购入'
+    when '2' then '加工改制'
+    when '3' then '调拨'
+    else '其它' end as materialSource,
+    itc.ysdNo,itci.resCode as resCode,itci.resName as resName,itci.spec as spec,itci.resUnit as resUnit,
+    round(sum(IFNULL(itci.inQty,0)),3) as inQty,itci.inPrice as inPrice,
+    itci.inPriceNoTax as inPriceNoTax,
+    sum(IFNULL(itci.inAmt,0)) as inAmt,itci.feeSum,sum(IFNULL(itci.remainAmt,0)) as remainAmt,
+    itc.remarks
+    from zx_sk_turnovercheck itc left join zx_sk_turnovercheckitem itci on itc.ID=itci.billID
+    where itc.del_flag = '0'
+    and itc.busDate between #{beginDate,jdbcType=TIMESTAMP} and #{endDate,jdbcType=TIMESTAMP}
+    and (itci.resID=#{resID,jdbcType=VARCHAR} or #{resID,jdbcType=VARCHAR}='')
+    and itc.billStatus='已审核'
+    <if test="orgID != null and orgID != ''" >
+      and itc.orgID like CONCAT('%',CONCAT(#{orgID,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="orgName != null and orgName != ''" >
+      and itc.orgName like CONCAT('%',CONCAT(#{orgName,jdbcType=VARCHAR},'%'))
+    </if>
+    group by itc.orgName,itc.billNo,itc.invoiceNo,itc.busDate,itc.materialSource,itc.ysdNo,
+    itci.resCode,itci.resName,itci.spec,itci.resUnit,itci.inPrice,itci.inPriceNoTax,itci.feeSum,itc.remarks
+  </select>
+  <select id="getZxSkTurnoverCheckCount" parameterType="java.lang.String" resultType="int">
+    select count(*) from zx_sk_turnoverCheck where billNo like CONCAT('%',CONCAT(#{date},'%'))
+  </select>
+  <update id="checkZxSkTurnoverCheck">
+     update zx_sk_turnoverCheck
+      set   billStatus=#{billStatus},
+      modify_time=#{modifyTime,jdbcType=TIMESTAMP},
+      modify_user=#{modifyUser},
+      modify_user_name=#{modifyUserName}
+      where del_flag = '0' and id = #{id}
+  </update>
+  <select id="getZxSkTurnoverCheckSupplierList" parameterType="com.apih5.mybatis.pojo.ZxSkTurnoverCheck" resultType="com.apih5.mybatis.pojo.ZxCrCustomerNew">
+    select outOrgID as zxCrCustomerNewId,
+	     outOrgName as customerName
+			 from zx_sk_turnoverin where
+			 del_flag = '0'
+			 and status = '1'
+			 and orgID = #{orgID}
+			 GROUP BY outOrgID
+  </select>
+
+
+
+</mapper>

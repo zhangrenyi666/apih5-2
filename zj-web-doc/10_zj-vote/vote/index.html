@@ -1,0 +1,145 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5shiv.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<![endif]-->
+<link href="http://static.apih5.cn/lib/h-ui/css/H-ui.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://static.apih5.cn/lib/h-ui.admin/css/H-ui.admin.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://static.apih5.cn/lib/Hui-iconfont/1.0.8/iconfont.css"
+	rel="stylesheet" type="text/css" />
+
+<link
+	href="http://static.apih5.cn/lib/h-ui.admin/skin/default/skin.css"
+	rel="stylesheet" type="text/css" id="skin" />
+<link href="http://static.apih5.cn/lib/h-ui.admin/css/style.csss"
+	rel="stylesheet" type="text/css" />
+
+<!--[if IE 6]>
+<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>海威·投票系统</title>
+</head>
+
+<body>
+	<header class="navbar-wrapper">
+		<div class="navbar navbar-fixed-top">
+			<div class="container-fluid cl">
+				<li class="logo navbar-logo f-l mr-10 hidden-xs"
+					href="javascript:void(0)"><span
+					class="logo navbar-slogan f-l mr-10 hidden-xs"
+					style="font-size: 20px">海威&nbsp;<span
+						style="font-size: 25px; font-weight: bold">·</span>&nbsp;投票系统
+				</span></li> <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs"
+					href="javascript:;">&#xe667;</a>
+				<nav class="nav navbar-nav">
+					<ul class="cl">
+						<!-- <li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
+						<ul class="dropDown-menu menu radius box-shadow">
+							<li><a href="javascript:;" onclick="article_add('添加资讯','article-add.html')"><i class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
+							<li><a href="javascript:;" onclick="picture_add('添加资讯','picture-add.html')"><i class="Hui-iconfont">&#xe613;</i> 图片</a></li>
+							<li><a href="javascript:;" onclick="product_add('添加资讯','product-add.html')"><i class="Hui-iconfont">&#xe620;</i> 产品</a></li>
+							<li><a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')"><i class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
+					</ul> -->
+						</li>
+					</ul>
+				</nav>
+				<nav id="Hui-userbar"
+					class="nav navbar-nav navbar-userbar hidden-xs">
+					<ul class="cl">
+						<li id="Hui-skin" class="dropDown right dropDown_hover"><a
+							href="javascript:;" class="dropDown_A" title="换肤"><i
+								class="Hui-iconfont" style="font-size: 18px">&#xe62a;</i></a>
+							<ul class="dropDown-menu menu radius box-shadow">
+								<li><a href="javascript:;" data-val="default"
+									title="默认（黑色）">默认（黑色）</a></li>
+								<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
+								<li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
+								<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
+								<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
+								<li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
+							</ul></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<section>
+		<div id="Hui-tabNav" class="Hui-tabNav hidden-xs">
+			<div class="Hui-tabNav-wp"></div>
+			<div class="Hui-tabNav-more btn-group">
+				<a id="js-tabNav-prev" class="btn radius btn-default size-S"
+					href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i></a> <a
+					id="js-tabNav-next" class="btn radius btn-default size-S"
+					href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a>
+			</div>
+		</div>
+		<div id="iframe_box" class="Hui-article">
+			<div class="show_iframe">
+				<div style="display: none" class="loading"></div>
+				<iframe id="frame" scrolling="yes" frameborder="0" src=""></iframe>
+			</div>
+		</div>
+	</section>
+
+	<!--引入cdn公用模块-->
+	<script
+		src="http://static.apih5.cn/lib/jquery/1.9.1/jquery.min.js"
+		type="text/javascript"></script>
+	<script src="http://static.apih5.cn/lib/layer/2.4/layer.js"
+		type="text/javascript"></script>
+	<script src="http://static.apih5.cn/lib/h-ui/js/H-ui.min.js"
+		type="text/javascript"></script>
+	<script
+		src="http://static.apih5.cn/lib/h-ui.admin/js/H-ui.admin.js"
+		type="text/javascript"></script>
+	<!--引入cdn公用模块-->
+
+
+	<!--请在下方写此页面业务相关的脚本-->
+	<script type="text/javascript"
+		src="http://static.apih5.cn/lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
+	<script type="text/javascript">
+		//var userId = $.getUrlParam('userId');
+		$(document).ready(
+			function() {
+				(function($) {
+					$.getUrlParam = function(name) {
+					var reg = new RegExp("(^|&)" + name+ "=([^&]*)(&|$)");
+					var r = window.location.search.substr(1).match(reg);
+						if (r != null)
+							return unescape(r[2]);
+							return null;
+	}
+					})(jQuery);
+		var hwCode = $.getUrlParam('hwCode');
+		var hwOrg = $.getUrlParam('hwOrg');
+		var code = $.getUrlParam('code');		
+		//$("#frame").attr("src","ExternalVoteListByVoter.html?companyType=1&hwCode="+ hwCode + "&hwOrg="+ hwOrg + "");
+		$("#frame").attr("src","ExternalVoteListByVoter.html?companyType=1&hwCode="+ hwCode + "&hwOrg="+ hwOrg + "&code="+ code);		
+	});
+		$(function() {
+			$("body").Huitab({
+				tabBar : ".navbar-wrapper .navbar-levelone",
+				tabCon : ".Hui-aside .menu_dropdown",
+				className : "current",
+				index : 0,
+			});
+		});
+	</script>
+</body>
+
+</html>

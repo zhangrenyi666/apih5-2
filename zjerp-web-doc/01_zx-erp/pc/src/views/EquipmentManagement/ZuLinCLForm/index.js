@@ -1,0 +1,373 @@
+import React, { Component } from "react";
+import QnnTable from "../../modules/qnn-table";
+import QnnForm from "../../modules/qnn-table/qnn-form";
+import moment from 'moment';
+import { Button, Row, Col, Modal } from "antd";
+const confirm = Modal.confirm;
+class index extends Component {
+    constructor(props) {
+        super(props);
+        const curCompany = this.props.loginAndLogoutInfo.loginInfo.userInfo.curCompany;
+        const lockProject = this.props.loginAndLogoutInfo.loginInfo.userInfo?.lockProject;
+        this.state = {
+            departmentId: ((curCompany?.ext1 === '1' || curCompany?.ext1 === '2') && lockProject?.projectId) ? (lockProject.projectId !== 'all' ? lockProject.projectId : curCompany?.companyId) : curCompany?.projectId,
+            ext1: this.props.loginAndLogoutInfo.loginInfo.userInfo.curCompany.ext1,
+            lockID: ((curCompany?.ext1 === '1' || curCompany?.ext1 === '2') && lockProject?.projectId && lockProject?.projectId !== 'all') ? lockProject.projectId : null,
+            orgID: (curCompany?.ext1 === '1' || curCompany?.ext1 === '2') ? curCompany?.companyId : curCompany?.projectId,
+            lockProject
+        }
+    }
+    render() {
+        let { myPublic: { appInfo: { ureport } } } = this.props;
+        const { access_token } = this.props.loginAndLogoutInfo.loginInfo;
+        const { departmentId, ext1, lockID, orgID, lockProject } = this.state;
+        return (
+            <div>
+                <Row>
+                    <Col span={24}>
+                        <QnnForm
+                            fetch={this.props.myFetch}
+                            wrappedComponentRef={(me) => {
+                                this.formHasTicket = me;
+                            }}
+                            formItemLayout={{
+                                labelCol: {
+                                    xs: { span: 7 },
+                                    sm: { span: 7 }
+                                },
+                                wrapperCol: {
+                                    xs: { span: 17 },
+                                    sm: { span: 17 }
+                                }
+                            }}
+                            formConfig={[
+                                {
+                                    label: '单位名称',
+                                    field: 'comIDSearch',
+                                    type: 'select',
+                                    showSearch: true,
+                                    optionConfig: {
+                                        label: 'companyName',
+                                        value: 'companyId'
+                                    },
+                                    fetchConfig: {
+                                        apiName: 'getSysCompanyBySelect',
+                                        otherParams: { departmentId }
+                                    },
+                                    placeholder: '请选择',
+                                    span: 8,
+                                    hide: ext1 === '1' && lockProject.projectId && lockProject.projectId === 'all' ? false : true
+                                },
+                                {
+                                    label: '项目名称',
+                                    field: 'orgIDSearch',
+                                    type: 'select',
+                                    showSearch: true,
+                                    hide: () => {
+                                        if ((ext1 === '1' || ext1 === '2') && lockProject.projectId && lockProject.projectId === 'all') {
+                                            return false
+                                        }
+                                        return true
+                                    },
+                                    dependencies: ['comIDSearch'],
+                                    dependenciesReRender: true,
+                                    optionConfig: {
+                                        label: 'departmentName',
+                                        value: 'departmentId'
+                                    },
+                                    fetchConfig: {
+                                        apiName: 'getSysCompanyProjectList',
+                                        otherParams: (obj) => {
+                                            if (ext1 === '1' && lockProject.projectId && lockProject.projectId === 'all') {
+                                                return {
+                                                    companyId: obj?.form?.getFieldValue('comIDSearch')
+                                                }
+                                            }
+                                            return {
+                                                companyId: departmentId
+                                            }
+                                        }
+                                    },
+                                    placeholder: '请选择',
+                                    span: 8
+                                },
+                                {
+                                    type: 'string',
+                                    label: '设备名称',
+                                    field: 'equipName',
+                                    placeholder: '请输入',
+                                    span: 8
+                                },
+                                {
+                                    type: 'string',
+                                    label: '型号',
+                                    field: 'spec',
+                                    placeholder: '请输入',
+                                    span: 8
+                                },
+                                {
+                                    type: 'string',
+                                    label: '使用地点',
+                                    field: 'placeName',
+                                    placeholder: '请输入',
+                                    span: 8
+                                },
+                                {
+                                    type: 'date',
+                                    label: '开始时间',
+                                    field: 'inDate',
+                                    span: 8
+                                },
+                                {
+                                    type: 'date',
+                                    label: '结束时间',
+                                    field: 'outDate',
+                                    span: 8
+                                },
+                                {
+                                    type: 'component',
+                                    field: 'aa',
+                                    Component: obj => {
+                                        return (
+                                            <div style={{ textAlign: 'center', padding: '10px' }}><Button type="primary" onClick={() => {
+                                                this.table.refresh();
+                                            }}>查询</Button>
+                                                <Button type="primary" style={{ marginLeft: '10px' }} onClick={() => {
+                                                    confirm({
+                                                        content: '确定导出数据吗?',
+                                                        onOk: () => {
+                                                            let value = this.formHasTicket.form.getFieldsValue();
+                                                            let filter = []
+                                                            !lockID && !value.orgIDSearch && filter.push('&orgID=' + orgID)
+                                                            !value.orgIDSearch && lockID && filter.push('&orgIDLock=' + lockID)
+                                                            value.orgIDSearch && filter.push('&orgIDSearch=' + value.orgIDSearch)
+                                                            value.comIDSearch && filter.push('&comIDSearch=' + value.comIDSearch)
+                                                            value.equipName && filter.push('&equipName=' + value.equipName)
+                                                            value.spec && filter.push('&spec=' + value.spec)
+                                                            value.placeName && filter.push('&placeName=' + value.placeName)
+                                                            value.inDate && filter.push('&inDate=' + moment(value.inDate).valueOf())
+                                                            value.outDate && filter.push('&outDate=' + moment(value.outDate).valueOf())
+                                                            var URL = `${ureport}excel?_u=minio:租赁车辆配备情况统计表(月报).xml&access_token=${access_token}&delFlag=0&ureportFlag=1${filter.join('')}&_n=租赁车辆配备情况统计表`;
+                                                            window.open(URL);
+                                                        }
+                                                    })
+                                                }}>导出</Button></div>
+                                        );
+                                    },
+                                    span: 8
+                                }
+                            ]}
+                        />
+                    </Col>
+                </Row>
+                <QnnTable
+                    {...this.props}
+                    fetch={this.props.myFetch}
+                    wrappedComponentRef={(me) => {
+                        this.table = me;
+                    }}
+                    pageSize={9999}
+                    antd={{
+                        rowKey: 'id',
+                        size: 'small'
+                    }}
+                    paginationConfig={false}
+                    isShowRowSelect={false}
+                    fetchConfig={{
+                        apiName: 'getZxEqOuterEquipListForCar',
+                        otherParams: () => {
+                            let selectData = this.formHasTicket?.form?.getFieldsValue()
+                            return {
+                                orgID: lockID ? null : selectData?.orgIDSearch ? null : orgID,
+                                orgIDLock: selectData?.orgIDSearch ? null : lockID,
+                                orgIDSearch: selectData?.orgIDSearch,
+                                comIDSearch: selectData?.comIDSearch,
+                                equipName: selectData?.equipName,
+                                spec: selectData?.spec,
+                                placeName: selectData?.placeName,
+                                inDate: selectData?.inDate ? moment(selectData.inDate).valueOf() : null,
+                                outDate: selectData?.outDate ? moment(selectData?.outDate).valueOf() : null,
+                                ureportFlag: '1'
+                            }
+
+                        }
+
+                    }}
+                    formConfig={[
+                        {
+                            isInTable: false,
+                            form: {
+                                field: 'id',
+                                type: 'string',
+                                hide: true,
+                            }
+                        },
+                        {
+                            table: {
+                                title: '项目名称',
+                                dataIndex: 'orgName',
+                                key: 'orgName',
+                                width: 200,
+                            },
+                        },
+                        {
+                            table: {
+                                title: '开竣工日期',
+                                dataIndex: 'startEndDate',
+                                width: 150,
+                                key: 'startEndDate',
+                                format: 'YYYY-MM-DD'
+                            },
+                            isInForm: false
+                        },
+                        {
+                            table: {
+                                title: '设备名称',
+                                width: 200,
+                                dataIndex: 'equipName',
+                                key: 'equipName'
+                            },
+                            isInForm: false
+                        },
+                        {
+                            table: {
+                                title: '型号',
+                                dataIndex: 'spec',
+                                key: 'spec',
+                                width: 120,
+                            },
+                            isInForm: false
+                        },
+                        {
+                            table: {
+                                title: '规格',
+                                width: 120,
+                                dataIndex: 'model',
+                                key: 'model'
+                            },
+                            isInForm: false
+                        },
+                        {
+                            table: {
+                                title: '功率',
+                                width: 120,
+                                dataIndex: 'power',
+                                key: 'power'
+                            },
+                            isInForm: false
+                        },
+                        {
+                            table: {
+                                title: '生产厂家',
+                                width: 180,
+                                dataIndex: 'outfactory',
+                                key: 'outfactory'
+                            },
+                            isInForm: false
+                        },
+                        {
+                            table: {
+                                title: '出厂日期',
+                                width: 120,
+                                dataIndex: 'outfactoryDate',
+                                key: 'outfactoryDate',
+                                format: 'YYYY-MM-DD'
+                            },
+                            isInForm: false
+                        },
+                        {
+                            table: {
+                                title: '原值（元）',
+                                width: 120,
+                                dataIndex: 'orginalValue',
+                                key: 'orginalValue',
+                            },
+                            isInForm: false
+                        },
+                        // {
+                        //     table: {
+                        //         title: '使用地点',
+                        //         width: 120,
+                        //         dataIndex: 'placeName',
+                        //         key: 'placeName', 
+                        //         type: 'select',
+                        //     },
+                        //     form: {
+                        //         type: 'select',
+                        //         optionConfig: {
+                        //             label: 'itemName',
+                        //             value: 'itemId'
+                        //         },
+                        //         fetchConfig: {
+                        //             apiName: 'getBaseCodeSelect',
+                        //             otherParams: {
+                        //                 itemId: 'xingzhengquhuadaima'
+                        //             }
+                        //         }
+                        //     }
+                        // },
+                        {
+                            table: {
+                                title: '租赁起始时间',
+                                width: 120,
+                                dataIndex: 'inDate',
+                                key: 'inDate',
+                                format: 'YYYY-MM-DD'
+                            },
+                            isInForm: false
+                        },
+
+                        {
+                            table: {
+                                title: '租赁结束时间',
+                                width: 120,
+                                dataIndex: 'outDate',
+                                key: 'outDate',
+                                format: 'YYYY-MM-DD'
+                            },
+                            isInForm: false
+                        },
+                        {
+                            table: {
+                                title: '租赁价格（元/月）',
+                                width: 150,
+                                dataIndex: 'leaseprice',
+                                key: 'leaseprice',
+                            },
+                            isInForm: false
+                        },
+                        {
+                            table: {
+                                title: '租赁公司/机主姓名',
+                                width: 180,
+                                dataIndex: 'supOperator',
+                                key: 'supOperator'
+                            },
+                            isInForm: false
+                        },
+                        {
+                            table: {
+                                title: '牌照号',
+                                width: 150,
+                                dataIndex: 'passNo',
+                                key: 'passNo'
+                            },
+                            isInForm: false
+                        },
+                        {
+                            table: {
+                                title: '备注',
+                                width: 150,
+                                dataIndex: 'remark',
+                                key: 'remark'
+                            },
+                            isInForm: false
+                        }
+                    ]}
+                />
+            </div>
+        );
+    }
+}
+
+export default index;

@@ -1,0 +1,305 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+  <!--[if lt IE 9]>
+  <script type="text/javascript" src="../../lib/html5shiv.js"></script>
+  <script type="text/javascript" src="lib/respond.min.js"></script>
+  <![endif]-->
+
+  <link href="http://static.apih5.cn/lib/h-ui/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+  <link href="http://static.apih5.cn/lib/h-ui.admin/css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+  <link href="http://static.apih5.cn/lib/Hui-iconfont/1.0.8/iconfont.css" rel="stylesheet" type="text/css" />
+
+  <!--[if IE 6]>
+  <script type="text/javascript" src="../../lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+  <script>DD_belatedPNG.fix('*');</script>
+  <![endif]-->
+
+  <style>
+    #timerShaft {
+      position: relative;
+      display: block;
+      height: 100%;
+    }
+
+    .timerShaft-li {
+      width: 100%;
+      min-width: 1000px;
+      display: block;
+      position: relative;
+      margin: 10px 0;
+      /* border:1px solid red; */
+    }
+
+    .timerShaft-li-con {
+      width: 500px;
+      box-sizing: border-box;
+    }
+
+    .timerShaft-li-con .con {
+      width: 85%;
+      padding: 10px;
+      border: 1px solid #7bd7f9;
+      font-size: 16px;
+      position: relative;
+    }
+
+    .timerShaft-li::after {
+      content: '';
+      height: '';
+      display: block;
+      clear: both;
+      visibility: hidden;
+    }
+
+    .a-left .timerShaft-li-con {
+      float: right;
+      margin-right: 50%;
+    }
+
+    .a-right .timerShaft-li-con {
+      float: left;
+      margin-left: 50%;
+
+    }
+
+    .a-right .timerShaft-li-con .con {
+      float: right;
+      position: relative;
+    }
+
+    .a-left .dot {
+      width: 20px;
+      height: 20px;
+      background: url('./img/dot.png');
+      background-repeat: no-repeat;
+      background-position: left top;
+      background-size: 100% 100%;
+      filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./img/dot.png', sizingMethod='scale');
+      position: absolute;
+      right: -15%;
+      margin-right: 3px;
+      top: 46%;
+    }
+
+    .a-right .dot {
+      width: 20px;
+      height: 20px;
+      background: url('./img/dot.png');
+      background-repeat: no-repeat;
+      background-position: left top;
+      background-size: 100% 100%;
+      filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./img/dot.png', sizingMethod='scale');
+      position: absolute;
+      left: -15%;
+      margin-left: 2px;
+      top: 46%;
+    }
+
+    .a-left .arr {
+      width: 20px;
+      height: 20px;
+      /* border:1px solid red; */
+      background: url('./img/arr.png');
+      background-repeat: no-repeat;
+      background-position: left top;
+      background-size: 100% 100%;
+      filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./img/arr.png', sizingMethod='scale');
+      position: absolute;
+      left: 100%;
+      margin-left: -3px;
+      top: 46%;
+    }
+
+    .a-right .arr {
+      width: 20px;
+      height: 20px;
+      background: url('./img/arrR.png');
+      filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./img/arrR.png', sizingMethod='scale');
+      background-repeat: no-repeat;
+      background-position: left top;
+      background-size: 100% 100%;
+      position: absolute;
+      right: 100%;
+      margin-right: -3px;
+      top: 46%;
+    }
+
+    .center-line {
+      width: 3px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+      background: #7bd7f9;
+    }
+
+    .timerShaft-li-con .con ul {
+      width: 100%;
+      display: block;
+    }
+
+    .timerShaft-li-con .con ul li {
+      width: 100%;
+      list-style: none;
+      margin: 0 5px;
+      /* border:1px solid red; */
+      display: block;
+      margin: 0;
+      padding: 0;
+      background: white;
+      color: #7bd7f9;
+    }
+
+    .timerShaft-li-con .con ul li::after {
+      content: '';
+      height: '';
+      display: block;
+      clear: both;
+      visibility: hidden;
+    }
+
+    .timerShaft-li-con .con ul div {
+      width: 80%;
+      list-style: none;
+      margin: 0 8px;
+      /* border:1px solid red; */
+      display: block;
+      background: white;
+      color: #7bd7f9;
+      padding: 0 10px;
+      font-size: 16px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="page-container">
+    <h3>资产详情</h3>
+    <div id="tab-system" class="HuiTab">
+      <div class="tabBar cl">
+        <span>基本信息</span>
+        <span>子资产清单</span>
+      </div>
+      <div class="tabCon">
+        <div id="mainDetailLayer"></div>
+      </div>
+      <div class="tabCon" style="display:none">
+        <table id="table" class="table table-border table-bordered table-bg table-hover"></table>
+        <div class="cl">
+          <div id="pager" class="m-pagination f-r"></div>
+          <div class="f-l mt-10">
+            <button data-name="add" class="btn size-S btn-primary" type="button">
+              <i class="Hui-iconfont">&#xe600;</i> 新增</button>
+            <button data-name="edit" class="btn size-S ml-10  btn-primary" type="button">
+              <i class="Hui-iconfont">&#xe6df;</i> 编辑</button>
+            <button id="delete" data-name="del" class="btn size-S ml-10  btn-primary" type="button">
+              <i class="Hui-iconfont">&#xe6e2;</i> 删除</button>
+            <button id="delete" data-name="close" class="btn size-S ml-10  btn-primary" type="button">
+              <i class="Hui-iconfont">&#xe6e2;</i> 关闭</button>
+          </div>
+        </div>
+        <!--资产详情弹窗-->
+        <div id="detailLayer" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+  <!-- 选择树弹窗html结构 -->
+  <div id="pickTreeLayer" style="display:none">
+    <div class="page-container">
+      <table>
+        <tr>
+          <td style="width:100px;text-align:right">填报人员：</td>
+          <td>
+            <div class="pickTree">
+              <ul id="pickTreeListCache" class="cl"></ul>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div id="pickTreeTab" class="HuiTab mt-10" style="border: solid 1px #ddd;">
+              <div class="tabBar cl">
+                <span id="pickTreeTabD">部门</span>
+                <span id="pickTreeTabM">成员</span>
+              </div>
+              <div class="tabCon">
+                <div style="height:320px;overflow-y: scroll;">
+                  <ul id="pickTreeTreeD" class="ztree">正在加载部门列表</ul>
+                </div>
+              </div>
+              <div class="tabCon cl">
+                <div class="f-l" style="width:50%;height:320px;overflow-y: scroll;">
+                  <ul id="pickTreeTreeM" class="ztree">正在加载成员列表</ul>
+                </div>
+                <div class="f-l" style="width:50%;height:320px;overflow-y: scroll;">
+                  <ul id="memberList" class="memberList"></ul>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="pt-10">
+              <button data-name="pickTreeSave" class="btn btn-primary" type="button">
+                <i class="Hui-iconfont">&#xe632;</i> 保存</button>
+              <button data-name="pickTreeClose" class="btn btn-primary" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  </div>
+  <!--引入cdn公用模块-->
+  <script src="http://static.apih5.cn/lib/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+  <script src="http://static.apih5.cn/lib/layer/2.4/layer.js" type="text/javascript"></script>
+  <script src="http://static.apih5.cn/lib/h-ui/js/H-ui.min.js" type="text/javascript"></script>
+  <script src="http://static.apih5.cn/lib/h-ui.admin/js/H-ui.admin.js" type="text/javascript"></script>
+  <!--引入cdn公用模块-->
+
+  <!--引入cdn特定模块-->
+  <link href="http://static.apih5.cn/lib/JqueryPagination/jquery.pagination.css" type="text/css" rel="stylesheet" />
+  <script src="http://static.apih5.cn/lib/datatables/1.10.0/jquery.dataTables.min.js" type="text/javascript"></script>
+  <script src="http://static.apih5.cn/lib/JqueryPagination/jquery.pagination-1.2.7.js" type="text/javascript"></script>
+  <script src="http://static.apih5.cn/lib/My97DatePicker/4.8/WdatePicker.js" type="text/javascript"></script>
+  <link href="http://static.apih5.cn/lib/zTree/v3/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" type="text/css">
+  <script src="http://static.apih5.cn/lib/zTree/v3/js/jquery.ztree.core-3.5.js" type="text/javascript"></script>
+  <script src="http://static.apih5.cn/lib/zTree/v3/js/jquery.ztree.excheck-3.5.js" type="text/javascript"></script>
+  <!--引入cdn特定模块-->
+
+  <!--引入local公用模块-->
+  <link href="http://static.apih5.cn/public/main.css" type="text/css" rel="stylesheet" />
+  <link href="http://static.apih5.cn/public/pickMember/pickMember.css" type="text/css" rel="stylesheet" />
+  <script src="http://static.apih5.cn/public/lny.2.0.js" type="text/javascript"></script>
+  <script src="http://static.apih5.cn/public/pickMember/pickMember.js" type="text/javascript"></script>
+  <link href="http://static.apih5.cn/public/upload/upload.css" type="text/css" rel="stylesheet" />
+  <script src="http://static.apih5.cn/public/upload/upload.js" type="text/javascript"></script>
+  <script src="http://static.apih5.cn/public/pickTree/pickTree.js" type="text/javascript"></script>
+  <link href="http://static.apih5.cn/public/pickTree/pickTree.css" type="text/css" rel="stylesheet" />
+  <script src="http://static.apih5.cn/lib/ajaxfileupload/ajaxfileupload.js" type="text/javascript"></script>
+  <!--引入local公用模块-->
+
+  <!--引入local特定模块-->
+  <script src="js/main.js" type="text/javascript"></script>
+  <script src="js/assetDetailsAdd.js" type="text/javascript"></script>
+  <!--引入local特定模块-->
+
+
+</body>
+
+</html>

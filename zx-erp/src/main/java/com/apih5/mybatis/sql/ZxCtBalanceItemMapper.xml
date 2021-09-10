@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxCtBalanceItemMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxCtBalanceItem" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="balID" property="balID" jdbcType="VARCHAR" />
+    <result column="muID" property="muID" jdbcType="VARCHAR" />
+    <result column="workID" property="workID" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="balQty" property="balQty" jdbcType="DECIMAL" />
+    <result column="balAltQty" property="balAltQty" jdbcType="DECIMAL" />
+    <result column="balAmt" property="balAmt" jdbcType="DECIMAL" />
+    <result column="reqQty" property="reqQty" jdbcType="DECIMAL" />
+    <result column="reqAltQty" property="reqAltQty" jdbcType="DECIMAL" />
+    <result column="reqAmt" property="reqAmt" jdbcType="DECIMAL" />
+    <result column="combProp" property="combProp" jdbcType="VARCHAR" />
+    <result column="pp1" property="pp1" jdbcType="VARCHAR" />
+    <result column="pp2" property="pp2" jdbcType="VARCHAR" />
+    <result column="pp3" property="pp3" jdbcType="VARCHAR" />
+    <result column="pp4" property="pp4" jdbcType="VARCHAR" />
+    <result column="pp5" property="pp5" jdbcType="VARCHAR" />
+    <result column="pp6" property="pp6" jdbcType="VARCHAR" />
+    <result column="pp7" property="pp7" jdbcType="VARCHAR" />
+    <result column="pp8" property="pp8" jdbcType="VARCHAR" />
+    <result column="pp9" property="pp9" jdbcType="VARCHAR" />
+    <result column="pp10" property="pp10" jdbcType="VARCHAR" />
+    <result column="editTime" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="changeAltAmt" property="changeAltAmt" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, balID, muID, workID, price, 
+    balQty, balAltQty, balAmt, reqQty, reqAltQty, 
+    reqAmt, combProp, pp1, pp2, pp3, 
+    pp4, pp5, pp6, pp7, pp8, 
+    pp9, pp10, editTime, changeAltAmt, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_BalanceItem
+    where del_flag = '0' and id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_ct_BalanceItem
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxCtBalanceItem" >
+    insert into zx_ct_BalanceItem (
+    id, balID, muID, workID, price, 
+    balQty, balAltQty, balAmt, reqQty, reqAltQty, 
+    reqAmt, combProp, pp1, pp2, pp3, 
+    pp4, pp5, pp6, pp7, pp8, 
+    pp9, pp10, editTime, changeAltAmt, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+      )
+    values (
+      #{id,jdbcType=CHAR}, #{balID,jdbcType=VARCHAR}, #{muID,jdbcType=VARCHAR}, #{workID,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+    #{balQty,jdbcType=DECIMAL}, #{balAltQty,jdbcType=DECIMAL}, #{balAmt,jdbcType=DECIMAL}, #{reqQty,jdbcType=DECIMAL}, #{reqAltQty,jdbcType=DECIMAL}, 
+    #{reqAmt,jdbcType=DECIMAL}, #{combProp,jdbcType=VARCHAR}, #{pp1,jdbcType=VARCHAR}, #{pp2,jdbcType=VARCHAR}, #{pp3,jdbcType=VARCHAR}, 
+    #{pp4,jdbcType=VARCHAR}, #{pp5,jdbcType=VARCHAR}, #{pp6,jdbcType=VARCHAR}, #{pp7,jdbcType=VARCHAR}, #{pp8,jdbcType=VARCHAR}, 
+    #{pp9,jdbcType=VARCHAR}, #{pp10,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, #{changeAltAmt,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR}, 
+    #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+    #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxCtBalanceItem" >
+    insert into zx_ct_BalanceItem
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="balID != null" >
+        balID,
+      </if>
+      <if test="muID != null" >
+        muID,
+      </if>
+      <if test="workID != null" >
+        workID,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="balQty != null" >
+        balQty,
+      </if>
+      <if test="balAltQty != null" >
+        balAltQty,
+      </if>
+      <if test="balAmt != null" >
+        balAmt,
+      </if>
+      <if test="reqQty != null" >
+        reqQty,
+      </if>
+      <if test="reqAltQty != null" >
+        reqAltQty,
+      </if>
+      <if test="reqAmt != null" >
+        reqAmt,
+      </if>
+      <if test="combProp != null" >
+        combProp,
+      </if>
+      <if test="pp1 != null" >
+        pp1,
+      </if>
+      <if test="pp2 != null" >
+        pp2,
+      </if>
+      <if test="pp3 != null" >
+        pp3,
+      </if>
+      <if test="pp4 != null" >
+        pp4,
+      </if>
+      <if test="pp5 != null" >
+        pp5,
+      </if>
+      <if test="pp6 != null" >
+        pp6,
+      </if>
+      <if test="pp7 != null" >
+        pp7,
+      </if>
+      <if test="pp8 != null" >
+        pp8,
+      </if>
+      <if test="pp9 != null" >
+        pp9,
+      </if>
+      <if test="pp10 != null" >
+        pp10,
+      </if>
+      <if test="editTime != null" >
+        editTime,
+      </if>
+      <if test="changeAltAmt != null" >
+        changeAltAmt,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="balID != null" >
+        #{balID,jdbcType=VARCHAR},
+      </if>
+      <if test="muID != null" >
+        #{muID,jdbcType=VARCHAR},
+      </if>
+      <if test="workID != null" >
+        #{workID,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="balQty != null" >
+        #{balQty,jdbcType=DECIMAL},
+      </if>
+      <if test="balAltQty != null" >
+        #{balAltQty,jdbcType=DECIMAL},
+      </if>
+      <if test="balAmt != null" >
+        #{balAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="reqQty != null" >
+        #{reqQty,jdbcType=DECIMAL},
+      </if>
+      <if test="reqAltQty != null" >
+        #{reqAltQty,jdbcType=DECIMAL},
+      </if>
+      <if test="reqAmt != null" >
+        #{reqAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="combProp != null" >
+        #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="pp1 != null" >
+        #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2 != null" >
+        #{pp2,jdbcType=VARCHAR},
+      </if>
+      <if test="pp3 != null" >
+        #{pp3,jdbcType=VARCHAR},
+      </if>
+      <if test="pp4 != null" >
+        #{pp4,jdbcType=VARCHAR},
+      </if>
+      <if test="pp5 != null" >
+        #{pp5,jdbcType=VARCHAR},
+      </if>
+      <if test="pp6 != null" >
+        #{pp6,jdbcType=VARCHAR},
+      </if>
+      <if test="pp7 != null" >
+        #{pp7,jdbcType=VARCHAR},
+      </if>
+      <if test="pp8 != null" >
+        #{pp8,jdbcType=VARCHAR},
+      </if>
+      <if test="pp9 != null" >
+        #{pp9,jdbcType=VARCHAR},
+      </if>
+      <if test="pp10 != null" >
+        #{pp10,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changeAltAmt != null" >
+        #{changeAltAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxCtBalanceItem" >
+    update zx_ct_BalanceItem
+    <set >
+      <if test="balID != null" >
+        balID = #{balID,jdbcType=VARCHAR},
+      </if>
+      <if test="muID != null" >
+        muID = #{muID,jdbcType=VARCHAR},
+      </if>
+      <if test="workID != null" >
+        workID = #{workID,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="balQty != null" >
+        balQty = #{balQty,jdbcType=DECIMAL},
+      </if>
+      <if test="balAltQty != null" >
+        balAltQty = #{balAltQty,jdbcType=DECIMAL},
+      </if>
+      <if test="balAmt != null" >
+        balAmt = #{balAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="reqQty != null" >
+        reqQty = #{reqQty,jdbcType=DECIMAL},
+      </if>
+      <if test="reqAltQty != null" >
+        reqAltQty = #{reqAltQty,jdbcType=DECIMAL},
+      </if>
+      <if test="reqAmt != null" >
+        reqAmt = #{reqAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="combProp != null" >
+        combProp = #{combProp,jdbcType=VARCHAR},
+      </if>
+      <if test="pp1 != null" >
+        pp1 = #{pp1,jdbcType=VARCHAR},
+      </if>
+      <if test="pp2 != null" >
+        pp2 = #{pp2,jdbcType=VARCHAR},
+      </if>
+      <if test="pp3 != null" >
+        pp3 = #{pp3,jdbcType=VARCHAR},
+      </if>
+      <if test="pp4 != null" >
+        pp4 = #{pp4,jdbcType=VARCHAR},
+      </if>
+      <if test="pp5 != null" >
+        pp5 = #{pp5,jdbcType=VARCHAR},
+      </if>
+      <if test="pp6 != null" >
+        pp6 = #{pp6,jdbcType=VARCHAR},
+      </if>
+      <if test="pp7 != null" >
+        pp7 = #{pp7,jdbcType=VARCHAR},
+      </if>
+      <if test="pp8 != null" >
+        pp8 = #{pp8,jdbcType=VARCHAR},
+      </if>
+      <if test="pp9 != null" >
+        pp9 = #{pp9,jdbcType=VARCHAR},
+      </if>
+      <if test="pp10 != null" >
+        pp10 = #{pp10,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null" >
+        editTime = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changeAltAmt != null" >
+        changeAltAmt = #{changeAltAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxCtBalanceItem" >
+    update zx_ct_BalanceItem set 
+      balID = #{balID,jdbcType=VARCHAR},
+      muID = #{muID,jdbcType=VARCHAR},
+      workID = #{workID,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      balQty = #{balQty,jdbcType=DECIMAL},
+      balAltQty = #{balAltQty,jdbcType=DECIMAL},
+      balAmt = #{balAmt,jdbcType=DECIMAL},
+      reqQty = #{reqQty,jdbcType=DECIMAL},
+      reqAltQty = #{reqAltQty,jdbcType=DECIMAL},
+      reqAmt = #{reqAmt,jdbcType=DECIMAL},
+      combProp = #{combProp,jdbcType=VARCHAR},
+      pp1 = #{pp1,jdbcType=VARCHAR},
+      pp2 = #{pp2,jdbcType=VARCHAR},
+      pp3 = #{pp3,jdbcType=VARCHAR},
+      pp4 = #{pp4,jdbcType=VARCHAR},
+      pp5 = #{pp5,jdbcType=VARCHAR},
+      pp6 = #{pp6,jdbcType=VARCHAR},
+      pp7 = #{pp7,jdbcType=VARCHAR},
+      pp8 = #{pp8,jdbcType=VARCHAR},
+      pp9 = #{pp9,jdbcType=VARCHAR},
+      pp10 = #{pp10,jdbcType=VARCHAR},
+      editTime = #{editTime,jdbcType=TIMESTAMP},
+      changeAltAmt = #{changeAltAmt,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxCtBalanceItemList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtBalanceItem" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_ct_BalanceItem
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=CHAR}
+    </if>
+    <if test="balID != null and balID != ''" >
+     and balID = #{balID,jdbcType=VARCHAR}
+    </if>
+    <if test="muID != null and muID != ''" >
+     and muID = #{muID,jdbcType=VARCHAR}
+    </if>
+    <if test="workID != null and workID != ''" >
+     and workID = #{workID,jdbcType=VARCHAR}
+    </if>
+    <if test="price != null and price != ''" >
+     and price = #{price,jdbcType=DECIMAL}
+    </if>
+    <if test="balQty != null and balQty != ''" >
+     and balQty = #{balQty,jdbcType=DECIMAL}
+    </if>
+    <if test="balAltQty != null and balAltQty != ''" >
+     and balAltQty = #{balAltQty,jdbcType=DECIMAL}
+    </if>
+    <if test="balAmt != null and balAmt != ''" >
+     and balAmt = #{balAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="reqQty != null and reqQty != ''" >
+     and reqQty = #{reqQty,jdbcType=DECIMAL}
+    </if>
+    <if test="reqAltQty != null and reqAltQty != ''" >
+     and reqAltQty = #{reqAltQty,jdbcType=DECIMAL}
+    </if>
+    <if test="reqAmt != null and reqAmt != ''" >
+     and reqAmt = #{reqAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="combProp != null and combProp != ''" >
+     and combProp = #{combProp,jdbcType=VARCHAR}
+    </if>
+    <if test="pp1 != null and pp1 != ''" >
+     and pp1 = #{pp1,jdbcType=VARCHAR}
+    </if>
+    <if test="pp2 != null and pp2 != ''" >
+     and pp2 = #{pp2,jdbcType=VARCHAR}
+    </if>
+    <if test="pp3 != null and pp3 != ''" >
+     and pp3 = #{pp3,jdbcType=VARCHAR}
+    </if>
+    <if test="pp4 != null and pp4 != ''" >
+     and pp4 = #{pp4,jdbcType=VARCHAR}
+    </if>
+    <if test="pp5 != null and pp5 != ''" >
+     and pp5 = #{pp5,jdbcType=VARCHAR}
+    </if>
+    <if test="pp6 != null and pp6 != ''" >
+     and pp6 = #{pp6,jdbcType=VARCHAR}
+    </if>
+    <if test="pp7 != null and pp7 != ''" >
+     and pp7 = #{pp7,jdbcType=VARCHAR}
+    </if>
+    <if test="pp8 != null and pp8 != ''" >
+     and pp8 = #{pp8,jdbcType=VARCHAR}
+    </if>
+    <if test="pp9 != null and pp9 != ''" >
+     and pp9 = #{pp9,jdbcType=VARCHAR}
+    </if>
+    <if test="pp10 != null and pp10 != ''" >
+     and pp10 = #{pp10,jdbcType=VARCHAR}
+    </if>
+    <if test="editTime != null and editTime != ''" >
+     and editTime = #{editTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="changeAltAmt != null and changeAltAmt != ''" >
+     and changeAltAmt = #{changeAltAmt,jdbcType=DECIMAL}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxCtBalanceItem" parameterType="com.apih5.mybatis.pojo.ZxCtBalanceItem" >
+    <![CDATA[ 
+        update zx_ct_BalanceItem
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+    
+	<select id="getNowWorksBalance" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxCtBalanceItem" >
+    	SELECT
+			* 
+		FROM
+			zx_ct_balanceitem ibi 
+		WHERE ibi.del_flag = '0'
+		AND ibi.balID IN ( SELECT ib.id FROM zx_ct_balance ib WHERE ib.del_flag = '0' AND ib.orgID = #{orgID,jdbcType=VARCHAR} AND ib.period = #{period,jdbcType=VARCHAR} ) 
+	</select>
+  
+</mapper>

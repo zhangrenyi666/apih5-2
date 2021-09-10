@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.apih5</groupId>
+  	<artifactId>apih5</artifactId>
+  	<version>1.0.0-SNAPSHOT</version>
+ 	<packaging>pom</packaging>
+
+ 	<name>apih5</name>
+  	<description>apih5 project</description>
+  	<url>http://www.apih5.com</url>
+  	
+  	<developers>
+    	<developer>
+        	<name>apih5</name>
+      	</developer>
+  	</developers>
+    
+    <!-- 子模块 -->
+    <modules>
+    	<module>apih5-core</module>
+    	<module>apih5-other-api</module>
+    	<module>apih5-pom</module>
+    	<module>apih5-web</module>
+        <module>apih5-gateway2</module>
+  </modules>
+  	
+  	<!-- 解决依赖版本冲突 -->
+	<!-- <parent>
+        <groupId>io.spring.platform</groupId>
+        <artifactId>platform-bom</artifactId>
+        <version>Cairo-SR7</version>
+        <relativePath/>
+    </parent> -->
+    <!-- 特殊的starter，提供相关的Maven默认依赖。使用它之后，常用的包依赖可以省去version标签 -->    
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.8.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    
+    <!-- 版本统一管理 -->
+    <properties>
+        <apih5.version>1.0.0-SNAPSHOT</apih5.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <!-- 数据库相关 -->
+        <pagehelper-spring-boot-starter.version>1.2.3</pagehelper-spring-boot-starter.version><!-- Mybatis 分页插件 --><!-- 2017.09 -->
+        <!-- 【mybatis-spring-boot-starter】  【mybatis-plus-boot-starter】
+                            里面对应的mybatis.jar版本必须一样，有的时候【mybatis-spring-boot-starter】再仓位里面没有，
+                            仓库地址mvnrepository.com  -->
+        <mybatis-spring-boot-starter.version>2.0.1</mybatis-spring-boot-starter.version><!-- 2017.08 -->
+        <mybatis-plus-boot-starter.version>3.1.2</mybatis-plus-boot-starter.version>
+        <druid-spring-boot-starter.version>1.1.9</druid-spring-boot-starter.version><!-- 2017.12 -->
+        
+		<!-- 工具辅助类 -->
+        <jsoup.version>1.11.2</jsoup.version><!-- 解析网页爬虫 --><!-- 2017.11 -->
+        <swagger.version>2.9.2</swagger.version><!-- 2018.01 -->
+        <hutool.version>5.3.10</hutool.version><!-- 2018.01 -->
+        <!-- 新版本3.17 -->
+        <poi.version>4.1.0</poi.version>
+        <jxls.version>1.0.6</jxls.version>
+        <kotlin.version>1.1.2</kotlin.version>
+        
+        <!-- 微服务版本 -->
+        <!-- 微服务版本  Greenwich.RELEASE 使用consul替换了eureka和config，用gateway替代zuul-->
+        <spring-cloud.version>Greenwich.SR3</spring-cloud.version>
+        <spring-cloud-alibaba.version>2.1.1.RELEASE</spring-cloud-alibaba.version>
+    </properties>
+    
+    <!-- 依赖包 -->
+    <dependencyManagement>
+        <dependencies>
+        	<dependency>
+                <groupId>com.apih5</groupId>
+                <artifactId>apih5-pom</artifactId>
+                <version>${apih5.version}</version>
+            </dependency>
+        	<dependency>
+                <groupId>com.apih5</groupId>
+                <artifactId>apih5-core</artifactId>
+                <version>${apih5.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.apih5</groupId>
+                <artifactId>apih5-other-api</artifactId>
+                <version>${apih5.version}</version>
+            </dependency>
+            <!-- 微服务 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- 微服务-阿里 -->
+            <dependency>
+			    <groupId>com.alibaba.cloud</groupId>
+			    <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+			    <version>${spring-cloud-alibaba.version}</version>
+			    <type>pom</type>
+			    <scope>import</scope>
+			</dependency>
+           
+            <!-- 数据库相关 -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper-spring-boot-starter.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>mybatis-spring-boot-starter</artifactId>
+                        <groupId>org.mybatis.spring.boot</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.mybatis</groupId>
+                        <artifactId>mybatis</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.mybatis</groupId>
+                        <artifactId>mybatis-spring</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            
+            <!-- 工具类 -->
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId>
+                <version>${jsoup.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-scratchpad</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.jxls</groupId>
+                <artifactId>jxls-core</artifactId>
+                <version>${jxls.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+	<!-- maven包获取地址配置 -->
+    <repositories>
+        <repository>
+            <id>ali maven</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
+    
+    <build>
+        <!-- idea的时使用，eclipse不用 -->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <configuration>
+                        <fork>true</fork>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

@@ -1,0 +1,33 @@
+package com.apih5.service;
+
+import java.util.List;
+import com.apih5.framework.entity.ResponseEntity;
+import com.apih5.mybatis.pojo.ZxSkStockTransferMaterialRequisition;
+
+public interface ZxSkStockTransferMaterialRequisitionService {
+
+    public ResponseEntity getZxSkStockTransferMaterialRequisitionListByCondition(ZxSkStockTransferMaterialRequisition zxSkStockTransferMaterialRequisition);
+
+    public ResponseEntity getZxSkStockTransferMaterialRequisitionDetails(ZxSkStockTransferMaterialRequisition zxSkStockTransferMaterialRequisition);
+
+    public ResponseEntity saveZxSkStockTransferMaterialRequisition(ZxSkStockTransferMaterialRequisition zxSkStockTransferMaterialRequisition);
+
+    public ResponseEntity updateZxSkStockTransferMaterialRequisition(ZxSkStockTransferMaterialRequisition zxSkStockTransferMaterialRequisition);
+
+    public ResponseEntity batchDeleteUpdateZxSkStockTransferMaterialRequisition(List<ZxSkStockTransferMaterialRequisition> zxSkStockTransferMaterialRequisitionList);
+
+    public ResponseEntity checkZxSkStockTransferMaterialRequisition(ZxSkStockTransferMaterialRequisition zxSkStockTransferMaterialRequisition);
+
+    public ResponseEntity getZxSkStockTransferMaterialRequisitionNo(ZxSkStockTransferMaterialRequisition zxSkStockTransferMaterialRequisition);
+
+    public ResponseEntity getZxSkStockTransferMaterialRequisitionInOrgName(ZxSkStockTransferMaterialRequisition zxSkStockTransferMaterialRequisition);
+
+    public ResponseEntity getZxSkStockTransferMaterialRequisitionCbsName(ZxSkStockTransferMaterialRequisition zxSkStockTransferMaterialRequisition);
+
+    public ResponseEntity getZxSkStockTransferMaterialRequisitionResourceName(ZxSkStockTransferMaterialRequisition zxSkStockTransferMaterialRequisition);
+
+    public ResponseEntity getZxSkStockTransferMaterialRequisitionResName(ZxSkStockTransferMaterialRequisition zxSkStockTransferMaterialRequisition);
+
+
+}
+

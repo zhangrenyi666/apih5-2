@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxEqAssetSellMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxEqAssetSell" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="outOrgID" property="outOrgID" jdbcType="VARCHAR" />
+    <result column="outOrgName" property="outOrgName" jdbcType="VARCHAR" />
+    <result column="innerTran" property="innerTran" jdbcType="VARCHAR" />
+    <result column="inOrgID" property="inOrgID" jdbcType="VARCHAR" />
+    <result column="inOrgName" property="inOrgName" jdbcType="VARCHAR" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="busDate" property="busDate" jdbcType="TIMESTAMP" />
+    <result column="inDate" property="inDate" jdbcType="TIMESTAMP" />
+    <result column="outman2" property="outman2" jdbcType="VARCHAR" />
+    <result column="outman1" property="outman1" jdbcType="VARCHAR" />
+    <result column="outman5" property="outman5" jdbcType="VARCHAR" />
+    <result column="outman3" property="outman3" jdbcType="VARCHAR" />
+    <result column="outman4" property="outman4" jdbcType="VARCHAR" />
+    <result column="inman1" property="inman1" jdbcType="VARCHAR" />
+    <result column="inman2" property="inman2" jdbcType="VARCHAR" />
+    <result column="inman3" property="inman3" jdbcType="VARCHAR" />
+    <result column="auditStatus" property="auditStatus" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="orderID" property="orderID" jdbcType="VARCHAR" />
+    <result column="approvalNo" property="approvalNo" jdbcType="VARCHAR" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, outOrgID, outOrgName, innerTran, inOrgID, 
+    inOrgName, reason, busDate, inDate, outman2, 
+    outman1, outman5, outman3, outman4, inman1, 
+    inman2, inman3, auditStatus, remark, orderID, 
+    approvalNo, comID, comName, del_flag, create_time, 
+    create_user, create_user_name, modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_AssetSell
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_eq_AssetSell
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxEqAssetSell" >
+    insert into zx_eq_AssetSell (id, outOrgID, outOrgName, 
+      innerTran, inOrgID, inOrgName, 
+      reason, busDate, inDate, 
+      outman2, outman1, outman5, 
+      outman3, outman4, inman1, 
+      inman2, inman3, auditStatus, 
+      remark, orderID, approvalNo, 
+      comID, comName, del_flag, 
+      create_time, create_user, create_user_name, 
+      modify_time, modify_user, modify_user_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{outOrgID,jdbcType=VARCHAR}, #{outOrgName,jdbcType=VARCHAR}, 
+      #{innerTran,jdbcType=VARCHAR}, #{inOrgID,jdbcType=VARCHAR}, #{inOrgName,jdbcType=VARCHAR}, 
+      #{reason,jdbcType=VARCHAR}, #{busDate,jdbcType=TIMESTAMP}, #{inDate,jdbcType=TIMESTAMP}, 
+      #{outman2,jdbcType=VARCHAR}, #{outman1,jdbcType=VARCHAR}, #{outman5,jdbcType=VARCHAR}, 
+      #{outman3,jdbcType=VARCHAR}, #{outman4,jdbcType=VARCHAR}, #{inman1,jdbcType=VARCHAR}, 
+      #{inman2,jdbcType=VARCHAR}, #{inman3,jdbcType=VARCHAR}, #{auditStatus,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{orderID,jdbcType=VARCHAR}, #{approvalNo,jdbcType=VARCHAR}, 
+      #{comID,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxEqAssetSell" >
+    insert into zx_eq_AssetSell
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="outOrgID != null" >
+        outOrgID,
+      </if>
+      <if test="outOrgName != null" >
+        outOrgName,
+      </if>
+      <if test="innerTran != null" >
+        innerTran,
+      </if>
+      <if test="inOrgID != null" >
+        inOrgID,
+      </if>
+      <if test="inOrgName != null" >
+        inOrgName,
+      </if>
+      <if test="reason != null" >
+        reason,
+      </if>
+      <if test="busDate != null" >
+        busDate,
+      </if>
+      <if test="inDate != null" >
+        inDate,
+      </if>
+      <if test="outman2 != null" >
+        outman2,
+      </if>
+      <if test="outman1 != null" >
+        outman1,
+      </if>
+      <if test="outman5 != null" >
+        outman5,
+      </if>
+      <if test="outman3 != null" >
+        outman3,
+      </if>
+      <if test="outman4 != null" >
+        outman4,
+      </if>
+      <if test="inman1 != null" >
+        inman1,
+      </if>
+      <if test="inman2 != null" >
+        inman2,
+      </if>
+      <if test="inman3 != null" >
+        inman3,
+      </if>
+      <if test="auditStatus != null" >
+        auditStatus,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="orderID != null" >
+        orderID,
+      </if>
+      <if test="approvalNo != null" >
+        approvalNo,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgID != null" >
+        #{outOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgName != null" >
+        #{outOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="innerTran != null" >
+        #{innerTran,jdbcType=VARCHAR},
+      </if>
+      <if test="inOrgID != null" >
+        #{inOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="inOrgName != null" >
+        #{inOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null" >
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="busDate != null" >
+        #{busDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inDate != null" >
+        #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outman2 != null" >
+        #{outman2,jdbcType=VARCHAR},
+      </if>
+      <if test="outman1 != null" >
+        #{outman1,jdbcType=VARCHAR},
+      </if>
+      <if test="outman5 != null" >
+        #{outman5,jdbcType=VARCHAR},
+      </if>
+      <if test="outman3 != null" >
+        #{outman3,jdbcType=VARCHAR},
+      </if>
+      <if test="outman4 != null" >
+        #{outman4,jdbcType=VARCHAR},
+      </if>
+      <if test="inman1 != null" >
+        #{inman1,jdbcType=VARCHAR},
+      </if>
+      <if test="inman2 != null" >
+        #{inman2,jdbcType=VARCHAR},
+      </if>
+      <if test="inman3 != null" >
+        #{inman3,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="orderID != null" >
+        #{orderID,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalNo != null" >
+        #{approvalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxEqAssetSell" >
+    update zx_eq_AssetSell
+    <set >
+      <if test="outOrgID != null" >
+        outOrgID = #{outOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrgName != null" >
+        outOrgName = #{outOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="innerTran != null" >
+        innerTran = #{innerTran,jdbcType=VARCHAR},
+      </if>
+      <if test="inOrgID != null" >
+        inOrgID = #{inOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="inOrgName != null" >
+        inOrgName = #{inOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null" >
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="busDate != null" >
+        busDate = #{busDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inDate != null" >
+        inDate = #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outman2 != null" >
+        outman2 = #{outman2,jdbcType=VARCHAR},
+      </if>
+      <if test="outman1 != null" >
+        outman1 = #{outman1,jdbcType=VARCHAR},
+      </if>
+      <if test="outman5 != null" >
+        outman5 = #{outman5,jdbcType=VARCHAR},
+      </if>
+      <if test="outman3 != null" >
+        outman3 = #{outman3,jdbcType=VARCHAR},
+      </if>
+      <if test="outman4 != null" >
+        outman4 = #{outman4,jdbcType=VARCHAR},
+      </if>
+      <if test="inman1 != null" >
+        inman1 = #{inman1,jdbcType=VARCHAR},
+      </if>
+      <if test="inman2 != null" >
+        inman2 = #{inman2,jdbcType=VARCHAR},
+      </if>
+      <if test="inman3 != null" >
+        inman3 = #{inman3,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        auditStatus = #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="orderID != null" >
+        orderID = #{orderID,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalNo != null" >
+        approvalNo = #{approvalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxEqAssetSell" >
+    update zx_eq_AssetSell
+    set       outOrgID = #{outOrgID,jdbcType=VARCHAR},
+      outOrgName = #{outOrgName,jdbcType=VARCHAR},
+      innerTran = #{innerTran,jdbcType=VARCHAR},
+      inOrgID = #{inOrgID,jdbcType=VARCHAR},
+      inOrgName = #{inOrgName,jdbcType=VARCHAR},
+      reason = #{reason,jdbcType=VARCHAR},
+      busDate = #{busDate,jdbcType=TIMESTAMP},
+      inDate = #{inDate,jdbcType=TIMESTAMP},
+      outman2 = #{outman2,jdbcType=VARCHAR},
+      outman1 = #{outman1,jdbcType=VARCHAR},
+      outman5 = #{outman5,jdbcType=VARCHAR},
+      outman3 = #{outman3,jdbcType=VARCHAR},
+      outman4 = #{outman4,jdbcType=VARCHAR},
+      inman1 = #{inman1,jdbcType=VARCHAR},
+      inman2 = #{inman2,jdbcType=VARCHAR},
+      inman3 = #{inman3,jdbcType=VARCHAR},
+      auditStatus = #{auditStatus,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      orderID = #{orderID,jdbcType=VARCHAR},
+      approvalNo = #{approvalNo,jdbcType=VARCHAR},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByZxEqAssetSellList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxEqAssetSell" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_eq_AssetSell
+    where del_flag = '0'
+    <if test="outOrgID != null and outOrgID != ''" >
+     and outOrgID = #{outOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="outOrgName != null and outOrgName != ''" >
+     and outOrgName = #{outOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="innerTran != null and innerTran != ''" >
+     and innerTran = #{innerTran,jdbcType=VARCHAR}
+    </if>
+    <if test="inOrgID != null and inOrgID != ''" >
+     and inOrgID = #{inOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="inOrgName != null and inOrgName != ''" >
+     and inOrgName = #{inOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="reason != null and reason != ''" >
+     and reason = #{reason,jdbcType=VARCHAR}
+    </if>
+    <if test="busDate != null and busDate != ''" >
+     and busDate = #{busDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="inDate != null and inDate != ''" >
+     and inDate = #{inDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="outman2 != null and outman2 != ''" >
+     and outman2 = #{outman2,jdbcType=VARCHAR}
+    </if>
+    <if test="outman1 != null and outman1 != ''" >
+     and outman1 = #{outman1,jdbcType=VARCHAR}
+    </if>
+    <if test="outman5 != null and outman5 != ''" >
+     and outman5 = #{outman5,jdbcType=VARCHAR}
+    </if>
+    <if test="outman3 != null and outman3 != ''" >
+     and outman3 = #{outman3,jdbcType=VARCHAR}
+    </if>
+    <if test="outman4 != null and outman4 != ''" >
+     and outman4 = #{outman4,jdbcType=VARCHAR}
+    </if>
+    <if test="inman1 != null and inman1 != ''" >
+     and inman1 = #{inman1,jdbcType=VARCHAR}
+    </if>
+    <if test="inman2 != null and inman2 != ''" >
+     and inman2 = #{inman2,jdbcType=VARCHAR}
+    </if>
+    <if test="inman3 != null and inman3 != ''" >
+     and inman3 = #{inman3,jdbcType=VARCHAR}
+    </if>
+    <if test="auditStatus != null and auditStatus != ''" >
+     and auditStatus = #{auditStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="remark != null and remark != ''" >
+     and remark = #{remark,jdbcType=VARCHAR}
+    </if>
+    <if test="orderID != null and orderID != ''" >
+     and orderID = #{orderID,jdbcType=VARCHAR}
+    </if>
+    <if test="approvalNo != null and approvalNo != ''" >
+     and approvalNo = #{approvalNo,jdbcType=VARCHAR}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="seeFlagForJu != null and seeFlagForJu != ''" >
+     and auditStatus != '0'
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxEqAssetSell" parameterType="com.apih5.mybatis.pojo.ZxEqAssetSell" >
+    <![CDATA[ 
+        update zx_eq_AssetSell
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

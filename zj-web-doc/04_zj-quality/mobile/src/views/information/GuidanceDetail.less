@@ -1,0 +1,122 @@
+    // 导入主less
+    @url-base: "../../";
+    @import "@{url-base}main.less";
+    @img-logo: url("@{url-base}@{url-logo}");
+    @img-cloud: url("@{url-base}@{url-cloud}"); // 声明图片
+    @pageName: DatumDetail;
+    .@{mainName} {
+        &-@{pageName} {
+            height: 100%;
+            overflow: auto;
+            &-modelBox {
+                margin: 10px 5px;
+                padding-bottom: 15px;
+                border: 2px @color-blue solid;
+                background-color: @color-white;
+                &-hd {
+                    width: 100%;
+                    height: 42px;
+                    background: @img-logo no-repeat;
+                    background-size: 140px 24px;
+                    position: relative;
+                    &-title {
+                        position: absolute;
+                        left: 20px;
+                        padding-top: 3px;
+                        color: @color-white
+                    }
+                }
+                &-bd {
+                    &-title {
+                        width: auto;
+                        margin: 0px 15px;
+                        font-size: 17px;
+                        font-weight: bold;
+                    }
+                    &-content {
+                        width: auto;
+                        border-top: 1px @color-blue dashed;
+                        margin: 7px 15px 0;
+                        padding-top: 7px;
+                        font-size: 14px;
+                        word-spacing: 4px;
+                        letter-spacing: 1.5px;
+                        line-height: 22px;
+                    }
+                }
+            }
+            .accessoryItem+.accessoryItem {
+                margin-top: 10px;
+            }
+            .accessoryItem {
+                display: flex;
+                width: auto;
+                margin: 0px 15px;
+                border: 1px @color-gray solid;
+                border-radius: 5px;
+                box-sizing: border-box;
+                padding: 5px 0;
+                line-height: 30px;
+                font-size: 13px;
+                color: @color-gray;
+                .title {
+                    flex: 1;
+                    padding: 0 10px;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+                .btn {
+                    display: block;
+                    height: 30px;
+                    width: 30px;
+                    padding: 0 10px;
+                    font-size: 13px;
+                    background: @img-cloud no-repeat center;
+                    background-size: 25px 25px;
+                }
+                .size {
+                    padding: 0 10px;
+                    border-right: 1px @color-gray dashed;
+                }
+            }
+            .videoItem {
+                width: auto;
+                .text {
+                    padding: 10px 15px;
+                }
+                .content {
+                    width: auto;
+                    height: auto;
+                    padding: 2.5px 15px;
+                    font-size: 14px;
+                    word-spacing: 2px;
+                    letter-spacing: .5px;
+                    line-height: 22px
+                }
+            }
+            .videoTitle{
+                font-size: 12px;
+                padding: 5px 10px;
+                line-height: 20px;
+                color: @color-white;
+                background: @color-gray;
+            }
+            .videoBottom {
+                display: flex;
+                padding: 5px 10px;
+                line-height: 20px;
+                color: @color-white;
+                background: @color-gray;
+                font-size: 12px;
+                .size {
+                    flex: 1;
+                    padding: 0 10px;
+                }
+                .time {
+                    flex: 1;
+                    padding: 0 10px;
+                }
+            }
+        }
+    }

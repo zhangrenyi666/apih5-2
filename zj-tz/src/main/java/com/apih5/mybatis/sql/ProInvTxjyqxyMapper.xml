@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ProInvTxjyqxyMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ProInvTxjyqxy" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="inv_htinfo_id" property="invHtinfoId" jdbcType="CHAR" />
+    <result column="xh" property="xh" jdbcType="INTEGER" />
+    <result column="agreement_name" property="agreementName" jdbcType="VARCHAR" />
+    <result column="htjf" property="htjf" jdbcType="VARCHAR" />
+    <result column="htyf" property="htyf" jdbcType="VARCHAR" />
+    <result column="ht_money" property="htMoney" jdbcType="DECIMAL" />
+    <result column="htqd_date" property="htqdDate" jdbcType="TIMESTAMP" />
+    <result column="yy" property="yy" jdbcType="INTEGER" />
+    <result column="yyqs_date" property="yyqsDate" jdbcType="TIMESTAMP" />
+    <result column="ht_file" property="htFile" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, inv_htinfo_id, xh, agreement_name, htjf, 
+    htyf, ht_money, htqd_date, yy, yyqs_date, 
+    ht_file
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from del_flag = '0' and pro_inv_txjyqxy
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from pro_inv_txjyqxy
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ProInvTxjyqxy" >
+    insert into pro_inv_txjyqxy (id, inv_htinfo_id, xh, 
+      agreement_name, htjf, htyf, 
+      ht_money, htqd_date, yy, 
+      yyqs_date, ht_file
+      )
+    values (#{id,jdbcType=CHAR}, #{invHtinfoId,jdbcType=CHAR}, #{xh,jdbcType=INTEGER}, 
+      #{agreementName,jdbcType=VARCHAR}, #{htjf,jdbcType=VARCHAR}, #{htyf,jdbcType=VARCHAR}, 
+      #{htMoney,jdbcType=DECIMAL}, #{htqdDate,jdbcType=TIMESTAMP}, #{yy,jdbcType=INTEGER}, 
+      #{yyqsDate,jdbcType=TIMESTAMP}, #{htFile,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ProInvTxjyqxy" >
+    insert into pro_inv_txjyqxy
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="invHtinfoId != null" >
+        inv_htinfo_id,
+      </if>
+      <if test="xh != null" >
+        xh,
+      </if>
+      <if test="agreementName != null" >
+        agreement_name,
+      </if>
+      <if test="htjf != null" >
+        htjf,
+      </if>
+      <if test="htyf != null" >
+        htyf,
+      </if>
+      <if test="htMoney != null" >
+        ht_money,
+      </if>
+      <if test="htqdDate != null" >
+        htqd_date,
+      </if>
+      <if test="yy != null" >
+        yy,
+      </if>
+      <if test="yyqsDate != null" >
+        yyqs_date,
+      </if>
+      <if test="htFile != null" >
+        ht_file,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="invHtinfoId != null" >
+        #{invHtinfoId,jdbcType=CHAR},
+      </if>
+      <if test="xh != null" >
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="agreementName != null" >
+        #{agreementName,jdbcType=VARCHAR},
+      </if>
+      <if test="htjf != null" >
+        #{htjf,jdbcType=VARCHAR},
+      </if>
+      <if test="htyf != null" >
+        #{htyf,jdbcType=VARCHAR},
+      </if>
+      <if test="htMoney != null" >
+        #{htMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="htqdDate != null" >
+        #{htqdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="yy != null" >
+        #{yy,jdbcType=INTEGER},
+      </if>
+      <if test="yyqsDate != null" >
+        #{yyqsDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="htFile != null" >
+        #{htFile,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ProInvTxjyqxy" >
+    update pro_inv_txjyqxy
+    <set >
+      <if test="invHtinfoId != null" >
+        inv_htinfo_id = #{invHtinfoId,jdbcType=CHAR},
+      </if>
+      <if test="xh != null" >
+        xh = #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="agreementName != null" >
+        agreement_name = #{agreementName,jdbcType=VARCHAR},
+      </if>
+      <if test="htjf != null" >
+        htjf = #{htjf,jdbcType=VARCHAR},
+      </if>
+      <if test="htyf != null" >
+        htyf = #{htyf,jdbcType=VARCHAR},
+      </if>
+      <if test="htMoney != null" >
+        ht_money = #{htMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="htqdDate != null" >
+        htqd_date = #{htqdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="yy != null" >
+        yy = #{yy,jdbcType=INTEGER},
+      </if>
+      <if test="yyqsDate != null" >
+        yyqs_date = #{yyqsDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="htFile != null" >
+        ht_file = #{htFile,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ProInvTxjyqxy" >
+    update pro_inv_txjyqxy
+    set       inv_htinfo_id = #{invHtinfoId,jdbcType=CHAR},
+      xh = #{xh,jdbcType=INTEGER},
+      agreement_name = #{agreementName,jdbcType=VARCHAR},
+      htjf = #{htjf,jdbcType=VARCHAR},
+      htyf = #{htyf,jdbcType=VARCHAR},
+      ht_money = #{htMoney,jdbcType=DECIMAL},
+      htqd_date = #{htqdDate,jdbcType=TIMESTAMP},
+      yy = #{yy,jdbcType=INTEGER},
+      yyqs_date = #{yyqsDate,jdbcType=TIMESTAMP},
+      ht_file = #{htFile,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByProInvTxjyqxyList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ProInvTxjyqxy" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_inv_txjyqxy
+    where 1=1
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=}
+    </if>
+    <if test="invHtinfoId != null and invHtinfoId != ''" >
+     and inv_htinfo_id = #{invHtinfoId,jdbcType=CHAR}
+    </if>
+    <if test="xh != null and xh != ''" >
+     and xh = #{xh,jdbcType=INTEGER}
+    </if>
+    <if test="agreementName != null and agreementName != ''" >
+     and agreement_name = #{agreementName,jdbcType=VARCHAR}
+    </if>
+    <if test="htjf != null and htjf != ''" >
+     and htjf = #{htjf,jdbcType=VARCHAR}
+    </if>
+    <if test="htyf != null and htyf != ''" >
+     and htyf = #{htyf,jdbcType=VARCHAR}
+    </if>
+    <if test="htMoney != null and htMoney != ''" >
+     and ht_money = #{htMoney,jdbcType=DECIMAL}
+    </if>
+    <if test="htqdDate != null and htqdDate != ''" >
+     and htqd_date = #{htqdDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="yy != null and yy != ''" >
+     and yy = #{yy,jdbcType=INTEGER}
+    </if>
+    <if test="yyqsDate != null and yyqsDate != ''" >
+     and yyqs_date = #{yyqsDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="htFile != null and htFile != ''" >
+     and ht_file = #{htFile,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <delete id="batchDeleteUpdateProInvTxjyqxy" parameterType="com.apih5.mybatis.pojo.ProInvTxjyqxy" >
+    <![CDATA[ 
+        update pro_inv_txjyqxy
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+</mapper>

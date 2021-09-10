@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- 所有地图都应当在这个页面呈现 -->
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>地图</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                background: #06386d;
+            }
+
+            #myIframe {
+                width: 100%;
+                height: 100%;
+                background: url('./map/img/loading.gif');
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-color: #06386d;
+            }
+
+            .tzGoBackBtn {
+                position: fixed;
+                top: 0px;
+                width: 10%;
+                text-align: center;
+                padding: 8px 0px;
+                left: 10px;
+                color: #fff;
+                font-size: .9em;
+                cursor: pointer;
+                left: 45%;
+                background: #0099FF;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+
+            .tzGoBackBtn img {
+                vertical-align: middle;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="tzGoBackBtn" style="display: none;">
+            返回地图页
+        </div>
+        <iframe id="myIframe" src="" frameborder="0"></iframe>
+    </body>
+
+</html>
+<script src="config.js"></script>
+<script src="map/lib/jquery.min.js"></script>
+<script src="map/js/comm.js"></script>
+<script>
+
+    var code = w.getUrlParam('code');
+    w.setCookie('code',code,30);
+
+    $(function () {
+        $('body').css({
+            height: $(window).height()
+        })
+        $('#myIframe').attr('src',window.config.provinceUrl[window.config.model] + '?code=' + code)
+        //页面样式自适应  )
+        $('#myIframe').css({
+            width: '100%',
+            height: $(window).height()
+        })
+        $(window).resize(function () {
+            $('#myIframe').css({
+                width: '100%',
+                height: $(window).height()
+            })
+            //调用子集的自适应方法
+        })
+
+
+        //投资页面返回按钮
+        $('.tzGoBackBtn').click(function () {
+            var goBeforeUrl = window.localStorage.getItem('goBeforeUrl');
+            // window.location.href = goBeforeUrl;  
+            changeIframeSrc(goBeforeUrl)
+        })
+
+        //判断是不是ie 需要切换下背景 
+        // var isIE = window.w.isIE();
+        // if (isIE === '1') {//ie 
+        //     $('#myIframe').css({
+        //         filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://weixin.fheb.cn:99/woaMapCdn/loading.gif', sizingMethod='scale')"
+        //     })
+        // }
+    })
+
+    //切换iframe地址
+    function changeIframeSrc(src) {
+        if (src.indexOf('tz=true') !== -1) {
+            //投资页面 
+            $('.tzGoBackBtn').fadeIn('slow');
+        } else {
+            $('.tzGoBackBtn').fadeOut('slow');
+        }
+        $('#myIframe').attr('src',src);
+    }
+</script>

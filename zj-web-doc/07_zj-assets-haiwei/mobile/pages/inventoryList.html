@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+	<meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>盘点记录</title>
+	<link rel="stylesheet" type="text/css" href="../css/inventoryList.css">
+	<script src="../lib/jquery/1.9.1/jquery.min.js"></script>
+	<script src="../lib/layer_mobile/layer.js"></script>
+	<script src="../js/login.js"></script>
+	<script src="../js/common.js"></script>
+    <script src="../js/main.js"></script>
+
+	<!-- <script src="http://weixin.fheb.cn:90/cdn/public/lny.js" type="text/javascript"></script> -->
+
+</head>
+
+<body>
+	<div class="inventoryList">
+		<div class="part1">
+			<span class="title">盘点记录</span>
+		</div>
+		<div class="part2">
+			<ul id="dataList">
+
+			</ul>
+		</div>
+		<!-- <div class="footer"> -->
+		<div class="footer" style="display:none">
+			<a class="btn" id="addRecordBtn">添加记录</a>
+			<!-- onclick="addRecord()" -->
+			<!-- <a class="btn" onclick="batchAddRecord()">批量添加记录</a> -->
+
+		</div>
+	</div>
+	<script type="text/javascript">
+		var recordId;// 资产记录ID
+		var dataList;// 盘点记录列表
+
+		window.login(function () {
+
+			$('#addRecordBtn').click(function () {
+				addRecord()
+			})
+
+			// var code = getUrl('token')
+			// setCookie('code', code, 30)
+			// console.log(code);
+			// 页面刷新加载方法
+			window.onload = function () {
+				request();
+				localStorage.removeItem("refreshState");
+				//inventoryList();// 盘点记录查询
+			}
+
+			//返回数组中的最大值
+			Array.max = function (array) {
+				return Math.max.apply(Math, array);
+			};
+
+
+
+			//设置cookie  
+			function setCookie(cname, cvalue, exdays) {
+				var d = new Date();
+				d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+				var expires = "expires=" + d.toUTCString();
+				document.cookie = cname + "=" + cvalue + "; " + expires;
+			}
+			//获取cookie  
+			function getCookie(cname) {
+				var name = cname + "=";
+				var ca = document.cookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') c = c.substring(1);
+					if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+				}
+				return "";
+			}
+			function getUrl(k) {//获取地址栏参数，k为键名
+				var m = new RegExp("(^|&)" + k + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(m);
+				if (r != null) return decodeURI(r[2]); return null;
+			}
+
+
+
+
+			//获取盘点列表传递的参数
+			function request() {
+				var url = location.href;
+				var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+				var paraObj = {};
+				for (i = 0; j = paraString[i]; i++) {
+					paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+				}
+				recordId = noNull(paraObj.id);
+				inventoryList();// 盘点记录详情查询
+			}
+
+			// 添加记录
+			function addRecord() {
+				window.location.href = "inventoryAdd.html?recordid=" + recordId
+			}
+			// 批量新增
+			function batchAddRecord() {
+				window.location.href = "./batchInventoryList.html";
+			}
+
+			// 盘点记录查询
+			function inventoryList() {
+				var param = {
+					recordid: recordId
+				}
+
+				l.ajax('getWeChatInventoryList', param, function (data, message, success) {
+					if (success) {
+						dataList = noNull(data);// 详情数据
+						if (dataList == '') {
+							$('.footer').show()
+						}
+						loopList();// 遍历盘点列表
+					}
+				})
+				 
+			}
+
+			// 遍历盘点列表
+			function loopList() {
+				var $str = "";
+				if (dataList != "") {
+					$("#dataList li").remove();
+					var timeList = [];//取最大的一个时间戳 就是最近的一次
+					$.each(dataList, function (i, item) {
+						var img = '';
+						var color = '';
+						if (item.pdjgdm == '2') {//相符样式
+							img = '../img/greenCorrect.png';
+						} else {//不相符样式
+							img = '../img/svg/tanhao.svg';
+							color = 'red';
+						}
+						timeList.push(item.pdrq);
+						$str += '<li id=' + item.recordid + ' onclick="listDetail($(this))">';
+						$str += '<div class="left">';
+						$str += '<div class="content1">';
+						$str += '<img src=" ' + img + ' ">',
+							$str += '<span class="normalText" style="color:' + color + ';">   ' + noNull(item.pdjgmc) + '</span>';
+						$str += '</div>';
+						$str += '<div class="content2">设备盘点记录</div>';
+						$str += '<div class="content3">';
+						$str += '<span class="time">' + dateFormat(new Date(noNull(item.pdrq)), "yyyy-MM-dd") + '&nbsp;</span>';
+						$str += '<span class="person">' + noNull(item.modifyUser) + '</span>';
+						$str += '</div>';
+						$str += '</div>';
+						$str += '<div class="right"><img src="../img/right.png"></div>';
+						$str += '</li>';
+					});
+
+					var max = Array.max(timeList)
+					//判断是否显示按钮
+					var newDate = new Date().getTime();
+					var jisuan = (newDate - max) / 1000 / 60 / 60 / 24;
+					if (jisuan > 30) {
+						$('.footer').show()
+					}
+
+					$("#dataList").append($str);
+				}
+			}
+
+
+		})
+
+
+		// 链接详情
+		function listDetail(dom) {
+			var id = dom[0].id;// 记录ID
+			window.location.href = "inventoryDetail.html?recordid=" + recordId + "&detailid=" + id
+		}
+
+
+	</script>
+</body>
+
+</html>

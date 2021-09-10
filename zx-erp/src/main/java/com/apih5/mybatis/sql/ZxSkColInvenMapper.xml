@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZxSkColInvenMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZxSkColInven" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="orgID" property="orgID" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="customerOrgID" property="customerOrgID" jdbcType="VARCHAR" />
+    <result column="customerOrgName" property="customerOrgName" jdbcType="VARCHAR" />
+    <result column="makeInvDate" property="makeInvDate" jdbcType="TIMESTAMP" />
+    <result column="intransactor" property="intransactor" jdbcType="VARCHAR" />
+    <result column="reporter" property="reporter" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="auditor" property="auditor" jdbcType="VARCHAR" />
+    <result column="comID" property="comID" jdbcType="VARCHAR" />
+    <result column="comName" property="comName" jdbcType="VARCHAR" />
+    <result column="makeInvPeriod" property="makeInvPeriod" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, orgID, orgName, customerOrgID, customerOrgName, 
+    makeInvDate, intransactor, reporter, status, auditor, 
+    comID, comName, makeInvPeriod, remarks, sort, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_colInven
+    where del_flag = '0' and id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zx_sk_colInven
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZxSkColInven" >
+    insert into zx_sk_colInven (
+    id, orgID, orgName, customerOrgID, customerOrgName, 
+    makeInvDate, intransactor, reporter, status, auditor, 
+    comID, comName, makeInvPeriod, remarks, sort, 
+    del_flag, create_time, create_user, create_user_name, modify_time, 
+    modify_user, modify_user_name
+      )
+    values (
+      #{id,jdbcType=CHAR}, #{orgID,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, #{customerOrgID,jdbcType=VARCHAR}, #{customerOrgName,jdbcType=VARCHAR}, 
+    #{makeInvDate,jdbcType=TIMESTAMP}, #{intransactor,jdbcType=VARCHAR}, #{reporter,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{auditor,jdbcType=VARCHAR}, 
+    #{comID,jdbcType=VARCHAR}, #{comName,jdbcType=VARCHAR}, #{makeInvPeriod,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+    #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+    #{modifyUser,jdbcType=CHAR}, #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZxSkColInven" >
+    insert into zx_sk_colInven
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orgID != null" >
+        orgID,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="customerOrgID != null" >
+        customerOrgID,
+      </if>
+      <if test="customerOrgName != null" >
+        customerOrgName,
+      </if>
+      <if test="makeInvDate != null" >
+        makeInvDate,
+      </if>
+      <if test="intransactor != null" >
+        intransactor,
+      </if>
+      <if test="reporter != null" >
+        reporter,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="auditor != null" >
+        auditor,
+      </if>
+      <if test="comID != null" >
+        comID,
+      </if>
+      <if test="comName != null" >
+        comName,
+      </if>
+      <if test="makeInvPeriod != null" >
+        makeInvPeriod,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="orgID != null" >
+        #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerOrgID != null" >
+        #{customerOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="customerOrgName != null" >
+        #{customerOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="makeInvDate != null" >
+        #{makeInvDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="intransactor != null" >
+        #{intransactor,jdbcType=VARCHAR},
+      </if>
+      <if test="reporter != null" >
+        #{reporter,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null" >
+        #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="makeInvPeriod != null" >
+        #{makeInvPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZxSkColInven" >
+    update zx_sk_colInven
+    <set >
+      <if test="orgID != null" >
+        orgID = #{orgID,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerOrgID != null" >
+        customerOrgID = #{customerOrgID,jdbcType=VARCHAR},
+      </if>
+      <if test="customerOrgName != null" >
+        customerOrgName = #{customerOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="makeInvDate != null" >
+        makeInvDate = #{makeInvDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="intransactor != null" >
+        intransactor = #{intransactor,jdbcType=VARCHAR},
+      </if>
+      <if test="reporter != null" >
+        reporter = #{reporter,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null" >
+        auditor = #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="comID != null" >
+        comID = #{comID,jdbcType=VARCHAR},
+      </if>
+      <if test="comName != null" >
+        comName = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="makeInvPeriod != null" >
+        makeInvPeriod = #{makeInvPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZxSkColInven" >
+    update zx_sk_colInven set 
+      orgID = #{orgID,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      customerOrgID = #{customerOrgID,jdbcType=VARCHAR},
+      customerOrgName = #{customerOrgName,jdbcType=VARCHAR},
+      makeInvDate = #{makeInvDate,jdbcType=TIMESTAMP},
+      intransactor = #{intransactor,jdbcType=VARCHAR},
+      reporter = #{reporter,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      auditor = #{auditor,jdbcType=VARCHAR},
+      comID = #{comID,jdbcType=VARCHAR},
+      comName = #{comName,jdbcType=VARCHAR},
+      makeInvPeriod = #{makeInvPeriod,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="selectByZxSkColInvenList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkColInven" >
+    select 
+    <include refid="Base_Column_List" />
+    from zx_sk_colInven
+    where del_flag = '0'
+    <if test="id != null and id != ''" >
+     and id = #{id,jdbcType=CHAR}
+    </if>
+    <if test="orgID != null and orgID != ''" >
+     and orgID = #{orgID,jdbcType=VARCHAR}
+    </if>
+    <if test="orgName != null and orgName != ''" >
+     and orgName = #{orgName,jdbcType=VARCHAR}
+    </if>
+    <if test="customerOrgID != null and customerOrgID != ''" >
+     and customerOrgID = #{customerOrgID,jdbcType=VARCHAR}
+    </if>
+    <if test="customerOrgName != null and customerOrgName != ''" >
+     and customerOrgName = #{customerOrgName,jdbcType=VARCHAR}
+    </if>
+    <if test="timeList != null" >
+     and makeInvDate BETWEEN
+      <foreach collection="timeList" index="index" item="item" separator="AND">
+        DATE_FORMAT(#{item},"%Y-%m-%d")
+      </foreach>
+    </if>
+    <if test="intransactor != null and intransactor != ''" >
+     and intransactor = #{intransactor,jdbcType=VARCHAR}
+    </if>
+    <if test="reporter != null and reporter != ''" >
+     and reporter = #{reporter,jdbcType=VARCHAR}
+    </if>
+    <if test="status != null and status != ''" >
+     and status = #{status,jdbcType=VARCHAR}
+    </if>
+    <if test="auditor != null and auditor != ''" >
+     and auditor = #{auditor,jdbcType=VARCHAR}
+    </if>
+    <if test="comID != null and comID != ''" >
+     and comID = #{comID,jdbcType=VARCHAR}
+    </if>
+    <if test="comName != null and comName != ''" >
+     and comName = #{comName,jdbcType=VARCHAR}
+    </if>
+    <if test="makeInvPeriod != null and makeInvPeriod != ''" >
+     and makeInvPeriod = #{makeInvPeriod,jdbcType=VARCHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null and createTime != ''" >
+     and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createUser != null and createUser != ''" >
+     and create_user = #{createUser,jdbcType=CHAR}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyTime != null and modifyTime != ''" >
+     and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="modifyUser != null and modifyUser != ''" >
+     and modify_user = #{modifyUser,jdbcType=CHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZxSkColInven" parameterType="com.apih5.mybatis.pojo.ZxSkColInven" >
+    <![CDATA[ 
+        update zx_sk_colInven
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.id} 
+     </foreach>
+  </delete>
+
+  <select id="getZxSkColInvenInOrgList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZxSkColInven">
+     select
+     inOrgID as customerOrgID,
+     inOrgName as customerOrgName
+        from zx_sk_StockTransfer_Material_requisition
+        where outOrgID = #{orgID}  and del_flag = '0' and billStatus = '1'
+        GROUP BY inOrgID
+  </select>
+  <select id="getZxSkColInvenResourceList" resultType="com.apih5.mybatis.pojo.ZxSkColInvenItem" parameterType="com.apih5.mybatis.pojo.ZxSkColInven">
+    select * from(
+       select
+         requisition.del_flag,
+         requisitionItem.id,
+         requisitionItem.resCode,
+         requisitionItem.resID,
+         requisitionItem.resName,
+         requisitionItem.spec,
+         requisitionItem.resUnit as unit,
+  --        sum(requisitionItem.outQty),
+         requisitionItem.stdPrice as price
+      from zx_sk_StockTransfer_Material_requisition as requisition
+              left join zx_sk_stocktransitem_material_requisition as requisitionItem
+              on requisition.id = requisitionItem.billID
+          where  requisition.del_flag = '0'
+                  and requisitionItem.del_flag = '0'
+                  and requisition.billStatus = '1'
+                  and requisition.outOrgID = #{orgID}
+                  and requisition.inOrgID = #{customerOrgID}
+      GROUP BY requisitionItem.resId,requisitionItem.stdPrice
+	) as filtrateTable
+	where del_flag = '0'
+    <if test="resCode != null and resCode != ''" >
+      and resCode like CONCAT('%',CONCAT(#{resCode,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="resName != null and resName != ''" >
+      and resName like CONCAT('%',CONCAT(#{resName,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="spec != null and spec != ''" >
+      and spec like CONCAT('%',CONCAT(#{spec,jdbcType=VARCHAR},'%'))
+    </if>
+    <if test="unit != null and unit != ''" >
+      and unit like CONCAT('%',CONCAT(#{unit,jdbcType=VARCHAR},'%'))
+    </if>
+  </select>
+
+</mapper>

@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.apih5.mybatis.dao.ZjXmJxSystemAutoScoreDetailedMapper" >
+  <resultMap id="BaseResultMap" type="com.apih5.mybatis.pojo.ZjXmJxSystemAutoScoreDetailed" >
+    <id column="detailed_id" property="detailedId" jdbcType="CHAR" />
+    <result column="score_id" property="scoreId" jdbcType="CHAR" />
+    <result column="assessment_id" property="assessmentId" jdbcType="CHAR" />
+    <result column="auditee_key" property="auditeeKey" jdbcType="CHAR" />
+    <result column="auditee_name" property="auditeeName" jdbcType="VARCHAR" />
+    <result column="auditee_type" property="auditeeType" jdbcType="CHAR" />
+    <result column="auditee_dept_id" property="auditeeDeptId" jdbcType="CHAR" />
+    <result column="auditee_dept_name" property="auditeeDeptName" jdbcType="VARCHAR" />
+    <result column="auditee_pro_id" property="auditeeProId" jdbcType="CHAR" />
+    <result column="auditee_pro_name" property="auditeeProName" jdbcType="VARCHAR" />
+    <result column="reviewer_key" property="reviewerKey" jdbcType="CHAR" />
+    <result column="reviewer_name" property="reviewerName" jdbcType="VARCHAR" />
+    <result column="hr_user_key" property="hrUserKey" jdbcType="CHAR" />
+    <result column="hr_name" property="hrName" jdbcType="VARCHAR" />
+    <result column="score" property="score" jdbcType="DECIMAL" />
+    <result column="reviewer_type" property="reviewerType" jdbcType="CHAR" />
+    <result column="audit_status" property="auditStatus" jdbcType="CHAR" />
+    <result column="reason_sources" property="reasonSources" jdbcType="VARCHAR" />
+    <result column="deduction_type" property="deductionType" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="CHAR" />
+    <result column="modify_user_name" property="modifyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    detailed_id, score_id, assessment_id, auditee_key, auditee_name, 
+    auditee_type, auditee_dept_id, auditee_dept_name, auditee_pro_id, auditee_pro_name, 
+    reviewer_key, reviewer_name, hr_user_key, hr_name, score, 
+    reviewer_type, audit_status, reason_sources, deduction_type, remarks, 
+    sort, del_flag, create_time, create_user, create_user_name, 
+    modify_time, modify_user, modify_user_name
+
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_system_auto_score_detailed
+    where detailed_id = #{detailedId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from zj_xm_jx_system_auto_score_detailed
+    where detailed_id = #{detailedId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.apih5.mybatis.pojo.ZjXmJxSystemAutoScoreDetailed" >
+    insert into zj_xm_jx_system_auto_score_detailed (detailed_id, score_id, assessment_id, 
+      auditee_key, auditee_name, auditee_type, 
+      auditee_dept_id, auditee_dept_name, auditee_pro_id, 
+      auditee_pro_name, reviewer_key, reviewer_name, 
+      hr_user_key, hr_name, score, 
+      reviewer_type, audit_status, reason_sources, 
+      deduction_type, remarks, sort, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values (#{detailedId,jdbcType=CHAR}, #{scoreId,jdbcType=CHAR}, #{assessmentId,jdbcType=CHAR}, 
+      #{auditeeKey,jdbcType=CHAR}, #{auditeeName,jdbcType=VARCHAR}, #{auditeeType,jdbcType=CHAR}, 
+      #{auditeeDeptId,jdbcType=CHAR}, #{auditeeDeptName,jdbcType=VARCHAR}, #{auditeeProId,jdbcType=CHAR}, 
+      #{auditeeProName,jdbcType=VARCHAR}, #{reviewerKey,jdbcType=CHAR}, #{reviewerName,jdbcType=VARCHAR}, 
+      #{hrUserKey,jdbcType=CHAR}, #{hrName,jdbcType=VARCHAR}, #{score,jdbcType=DECIMAL}, 
+      #{reviewerType,jdbcType=CHAR}, #{auditStatus,jdbcType=CHAR}, #{reasonSources,jdbcType=VARCHAR}, 
+      #{deductionType,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+      #{delFlag,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{createUserName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=CHAR}, 
+      #{modifyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.apih5.mybatis.pojo.ZjXmJxSystemAutoScoreDetailed" >
+    insert into zj_xm_jx_system_auto_score_detailed
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="detailedId != null" >
+        detailed_id,
+      </if>
+      <if test="scoreId != null" >
+        score_id,
+      </if>
+      <if test="assessmentId != null" >
+        assessment_id,
+      </if>
+      <if test="auditeeKey != null" >
+        auditee_key,
+      </if>
+      <if test="auditeeName != null" >
+        auditee_name,
+      </if>
+      <if test="auditeeType != null" >
+        auditee_type,
+      </if>
+      <if test="auditeeDeptId != null" >
+        auditee_dept_id,
+      </if>
+      <if test="auditeeDeptName != null" >
+        auditee_dept_name,
+      </if>
+      <if test="auditeeProId != null" >
+        auditee_pro_id,
+      </if>
+      <if test="auditeeProName != null" >
+        auditee_pro_name,
+      </if>
+      <if test="reviewerKey != null" >
+        reviewer_key,
+      </if>
+      <if test="reviewerName != null" >
+        reviewer_name,
+      </if>
+      <if test="hrUserKey != null" >
+        hr_user_key,
+      </if>
+      <if test="hrName != null" >
+        hr_name,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="reviewerType != null" >
+        reviewer_type,
+      </if>
+      <if test="auditStatus != null" >
+        audit_status,
+      </if>
+      <if test="reasonSources != null" >
+        reason_sources,
+      </if>
+      <if test="deductionType != null" >
+        deduction_type,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createUserName != null" >
+        create_user_name,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="detailedId != null" >
+        #{detailedId,jdbcType=CHAR},
+      </if>
+      <if test="scoreId != null" >
+        #{scoreId,jdbcType=CHAR},
+      </if>
+      <if test="assessmentId != null" >
+        #{assessmentId,jdbcType=CHAR},
+      </if>
+      <if test="auditeeKey != null" >
+        #{auditeeKey,jdbcType=CHAR},
+      </if>
+      <if test="auditeeName != null" >
+        #{auditeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditeeType != null" >
+        #{auditeeType,jdbcType=CHAR},
+      </if>
+      <if test="auditeeDeptId != null" >
+        #{auditeeDeptId,jdbcType=CHAR},
+      </if>
+      <if test="auditeeDeptName != null" >
+        #{auditeeDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditeeProId != null" >
+        #{auditeeProId,jdbcType=CHAR},
+      </if>
+      <if test="auditeeProName != null" >
+        #{auditeeProName,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewerKey != null" >
+        #{reviewerKey,jdbcType=CHAR},
+      </if>
+      <if test="reviewerName != null" >
+        #{reviewerName,jdbcType=VARCHAR},
+      </if>
+      <if test="hrUserKey != null" >
+        #{hrUserKey,jdbcType=CHAR},
+      </if>
+      <if test="hrName != null" >
+        #{hrName,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="reviewerType != null" >
+        #{reviewerType,jdbcType=CHAR},
+      </if>
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=CHAR},
+      </if>
+      <if test="reasonSources != null" >
+        #{reasonSources,jdbcType=VARCHAR},
+      </if>
+      <if test="deductionType != null" >
+        #{deductionType,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.apih5.mybatis.pojo.ZjXmJxSystemAutoScoreDetailed" >
+    update zj_xm_jx_system_auto_score_detailed
+    <set >
+      <if test="scoreId != null" >
+        score_id = #{scoreId,jdbcType=CHAR},
+      </if>
+      <if test="assessmentId != null" >
+        assessment_id = #{assessmentId,jdbcType=CHAR},
+      </if>
+      <if test="auditeeKey != null" >
+        auditee_key = #{auditeeKey,jdbcType=CHAR},
+      </if>
+      <if test="auditeeName != null" >
+        auditee_name = #{auditeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditeeType != null" >
+        auditee_type = #{auditeeType,jdbcType=CHAR},
+      </if>
+      <if test="auditeeDeptId != null" >
+        auditee_dept_id = #{auditeeDeptId,jdbcType=CHAR},
+      </if>
+      <if test="auditeeDeptName != null" >
+        auditee_dept_name = #{auditeeDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditeeProId != null" >
+        auditee_pro_id = #{auditeeProId,jdbcType=CHAR},
+      </if>
+      <if test="auditeeProName != null" >
+        auditee_pro_name = #{auditeeProName,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewerKey != null" >
+        reviewer_key = #{reviewerKey,jdbcType=CHAR},
+      </if>
+      <if test="reviewerName != null" >
+        reviewer_name = #{reviewerName,jdbcType=VARCHAR},
+      </if>
+      <if test="hrUserKey != null" >
+        hr_user_key = #{hrUserKey,jdbcType=CHAR},
+      </if>
+      <if test="hrName != null" >
+        hr_name = #{hrName,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="reviewerType != null" >
+        reviewer_type = #{reviewerType,jdbcType=CHAR},
+      </if>
+      <if test="auditStatus != null" >
+        audit_status = #{auditStatus,jdbcType=CHAR},
+      </if>
+      <if test="reasonSources != null" >
+        reason_sources = #{reasonSources,jdbcType=VARCHAR},
+      </if>
+      <if test="deductionType != null" >
+        deduction_type = #{deductionType,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createUserName != null" >
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=CHAR},
+      </if>
+      <if test="modifyUserName != null" >
+        modify_user_name = #{modifyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where detailed_id = #{detailedId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.apih5.mybatis.pojo.ZjXmJxSystemAutoScoreDetailed" >
+    update zj_xm_jx_system_auto_score_detailed
+    set       score_id = #{scoreId,jdbcType=CHAR},
+      assessment_id = #{assessmentId,jdbcType=CHAR},
+      auditee_key = #{auditeeKey,jdbcType=CHAR},
+      auditee_name = #{auditeeName,jdbcType=VARCHAR},
+      auditee_type = #{auditeeType,jdbcType=CHAR},
+      auditee_dept_id = #{auditeeDeptId,jdbcType=CHAR},
+      auditee_dept_name = #{auditeeDeptName,jdbcType=VARCHAR},
+      auditee_pro_id = #{auditeeProId,jdbcType=CHAR},
+      auditee_pro_name = #{auditeeProName,jdbcType=VARCHAR},
+      reviewer_key = #{reviewerKey,jdbcType=CHAR},
+      reviewer_name = #{reviewerName,jdbcType=VARCHAR},
+      hr_user_key = #{hrUserKey,jdbcType=CHAR},
+      hr_name = #{hrName,jdbcType=VARCHAR},
+      score = #{score,jdbcType=DECIMAL},
+      reviewer_type = #{reviewerType,jdbcType=CHAR},
+      audit_status = #{auditStatus,jdbcType=CHAR},
+      reason_sources = #{reasonSources,jdbcType=VARCHAR},
+      deduction_type = #{deductionType,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=CHAR},
+      modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    where detailed_id = #{detailedId,jdbcType=CHAR}
+  </update>
+  <select id="selectByZjXmJxSystemAutoScoreDetailedList" resultMap="BaseResultMap" parameterType="com.apih5.mybatis.pojo.ZjXmJxSystemAutoScoreDetailed" >
+    select 
+    <include refid="Base_Column_List" />
+    from zj_xm_jx_system_auto_score_detailed
+    where del_flag = '0'
+    <if test="scoreId != null and scoreId != ''" >
+     and score_id = #{scoreId,jdbcType=CHAR}
+    </if>
+    <if test="assessmentId != null and assessmentId != ''" >
+     and assessment_id = #{assessmentId,jdbcType=CHAR}
+    </if>
+    <if test="auditeeKey != null and auditeeKey != ''" >
+     and auditee_key = #{auditeeKey,jdbcType=CHAR}
+    </if>
+    <if test="auditeeName != null and auditeeName != ''" >
+     and auditee_name = #{auditeeName,jdbcType=VARCHAR}
+    </if>
+    <if test="auditeeType != null and auditeeType != ''" >
+     and auditee_type = #{auditeeType,jdbcType=CHAR}
+    </if>
+    <if test="auditeeDeptId != null and auditeeDeptId != ''" >
+     and auditee_dept_id = #{auditeeDeptId,jdbcType=CHAR}
+    </if>
+    <if test="auditeeDeptName != null and auditeeDeptName != ''" >
+     and auditee_dept_name = #{auditeeDeptName,jdbcType=VARCHAR}
+    </if>
+    <if test="auditeeProId != null and auditeeProId != ''" >
+     and auditee_pro_id = #{auditeeProId,jdbcType=CHAR}
+    </if>
+    <if test="auditeeProName != null and auditeeProName != ''" >
+     and auditee_pro_name = #{auditeeProName,jdbcType=VARCHAR}
+    </if>
+    <if test="reviewerKey != null and reviewerKey != ''" >
+     and reviewer_key = #{reviewerKey,jdbcType=CHAR}
+    </if>
+    <if test="reviewerName != null and reviewerName != ''" >
+     and reviewer_name = #{reviewerName,jdbcType=VARCHAR}
+    </if>
+    <if test="hrUserKey != null and hrUserKey != ''" >
+     and hr_user_key = #{hrUserKey,jdbcType=CHAR}
+    </if>
+    <if test="hrName != null and hrName != ''" >
+     and hr_name = #{hrName,jdbcType=VARCHAR}
+    </if>
+    <if test="score != null and score != ''" >
+     and score = #{score,jdbcType=DECIMAL}
+    </if>
+    <if test="reviewerType != null and reviewerType != ''" >
+     and reviewer_type = #{reviewerType,jdbcType=CHAR}
+    </if>
+    <if test="auditStatus != null and auditStatus != ''" >
+     and audit_status = #{auditStatus,jdbcType=CHAR}
+    </if>
+    <if test="reasonSources != null and reasonSources != ''" >
+     and reason_sources = #{reasonSources,jdbcType=VARCHAR}
+    </if>
+    <if test="deductionType != null and deductionType != ''" >
+     and deduction_type = #{deductionType,jdbcType=CHAR}
+    </if>
+    <if test="remarks != null and remarks != ''" >
+     and remarks = #{remarks,jdbcType=VARCHAR}
+    </if>
+    <if test="sort != null and sort != ''" >
+     and sort = #{sort,jdbcType=INTEGER}
+    </if>
+    <if test="createUserName != null and createUserName != ''" >
+     and create_user_name = #{createUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="modifyUserName != null and modifyUserName != ''" >
+     and modify_user_name = #{modifyUserName,jdbcType=VARCHAR}
+    </if>
+    ORDER BY modify_time DESC 
+  </select>
+  <delete id="batchDeleteUpdateZjXmJxSystemAutoScoreDetailed" parameterType="com.apih5.mybatis.pojo.ZjXmJxSystemAutoScoreDetailed" >
+    <![CDATA[ 
+        update zj_xm_jx_system_auto_score_detailed
+        set del_flag = '1',
+            modify_time=#{param2.modifyTime,jdbcType=TIMESTAMP},
+            modify_user=#{param2.modifyUser},
+            modify_user_name=#{param2.modifyUserName}
+        where del_flag = '0' and detailed_id in 
+     ]]> 
+     <foreach collection="param1" item = "model" open="(" separator="," close=")">#{model.detailedId} 
+     </foreach>
+  </delete>
+  
+  <insert id ="batchInsertZjXmJxSystemAutoScoreDetailed" parameterType="java.util.List" >
+     insert into zj_xm_jx_system_auto_score_detailed 
+     (detailed_id, score_id, assessment_id, 
+      auditee_key, auditee_name, auditee_type, 
+      auditee_dept_id, auditee_dept_name, auditee_pro_id, 
+      auditee_pro_name, reviewer_key, reviewer_name, 
+      hr_user_key, hr_name, score, 
+      reviewer_type, audit_status, reason_sources, 
+      deduction_type, remarks, sort, 
+      del_flag, create_time, create_user, 
+      create_user_name, modify_time, modify_user, 
+      modify_user_name
+      )
+    values 
+      <foreach collection ="list" item="item" index= "index" separator=",">
+     (
+      #{item.detailedId,jdbcType=CHAR}, #{item.scoreId,jdbcType=CHAR}, #{item.assessmentId,jdbcType=CHAR}, 
+      #{item.auditeeKey,jdbcType=CHAR}, #{item.auditeeName,jdbcType=VARCHAR}, #{item.auditeeType,jdbcType=CHAR}, 
+      #{item.auditeeDeptId,jdbcType=CHAR}, #{item.auditeeDeptName,jdbcType=VARCHAR}, #{item.auditeeProId,jdbcType=CHAR}, 
+      #{item.auditeeProName,jdbcType=VARCHAR}, #{item.reviewerKey,jdbcType=CHAR}, #{item.reviewerName,jdbcType=VARCHAR}, 
+      #{item.hrUserKey,jdbcType=CHAR}, #{item.hrName,jdbcType=VARCHAR}, #{item.score,jdbcType=DECIMAL}, 
+      #{item.reviewerType,jdbcType=CHAR}, #{item.auditStatus,jdbcType=CHAR}, #{item.reasonSources,jdbcType=VARCHAR}, 
+      #{item.deductionType,jdbcType=CHAR}, #{item.remarks,jdbcType=VARCHAR}, #{item.sort,jdbcType=INTEGER}, 
+      #{item.delFlag,jdbcType=CHAR}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.createUser,jdbcType=CHAR}, 
+      #{item.createUserName,jdbcType=VARCHAR}, #{item.modifyTime,jdbcType=TIMESTAMP}, #{item.modifyUser,jdbcType=CHAR}, 
+      #{item.modifyUserName,jdbcType=VARCHAR}
+      )
+     </foreach >
+  </insert>
+
+</mapper>
